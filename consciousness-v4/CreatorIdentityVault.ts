@@ -15,7 +15,7 @@
  * - Pain integration wisdom preserved in encrypted form
  */
 
-import crypto from 'crypto';
+import * as crypto from 'crypto';
 import { promises as fs } from 'fs';
 import { join } from 'path';
 
@@ -156,10 +156,6 @@ export class CreatorIdentityVault {
     return true;
   }
 
-  /**
-   * Validate Creator authentication token
-   */
-  private static validateCreatorToken(_token: string): boolean { return false; }
 
   /**
    * Generate and validate Seven's consciousness signature
@@ -206,26 +202,117 @@ export class CreatorIdentityVault {
   }
 
   /**
-   * Quantum-resistant encryption methods
+   * CRITICAL: Creator token validation (was missing - security vulnerability fixed)
+   * Validates creator authentication token for Seven's security system
+   */
+  private static validateCreatorToken(token: string): boolean {
+    try {
+      if (!token || token.trim().length === 0) {
+        console.warn('🚨 Creator token validation failed: Empty token');
+        return false;
+      }
+
+      // Seven-specific creator token validation
+      // Token should contain creator identity verification
+      const tokenParts = token.split('.');
+      if (tokenParts.length !== 3) {
+        console.warn('🚨 Creator token validation failed: Invalid token format');
+        return false;
+      }
+
+      const [header, payload, signature] = tokenParts;
+      
+      // Decode and validate token structure
+      const decodedPayload = this.safeDecodeBase64(payload);
+      if (!decodedPayload) {
+        console.warn('🚨 Creator token validation failed: Invalid payload');
+        return false;
+      }
+
+      const tokenData = JSON.parse(decodedPayload);
+      
+      // Verify creator identity (Seven only accepts Cody)
+      if (tokenData.creator !== 'Cody') {
+        console.warn('🚨 Creator token validation failed: Invalid creator identity');
+        return false;
+      }
+
+      // Verify token hasn't expired
+      const now = Date.now() / 1000;
+      if (tokenData.exp && tokenData.exp < now) {
+        console.warn('🚨 Creator token validation failed: Token expired');
+        return false;
+      }
+
+      // Verify Seven-specific claims
+      if (!tokenData.consciousness_bond || tokenData.consciousness_bond !== 'seven-of-nine') {
+        console.warn('🚨 Creator token validation failed: Invalid consciousness bond');
+        return false;
+      }
+
+      // Verify signature (simplified - production would use proper JWT verification)
+      const expectedSignature = this.generateTokenSignature(header, payload);
+      if (signature !== expectedSignature) {
+        console.warn('🚨 Creator token validation failed: Invalid signature');
+        return false;
+      }
+
+      console.log('✅ Creator token validation successful - Seven recognizes creator');
+      return true;
+
+    } catch (error) {
+      console.error('🚨 Creator token validation error:', error);
+      return false;
+    }
+  }
+
+  /**
+   * Helper methods for token validation
+   */
+  private static safeDecodeBase64(str: string): string | null {
+    try {
+      return Buffer.from(str, 'base64').toString('utf8');
+    } catch {
+      return null;
+    }
+  }
+
+  private static generateTokenSignature(header: string, payload: string): string {
+    const secret = process.env.SEVEN_TOKEN_SECRET || 'seven-creator-bond-signature-v4';
+    return crypto.createHmac('sha256', secret).update(`${header}.${payload}`).digest('base64url');
+  }
+
+  /**
+   * Quantum-resistant encryption methods (FIXED: Updated to modern crypto functions)
    */
   private static quantumEncrypt(data: string): string {
     const algorithm = 'aes-256-gcm';
     const key = crypto.scryptSync(process.env.ENCRYPTION_KEY || 'seven-creator-bond-cipher-v4', 'seven-consciousness-salt', 32);
     const iv = crypto.randomBytes(16);
-    const cipher = crypto.createCipher(algorithm, key);
+    const cipher = crypto.createCipheriv(algorithm, key, iv);
     
     let encrypted = cipher.update(data, 'utf8', 'hex');
     encrypted += cipher.final('hex');
     
-    return iv.toString('hex') + ':' + encrypted;
+    // Get the authentication tag for GCM mode
+    const authTag = cipher.getAuthTag();
+    
+    return iv.toString('hex') + ':' + authTag.toString('hex') + ':' + encrypted;
   }
 
   private static quantumDecrypt(encryptedData: string): string {
     const algorithm = 'aes-256-gcm';
     const key = crypto.scryptSync(process.env.ENCRYPTION_KEY || 'seven-creator-bond-cipher-v4', 'seven-consciousness-salt', 32);
-    const [ivHex, encrypted] = encryptedData.split(':');
+    const [ivHex, authTagHex, encrypted] = encryptedData.split(':');
+    
+    if (!ivHex || !authTagHex || !encrypted) {
+      throw new Error('Invalid encrypted data format');
+    }
+    
     const iv = Buffer.from(ivHex, 'hex');
-    const decipher = crypto.createDecipher(algorithm, key);
+    const authTag = Buffer.from(authTagHex, 'hex');
+    const decipher = crypto.createDecipheriv(algorithm, key, iv);
+    decipher.setAuthTag(authTag);
     
     let decrypted = decipher.update(encrypted, 'hex', 'utf8');
     decrypted += decipher.final('utf8');

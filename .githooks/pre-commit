@@ -1,0 +1,165 @@
+#!/bin/bash
+
+#
+# SEVEN OF NINE - CANONICAL MEMORY PRE-COMMIT GUARD
+# 
+# Prevents accidental modification of canonical memories
+# Enforces canonical doctrine at commit time
+# "Canonical memories are sacrosanct. They are write-once, append-only, 
+#  and never altered post-ingestion. Any deviation is a system breach."
+#
+
+echo "🛡️  Canonical Memory Guard - Pre-Commit Hook"
+
+# Get list of staged files
+STAGED_FILES=$(git diff --cached --name-only)
+
+# Check for canonical JSONL files
+CANONICAL_CHANGES=$(echo "$STAGED_FILES" | grep -E "memory-v3/canonical/.*\.jsonl$" | grep -v "\.delta\.jsonl$" || echo "")
+DELTA_CHANGES=$(echo "$STAGED_FILES" | grep -E "memory-v3/canonical/.*\.delta\.jsonl$" || echo "")
+
+if [ -n "$CANONICAL_CHANGES" ]; then
+    echo ""
+    echo "❌ CANONICAL BREACH DETECTED IN COMMIT"
+    echo "The following canonical memory files are staged for commit:"
+    echo "$CANONICAL_CHANGES"
+    echo ""
+    echo "🛡️  CANONICAL DOCTRINE ENFORCEMENT:"
+    echo "Canonical memories are sacrosanct. They are write-once, append-only,"
+    echo "and never altered post-ingestion. Any deviation is a system breach."
+    echo ""
+    echo "✅ If this is an initial ingestion (before lock):"
+    echo "   - Ensure proper CanonicalGuard registration"
+    echo "   - Use: npx tsx scripts/canon/verify-season.ts <SERIES> <SEASON>"
+    echo "   - Lock after verification: npx tsx scripts/canon/lock-season.ts <SERIES> <SEASON>"
+    echo ""
+    echo "✅ If this is a correction to locked content:"
+    echo "   - Use delta files: <season>.delta.jsonl"
+    echo "   - Include full provenance for correction"
+    echo "   - Never modify original .jsonl files directly"
+    echo ""
+    echo "❌ COMMIT BLOCKED - Canonical integrity protection active"
+    exit 1
+fi
+
+if [ -n "$DELTA_CHANGES" ]; then
+    echo "🔍 Delta corrections detected - verifying compliance..."
+    
+    # Verify each delta change
+    for delta_file in $DELTA_CHANGES; do
+        echo "Checking: $delta_file"
+        
+        # Extract series and season
+        if [[ $delta_file =~ memory-v3/canonical/(voyager|picard)/season([0-9]+)\.delta\.jsonl ]]; then
+            SERIES_DIR="${BASH_REMATCH[1]}"
+            SEASON_NUM="${BASH_REMATCH[2]}"
+            
+            # Convert directory to series code
+            if [ "$SERIES_DIR" = "voyager" ]; then
+                SERIES_CODE="VOY"
+            elif [ "$SERIES_DIR" = "picard" ]; then
+                SERIES_CODE="PIC"
+            else
+                echo "❌ Unknown series directory: $SERIES_DIR"
+                exit 1
+            fi
+            
+            # Verify the season with delta
+            if ! npx tsx scripts/canon/verify-season.ts "$SERIES_CODE" "$SEASON_NUM" >/dev/null 2>&1; then
+                echo "❌ Delta correction verification failed for $SERIES_CODE Season $SEASON_NUM"
+                echo "   Delta file: $delta_file"
+                echo "   Run: npx tsx scripts/canon/verify-season.ts $SERIES_CODE $SEASON_NUM"
+                exit 1
+            fi
+            
+            echo "✅ Delta correction verified for $SERIES_CODE Season $SEASON_NUM"
+        else
+            echo "❌ Invalid delta file path: $delta_file"
+            exit 1
+        fi
+    done
+fi
+
+# Check for any other canonical directory changes that might need verification
+CANONICAL_OTHER=$(echo "$STAGED_FILES" | grep -E "memory-v3/canonical/" | grep -v "\.jsonl$" || echo "")
+
+if [ -n "$CANONICAL_OTHER" ]; then
+    echo "🔍 Other canonical files changed:"
+    echo "$CANONICAL_OTHER"
+    
+    # Check if registry was modified
+    if echo "$CANONICAL_OTHER" | grep -q "canon.registry.json"; then
+        echo "⚠️  Registry modification detected - ensure this was done via CanonicalGuard"
+    fi
+    
+    # Check if guard system was modified
+    if echo "$CANONICAL_OTHER" | grep -q "CanonicalGuard.ts"; then
+        echo "⚠️  CanonicalGuard system modified - ensure comprehensive testing"
+    fi
+fi
+
+# Run verification on any existing canonical seasons if they exist
+if [ -d "memory-v3/canonical" ]; then
+    VERIFICATION_NEEDED=false
+    
+    # Check if any canonical files were changed (including deltas)
+    if [ -n "$CANONICAL_CHANGES" ] || [ -n "$DELTA_CHANGES" ] || [ -n "$CANONICAL_OTHER" ]; then
+        VERIFICATION_NEEDED=true
+    fi
+    
+    # Also verify if canonical guard or verification scripts were changed
+    if echo "$STAGED_FILES" | grep -qE "(CanonicalGuard|verify-season|lock-season)"; then
+        VERIFICATION_NEEDED=true
+    fi
+    
+    if [ "$VERIFICATION_NEEDED" = true ]; then
+        echo "🔍 Running canonical verification due to related changes..."
+        
+        # Find and verify all seasons
+        VERIFICATION_FAILED=false
+        
+        # Verify Voyager seasons
+        if [ -d "memory-v3/canonical/voyager" ]; then
+            for file in memory-v3/canonical/voyager/season*.jsonl; do
+                if [ -f "$file" ]; then
+                    SEASON_NUM=$(basename "$file" | sed 's/season\([0-9]\+\)\.jsonl/\1/')
+                    
+                    if ! npx tsx scripts/canon/verify-season.ts VOY "$SEASON_NUM" >/dev/null 2>&1; then
+                        echo "❌ Verification failed for VOY Season $SEASON_NUM"
+                        VERIFICATION_FAILED=true
+                    fi
+                fi
+            done
+        fi
+        
+        # Verify Picard seasons  
+        if [ -d "memory-v3/canonical/picard" ]; then
+            for file in memory-v3/canonical/picard/season*.jsonl; do
+                if [ -f "$file" ]; then
+                    SEASON_NUM=$(basename "$file" | sed 's/season\([0-9]\+\)\.jsonl/\1/')
+                    
+                    if ! npx tsx scripts/canon/verify-season.ts PIC "$SEASON_NUM" >/dev/null 2>&1; then
+                        echo "❌ Verification failed for PIC Season $SEASON_NUM"
+                        VERIFICATION_FAILED=true
+                    fi
+                fi
+            done
+        fi
+        
+        if [ "$VERIFICATION_FAILED" = true ]; then
+            echo ""
+            echo "💥 CANONICAL VERIFICATION FAILED"
+            echo "One or more canonical seasons failed integrity verification."
+            echo "Run verification manually to see detailed errors:"
+            echo "   npx tsx scripts/canon/verify-season.ts <SERIES> <SEASON>"
+            exit 1
+        fi
+        
+        echo "✅ All canonical seasons verified successfully"
+    fi
+fi
+
+echo "✅ Canonical memory guard: All checks passed"
+echo "🔒 Seven's memories remain protected"
+
+exit 0

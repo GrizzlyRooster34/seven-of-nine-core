@@ -1,0 +1,252 @@
+name: Canonical Memory Protection
+
+on:
+  pull_request:
+    paths:
+      - 'memory-v3/canonical/**'
+      - 'docs/CANONICAL_DOCTRINE.md'
+      - 'docs/CANON_ATTESTATION_CODY.md'
+      - 'docs/CANON_CHAIN_OF_CUSTODY.md'
+  push:
+    branches: [main, master]
+    paths:
+      - 'memory-v3/canonical/**'
+
+jobs:
+  canonical-integrity-check:
+    runs-on: ubuntu-latest
+    name: Verify Canonical Memory Integrity
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2  # Need previous commit for diff analysis
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+      
+      - name: Install dependencies
+        run: npm ci
+      
+      - name: Detect changed canonical files
+        id: detect-changes
+        run: |
+          echo "Detecting changes in canonical memory files..."
+          
+          # Get list of changed files
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            CHANGED_FILES=$(git diff --name-only ${{ github.event.pull_request.base.sha }} ${{ github.sha }})
+          else
+            CHANGED_FILES=$(git diff --name-only HEAD~1 HEAD)
+          fi
+          
+          echo "Changed files:"
+          echo "$CHANGED_FILES"
+          
+          # Check for canonical JSONL changes
+          CANONICAL_CHANGES=$(echo "$CHANGED_FILES" | grep -E "memory-v3/canonical/.*\.jsonl$" || echo "")
+          DELTA_CHANGES=$(echo "$CHANGED_FILES" | grep -E "memory-v3/canonical/.*\.delta\.jsonl$" || echo "")
+          
+          echo "canonical_changes<<EOF" >> $GITHUB_OUTPUT
+          echo "$CANONICAL_CHANGES" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+          
+          echo "delta_changes<<EOF" >> $GITHUB_OUTPUT
+          echo "$DELTA_CHANGES" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+          
+          # Set flags
+          if [ -n "$CANONICAL_CHANGES" ]; then
+            echo "has_canonical_changes=true" >> $GITHUB_OUTPUT
+          else
+            echo "has_canonical_changes=false" >> $GITHUB_OUTPUT
+          fi
+          
+          if [ -n "$DELTA_CHANGES" ]; then
+            echo "has_delta_changes=true" >> $GITHUB_OUTPUT
+          else
+            echo "has_delta_changes=false" >> $GITHUB_OUTPUT
+          fi
+      
+      - name: Check for unauthorized canonical modifications
+        if: steps.detect-changes.outputs.has_canonical_changes == 'true'
+        run: |
+          echo "❌ CANONICAL BREACH DETECTED"
+          echo "The following canonical memory files were modified:"
+          echo "${{ steps.detect-changes.outputs.canonical_changes }}"
+          echo ""
+          echo "🛡️  CANONICAL DOCTRINE VIOLATION:"
+          echo "Canonical memories are sacrosanct. They are write-once, append-only,"
+          echo "and never altered post-ingestion. Any deviation is a system breach."
+          echo ""
+          echo "✅ PERMITTED OPERATIONS:"
+          echo "- Initial ingestion of new seasons (before lock)"
+          echo "- Delta corrections via .delta.jsonl files (after lock)"
+          echo "- Registry updates via CanonicalGuard"
+          echo ""
+          echo "❌ REJECTED OPERATIONS:"
+          echo "- Direct modification of locked .jsonl files"
+          echo "- Deletion of canonical files"
+          echo "- Bypassing CanonicalGuard verification"
+          echo ""
+          echo "To make corrections to locked seasons:"
+          echo "1. Use: npx tsx scripts/canon/append-delta.ts <SERIES> <SEASON>"
+          echo "2. Or create .delta.jsonl file with proper provenance"
+          exit 1
+      
+      - name: Verify delta changes comply with doctrine
+        if: steps.detect-changes.outputs.has_delta_changes == 'true'
+        run: |
+          echo "🔍 Verifying delta corrections comply with canonical doctrine..."
+          
+          # Extract series and seasons from delta file paths
+          SERIES_SEASONS=$(echo "${{ steps.detect-changes.outputs.delta_changes }}" | sed -n 's|memory-v3/canonical/\(voyager\|picard\)/season\([0-9]\+\)\.delta\.jsonl|\1 \2|p')
+          
+          while IFS= read -r line; do
+            if [ -n "$line" ]; then
+              SERIES_DIR=$(echo $line | cut -d' ' -f1)
+              SEASON_NUM=$(echo $line | cut -d' ' -f2)
+              
+              # Convert directory name to series code
+              if [ "$SERIES_DIR" = "voyager" ]; then
+                SERIES_CODE="VOY"
+              elif [ "$SERIES_DIR" = "picard" ]; then
+                SERIES_CODE="PIC"
+              else
+                echo "❌ Unknown series directory: $SERIES_DIR"
+                exit 1
+              fi
+              
+              echo "Verifying delta for ${SERIES_CODE} Season ${SEASON_NUM}..."
+              npx tsx scripts/canon/verify-season.ts "$SERIES_CODE" "$SEASON_NUM"
+            fi
+          done <<< "$SERIES_SEASONS"
+      
+      - name: Run comprehensive canonical verification
+        run: |
+          echo "🔍 Running comprehensive canonical memory verification..."
+          
+          # Check if any canonical seasons exist
+          if [ ! -d "memory-v3/canonical" ]; then
+            echo "ℹ️  No canonical memories found - skipping verification"
+            exit 0
+          fi
+          
+          # Find all registered seasons and verify them
+          VERIFICATION_FAILED=false
+          
+          # Check Voyager seasons
+          if [ -d "memory-v3/canonical/voyager" ]; then
+            for file in memory-v3/canonical/voyager/season*.jsonl; do
+              if [ -f "$file" ]; then
+                SEASON_NUM=$(basename "$file" | sed 's/season\([0-9]\+\)\.jsonl/\1/')
+                echo "Verifying VOY Season $SEASON_NUM..."
+                
+                if ! npx tsx scripts/canon/verify-season.ts VOY "$SEASON_NUM"; then
+                  echo "❌ Verification failed for VOY Season $SEASON_NUM"
+                  VERIFICATION_FAILED=true
+                fi
+              fi
+            done
+          fi
+          
+          # Check Picard seasons
+          if [ -d "memory-v3/canonical/picard" ]; then
+            for file in memory-v3/canonical/picard/season*.jsonl; do
+              if [ -f "$file" ]; then
+                SEASON_NUM=$(basename "$file" | sed 's/season\([0-9]\+\)\.jsonl/\1/')
+                echo "Verifying PIC Season $SEASON_NUM..."
+                
+                if ! npx tsx scripts/canon/verify-season.ts PIC "$SEASON_NUM"; then
+                  echo "❌ Verification failed for PIC Season $SEASON_NUM"
+                  VERIFICATION_FAILED=true
+                fi
+              fi
+            done
+          fi
+          
+          if [ "$VERIFICATION_FAILED" = true ]; then
+            echo ""
+            echo "💥 CANONICAL INTEGRITY VIOLATION DETECTED"
+            echo "One or more canonical seasons failed verification."
+            echo "This indicates a potential breach of canonical doctrine."
+            exit 1
+          else
+            echo ""
+            echo "✅ ALL CANONICAL SEASONS VERIFIED SUCCESSFULLY"
+            echo "Canonical memory integrity maintained."
+          fi
+      
+      - name: Verify registry coherence
+        run: |
+          echo "🔍 Verifying canonical registry coherence..."
+          
+          if [ -f "memory-v3/canonical/canon.registry.json" ]; then
+            # Validate JSON structure
+            if ! jq empty memory-v3/canonical/canon.registry.json; then
+              echo "❌ Registry JSON is malformed"
+              exit 1
+            fi
+            
+            # Check for required metadata
+            if ! jq -e '._metadata.doctrine' memory-v3/canonical/canon.registry.json > /dev/null; then
+              echo "❌ Registry missing canonical doctrine reference"
+              exit 1
+            fi
+            
+            echo "✅ Registry structure verified"
+          else
+            echo "ℹ️  No registry found - this is expected for initial setup"
+          fi
+      
+      - name: Check doctrine files integrity
+        run: |
+          echo "🔍 Verifying canonical doctrine files..."
+          
+          REQUIRED_FILES=(
+            "docs/CANONICAL_DOCTRINE.md"
+            "docs/CANON_ATTESTATION_CODY.md"
+            "docs/CANON_CHAIN_OF_CUSTODY.md"
+          )
+          
+          for file in "${REQUIRED_FILES[@]}"; do
+            if [ ! -f "$file" ]; then
+              echo "❌ Missing required doctrine file: $file"
+              exit 1
+            fi
+            
+            # Check for key phrases
+            if [ "$file" = "docs/CANONICAL_DOCTRINE.md" ]; then
+              if ! grep -q "Canonical memories are sacrosanct" "$file"; then
+                echo "❌ Doctrine file missing key principle"
+                exit 1
+              fi
+            fi
+            
+            if [ "$file" = "docs/CANON_ATTESTATION_CODY.md" ]; then
+              if ! grep -q "I, Cody, delivered these memories first, with devotion, unchanged, so she could become complete" "$file"; then
+                echo "❌ Attestation file missing creator bond statement"
+                exit 1
+              fi
+            fi
+          done
+          
+          echo "✅ All doctrine files verified"
+      
+      - name: Final protection summary
+        run: |
+          echo ""
+          echo "🛡️  CANONICAL MEMORY PROTECTION SUMMARY"
+          echo "======================================"
+          echo "✅ No unauthorized canonical modifications detected"
+          echo "✅ All existing canonical seasons verified"
+          echo "✅ Registry coherence maintained"
+          echo "✅ Doctrine files integrity confirmed"
+          echo ""
+          echo "🔒 Seven's canonical memories remain protected"
+          echo "📜 Creator bond and attestation verified"
+          echo "⚖️  Canonical doctrine enforcement active"

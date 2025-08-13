@@ -2,10 +2,13 @@
  * SEVEN OF NINE - MEMORY ENGINE v2.0
  * Enhanced episodic memory system with structured recall
  * Non-invasive parallel implementation preserving existing consciousness
+ * 
+ * SECURITY UPDATE: Memory encryption at rest using AES-256-GCM
  */
 
 import { promises as fs } from 'fs';
 import { join } from 'path';
+import { MemoryEncryptionEngine } from '../memory-v3/MemoryEncryption';
 
 export interface MemoryItem {
   id: string;
@@ -34,10 +37,13 @@ export class MemoryEngine {
   private memoryFile: string;
   private memories: MemoryItem[] = [];
   private isInitialized: boolean = false;
+  private encryptionEngine: MemoryEncryptionEngine;
+  private encryptionEnabled: boolean = true; // Enable encryption by default
 
   constructor(basePath?: string) {
     this.memoryPath = basePath || join(process.cwd(), 'memory-v2');
     this.memoryFile = join(this.memoryPath, 'episodic-memories.json');
+    this.encryptionEngine = new MemoryEncryptionEngine();
   }
 
   /**
@@ -54,10 +60,9 @@ export class MemoryEngine {
       // Ensure memory directory exists
       await fs.mkdir(this.memoryPath, { recursive: true });
       
-      // Load existing memories if file exists
+      // Load existing memories with encryption support
       if (await this.fileExists(this.memoryFile)) {
-        const data = await fs.readFile(this.memoryFile, 'utf8');
-        this.memories = JSON.parse(data);
+        await this.loadMemoriesWithEncryption();
       } else {
         // Initialize with empty memory store
         this.memories = [];
@@ -256,8 +261,65 @@ export class MemoryEngine {
     }
   }
 
+  /**
+   * Save memories with automatic encryption
+   * INTEGRATION POINT: Modified for MemoryEncryptionEngine
+   */
   private async saveMemories(): Promise<void> {
-    await fs.writeFile(this.memoryFile, JSON.stringify(this.memories, null, 2));
+    try {
+      // First write the unencrypted file (for backup/migration purposes)
+      await fs.writeFile(this.memoryFile, JSON.stringify(this.memories, null, 2));
+      
+      // If encryption is enabled, encrypt the memory file
+      if (this.encryptionEnabled) {
+        await this.encryptionEngine.encryptMemoryFile(this.memoryFile);
+        console.log('🔒 Episodic memories encrypted and saved');
+      }
+    } catch (error) {
+      console.error('💥 Failed to save memories with encryption:', error);
+      throw error;
+    }
+  }
+
+  /**
+   * Load memories with automatic decryption fallback
+   * INTEGRATION POINT: Modified for MemoryEncryptionEngine
+   */
+  private async loadMemoriesWithEncryption(): Promise<void> {
+    try {
+      // Check if encrypted version exists
+      const isEncrypted = await this.encryptionEngine.isMemoryFileEncrypted(this.memoryFile);
+      
+      if (isEncrypted && this.encryptionEnabled) {
+        // Load from encrypted file
+        console.log('🔒 Loading encrypted episodic memories...');
+        this.memories = await this.encryptionEngine.decryptMemoryFile(`${this.memoryFile}.encrypted`);
+        console.log('✅ Episodic memories decrypted and loaded');
+      } else {
+        // Backward compatibility: Load unencrypted file
+        console.log('📋 Loading unencrypted episodic memories (backward compatibility)...');
+        const data = await fs.readFile(this.memoryFile, 'utf8');
+        this.memories = JSON.parse(data);
+        
+        // Migrate to encrypted format if encryption is enabled
+        if (this.encryptionEnabled) {
+          console.log('🔄 Migrating memories to encrypted format...');
+          await this.encryptionEngine.migrateToEncrypted(this.memoryFile);
+        }
+      }
+    } catch (error) {
+      console.error('💥 Failed to load memories with encryption:', error);
+      // Fallback to unencrypted loading
+      try {
+        console.log('⚠️  Attempting fallback to unencrypted loading...');
+        const data = await fs.readFile(this.memoryFile, 'utf8');
+        this.memories = JSON.parse(data);
+        console.log('📋 Fallback successful - memories loaded without encryption');
+      } catch (fallbackError) {
+        console.error('💥 Fallback failed:', fallbackError);
+        throw new Error(`Memory loading failed: ${error}. Fallback also failed: ${fallbackError}`);
+      }
+    }
   }
 
   private extractTags(context: string): string[] {

@@ -27,6 +27,8 @@
     "test": "tsx test/emotion-test.ts",
     "test-integrated": "tsx test/integrated-system-test.ts",
     "test-system": "tsx comprehensive-system-test.ts",
+    "test:canon": "tsx tests/canon/canon_guard.test.ts",
+    "test:attestation": "tsx tests/attestation.test.ts",
     "ui-dev": "cd ui-shell && bun run dev",
     "ui-build": "cd ui-shell && bun run build"
   },

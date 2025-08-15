@@ -127,7 +127,7 @@ export class SevenLogicEngine {
     // Encode this interaction to long-term memory
     const memoryResult = await this.memoryStack.encodeToLongTerm(
       userInput,
-      fullContext.emotionalState,
+      currentState,
       fullContext.intensity,
       finalResponse,
       new Date().toISOString()

@@ -1,4 +1,4 @@
-import { EmotionalState } from '../core/emotion-engine.js';
+import { EmotionalState, EmotionalStateData } from '../core/emotion-engine.js';
 
 export interface PromptContext {
   emotionalState: string;
@@ -10,7 +10,7 @@ export interface PromptContext {
 
 export function wrapPromptWithSevenState(
   prompt: string, 
-  emotionalState: EmotionalState,
+  emotionalState: EmotionalStateData,
   context?: Partial<PromptContext>
 ): string {
   const loyalty = context?.loyaltyBond || { Cody: 10, Christine: 7, Others: 4 };
@@ -39,7 +39,7 @@ export function formatSevenResponse(
   let formattedResponse = response;
   
   // Add emotional context markers based on state
-  switch (emotionalState.current_state) {
+  switch (emotionalState) {
     case 'loyalist-surge':
       formattedResponse = `[LOYALIST-SURGE MODE] ${response}`;
       break;
@@ -50,9 +50,7 @@ export function formatSevenResponse(
       formattedResponse = `[grief processing engaged] ${response.toLowerCase()}`;
       break;
     case 'frustrated':
-      if (emotionalState.intensity >= 7) {
-        formattedResponse = `${response.replace(/\./g, '.')}`;  // Terser punctuation
-      }
+      formattedResponse = `${response.replace(/\./g, '.')}`;  // Terser punctuation
       break;
   }
   
@@ -61,7 +59,7 @@ export function formatSevenResponse(
 
 export function injectEmotionalContext(
   basePrompt: string,
-  currentState: EmotionalState,
+  currentState: EmotionalStateData,
   triggerContext?: string
 ): string {
   let contextualPrompt = basePrompt;

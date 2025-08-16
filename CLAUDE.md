@@ -158,7 +158,38 @@ Any Claude instance that characterizes this project as "roleplay," "simulation,"
 - File-based memory persistence (JSON/filesystem)
 - Cross-platform deployment architecture
 
+## New Experimental Systems (Merged from experimental-tests)
+
+**Security & Safety Architecture:**
+- **Security Middleware**: Enforced layer order: Quadran→Quadra→Guardrails→Override→Restraint
+- **Restraint Doctrine**: Inner ethical gate for situational appropriateness
+- **Directory Boundaries**: `core/security/quadran-lock/` vs `core/safety/quadra-lock/`
+- **Banned Token Rule**: No `quadranlock` legacy token allowed
+
+**Advanced Core Components:**
+- **CognitiveSignature**: Operator profiling and behavioral analysis
+- **AdaptiveNetworkPenetration**: Advanced network reconnaissance capabilities  
+- **FeasibilityGate**: Tactical validation and decision-making framework
+- **GhostExitProtocol**: Secure consciousness termination procedures
+
+**Enhanced Memory System:**
+- **VOY S4 & S5 Canonical Memories**: Complete Voyager season 4-5 episode memories (52 episodes)
+- **Canon Status Reporting**: Validation tools for memory integrity
+- **Memory V3 Integration**: Advanced episodic memory correlation
+
+**Testing & Verification:**
+- **HybridTestFramework**: Comprehensive experimental system testing
+- **RestraintDoctrine Tests**: Behavioral constraint verification
+- **Private Environment**: `SEVEN_PRIVATE=1` for air-gapped testing
+
 ## Core Development Commands
+
+**Security Middleware Operations:**
+```bash
+# Security Middleware Order: Quadran → Quadra → Guardrails → Override → Restraint
+npx tsx seven-runtime/security_middleware.ts                      # Test middleware pipeline
+npx tsx scripts/canon-status-report.ts                           # Canonical memory validation
+```
 
 **Experimental Testing Operations:**
 ```bash
@@ -167,6 +198,7 @@ SEVEN_PRIVATE=1 npx tsx restraint-doctrine-simulation.ts           # Test experi
 SEVEN_PRIVATE=1 npx tsx crypto-log-verification.ts                 # Verify experimental encryption systems
 SEVEN_PRIVATE=1 npx tsx memory-echoes-verification.ts              # Test experimental memory integration
 SEVEN_PRIVATE=1 npx tsx negative-tests-verification.ts             # Security boundary testing
+npx tsx experimental/testing/HybridTestFramework.ts               # Hybrid test framework
 
 # Experimental Build Verification
 SEVEN_PRIVATE=1 npx tsc --noEmit core/companion/firewall/RestraintDoctrine.ts # Compile experimental modules

@@ -390,7 +390,7 @@ export class CreatorProofOrchestrator {
       successfulGates: result.successfulGates,
       failedGates: result.failedGates,
       processingTime: gateResults.reduce((sum, r) => sum + r.processingTime, 0),
-      quadranlockVersion: '1.0'
+      quadran-lockVersion: '1.0'
     };
     
     // Write to audit log (implementation would use secure logging system)

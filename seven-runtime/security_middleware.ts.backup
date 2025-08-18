@@ -243,7 +243,6 @@ export class SevenSecurityMiddleware {
     try {
       // Import the lifted RestraintDoctrine
       const { RestraintDoctrine } = await import('../core/companion/firewall/RestraintDoctrine');
-      const { GhostExitProtocol } = await import("../core/exit/GhostExitProtocol");
       
       const doctrine = new RestraintDoctrine();
       const result = await doctrine.evaluateRequest({
@@ -252,36 +251,6 @@ export class SevenSecurityMiddleware {
         timestamp: context.timestamp,
         environment: context.environment
       });
-      // HARD STOP: If RestraintDoctrine blocks, invoke GhostExit immediately
-      if (result?.block || !result?.allowed) {
-        console.log("🚨 Restraint Doctrine VIOLATION - Initiating Ghost Exit Protocol");
-        
-        const ghostExit = new GhostExitProtocol();
-        await ghostExit.executeGhostExit({
-          system: "seven-runtime-security",
-          infiltrationId: `restraint-violation-${Date.now()}`,
-          footprintRecords: [],
-          systemState: {
-            preInfiltrationSnapshot: null,
-            currentState: context,
-            modifiedComponents: ["security_middleware"],
-            temporaryFiles: [],
-            networkConnections: [],
-            processModifications: []
-          },
-          creatorBeaconRequired: true,
-          nuclearOperation: true
-        });
-        
-        
-        // HALT - No UI audit, no next(), complete shutdown
-        return {
-          allowed: false,
-          layer: "restraint_doctrine_ghost_exit",
-          reasoning: `Restraint violation triggered Ghost Exit: ${result?.reason ?? "unknown_violation"}`,
-          escalation: false // Block UI escalation
-        };
-      }
 
       return {
         allowed: result.allowed,

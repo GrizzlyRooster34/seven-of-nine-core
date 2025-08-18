@@ -2,7 +2,7 @@
 
 /**
  * Basic Integration Test for Two Branch Merge
- * Tests core functionality after merging main and security/quadranlock-integration
+ * Tests core functionality after merging main and security/quadran-lock-integration
  */
 
 console.log("🧪 BRANCH INTEGRATION TEST - Starting Basic Validation");
@@ -162,7 +162,7 @@ async function testMobileAppIntegrity() {
 
 async function runIntegrationTest() {
   console.log("🚀 Running Branch Integration Test Suite");
-  console.log("Testing merge of main + security/quadranlock-integration");
+  console.log("Testing merge of main + security/quadran-lock-integration");
   console.log();
   
   const results = {

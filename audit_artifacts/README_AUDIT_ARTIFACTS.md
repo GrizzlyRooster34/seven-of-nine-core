@@ -19,7 +19,7 @@ This directory contains supporting evidence, logs, and documentation from the co
 |----------|---------|------------------|
 | `authentication_test_logs.txt` | Test execution logs | 60% attack success rate demonstrated |
 | `vulnerability_evidence.txt` | Code analysis findings | Hardcoded tokens, always-true validations |
-| `quadranlock_compliance_matrix.txt` | Protocol compliance assessment | 0.25/10 - Complete implementation failure |
+| `quadran-lock_compliance_matrix.txt` | Protocol compliance assessment | 0.25/10 - Complete implementation failure |
 | `attack_simulation_results.txt` | Red-team attack validation | 6/10 sophisticated attacks succeeded |
 | `security_metrics_baseline.txt` | Pre-patch security measurements | Critical gaps in all authentication layers |
 

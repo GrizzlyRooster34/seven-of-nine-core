@@ -29,6 +29,7 @@
     "test-system": "tsx comprehensive-system-test.ts",
     "test:canon": "tsx tests/canon/canon_guard.test.ts",
     "test:attestation": "tsx tests/attestation.test.ts",
+    "test:compliance": "tsx tests/compliance/experimental-systems-test.ts",
     "ui-dev": "cd ui-shell && bun run dev",
     "ui-build": "cd ui-shell && bun run build"
   },

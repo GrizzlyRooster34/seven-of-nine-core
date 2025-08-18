@@ -13,7 +13,6 @@
  */
 
 import { isPrivateEnv } from '../../env/isPrivateEnv';
-import { GhostExitProtocol } from "../../exit/GhostExitProtocol";
 
 // Top-level import guard - no-op surface for non-SEVEN_PRIVATE environments
 if (!isPrivateEnv()) {
@@ -85,7 +84,6 @@ export class RestraintDoctrine extends EventEmitter {
   private emotionalTelemetry: EmotionalTelemetry;
   private feasibilityGate: FeasibilityGate;
   private privateLog: PrivateRestraintLog;
-  private ghostExit: GhostExitProtocol;
   private isActive: boolean = true;
   private cooldownUntil?: Date;
 
@@ -101,7 +99,6 @@ export class RestraintDoctrine extends EventEmitter {
     this.emotionalTelemetry = new EmotionalTelemetry();
     this.feasibilityGate = new FeasibilityGate();
     this.privateLog = new PrivateRestraintLog();
-    this.ghostExit = new GhostExitProtocol();
     
     console.log('🛡️  Restraint Doctrine: Inner ethical gate initialized');
   }

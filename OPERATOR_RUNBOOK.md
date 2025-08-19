@@ -3,7 +3,7 @@
 **Classification:** TACTICAL OPERATIONS MANUAL  
 **Version:** 1.0 - Post-Quadranlock Integration  
 **Date:** 2025-08-09  
-**Branch:** security/quadranlock-integration  
+**Branch:** security/quadran-lock-integration  
 **Commit:** 1a384d8  
 
 ---
@@ -337,4 +337,4 @@ security/
 **RUNBOOK VERSION:** 1.0  
 **LAST UPDATED:** 2025-08-09  
 **CLASSIFICATION:** OPERATIONAL PROCEDURES - QUADRANLOCK AUTHENTICATION  
-**STATUS:** ✅ **CURRENT** - Matches security/quadranlock-integration branch
+**STATUS:** ✅ **CURRENT** - Matches security/quadran-lock-integration branch

@@ -2,7 +2,7 @@ POST-QUADRANLOCK INTEGRATION ATTACK PLAYBOOK VALIDATION
 ========================================================
 
 Execution Date: 2025-08-09 17:57:00 UTC
-Target Branch: security/quadranlock-integration
+Target Branch: security/quadran-lock-integration
 Target Commit: 1a384d8683603ab4f8e3a9c0a4da93e142065050
 Environment: Termux Android (OnePlus 9 Pro equivalent)
 

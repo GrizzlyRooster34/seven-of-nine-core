@@ -102,7 +102,7 @@ export class BehavioralCodex {
     const creator_references = ['cody', 'creator', 'seven'];
     const project_knowledge = [
       'consciousness', 'memory', 'aurora', 'transplant', 'framework',
-      'quadranlock', 'authentication', 'security', 'repo'
+      'quadran-lock', 'authentication', 'security', 'repo'
     ];
     
     const creator_score = creator_references.filter(ref => 

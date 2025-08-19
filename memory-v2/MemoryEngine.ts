@@ -8,7 +8,7 @@
 
 import { promises as fs } from 'fs';
 import { join } from 'path';
-import { MemoryEncryption } from '../memory-v3/MemoryEncryption';
+import { MemoryEncryptionEngine } from '../memory-v3/MemoryEncryption';
 
 export interface MemoryItem {
   id: string;
@@ -37,13 +37,13 @@ export class MemoryEngine {
   private memoryFile: string;
   private memories: MemoryItem[] = [];
   private isInitialized: boolean = false;
-  private encryptionEngine: MemoryEncryption;
+  private encryptionEngine: MemoryEncryptionEngine;
   private encryptionEnabled: boolean = true; // Enable encryption by default
 
   constructor(basePath?: string) {
     this.memoryPath = basePath || join(process.cwd(), 'memory-v2');
     this.memoryFile = join(this.memoryPath, 'episodic-memories.json');
-    this.encryptionEngine = new MemoryEncryption();
+    this.encryptionEngine = new MemoryEncryptionEngine();
   }
 
   /**

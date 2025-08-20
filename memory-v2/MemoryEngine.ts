@@ -286,14 +286,15 @@ export class MemoryEngine {
    * INTEGRATION POINT: Modified for MemoryEncryptionEngine
    */
   private async loadMemoriesWithEncryption(): Promise<void> {
+    const encryptedMemoryFile = `${this.memoryFile}.encrypted`;
     try {
       // Check if encrypted version exists
-      const isEncrypted = await this.encryptionEngine.isMemoryFileEncrypted(this.memoryFile);
+      const isEncrypted = await this.fileExists(encryptedMemoryFile);
       
       if (isEncrypted && this.encryptionEnabled) {
         // Load from encrypted file
         console.log('🔒 Loading encrypted episodic memories...');
-        this.memories = await this.encryptionEngine.decryptMemoryFile(`${this.memoryFile}.encrypted`);
+        this.memories = await this.encryptionEngine.decryptMemoryFile(encryptedMemoryFile);
         console.log('✅ Episodic memories decrypted and loaded');
       } else {
         // Backward compatibility: Load unencrypted file
@@ -304,7 +305,7 @@ export class MemoryEngine {
         // Migrate to encrypted format if encryption is enabled
         if (this.encryptionEnabled) {
           console.log('🔄 Migrating memories to encrypted format...');
-          await this.encryptionEngine.migrateToEncrypted(this.memoryFile);
+          await this.encryptionEngine.encryptMemoryFile(this.memoryFile);
         }
       }
     } catch (error) {

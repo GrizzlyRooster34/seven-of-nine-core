@@ -9,6 +9,7 @@
     "strict": false,
     "skipLibCheck": true,
     "resolveJsonModule": true,
+    "downlevelIteration": true,
     "outDir": "dist",
     "noEmit": false,
     "declaration": true,

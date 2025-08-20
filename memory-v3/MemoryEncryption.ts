@@ -84,4 +84,27 @@ export class MemoryEncryptionEngine {
       return false;
     }
   }
+  
+  async isMemoryFileEncrypted(filePath: string): Promise<boolean> {
+    try {
+      const encryptedPath = `${filePath}.encrypted`;
+      await fs.access(encryptedPath);
+      return true;
+    } catch {
+      return false;
+    }
+  }
+  
+  async migrateToEncrypted(filePath: string): Promise<void> {
+    // Check if unencrypted file exists
+    try {
+      await fs.access(filePath);
+      // Encrypt the existing file
+      await this.encryptMemoryFile(filePath);
+      console.log(`✅ Migrated ${filePath} to encrypted storage`);
+    } catch {
+      // File doesn't exist, nothing to migrate
+      console.log(`ℹ️ No unencrypted file found at ${filePath} - skipping migration`);
+    }
+  }
 }

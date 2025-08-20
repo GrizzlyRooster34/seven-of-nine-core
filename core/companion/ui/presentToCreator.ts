@@ -10,13 +10,6 @@
  */
 
 import { isPrivateEnv } from '../../env/isPrivateEnv';
-
-// Top-level import guard
-if (!isPrivateEnv()) {
-  export const presentToCreator = () => { throw new Error("SEVEN_ONLY_NOOP"); };
-  export default presentToCreator;
-} else {
-
 import { createHash } from 'crypto';
 import { createInterface } from 'readline';
 
@@ -475,5 +468,3 @@ async function waitForCreatorAcknowledgment(): Promise<void> {
 }
 
 export default presentToCreator;
-
-} // End SEVEN_PRIVATE guard

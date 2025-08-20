@@ -9,15 +9,6 @@
  */
 
 import { isPrivateEnv } from '../env/isPrivateEnv';
-
-// Top-level import guard
-if (!isPrivateEnv()) {
-  export class CognitiveSignature {
-    constructor() { throw new Error("SEVEN_ONLY_NOOP"); }
-  }
-  export default CognitiveSignature;
-} else {
-
 import { promises as fs } from 'fs';
 import { join } from 'path';
 import { createHash } from 'crypto';
@@ -437,5 +428,3 @@ export class CognitiveSignature {
 }
 
 export default CognitiveSignature;
-
-} // End SEVEN_PRIVATE guard

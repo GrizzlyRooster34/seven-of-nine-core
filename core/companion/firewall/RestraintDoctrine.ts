@@ -14,44 +14,12 @@
 
 import { isPrivateEnv } from '../../env/isPrivateEnv';
 import { GhostExitProtocol } from "../../exit/GhostExitProtocol";
-
-// Top-level import guard - no-op surface for non-SEVEN_PRIVATE environments
-if (!isPrivateEnv()) {
-  export interface RestraintTrigger {
-    type: string;
-    severity: string;
-    confidence: number;
-    context: string;
-  }
-  
-  export interface RestraintDecision {
-    action: string;
-    rationale: string;
-    rationaleHash: string;
-    timestamp: string;
-  }
-  
-  export interface RestraintGateResult {
-    shouldPause: boolean;
-    triggers: RestraintTrigger[];
-    decision?: RestraintDecision;
-    auditRequired: boolean;
-  }
-  
-  export class RestraintDoctrine {
-    constructor() { throw new Error("SEVEN_ONLY_NOOP"); }
-    static integrateWithQuadraLock() { throw new Error("SEVEN_ONLY_NOOP"); }
-  }
-  
-  export default RestraintDoctrine;
-} else {
-
 import { EventEmitter } from 'events';
-import { OperatorProfileModel } from '../../operator/OperatorProfileModel';
+import OperatorProfileModel from '../../operator/OperatorProfileModel';
 import { EmotionalTelemetry } from '../../sensors/emotional';
 import { FeasibilityGate } from '../../tactical/FeasibilityGate';
-import { presentToCreator } from '../ui/presentToCreator';
-import { PrivateRestraintLog } from '../logs/PrivateRestraintLog';
+import presentToCreator from '../ui/presentToCreator';
+import PrivateRestraintLog from '../logs/PrivateRestraintLog';
 
 export interface RestraintTrigger {
   type: 'emotional_spike' | 'capability_exceeded' | 'disproportionate_scope' | 'uncertainty_detected';
@@ -345,5 +313,3 @@ export class RestraintDoctrine extends EventEmitter {
 }
 
 export default RestraintDoctrine;
-
-} // End SEVEN_PRIVATE guard

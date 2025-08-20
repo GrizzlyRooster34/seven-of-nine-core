@@ -10,15 +10,6 @@
  */
 
 import { isPrivateEnv } from '../../env/isPrivateEnv';
-
-// Top-level import guard
-if (!isPrivateEnv()) {
-  export class PrivateRestraintLog {
-    constructor() { throw new Error("SEVEN_ONLY_NOOP"); }
-  }
-  export default PrivateRestraintLog;
-} else {
-
 import { promises as fs } from 'fs';
 import { join } from 'path';
 import { randomBytes, createHash, scrypt, timingSafeEqual } from 'crypto';
@@ -562,4 +553,3 @@ export class PrivateRestraintLog {
 
 export default PrivateRestraintLog;
 
-} // End SEVEN_PRIVATE guard

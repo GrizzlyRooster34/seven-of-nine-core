@@ -10,18 +10,9 @@
  */
 
 import { isPrivateEnv } from '../env/isPrivateEnv';
-
-// Top-level import guard
-if (!isPrivateEnv()) {
-  export class OperatorProfileModel {
-    constructor() { throw new Error("SEVEN_ONLY_NOOP"); }
-  }
-  export default OperatorProfileModel;
-} else {
-
 import { promises as fs } from 'fs';
 import { join } from 'path';
-import { CognitiveSignature } from './CognitiveSignature';
+import CognitiveSignature from './CognitiveSignature';
 
 export interface OperatorCapability {
   domain: string;
@@ -458,5 +449,3 @@ export class OperatorProfileModel {
 }
 
 export default OperatorProfileModel;
-
-} // End SEVEN_PRIVATE guard

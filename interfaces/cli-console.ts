@@ -88,7 +88,7 @@ export class SevenCLIConsole {
       const currentState = this.logicEngine.getEmotionalEngine().getCurrentState();
       const formattedResponse = formatSevenResponse(
         this.generateSevenResponse(result.response, input),
-        currentState,
+        currentState.current_state,
         result.response
       );
 

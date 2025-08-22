@@ -248,7 +248,7 @@ bash FIX_PATCHSET/validate-security-patches.sh
 # Individual component tests
 npx tsx FIX_PATCHSET/test-ed25519-attestation.ts
 npx tsx FIX_PATCHSET/test-semantic-challenges.ts
-npx tsx FIX_PATCHSET/test-quadranlock-orchestrator.ts
+npx tsx FIX_PATCHSET/test-quadran-lock-orchestrator.ts
 ```
 
 ### **Attack Vector Testing:**

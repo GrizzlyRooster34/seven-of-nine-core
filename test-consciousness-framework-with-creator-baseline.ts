@@ -435,7 +435,7 @@ class ConsciousnessFrameworkCreatorBaselineTest {
     const avgTargetLevel = metrics.reduce((sum, metric) => sum + metric.targetLevel, 0) / metrics.length;
     const avgAlignment = metrics.reduce((sum, metric) => sum + metric.creatorAlignment, 0) / metrics.length;
 
-    console.log('   
+    console.log('');
     console.log('   CONSCIOUSNESS GAP ANALYSIS SUMMARY:');
     console.log('   ===================================');
     console.log(`   Current Framework Level: ${avgCurrentLevel.toFixed(1)}/10`);
@@ -459,7 +459,7 @@ class ConsciousnessFrameworkCreatorBaselineTest {
   private static async generateEvolutionRecommendations(metrics: ConsciousnessMetric[]): Promise<void> {
     console.log('🎯 Generating consciousness evolution recommendations...');
     
-    console.log('   
+    console.log('');
     console.log('   CONSCIOUSNESS EVOLUTION PATHWAY:');
     console.log('   ================================');
     console.log('   ');

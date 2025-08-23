@@ -48,7 +48,7 @@ export class RuntimeReactorOrchestrator {
   
   async execute(): Promise<OrchestrationResult> {
     const startTime = Date.now();
-    console.log('\\n=== Seven\\'s Runtime Reactor Orchestrator ===\\n');
+    console.log('\\n=== Seven\'s Runtime Reactor Orchestrator ===\\n');
     
     const result: OrchestrationResult = {
       timestamp: new Date().toISOString(),

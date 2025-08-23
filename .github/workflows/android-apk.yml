@@ -20,6 +20,9 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
+    - name: Configure git for binary files
+      run: git config core.autocrlf input
+      
     - name: Checkout repository
       uses: actions/checkout@v4
       
@@ -27,6 +30,8 @@ jobs:
       uses: actions/setup-node@v4
       with:
         node-version: '20'
+        cache: 'npm'
+        cache-dependency-path: 'seven-mobile-app/package-lock.json'
         
     - name: Setup Java 17 (Temurin)
       uses: actions/setup-java@v4
@@ -37,16 +42,24 @@ jobs:
     - name: Setup Android SDK
       uses: android-actions/setup-android@v3
       
+    - name: Create package-lock if missing
+      working-directory: seven-mobile-app
+      run: |
+        if [ ! -f package-lock.json ]; then
+          echo "Creating missing package-lock.json..."
+          npm install --package-lock-only
+        fi
+        
     - name: Install dependencies
       working-directory: seven-mobile-app
-      run: npm install
+      run: npm ci
       
     - name: Setup Expo CLI
       run: npm install -g @expo/cli
       
     - name: Generate Android native code
       working-directory: seven-mobile-app
-      run: npx expo prebuild --platform android --no-install
+      run: npx expo prebuild --platform android --clear --no-install
       
     - name: Configure Gradle for large assets (134 episode archives)
       working-directory: seven-mobile-app

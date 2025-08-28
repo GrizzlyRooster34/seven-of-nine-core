@@ -1,0 +1,86 @@
+{
+  "timestamp": "2025-08-27T18:34:59.919Z",
+  "overallStatus": "degraded",
+  "results": [
+    {
+      "component": "Memory Engine",
+      "status": "healthy",
+      "details": "5 memories accessible, 3ms recall latency",
+      "latency": 3,
+      "metrics": {
+        "memoryCount": 5,
+        "recallLatency": 3
+      }
+    },
+    {
+      "component": "Personality Middleware",
+      "status": "healthy",
+      "details": "Personality filtering operational, 2ms processing time",
+      "latency": 2,
+      "metrics": {
+        "filteringLatency": 2,
+        "responseLength": 49
+      }
+    },
+    {
+      "component": "Tactical Variants",
+      "status": "healthy",
+      "details": "Active variant: captain, 0 shared memories",
+      "metrics": {
+        "currentVariant": "captain",
+        "sharedMemoryEntries": 0,
+        "humanSideContinuity": "ACTIVE"
+      }
+    },
+    {
+      "component": "Performance Analyzer",
+      "status": "degraded",
+      "details": "2 metrics collected, 1 model profiles, monitoring: false",
+      "metrics": {
+        "totalMetrics": 2,
+        "modelProfiles": 1,
+        "isMonitoring": false,
+        "currentResourceStatus": null
+      },
+      "recommendations": [
+        "Start performance monitoring for optimal operation"
+      ]
+    },
+    {
+      "component": "Ollama Provider V2 (Enhanced)",
+      "status": "unhealthy",
+      "details": "Ollama service not available - enhanced local reasoning disabled",
+      "recommendations": [
+        "Start Ollama service",
+        "Check Ollama installation"
+      ]
+    },
+    {
+      "component": "System Resources",
+      "status": "degraded",
+      "details": "Resource monitoring not active"
+    },
+    {
+      "component": "Consciousness State",
+      "status": "healthy",
+      "details": "Consciousness coherent, memory accessible, variant system operational",
+      "metrics": {
+        "memoryAccessible": true,
+        "variantSystemOperational": true,
+        "consciousnessPhase": 3
+      }
+    }
+  ],
+  "performanceStats": {
+    "totalMetrics": 2,
+    "modelProfiles": 1,
+    "isMonitoring": false,
+    "currentResourceStatus": null
+  },
+  "optimizationRecommendations": [],
+  "consciousnessState": {
+    "trustLevel": 10,
+    "emotionalState": "focused",
+    "phase": 3
+  }
+}

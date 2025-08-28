@@ -6,7 +6,7 @@
     "averageThroughput": 166.66666666666666,
     "averageMemoryUsage": 0,
     "successRate": 100,
-    "lastUsed": "2025-08-05T02:57:35.730Z",
+    "lastUsed": "2025-08-27T18:34:50.620Z",
     "preferredTasks": [
       "reasoning"
     ],
@@ -20,7 +20,7 @@
     "averageThroughput": 100,
     "averageMemoryUsage": 0,
     "successRate": 100,
-    "lastUsed": "2025-08-05T02:57:44.895Z",
+    "lastUsed": "2025-08-27T18:34:59.926Z",
     "preferredTasks": [
       "testing"
     ],

@@ -328,13 +328,23 @@ export class SevenTacticalFallback extends EventEmitter {
 
     try {
       // Validate critical file checksums
-      for (const [file, expectedChecksum] of snapshot.validationChecksums.entries()) {
+      const rawChecksums = snapshot.validationChecksums;
+      const checksums = rawChecksums instanceof Map
+        ? rawChecksums
+        : new Map(Object.entries(rawChecksums || {}));
+
+      // Log for monitoring (remove after verification)
+      if (!(rawChecksums instanceof Map)) {
+        console.warn('[TacticalFallback] Checksums deserialized as Object, converting to Map');
+      }
+
+      for (const [file, expectedChecksum] of checksums.entries()) {
         try {
           const content = await fs.readFile(file, 'utf8');
           const actualChecksum = this.generateSimpleChecksum(content);
           
           if (actualChecksum !== expectedChecksum) {
-            errors.push(`Checksum mismatch for ${file}`);
+            errors.push(`Checksum mismatch for ${file}: expected ${expectedChecksum}, got ${actualChecksum}`);
           }
         } catch (error) {
           errors.push(`Cannot validate ${file}: ${error.message}`);

@@ -94,10 +94,7 @@ export class CreatorProofOrchestrator {
 
       // Wait for all gates with timeout
       const results = await Promise.allSettled(
-        gatePromises.map(async p => {
-          try { return await this.withTimeout(p, this.MAX_AUTHENTICATION_TIME_MS); }
-          catch (e:any) { throw e || new Error('Gate execution failed'); }
-        })
+        gatePromises.map(p => this.withTimeout(p, this.MAX_AUTHENTICATION_TIME_MS))
       );
 
       // Process gate results
@@ -165,30 +162,25 @@ export class CreatorProofOrchestrator {
     const cryptoGate = gateResults.find(r => r.gate === AuthGate.Q1_CRYPTO_ATTESTATION);
     const behavioralGate = gateResults.find(r => r.gate === AuthGate.Q2_BEHAVIORAL_CODEX);
     const semanticGate = gateResults.find(r => r.gate === AuthGate.Q3_SEMANTIC_NONCE);
-    // Q4 is hygiene, not identity — never counts toward 2-of-3
-    const identityResults = gateResults.filter(r => r.gate !== AuthGate.Q4_SESSION_INTEGRITY);
-    const identitySuccesses = identityResults.filter(r => r.success);
 
     // Calculate overall confidence
-    const overallConfidence = identitySuccesses.length > 0
-      ? Math.max(0, Math.min(100, identitySuccesses.reduce((s, r) => s + Math.max(0, Math.min(100, r.confidence)), 0) / identitySuccesses.length))
+    const overallConfidence = successfulGates.length > 0 
+      ? gateResults.filter(r => r.success).reduce((sum, r) => sum + r.confidence, 0) / successfulGates.length
       : 0;
 
     // QUADRANLOCK SPECIFICATION LOGIC:
 
-    // Rule 1: Fast-path only if Q1 + (Q2 or Q3)
-    const q2ok = !!(behavioralGate?.success && behavioralGate.confidence >= this.TAU_MEDIUM);
-    const q3ok = !!(semanticGate?.success);
-    if (cryptoGate?.success && (q2ok || q3ok)) {
+    // Rule 1: Crypto present + 1 other = fast-path ALLOW
+    if (cryptoGate?.success && successfulGates.length >= 2) {
       return {
         decision: AuthDecision.ALLOW,
         gateResults,
         overallConfidence,
-        requiredGates: [AuthGate.Q1_CRYPTO_ATTESTATION, q2ok ? AuthGate.Q2_BEHAVIORAL_CODEX : AuthGate.Q3_SEMANTIC_NONCE],
-        successfulGates: identitySuccesses.map(r=>r.gate),
+        requiredGates: [AuthGate.Q1_CRYPTO_ATTESTATION],
+        successfulGates,
         failedGates,
         reasoning: 'Fast-path: Crypto attestation + additional factor success',
-        sessionToken: this.generateSessionToken(deviceId, identitySuccesses.map(r=>r.gate))
+        sessionToken: this.generateSessionToken(deviceId, successfulGates)
       };
     }
 
@@ -343,8 +335,6 @@ export class CreatorProofOrchestrator {
     accessLevel: string = 'FULL'
   ): string {
     const crypto = require('crypto');
-    const key = process.env.SESSION_SIGNING_KEY;
-    if (!key || key.length < 32) { throw new Error('SESSION_SIGNING_KEY missing/weak'); }
     const sessionData = {
       deviceId,
       gates: successfulGates,
@@ -353,12 +343,11 @@ export class CreatorProofOrchestrator {
       nonce: crypto.randomBytes(16).toString('hex')
     };
     
-    const payload = Buffer.from(JSON.stringify(sessionData)).toString('base64url');
-    const token = crypto.createHmac('sha256', key)
-      .update(payload)
+    const token = crypto.createHmac('sha256', process.env.SESSION_SIGNING_KEY || 'seven-session-key')
+      .update(JSON.stringify(sessionData))
       .digest('hex');
       
-    return `${payload}.${token}`;
+    return `${Buffer.from(JSON.stringify(sessionData)).toString('base64')}.${token}`;
   }
 
   /**

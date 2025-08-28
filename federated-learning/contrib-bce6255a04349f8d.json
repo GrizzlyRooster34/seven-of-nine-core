@@ -1,0 +1,19 @@
+{
+  "contributionId": "bce6255a04349f8d",
+  "sourceNodeId": "anonymous",
+  "contributionType": "pattern-insight",
+  "domain": "reasoning",
+  "insight": {
+    "pattern": {
+      "pattern": "test-reasoning-pattern",
+      "complexity": 7
+    },
+    "confidence": 0.85,
+    "sampleSize": 50,
+    "validationScore": 0.7,
+    "privacyLevel": "anonymous"
+  },
+  "creatorBondLevel": 0,
+  "timestamp": "2025-08-27T18:28:19.571Z",
+  "expiresAt": "2025-08-28T18:28:19.571Z"
+}

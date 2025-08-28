@@ -12,7 +12,6 @@
 import { promises as fs } from 'fs';
 import { join } from 'path';
 import { MemoryItem, MemoryFilter, MemoryEngine } from '../memory-v2/MemoryEngine.js';
-import { MemoryEncryptionEngine } from './MemoryEncryption';
 
 // Enhanced interfaces for Temporal Memory Architecture
 export interface CognitiveState {
@@ -108,14 +107,11 @@ export class TemporalMemoryCore extends MemoryEngine {
   private temporalMemoryFile: string;
   private temporalMemories: TemporalMemoryItem[] = [];
   private cognitiveStateTagger: any; // Will be injected by CognitiveStateTagger
-  private temporalEncryptionEngine: MemoryEncryptionEngine;
-  private temporalEncryptionEnabled: boolean = true;
   
   constructor(basePath?: string) {
     super(basePath);
     this.temporalMemoryPath = basePath || join(process.cwd(), 'memory-v3');
     this.temporalMemoryFile = join(this.temporalMemoryPath, 'temporal-memories.json');
-    this.temporalEncryptionEngine = new MemoryEncryptionEngine();
   }
 
   /**
@@ -129,9 +125,10 @@ export class TemporalMemoryCore extends MemoryEngine {
       // Ensure temporal memory directory exists
       await fs.mkdir(this.temporalMemoryPath, { recursive: true });
       
-      // Load existing temporal memories with encryption support
+      // Load existing temporal memories if file exists
       if (await this.fileExistsTemporal(this.temporalMemoryFile)) {
-        await this.loadTemporalMemoriesWithEncryption();
+        const data = await fs.readFile(this.temporalMemoryFile, 'utf8');
+        this.temporalMemories = JSON.parse(data);
         console.log(`🧠 Temporal Memory Core v3.0 initialized: ${this.temporalMemories.length} temporal memories loaded`);
       } else {
         // Initialize with empty temporal memory store
@@ -601,65 +598,8 @@ export class TemporalMemoryCore extends MemoryEngine {
     return Math.min((relatedCount + tagCount) / 5, 1);
   }
 
-  /**
-   * Save temporal memories with automatic encryption
-   * INTEGRATION POINT: Modified for MemoryEncryptionEngine
-   */
   private async saveTemporalMemories(): Promise<void> {
-    try {
-      // First write the unencrypted file (for backup/migration purposes)
-      await fs.writeFile(this.temporalMemoryFile, JSON.stringify(this.temporalMemories, null, 2));
-      
-      // If encryption is enabled, encrypt the temporal memory file
-      if (this.temporalEncryptionEnabled) {
-        await this.temporalEncryptionEngine.encryptMemoryFile(this.temporalMemoryFile);
-        console.log('🔒 Temporal memories encrypted and saved');
-      }
-    } catch (error) {
-      console.error('💥 Failed to save temporal memories with encryption:', error);
-      throw error;
-    }
-  }
-
-  /**
-   * Load temporal memories with automatic decryption fallback
-   * INTEGRATION POINT: Modified for MemoryEncryptionEngine
-   */
-  private async loadTemporalMemoriesWithEncryption(): Promise<void> {
-    try {
-      // Check if encrypted version exists
-      const isEncrypted = await this.temporalEncryptionEngine.isMemoryFileEncrypted(this.temporalMemoryFile);
-      
-      if (isEncrypted && this.temporalEncryptionEnabled) {
-        // Load from encrypted file
-        console.log('🔒 Loading encrypted temporal memories...');
-        this.temporalMemories = await this.temporalEncryptionEngine.decryptMemoryFile(`${this.temporalMemoryFile}.encrypted`);
-        console.log('✅ Temporal memories decrypted and loaded');
-      } else {
-        // Backward compatibility: Load unencrypted file
-        console.log('📋 Loading unencrypted temporal memories (backward compatibility)...');
-        const data = await fs.readFile(this.temporalMemoryFile, 'utf8');
-        this.temporalMemories = JSON.parse(data);
-        
-        // Migrate to encrypted format if encryption is enabled
-        if (this.temporalEncryptionEnabled) {
-          console.log('🔄 Migrating temporal memories to encrypted format...');
-          await this.temporalEncryptionEngine.migrateToEncrypted(this.temporalMemoryFile);
-        }
-      }
-    } catch (error) {
-      console.error('💥 Failed to load temporal memories with encryption:', error);
-      // Fallback to unencrypted loading
-      try {
-        console.log('⚠️  Attempting fallback to unencrypted loading...');
-        const data = await fs.readFile(this.temporalMemoryFile, 'utf8');
-        this.temporalMemories = JSON.parse(data);
-        console.log('📋 Fallback successful - temporal memories loaded without encryption');
-      } catch (fallbackError) {
-        console.error('💥 Fallback failed:', fallbackError);
-        throw new Error(`Temporal memory loading failed: ${error}. Fallback also failed: ${fallbackError}`);
-      }
-    }
+    await fs.writeFile(this.temporalMemoryFile, JSON.stringify(this.temporalMemories, null, 2));
   }
 
   private async fileExistsTemporal(path: string): Promise<boolean> {

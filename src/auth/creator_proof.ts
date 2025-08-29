@@ -7,10 +7,10 @@
  * RATIONALE: Current system has single weak token - implement full Quadranlock
  */
 
-import { Ed25519Attestation } from './crypto/ed25519_attest.js';
-import { SemanticNonceChallenge } from './challenge/semanticNonce.js';
-import { BehavioralCodex } from './behavioral/behavioralCodex.js';
-import { SessionIntegrity } from './session/sessionIntegrity.js';
+import { Ed25519Attestation } from './crypto/ed25519_attest';
+import { SemanticNonceChallenge } from './challenge/semanticNonce';
+import { BehavioralCodex } from './behavioral/behavioralCodex';
+import { SessionIntegrity } from './session/sessionIntegrity';
 
 export enum AuthGate {
   Q1_CRYPTO_ATTESTATION = 'crypto_attestation',
@@ -379,7 +379,7 @@ export class CreatorProofOrchestrator {
       successfulGates: result.successfulGates,
       failedGates: result.failedGates,
       processingTime: gateResults.reduce((sum, r) => sum + r.processingTime, 0),
-      quadranlockVersion: '1.0'
+      quadran-lockVersion: '1.0'
     };
     
     // Write to audit log (implementation would use secure logging system)

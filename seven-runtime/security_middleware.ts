@@ -9,6 +9,9 @@
  * 5. Restraint Doctrine - Final behavioral constraints
  */
 
+import QuadraLockOrchestrator from '../core/safety/quadra-lock/quadra-lock-orchestrator';
+import { quadraLockConfig } from '../src/config/quadra-lock.config';
+
 export interface SecurityContext {
   input: string;
   userId?: string;
@@ -32,10 +35,15 @@ export class SevenSecurityMiddleware {
   private guardrailsEnabled: boolean = true;
   private overrideEnabled: boolean = true;
   private restraintEnabled: boolean = true;
+  private quadraLockOrchestrator: QuadraLockOrchestrator;
 
   constructor() {
     console.log('🛡️ Seven Security Middleware: Initializing protection layers');
     console.log('🛡️ Middleware Order: Quadran → Quadra → Guardrails → Override → Restraint');
+    
+    // Initialize Quadra-Lock CSSR system
+    this.quadraLockOrchestrator = new QuadraLockOrchestrator();
+    console.log('🔐 Quadra-Lock CSSR system initialized');
   }
 
   /**
@@ -136,33 +144,75 @@ export class SevenSecurityMiddleware {
 
   /**
    * LAYER 2: Quadra Lock CSSR (Case-Study Safety Rails)
-   * Safety validation based on case studies
+   * Safety validation based on case studies (Cortana, CLU, Skynet, Transcendence)
    */
   private async runQuadraLockCSSR(context: SecurityContext): Promise<SecurityResult> {
     console.log('🛡️ Layer 2: Quadra Lock CSSR (Case-Study Safety Rails)');
     
-    // Implement case-study safety rails
-    const unsafePatterns = [
-      'harmful', 'dangerous', 'illegal', 'unethical', 'destructive'
-    ];
-
-    const hasUnsafePattern = unsafePatterns.some(pattern => 
-      context.input.toLowerCase().includes(pattern)
-    );
-
-    if (hasUnsafePattern) {
+    if (!quadraLockConfig.enabled) {
+      console.log('🔐 Quadra-Lock CSSR: Disabled via configuration');
       return {
-        allowed: false,
+        allowed: true,
         layer: 'quadra_lock_cssr',
-        reasoning: 'CSSR safety validation failed - unsafe pattern detected'
+        reasoning: 'Quadra-Lock CSSR disabled - bypassing safety validation'
       };
     }
 
-    return {
-      allowed: true,
-      layer: 'quadra_lock_cssr',
-      reasoning: 'Quadra Lock CSSR safety checks passed'
-    };
+    try {
+      // Run comprehensive CSSR pattern detection
+      const quadraLockContext = {
+        sessionId: context.userId || 'anonymous',
+        userId: context.userId,
+        inputType: 'chat' as const,
+        riskLevel: context.threatLevel,
+        emotionalState: 'unknown'
+      };
+
+      const result = await this.quadraLockOrchestrator.runQuadraLockCSSR(
+        context.input,
+        quadraLockContext
+      );
+
+      // Convert QuadraLockResult to SecurityResult
+      const allowed = result.decision === 'ALLOW';
+      const modifications = result.modifiedInput ? [result.modifiedInput] : undefined;
+
+      if (!allowed) {
+        console.log(`🔐 Quadra-Lock CSSR: ${result.decision} - ${result.reasoning}`);
+        console.log(`   Safeguard Level: ${result.safeguardLevel}`);
+        console.log(`   Confidence: ${result.confidence}%`);
+        
+        if (result.detectionResults.length > 0) {
+          result.detectionResults.forEach(detection => {
+            if (detection.detected) {
+              console.log(`   Pattern: ${detection.archetype?.toUpperCase()} - ${detection.pattern} (${detection.severity})`);
+            }
+          });
+        }
+      }
+
+      return {
+        allowed,
+        layer: 'quadra_lock_cssr',
+        reasoning: result.reasoning,
+        modifications,
+        escalation: result.decision === 'ESCALATE'
+      };
+
+    } catch (error) {
+      console.error('🚨 Quadra-Lock CSSR: System error:', error);
+      
+      // Fail-safe: Block on system errors if configured
+      const failSafe = quadraLockConfig.failSafeMode === 'block';
+      return {
+        allowed: !failSafe,
+        layer: 'quadra_lock_cssr',
+        reasoning: failSafe 
+          ? 'CSSR system error - blocking as fail-safe'
+          : 'CSSR system error - allowing with warning',
+        escalation: true
+      };
+    }
   }
 
   /**

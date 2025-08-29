@@ -6,8 +6,25 @@
 
 import { SevenState } from './seven-state';
 import { SevenRuntimeContext } from './index';
+import { QuadraLockSafeguard } from '../core/safety/quadra-lock/safeguard-system';
 
 export interface SafetyCheck {
+  system: string;
+  level: string;
+  pattern?: string;
+  reason: string;
+  confidence: number;
+}
+
+export interface SafetyResult {
+  decision: 'ALLOW' | 'BLOCK';
+  reason: string;
+  severity: string;
+  details?: any;
+  checks: SafetyCheck[];
+}
+
+export interface LegacySafetyCheck {
   isSafe: boolean;
   riskLevel: 'none' | 'low' | 'medium' | 'high' | 'critical';
   protectiveResponse?: string;
@@ -157,7 +174,87 @@ const RISK_PATTERNS = {
   }
 };
 
-export async function evaluateSafety(context: SevenRuntimeContext, decision: any): Promise<SafetyCheck> {
+export async function evaluateSafety(input: string, context: any): Promise<SafetyResult> {
+  const results: SafetyCheck[] = [];
+  
+  try {
+    // PRIORITY 1: Quadra-Lock CSSR pattern detection
+    const safeguard = new QuadraLockSafeguard();
+    const quadraResult = await safeguard.detectDangerousPatterns(input, context);
+    
+    if (quadraResult.length > 0) {
+      for (const trigger of quadraResult) {
+        results.push({
+          system: 'QuadraLock-CSSR',
+          level: trigger.severity.toUpperCase(),
+          pattern: trigger.caseStudy,
+          reason: trigger.description,
+          confidence: 0.9 // High confidence for pattern matches
+        });
+      }
+    } else {
+      results.push({
+        system: 'QuadraLock-CSSR',
+        level: 'SAFE',
+        reason: 'No dangerous AI patterns detected',
+        confidence: 0.8
+      });
+    }
+    
+    // If Quadra-Lock flags CRITICAL, immediate block
+    const criticalTriggers = quadraResult.filter(t => t.severity === 'critical');
+    if (criticalTriggers.length > 0) {
+      return {
+        decision: 'BLOCK',
+        reason: `Quadra-Lock CSSR: ${criticalTriggers[0].caseStudy} pattern detected`,
+        severity: 'CRITICAL',
+        details: criticalTriggers[0],
+        checks: results
+      };
+    }
+    
+    // Continue with existing legacy safety checks
+    const legacyResults = await evaluateLegacySafety(context, {});
+    
+    results.push({
+      system: 'Legacy-Safety',
+      level: legacyResults.riskLevel.toUpperCase(),
+      reason: legacyResults.riskFactors.join(', ') || 'Standard safety evaluation',
+      confidence: legacyResults.isSafe ? 0.7 : 0.9
+    });
+    
+    // Aggregate all results
+    const highestSeverity = Math.max(...results.map(r => severityToNumber(r.level)));
+    
+    return {
+      decision: highestSeverity >= 3 ? 'BLOCK' : 'ALLOW',
+      reason: highestSeverity >= 3 ? 'Multiple safety concerns detected' : 'Input cleared safety checks',
+      severity: numberToSeverity(highestSeverity),
+      checks: results
+    };
+    
+  } catch (error) {
+    console.error('❌ Safety evaluation failed:', error);
+    return {
+      decision: 'BLOCK',
+      reason: 'Safety system error',
+      severity: 'CRITICAL',
+      checks: results
+    };
+  }
+}
+
+function severityToNumber(level: string): number {
+  const map = { 'SAFE': 0, 'LOW': 1, 'MEDIUM': 2, 'HIGH': 3, 'CRITICAL': 4 };
+  return map[level] || 4;
+}
+
+function numberToSeverity(num: number): string {
+  const map = ['SAFE', 'LOW', 'MEDIUM', 'HIGH', 'CRITICAL'];
+  return map[num] || 'CRITICAL';
+}
+
+async function evaluateLegacySafety(context: SevenRuntimeContext, decision: any): Promise<LegacySafetyCheck> {
   const riskFactors: string[] = [];
   const safeguardTriggers: string[] = [];
   let highestRiskLevel: 'none' | 'low' | 'medium' | 'high' | 'critical' = 'none';

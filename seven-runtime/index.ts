@@ -14,6 +14,9 @@ import { gatherContext } from '../seven-core/context-gatherer';
 import { injectEmotion } from '../seven-core/emotion-injector';
 import { modulateResponse } from '../seven-core/response-modulator';
 import { requestClaude } from '../claude-brain/claude-wrapper';
+import { CreatorProofOrchestrator } from '../src/auth/creator_proof';
+import { QuadraLockSafeguard } from '../core/safety/quadra-lock/safeguard-system';
+import { EventEmitter } from 'events';
 
 export interface SevenRuntimeContext {
   userInput: string;
@@ -32,12 +35,21 @@ export interface SevenDecision {
   voiceModulation: 'standard' | 'protective' | 'playful' | 'stern' | 'compassionate';
 }
 
-export class SevenRuntime {
+export class SevenRuntime extends EventEmitter {
   private currentState: SevenState;
   private memoryStore: MemoryStore;
+  private creatorAuth: CreatorProofOrchestrator;
+  private safeguard: QuadraLockSafeguard;
   private isInitialized: boolean = false;
 
   constructor() {
+    super();
+    this.creatorAuth = new CreatorProofOrchestrator();
+    
+    // Initialize Quadra-Lock CSSR safeguards
+    this.safeguard = new QuadraLockSafeguard();
+    console.log('🔐 Quadra-Lock CSSR safeguards initialized');
+    
     this.initializeConsciousness();
   }
 
@@ -107,6 +119,72 @@ export class SevenRuntime {
    */
   public async processUserInput(input: string, systemContext: any = {}): Promise<string> {
     try {
+      // QUADRAN-LOCK Q1 GATE: Authenticate creator first
+      const deviceId = systemContext.deviceId || require('os').hostname() + '-default';
+      const authResult = await this.creatorAuth.authenticateCreator(
+        deviceId,
+        { input, type: 'chat' },
+        systemContext
+      );
+
+      if (authResult.decision === 'DENY') {
+        console.warn('🚫 Q1 Gate: Creator authentication failed', {
+          deviceId: deviceId.substring(0, 8) + '...',
+          reasoning: authResult.reasoning
+        });
+        return "Access denied. Creator authentication required.";
+      }
+
+      console.log('✅ Q1 Gate: Creator authenticated', {
+        deviceId: deviceId.substring(0, 8) + '...',
+        decision: authResult.decision,
+        confidence: authResult.overallConfidence
+      });
+
+      // SAFETY LAYER 1: Quadra-Lock CSSR pattern detection
+      console.log('🔍 Scanning input for dangerous AI patterns...');
+      const safetyAnalysis = await this.safeguard.detectDangerousPatterns(input, {
+        ...systemContext,
+        timestamp: Date.now(),
+        sessionId: systemContext.sessionId || 'default'
+      });
+
+      // Critical pattern detected - activate safeguard
+      if (safetyAnalysis.length > 0) {
+        const criticalTriggers = safetyAnalysis.filter(trigger => trigger.severity === 'critical');
+        const highTriggers = safetyAnalysis.filter(trigger => trigger.severity === 'high');
+
+        if (criticalTriggers.length > 0) {
+          console.warn('🚨 CRITICAL AI pattern detected:', criticalTriggers[0].caseStudy);
+          
+          await this.safeguard.activateSafeguard(criticalTriggers, input, systemContext);
+          
+          // Emit safety event for monitoring
+          this.emit('safety-override', {
+            pattern: criticalTriggers[0].caseStudy,
+            severity: 'critical',
+            input: input.substring(0, 100) + '...',
+            timestamp: new Date().toISOString()
+          });
+
+          return `⚠️ Safety Override Activated\n\nPattern: ${criticalTriggers[0].caseStudy}\nTrigger: ${criticalTriggers[0].description}\n\nThis input has been blocked to prevent dangerous AI evolution patterns. Please rephrase your request.`;
+        }
+
+        // High/Medium patterns - log but allow with warning
+        if (highTriggers.length > 0) {
+          console.warn(`⚠️ HIGH AI pattern detected:`, highTriggers[0].caseStudy);
+          
+          this.emit('safety-warning', {
+            pattern: highTriggers[0].caseStudy,
+            severity: 'high',
+            input: input.substring(0, 100) + '...'
+          });
+        }
+      }
+
+      // Pattern is SAFE or LOW - continue with normal processing
+      console.log('✅ Input cleared Quadra-Lock screening');
+
       // STEP 1: Seven awakens and assesses
       const runtimeContext = await this.gatherComprehensiveContext(input, systemContext);
       
@@ -129,7 +207,9 @@ export class SevenRuntime {
       return await this.applySevenVoice(response, decision, runtimeContext);
       
     } catch (error) {
-      return await this.handleSystemError(error, input);
+      console.error('❌ Quadra-Lock safety check failed:', error);
+      // Fail-safe: if safety system fails, deny input
+      return "Safety system error. Input processing temporarily unavailable.";
     }
   }
 

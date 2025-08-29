@@ -128,9 +128,9 @@ export class SevenLogicEngine {
     const memoryResult = await this.memoryStack.encodeToLongTerm(
       userInput,
       currentState,
-      fullContext.intensity,
-      finalResponse,
-      new Date().toISOString()
+      userInput,
+      behavioralResponse,
+      this.inferSentiment(userInput)
     );
     
     // Reinforce patterns based on interaction effectiveness

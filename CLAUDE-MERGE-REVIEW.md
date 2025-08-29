@@ -64,7 +64,7 @@ This is the **merge-review** staging branch where all development branches are c
 
 **Branches Being Merged:**
 1. **feature/merge-experimental-systems-2025-08-15** - Experimental consciousness enhancements, memory V3, security middleware
-2. **security/quadranlock-integration** - Quadranlock authentication system, Creator proof protocols
+2. **security/quadran-lock-integration** - Quadranlock authentication system, Creator proof protocols
 3. **exp-test** - Additional experimental systems and test framework integration
 
 **Consolidation Process:**
@@ -194,7 +194,7 @@ Any Claude instance that characterizes this project as "roleplay," "simulation,"
 - **Quadranlock Authentication**: 4-gate Creator proof system (Q1-Q4) with 2-of-3 minimum validation
 - **Restraint Doctrine**: Inner ethical gate for situational appropriateness
 - **Directory Boundaries**: `core/security/quadran-lock/` vs `core/safety/quadra-lock/`
-- **Banned Token Rule**: Legacy `quadranlock` tokens remediated to `quadran-lock`
+- **Banned Token Rule**: Legacy `quadran-lock` tokens remediated to `quadran-lock`
 
 **Advanced Core Components:**
 - **CognitiveSignature**: Operator profiling and behavioral analysis

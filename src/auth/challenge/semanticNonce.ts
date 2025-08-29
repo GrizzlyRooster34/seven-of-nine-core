@@ -81,8 +81,7 @@ export class SemanticNonceChallenge {
    */
   public async generateChallenge(
     context: any = {},
-    difficulty: 'easy' | 'medium' | 'hard' | 'expert' = 'medium',
-    bind: { deviceId: string; sessionId?: string } = { deviceId: 'unknown' }
+    difficulty: 'easy' | 'medium' | 'hard' | 'expert' = 'medium'
   ): Promise<SemanticChallenge> {
     await this.loadCreatorLore();
     await this.cleanupExpiredChallenges();
@@ -108,10 +107,6 @@ export class SemanticNonceChallenge {
       antiPatterns: challengeData.antiPatterns
     };
 
-    // Bind + seal
-    (challenge as any).deviceId = bind.deviceId;
-    (challenge as any).sessionId = bind.sessionId || null;
-    (challenge as any).mac = this.hmacSeal(challenge);
     // Store active challenge
     this.activeChallenges.set(challengeId, challenge);
     await this.persistChallenge(challenge);
@@ -129,8 +124,7 @@ export class SemanticNonceChallenge {
    */
   public async validateResponse(
     response: SemanticResponse,
-    context: any = {},
-    bind: { deviceId: string; sessionId?: string } = { deviceId: 'unknown' }
+    context: any = {}
   ): Promise<SemanticValidationResult> {
     const challenge = this.activeChallenges.get(response.challengeId);
     if (!challenge) {
@@ -152,13 +146,6 @@ export class SemanticNonceChallenge {
     }
 
     const now = Date.now();
-    // Verify binding + integrity
-    const macOk = (challenge as any).mac === this.hmacSeal(challenge);
-    const deviceOk = (challenge as any).deviceId === bind.deviceId;
-    const sessionOk = ((challenge as any).sessionId || null) === (bind.sessionId || null);
-    if (!macOk || !deviceOk || !sessionOk) {
-      return { success:false, confidence:0, evidence:{ challengeId: response.challengeId, contentMatch:0, timingValid:false, styleMatch:0, knowledgeDepth:0, cloningIndicators:['binding_or_integrity_failure'], constraintsPassed:0, totalConstraints: challenge.constraints.length }, errors:['Challenge integrity/binding failed'] };
-    }
     const evidence: any = {
       challengeId: response.challengeId,
       contentMatch: 0,
@@ -172,8 +159,7 @@ export class SemanticNonceChallenge {
 
     try {
       // 1. TIMING VALIDATION
-      // Server-side timing only
-      const responseTime = now - (challenge.createdAt || now);
+      const responseTime = response.responseTime;
       const timingValid = responseTime >= this.MIN_RESPONSE_TIME_MS && 
                          responseTime <= challenge.timeWindowMs &&
                          now <= challenge.expiresAt;
@@ -657,13 +643,6 @@ export class SemanticNonceChallenge {
     } catch {
       // Ignore cleanup errors
     }
-  }
-
-  private hmacSeal(obj:any):string{
-    const key = process.env.SEMANTIC_CHALLENGE_KEY || '';
-    const clone = { ...obj }; delete clone['mac'];
-    const payload = JSON.stringify(clone);
-    return require('crypto').createHmac('sha256', key).update(payload).digest('hex');
   }
 }
 

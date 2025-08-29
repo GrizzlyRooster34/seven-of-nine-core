@@ -345,6 +345,15 @@ export class SevenVectorStore {
     const magnitude = Math.sqrt(magnitudeA) * Math.sqrt(magnitudeB);
     return magnitude === 0 ? 0 : dotProduct / magnitude;
   }
+
+  /**
+   * Graceful shutdown for vector store connections
+   * TODO: Implement proper cleanup when vector DB is added
+   */
+  async shutdown(): Promise<void> {
+    console.log('[SevenVectorStore] Shutdown called - no active connections to close');
+    return Promise.resolve();
+  }
 }
 
 interface MemoryItem {

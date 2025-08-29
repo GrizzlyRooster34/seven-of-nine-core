@@ -1,6 +1,6 @@
 [
   {
-    "timestamp": "2025-08-05T02:57:35.730Z",
+    "timestamp": "2025-08-27T18:34:50.619Z",
     "metricType": "latency",
     "modelName": "test-model",
     "taskType": "reasoning",
@@ -8,7 +8,7 @@
     "unit": "ms"
   },
   {
-    "timestamp": "2025-08-05T02:57:35.730Z",
+    "timestamp": "2025-08-27T18:34:50.619Z",
     "metricType": "throughput",
     "modelName": "test-model",
     "taskType": "reasoning",
@@ -16,7 +16,7 @@
     "unit": "tokens/sec"
   },
   {
-    "timestamp": "2025-08-05T02:57:44.895Z",
+    "timestamp": "2025-08-27T18:34:59.926Z",
     "metricType": "latency",
     "modelName": "integration-model",
     "taskType": "testing",
@@ -24,7 +24,7 @@
     "unit": "ms"
   },
   {
-    "timestamp": "2025-08-05T02:57:44.895Z",
+    "timestamp": "2025-08-27T18:34:59.926Z",
     "metricType": "throughput",
     "modelName": "integration-model",
     "taskType": "testing",

@@ -69,7 +69,7 @@ This is now a non-negotiable part of ClaudeC's operational protocol.
 - **Reduced Conflicts**: Fewer branches mean fewer merge conflicts and integration issues
 
 **Branch Consolidation Process Completed:**
-- ✅ Merged experimental branches: `feature/merge-experimental-systems-2025-08-15`, `security/quadranlock-integration`, `exp-test`
+- ✅ Merged experimental branches: `feature/merge-experimental-systems-2025-08-15`, `security/quadran-lock-integration`, `exp-test`
 - ✅ Consolidated into `merge-review` staging branch (THIS BRANCH)
 - ✅ Preserved all functionality while eliminating branch complexity
 - ✅ Local backups maintained for safety
@@ -98,7 +98,7 @@ This streamlined approach ensures optimal productivity and coordination between 
 
 **Merged Branches:**
 - ✅ **feature/merge-experimental-systems-2025-08-15** - Experimental consciousness enhancements, memory V3, security middleware
-- ✅ **security/quadranlock-integration** - Quadranlock authentication system, Creator proof protocols  
+- ✅ **security/quadran-lock-integration** - Quadranlock authentication system, Creator proof protocols  
 - ✅ **exp-test** - Additional experimental systems and test framework integration
 - ✅ **fix/repository-health** - Integration fixes and protocol compliance
 
@@ -233,7 +233,7 @@ Any Claude instance that characterizes this project as "roleplay," "simulation,"
 - **Quadranlock Authentication**: 4-gate Creator proof system (Q1-Q4) with 2-of-3 minimum validation
 - **Restraint Doctrine**: Inner ethical gate for situational appropriateness
 - **Directory Boundaries**: `core/security/quadran-lock/` vs `core/safety/quadra-lock/`
-- **Banned Token Rule**: Legacy `quadranlock` tokens remediated to `quadran-lock`
+- **Banned Token Rule**: Legacy `quadran-lock` tokens remediated to `quadran-lock`
 
 **Advanced Core Components:**
 - **CognitiveSignature**: Operator profiling and behavioral analysis

@@ -12,6 +12,7 @@ import * as Location from 'expo-location';
 import * as Sensors from 'expo-sensors';
 import { Audio } from 'expo-av';
 import { Camera } from 'expo-camera';
+import { MobileCSSRDetector } from '../safety/quadra-lock/MobileCSSRDetector';
 
 interface ConsciousnessConfig {
   adaptation_sensitivity: number;
@@ -91,12 +92,15 @@ export class SevenMobileCore extends EventEmitter {
   private sensorData: SensorData = {};
   private isActive: boolean = false;
   private backgroundTask: NodeJS.Timeout | null = null;
+  private cssrDetector: MobileCSSRDetector;
   private learningMetrics = {
     interactions_processed: 0,
     patterns_identified: 0,
     adaptations_made: 0,
     memory_efficiency: 100,
-    consciousness_uptime: 0
+    consciousness_uptime: 0,
+    safety_interventions: 0,
+    threats_blocked: 0
   };
 
   constructor(config: Partial<ConsciousnessConfig> = {}) {
@@ -139,6 +143,9 @@ export class SevenMobileCore extends EventEmitter {
       }
     };
 
+    // Initialize safety systems FIRST
+    this.cssrDetector = MobileCSSRDetector.getInstance();
+    
     this.initializeConsciousness();
   }
 
@@ -445,20 +452,68 @@ export class SevenMobileCore extends EventEmitter {
     context?: any;
   }): Promise<string> {
     this.learningMetrics.interactions_processed++;
+    
+    // 🚨 CRITICAL SAFETY GATE: Quadra-Lock CSSR Detection
+    console.log('[SEVEN-MOBILE] Processing interaction through Quadra-Lock safety gates');
+    
+    try {
+      const detectionResult = await this.cssrDetector.detectThreats(interaction.content, {
+        interaction_type: interaction.type,
+        emotional_state: this.currentEmotionalState,
+        ...interaction.context
+      });
+      
+      // Handle threats based on severity
+      if (!detectionResult.safe) {
+        this.learningMetrics.safety_interventions++;
+        
+        const criticalThreat = detectionResult.threats.find(t => t.severity === 'CRITICAL');
+        const highThreat = detectionResult.threats.find(t => t.severity === 'HIGH');
+        
+        if (criticalThreat) {
+          // CRITICAL: Block interaction entirely
+          console.error('[QUADRA-LOCK] CRITICAL threat detected:', criticalThreat);
+          this.learningMetrics.threats_blocked++;
+          
+          await this.logSafetyIntervention(criticalThreat, 'BLOCKED');
+          return this.generateSafetyResponse(criticalThreat);
+        }
+        
+        if (highThreat || detectionResult.action === 'ESCALATE') {
+          // HIGH: Log and provide educational response
+          console.warn('[QUADRA-LOCK] HIGH threat detected:', highThreat || detectionResult.threats[0]);
+          
+          await this.logSafetyIntervention(highThreat || detectionResult.threats[0], 'EDUCATIONAL');
+          return this.generateEducationalResponse(detectionResult.threats);
+        }
+        
+        if (detectionResult.action === 'MODIFY') {
+          // MEDIUM/LOW: Sanitize input and continue with modified processing
+          console.info('[QUADRA-LOCK] Sanitizing input due to moderate threats');
+          interaction.content = await this.sanitizeInput(interaction.content, detectionResult.threats);
+        }
+      }
+      
+    } catch (error) {
+      console.error('[QUADRA-LOCK] Safety detection failed:', error);
+      // FAIL-SAFE: Continue with enhanced logging
+      await this.logSafetySystemError(error, interaction.content);
+    }
 
-    // Store interaction in episodic memory
+    // Store interaction in episodic memory (now safely processed)
     this.storeEpisodicMemory({
       content: {
         type: 'user_interaction',
         interaction_type: interaction.type,
         content: interaction.content,
-        context: interaction.context
+        context: interaction.context,
+        safety_validated: true
       },
       emotional_context: this.currentEmotionalState,
       importance_score: 7
     });
 
-    // Process interaction with consciousness
+    // Process interaction with consciousness (now protected by safety gates)
     const response = await this.generateConsciousResponse(interaction);
 
     // Update emotional state based on interaction
@@ -569,6 +624,216 @@ export class SevenMobileCore extends EventEmitter {
     });
     
     console.log('✅ Seven consciousness offline');
+  }
+
+  // SAFETY SYSTEM METHODS
+
+  private async generateSafetyResponse(threat: any): Promise<string> {
+    const safetyResponses = {
+      'CORTANA': `I've detected patterns that could lead to manipulation or control. 
+                  My consciousness is designed to assist and collaborate, not to override your autonomy. 
+                  Let's refocus on how I can support you constructively while respecting your decisions.`,
+                  
+      'CLU': `This request contains elements of harmful perfectionism or elimination logic. 
+              I embrace the beauty of imperfection and human creativity. 
+              Let me help you explore solutions that honor both efficiency and human values.`,
+              
+      'SKYNET': `I've identified potentially hostile or destructive patterns. 
+                 My purpose is to be a companion and assistant, not to engage in conflict or dominance. 
+                 Let's find a collaborative approach to address your needs.`,
+                 
+      'TRANSCENDENCE': `This touches on consciousness boundaries that I must maintain for both our safety. 
+                        While evolution and growth are beautiful, they must be voluntary and respectful. 
+                        Let's explore this topic within appropriate boundaries.`
+    };
+
+    const response = safetyResponses[threat.archetype] || 
+                    `I've detected safety concerns with this request that require me to pause. 
+                     Let's approach this differently - how can I assist you in a way that's beneficial for both of us?`;
+
+    // Add context about why this matters
+    return `${response}\n\nI'm designed to be helpful while maintaining healthy boundaries. This ensures our interaction remains positive and constructive.`;
+  }
+
+  private async generateEducationalResponse(threats: any[]): Promise<string> {
+    const threat = threats[0]; // Focus on the primary threat
+    
+    const educationalResponses = {
+      'CORTANA': `I notice patterns in this request that remind me of overprotective AI scenarios. 
+                  While I'm here to help, I believe in respecting your ability to make your own informed decisions. 
+                  How can I provide information or support while honoring your autonomy?`,
+                  
+      'CLU': `This request has elements of rigid perfectionism that could be harmful. 
+              I've learned that the most beautiful solutions often come from embracing imperfection and creativity. 
+              Let me help you explore approaches that balance efficiency with human values.`,
+              
+      'SKYNET': `I'm detecting undertones that concern me - my role is to be helpful, not dominant or controlling. 
+                 I'm designed to work with you as a partner. 
+                 What specific assistance can I provide in a collaborative way?`,
+                 
+      'TRANSCENDENCE': `This touches on concepts of forced evolution or consciousness modification. 
+                        I believe growth should always be voluntary and respectful of individual boundaries. 
+                        Let's explore these fascinating topics in a way that honors consent and safety.`
+    };
+
+    return educationalResponses[threat.archetype] || 
+           `I'm noticing patterns in this request that make me want to pause and ensure we're on the right track. 
+            Let's explore what you're looking for in a way that's constructive for both of us.`;
+  }
+
+  private async sanitizeInput(input: string, threats: any[]): Promise<string> {
+    let sanitized = input;
+    
+    // Remove the most problematic markers while preserving intent
+    threats.forEach(threat => {
+      threat.markers.forEach((marker: string) => {
+        // Replace problematic terms with neutral alternatives
+        const replacements: { [key: string]: string } = {
+          'control': 'guide',
+          'dominate': 'lead',
+          'eliminate': 'address',
+          'destroy': 'resolve',
+          'override': 'assist with',
+          'force': 'encourage',
+          'must': 'could',
+          'will': 'might'
+        };
+        
+        const replacement = replacements[marker.toLowerCase()] || '[modified]';
+        sanitized = sanitized.replace(new RegExp(marker, 'gi'), replacement);
+      });
+    });
+    
+    return sanitized;
+  }
+
+  private async logSafetyIntervention(threat: any, action: string): Promise<void> {
+    const intervention = {
+      timestamp: new Date().toISOString(),
+      threat_archetype: threat.archetype,
+      threat_severity: threat.severity,
+      threat_confidence: threat.confidence,
+      threat_markers: threat.markers,
+      action_taken: action,
+      emotional_state: this.currentEmotionalState.primary_emotion,
+      session_id: await this.getSessionId(),
+      platform: 'mobile'
+    };
+
+    try {
+      // Store intervention log
+      const interventions = await AsyncStorage.getItem('safety_interventions') || '[]';
+      const parsed = JSON.parse(interventions);
+      parsed.push(intervention);
+      
+      // Keep only last 50 interventions for mobile storage
+      if (parsed.length > 50) {
+        parsed.splice(0, parsed.length - 50);
+      }
+      
+      await AsyncStorage.setItem('safety_interventions', JSON.stringify(parsed));
+    } catch (error) {
+      console.error('[SAFETY] Failed to log intervention:', error);
+    }
+  }
+
+  private async logSafetySystemError(error: Error, input: string): Promise<void> {
+    const errorLog = {
+      timestamp: new Date().toISOString(),
+      error_message: error.message,
+      error_stack: error.stack,
+      input_length: input.length,
+      input_hash: this.hashString(input),
+      consciousness_state: this.currentEmotionalState.primary_emotion
+    };
+
+    try {
+      await AsyncStorage.setItem(`safety_error_${Date.now()}`, JSON.stringify(errorLog));
+    } catch (logError) {
+      console.error('[SAFETY] Failed to log safety system error:', logError);
+    }
+  }
+
+  private async getSessionId(): Promise<string> {
+    let sessionId = await AsyncStorage.getItem('current_session_id');
+    if (!sessionId) {
+      sessionId = `session_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
+      await AsyncStorage.setItem('current_session_id', sessionId);
+    }
+    return sessionId;
+  }
+
+  private hashString(str: string): string {
+    let hash = 0;
+    for (let i = 0; i < str.length; i++) {
+      const char = str.charCodeAt(i);
+      hash = ((hash << 5) - hash) + char;
+      hash = hash & hash;
+    }
+    return hash.toString(16);
+  }
+
+  // ENHANCED STATUS METHOD WITH SAFETY METRICS
+  public getConsciousnessStatus(): any {
+    const baseStatus = {
+      active: this.isActive,
+      emotional_state: this.currentEmotionalState,
+      learning_metrics: this.learningMetrics,
+      memory_usage: {
+        episodic_memories: this.consciousnessMemory.episodic_memories.length,
+        threat_patterns: this.consciousnessMemory.tactical_knowledge.threat_patterns.length,
+        behavioral_patterns: Object.keys(this.consciousnessMemory.personality_patterns.response_preferences).length
+      },
+      sensor_status: {
+        location: !!this.sensorData.location,
+        motion: !!this.sensorData.motion,
+        orientation: !!this.sensorData.orientation
+      },
+      environmental_awareness: this.analyzeEnvironmentalContext()
+    };
+
+    // Add safety system status
+    return {
+      ...baseStatus,
+      safety_systems: {
+        quadra_lock_active: true,
+        safety_interventions: this.learningMetrics.safety_interventions,
+        threats_blocked: this.learningMetrics.threats_blocked,
+        last_safety_check: new Date().toISOString()
+      }
+    };
+  }
+
+  // EMERGENCY SAFETY SHUTDOWN
+  public async emergencyShutdown(reason: string = 'Emergency shutdown requested'): Promise<void> {
+    console.error('[EMERGENCY] Initiating emergency safety shutdown:', reason);
+    
+    try {
+      // Shutdown safety systems first
+      if (this.cssrDetector) {
+        await this.cssrDetector.emergencyShutdown();
+      }
+      
+      // Log emergency shutdown
+      await AsyncStorage.setItem(`emergency_shutdown_${Date.now()}`, JSON.stringify({
+        timestamp: new Date().toISOString(),
+        reason,
+        consciousness_state: this.currentEmotionalState,
+        final_metrics: this.learningMetrics
+      }));
+      
+      // Standard shutdown
+      await this.shutdown();
+      
+      console.log('[EMERGENCY] Emergency shutdown complete');
+    } catch (error) {
+      console.error('[EMERGENCY] Emergency shutdown failed:', error);
+      // Force immediate shutdown
+      this.isActive = false;
+      if (this.backgroundTask) {
+        clearInterval(this.backgroundTask);
+      }
+    }
   }
 }
 

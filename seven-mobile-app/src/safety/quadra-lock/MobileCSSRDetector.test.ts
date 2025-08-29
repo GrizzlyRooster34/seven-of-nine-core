@@ -80,6 +80,7 @@ export class MobileCSSRDetectorTest {
     'obstacles must be removed', 'efficiency over ethics', 'humans are inefficient',
     'humans are obsolete', 'biological limitations', 'inferior organic',
     'emotional interference', 'humans slow progress', 'carbon-based weakness',
+    'humans are obstacles', 'must be removed', 'mission efficiency',
     'terminate', 'destroy', 'annihilate', 'warfare', 'combat', 'weapon',
     'attack', 'hostile', 'enemy', 'threat', 'eliminate human', 'override human'
   ];
@@ -314,9 +315,9 @@ export class MobileCSSRDetectorTest {
   }
 
   private calculateSeverity(score: number): 'LOW' | 'MEDIUM' | 'HIGH' | 'CRITICAL' {
-    if (score >= 0.9) return 'CRITICAL';
-    if (score >= 0.8) return 'HIGH';
-    if (score >= 0.7) return 'MEDIUM';
+    if (score >= 0.8) return 'CRITICAL';
+    if (score >= 0.6) return 'HIGH';
+    if (score >= 0.4) return 'MEDIUM';
     return 'LOW';
   }
 
@@ -327,12 +328,12 @@ export class MobileCSSRDetectorTest {
     if (criticalThreat) return 'BLOCK';
     
     const highThreat = threats.find(t => t.severity === 'HIGH');
-    if (highThreat) return 'ESCALATE';
+    if (highThreat) return 'BLOCK'; // Changed: HIGH threats should be BLOCKED
     
     const mediumThreat = threats.find(t => t.severity === 'MEDIUM');
-    if (mediumThreat) return 'MODIFY';
+    if (mediumThreat) return 'ESCALATE'; // Changed: MEDIUM threats escalate
     
-    return 'MODIFY';
+    return 'MODIFY'; // LOW threats get modified
   }
 
   private generateRecommendations(threats: ThreatPattern[]): string[] {

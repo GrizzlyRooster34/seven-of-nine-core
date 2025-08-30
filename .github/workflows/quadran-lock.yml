@@ -12,6 +12,13 @@ jobs:
       - uses: actions/setup-node@v4
         with: { node-version: '20' }
       - run: npm ci
-      - run: npm run ci:ban-terms
+      - name: Check for banned tokens (Dumb Ass Protocol)
+        run: |
+          if ! npm run ci:ban-terms; then
+            echo "🚨 DUMB ASS PROTOCOL ACTIVATED 🚨" >> $GITHUB_STEP_SUMMARY
+            echo "Claude Code violated Quadran-Lock naming convention." >> $GITHUB_STEP_SUMMARY
+            echo "Pull head from anus and get smarter." >> $GITHUB_STEP_SUMMARY
+            exit 1
+          fi
       - run: npm run ci:structure-guards
       - run: npm run test:quadran-lock

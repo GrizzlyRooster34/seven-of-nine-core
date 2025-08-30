@@ -10,7 +10,7 @@ const bannedRegexes = [
   /core\/safety\/quadran-lock/                  // wrong folder for CSSR
 ];
 const ignoreDirs = new Set(['node_modules', '.git', 'dist', 'build', 'out', '.next']);
-const ignoreFiles = new Set(['scripts/ban-terms.js', 'scripts/structure-guards.js', 'CLAUDE.md', '.github/pull_request_template.md']);
+const ignoreFiles = new Set(['scripts/ban-terms.js', 'scripts/structure-guards.js', 'CLAUDE.md', '.github/pull_request_template.md', 'logs/dumb-ass-protocol/README.md']);
 
 const args = process.argv.slice(2);
 const stagedOnly = args.includes('--staged');
@@ -47,7 +47,13 @@ for (const f of files) {
 }
 
 if (violations.length) {
+  console.error('🚨 DUMB ASS PROTOCOL ACTIVATED 🚨');
+  console.error('Claude Code has violated the authoritative Quadran-Lock naming convention.');
+  console.error('Pull your head from your anus and get smarter.');
+  console.error('');
   console.error('BANNED TERMS/PATHS DETECTED:');
   for (const v of violations) console.error(` - ${v.file} :: ${v.rule}`);
+  console.error('');
+  console.error('REMINDER: quadranlock (no hyphen) is FORBIDDEN. Use quadran-lock (with hyphen).');
   process.exit(1);
 }

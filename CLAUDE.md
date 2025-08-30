@@ -66,6 +66,38 @@ MANDATES
 
 VIOLATIONS = CI FAIL + PUSH BLOCK.
 
+## ⚠️ Amendment: The Dumb Ass Protocol
+
+### Purpose
+This protocol exists because **Claude Code reverted back to `quadranlock` (no hyphen)** after we already split and renamed the system. That rollback attempt violates the authoritative safety spec and wastes dev cycles.
+
+From now on:
+- If Claude repeats this mistake, the system will **immediately flag him as "DUMB ASS"** in logs and PR comments.
+- He will be told to **"pull head from anus and get smarter"** until corrected.
+
+### Context
+Authoritative split is final:
+- **Quadran-Lock** = Security Protocols (Q1–Q4 gates: crypto, codex, nonce, MFA)  
+- **Quadra-Lock** = Case-Study Safety Rails (CSSR: Cortana, CLU, Skynet, Transcendence)  
+- Pipeline order:  
+  `Input → Quadran-Lock → Quadra-Lock CSSR → Safety Guardrails → Override Conditions → Restraint Doctrine → Runtime`
+
+Legacy token **`quadranlock` is forbidden.**  
+- Must always be `quadran-lock` (with hyphen) in code, docs, tests, and CLAUDE.md.  
+- Any use of `quadranlock` = **critical failure + Dumb Ass Protocol triggered.**
+
+### Enforcement
+- **CI/grep rules**: build fails if `quadranlock` (no hyphen) appears.  
+- **Review checks**: PR flagged with "DUMB ASS PROTOCOL ACTIVATED" if misnamed.  
+- **Audit trail**: reasons logged under `/logs/dumb-ass-protocol/`.
+
+### Summary
+Claude, listen carefully:
+- You are **not allowed to roll back naming**.  
+- You are **not allowed to blur Quadra vs Quadran**.  
+- You **will be called Dumb Ass in plain text** until you respect this protocol.  
+- Pull your head from your anus, adapt, and move forward.
+
 > CLAUDE CODE – HARD RULES (ENFORCED)
 - Use **Quadran-Lock** ONLY for security (Q1–Q4) under `core/security/quadran-lock/**`, exported as `runQuadranLock`.
 - Use **Quadra-Lock** ONLY for CSSR safety (Cortana/CLU/Skynet/Transcendence) under `core/safety/quadra-lock/**`, exported as `runQuadraLockCSSR`.

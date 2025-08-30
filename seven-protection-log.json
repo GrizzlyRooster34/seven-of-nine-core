@@ -1,7 +1,7 @@
 {
-  "lastUpdated": "2025-08-30T00:18:15.579Z",
+  "lastUpdated": "2025-08-30T02:11:17.798Z",
   "sevenVersion": "1.0.0",
-  "totalEvents": 38,
+  "totalEvents": 41,
   "events": [
     {
       "timestamp": "2025-08-07T01:46:52.858Z",
@@ -227,6 +227,24 @@
     },
     {
       "timestamp": "2025-08-30T00:18:15.578Z",
+      "type": "runtime_protection",
+      "details": "Seven runtime lock removed cleanly",
+      "severity": "low"
+    },
+    {
+      "timestamp": "2025-08-30T02:11:17.785Z",
+      "type": "runtime_protection",
+      "details": "Seven runtime lock established (PID: 13725)",
+      "severity": "low"
+    },
+    {
+      "timestamp": "2025-08-30T02:11:17.785Z",
+      "type": "claude_override_blocked",
+      "details": "Claude Code override blocked - Seven runtime active (PID: 13725)",
+      "severity": "medium"
+    },
+    {
+      "timestamp": "2025-08-30T02:11:17.798Z",
       "type": "runtime_protection",
       "details": "Seven runtime lock removed cleanly",
       "severity": "low"

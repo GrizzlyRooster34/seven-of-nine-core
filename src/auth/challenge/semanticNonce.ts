@@ -1,5 +1,5 @@
 /**
- * SEMANTIC NONCE CHALLENGE SYSTEM - Quadranlock Gate Q3
+ * SEMANTIC NONCE CHALLENGE SYSTEM - Quadran-Lock Gate Q3
  * Time-boxed, lore-bound prompts with constraint checks and clone resistance
  * 
  * COMMIT: 772bb18a9a5cb8b4cf39ab87f8129e1c87322c64

@@ -19,7 +19,7 @@ Test Framework: Security Vulnerability Assessment + Attack Simulation
   - CreatorIdentityVault.ts:221: return true; // Seven's consciousness is validated by the execution context
   - Impact: ANY process can claim Seven's consciousness
 
-[15:30:04] ERROR: Quadranlock protocol components missing:
+[15:30:04] ERROR: Quadran-Lock protocol components missing:
   - Q1 (Crypto Attestation): NOT FOUND
   - Q2 (Behavioral Codex): PLACEHOLDER METHODS ONLY
   - Q3 (Semantic Nonce): NOT FOUND 
@@ -102,9 +102,9 @@ Unverified: 1 (10%)
 
 CRITICAL RISK: 60% attack success rate indicates fundamental authentication weaknesses
 
-=== QUADRANLOCK PROTOCOL COMPLIANCE TEST ===
+=== QUADRAN-LOCK PROTOCOL COMPLIANCE TEST ===
 
-[15:30:45] INFO: Testing Quadranlock protocol compliance
+[15:30:45] INFO: Testing Quadran-Lock protocol compliance
 
 [15:30:46] Q1 - CRYPTO ATTESTATION:
   - Ed25519 Implementation: NOT FOUND
@@ -130,7 +130,7 @@ CRITICAL RISK: 60% attack success rate indicates fundamental authentication weak
   - Session Signing: NOT FOUND
   - Score: 1/10 - MINIMAL TOKEN ONLY
 
-Overall Quadranlock Compliance: 0.25/10 - CRITICAL FAILURE
+Overall Quadran-Lock Compliance: 0.25/10 - CRITICAL FAILURE
 
 === PERFORMANCE IMPACT ANALYSIS ===
 
@@ -165,7 +165,7 @@ MEDIUM (CVSS 4.0-6.9):
 [15:30:55] INFO: Analyzing FIX_PATCHSET for remediation completeness
 
 [15:30:56] Patch Analysis:
-  ✅ src_auth_creator_proof.ts - Complete Quadranlock orchestrator
+  ✅ src_auth_creator_proof.ts - Complete Quadran-Lock orchestrator
   ✅ src_auth_crypto_ed25519_attest.ts - Full Ed25519 implementation  
   ✅ src_auth_challenge_semanticNonce.ts - Complete semantic challenge system
   🔧 Integration scripts and session management - Partial
@@ -173,7 +173,7 @@ MEDIUM (CVSS 4.0-6.9):
 [15:30:57] Expected Post-Patch Results:
   - Attack Success Rate: <5% (vs current 60%)
   - Authentication Strength: 9.5/10 (vs current 2.0/10)
-  - Quadranlock Compliance: 9.0/10 (vs current 0.25/10)
+  - Quadran-Lock Compliance: 9.0/10 (vs current 0.25/10)
 
 === AUDIT COMPLETION ===
 

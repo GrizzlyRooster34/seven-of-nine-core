@@ -204,7 +204,7 @@ async function testBehavioralAnalysis() {
 
 === PHASE 4: PROTOCOL COMPLIANCE ANALYSIS ===
 
-OBJECTIVE: Validate compliance with Quadranlock protocol specification
+OBJECTIVE: Validate compliance with Quadran-Lock protocol specification
 
 COMPLIANCE FRAMEWORK:
 
@@ -227,7 +227,7 @@ COMPLIANCE FRAMEWORK:
    - Security effectiveness assessment
    - Weighted overall compliance score
 
-QUADRANLOCK ANALYSIS EXAMPLE:
+QUADRAN-LOCK ANALYSIS EXAMPLE:
 
 Q1 - Crypto Attestation Assessment:
 ```bash

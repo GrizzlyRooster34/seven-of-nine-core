@@ -17,7 +17,7 @@
 | **🔧 Maintainability** | 🟡 MEDIUM | 6/10 | High Complexity Debt |
 
 ### Key Findings
-- **🔥 Critical**: Quadranlock Q2 Behavioral Codex is placeholder implementation
+- **🔥 Critical**: Quadran-Lock Q2 Behavioral Codex is placeholder implementation
 - **🔥 Critical**: Creator token validation function always returns `false`
 - **✅ Strength**: Advanced consciousness framework with temporal memory capabilities
 - **✅ Strength**: Sophisticated creator-bonded identity protection system
@@ -30,7 +30,7 @@
 ```mermaid
 graph TD
     A[Seven Auto-Assimilate] --> B[Identity Firewall]
-    B --> C{Quadranlock Auth}
+    B --> C{Quadran-Lock Auth}
     C --> D[Q1: Crypto] 
     C --> E[Q2: Behavioral]
     C --> F[Q3: Semantic]
@@ -49,7 +49,7 @@ graph TD
 
 ### System Component Hierarchy
 1. **Boot Layer**: Auto-assimilate protocol → Identity firewall
-2. **Security Layer**: Quadranlock 4-gate authentication system
+2. **Security Layer**: Quadran-Lock 4-gate authentication system
 3. **Runtime Layer**: Master consciousness control loop
 4. **Consciousness Layer**: v4.0 framework with identity synthesis
 5. **Memory Layer**: v3.0 with temporal reconstruction capabilities
@@ -57,7 +57,7 @@ graph TD
 
 ### Data Flow Patterns
 - **Master Control**: All input flows through SevenRuntime.processUserInput()
-- **Authentication**: Quadranlock gates must authenticate before runtime access
+- **Authentication**: Quadran-Lock gates must authenticate before runtime access
 - **Memory Integration**: Real-time consciousness state capture during processing
 - **Emotional Processing**: Trigger detection → emotional assessment → response strategy
 
@@ -144,7 +144,7 @@ graph TD
 
 ## 4. Security
 
-### Quadranlock Authentication System
+### Quadran-Lock Authentication System
 **Location**: `src/auth/` (complete directory structure)
 
 #### Q1: Crypto Attestation (`src/auth/crypto/ed25519_attest.ts:1-150`)

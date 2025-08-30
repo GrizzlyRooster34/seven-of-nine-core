@@ -180,7 +180,7 @@ Industry Comparison:
 │ ISO 27001 Access Control       │ 80%        │ 20%     │ -60%   │ NON-COMPLIANT│
 │ GDPR Data Protection           │ 95%        │ 60%     │ -35%   │ NON-COMPLIANT│
 │ PCI DSS Authentication         │ 85%        │ 5%      │ -80%   │ NON-COMPLIANT│
-│ Quadranlock Protocol Spec      │ 90%        │ 2.5%    │ -87.5% │ CRITICAL FAIL│
+│ Quadran-Lock Protocol Spec      │ 90%        │ 2.5%    │ -87.5% │ CRITICAL FAIL│
 ├────────────────────────────────┼────────────┼─────────┼────────┼─────────────┤
 │ AVERAGE COMPLIANCE             │ 87.5%      │ 18.8%   │ -68.7% │ CRITICAL FAIL│
 └─────────────────────────────────────────────────────────────────────────────┘
@@ -201,7 +201,7 @@ OWASP Authentication Guidelines:
 - Account lockout: 0% (no rate limiting)
 - Password policies: N/A (no passwords)
 
-Quadranlock Protocol Compliance:
+Quadran-Lock Protocol Compliance:
 - Q1 Crypto Attestation: 0% (not implemented)
 - Q2 Behavioral Codex: 0% (stub methods only)
 - Q3 Semantic Nonce: 0% (not implemented)  

@@ -1,10 +1,10 @@
 /**
- * QUADRANLOCK ORCHESTRATOR - Creator Authentication Proof System
+ * QUADRAN-LOCK ORCHESTRATOR - Creator Authentication Proof System
  * Implements 2-of-3 minimum gate evaluation with deny-by-default security
  * 
  * COMMIT: 772bb18a9a5cb8b4cf39ab87f8129e1c87322c64
  * PATCH: Critical security fix for Creator Bond authentication
- * RATIONALE: Current system has single weak token - implement full Quadranlock
+ * RATIONALE: Current system has single weak token - implement full Quadran-Lock
  */
 
 import { Ed25519Attestation } from './crypto/ed25519_attest';
@@ -69,7 +69,7 @@ export class CreatorProofOrchestrator {
 
   /**
    * PRIMARY AUTHENTICATION ENTRY POINT
-   * Implements Quadranlock 2-of-3 minimum with crypto presence logic
+   * Implements Quadran-Lock 2-of-3 minimum with crypto presence logic
    */
   public async authenticateCreator(
     deviceId: string,
@@ -80,7 +80,7 @@ export class CreatorProofOrchestrator {
     const gateResults: GateResult[] = [];
     
     try {
-      console.log('🔐 Quadranlock: Initiating Creator authentication');
+      console.log('🔐 Quadran-Lock: Initiating Creator authentication');
       console.log(`   Device ID: ${deviceId.substring(0, 8)}...`);
       console.log(`   Request Type: ${authRequest.type || 'standard'}`);
 
@@ -122,21 +122,21 @@ export class CreatorProofOrchestrator {
         }
       }
 
-      // Apply Quadranlock decision logic
-      const authResult = this.evaluateQuadranlock(gateResults, deviceId);
+      // Apply Quadran-Lock decision logic
+      const authResult = this.evaluateQuadran-Lock(gateResults, deviceId);
       
       // Log authentication attempt
       await this.logAuthenticationAttempt(deviceId, authRequest, authResult, gateResults);
       
       const totalTime = Date.now() - startTime;
-      console.log(`🔐 Quadranlock: Authentication complete in ${totalTime}ms`);
+      console.log(`🔐 Quadran-Lock: Authentication complete in ${totalTime}ms`);
       console.log(`   Decision: ${authResult.decision}`);
       console.log(`   Gates Successful: ${authResult.successfulGates.length}/${gateResults.length}`);
 
       return authResult;
 
     } catch (error) {
-      console.error('🚨 Quadranlock: Authentication system error:', error);
+      console.error('🚨 Quadran-Lock: Authentication system error:', error);
       
       // Fail closed on system errors
       return {
@@ -153,10 +153,10 @@ export class CreatorProofOrchestrator {
   }
 
   /**
-   * QUADRANLOCK DECISION LOGIC
+   * QUADRAN-LOCK DECISION LOGIC
    * Implements specification: 2-of-3 minimum, crypto present = fast-path
    */
-  private evaluateQuadranlock(gateResults: GateResult[], deviceId: string): AuthenticationResult {
+  private evaluateQuadran-Lock(gateResults: GateResult[], deviceId: string): AuthenticationResult {
     const successfulGates = gateResults.filter(r => r.success).map(r => r.gate);
     const failedGates = gateResults.filter(r => !r.success).map(r => r.gate);
     const cryptoGate = gateResults.find(r => r.gate === AuthGate.Q1_CRYPTO_ATTESTATION);
@@ -168,7 +168,7 @@ export class CreatorProofOrchestrator {
       ? gateResults.filter(r => r.success).reduce((sum, r) => sum + r.confidence, 0) / successfulGates.length
       : 0;
 
-    // QUADRANLOCK SPECIFICATION LOGIC:
+    // QUADRAN-LOCK SPECIFICATION LOGIC:
 
     // Rule 1: Crypto present + 1 other = fast-path ALLOW
     if (cryptoGate?.success && successfulGates.length >= 2) {

@@ -1,5 +1,5 @@
 /**
- * Quadranlock Orchestrator
+ * Quadran-Lock Orchestrator
  * 4-gate authentication system with 2-of-3 minimum validation
  */
 
@@ -21,7 +21,7 @@ export interface QuadranContext extends Q1AttestationContext {
 }
 
 /**
- * Run complete Quadranlock authentication
+ * Run complete Quadran-Lock authentication
  */
 export async function runQuadranLock(ctx: QuadranContext): Promise<QuadranResult> {
   const timestamp = new Date().toISOString();
@@ -67,7 +67,7 @@ export async function runQuadranLock(ctx: QuadranContext): Promise<QuadranResult
     };
 
   } catch (error) {
-    console.error('❌ Quadranlock orchestration failed:', error);
+    console.error('❌ Quadran-Lock orchestration failed:', error);
     
     return {
       q1: { valid: false, timestamp, error: error.message },

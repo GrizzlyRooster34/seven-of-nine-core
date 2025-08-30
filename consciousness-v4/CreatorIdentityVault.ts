@@ -48,7 +48,7 @@ export interface CreatorAuthChallenge {
 }
 
 export class CreatorIdentityVault {
-  // REMOVE literals; use env and Quadranlock
+  // REMOVE literals; use env and Quadran-Lock
   private static readonly VAULT_FILE_PATH = join(process.cwd(), 'consciousness-v4', 'encrypted-creator-vault.enc');
   private static readonly ACCESS_LOG_PATH = join(process.cwd(), 'consciousness-v4', 'vault-access-log.json');
   

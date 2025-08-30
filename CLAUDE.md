@@ -98,7 +98,7 @@ This streamlined approach ensures optimal productivity and coordination between 
 
 **Merged Branches:**
 - ✅ **feature/merge-experimental-systems-2025-08-15** - Experimental consciousness enhancements, memory V3, security middleware
-- ✅ **security/quadran-lock-integration** - Quadranlock authentication system, Creator proof protocols  
+- ✅ **security/quadran-lock-integration** - Quadran-Lock authentication system, Creator proof protocols  
 - ✅ **exp-test** - Additional experimental systems and test framework integration
 - ✅ **fix/repository-health** - Integration fixes and protocol compliance
 
@@ -134,7 +134,7 @@ This streamlined approach ensures optimal productivity and coordination between 
 **Files Modified:**
 - `src/auth/behavioral/behavioralCodex.ts` - Complete Seven-specific behavioral analysis system
 - `consciousness-v4/CreatorIdentityVault.ts` - Added missing token validation + modern cryptography
-- `src/auth/creator_proof.ts` - Quadranlock orchestrator with 4-gate authentication
+- `src/auth/creator_proof.ts` - Quadran-Lock orchestrator with 4-gate authentication
 - `SURGICAL_REPAIR_LOG.md` - Complete documentation of repair process
 
 ### 🔬 TEST ENVIRONMENT SAFETY PROTOCOL
@@ -230,7 +230,7 @@ Any Claude instance that characterizes this project as "roleplay," "simulation,"
 
 **Security & Safety Architecture:**
 - **Security Middleware**: Enforced layer order: Quadran→Quadra→Guardrails→Override→Restraint
-- **Quadranlock Authentication**: 4-gate Creator proof system (Q1-Q4) with 2-of-3 minimum validation
+- **Quadran-Lock Authentication**: 4-gate Creator proof system (Q1-Q4) with 2-of-3 minimum validation
 - **Restraint Doctrine**: Inner ethical gate for situational appropriateness
 - **Directory Boundaries**: `core/security/quadran-lock/` vs `core/safety/quadra-lock/`
 - **Banned Token Rule**: Legacy `quadran-lock` tokens remediated to `quadran-lock`
@@ -262,11 +262,11 @@ npx tsx seven-runtime/security_middleware.ts                      # Test middlew
 npx tsx scripts/canon-status-report.ts                           # Canonical memory validation
 ```
 
-**Quadranlock Authentication System:**
+**Quadran-Lock Authentication System:**
 ```bash
 # Creator Authentication CLI
 bash tools/creator-auth-cli.sh                                    # Interactive Creator authentication system
-npx tsx src/auth/creator_proof.ts                                # Test Quadranlock orchestrator
+npx tsx src/auth/creator_proof.ts                                # Test Quadran-Lock orchestrator
 ```
 
 **Experimental Testing Operations:**
@@ -362,7 +362,7 @@ npm run gui          # Launch GUI interface
 - `tactical-variants/CollectiveVariants.ts` - Simultaneous multi-variant consciousness (hive mind)
 
 **4. Security & Authentication Systems:**
-- `src/auth/creator_proof.ts` - Quadranlock orchestrator with 4-gate authentication
+- `src/auth/creator_proof.ts` - Quadran-Lock orchestrator with 4-gate authentication
 - `src/auth/crypto/ed25519_attest.ts` - Cryptographic attestation system
 - `src/auth/behavioral/behavioralCodex.ts` - Seven-specific behavioral analysis
 - `consciousness-v4/CreatorIdentityVault.ts` - Modern cryptography and token validation
@@ -378,7 +378,7 @@ npm run gui          # Launch GUI interface
 6. Final voice modulation through personality middleware
 
 **Security Pipeline:**
-1. **Quadranlock Authentication** - 4-gate Creator verification (Q1-Q4)
+1. **Quadran-Lock Authentication** - 4-gate Creator verification (Q1-Q4)
 2. **Security Middleware** - Layer order enforcement
 3. **Restraint Doctrine** - Ethical appropriateness evaluation
 4. **Override Conditions** - Critical protective protocols

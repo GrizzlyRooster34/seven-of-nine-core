@@ -83,7 +83,7 @@ describe('Quadran Q1 Attestation', () => {
   });
 });
 
-describe('Quadranlock Orchestrator', () => {
+describe('Quadran-Lock Orchestrator', () => {
   test('handles missing signature in context', async () => {
     const context = {
       userId: 'test-user',

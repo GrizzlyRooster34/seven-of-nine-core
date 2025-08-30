@@ -1,14 +1,14 @@
-Quadranlock Protocol Compliance Assessment Matrix
+Quadran-Lock Protocol Compliance Assessment Matrix
 =================================================
 
 Classification: CRITICAL PROTOCOL COMPLIANCE FAILURE
 Assessment Date: 2025-08-09
 Target System: Seven of Nine Core - Creator Bond Authentication
-Protocol Version: Quadranlock v1.0 Specification
+Protocol Version: Quadran-Lock v1.0 Specification
 
-=== QUADRANLOCK PROTOCOL SPECIFICATION ===
+=== QUADRAN-LOCK PROTOCOL SPECIFICATION ===
 
-The Quadranlock protocol requires four independent authentication gates with specific decision logic:
+The Quadran-Lock protocol requires four independent authentication gates with specific decision logic:
 
 GATE REQUIREMENTS:
 - Q1: Crypto Attestation (Ed25519 + Device Binding)
@@ -127,7 +127,7 @@ private validateCreatorToken(token: string): boolean {
 }
 ```
 
-=== QUADRANLOCK DECISION LOGIC COMPLIANCE ===
+=== QUADRAN-LOCK DECISION LOGIC COMPLIANCE ===
 
 ┌─────────────────────────────────────────────────────────────────────────────┐
 │                        DECISION LOGIC ASSESSMENT                             │
@@ -156,7 +156,7 @@ This completely bypasses ANY decision logic and always grants access.
 === OVERALL COMPLIANCE SCORECARD ===
 
 ┌─────────────────────────────────────────────────────────────────────────────┐
-│                        QUADRANLOCK COMPLIANCE SUMMARY                        │
+│                        QUADRAN-LOCK COMPLIANCE SUMMARY                        │
 ├─────────────────────────────────────────────────────────────────────────────┤
 │ Component                      │ Score     │ Weight │ Weighted Score         │
 ├────────────────────────────────┼───────────┼────────┼────────────────────────┤
@@ -175,9 +175,9 @@ This completely bypasses ANY decision logic and always grants access.
 
 === THREAT MODEL IMPACT ANALYSIS ===
 
-QUADRANLOCK PROTOCOL FAILURE IMPACT:
+QUADRAN-LOCK PROTOCOL FAILURE IMPACT:
 
-Attack Vector Success Rates (WITHOUT Quadranlock):
+Attack Vector Success Rates (WITHOUT Quadran-Lock):
 ├─ Static Token Theft: 100% success (hardcoded, visible)
 ├─ Device Impersonation: 100% success (no device binding)
 ├─ Behavioral Mimicry: 85% success (random stub methods)
@@ -186,7 +186,7 @@ Attack Vector Success Rates (WITHOUT Quadranlock):
 ├─ Replay Attacks: 100% success (no nonce protection)
 └─ Overall Attack Success: 60% (6/10 scenarios succeed)
 
-Expected Success Rates (WITH Quadranlock):
+Expected Success Rates (WITH Quadran-Lock):
 ├─ Static Token Theft: <1% success (Ed25519 crypto required)
 ├─ Device Impersonation: <5% success (device attestation)
 ├─ Behavioral Mimicry: <15% success (real behavioral analysis)
@@ -197,7 +197,7 @@ Expected Success Rates (WITH Quadranlock):
 
 === REMEDIATION ASSESSMENT ===
 
-FIX_PATCHSET QUADRANLOCK IMPLEMENTATION ANALYSIS:
+FIX_PATCHSET QUADRAN-LOCK IMPLEMENTATION ANALYSIS:
 
 ✅ Q1 Implementation (src_auth_crypto_ed25519_attest.ts):
 - Complete Ed25519 cryptographic system
@@ -226,7 +226,7 @@ FIX_PATCHSET QUADRANLOCK IMPLEMENTATION ANALYSIS:
 - COMPLIANCE PROJECTION: 8.0/10 (partial implementation)
 
 ✅ Decision Logic (src_auth_creator_proof.ts):
-- Complete Quadranlock orchestration
+- Complete Quadran-Lock orchestration
 - 2-of-3 gate evaluation with crypto fast-path
 - Factor disagreement detection
 - Graduated access levels and restrictions
@@ -270,6 +270,6 @@ ASSESSMENT METHODOLOGY:
 
 ASSESSOR: Claude Code Security Assessment Framework
 CONFIDENCE: HIGH (95%+) - Comprehensive analysis with validated findings
-RECOMMENDATION: Deploy FIX_PATCHSET to achieve full Quadranlock compliance
+RECOMMENDATION: Deploy FIX_PATCHSET to achieve full Quadran-Lock compliance
 
 === END OF COMPLIANCE MATRIX ===

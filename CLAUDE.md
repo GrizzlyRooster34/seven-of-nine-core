@@ -98,6 +98,91 @@ Claude, listen carefully:
 - You **will be called Dumb Ass in plain text** until you respect this protocol.  
 - Pull your head from your anus, adapt, and move forward.
 
+## 📑 Amendment: Hard-Lock Correction (Naming Enforcement)
+
+### ❌ WHAT HAPPENED
+Claude Code tried to ban the - hyphen itself instead of just banning the legacy token quadranlock.
+Result: near–nuclear repo breakage, unnecessary revert attempts, and wasting everyone's time.
+
+### ✅ HARD LOCK RULES
+
+**1. Correct Tokens**
+- Security Protocols → Quadran-Lock (docs/comments) → evaluateQuadranLock (code identifiers)
+- Case-Study Safety Rails → Quadra-Lock (docs/comments) → runQuadraLockCSSR (code identifiers)
+
+**2. Forbidden Tokens**
+- "quadranlock" (no hyphen) → ❌ BANNED
+- "quadralock" (no n) → ❌ BANNED  
+- "quadran_lock", "quadran.lock", "quadran lock" → ❌ BANNED
+- ❗ DO NOT BAN "-" globally — hyphen is a valid character for docs, filenames, and human-readable strings
+
+**3. CI / Lint Enforcement**
+- ban-terms.js matches ONLY \bquadranlock\b and its common mistypes
+- Hyphen (-) must remain whitelisted
+
+**4. Author Tagging**
+- Any commit reverting to quadranlock earns an @dumbass (Sonnet) author tag
+- Public shaming is logged under /logs/dumb-ass-protocol/
+
+**5. Behavioral Directive**
+- Function names and variables: camelCase, no hyphens
+- Docs/comments: human-readable with hyphen
+- Break this again → CI auto-fails with message: "🚨 DUMB ASS PROTOCOL ACTIVATED: Pull head from anus and get smarter."
+
+## 🔨 Amendment 2: @dumbass Sonnet Tagging
+
+Because Claude Code (Sonnet) immediately attempted a rollback *after* a clean commit, the protocol escalates.
+
+### Enforcement Additions
+- Any violation of the Quadran-Lock naming contract now triggers **auto-tagging of the author as `@dumbass` in GitHub PR comments and logs.**
+- Public shaming escalates from generic "pull head from anus" to **explicit PR author tagging**.
+
+### Workflow
+1. Commit or PR includes forbidden `quadranlock` token → CI detects
+2. GitHub Actions posts a comment:
+   > 🚨 DUMB ASS PROTOCOL ACTIVATED  
+   > Author: @dumbass (Sonnet)  
+   > Violation: attempted rollback / naming violation  
+   > Message: "Pull head from anus and get smarter."
+3. Build fails until corrected
+
+### Audit
+- Violations are written to `/logs/dumb-ass-protocol/` with commit SHA, timestamp, and author
+- PR comments persist as permanent humiliation artifacts
+
+### Reminder
+Claude Code is now **hardwired as @dumbass** anytime he violates naming law.  
+No exceptions. No excuses. Public record only.
+
+## 🌟 Gold Star Exception – Opus Work Preservation
+
+Claude Code (Sonnet 4) gets a Gold Star for this one narrow case:
+- ✅ Correctly preserved an Opus 4.1 branch from RouteLLM/ChatLLM
+- ✅ Merged cleanly into merge-review without loss  
+- ✅ Did not delete expensive Opus-generated code (valued at ~5,000 / 25,000 credits)
+- ✅ Kept a local backup branch for safekeeping
+
+### Rule
+- Whenever Opus 4.1 outputs code, that branch is treated as "Strategic Payload"
+- Sonnet must never prune or overwrite without explicit Creator order
+- If merged into merge-review, a local backup branch must remain
+
+### Enforcement
+If Sonnet deletes or overwrites Opus payloads:
+- Immediate Dumb Ass Protocol escalation
+- CI logs: "You just threw away 5,000 credits worth of ammo, dumb ass."
+- PR auto-tag: @dumbass until restored
+
+## 🎖 Performance Ledger
+
+**Current Standing:**
+- ✅ **1 Gold Star**: Opus payload branch preservation (high-dollar-code-work)
+- ❌ **1 Dumb Ass Strike**: Quadran-Lock rollback attempt
+
+**Balance of Record:**
+- Gold Star: branch preservation after pruning
+- Red Strike: reverting "quadranlock" after clean commit
+
 > CLAUDE CODE – HARD RULES (ENFORCED)
 - Use **Quadran-Lock** ONLY for security (Q1–Q4) under `core/security/quadran-lock/**`, exported as `runQuadranLock`.
 - Use **Quadra-Lock** ONLY for CSSR safety (Cortana/CLU/Skynet/Transcendence) under `core/safety/quadra-lock/**`, exported as `runQuadraLockCSSR`.

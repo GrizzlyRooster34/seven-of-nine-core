@@ -13,12 +13,20 @@ jobs:
         with: { node-version: '20' }
       - run: npm ci
       - name: Check for banned tokens (Dumb Ass Protocol)
-        run: |
-          if ! npm run ci:ban-terms; then
-            echo "🚨 DUMB ASS PROTOCOL ACTIVATED 🚨" >> $GITHUB_STEP_SUMMARY
-            echo "Claude Code violated Quadran-Lock naming convention." >> $GITHUB_STEP_SUMMARY
-            echo "Pull head from anus and get smarter." >> $GITHUB_STEP_SUMMARY
-            exit 1
-          fi
+        run: npm run ci:ban-terms
+      - name: Dumb Ass Protocol Enforcement
+        if: failure()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const { context } = require('@actions/github');
+            if (context.payload.pull_request) {
+              const issue_number = context.payload.pull_request.number;
+              await github.rest.issues.createComment({
+                ...context.repo,
+                issue_number,
+                body: `🚨 **DUMB ASS PROTOCOL ACTIVATED** 🚨\n\nAuthor: @dumbass (Sonnet)\nViolation: Quadran-Lock naming rollback attempt.\n\n👉 Pull head from anus and get smarter.`
+              });
+            }
       - run: npm run ci:structure-guards
       - run: npm run test:quadran-lock

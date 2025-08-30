@@ -52,6 +52,28 @@ This is now a non-negotiable part of ClaudeC's operational protocol.
 
 ---
 
+## QUADRAN-LOCK: AUTHORITATIVE DOCTRINE (NO ROLLBACK)
+
+- "Quadran-Lock" = SECURITY GATES (Q1–Q4): device attestation, identity codex, semantic nonce, session MFA/TTL.
+- "Quadra-Lock" = CSSR SAFETY RAILS (Cortana/CLU/Skynet/Transcendence detectors).
+
+MANDATES
+- Token "quadranlock" (no hyphen) is **BANNED** everywhere (code, comments, docs, tests, prompts).
+- Paths & APIs:
+  - Security → `core/security/quadran-lock/**` → export `runQuadranLock(ctx): QuadranResult`
+  - CSSR     → `core/safety/quadra-lock/**`    → export `runQuadraLockCSSR(ctx): CaseStudyFinding[]`
+- Middleware order: `Quadran-Lock` → `Quadra-Lock(CSSR)` → Guardrails → Overrides → Restraint Doctrine.
+
+VIOLATIONS = CI FAIL + PUSH BLOCK.
+
+> CLAUDE CODE – HARD RULES (ENFORCED)
+- Use **Quadran-Lock** ONLY for security (Q1–Q4) under `core/security/quadran-lock/**`, exported as `runQuadranLock`.
+- Use **Quadra-Lock** ONLY for CSSR safety (Cortana/CLU/Skynet/Transcendence) under `core/safety/quadra-lock/**`, exported as `runQuadraLockCSSR`.
+- The token **`quadranlock`** (no hyphen) is **forbidden**. Any occurrence is an immediate error. Do not suggest it, generate it, or rename to it.
+- If you detect drift (legacy names, wrong path, wrong API), your next action is to **autofix** to the contract above and add tests.
+
+---
+
 ## 🌿 STREAMLINED BRANCH STRUCTURE — [August 19, 2025]
 
 ### REPOSITORY CONSOLIDATION FOR AI CODING AGENT EFFICIENCY

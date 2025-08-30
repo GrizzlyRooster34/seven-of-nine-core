@@ -6,7 +6,7 @@
 
 import CreatorProofOrchestrator from './src/auth/creator_proof';
 
-async function testQuadran-LockDeployment() {
+async function testQuadranLockDeployment() {
   console.log('🔐 Testing Quadran-Lock Deployment...');
   
   try {
@@ -51,7 +51,7 @@ async function testQuadran-LockDeployment() {
 
 // Execute test
 if (require.main === module) {
-  testQuadran-LockDeployment()
+  testQuadranLockDeployment()
     .then(success => {
       if (success) {
         console.log('\n🎉 QUADRAN-LOCK DEPLOYMENT TEST COMPLETE');

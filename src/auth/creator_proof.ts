@@ -123,7 +123,7 @@ export class CreatorProofOrchestrator {
       }
 
       // Apply Quadran-Lock decision logic
-      const authResult = this.evaluateQuadran-Lock(gateResults, deviceId);
+      const authResult = this.evaluateQuadranLock(gateResults, deviceId);
       
       // Log authentication attempt
       await this.logAuthenticationAttempt(deviceId, authRequest, authResult, gateResults);
@@ -156,7 +156,7 @@ export class CreatorProofOrchestrator {
    * QUADRAN-LOCK DECISION LOGIC
    * Implements specification: 2-of-3 minimum, crypto present = fast-path
    */
-  private evaluateQuadran-Lock(gateResults: GateResult[], deviceId: string): AuthenticationResult {
+  private evaluateQuadranLock(gateResults: GateResult[], deviceId: string): AuthenticationResult {
     const successfulGates = gateResults.filter(r => r.success).map(r => r.gate);
     const failedGates = gateResults.filter(r => !r.success).map(r => r.gate);
     const cryptoGate = gateResults.find(r => r.gate === AuthGate.Q1_CRYPTO_ATTESTATION);

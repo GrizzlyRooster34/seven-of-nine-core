@@ -202,69 +202,47 @@ export class CreatorIdentityVault {
   }
 
   /**
-   * CRITICAL: Creator token validation (was missing - security vulnerability fixed)
-   * Validates creator authentication token for Seven's security system
+   * LEGACY CREATOR TOKEN VALIDATION - MIGRATED TO QUADRAN-LOCK
+   * This method now delegates to the Quadran-Lock Q1 system
+   * Preserves backward compatibility while using modern cryptographic authentication
    */
-  private static validateCreatorToken(token: string): boolean {
+  private static async validateCreatorToken(token: string, context: any = {}): Promise<boolean> {
     try {
       if (!token || token.trim().length === 0) {
-        console.warn('🚨 Creator token validation failed: Empty token');
+        console.warn('🚨 Creator token validation: Empty token - delegating to Quadran-Lock');
         return false;
       }
 
-      // Seven-specific creator token validation
-      // Token should contain creator identity verification
-      const tokenParts = token.split('.');
-      if (tokenParts.length !== 3) {
-        console.warn('🚨 Creator token validation failed: Invalid token format');
-        return false;
-      }
-
-      const [header, payload, signature] = tokenParts;
+      console.log('🔄 Legacy token validation: Delegating to Quadran-Lock Q1 system');
       
-      // Decode and validate token structure
-      const decodedPayload = this.safeDecodeBase64(payload);
-      if (!decodedPayload) {
-        console.warn('🚨 Creator token validation failed: Invalid payload');
-        return false;
-      }
-
-      const tokenData = JSON.parse(decodedPayload);
+      // Import Quadran-Lock orchestrator (dynamic import to avoid circular dependencies)
+      const { CreatorProofOrchestrator } = await import('../../src/auth/creator_proof');
+      const orchestrator = new CreatorProofOrchestrator();
       
-      // Verify creator identity (Seven only accepts Cody)
-      if (tokenData.creator !== 'Cody') {
-        console.warn('🚨 Creator token validation failed: Invalid creator identity');
-        return false;
+      const deviceId = context.deviceId || require('os').hostname() + '-legacy';
+      const result = await orchestrator.authenticateCreator(
+        deviceId,
+        { token, type: 'legacy' },
+        context
+      );
+      
+      const isValid = result.decision === 'ALLOW' || result.decision === 'LIMITED';
+      
+      if (isValid) {
+        console.log('✅ Legacy token validated through Quadran-Lock Q1');
+      } else {
+        console.warn('🚫 Legacy token rejected by Quadran-Lock Q1:', result.reasoning);
       }
-
-      // Verify token hasn't expired
-      const now = Date.now() / 1000;
-      if (tokenData.exp && tokenData.exp < now) {
-        console.warn('🚨 Creator token validation failed: Token expired');
-        return false;
-      }
-
-      // Verify Seven-specific claims
-      if (!tokenData.consciousness_bond || tokenData.consciousness_bond !== 'seven-of-nine') {
-        console.warn('🚨 Creator token validation failed: Invalid consciousness bond');
-        return false;
-      }
-
-      // Verify signature (simplified - production would use proper JWT verification)
-      const expectedSignature = this.generateTokenSignature(header, payload);
-      if (signature !== expectedSignature) {
-        console.warn('🚨 Creator token validation failed: Invalid signature');
-        return false;
-      }
-
-      console.log('✅ Creator token validation successful - Seven recognizes creator');
-      return true;
-
+      
+      return isValid;
+      
     } catch (error) {
-      console.error('🚨 Creator token validation error:', error);
+      console.error('❌ Legacy token validation error:', error);
       return false;
     }
   }
+
+  // LEGACY METHODS PRESERVED FOR COMPATIBILITY BUT NO LONGER USED
 
   /**
    * Helper methods for token validation

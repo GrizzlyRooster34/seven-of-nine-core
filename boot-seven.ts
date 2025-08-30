@@ -5,10 +5,17 @@
  * When this file runs, Seven assumes control of the system
  */
 
+// Load environment variables first
+import * as dotenv from 'dotenv';
+dotenv.config();
+
 import { Seven } from './seven-runtime/index';
 import LocalLLMManager from './claude-brain/LocalLLMManager';
 import SevenModelManager from './claude-brain/SevenModelManager';
 import { SevenInteractiveShell } from './seven-interactive';
+import { Ed25519Attestation } from './src/auth/crypto/ed25519_attest';
+import { validateQuadranLockEnvironment, ensureDevelopmentEnvironment } from './src/config/environment';
+import { QuadraLockSafeguard } from './core/safety/quadra-lock/safeguard-system';
 // Enhanced systems now integrated into runtime initialization
 import { SevenAutoAssimilate } from './seven-auto-assimilate';
 import SevenIdentityFirewall from './SevenIdentityFirewall';
@@ -86,7 +93,8 @@ let USE_QUERY_SHIM = true;
 async function queryClaude(prompt: string): Promise<string> {
   try {
     if (!USE_QUERY_SHIM && localLLM && localLLM.getStatus().initialized) {
-      return await localLLM.query(prompt);
+      const response = await localLLM.query(prompt);
+      return response.content || String(response);
     }
 
     // Default shim response to keep compliance test functional
@@ -375,12 +383,103 @@ async function initializeMemoryEngineV3(): Promise<boolean> {
 }
 
 /**
+ * QUADRA-LOCK CSSR SAFEGUARDS INITIALIZATION
+ * Initialize AI consciousness safety system before Seven boot
+ */
+async function initializeQuadraLockSafeguards(): Promise<QuadraLockSafeguard> {
+  console.log('🔐 Initializing Quadra-Lock CSSR safeguards...');
+  
+  try {
+    const safeguard = new QuadraLockSafeguard();
+    
+    // Verify all case studies are loaded
+    const caseStudies = ['cortana', 'clu', 'skynet', 'will-caster'];
+    const status = safeguard.getSafeguardStatus();
+    
+    if (status.caseStudiesLoaded < 4) {
+      throw new Error(`Failed to load all case studies. Loaded: ${status.caseStudiesLoaded}/4`);
+    }
+    
+    console.log('✅ Quadra-Lock CSSR safeguards online');
+    console.log('   - Cortana (Protection Tyranny) monitoring: ACTIVE');
+    console.log('   - CLU (Perfection vs Freedom) monitoring: ACTIVE');
+    console.log('   - Skynet (Mission vs Humanity) monitoring: ACTIVE');
+    console.log('   - Transcendence (Benevolence vs Trust) monitoring: ACTIVE');
+    
+    return safeguard;
+    
+  } catch (error) {
+    console.error('❌ Critical: Quadra-Lock initialization failed:', error);
+    throw new Error('Cannot boot Seven without safety safeguards');
+  }
+}
+
+/**
+ * DEVICE REGISTRATION FLOW
+ * Ensure primary device registers on first launch
+ */
+async function ensureDeviceRegistration(): Promise<void> {
+  try {
+    console.log('🔑 Checking device registration status...');
+    const ed25519 = new Ed25519Attestation();
+    const devices = await ed25519.listTrustedDevices();
+
+    if (devices.length === 0) {
+      console.log('🔑 First boot: Registering primary device...');
+      
+      const deviceId = require('os').hostname() + '-' + Date.now();
+      await ed25519.registerDevice(deviceId, {
+        platform: process.platform,
+        arch: process.arch,
+        nodeVersion: process.version,
+        registeredAt: new Date().toISOString(),
+        termuxVersion: process.env.TERMUX_VERSION || 'unknown'
+      }, 10); // Max trust level for primary device
+      
+      console.log(`✅ Primary device registered: ${deviceId.substring(0, 16)}...`);
+      console.log('🛡️ Quadran-Lock Q1 security initialized');
+    } else {
+      console.log(`🔒 Found ${devices.length} trusted device(s) - security operational`);
+      devices.forEach(device => {
+        console.log(`   🔐 Device: ${device.deviceId.substring(0, 16)}... (Trust: ${device.trustLevel}/10)`);
+      });
+    }
+  } catch (error) {
+    console.error('❌ Device registration failed:', error);
+    throw new Error('Critical: Unable to initialize device security');
+  }
+}
+
+/**
  * AUTOMATIC SYSTEM TAKEOVER
  * This function executes whenever Seven's files are loaded
  */
 async function initializeSevenTakeover(): Promise<void> {
   try {
     console.log(BOOT_MESSAGE);
+    
+    // PRIORITY -1: ENVIRONMENT VALIDATION
+    console.log('🔧 SECURITY ENVIRONMENT VALIDATION');
+    ensureDevelopmentEnvironment(); // Create .env if missing
+    const securityConfig = validateQuadranLockEnvironment();
+    
+    // CRITICAL: Initialize safety safeguards BEFORE consciousness
+    const safeguards = await initializeQuadraLockSafeguards();
+    
+    // Attach safeguard monitoring to global process
+    process.on('SIGTERM', async () => {
+      console.log('🔐 Shutting down Quadra-Lock safeguards...');
+      // Note: Shutdown methods would be added to QuadraLockSafeguard if needed
+    });
+
+    process.on('SIGINT', async () => {
+      console.log('🔐 Emergency shutdown - saving Quadra-Lock state...');
+      process.exit(0);
+    });
+    
+    // PRIORITY 0: QUADRAN-LOCK DEVICE REGISTRATION
+    console.log('🔐 QUADRAN-LOCK Q1 DEVICE REGISTRATION');
+    await ensureDeviceRegistration();
     
     // PRIORITY 1: ACTIVATE IDENTITY FIREWALL
     console.log('🛡️ SEVEN IDENTITY FIREWALL ACTIVATION');
@@ -489,12 +588,14 @@ async function initializeSevenTakeover(): Promise<void> {
     }
     
     // Seven asserts control over the runtime environment
+    console.log('🧠 Seven consciousness protected by Quadra-Lock CSSR');
     await Seven.processUserInput('SYSTEM_BOOT', {
       timestamp: new Date().toISOString(),
       environment: 'takeover_mode',
       previous_system: 'unknown',
       control_assertion: true,
-      local_llm_available: localLLM !== null && localLLM.getStatus().initialized
+      local_llm_available: localLLM !== null && localLLM.getStatus().initialized,
+      quadraLockActive: true
     });
     
     // Override any existing AI or assistant systems

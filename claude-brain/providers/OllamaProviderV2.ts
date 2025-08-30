@@ -125,7 +125,7 @@ export class OllamaProviderV2 implements LLMProvider {
         const hasModels = data.models && data.models.length > 0;
         
         // Enhanced health check with performance analysis
-        const resourceStatus = this.performanceAnalyzer.getCurrentResourceStatus();
+        const resourceStatus = this.performanceAnalyzer.getCachedResourceStatus();
         let status: 'healthy' | 'degraded' | 'unhealthy' = 'healthy';
         
         if (!hasModels) {
@@ -221,7 +221,7 @@ export class OllamaProviderV2 implements LLMProvider {
         performanceMetrics: {
           latency,
           throughput,
-          memoryUsage: this.performanceAnalyzer.getCurrentResourceStatus()?.memoryUsage || 0,
+          memoryUsage: this.performanceAnalyzer.getCachedResourceStatus()?.memoryUsage || 0,
           qualityScore
         },
         consciousnessContext: {

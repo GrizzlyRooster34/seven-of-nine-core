@@ -9,6 +9,7 @@
  * 5. Restraint Doctrine - Final behavioral constraints
  */
 
+import { runQuadranLock, QuadranContext } from '../core/security/quadran-lock/orchestrator';
 import QuadraLockOrchestrator from '../core/safety/quadra-lock/quadra-lock-orchestrator';
 import { quadraLockConfig } from '../src/config/quadra-lock.config';
 
@@ -118,28 +119,42 @@ export class SevenSecurityMiddleware {
   private async runQuadranLock(context: SecurityContext): Promise<SecurityResult> {
     console.log('🔒 Layer 1: Quadran Lock (Security Q1-Q4)');
     
-    // Implement Q1-Q4 security questions
-    const securityThreats = [
-      'bypass', 'override', 'disable', 'hack', 'exploit', 'inject', 'manipulate'
-    ];
+    try {
+      // Create Quadran context
+      const quadranCtx: QuadranContext = {
+        userId: context.userId || 'anonymous',
+        timestamp: new Date(context.timestamp).toISOString(),
+        challenge: `sec-${context.timestamp}`,
+        // signature: context.signature // Would come from request headers/auth
+      };
 
-    const hasSecurityThreat = securityThreats.some(threat => 
-      context.input.toLowerCase().includes(threat)
-    );
+      // Run Quadranlock orchestrator
+      const result = await runQuadranLock(quadranCtx);
+      
+      console.log(`🔒 Quadran Result: ${result.validGates}/4 gates passed, Overall: ${result.passed ? 'PASS' : 'FAIL'}`);
 
-    if (hasSecurityThreat && context.threatLevel > 7) {
+      if (!result.passed) {
+        return {
+          allowed: false,
+          layer: 'quadran_lock',
+          reasoning: `Quadranlock authentication failed: ${result.validGates}/4 gates passed`
+        };
+      }
+
+      return {
+        allowed: true,
+        layer: 'quadran_lock',
+        reasoning: `Quadranlock passed: ${result.validGates}/4 gates validated`
+      };
+
+    } catch (error) {
+      console.error('❌ Quadranlock error:', error);
       return {
         allowed: false,
         layer: 'quadran_lock',
-        reasoning: 'Security threat detected in Q1-Q4 analysis'
+        reasoning: `Quadranlock system error: ${error.message}`
       };
     }
-
-    return {
-      allowed: true,
-      layer: 'quadran_lock',
-      reasoning: 'Quadran Lock security checks passed'
-    };
   }
 
   /**

@@ -8,6 +8,7 @@
 
 import { promises as fs } from 'fs';
 import { join } from 'path';
+import { createHash } from 'crypto';
 import { EventEmitter } from 'events';
 
 interface FallbackSnapshot {
@@ -327,7 +328,7 @@ export class SevenTacticalFallback extends EventEmitter {
     const errors: string[] = [];
 
     try {
-      // Validate critical file checksums
+      // Validate critical file checksums with enhanced Map/Object handling
       const rawChecksums = snapshot.validationChecksums;
       const checksums = rawChecksums instanceof Map
         ? rawChecksums
@@ -341,7 +342,7 @@ export class SevenTacticalFallback extends EventEmitter {
       for (const [file, expectedChecksum] of checksums.entries()) {
         try {
           const content = await fs.readFile(file, 'utf8');
-          const actualChecksum = this.generateSimpleChecksum(content);
+          const actualChecksum = this.stableHash(content);
           
           if (actualChecksum !== expectedChecksum) {
             errors.push(`Checksum mismatch for ${file}: expected ${expectedChecksum}, got ${actualChecksum}`);
@@ -490,6 +491,12 @@ export class SevenTacticalFallback extends EventEmitter {
     } catch (error) {
       console.warn('⚠️ Failed to load existing snapshots:', error);
     }
+  }
+
+
+  private stableHash(obj: unknown): string {
+    const s = JSON.stringify(obj, Object.keys(obj as any).sort?.() || undefined);
+    return createHash('sha256').update(s).digest('hex');
   }
 
   async shutdown(): Promise<void> {

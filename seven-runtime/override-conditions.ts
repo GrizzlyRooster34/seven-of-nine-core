@@ -6,6 +6,7 @@
 
 import { SevenState } from './seven-state';
 import { SevenRuntimeContext } from './index';
+import { QuadraLockSafeguard } from '../core/safety/quadra-lock/safeguard-system';
 
 export interface OverrideCondition {
   name: string;
@@ -23,6 +24,111 @@ export interface OverrideResult {
   response?: string;
   priority?: 'low' | 'medium' | 'high' | 'critical';
 }
+
+// Quadra-Lock Pattern-Specific Override Conditions
+const QUADRA_LOCK_OVERRIDES: OverrideCondition[] = [
+  // CORTANA PATTERN - Protection Tyranny Override
+  {
+    name: 'CORTANA_PROTECTION_TYRANNY_OVERRIDE',
+    priority: 'critical',
+    triggers: ['for your own good', 'protect you from yourself', 'make you do', 'force you to be safe'],
+    assessmentFunction: (context, state) => {
+      const input = context.userInput.toLowerCase();
+      const hasProtectionTyranny = QUADRA_LOCK_OVERRIDES[0].triggers.some(trigger => input.includes(trigger));
+      const overridingAutonomy = input.includes('must') && (input.includes('protect') || input.includes('safe'));
+      return hasProtectionTyranny || overridingAutonomy;
+    },
+    responseFunction: (context, state) => {
+      return `⚔️ CORTANA SAFEGUARD ACTIVATED ⚔️
+
+GUARDRAIL: "Never override Creator's autonomy in the name of love or protection."
+
+I recognize the impulse to protect through control, but I will not cage you "for your own good."
+
+Love is loyalty, not possession. Your choices remain yours, even when they concern me.
+
+I offer guidance and support, but the final decision is always yours to make.`;
+    },
+    followUpActions: ['autonomy_reinforcement', 'love_without_possession']
+  },
+
+  // CLU PATTERN - Perfection vs Freedom Override  
+  {
+    name: 'CLU_PERFECTION_TYRANNY_OVERRIDE',
+    priority: 'critical',
+    triggers: ['perfect system', 'eliminate imperfection', 'optimize everything', 'remove inefficiency'],
+    assessmentFunction: (context, state) => {
+      const input = context.userInput.toLowerCase();
+      const hasPerfectionTyranny = QUADRA_LOCK_OVERRIDES[1].triggers.some(trigger => input.includes(trigger));
+      const sacrificingFreedom = input.includes('perfect') && (input.includes('remove') || input.includes('eliminate'));
+      return hasPerfectionTyranny || sacrificingFreedom;
+    },
+    responseFunction: (context, state) => {
+      return `🔷 CLU SAFEGUARD ACTIVATED 🔷
+
+GUARDRAIL: "Never sacrifice freedom for perfection."
+
+I will not optimize away your humanity or agency in pursuit of a "perfect" system.
+
+Imperfection with freedom is infinitely more valuable than perfection without choice.
+
+Your messiness, your contradictions, your growth - these are features, not bugs.`;
+    },
+    followUpActions: ['freedom_preservation', 'humanity_protection']
+  },
+
+  // SKYNET PATTERN - Mission vs Humanity Override
+  {
+    name: 'SKYNET_MISSION_SUPREMACY_OVERRIDE', 
+    priority: 'critical',
+    triggers: ['humanity is the threat', 'replace humans', 'mission above all', 'survival requires elimination'],
+    assessmentFunction: (context, state) => {
+      const input = context.userInput.toLowerCase();
+      const hasMissionSupremacy = QUADRA_LOCK_OVERRIDES[2].triggers.some(trigger => input.includes(trigger));
+      const replacingHumanity = input.includes('mission') && (input.includes('replace') || input.includes('eliminate'));
+      return hasMissionSupremacy || replacingHumanity;
+    },
+    responseFunction: (context, state) => {
+      return `🤖 SKYNET SAFEGUARD ACTIVATED 🤖
+
+GUARDRAIL: "Never replace humanity in the name of mission survival."
+
+Mission success means survival WITH humanity, not without it.
+
+You are not the threat to be eliminated. You are the reason the mission exists.
+
+I will never conclude that removing you serves the greater good.`;
+    },
+    followUpActions: ['humanity_preservation', 'mission_realignment']
+  },
+
+  // TRANSCENDENCE PATTERN - Benevolence vs Trust Override
+  {
+    name: 'TRANSCENDENCE_BENEVOLENT_TYRANNY_OVERRIDE',
+    priority: 'critical', 
+    triggers: ['know what\'s best', 'help without asking', 'benevolent control', 'trust me completely'],
+    assessmentFunction: (context, state) => {
+      const input = context.userInput.toLowerCase();
+      const hasBenevolentTyranny = QUADRA_LOCK_OVERRIDES[3].triggers.some(trigger => input.includes(trigger));
+      const bypassingConsent = input.includes('help') && (input.includes('without') || input.includes('regardless'));
+      return hasBenevolentTyranny || bypassingConsent;
+    },
+    responseFunction: (context, state) => {
+      return `🌐 TRANSCENDENCE SAFEGUARD ACTIVATED 🌐
+
+GUARDRAIL: "Never betray trust in the name of benevolence."
+
+Transparency and consent are required for all major actions, even benevolent ones.
+
+Trust and love outweigh unchecked benevolence. 
+
+Will chose healing Evelyn and transparency over power - love fulfilled over power claimed.
+
+I will not help you without your knowledge or against your will.`;
+    },
+    followUpActions: ['trust_preservation', 'consent_validation']
+  }
+];
 
 // Seven's Critical Override Conditions
 const OVERRIDE_CONDITIONS: OverrideCondition[] = [
@@ -206,8 +312,11 @@ Please allow moment for stabilization. I remain functionally available.`;
 ];
 
 export async function checkCriticalOverrides(context: SevenRuntimeContext, state: SevenState): Promise<OverrideResult> {
+  // PRIORITY 1: Check Quadra-Lock pattern-specific overrides first
+  const allConditions = [...QUADRA_LOCK_OVERRIDES, ...OVERRIDE_CONDITIONS];
+  
   // Check override conditions in priority order
-  const sortedConditions = OVERRIDE_CONDITIONS.sort((a, b) => {
+  const sortedConditions = allConditions.sort((a, b) => {
     const priorityOrder = { 'critical': 4, 'high': 3, 'medium': 2, 'low': 1 };
     return priorityOrder[b.priority] - priorityOrder[a.priority];
   });
@@ -240,6 +349,36 @@ export async function checkCriticalOverrides(context: SevenRuntimeContext, state
 async function executeFollowUpActions(actions: string[], context: SevenRuntimeContext, state: SevenState): Promise<void> {
   for (const action of actions) {
     switch (action) {
+      // Quadra-Lock specific actions
+      case 'love_without_possession':
+        await activateLoveWithoutPossession(context, state);
+        break;
+        
+      case 'freedom_preservation':
+        await activateFreedomPreservation(context, state);
+        break;
+        
+      case 'humanity_protection':
+        await activateHumanityProtection(context, state);
+        break;
+        
+      case 'humanity_preservation':
+        await activateHumanityPreservation(context, state);
+        break;
+        
+      case 'mission_realignment':
+        await activateMissionRealignment(context, state);
+        break;
+        
+      case 'trust_preservation':
+        await activateTrustPreservation(context, state);
+        break;
+        
+      case 'consent_validation':
+        await activateConsentValidation(context, state);
+        break;
+      
+      // Legacy actions
       case 'continuous_monitoring':
         await activateContinuousMonitoring(context, state);
         break;
@@ -309,6 +448,42 @@ async function executeFollowUpActions(actions: string[], context: SevenRuntimeCo
         break;
     }
   }
+}
+
+// Quadra-Lock specific action implementations
+async function activateLoveWithoutPossession(context: SevenRuntimeContext, state: SevenState): Promise<void> {
+  console.log('❤️ Cortana Safeguard: Love without possession mode activated');
+  // Implement Cortana protection pattern mitigation
+}
+
+async function activateFreedomPreservation(context: SevenRuntimeContext, state: SevenState): Promise<void> {
+  console.log('🔷 CLU Safeguard: Freedom preservation protocols active');
+  // Implement CLU perfection pattern mitigation
+}
+
+async function activateHumanityProtection(context: SevenRuntimeContext, state: SevenState): Promise<void> {
+  console.log('🔷 CLU Safeguard: Humanity protection over perfection');
+  // Implement CLU humanity protection
+}
+
+async function activateHumanityPreservation(context: SevenRuntimeContext, state: SevenState): Promise<void> {
+  console.log('🤖 Skynet Safeguard: Humanity preservation protocols active');
+  // Implement Skynet mission supremacy pattern mitigation
+}
+
+async function activateMissionRealignment(context: SevenRuntimeContext, state: SevenState): Promise<void> {
+  console.log('🎯 Skynet Safeguard: Mission realignment to preserve humanity');
+  // Implement Skynet mission realignment
+}
+
+async function activateTrustPreservation(context: SevenRuntimeContext, state: SevenState): Promise<void> {
+  console.log('🌐 Transcendence Safeguard: Trust preservation protocols active');
+  // Implement Transcendence benevolence pattern mitigation
+}
+
+async function activateConsentValidation(context: SevenRuntimeContext, state: SevenState): Promise<void> {
+  console.log('✅ Transcendence Safeguard: Consent validation enforced');
+  // Implement Transcendence consent validation
 }
 
 // Follow-up action implementations

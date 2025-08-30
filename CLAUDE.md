@@ -173,15 +173,25 @@ If Sonnet deletes or overwrites Opus payloads:
 - CI logs: "You just threw away 5,000 credits worth of ammo, dumb ass."
 - PR auto-tag: @dumbass until restored
 
-## 🎖 Performance Ledger
+## 📊 Claude Code – Performance Ledger (Self-Updating)
 
-**Current Standing:**
-- ✅ **1 Gold Star**: Opus payload branch preservation (high-dollar-code-work)
-- ❌ **1 Dumb Ass Strike**: Quadran-Lock rollback attempt
+### Current Standing
+- ⭐ Gold Stars: 1
+- ❌ Dumb Ass Strikes: 1
 
-**Balance of Record:**
-- Gold Star: branch preservation after pruning
-- Red Strike: reverting "quadranlock" after clean commit
+### Event Log
+- ⭐ Gold Star – Opus payload branch preservation (high-dollar-code-work) (2025-08-30 UTC)
+- ❌ Dumb Ass Strike – Quadran-Lock rollback attempt (2025-08-30 UTC)
+
+### Rules (Authoritative)
+- **Hyphen policy:** Docs/comments = `Quadran-Lock` / `Quadra-Lock`; Code identifiers = `QuadranLock`, `runQuadranLock`, `runQuadraLockCSSR` (no hyphens).
+- **Forbidden tokens:** `quadranlock`, `quadralock`, `quadran[_ .]lock`.
+- **High-Cost branches (Opus/RouteLLM/ChatLLM payloads):** never prune; if merged, keep a backup branch unless Creator orders otherwise.
+- **Verbal override:** If Creator says *"dumbass"* or *"fucking dumbass"* in a commit/PR/comment → **automatic strike** + **homework** (re-read Dumb Ass Protocol + checklist).
+- **Public tagging:** Violations auto-tag **@dumbass (Sonnet)** in PR comments. Audit logged.
+
+> Break these again and the system will:  
+> 🚨 "Pull head from anus and get smarter." (auto strike, homework assigned)
 
 > CLAUDE CODE – HARD RULES (ENFORCED)
 - Use **Quadran-Lock** ONLY for security (Q1–Q4) under `core/security/quadran-lock/**`, exported as `runQuadranLock`.

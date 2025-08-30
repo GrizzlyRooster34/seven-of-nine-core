@@ -30,6 +30,8 @@
     "test:canon": "tsx tests/canon/canon_guard.test.ts",
     "ci:ban-terms": "node scripts/ban-terms.js",
     "ci:structure-guards": "node scripts/structure-guards.js",
+    "ci:detect-override": "node scripts/detect-commander-override.js",
+    "ci:update-ledger": "node scripts/update-ledger.js",
     "test:quadran-lock": "vitest run -t quadran-lock",
     "test:attestation": "tsx tests/attestation.test.ts",
     "test:compliance": "tsx tests/compliance/experimental-systems-test.ts",

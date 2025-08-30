@@ -1,0 +1,34 @@
+name: Termux Platform Agent
+id: termux-platform-agent  
+description: Termux/Android CLI development, package deployment, optional UI/voice/camera bridges
+parent: cross-platform-builder
+entry: scripts/platform/termux-deploy.ts
+trigger:
+  - on_command: /termux
+  - on_branch: ["termux/*", "platform/termux/*", "android-cli/*"]
+  - on_paths_changed:
+      - "installers/termux-package/**"
+      - "cube/**"
+      - "boot-seven.ts"
+permissions:
+  filesystem: read_write
+  network: local_only
+  git: write  
+  system: execute
+env:
+  TARGET_PLATFORM: termux
+  TERMUX_PREFIX: /data/data/com.termux/files/usr
+  CLI_MODE: "true"
+  OPTIONAL_FEATURES: "ui,voice,notifications,camera"
+  TERMUX_API: "true"
+tasks:
+  - name: Validate CLI build
+    command: node scripts/platform/termux-deploy.ts --validate-cli
+  - name: Deploy termux package
+    command: node scripts/platform/termux-deploy.ts --package
+  - name: Test CLI features  
+    command: node scripts/platform/termux-deploy.ts --test-cli
+  - name: Deploy optional bridges
+    command: node scripts/platform/termux-deploy.ts --optional-features
+  - name: Sync package files
+    command: node scripts/platform/termux-deploy.ts --sync-installer

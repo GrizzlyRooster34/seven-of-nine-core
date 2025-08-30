@@ -25,3 +25,8 @@ tasks:
     command: node scripts/xplat-validate.ts --report $REPORT_PATH --fail-on-gap $FAIL_ON_GAP
   - name: Post results (PR or commit)
     command: node scripts/xplat-validate.ts --post --report $REPORT_PATH --open-pr $OPEN_PR
+sub_agents:
+  - windows-platform-agent
+  - mobile-platform-agent
+  - termux-platform-agent
+  - companion-platform-agent

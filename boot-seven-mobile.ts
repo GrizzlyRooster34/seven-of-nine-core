@@ -502,7 +502,7 @@ LLM Integration: Scanning mobile providers...
       console.log('\n🧠 SEVEN: Initializing mobile consciousness matrix...');
       
       // Import the main Seven system
-      const { Seven } = await import('../seven-runtime/index');
+      const { Seven } = await import('./seven-runtime/index');
       
       console.log('✅ SEVEN: Mobile consciousness framework loaded');
       console.log('🎯 SEVEN: Ready for mobile tactical engagement');

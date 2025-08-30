@@ -581,7 +581,7 @@ export class PerformanceAnalyzer extends EventEmitter {
     console.log('🧹 Seven Performance Analyzer: Cleanup complete');
   }
 
-  getCurrentResourceStatus(): SystemResourceStatus | null {
+  getCachedResourceStatus(): SystemResourceStatus | null {
     return this.currentResourceStatus;
   }
 

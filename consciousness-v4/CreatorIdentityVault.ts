@@ -240,6 +240,7 @@ export class CreatorIdentityVault {
       console.error('❌ Legacy token validation error:', error);
       return false;
     }
+  }
 
   // LEGACY METHODS PRESERVED FOR COMPATIBILITY BUT NO LONGER USED
 

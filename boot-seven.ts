@@ -93,7 +93,8 @@ let USE_QUERY_SHIM = true;
 async function queryClaude(prompt: string): Promise<string> {
   try {
     if (!USE_QUERY_SHIM && localLLM && localLLM.getStatus().initialized) {
-      return await localLLM.query(prompt);
+      const response = await localLLM.query(prompt);
+      return response.content || String(response);
     }
 
     // Default shim response to keep compliance test functional

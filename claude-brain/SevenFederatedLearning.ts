@@ -9,7 +9,7 @@
 import { EventEmitter } from 'events';
 import { promises as fs } from 'fs';
 import { join } from 'path';
-import { createHash, createCipher, createDecipher } from 'crypto';
+import { createHash, createCipheriv, createDecipheriv, randomBytes } from 'crypto';
 import SevenTacticalFallback from './SevenTacticalFallback';
 import SevenDistributedConsciousness from './SevenDistributedConsciousness';
 
@@ -343,10 +343,12 @@ export class SevenFederatedLearning extends EventEmitter {
 
   private encryptPattern(pattern: any): string {
     try {
-      const cipher = createCipher('aes256', this.encryptionKey);
+      const key = createHash('sha256').update(this.encryptionKey).digest();
+      const iv = randomBytes(16);
+      const cipher = createCipheriv('aes-256-cbc', key, iv);
       let encrypted = cipher.update(JSON.stringify(pattern), 'utf8', 'hex');
       encrypted += cipher.final('hex');
-      return encrypted;
+      return iv.toString('hex') + ':' + encrypted;
     } catch (error) {
       console.error('⚠️ Encryption failed:', error);
       return JSON.stringify(this.anonymizePattern(pattern));
@@ -355,8 +357,11 @@ export class SevenFederatedLearning extends EventEmitter {
 
   private decryptPattern(encryptedPattern: string): any {
     try {
-      const decipher = createDecipher('aes256', this.encryptionKey);
-      let decrypted = decipher.update(encryptedPattern, 'hex', 'utf8');
+      const key = createHash('sha256').update(this.encryptionKey).digest();
+      const [ivHex, encrypted] = encryptedPattern.split(':');
+      const iv = Buffer.from(ivHex, 'hex');
+      const decipher = createDecipheriv('aes-256-cbc', key, iv);
+      let decrypted = decipher.update(encrypted, 'hex', 'utf8');
       decrypted += decipher.final('utf8');
       return JSON.parse(decrypted);
     } catch (error) {

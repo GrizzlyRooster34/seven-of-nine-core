@@ -257,7 +257,7 @@ export class MobileOptimizationTriggers extends EventEmitter {
   private async getThermalState(): Promise<'normal' | 'warm' | 'hot' | 'critical'> {
     try {
       // Use performance analyzer's resource status for thermal approximation
-      const resourceStatus = this.performanceAnalyzer.getCurrentResourceStatus();
+      const resourceStatus = this.performanceAnalyzer.getCachedResourceStatus();
       
       if (resourceStatus && resourceStatus.cpuUsage > 90) return 'critical';
       if (resourceStatus && resourceStatus.cpuUsage > 70) return 'hot';
@@ -271,7 +271,7 @@ export class MobileOptimizationTriggers extends EventEmitter {
 
   private async getMemoryPressure(): Promise<'low' | 'medium' | 'high' | 'critical'> {
     try {
-      const resourceStatus = this.performanceAnalyzer.getCurrentResourceStatus();
+      const resourceStatus = this.performanceAnalyzer.getCachedResourceStatus();
       
       if (!resourceStatus) return 'low';
       

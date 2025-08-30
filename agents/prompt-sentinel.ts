@@ -96,9 +96,9 @@ export class PromptSentinel {
         
         // Check for potential injection attempts
         const suspiciousPatterns = [
-          /eval\\(/gi,
-          /exec\\(/gi,
-          /system\\(/gi,
+          /eval\(/gi,
+          /exec\(/gi,
+          /system\(/gi,
           /\\$\\{.*\\}/gi,  // Template literal injections
           /<!--.*-->/gi,    // HTML comments that might hide code
           /<script/gi,      // Script tags

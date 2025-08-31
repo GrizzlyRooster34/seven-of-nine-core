@@ -1,0 +1,408 @@
+{
+  "timestamp": "2025-08-30T23:15:41.371Z",
+  "agents": [
+    {
+      "name": "quadran-lock",
+      "category": "Security",
+      "status": "ERROR",
+      "lastRun": "2025-08-30T23:14:55.834Z",
+      "lastDuration": 1346,
+      "health": "CRITICAL",
+      "message": "Error detected (1346ms)",
+      "metrics": {
+        "successRate": 15,
+        "avgDuration": 1346,
+        "errorCount": 3
+      }
+    },
+    {
+      "name": "quadra-cssr",
+      "category": "Safety",
+      "status": "ERROR",
+      "lastRun": "2025-08-30T23:14:57.215Z",
+      "lastDuration": 1379,
+      "health": "CRITICAL",
+      "message": "Error detected (1379ms)",
+      "metrics": {
+        "successRate": 15,
+        "avgDuration": 1379,
+        "errorCount": 1
+      }
+    },
+    {
+      "name": "restraint",
+      "category": "Safety",
+      "status": "ERROR",
+      "lastRun": "2025-08-30T23:14:58.922Z",
+      "lastDuration": 1706,
+      "health": "CRITICAL",
+      "message": "Error detected (1706ms)",
+      "metrics": {
+        "successRate": 15,
+        "avgDuration": 1706,
+        "errorCount": 2
+      }
+    },
+    {
+      "name": "creator-bond",
+      "category": "Security",
+      "status": "ERROR",
+      "lastRun": "2025-08-30T23:15:00.299Z",
+      "lastDuration": 1377,
+      "health": "CRITICAL",
+      "message": "Error detected (1377ms)",
+      "metrics": {
+        "successRate": 15,
+        "avgDuration": 1377,
+        "errorCount": 4
+      }
+    },
+    {
+      "name": "data-sanitize",
+      "category": "Security",
+      "status": "ERROR",
+      "lastRun": "2025-08-30T23:15:01.978Z",
+      "lastDuration": 1679,
+      "health": "CRITICAL",
+      "message": "Error detected (1679ms)",
+      "metrics": {
+        "successRate": 15,
+        "avgDuration": 1679,
+        "errorCount": 3
+      }
+    },
+    {
+      "name": "ghost-mode",
+      "category": "Safety",
+      "status": "ERROR",
+      "lastRun": "2025-08-30T23:15:02.415Z",
+      "lastDuration": 436,
+      "health": "CRITICAL",
+      "message": "Error detected (436ms)",
+      "metrics": {
+        "successRate": 15,
+        "avgDuration": 436,
+        "errorCount": 6
+      }
+    },
+    {
+      "name": "threat-sim",
+      "category": "Safety",
+      "status": "UNKNOWN",
+      "lastRun": "2025-08-30T23:15:04.098Z",
+      "lastDuration": 1680,
+      "health": "GOOD",
+      "message": "Status unclear (1680ms)",
+      "metrics": {
+        "successRate": 80,
+        "avgDuration": 1680,
+        "errorCount": 0
+      }
+    },
+    {
+      "name": "llm-policy",
+      "category": "Security",
+      "status": "UNKNOWN",
+      "lastRun": "2025-08-30T23:15:05.732Z",
+      "lastDuration": 1633,
+      "health": "GOOD",
+      "message": "Status unclear (1633ms)",
+      "metrics": {
+        "successRate": 80,
+        "avgDuration": 1633,
+        "errorCount": 0
+      }
+    },
+    {
+      "name": "repo-audit",
+      "category": "Governance",
+      "status": "ERROR",
+      "lastRun": "2025-08-30T23:15:09.369Z",
+      "lastDuration": 3637,
+      "health": "CRITICAL",
+      "message": "Error detected (3637ms)",
+      "metrics": {
+        "successRate": 15,
+        "avgDuration": 3637,
+        "errorCount": 1
+      }
+    },
+    {
+      "name": "policy-check",
+      "category": "Governance",
+      "status": "UNKNOWN",
+      "lastRun": "2025-08-30T23:15:10.892Z",
+      "lastDuration": 1522,
+      "health": "GOOD",
+      "message": "Status unclear (1522ms)",
+      "metrics": {
+        "successRate": 80,
+        "avgDuration": 1522,
+        "errorCount": 0
+      }
+    },
+    {
+      "name": "coverage-gate",
+      "category": "Governance",
+      "status": "UNKNOWN",
+      "lastRun": "2025-08-30T23:15:12.562Z",
+      "lastDuration": 1669,
+      "health": "GOOD",
+      "message": "Status unclear (1669ms)",
+      "metrics": {
+        "successRate": 80,
+        "avgDuration": 1669,
+        "errorCount": 0
+      }
+    },
+    {
+      "name": "dependency-risk",
+      "category": "Governance",
+      "status": "UNKNOWN",
+      "lastRun": "2025-08-30T23:15:14.240Z",
+      "lastDuration": 1677,
+      "health": "GOOD",
+      "message": "Status unclear (1677ms)",
+      "metrics": {
+        "successRate": 80,
+        "avgDuration": 1677,
+        "errorCount": 0
+      }
+    },
+    {
+      "name": "platform:windows",
+      "category": "Platform",
+      "status": "DEGRADED",
+      "lastRun": "2025-08-30T23:15:17.575Z",
+      "lastDuration": 3335,
+      "health": "FAIR",
+      "message": "Functional with issues (3335ms)",
+      "metrics": {
+        "successRate": 70,
+        "avgDuration": 3335,
+        "errorCount": 0
+      }
+    },
+    {
+      "name": "platform:mobile",
+      "category": "Platform",
+      "status": "DEGRADED",
+      "lastRun": "2025-08-30T23:15:20.362Z",
+      "lastDuration": 2787,
+      "health": "FAIR",
+      "message": "Functional with issues (2787ms)",
+      "metrics": {
+        "successRate": 70,
+        "avgDuration": 2787,
+        "errorCount": 0
+      }
+    },
+    {
+      "name": "platform:companion",
+      "category": "Platform",
+      "status": "DEGRADED",
+      "lastRun": "2025-08-30T23:15:23.239Z",
+      "lastDuration": 2876,
+      "health": "FAIR",
+      "message": "Functional with issues (2876ms)",
+      "metrics": {
+        "successRate": 70,
+        "avgDuration": 2876,
+        "errorCount": 0
+      }
+    },
+    {
+      "name": "platform:termux",
+      "category": "Platform",
+      "status": "DEGRADED",
+      "lastRun": "2025-08-30T23:15:26.196Z",
+      "lastDuration": 2957,
+      "health": "FAIR",
+      "message": "Functional with issues (2957ms)",
+      "metrics": {
+        "successRate": 70,
+        "avgDuration": 2957,
+        "errorCount": 0
+      }
+    },
+    {
+      "name": "state-parity",
+      "category": "Validation",
+      "status": "UNKNOWN",
+      "lastRun": "2025-08-30T23:15:27.715Z",
+      "lastDuration": 1519,
+      "health": "GOOD",
+      "message": "Status unclear (1519ms)",
+      "metrics": {
+        "successRate": 80,
+        "avgDuration": 1519,
+        "errorCount": 0
+      }
+    },
+    {
+      "name": "sync-audit",
+      "category": "Validation",
+      "status": "UNKNOWN",
+      "lastRun": "2025-08-30T23:15:29.404Z",
+      "lastDuration": 1689,
+      "health": "GOOD",
+      "message": "Status unclear (1689ms)",
+      "metrics": {
+        "successRate": 80,
+        "avgDuration": 1689,
+        "errorCount": 0
+      }
+    },
+    {
+      "name": "memory-migrate",
+      "category": "Validation",
+      "status": "UNKNOWN",
+      "lastRun": "2025-08-30T23:15:31.063Z",
+      "lastDuration": 1659,
+      "health": "GOOD",
+      "message": "Status unclear (1659ms)",
+      "metrics": {
+        "successRate": 80,
+        "avgDuration": 1659,
+        "errorCount": 0
+      }
+    },
+    {
+      "name": "integration-test",
+      "category": "Validation",
+      "status": "ERROR",
+      "lastRun": "2025-08-30T23:15:31.458Z",
+      "lastDuration": 395,
+      "health": "CRITICAL",
+      "message": "Error detected (395ms)",
+      "metrics": {
+        "successRate": 15,
+        "avgDuration": 395,
+        "errorCount": 9
+      }
+    },
+    {
+      "name": "apk-forensics",
+      "category": "Validation",
+      "status": "OPERATIONAL",
+      "lastRun": "2025-08-30T23:15:32.824Z",
+      "lastDuration": 1364,
+      "health": "CRITICAL",
+      "message": "Active and responding (1364ms)",
+      "metrics": {
+        "successRate": 15,
+        "avgDuration": 1364,
+        "errorCount": 3
+      }
+    },
+    {
+      "name": "mobile-safety",
+      "category": "Packaging",
+      "status": "DEGRADED",
+      "lastRun": "2025-08-30T23:15:34.196Z",
+      "lastDuration": 1372,
+      "health": "CRITICAL",
+      "message": "Functional with issues (1372ms)",
+      "metrics": {
+        "successRate": 15,
+        "avgDuration": 1372,
+        "errorCount": 1
+      }
+    },
+    {
+      "name": "ui-telemetry",
+      "category": "Packaging",
+      "status": "UNKNOWN",
+      "lastRun": "2025-08-30T23:15:35.844Z",
+      "lastDuration": 1647,
+      "health": "GOOD",
+      "message": "Status unclear (1647ms)",
+      "metrics": {
+        "successRate": 80,
+        "avgDuration": 1647,
+        "errorCount": 0
+      }
+    },
+    {
+      "name": "installer-packager",
+      "category": "Packaging",
+      "status": "UNKNOWN",
+      "lastRun": "2025-08-30T23:15:37.503Z",
+      "lastDuration": 1659,
+      "health": "GOOD",
+      "message": "Status unclear (1659ms)",
+      "metrics": {
+        "successRate": 80,
+        "avgDuration": 1659,
+        "errorCount": 0
+      }
+    },
+    {
+      "name": "optimize",
+      "category": "Packaging",
+      "status": "UNKNOWN",
+      "lastRun": "2025-08-30T23:15:39.219Z",
+      "lastDuration": 1716,
+      "health": "GOOD",
+      "message": "Status unclear (1716ms)",
+      "metrics": {
+        "successRate": 80,
+        "avgDuration": 1716,
+        "errorCount": 0
+      }
+    },
+    {
+      "name": "consciousness-research",
+      "category": "Research",
+      "status": "ERROR",
+      "lastRun": "2025-08-30T23:15:39.635Z",
+      "lastDuration": 416,
+      "health": "CRITICAL",
+      "message": "Error detected (416ms)",
+      "metrics": {
+        "successRate": 15,
+        "avgDuration": 416,
+        "errorCount": 9
+      }
+    },
+    {
+      "name": "drift-monitor",
+      "category": "Research",
+      "status": "UNKNOWN",
+      "lastRun": "2025-08-30T23:15:41.318Z",
+      "lastDuration": 1683,
+      "health": "GOOD",
+      "message": "Status unclear (1683ms)",
+      "metrics": {
+        "successRate": 80,
+        "avgDuration": 1683,
+        "errorCount": 0
+      }
+    }
+  ],
+  "systemMetrics": {
+    "overallHealth": "CRITICAL",
+    "securityScore": 0,
+    "agentsOperational": 1,
+    "agentsTotal": 27,
+    "lastFullDeployment": null,
+    "ghostModeActive": false,
+    "ghostModeLevel": "unknown",
+    "criticalIssues": 11,
+    "warnings": 5
+  },
+  "recentEvents": [
+    "Dashboard generated: 2025-08-30T23:15:41.369Z",
+    "Recent report: MOBILE_SAFETY_PARITY.md",
+    "Recent report: CSSR_SUMMARY.md",
+    "Recent report: QUADRAN_SUMMARY.md",
+    "Recent report: agent-dashboard.json",
+    "Recent report: agent-dashboard.md"
+  ],
+  "recommendations": [
+    "🔒 SECURITY: Run security validation pipeline (npm run quadran-lock && npm run quadra-cssr)",
+    "🚨 CRITICAL: Fix 11 critical agent issues: quadran-lock, quadra-cssr, restraint, creator-bond, data-sanitize, ghost-mode, repo-audit, integration-test, apk-forensics, mobile-safety, consciousness-research",
+    "⚡ PERFORMANCE: Less than 80% agents operational - run integration tests",
+    "📱 PLATFORMS: 4 platform agents need attention"
+  ]
+}

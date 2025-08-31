@@ -33,15 +33,13 @@
 ## Capability Matrix (required checks)
 | Target | Pass | Fail |
 |---|---:|---:|
-| windows | 0 | 1 |
+| windows | 1 | 0 |
 | termux | 0 | 0 |
 | mobile | 0 | 3 |
-| companion | 0 | 2 |
+| companion | 2 | 0 |
 
 ### WINDOWS
-- ❌ **Multi-device sync present** (required)
-  - _Why_: Windows lacks sync today; add client hooks to relay server.
-  - _Refs_: seven-companion-app/src/backend/sync/**, apps/windows/src/sync/**
+- ✅ **Multi-device sync present** (required)
 - ⚠️ **Sensor interface available** (optional)
   - _Why_: Desktop sensor emulation (optional).
 - ⚠️ **Voice I/O available** (optional)
@@ -65,6 +63,5 @@
   - _Why_: Parity with desktop multi-tab sessions.
 
 ### COMPANION
-- ❌ **Model lifecycle (Claude/Ollama swap)** (required)
-  - _Why_: Full backend orchestration parity.
-- ❌ **Encrypted vault present** (required)
+- ✅ **Model lifecycle (Claude/Ollama swap)** (required)
+- ✅ **Encrypted vault present** (required)

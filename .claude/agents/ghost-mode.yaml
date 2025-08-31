@@ -1,0 +1,3 @@
+name: Ghost Mode Protocol
+commands: [/ghost, /ghost-on, /ghost-off]
+script: scripts/safety/ghost-mode.ts

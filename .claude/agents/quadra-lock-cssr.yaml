@@ -1,0 +1,8 @@
+name: Quadra-Lock CSSR Sentinel
+commands: [/quadra-cssr]
+script: scripts/safety/run-quadra-lock-cssr.ts
+triggers:
+  - on: predeploy
+    targets: [windows, mobile, termux, companion, ui-shell]
+outputs:
+  - reports/CSSR_SUMMARY.md

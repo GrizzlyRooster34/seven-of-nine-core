@@ -1,0 +1,42 @@
+name: Seven Core CI
+on:
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch: {}
+  schedule:
+    - cron: '17 5 * * *'
+jobs:
+  pr-gates:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: '20' }
+      - run: npm ci || npm i
+      - run: NODE_ENV=production npm run creator-bond
+      - run: NODE_ENV=production npm run quadran-lock
+      - run: npm run quadra-cssr
+      - run: npm run restraint
+      - run: npm run repo-audit
+      - run: npm run integration-test
+      - name: Set up JDK
+        uses: actions/setup-java@v4
+        with: { distribution: 'temurin', java-version: '17' }
+      - name: Gradle cache
+        uses: gradle/actions/setup-gradle@v4
+      - run: npm run apk:assemble
+      - run: npm run apk-forensics
+  nightly:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: '20' }
+      - run: npm ci || npm i
+      - run: npm run q3:prune
+      - run: npm run state-parity || true
+      - run: npm run sync-audit || true
+      - run: npm run llm-policy || true
+      - run: npm run dependency-risk || true
+      - run: npm run optimize || true
+      - run: npm run drift-monitor || true

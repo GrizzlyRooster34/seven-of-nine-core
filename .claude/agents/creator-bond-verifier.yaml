@@ -1,0 +1,5 @@
+name: Creator Bond Verifier
+commands: [/creator-bond]
+script: scripts/auth/verify-creator-bond.ts
+outputs:
+  - reports/BOND_REPORT.md

@@ -1,0 +1,3 @@
+name: Consciousness Drift Monitor
+commands: [/drift-monitor]
+script: scripts/consciousness/drift-monitor.ts

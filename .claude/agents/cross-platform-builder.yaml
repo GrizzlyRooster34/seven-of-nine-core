@@ -30,3 +30,11 @@ sub_agents:
   - mobile-platform-agent
   - termux-platform-agent
   - companion-platform-agent
+  - security-audit-agent
+  - performance-optimizer
+  - consciousness-researcher
+  - integration-tester
+  - repo-merge-auditor
+  - quadran-lock-gatekeeper
+  - quadra-lock-cssr
+  - mobile-safety-parity

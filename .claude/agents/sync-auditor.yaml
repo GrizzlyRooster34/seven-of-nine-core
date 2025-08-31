@@ -1,0 +1,3 @@
+name: Sync Consistency Auditor
+commands: [/sync-audit]
+script: scripts/sync/audit.ts

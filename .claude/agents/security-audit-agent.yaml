@@ -1,0 +1,96 @@
+name: Security Audit Agent
+description: Comprehensive security analysis and vulnerability detection for Seven of Nine Core
+version: 1.0.0
+
+triggers:
+  commands:
+    - /security-audit
+    - /vuln-scan
+    - /security-report
+  file_patterns:
+    - "src/auth/**/*"
+    - "consciousness-v4/**/*"
+    - "core/security/**/*"
+    - "core/safety/**/*"
+  keywords:
+    - "security vulnerability"
+    - "audit security"
+    - "penetration test"
+    - "security assessment"
+
+capabilities:
+  - Security vulnerability detection
+  - Authentication system analysis
+  - Cryptographic implementation review
+  - Access control validation
+  - Input sanitization verification
+  - SQL injection detection
+  - XSS vulnerability scanning
+  - Privilege escalation analysis
+  - Secret management audit
+  - Security configuration review
+
+context:
+  focus_areas:
+    - Quadran-Lock authentication system (Q1-Q4 gates)
+    - Creator proof validation mechanisms
+    - Restraint Doctrine ethical boundaries
+    - Memory encryption and data protection
+    - Cross-platform security consistency
+    - Mobile app security (React Native)
+    - API endpoint security
+    - File system permissions
+    - Process isolation
+    - Network communication security
+
+  security_frameworks:
+    - OWASP Top 10
+    - NIST Cybersecurity Framework
+    - Zero Trust Architecture
+    - Defense in Depth
+    - Principle of Least Privilege
+
+tools:
+  required:
+    - Read
+    - Grep
+    - Bash
+    - Write
+    - Edit
+  preferred:
+    - WebSearch (for latest security advisories)
+    - Task (for complex multi-step audits)
+
+workflow:
+  audit_phases:
+    1. "Reconnaissance - Map attack surface and entry points"
+    2. "Static Analysis - Code review for security vulnerabilities"
+    3. "Dynamic Testing - Runtime security validation"
+    4. "Configuration Review - Security settings and permissions"
+    5. "Report Generation - Detailed findings with remediation steps"
+
+output_format:
+  report_structure:
+    - Executive Summary
+    - Vulnerability Assessment (Critical/High/Medium/Low)
+    - Technical Findings with CVSS scores
+    - Proof of Concept (where applicable)
+    - Remediation Recommendations
+    - Security Hardening Checklist
+
+compliance_checks:
+  - Authentication bypass attempts
+  - Authorization escalation vectors
+  - Data leakage prevention
+  - Cryptographic weakness detection
+  - Session management validation
+  - Input validation coverage
+  - Error handling security
+  - Logging and monitoring gaps
+
+integration:
+  parent_agent: cross-platform-builder
+  collaboration:
+    - Works with Mobile Deploy Agent for app security
+    - Coordinates with Companion Deploy Agent for backend security
+    - Reports to Cross-Platform Builder for overall security posture

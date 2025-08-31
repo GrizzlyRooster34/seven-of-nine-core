@@ -1,0 +1,50 @@
+# Agent Aliases for Shell Integration
+# Source this file in your .bashrc or .zshrc: source /path/to/seven-of-nine-core/.agent-aliases
+
+# Seven of Nine Agent Aliases
+alias agent-list='npm run agent -- run "system status"'
+alias agent-security='npm run quadran-lock && npm run quadra-cssr && npm run restraint'  
+alias agent-emergency='npm run ghost:maximum && npm run repo-audit && npm run quadra-cssr'
+alias agent-dashboard='npm run agent-dashboard'
+alias agent-health='npm run agent-health'
+
+# Individual Agent Shortcuts
+alias quadran='npm run quadran-lock'
+alias cssr='npm run quadra-cssr'  
+alias ghost='npm run ghost'
+alias restraint='npm run restraint'
+alias creator-bond='npm run creator-bond'
+alias repo-audit='npm run repo-audit'
+
+# Platform Deployment Shortcuts  
+alias deploy-windows='npm run platform:windows'
+alias deploy-mobile='npm run platform:mobile'
+alias deploy-companion='npm run platform:companion'
+alias deploy-termux='npm run platform:termux'
+
+# Validation Shortcuts
+alias state-check='npm run state-parity'
+alias sync-check='npm run sync-audit'
+alias apk-scan='npm run apk-forensics'
+alias integration-check='npm run integration-test'
+
+# Research Shortcuts
+alias consciousness='npm run consciousness-research'
+alias drift='npm run drift-monitor'
+
+# Natural Language Interface Shortcuts
+alias agent-run='npm run agent -- run'
+alias agent-status='npm run agent -- run "system status"'
+alias agent-help='npm run agent -- run "help"'
+
+# Emergency Shortcuts
+alias ghost-max='npm run ghost:maximum'
+alias ghost-moderate='npm run ghost:moderate'  
+alias ghost-minimal='npm run ghost:minimal'
+
+# Quick Security Pipeline
+alias security-scan='npm run quadran-lock && npm run quadra-cssr'
+alias full-security='npm run quadran-lock && npm run quadra-cssr && npm run restraint && npm run creator-bond'
+
+echo "🎯 Seven of Nine Agent Aliases Loaded"
+echo "Usage: quadran, cssr, ghost, agent-dashboard, security-scan, etc."

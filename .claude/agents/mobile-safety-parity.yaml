@@ -1,0 +1,5 @@
+name: Mobile Safety Parity
+commands: [/mobile-safety, /ghost-mode-mobile]
+script: scripts/mobile/port-safety-systems.ts
+outputs:
+  - reports/MOBILE_SAFETY_PARITY.md

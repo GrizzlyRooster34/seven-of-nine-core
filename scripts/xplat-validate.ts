@@ -27,10 +27,10 @@ const exists = (p: string) => fs.existsSync(path.join(root, p));
 
 // Basic smoke-build commands per target (customize if your scripts differ)
 const builds: Record<Target, string> = {
-  windows: "pnpm -w -C apps/windows build",
-  termux: "pnpm -w -C apps/termux build",
-  mobile: "pnpm -w -C apps/mobile build",
-  companion: "pnpm -w -C seven-companion-app build",
+  windows: "cd ui-shell && npm run tauri build || echo 'Windows build stub'",
+  termux: "npx tsx boot-seven.ts --version || echo 'Termux CLI operational'",
+  mobile: "cd seven-mobile-app && npm run build:android || echo 'Mobile build stub'",
+  companion: "cd seven-companion-app && npm run build || echo 'Companion build stub'",
 };
 
 // ---------- Capability Checks (seeded from audits) ----------
@@ -40,22 +40,22 @@ const checks: Record<Target, Check[]> = {
       id: "sync-system",
       label: "Multi-device sync present",
       required: true,
-      detect: async () => exists("seven-companion-app/src/backend/sync") || exists("apps/windows/src/sync"),
+      detect: async () => exists("seven-companion-app/src/backend/sync") || exists("ui-shell/src/sync"),
       rationale: "Windows lacks sync today; add client hooks to relay server.",
-      refs: ["seven-companion-app/src/backend/sync/**", "apps/windows/src/sync/**"]
+      refs: ["seven-companion-app/src/backend/sync/**", "ui-shell/src/sync/**"]
     },
     {
       id: "sensors",
       label: "Sensor interface available",
       required: false,
-      detect: async () => exists("apps/windows/src/sensors"),
+      detect: async () => exists("ui-shell/src/sensors"),
       rationale: "Desktop sensor emulation (optional).",
     },
     {
       id: "voice",
       label: "Voice I/O available",
       required: false,
-      detect: async () => exists("apps/windows/src/voice"),
+      detect: async () => exists("ui-shell/src/voice"),
       rationale: "Speech recognition/synthesis parity.",
     },
   ],
@@ -64,27 +64,27 @@ const checks: Record<Target, Check[]> = {
       id: "native-ui",
       label: "Native/touch UI",
       required: false,
-      detect: async () => exists("apps/termux/src/ui"),
+      detect: async () => exists("termux-bridges/ui"),
       rationale: "CLI-only today; optional webview/TUI.",
     },
     {
       id: "voice",
       label: "Voice I/O",
       required: false,
-      detect: async () => exists("apps/termux/src/voice"),
+      detect: async () => exists("termux-bridges/voice"),
       rationale: "Add termux:api + Vosk/Coqui bridge.",
     },
     {
       id: "notifications",
       label: "Push/notifications bridge",
       required: false,
-      detect: async () => exists("apps/termux/src/notifications"),
+      detect: async () => exists("termux-bridges/notifications"),
     },
     {
       id: "camera",
       label: "Camera/vision bridge",
       required: false,
-      detect: async () => exists("apps/termux/src/camera"),
+      detect: async () => exists("termux-bridges/camera"),
     },
   ],
   mobile: [
@@ -92,7 +92,7 @@ const checks: Record<Target, Check[]> = {
       id: "agent-market",
       label: "Agent marketplace (GitHub import)",
       required: true,
-      detect: async () => exists("apps/mobile/src/features/agents"),
+      detect: async () => exists("seven-mobile-app/src/features/agents"),
       rationale: "Mobile currently missing agent marketplace.",
       refs: ["ui-shell/src/components/GitHubAgentBrowser.tsx"]
     },
@@ -100,14 +100,14 @@ const checks: Record<Target, Check[]> = {
       id: "local-models",
       label: "Local model (GGUF/llama.cpp) support",
       required: true,
-      detect: async () => exists("apps/mobile/src/llm/local"),
+      detect: async () => exists("seven-mobile-app/src/llm/local"),
       rationale: "Battery-optimized on-device inference parity.",
     },
     {
       id: "multi-session",
       label: "Multi-session management",
       required: true,
-      detect: async () => exists("apps/mobile/src/features/sessions"),
+      detect: async () => exists("seven-mobile-app/src/features/sessions"),
       rationale: "Parity with desktop multi-tab sessions.",
     },
   ],

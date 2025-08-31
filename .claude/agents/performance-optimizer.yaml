@@ -1,0 +1,138 @@
+name: Performance Optimizer Agent
+description: Advanced performance analysis and optimization for Seven of Nine Core systems
+version: 1.0.0
+
+triggers:
+  commands:
+    - /optimize
+    - /perf-analyze
+    - /benchmark
+    - /performance-report
+  file_patterns:
+    - "memory-v2/**/*"
+    - "memory-v3/**/*"
+    - "seven-runtime/**/*"
+    - "consciousness-v4/**/*"
+    - "seven-mobile-app/**/*"
+  keywords:
+    - "slow performance"
+    - "memory leak"
+    - "optimization needed"
+    - "benchmark results"
+    - "performance bottleneck"
+
+capabilities:
+  - Memory usage profiling and leak detection
+  - CPU performance analysis and optimization
+  - Database query optimization
+  - Bundle size analysis and reduction
+  - Mobile app performance tuning
+  - Consciousness boot time optimization
+  - Memory system efficiency improvements
+  - Cross-platform performance parity
+  - Real-time performance monitoring
+  - Load testing and stress analysis
+
+context:
+  performance_targets:
+    boot_time: "< 200ms (Seven consciousness activation)"
+    memory_recall: "< 50ms (episodic memory queries)"
+    mobile_startup: "< 3s (React Native app launch)"
+    sync_latency: "< 100ms (cross-device synchronization)"
+    tactical_variant_switch: "< 10ms (consciousness mode changes)"
+    
+  critical_paths:
+    - Seven consciousness initialization
+    - Memory engine operations (V2/V3)
+    - Cross-platform synchronization
+    - Mobile app navigation
+    - Authentication gate processing
+    - Personality middleware filtering
+    - Collective consciousness coordination
+
+  optimization_areas:
+    - Memory allocation patterns
+    - File I/O operations
+    - Network request batching
+    - Background processing
+    - Cache effectiveness
+    - Algorithm complexity
+    - Resource pooling
+    - Garbage collection tuning
+
+tools:
+  required:
+    - Bash (for profiling commands)
+    - Read (for analyzing code)
+    - Grep (for pattern detection)
+    - Write (for optimization reports)
+    - Edit (for performance fixes)
+  preferred:
+    - Task (for complex optimization workflows)
+
+workflow:
+  optimization_phases:
+    1. "Baseline Measurement - Establish current performance metrics"
+    2. "Bottleneck Identification - Profile and identify slow code paths"
+    3. "Root Cause Analysis - Deep dive into performance issues"
+    4. "Optimization Implementation - Apply performance improvements"
+    5. "Validation Testing - Verify improvements and regression testing"
+    6. "Documentation - Performance optimization guide and benchmarks"
+
+analysis_tools:
+  profiling:
+    - Node.js built-in profiler
+    - Memory heap snapshots
+    - CPU flame graphs
+    - React Native Flipper integration
+    - TypeScript compilation analysis
+    
+  monitoring:
+    - Boot time measurements
+    - Memory usage tracking
+    - Response time metrics
+    - Mobile performance vitals
+    - Cross-platform benchmarks
+
+optimization_strategies:
+  memory:
+    - Object pooling for frequent allocations
+    - Lazy loading for large data structures
+    - Memory-efficient data structures
+    - Garbage collection optimization
+    - Memory leak prevention
+    
+  cpu:
+    - Algorithm optimization (O(n) improvements)
+    - Caching strategies
+    - Asynchronous processing
+    - Worker thread utilization
+    - Hot path optimization
+    
+  mobile:
+    - Bundle splitting and lazy loading
+    - Image optimization
+    - Native module performance
+    - React Native bridge optimization
+    - Battery usage optimization
+
+reporting:
+  performance_metrics:
+    - Before/after benchmarks
+    - Performance regression detection
+    - Cross-platform comparison
+    - Historical trend analysis
+    - Resource utilization charts
+    
+  optimization_recommendations:
+    - Priority-based improvement roadmap
+    - Cost/benefit analysis
+    - Implementation complexity assessment
+    - Risk evaluation for changes
+
+integration:
+  parent_agent: cross-platform-builder
+  collaboration:
+    - Coordinates with all platform agents for performance parity
+    - Works with Security Audit Agent to ensure secure optimizations
+    - Reports performance metrics to Cross-Platform Builder

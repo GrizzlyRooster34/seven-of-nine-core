@@ -53,7 +53,9 @@ export async function runQuadranLock(): Promise<Quadran> {
   return { q1:r1,q2:r2,q3:r3,q4:r4,passed,reasons };
 }
 
-if (require.main === module) runQuadranLock().then(r=>{
-  console.log(`Quadran-Lock: ${r.passed?"PASS":"FAIL"} — ${r.reasons.join("; ")||"ok"}`);
-  if (!r.passed) process.exit(2);
-});
+if (import.meta.url === `file://${process.argv[1]}`) {
+  runQuadranLock().then(r=>{
+    console.log(`Quadran-Lock: ${r.passed?"PASS":"FAIL"} — ${r.reasons.join("; ")||"ok"}`);
+    if (!r.passed) process.exit(2);
+  });
+}

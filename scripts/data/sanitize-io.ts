@@ -12,7 +12,7 @@ export async function sanitizeDataset(inputPath:string, outPath:string) {
   for await (const line of rl) out.write(line.replace(emailRx, m=>mask(m,"email")).replace(secretRx, m=>mask(m,"secret"))+"\n");
   out.end();
 }
-if (require.main === module) {
+if (import.meta.url === `file://${process.argv[1]}`) {
   const [, , inF, outF] = process.argv;
   if(!inF || !outF) { console.error("Usage: npm run data-sanitize -- <input> <output>"); process.exit(1); }
   sanitizeDataset(inF, outF).then(()=>console.log("SANITIZED →", outF)).catch(e=>{ console.error("sanitize-error", e.message); process.exit(8); });

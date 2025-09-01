@@ -28,4 +28,4 @@ export async function validateOrder() {
   console.log("Order OK:", trace.join(" → "));
 }
 
-if (require.main === module) validateOrder();
+if (import.meta.url === `file://${process.argv[1]}`) validateOrder();

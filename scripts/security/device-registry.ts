@@ -26,6 +26,6 @@ export async function validateDevice(deviceId:string) {
   // TODO: verify attestation/signature against pubkey
   return { valid:true, record:r };
 }
-if (require.main === module) {
+if (import.meta.url === `file://${process.argv[1]}`) {
   console.log("Device registry ready:", existsSync(REG_PATH) ? "FOUND" : "NEW");
 }

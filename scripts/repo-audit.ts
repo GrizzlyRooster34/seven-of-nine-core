@@ -202,12 +202,12 @@ class RepoMergeAuditor {
     }
 
     // Check for forbidden tokens in recent commits
-    const forbiddenTokens = git("log --all --grep='quadranlock' --oneline --since='1 month ago'");
+    const forbiddenTokens = git("log --all --grep='quadran-lock' --oneline --since='1 month ago'");
     if (!forbiddenTokens.includes("ERROR") && forbiddenTokens.trim()) {
       this.addIssue({
         category: "Naming Compliance",
         severity: "critical",
-        issue: "Forbidden 'quadranlock' token in commits",
+        issue: "Forbidden 'quadran-lock' token in commits",
         details: forbiddenTokens,
         remediation: "Apply Dumb Ass Protocol - fix naming violations immediately"
       });
@@ -485,7 +485,7 @@ async function main() {
   process.exit(0);
 }
 
-if (require.main === module) {
+if (import.meta.url === `file://${process.argv[1]}`) {
   main().catch(error => {
     console.error('Audit failed:', error);
     process.exit(1);

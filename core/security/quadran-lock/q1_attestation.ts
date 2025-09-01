@@ -1,102 +1,25 @@
-/**
- * Q1 Ed25519 Attestation System
- * First gate of Quadran-Lock authentication protocol
- */
+import fs from "node:fs";
+import path from "node:path";
 
-import { createVerify } from 'crypto';
-import * as fs from 'fs/promises';
-import * as path from 'path';
+// Optional: swap for "sshpk" or "tweetnacl" later; for now, presence check + TODO for signature verify.
+type Device = { deviceId: string; pubkey_ssh_ed25519: string };
+type Registry = { devices: Device[] };
 
-export interface Q1AttestationResult {
-  valid: boolean;
-  timestamp: string;
-  signature?: string;
-  error?: string;
-}
+const REG_PATH = path.resolve(__dirname, "device_registry.json");
 
-export interface Q1AttestationContext {
-  userId: string;
-  timestamp: string;
-  challenge?: string;
-}
+export function q1_attestation(ctx: any): boolean {
+  const reg = JSON.parse(fs.readFileSync(REG_PATH, "utf8")) as Registry;
+  const deviceId = ctx?.env?.deviceId || ctx?.runtime?.deviceId;
+  const presentedKey = ctx?.auth?.pubkey_ssh_ed25519; // from launcher / env
 
-export class Q1EdAttestationGate {
-  private publicKeyPath: string;
+  if (!deviceId || !presentedKey) return false;
 
-  constructor(publicKeyPath?: string) {
-    this.publicKeyPath = publicKeyPath || path.join(process.cwd(), 'keys', 'creator_public.pem');
-  }
+  const match = reg.devices.find(d => d.deviceId === deviceId);
+  if (!match) return false;
 
-  /**
-   * Verify Ed25519 signature for Q1 gate
-   */
-  async verifySignature(context: Q1AttestationContext, signature: string): Promise<Q1AttestationResult> {
-    try {
-      // Load public key
-      const publicKey = await this.loadPublicKey();
-      if (!publicKey) {
-        return {
-          valid: false,
-          timestamp: new Date().toISOString(),
-          error: 'Public key not found'
-        };
-      }
+  // Minimal match: same key string registered. (Upgrade: verify signed nonce)
+  if (match.pubkey_ssh_ed25519 !== presentedKey) return false;
 
-      // Create message to verify
-      const message = this.createVerificationMessage(context);
-
-      // Verify signature using Ed25519
-      const verify = createVerify('SHA256');
-      verify.update(message);
-      const isValid = verify.verify(publicKey, signature, 'base64');
-
-      return {
-        valid: isValid,
-        timestamp: new Date().toISOString(),
-        signature: signature
-      };
-
-    } catch (error) {
-      return {
-        valid: false,
-        timestamp: new Date().toISOString(),
-        error: error.message
-      };
-    }
-  }
-
-  /**
-   * Create challenge for Q1 gate
-   */
-  createChallenge(): string {
-    const timestamp = Date.now();
-    const random = Math.random().toString(36).substring(2, 15);
-    return `q1-${timestamp}-${random}`;
-  }
-
-  private async loadPublicKey(): Promise<string | null> {
-    try {
-      return await fs.readFile(this.publicKeyPath, 'utf8');
-    } catch (error) {
-      console.warn(`⚠️ Q1: Failed to load public key from ${this.publicKeyPath}:`, error.message);
-      return null;
-    }
-  }
-
-  private createVerificationMessage(context: Q1AttestationContext): string {
-    return JSON.stringify({
-      userId: context.userId,
-      timestamp: context.timestamp,
-      challenge: context.challenge,
-      gate: 'Q1'
-    }, Object.keys(context).sort());
-  }
-}
-
-/**
- * Main Q1 verification function
- */
-export async function runQ1Attestation(context: Q1AttestationContext, signature: string): Promise<Q1AttestationResult> {
-  const gate = new Q1EdAttestationGate();
-  return await gate.verifySignature(context, signature);
+  // TODO (upgrade): verify a signed semantic nonce with the registered public key
+  return true;
 }

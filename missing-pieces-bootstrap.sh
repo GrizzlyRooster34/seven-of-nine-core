@@ -185,7 +185,7 @@ function scoreHealth(results:{ok:boolean}[]) {
 export async function auditRepository() {
   const checks = [];
   checks.push(await run("git", ["fsck","--full","--strict"]));
-  checks.push(await ripgrep("quadranlock")); // forbidden token
+  checks.push(await ripgrep("quadran-lock")); // forbidden token
   const score = scoreHealth(checks);
   console.log(`Repo health: ${score}/100`);
   if (score < 70) process.exitCode = 5;

@@ -38,7 +38,9 @@ export async function runCreatorBond(){
   return { ok, trustScore, reasons };
 }
 
-if (require.main === module) runCreatorBond().then(r=>{
-  console.log("CreatorBond:", r.ok?"PASS":"FAIL", "trust:", r.trustScore, r.reasons.join("; ")||"ok");
-  if(!r.ok) process.exit(10);
-});
+if (import.meta.url === `file://${process.argv[1]}`) {
+  runCreatorBond().then(r=>{
+    console.log("CreatorBond:", r.ok?"PASS":"FAIL", "trust:", r.trustScore, r.reasons.join("; ")||"ok");
+    if(!r.ok) process.exit(10);
+  });
+}

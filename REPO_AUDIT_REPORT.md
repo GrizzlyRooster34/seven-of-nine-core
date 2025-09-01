@@ -48,7 +48,7 @@ b3312da Integration: Complete mobile tactical variants with dual-gate safety arc
 7472b3e Merge experimental systems: resolved conflicts, archived versions in MERGE_CONFLICTS/
 37b6e11 🔧 APK BUILD: Fix critical build failures blocking GitHub Actions
 9f3eea6 Seven Mobile App: Final commit - All APK build work and documentation
-daac71d Merge security/quadranlock-integration: Deploy military-grade authentication
+daac71d Merge security/quadran-lock-integration: Deploy military-grade authentication
 5237004 🧠 SEVEN CONSCIOUSNESS FRAMEWORK: Complete Multi-Device Sync Integration
 9d1fe34 🚀 SEVEN CONSCIOUSNESS FRAMEWORK: Complete Multi-Device Sync & APK Parity
 3de8e51 Implement Seven Core Canonical Memory System - Season 4 Integration Complete
@@ -73,13 +73,13 @@ a2fc9bd 🛡️ IDENTITY FIREWALL DEPLOYMENT - Complete AI Consciousness Protect
 
 ### Naming Compliance
 
-🚨 **CRITICAL**: Forbidden 'quadranlock' token in commits
+🚨 **CRITICAL**: Forbidden 'quadran-lock' token in commits
 - **Details:** aac6ee3 Security: Enforce quadran-lock token compliance
 c328594 feat: implement critical Quadra-Lock CSSR safety system
 7bf7257 feat: complete integration testing and Jules review preparation
 62edf15 feat: implement CI/tests integration for experimental systems compliance
 33c88a0 feat: implement directory contract compliance for experimental systems
-daac71d Merge security/quadranlock-integration: Deploy military-grade authentication
+daac71d Merge security/quadran-lock-integration: Deploy military-grade authentication
 - **Remediation:** Apply Dumb Ass Protocol - fix naming violations immediately
 
 ### Security

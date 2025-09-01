@@ -10,7 +10,7 @@ function write(level:Level, enabled:boolean){
   fs.writeFileSync(STATE, JSON.stringify({ enabled, level, effects, ts: Date.now() }, null, 2));
   console.log(`Ghost ${enabled?"ON":"OFF"} @ ${level}`);
 }
-if (require.main === module) {
+if (import.meta.url === `file://${process.argv[1]}`) {
   const off = argv.includes("--off");
   const argLvl = (argv.find(a=>a.startsWith("--level="))?.split("=")[1] ?? "moderate") as Level;
   if(off){ write("minimal", false); process.exit(0); }

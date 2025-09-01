@@ -85,7 +85,8 @@
     "ui-build": "cd ui-shell && bun run build",
     "dev:seed-auth": "tsx scripts/dev/seed-auth.ts",
     "smoke:p0p1": "tsx scripts/tests/smoke-p0p1.ts",
-    "apk:assemble": "cd apps/mobile/android && ./gradlew assembleDebug"
+    "apk:assemble": "cd apps/mobile/android && ./gradlew assembleDebug",
+    "cssr:scan": "tsx scripts/dev/cssr-scan.ts"
   },
   "keywords": [
     "seven-of-nine",

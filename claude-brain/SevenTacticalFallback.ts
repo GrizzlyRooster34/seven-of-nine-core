@@ -328,24 +328,15 @@ export class SevenTacticalFallback extends EventEmitter {
     const errors: string[] = [];
 
     try {
-      // Validate critical file checksums with enhanced Map/Object handling
-      const rawChecksums = snapshot.validationChecksums;
-      const checksums = rawChecksums instanceof Map
-        ? rawChecksums
-        : new Map(Object.entries(rawChecksums || {}));
-
-      // Log for monitoring (remove after verification)
-      if (!(rawChecksums instanceof Map)) {
-        console.warn('[TacticalFallback] Checksums deserialized as Object, converting to Map');
-      }
-
-      for (const [file, expectedChecksum] of checksums.entries()) {
+      // Validate critical file checksums
+      const checksums = snapshot.validationChecksums as Record<string, string> || {};
+      for (const [file, expectedChecksum] of Object.entries(checksums)) {
         try {
           const content = await fs.readFile(file, 'utf8');
           const actualChecksum = this.stableHash(content);
           
           if (actualChecksum !== expectedChecksum) {
-            errors.push(`Checksum mismatch for ${file}: expected ${expectedChecksum}, got ${actualChecksum}`);
+            errors.push(`Checksum mismatch for ${file}`);
           }
         } catch (error) {
           errors.push(`Cannot validate ${file}: ${error.message}`);
@@ -493,6 +484,69 @@ export class SevenTacticalFallback extends EventEmitter {
     }
   }
 
+  private async captureComponentVersions(): Promise<Record<string, string>> {
+    try {
+      // Basic component version capture - can be expanded
+      return {
+        'seven-runtime': '2.0.0',
+        'memory-engine': '2.0.0',
+        'personality-middleware': '2.0.0'
+      };
+    } catch (error) {
+      console.warn('⚠️ Failed to capture component versions:', error);
+      return {};
+    }
+  }
+
+  private async captureSystemCapabilities(): Promise<string[]> {
+    try {
+      // Basic capabilities list - can be expanded
+      return [
+        'memory-system',
+        'personality-middleware',
+        'tactical-variants',
+        'safety-protocols'
+      ];
+    } catch (error) {
+      console.warn('⚠️ Failed to capture system capabilities:', error);
+      return [];
+    }
+  }
+
+  private async captureConfigurations(): Promise<Record<string, any>> {
+    try {
+      // Basic config capture - can be expanded
+      return {
+        phase: 'fallback-safe',
+        timestamp: new Date().toISOString()
+      };
+    } catch (error) {
+      console.warn('⚠️ Failed to capture configurations:', error);
+      return {};
+    }
+  }
+
+  private async generateValidationChecksums(): Promise<Record<string, string>> {
+    const checksums: Record<string, string> = {};
+    const criticalFiles = [
+      'seven-runtime/index.ts',
+      'memory-v2/MemoryEngine.ts',
+      'persona-v2/PersonalityMiddleware.ts'
+    ];
+
+    for (const file of criticalFiles) {
+      try {
+        const fullPath = join(process.cwd(), file);
+        const content = await fs.readFile(fullPath, 'utf8');
+        checksums[fullPath] = this.stableHash(content);
+      } catch (error) {
+        console.warn(`⚠️ Failed to generate checksum for ${file}:`, error.message);
+        // Graceful failure - continue with other files
+      }
+    }
+
+    return checksums;
+  }
 
   private stableHash(obj: unknown): string {
     const s = JSON.stringify(obj, Object.keys(obj as any).sort?.() || undefined);

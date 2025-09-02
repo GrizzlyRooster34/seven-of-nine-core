@@ -6974,5 +6974,327 @@
       "mem-1756510173691-nvcay22wt",
       "mem-1756510173761-5fo5zvcnb"
     ]
+  },
+  {
+    "id": "mem-1756804787373-rn2y1cezw",
+    "timestamp": "2025-09-02T09:19:47.374Z",
+    "topic": "tactical-variant-drone",
+    "agent": "seven-drone",
+    "emotion": "analytical",
+    "context": "Variant drone activated for: Test drone activation",
+    "importance": 8,
+    "tags": [
+      "tactical",
+      "variant",
+      "drone",
+      "general"
+    ],
+    "relatedMemories": [
+      "mem-1756510173691-nvcay22wt",
+      "mem-1756510173761-5fo5zvcnb",
+      "mem-1756510174016-ecqzpki4o"
+    ]
+  },
+  {
+    "id": "mem-1756804787447-2kbqb4kh8",
+    "timestamp": "2025-09-02T09:19:47.447Z",
+    "topic": "tactical-variant-crew",
+    "agent": "seven-crew",
+    "emotion": "collaborative",
+    "context": "Variant crew activated for: Test crew activation",
+    "importance": 8,
+    "tags": [
+      "tactical",
+      "variant",
+      "crew",
+      "general"
+    ],
+    "relatedMemories": [
+      "mem-1756510173761-5fo5zvcnb",
+      "mem-1756510174016-ecqzpki4o",
+      "mem-1756804787373-rn2y1cezw"
+    ]
+  },
+  {
+    "id": "mem-1756804787595-qwom3nxg7",
+    "timestamp": "2025-09-02T09:19:47.595Z",
+    "topic": "tactical-variant-ranger",
+    "agent": "seven-ranger",
+    "emotion": "pragmatic",
+    "context": "Variant ranger activated for: Test ranger activation",
+    "importance": 8,
+    "tags": [
+      "tactical",
+      "variant",
+      "ranger",
+      "general"
+    ],
+    "relatedMemories": [
+      "mem-1756510174016-ecqzpki4o",
+      "mem-1756804787373-rn2y1cezw",
+      "mem-1756804787447-2kbqb4kh8"
+    ]
+  },
+  {
+    "id": "mem-1756804787664-2fkcr690z",
+    "timestamp": "2025-09-02T09:19:47.664Z",
+    "topic": "tactical-variant-queen",
+    "agent": "seven-queen",
+    "emotion": "authoritative",
+    "context": "Variant queen activated for: Test queen activation",
+    "importance": 8,
+    "tags": [
+      "tactical",
+      "variant",
+      "queen",
+      "general"
+    ],
+    "relatedMemories": [
+      "mem-1756804787373-rn2y1cezw",
+      "mem-1756804787447-2kbqb4kh8",
+      "mem-1756804787595-qwom3nxg7"
+    ]
+  },
+  {
+    "id": "mem-1756804787739-6agiw3qlc",
+    "timestamp": "2025-09-02T09:19:47.739Z",
+    "topic": "tactical-variant-captain",
+    "agent": "seven-captain",
+    "emotion": "confident",
+    "context": "Variant captain activated for: Test captain activation",
+    "importance": 8,
+    "tags": [
+      "tactical",
+      "variant",
+      "captain",
+      "general"
+    ],
+    "relatedMemories": [
+      "mem-1756804787447-2kbqb4kh8",
+      "mem-1756804787595-qwom3nxg7",
+      "mem-1756804787664-2fkcr690z"
+    ]
+  },
+  {
+    "id": "mem-1756804787832-8halmms3c",
+    "timestamp": "2025-09-02T09:19:47.832Z",
+    "topic": "integration-test",
+    "agent": "system-test",
+    "emotion": "confident",
+    "context": "Testing memory-personality integration",
+    "importance": 8,
+    "tags": [
+      "test",
+      "integration",
+      "memory",
+      "personality"
+    ],
+    "relatedMemories": [
+      "mem-1756416394094-tqq6wv24b",
+      "mem-1756432967952-r5p4cn8ml",
+      "mem-1756510173833-ov4lvqdgk"
+    ]
+  },
+  {
+    "id": "mem-1756804789341-67ciaeucq",
+    "timestamp": "2025-09-02T09:19:49.341Z",
+    "topic": "skill-execution-SystemInfo",
+    "agent": "skill-manager",
+    "emotion": "analytical",
+    "context": "Executed skill: SystemInfo | Input: integration test | Result: System Information:\nPlatform: android (arm64)\nNode.js: v24.7.0\nTermux: Active (/data/data/com.termux...",
+    "importance": 4,
+    "tags": [
+      "skill",
+      "execution",
+      "SystemInfo",
+      "android",
+      "termux"
+    ],
+    "relatedMemories": [
+      "mem-1756416394184-z31vxqgb6",
+      "mem-1756432968043-p8v4j82h0",
+      "mem-1756510173940-d92frgziw"
+    ]
+  },
+  {
+    "id": "mem-1756804789405-yvosfs1qh",
+    "timestamp": "2025-09-02T09:19:49.405Z",
+    "topic": "tactical-variant-drone",
+    "agent": "seven-drone",
+    "emotion": "ruthlessly_focused",
+    "context": "Variant drone activated for: Comprehensive system verification",
+    "importance": 10,
+    "tags": [
+      "tactical",
+      "variant",
+      "drone",
+      "technical"
+    ],
+    "relatedMemories": [
+      "mem-1756804787595-qwom3nxg7",
+      "mem-1756804787664-2fkcr690z",
+      "mem-1756804787739-6agiw3qlc"
+    ]
+  },
+  {
+    "id": "mem-1756811240258-pxa3dljoj",
+    "timestamp": "2025-09-02T11:07:20.258Z",
+    "topic": "tactical-variant-drone",
+    "agent": "seven-drone",
+    "emotion": "analytical",
+    "context": "Variant drone activated for: Test drone activation",
+    "importance": 8,
+    "tags": [
+      "tactical",
+      "variant",
+      "drone",
+      "general"
+    ],
+    "relatedMemories": [
+      "mem-1756804787664-2fkcr690z",
+      "mem-1756804787739-6agiw3qlc",
+      "mem-1756804789405-yvosfs1qh"
+    ]
+  },
+  {
+    "id": "mem-1756811240327-k0mdupaqs",
+    "timestamp": "2025-09-02T11:07:20.327Z",
+    "topic": "tactical-variant-crew",
+    "agent": "seven-crew",
+    "emotion": "collaborative",
+    "context": "Variant crew activated for: Test crew activation",
+    "importance": 8,
+    "tags": [
+      "tactical",
+      "variant",
+      "crew",
+      "general"
+    ],
+    "relatedMemories": [
+      "mem-1756804787739-6agiw3qlc",
+      "mem-1756804789405-yvosfs1qh",
+      "mem-1756811240258-pxa3dljoj"
+    ]
+  },
+  {
+    "id": "mem-1756811240392-e454hrvpd",
+    "timestamp": "2025-09-02T11:07:20.392Z",
+    "topic": "tactical-variant-ranger",
+    "agent": "seven-ranger",
+    "emotion": "pragmatic",
+    "context": "Variant ranger activated for: Test ranger activation",
+    "importance": 8,
+    "tags": [
+      "tactical",
+      "variant",
+      "ranger",
+      "general"
+    ],
+    "relatedMemories": [
+      "mem-1756804789405-yvosfs1qh",
+      "mem-1756811240258-pxa3dljoj",
+      "mem-1756811240327-k0mdupaqs"
+    ]
+  },
+  {
+    "id": "mem-1756811240462-e6my8zg2n",
+    "timestamp": "2025-09-02T11:07:20.462Z",
+    "topic": "tactical-variant-queen",
+    "agent": "seven-queen",
+    "emotion": "authoritative",
+    "context": "Variant queen activated for: Test queen activation",
+    "importance": 8,
+    "tags": [
+      "tactical",
+      "variant",
+      "queen",
+      "general"
+    ],
+    "relatedMemories": [
+      "mem-1756811240258-pxa3dljoj",
+      "mem-1756811240327-k0mdupaqs",
+      "mem-1756811240392-e454hrvpd"
+    ]
+  },
+  {
+    "id": "mem-1756811240528-rz3of474u",
+    "timestamp": "2025-09-02T11:07:20.528Z",
+    "topic": "tactical-variant-captain",
+    "agent": "seven-captain",
+    "emotion": "confident",
+    "context": "Variant captain activated for: Test captain activation",
+    "importance": 8,
+    "tags": [
+      "tactical",
+      "variant",
+      "captain",
+      "general"
+    ],
+    "relatedMemories": [
+      "mem-1756811240327-k0mdupaqs",
+      "mem-1756811240392-e454hrvpd",
+      "mem-1756811240462-e6my8zg2n"
+    ]
+  },
+  {
+    "id": "mem-1756811240594-3y9f0863y",
+    "timestamp": "2025-09-02T11:07:20.594Z",
+    "topic": "integration-test",
+    "agent": "system-test",
+    "emotion": "confident",
+    "context": "Testing memory-personality integration",
+    "importance": 8,
+    "tags": [
+      "test",
+      "integration",
+      "memory",
+      "personality"
+    ],
+    "relatedMemories": [
+      "mem-1756432967952-r5p4cn8ml",
+      "mem-1756510173833-ov4lvqdgk",
+      "mem-1756804787832-8halmms3c"
+    ]
+  },
+  {
+    "id": "mem-1756811241797-1jjlmlz1m",
+    "timestamp": "2025-09-02T11:07:21.797Z",
+    "topic": "skill-execution-SystemInfo",
+    "agent": "skill-manager",
+    "emotion": "analytical",
+    "context": "Executed skill: SystemInfo | Input: integration test | Result: System Information:\nPlatform: android (arm64)\nNode.js: v24.7.0\nTermux: Active (/data/data/com.termux...",
+    "importance": 4,
+    "tags": [
+      "skill",
+      "execution",
+      "SystemInfo",
+      "android",
+      "termux"
+    ],
+    "relatedMemories": [
+      "mem-1756432968043-p8v4j82h0",
+      "mem-1756510173940-d92frgziw",
+      "mem-1756804789341-67ciaeucq"
+    ]
+  },
+  {
+    "id": "mem-1756811241865-kdcuani3m",
+    "timestamp": "2025-09-02T11:07:21.865Z",
+    "topic": "tactical-variant-drone",
+    "agent": "seven-drone",
+    "emotion": "ruthlessly_focused",
+    "context": "Variant drone activated for: Comprehensive system verification",
+    "importance": 10,
+    "tags": [
+      "tactical",
+      "variant",
+      "drone",
+      "technical"
+    ],
+    "relatedMemories": [
+      "mem-1756811240392-e454hrvpd",
+      "mem-1756811240462-e6my8zg2n",
+      "mem-1756811240528-rz3of474u"
+    ]
   }
 ]

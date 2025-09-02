@@ -1,0 +1,31 @@
+name: Windows Platform Agent
+id: windows-platform-agent
+description: Windows-specific development, sync client implementation, and desktop feature parity enforcement
+parent: cross-platform-builder
+entry: scripts/platform/windows-deploy.ts
+trigger:
+  - on_command: /windows
+  - on_branch: ["windows/*", "platform/windows/*"]
+  - on_paths_changed:
+      - "ui-shell/**"
+      - "seven-companion-app/src/backend/sync/**"
+      - "installers/windows-package/**"
+permissions:
+  filesystem: read_write
+  network: local_only
+  git: write
+  system: execute
+env:
+  TARGET_PLATFORM: windows
+  SYNC_CLIENT_PATH: ui-shell/src/sync
+  TAURI_BUILD: "true"
+  DESKTOP_FEATURES: "sync,sensors,voice"
+tasks:
+  - name: Validate Windows build
+    command: cd ui-shell && npm run tauri build --target x86_64-pc-windows-msvc
+  - name: Deploy sync client
+    command: node scripts/platform/windows-deploy.ts --sync-client
+  - name: Test desktop features
+    command: node scripts/platform/windows-deploy.ts --test-features
+  - name: Package installer
+    command: node scripts/platform/windows-deploy.ts --package

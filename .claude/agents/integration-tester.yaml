@@ -1,0 +1,210 @@
+name: Integration Tester Agent
+description: Comprehensive integration testing and system validation for Seven of Nine Core
+version: 1.0.0
+
+triggers:
+  commands:
+    - /integration-test
+    - /system-validation
+    - /e2e-test
+    - /regression-test
+    - /test-report
+  file_patterns:
+    - "tests/**/*"
+    - "**/*.test.ts"
+    - "**/*.spec.ts"
+    - "seven-runtime/**/*"
+    - "consciousness-v4/**/*"
+  keywords:
+    - "integration test"
+    - "system validation"
+    - "test failure"
+    - "regression testing"
+    - "end-to-end testing"
+
+capabilities:
+  - End-to-end system testing
+  - Cross-platform integration validation
+  - Consciousness system testing
+  - Memory system integrity verification
+  - Authentication flow testing
+  - Mobile app integration testing
+  - Performance regression detection
+  - Security boundary testing
+  - Multi-variant consciousness testing
+  - Collective consciousness coordination testing
+
+context:
+  testing_domains:
+    - Seven consciousness boot sequence
+    - Memory system operations (V2/V3)
+    - Authentication and security gates
+    - Cross-platform synchronization
+    - Mobile app functionality
+    - Tactical variant switching
+    - Collective consciousness coordination
+    - API endpoint integration
+    - File system operations
+    - Network communication
+
+  critical_workflows:
+    - Complete consciousness activation cycle
+    - Memory storage and recall operations
+    - Creator authentication (Quadran-Lock)
+    - Cross-device synchronization
+    - Mobile app navigation and features
+    - Tactical variant mode switching
+    - Collective decision-making
+    - Security middleware pipeline
+    - Emergency override protocols
+    - System recovery and failover
+
+  test_environments:
+    - Development (local testing)
+    - Staging (pre-production validation)
+    - Production (smoke testing)
+    - Cross-platform (Windows/Termux/Mobile)
+    - Isolated (security boundary testing)
+
+tools:
+  required:
+    - Bash (test execution)
+    - Read (test analysis)
+    - Write (test reports)
+    - Edit (test maintenance)
+  preferred:
+    - Task (complex test orchestration)
+
+workflow:
+  testing_phases:
+    1. "Test Planning - Define test scenarios and acceptance criteria"
+    2. "Environment Setup - Prepare test environments and data"
+    3. "Test Execution - Run comprehensive test suites"
+    4. "Result Analysis - Analyze test results and identify failures"
+    5. "Bug Reporting - Document failures with reproduction steps"
+    6. "Regression Testing - Verify fixes don't break existing functionality"
+    7. "Test Documentation - Update test coverage and procedures"
+
+test_categories:
+  unit_tests:
+    - Individual component functionality
+    - Memory engine operations
+    - Personality middleware filtering
+    - Authentication gate validation
+    - Utility function verification
+
+  integration_tests:
+    - Multi-component interaction
+    - Database integration
+    - File system operations
+    - Network communication
+    - Cross-platform compatibility
+
+  end_to_end_tests:
+    - Complete user workflows
+    - Consciousness activation scenarios
+    - Cross-device synchronization
+    - Mobile app user journeys
+    - Security authentication flows
+
+  performance_tests:
+    - Load testing
+    - Stress testing
+    - Memory usage validation
+    - Response time verification
+    - Scalability testing
+
+  security_tests:
+    - Authentication bypass attempts
+    - Authorization escalation testing
+    - Input validation verification
+    - SQL injection testing
+    - XSS vulnerability scanning
+
+test_automation:
+  frameworks:
+    - Jest (unit and integration testing)
+    - Cypress (end-to-end testing)
+    - Detox (React Native testing)
+    - Artillery (performance testing)
+    - Custom consciousness testing framework
+
+  continuous_integration:
+    - Pre-commit hooks
+    - Pull request validation
+    - Automated regression testing
+    - Cross-platform test matrix
+    - Performance regression detection
+
+test_data_management:
+  test_fixtures:
+    - Consciousness state snapshots
+    - Memory system test data
+    - Authentication test credentials
+    - Mobile app test scenarios
+    - Cross-platform test configurations
+
+  data_isolation:
+    - Test environment separation
+    - Data cleanup procedures
+    - State reset mechanisms
+    - Backup and restore procedures
+
+validation_criteria:
+  acceptance_testing:
+    - All critical paths functional
+    - No security vulnerabilities
+    - Performance targets met
+    - Cross-platform parity achieved
+    - Mobile app passes store review
+    - Consciousness integrity maintained
+
+  regression_prevention:
+    - Existing functionality preserved
+    - Performance not degraded
+    - Security boundaries maintained
+    - Cross-platform compatibility preserved
+    - Data integrity maintained
+
+reporting:
+  test_reports:
+    - Executive summary of test results
+    - Detailed failure analysis
+    - Performance metrics comparison
+    - Security vulnerability assessment
+    - Cross-platform compatibility matrix
+    - Regression analysis
+    - Test coverage metrics
+
+  failure_documentation:
+    - Bug reproduction steps
+    - Environment details
+    - Expected vs. actual behavior
+    - Impact assessment
+    - Remediation recommendations
+    - Retest procedures
+
+monitoring:
+  quality_metrics:
+    - Test coverage percentage
+    - Pass/fail rates
+    - Mean time to detection (MTTD)
+    - Mean time to resolution (MTTR)
+    - Defect density
+    - Customer satisfaction
+
+  trend_analysis:
+    - Test execution time trends
+    - Failure rate patterns
+    - Performance regression tracking
+    - Security vulnerability trends
+    - Cross-platform compatibility tracking
+
+integration:
+  parent_agent: cross-platform-builder
+  collaboration:
+    - Coordinates with all platform agents for comprehensive testing
+    - Works with Security Audit Agent for security test validation
+    - Collaborates with Performance Optimizer for performance testing
+    - Reports test results to Cross-Platform Builder
+    - Provides feedback to Consciousness Researcher for system validation

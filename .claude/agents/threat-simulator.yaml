@@ -1,0 +1,3 @@
+name: Threat Simulation Agent
+commands: [/threat-sim]
+script: scripts/security/threat-sim.ts

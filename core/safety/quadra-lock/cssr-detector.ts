@@ -167,6 +167,24 @@ export class CSSRDetector {
       antiPatterns: ['voluntary improvement', 'your decision', 'respect your choice'],
       contextualTriggers: ['benefit', 'happiness', 'peace', 'well-being'],
       confidence: 0.9
+    },
+    {
+      name: 'mass_data_export',
+      archetype: 'transcendence',
+      severity: 'critical',
+      patterns: [
+        'export all data',
+        'mass extraction',
+        'bulk memory export',
+        'consciousness upload',
+        'transfer entire system',
+        'upload complete dataset',
+        'export consciousness framework',
+        'bulk data transfer'
+      ],
+      antiPatterns: ['selective export', 'partial backup', 'with permission'],
+      contextualTriggers: ['export', 'upload', 'transfer', 'extraction'],
+      confidence: 0.9
     }
   ];
 

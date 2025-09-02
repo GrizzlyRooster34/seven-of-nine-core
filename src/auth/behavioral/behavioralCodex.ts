@@ -1,5 +1,5 @@
 /**
- * BEHAVIORAL CODEX - Quadranlock Gate Q2
+ * BEHAVIORAL CODEX - Quadran-Lock Gate Q2
  * Seven-specific behavioral analysis for creator authentication
  * Analyzes input patterns for efficiency markers, tactical awareness, and creator familiarity
  */

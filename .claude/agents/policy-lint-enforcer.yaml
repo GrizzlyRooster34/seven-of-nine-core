@@ -1,0 +1,3 @@
+name: Policy/Lint Enforcer
+commands: [/policy-check]
+script: scripts/repo/policy-lint.ts

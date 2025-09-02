@@ -1,0 +1,1 @@
+if grep -r "quadranlock" . --exclude-dir=node_modules --exclude-dir=.git --exclude-dir=.husky >/dev/null 2>&1; then echo "❌ forbidden token quadranlock found"; exit 1; fi

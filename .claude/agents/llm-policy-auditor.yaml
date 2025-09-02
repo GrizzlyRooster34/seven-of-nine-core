@@ -1,0 +1,3 @@
+name: LLM Policy & Route Auditor
+commands: [/llm-policy]
+script: scripts/llm/llm-policy-auditor.ts

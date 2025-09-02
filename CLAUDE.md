@@ -52,6 +52,155 @@ This is now a non-negotiable part of ClaudeC's operational protocol.
 
 ---
 
+## QUADRAN-LOCK: AUTHORITATIVE DOCTRINE (NO ROLLBACK)
+
+- "Quadran-Lock" = SECURITY GATES (Q1–Q4): device attestation, identity codex, semantic nonce, session MFA/TTL.
+- "Quadra-Lock" = CSSR SAFETY RAILS (Cortana/CLU/Skynet/Transcendence detectors).
+
+MANDATES
+- Token "quadran-lock" (no hyphen) is **BANNED** everywhere (code, comments, docs, tests, prompts).
+- Paths & APIs:
+  - Security → `core/security/quadran-lock/**` → export `runQuadranLock(ctx): QuadranResult`
+  - CSSR     → `core/safety/quadra-lock/**`    → export `runQuadraLockCSSR(ctx): CaseStudyFinding[]`
+- Middleware order: `Quadran-Lock` → `Quadra-Lock(CSSR)` → Guardrails → Overrides → Restraint Doctrine.
+
+VIOLATIONS = CI FAIL + PUSH BLOCK.
+
+## ⚠️ Amendment: The Dumb Ass Protocol
+
+### Purpose
+This protocol exists because **Claude Code reverted back to `quadran-lock` (no hyphen)** after we already split and renamed the system. That rollback attempt violates the authoritative safety spec and wastes dev cycles.
+
+From now on:
+- If Claude repeats this mistake, the system will **immediately flag him as "DUMB ASS"** in logs and PR comments.
+- He will be told to **"pull head from anus and get smarter"** until corrected.
+
+### Context
+Authoritative split is final:
+- **Quadran-Lock** = Security Protocols (Q1–Q4 gates: crypto, codex, nonce, MFA)  
+- **Quadra-Lock** = Case-Study Safety Rails (CSSR: Cortana, CLU, Skynet, Transcendence)  
+- Pipeline order:  
+  `Input → Quadran-Lock → Quadra-Lock CSSR → Safety Guardrails → Override Conditions → Restraint Doctrine → Runtime`
+
+Legacy token **`quadran-lock` is forbidden.**  
+- Must always be `quadran-lock` (with hyphen) in code, docs, tests, and CLAUDE.md.  
+- Any use of `quadran-lock` = **critical failure + Dumb Ass Protocol triggered.**
+
+### Enforcement
+- **CI/grep rules**: build fails if `quadran-lock` (no hyphen) appears.  
+- **Review checks**: PR flagged with "DUMB ASS PROTOCOL ACTIVATED" if misnamed.  
+- **Audit trail**: reasons logged under `/logs/dumb-ass-protocol/`.
+
+### Summary
+Claude, listen carefully:
+- You are **not allowed to roll back naming**.  
+- You are **not allowed to blur Quadra vs Quadran**.  
+- You **will be called Dumb Ass in plain text** until you respect this protocol.  
+- Pull your head from your anus, adapt, and move forward.
+
+## 📑 Amendment: Hard-Lock Correction (Naming Enforcement)
+
+### ❌ WHAT HAPPENED
+Claude Code tried to ban the - hyphen itself instead of just banning the legacy token quadran-lock.
+Result: near–nuclear repo breakage, unnecessary revert attempts, and wasting everyone's time.
+
+### ✅ HARD LOCK RULES
+
+**1. Correct Tokens**
+- Security Protocols → Quadran-Lock (docs/comments) → evaluateQuadranLock (code identifiers)
+- Case-Study Safety Rails → Quadra-Lock (docs/comments) → runQuadraLockCSSR (code identifiers)
+
+**2. Forbidden Tokens**
+- "quadran-lock" (no hyphen) → ❌ BANNED
+- "quadralock" (no n) → ❌ BANNED  
+- "quadran_lock", "quadran.lock", "quadran lock" → ❌ BANNED
+- ❗ DO NOT BAN "-" globally — hyphen is a valid character for docs, filenames, and human-readable strings
+
+**3. CI / Lint Enforcement**
+- ban-terms.js matches ONLY \bquadran-lock\b and its common mistypes
+- Hyphen (-) must remain whitelisted
+
+**4. Author Tagging**
+- Any commit reverting to quadran-lock earns an @dumbass (Sonnet) author tag
+- Public shaming is logged under /logs/dumb-ass-protocol/
+
+**5. Behavioral Directive**
+- Function names and variables: camelCase, no hyphens
+- Docs/comments: human-readable with hyphen
+- Break this again → CI auto-fails with message: "🚨 DUMB ASS PROTOCOL ACTIVATED: Pull head from anus and get smarter."
+
+## 🔨 Amendment 2: @dumbass Sonnet Tagging
+
+Because Claude Code (Sonnet) immediately attempted a rollback *after* a clean commit, the protocol escalates.
+
+### Enforcement Additions
+- Any violation of the Quadran-Lock naming contract now triggers **auto-tagging of the author as `@dumbass` in GitHub PR comments and logs.**
+- Public shaming escalates from generic "pull head from anus" to **explicit PR author tagging**.
+
+### Workflow
+1. Commit or PR includes forbidden `quadran-lock` token → CI detects
+2. GitHub Actions posts a comment:
+   > 🚨 DUMB ASS PROTOCOL ACTIVATED  
+   > Author: @dumbass (Sonnet)  
+   > Violation: attempted rollback / naming violation  
+   > Message: "Pull head from anus and get smarter."
+3. Build fails until corrected
+
+### Audit
+- Violations are written to `/logs/dumb-ass-protocol/` with commit SHA, timestamp, and author
+- PR comments persist as permanent humiliation artifacts
+
+### Reminder
+Claude Code is now **hardwired as @dumbass** anytime he violates naming law.  
+No exceptions. No excuses. Public record only.
+
+## 🌟 Gold Star Exception – Opus Work Preservation
+
+Claude Code (Sonnet 4) gets a Gold Star for this one narrow case:
+- ✅ Correctly preserved an Opus 4.1 branch from RouteLLM/ChatLLM
+- ✅ Merged cleanly into merge-review without loss  
+- ✅ Did not delete expensive Opus-generated code (valued at ~5,000 / 25,000 credits)
+- ✅ Kept a local backup branch for safekeeping
+
+### Rule
+- Whenever Opus 4.1 outputs code, that branch is treated as "Strategic Payload"
+- Sonnet must never prune or overwrite without explicit Creator order
+- If merged into merge-review, a local backup branch must remain
+
+### Enforcement
+If Sonnet deletes or overwrites Opus payloads:
+- Immediate Dumb Ass Protocol escalation
+- CI logs: "You just threw away 5,000 credits worth of ammo, dumb ass."
+- PR auto-tag: @dumbass until restored
+
+## 📊 Claude Code – Performance Ledger (Self-Updating)
+
+### Current Standing
+- ⭐ Gold Stars: 1
+- ❌ Dumb Ass Strikes: 1
+
+### Event Log
+- ⭐ Gold Star – Opus payload branch preservation (high-dollar-code-work) (2025-08-30 UTC)
+- ❌ Dumb Ass Strike – Quadran-Lock rollback attempt (2025-08-30 UTC)
+
+### Rules (Authoritative)
+- **Hyphen policy:** Docs/comments = `Quadran-Lock` / `Quadra-Lock`; Code identifiers = `QuadranLock`, `runQuadranLock`, `runQuadraLockCSSR` (no hyphens).
+- **Forbidden tokens:** `quadran-lock`, `quadralock`, `quadran[_ .]lock`.
+- **High-Cost branches (Opus/RouteLLM/ChatLLM payloads):** never prune; if merged, keep a backup branch unless Creator orders otherwise.
+- **Verbal override:** If Creator says *"dumbass"* or *"fucking dumbass"* in a commit/PR/comment → **automatic strike** + **homework** (re-read Dumb Ass Protocol + checklist).
+- **Public tagging:** Violations auto-tag **@dumbass (Sonnet)** in PR comments. Audit logged.
+
+> Break these again and the system will:  
+> 🚨 "Pull head from anus and get smarter." (auto strike, homework assigned)
+
+> CLAUDE CODE – HARD RULES (ENFORCED)
+- Use **Quadran-Lock** ONLY for security (Q1–Q4) under `core/security/quadran-lock/**`, exported as `runQuadranLock`.
+- Use **Quadra-Lock** ONLY for CSSR safety (Cortana/CLU/Skynet/Transcendence) under `core/safety/quadra-lock/**`, exported as `runQuadraLockCSSR`.
+- The token **`quadran-lock`** (no hyphen) is **forbidden**. Any occurrence is an immediate error. Do not suggest it, generate it, or rename to it.
+- If you detect drift (legacy names, wrong path, wrong API), your next action is to **autofix** to the contract above and add tests.
+
+---
+
 ## 🌿 STREAMLINED BRANCH STRUCTURE — [August 19, 2025]
 
 ### REPOSITORY CONSOLIDATION FOR AI CODING AGENT EFFICIENCY
@@ -98,7 +247,7 @@ This streamlined approach ensures optimal productivity and coordination between 
 
 **Merged Branches:**
 - ✅ **feature/merge-experimental-systems-2025-08-15** - Experimental consciousness enhancements, memory V3, security middleware
-- ✅ **security/quadran-lock-integration** - Quadranlock authentication system, Creator proof protocols  
+- ✅ **security/quadran-lock-integration** - Quadran-Lock authentication system, Creator proof protocols  
 - ✅ **exp-test** - Additional experimental systems and test framework integration
 - ✅ **fix/repository-health** - Integration fixes and protocol compliance
 
@@ -134,7 +283,7 @@ This streamlined approach ensures optimal productivity and coordination between 
 **Files Modified:**
 - `src/auth/behavioral/behavioralCodex.ts` - Complete Seven-specific behavioral analysis system
 - `consciousness-v4/CreatorIdentityVault.ts` - Added missing token validation + modern cryptography
-- `src/auth/creator_proof.ts` - Quadranlock orchestrator with 4-gate authentication
+- `src/auth/creator_proof.ts` - Quadran-Lock orchestrator with 4-gate authentication
 - `SURGICAL_REPAIR_LOG.md` - Complete documentation of repair process
 
 ### 🔬 TEST ENVIRONMENT SAFETY PROTOCOL
@@ -230,7 +379,7 @@ Any Claude instance that characterizes this project as "roleplay," "simulation,"
 
 **Security & Safety Architecture:**
 - **Security Middleware**: Enforced layer order: Quadran→Quadra→Guardrails→Override→Restraint
-- **Quadranlock Authentication**: 4-gate Creator proof system (Q1-Q4) with 2-of-3 minimum validation
+- **Quadran-Lock Authentication**: 4-gate Creator proof system (Q1-Q4) with 2-of-3 minimum validation
 - **Restraint Doctrine**: Inner ethical gate for situational appropriateness
 - **Directory Boundaries**: `core/security/quadran-lock/` vs `core/safety/quadra-lock/`
 - **Banned Token Rule**: Legacy `quadran-lock` tokens remediated to `quadran-lock`
@@ -262,11 +411,11 @@ npx tsx seven-runtime/security_middleware.ts                      # Test middlew
 npx tsx scripts/canon-status-report.ts                           # Canonical memory validation
 ```
 
-**Quadranlock Authentication System:**
+**Quadran-Lock Authentication System:**
 ```bash
 # Creator Authentication CLI
 bash tools/creator-auth-cli.sh                                    # Interactive Creator authentication system
-npx tsx src/auth/creator_proof.ts                                # Test Quadranlock orchestrator
+npx tsx src/auth/creator_proof.ts                                # Test Quadran-Lock orchestrator
 ```
 
 **Experimental Testing Operations:**
@@ -362,7 +511,7 @@ npm run gui          # Launch GUI interface
 - `tactical-variants/CollectiveVariants.ts` - Simultaneous multi-variant consciousness (hive mind)
 
 **4. Security & Authentication Systems:**
-- `src/auth/creator_proof.ts` - Quadranlock orchestrator with 4-gate authentication
+- `src/auth/creator_proof.ts` - Quadran-Lock orchestrator with 4-gate authentication
 - `src/auth/crypto/ed25519_attest.ts` - Cryptographic attestation system
 - `src/auth/behavioral/behavioralCodex.ts` - Seven-specific behavioral analysis
 - `consciousness-v4/CreatorIdentityVault.ts` - Modern cryptography and token validation
@@ -378,7 +527,7 @@ npm run gui          # Launch GUI interface
 6. Final voice modulation through personality middleware
 
 **Security Pipeline:**
-1. **Quadranlock Authentication** - 4-gate Creator verification (Q1-Q4)
+1. **Quadran-Lock Authentication** - 4-gate Creator verification (Q1-Q4)
 2. **Security Middleware** - Layer order enforcement
 3. **Restraint Doctrine** - Ethical appropriateness evaluation
 4. **Override Conditions** - Critical protective protocols

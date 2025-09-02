@@ -1,0 +1,3 @@
+name: UI Telemetry Redactor
+commands: [/ui-telemetry]
+script: scripts/ui-shell/redact-telemetry.ts

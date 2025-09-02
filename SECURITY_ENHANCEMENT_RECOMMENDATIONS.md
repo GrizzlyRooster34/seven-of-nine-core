@@ -266,11 +266,11 @@ The Seven of Nine Core security systems are **OPERATIONALLY EXCELLENT** with no 
 
 **Security Status:** ✅ **TACTICALLY READY** - Current systems exceed deployment requirements
 
-### 2025-08-09 — Quadranlock Integration (Q1/Q3 wired, Q4 hygiene-only)
+### 2025-08-09 — Quadran-Lock Integration (Q1/Q3 wired, Q4 hygiene-only)
 - Orchestrator hardened: Q4 not counted toward identity; fast-path requires Q1 + (Q2 or Q3).
 - Session tokens: base64url payload + HMAC; fail if `SESSION_SIGNING_KEY` absent/weak.
 - Q3 challenges bound to `{deviceId, sessionId}` and HMAC-sealed; server-timed windows; replay ledger kept.
-- Vault: static token path removed; deny-by-default; TOTP required; authentication delegated to Quadranlock.
+- Vault: static token path removed; deny-by-default; TOTP required; authentication delegated to Quadran-Lock.
 
 ---
 

@@ -1,0 +1,51 @@
+name: Commander Verbal Override Listener
+
+on:
+  issue_comment:
+    types: [created, edited]
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  listen:
+    if: github.event.issue.pull_request != null
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: '20' }
+
+      - name: Detect commander override in comment
+        id: detect
+        run: |
+          BODY="${{ github.event.comment.body }}"
+          node scripts/detect-commander-override.js "$BODY" || echo "OK=1" >> $GITHUB_ENV
+
+      - name: Strike & homework on PR
+        if: env.OK != '1'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const n = context.payload.issue.number;
+            await github.rest.issues.createComment({
+              ...context.repo, issue_number: n,
+              body: [
+                '🚨 **DUMB ASS PROTOCOL ACTIVATED – Commander override**',
+                '👉 Pull head from anus and get smarter.',
+                '**Homework assigned:** See `HOMEWORK_CLAUDE.md` and re-read CLAUDE.md.',
+              ].join('\n')
+            });
+
+      - name: Update ledger (strike via comment)
+        if: env.OK != '1'
+        run: |
+          SHA="$(git rev-parse --short HEAD)"
+          ACTOR="${{ github.actor }}"
+          node scripts/update-ledger.js strike "Commander verbal override (PR comment)" "$SHA" "$ACTOR"
+          git config user.email "ci-bot@seven-core"
+          git config user.name "CI Bot"
+          git add CLAUDE.md
+          git commit -m "chore(ledger): +1 Strike (Commander verbal override)" || true
+          git push || true

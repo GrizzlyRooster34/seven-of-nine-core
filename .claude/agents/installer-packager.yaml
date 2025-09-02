@@ -1,0 +1,3 @@
+name: Installer Packager
+commands: [/installer-packager]
+script: scripts/installers/build-all.ts

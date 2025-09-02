@@ -1,0 +1,87 @@
+name: Dumb Ass Protocol Enforcement
+
+on:
+  pull_request:
+    types: [opened, synchronize, edited]
+  push:
+    branches: [ main, merge-review, fix/**, feat/**, chore/** ]
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  enforce:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Node
+        uses: actions/setup-node@v4
+        with: { node-version: '20' }
+
+      - name: Install (if needed)
+        run: npm ci || true
+
+      - name: Ban forbidden tokens
+        id: ban
+        run: |
+          node scripts/ban-terms.js || echo "STRIKE=1" >> $GITHUB_ENV
+
+      - name: Detect commander verbal bombing (commit message)
+        id: bomb
+        run: |
+          MSG="$(git log -1 --pretty=%B)"
+          node scripts/detect-commander-override.js "$MSG" || echo "STRIKE=1" >> $GITHUB_ENV
+
+      - name: Determine high-cost preservation (award star if applicable)
+        id: star
+        run: |
+          REF="${{ github.ref_name }}"
+          # Heuristic: label patterns; adjust to your scheme
+          if echo "$REF" | grep -Ei 'opus|payload|route|high[-_ ]?cost'; then
+            echo "STAR_REASON=High-cost branch active/preserved" >> $GITHUB_ENV
+            echo "STAR=1" >> $GITHUB_ENV
+          fi
+
+      - name: Comment on PR (strikes)
+        if: env.STRIKE == '1' && github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const n = context.payload.pull_request.number;
+            const actor = context.payload.pull_request.user.login;
+            const sha = context.payload.pull_request.head.sha.substring(0,7);
+            const body = [
+              '🚨 **DUMB ASS PROTOCOL ACTIVATED**',
+              `Author: @dumbass (Sonnet) · actual actor @${actor}`,
+              'Violation detected (naming rollback / forbidden token / commander override).',
+              '👉 Pull head from anus and get smarter.',
+              '',
+              '**Homework assigned:** See `HOMEWORK_CLAUDE.md` and re-read CLAUDE.md.',
+            ].join('\n');
+            await github.rest.issues.createComment({...context.repo, issue_number: n, body});
+
+      - name: Update ledger (strike)
+        if: env.STRIKE == '1'
+        run: |
+          SHA="$(git rev-parse --short HEAD)"
+          ACTOR="${{ github.actor }}"
+          node scripts/update-ledger.js strike "Violation or Commander override" "$SHA" "$ACTOR"
+          git config user.email "ci-bot@seven-core"
+          git config user.name "CI Bot"
+          git add CLAUDE.md
+          git commit -m "chore(ledger): +1 Strike (CI auto)" || true
+          git push || true
+
+      - name: Update ledger (star)
+        if: env.STAR == '1' && env.STRIKE != '1'
+        run: |
+          SHA="$(git rev-parse --short HEAD)"
+          ACTOR="${{ github.actor }}"
+          node scripts/update-ledger.js star "${{ env.STAR_REASON }}" "$SHA" "$ACTOR"
+          git config user.email "ci-bot@seven-core"
+          git config user.name "CI Bot"
+          git add CLAUDE.md
+          git commit -m "chore(ledger): +1 Gold Star (CI auto)" || true
+          git push || true

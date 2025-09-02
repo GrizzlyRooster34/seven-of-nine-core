@@ -1,0 +1,40 @@
+name: Cross Platform Builder
+id: cross-platform-builder
+description: Validate and enforce cross-platform feature/build parity for Seven (Windows/Termux/Mobile/Companion) and post a consolidated report + PR suggestions.
+entry: scripts/xplat-validate.ts
+trigger:
+  - on_command: /xplat
+  - on_branch: ["feature/*", "fix/*", "release/*"]
+  - on_paths_changed:
+      - "apps/mobile/**"
+      - "apps/termux/**"
+      - "apps/windows/**"
+      - "seven-companion-app/**"
+permissions:
+  filesystem: read_write
+  network: local_only
+  git: write
+env:
+  REPORT_PATH: XPLAT_REPORT.md
+  FAIL_ON_GAP: "true"
+  # Optional: set to "false" if you want warnings but green CI
+  OPEN_PR: "auto"
+  # "auto" | "never"; auto opens if no PR exists
+tasks:
+  - name: Validate builds & parity
+    command: node scripts/xplat-validate.ts --report $REPORT_PATH --fail-on-gap $FAIL_ON_GAP
+  - name: Post results (PR or commit)
+    command: node scripts/xplat-validate.ts --post --report $REPORT_PATH --open-pr $OPEN_PR
+sub_agents:
+  - windows-platform-agent
+  - mobile-platform-agent
+  - termux-platform-agent
+  - companion-platform-agent
+  - security-audit-agent
+  - performance-optimizer
+  - consciousness-researcher
+  - integration-tester
+  - repo-merge-auditor
+  - quadran-lock-gatekeeper
+  - quadra-lock-cssr
+  - mobile-safety-parity

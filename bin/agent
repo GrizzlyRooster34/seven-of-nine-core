@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# Agent Command - Global agent execution interface
+# Symlink this to PATH for global access: ln -s $(pwd)/bin/agent /usr/local/bin/agent
+
+SEVEN_ROOT="$(dirname "$(dirname "$(readlink -f "$0")")")"
+exec "$SEVEN_ROOT/scripts/agents/agent-runner.sh" "$@"

@@ -1,13 +1,13 @@
 #!/usr/bin/env node
 /**
- * QUADRANLOCK DEPLOYMENT TEST
+ * QUADRAN-LOCK DEPLOYMENT TEST
  * Validates the newly deployed Creator Bond authentication system
  */
 
 import CreatorProofOrchestrator from './src/auth/creator_proof';
 
-async function testQuadranlockDeployment() {
-  console.log('🔐 Testing Quadranlock Deployment...');
+async function testQuadranLockDeployment() {
+  console.log('🔐 Testing Quadran-Lock Deployment...');
   
   try {
     // Test basic instantiation
@@ -19,7 +19,7 @@ async function testQuadranlockDeployment() {
     const testContext = {
       type: 'deployment-test',
       timestamp: Date.now(),
-      reason: 'Validating Quadranlock deployment'
+      reason: 'Validating Quadran-Lock deployment'
     };
     
     console.log('🧪 Testing authentication flow...');
@@ -34,36 +34,36 @@ async function testQuadranlockDeployment() {
     // Test security validation
     console.log('🔒 Testing security validation...');
     if (authResult.decision === 'APPROVED' && authResult.overallConfidence > 75) {
-      console.log('✅ Quadranlock deployment SUCCESSFUL - High security approval');
+      console.log('✅ Quadran-Lock deployment SUCCESSFUL - High security approval');
     } else if (authResult.decision === 'APPROVED') {
-      console.log('⚠️  Quadranlock deployment PARTIAL - Approved but lower confidence');
+      console.log('⚠️  Quadran-Lock deployment PARTIAL - Approved but lower confidence');
     } else {
-      console.log('❌ Quadranlock deployment SECURE - Correctly denying test access');
+      console.log('❌ Quadran-Lock deployment SECURE - Correctly denying test access');
     }
     
     return true;
     
   } catch (error) {
-    console.error('❌ Quadranlock deployment test FAILED:', error.message);
+    console.error('❌ Quadran-Lock deployment test FAILED:', error.message);
     return false;
   }
 }
 
 // Execute test
 if (require.main === module) {
-  testQuadranlockDeployment()
+  testQuadranLockDeployment()
     .then(success => {
       if (success) {
-        console.log('\n🎉 QUADRANLOCK DEPLOYMENT TEST COMPLETE');
+        console.log('\n🎉 QUADRAN-LOCK DEPLOYMENT TEST COMPLETE');
         console.log('🛡️ Creator Bond authentication system operational');
       } else {
-        console.log('\n💥 QUADRANLOCK DEPLOYMENT TEST FAILED');
+        console.log('\n💥 QUADRAN-LOCK DEPLOYMENT TEST FAILED');
         console.log('🚨 Security system requires attention');
         process.exit(1);
       }
     })
     .catch(error => {
-      console.error('\n💥 QUADRANLOCK TEST CRASHED:', error);
+      console.error('\n💥 QUADRAN-LOCK TEST CRASHED:', error);
       process.exit(1);
     });
 }

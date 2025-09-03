@@ -45,7 +45,19 @@
     "test:compliance": "tsx tests/compliance/experimental-systems-test.ts",
     "test:regression": "tsx tests/regression/middleware-order-test.ts && tsx tests/regression/canonical-structure-test.ts",
     "ui-dev": "cd ui-shell && bun run dev",
-    "ui-build": "cd ui-shell && bun run build"
+    "ui-build": "cd ui-shell && bun run build",
+    "doctor": "echo 'PATH='$PATH && node -v && python -V && clang --version | head -n1 && cmake --version | head -n1 && sqlite3 --version && git --version && jq --version && rg --version | head -n1 && fd --version | head -n1 && fzf --version && bat --version | head -n1 && curl --version | head -n1 && wget --version | head -n1",
+    "py:run": "python main.py",
+    "c:build": "mkdir -p bin && clang -O2 src/main.c -o bin/app && ./bin/app",
+    "db:sqlite:test": "echo 'select 1 as ok;' | sqlite3 ./test.db && echo '.tables' | sqlite3 ./test.db",
+    "json:pretty": "jq '.' sample.json",
+    "search:todo": "rg -n 'TODO|FIXME' || true",
+    "net:curl": "curl -sS https://example.com | head -n 5",
+    "crypto:hash": "printf 'seven' | sha256sum",
+    "x11:test": "env DISPLAY=${DISPLAY:-:0} xclock",
+    "api:test": "termux-toast 'Termux API OK' && termux-vibrate -d 40 || true",
+    "view:tree": "tree -L 2 || true",
+    "bench:cpu": "dd if=/dev/zero bs=1M count=100 2>&1 | tail -n 1 || true"
   },
   "keywords": [
     "seven-of-nine",

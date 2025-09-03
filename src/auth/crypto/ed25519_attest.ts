@@ -1,5 +1,5 @@
 /**
- * ED25519 CRYPTOGRAPHIC ATTESTATION - Quadranlock Gate Q1
+ * ED25519 CRYPTOGRAPHIC ATTESTATION - Quadran-Lock Gate Q1
  * Implements device-bound cryptographic challenge-response with replay resistance
  * 
  * COMMIT: 772bb18a9a5cb8b4cf39ab87f8129e1c87322c64

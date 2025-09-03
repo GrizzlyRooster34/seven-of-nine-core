@@ -1,0 +1,36 @@
+name: Mobile Platform Agent  
+id: mobile-platform-agent
+description: Mobile-specific development, React Native builds, agent marketplace, local models, and session management
+parent: cross-platform-builder
+entry: scripts/platform/mobile-deploy.ts
+trigger:
+  - on_command: /mobile
+  - on_branch: ["mobile/*", "platform/mobile/*", "android/*", "ios/*"]
+  - on_paths_changed:
+      - "seven-mobile-app/**"
+      - "seven-mobile-app/src/features/**"
+      - "seven-mobile-app/src/llm/**"
+permissions:
+  filesystem: read_write
+  network: internet
+  git: write
+  system: execute
+env:
+  TARGET_PLATFORM: mobile
+  REACT_NATIVE_PATH: seven-mobile-app
+  EXPO_BUILD: "true"
+  MOBILE_FEATURES: "agents,local-models,sessions,sync"
+  BATTERY_OPTIMIZATION: "true"
+tasks:
+  - name: Validate React Native build
+    command: cd seven-mobile-app && npm run build:android
+  - name: Deploy agent marketplace
+    command: node scripts/platform/mobile-deploy.ts --agents
+  - name: Deploy local models
+    command: node scripts/platform/mobile-deploy.ts --local-models  
+  - name: Deploy session management
+    command: node scripts/platform/mobile-deploy.ts --sessions
+  - name: Test mobile features
+    command: node scripts/platform/mobile-deploy.ts --test-features
+  - name: Build APK/AAB
+    command: node scripts/platform/mobile-deploy.ts --build

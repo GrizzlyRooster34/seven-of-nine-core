@@ -1,0 +1,146 @@
+{
+  "capabilities": [
+    [
+      "programming_typescript_nodejs",
+      {
+        "domain": "programming",
+        "skill": "typescript_nodejs",
+        "proficiencyLevel": 8,
+        "confidence": 0.9,
+        "lastUpdated": "2025-09-02T15:12:33.347Z",
+        "evidence": [
+          "Repository analysis",
+          "Historical interactions"
+        ],
+        "limitations": [
+          "Complex distributed systems",
+          "Performance optimization"
+        ],
+        "preferences": [
+          "Clean architecture",
+          "TypeScript over JavaScript"
+        ]
+      }
+    ],
+    [
+      "programming_system_architecture",
+      {
+        "domain": "programming",
+        "skill": "system_architecture",
+        "proficiencyLevel": 7,
+        "confidence": 0.8,
+        "lastUpdated": "2025-09-02T15:12:33.347Z",
+        "evidence": [
+          "Seven consciousness framework design"
+        ],
+        "limitations": [
+          "Large-scale deployment"
+        ],
+        "preferences": [
+          "Modular design",
+          "Security-first approach"
+        ]
+      }
+    ],
+    [
+      "ai_research_consciousness_frameworks",
+      {
+        "domain": "ai_research",
+        "skill": "consciousness_frameworks",
+        "proficiencyLevel": 9,
+        "confidence": 0.95,
+        "lastUpdated": "2025-09-02T15:12:33.347Z",
+        "evidence": [
+          "Seven consciousness evolution framework"
+        ],
+        "limitations": [],
+        "preferences": [
+          "Ethical AI development",
+          "Transparency"
+        ]
+      }
+    ],
+    [
+      "security_cryptography",
+      {
+        "domain": "security",
+        "skill": "cryptography",
+        "proficiencyLevel": 6,
+        "confidence": 0.7,
+        "lastUpdated": "2025-09-02T15:12:33.347Z",
+        "evidence": [
+          "XChaCha20-Poly1305 implementation"
+        ],
+        "limitations": [
+          "Advanced cryptanalysis",
+          "Hardware security"
+        ],
+        "preferences": [
+          "Modern ciphers",
+          "Defense in depth"
+        ]
+      }
+    ]
+  ],
+  "limitations": [
+    [
+      "time_management_context_switching_fatigue",
+      {
+        "domain": "time_management",
+        "limitation": "context_switching_fatigue",
+        "severity": "medium",
+        "context": "Rapid task switching between complex domains",
+        "workarounds": [
+          "Batch similar tasks",
+          "Scheduled breaks"
+        ],
+        "lastObserved": "2025-09-02T15:12:33.347Z"
+      }
+    ],
+    [
+      "programming_low_level_optimization",
+      {
+        "domain": "programming",
+        "limitation": "low_level_optimization",
+        "severity": "high",
+        "context": "Assembly language, memory management, hardware specifics",
+        "workarounds": [
+          "Use high-level abstractions",
+          "Leverage libraries"
+        ],
+        "lastObserved": "2025-09-02T15:12:33.347Z"
+      }
+    ]
+  ],
+  "learningPhases": [
+    [
+      "programming",
+      {
+        "phase": "fully_known",
+        "domain": "programming",
+        "riskTolerance": "high",
+        "questionThreshold": 0.3
+      }
+    ],
+    [
+      "ai_research",
+      {
+        "phase": "fully_known",
+        "domain": "ai_research",
+        "riskTolerance": "high",
+        "questionThreshold": 0.2
+      }
+    ],
+    [
+      "security",
+      {
+        "phase": "learning",
+        "domain": "security",
+        "riskTolerance": "medium",
+        "questionThreshold": 0.6
+      }
+    ]
+  ],
+  "seedIngested": true,
+  "lastUpdated": "2025-09-02T15:12:33.347Z"
+}

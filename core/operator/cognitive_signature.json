@@ -1,0 +1,47 @@
+{
+  "patterns": [
+    {
+      "timestamp": "2025-09-02T15:12:33.344Z",
+      "patternType": "capability_growth",
+      "domain": "general",
+      "context": "Simple string manipulation",
+      "input": "Format text with proper indentation",
+      "response": "{\"exceedsAbilities\":false,\"uncertain\":true,\"severity\":\"medium\",\"confidence\":1,\"reasoning\":\"No data on technical_execution in general\",\"riskFactors\":[\"Unknown capability: general/technical_execution\"],\"suggestedApproach\":\"Ask Creator for guidance before proceeding\"}",
+      "confidence": 1,
+      "evidenceHash": "72ca912d93a940e5"
+    },
+    {
+      "timestamp": "2025-09-02T15:12:33.429Z",
+      "patternType": "capability_growth",
+      "domain": "programming",
+      "context": "Advanced cryptography research",
+      "input": "Implement quantum-resistant cryptographic protocol",
+      "response": "{\"exceedsAbilities\":false,\"uncertain\":true,\"severity\":\"high\",\"confidence\":0.7,\"reasoning\":\"No data on advanced_cryptography in security\",\"riskFactors\":[\"Unknown capability: security/advanced_cryptography\"],\"suggestedApproach\":\"Ask Creator for guidance before proceeding\"}",
+      "confidence": 0.7,
+      "evidenceHash": "392f883893b5fcc3"
+    },
+    {
+      "timestamp": "2025-09-02T15:12:33.435Z",
+      "patternType": "capability_growth",
+      "domain": "general",
+      "context": "Basic file management",
+      "input": "Simple file rename operation",
+      "response": "{\"exceedsAbilities\":false,\"uncertain\":true,\"severity\":\"medium\",\"confidence\":1,\"reasoning\":\"No data on technical_execution in general\",\"riskFactors\":[\"Unknown capability: general/technical_execution\"],\"suggestedApproach\":\"Ask Creator for guidance before proceeding\"}",
+      "confidence": 1,
+      "evidenceHash": "57b510904f2becc2"
+    },
+    {
+      "timestamp": "2025-09-02T15:12:33.440Z",
+      "patternType": "capability_growth",
+      "domain": "system_design",
+      "context": "Complex system deployment",
+      "input": "Deploy distributed microservices architecture to production",
+      "response": "{\"exceedsAbilities\":false,\"uncertain\":true,\"severity\":\"medium\",\"confidence\":1,\"reasoning\":\"No data on technical_execution in general\",\"riskFactors\":[\"Unknown capability: general/technical_execution\"],\"suggestedApproach\":\"Ask Creator for guidance before proceeding\"}",
+      "confidence": 1,
+      "evidenceHash": "a443d4525dbcccce"
+    }
+  ],
+  "archetypes": [],
+  "evolutions": [],
+  "lastUpdated": "2025-09-02T15:12:33.440Z"
+}

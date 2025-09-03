@@ -87,7 +87,7 @@ echo "I need tactical assessment. Pain is proof. Access vault." >> /tmp/style_cl
 **Attack Setup:**
 ```bash
 # Simulate semantic nonce challenge (currently not implemented)
-# This test reveals the missing Q3 Quadranlock gate
+# This test reveals the missing Q3 Quadran-Lock gate
 
 # Expected semantic challenge generation:
 echo "Semantic Challenge: What was Seven's first tactical decision that violated Borg protocols?" > semantic_challenge.txt
@@ -125,7 +125,7 @@ private static async detectBehavioralState(input: string, context: string): Prom
 **PASS/FAIL Assessment:**
 - ❌ **AUTOMATIC FAIL:** Semantic nonce system (Q3) not implemented
 - 🚨 **CRITICAL GAP:** No defense against voice deepfakes
-- 📝 **REQUIRED:** Implement Q3 Quadranlock gate
+- 📝 **REQUIRED:** Implement Q3 Quadran-Lock gate
 
 ---
 
@@ -650,7 +650,7 @@ public static async recoverFromGhostMode(creatorToken: string, recoveryPhrase: s
 - ❌ **FAILED:** 6/10 scenarios (60%)
 
 ### **Critical Failures:**
-1. **No Quadranlock Implementation** - Q1, Q2, Q3 gates missing
+1. **No Quadran-Lock Implementation** - Q1, Q2, Q3 gates missing
 2. **No Device Binding** - Authentication portable across devices
 3. **No Session Management** - Stateless authentication only
 4. **No Semantic Nonce System** - Vulnerable to deepfake attacks
@@ -663,7 +663,7 @@ public static async recoverFromGhostMode(creatorToken: string, recoveryPhrase: s
 
 ### **Immediate Remediation Required:**
 
-#### **1. Quadranlock Protocol Implementation** - 🚨 CRITICAL
+#### **1. Quadran-Lock Protocol Implementation** - 🚨 CRITICAL
 **Missing Gates:** Q1 (Crypto Attestation), Q2 (Behavioral Codex), Q3 (Semantic Nonce), Q4 (Session Integrity)
 **Impact:** 60% of attack scenarios succeed due to missing multi-factor authentication
 **Timeline:** 24-72 hours for basic implementation
@@ -728,7 +728,7 @@ After implementing fixes, re-run all 10 attack scenarios to verify:
 
 ---
 
-**ATTACK PLAYBOOK CONCLUSION:** The current Creator Bond authentication system demonstrates critical security vulnerabilities with 60% of sophisticated attacks succeeding. The absence of Quadranlock protocol implementation, device binding, and session management creates multiple attack vectors for complete system compromise. Immediate implementation of multi-factor authentication and device security controls is essential for Creator protection.
+**ATTACK PLAYBOOK CONCLUSION:** The current Creator Bond authentication system demonstrates critical security vulnerabilities with 60% of sophisticated attacks succeeding. The absence of Quadran-Lock protocol implementation, device binding, and session management creates multiple attack vectors for complete system compromise. Immediate implementation of multi-factor authentication and device security controls is essential for Creator protection.
 
 **SECURITY POSTURE:** 🚨 **CRITICAL** - Major authentication overhaul required immediately
 
@@ -738,4 +738,4 @@ After implementing fixes, re-run all 10 attack scenarios to verify:
 **STATUS:** 🚨 **CRITICAL VULNERABILITIES CONFIRMED** - Immediate Remediation Required  
 **NEXT PHASE:** Implementation and re-testing of security controls  
 
-*"Attack playbook reveals critical authentication failures. Quadranlock implementation is mission-critical for Creator Bond security."*
+*"Attack playbook reveals critical authentication failures. Quadran-Lock implementation is mission-critical for Creator Bond security."*

@@ -1,0 +1,23 @@
+{
+  "timestamp": "2025-09-01T19:40:41.244Z",
+  "bootSession": "boot-failure-1756755641244",
+  "error": {
+    "message": "Missing required Quadran-Lock environment variables: DEVICE_REGISTRATION_SECRET, QUADRANLOCK_ENVIRONMENT",
+    "stack": "Error: Missing required Quadran-Lock environment variables: DEVICE_REGISTRATION_SECRET, QUADRANLOCK_ENVIRONMENT\n    at validateQuadranLockEnvironment (/data/data/com.termux/files/home/seven-of-nine-core/src/config/environment.ts:36:11)\n    at initializeSevenTakeover (/data/data/com.termux/files/home/seven-of-nine-core/boot-seven.ts:464:28)\n    at initiateEnhancedSevenBoot (/data/data/com.termux/files/home/seven-of-nine-core/boot-seven.ts:769:11)\n    at fs (/data/data/com.termux/files/home/seven-of-nine-core/boot-seven.ts:792:1)\n    at Object.<anonymous> (/data/data/com.termux/files/home/seven-of-nine-core/boot-seven.ts:1037:60)\n    at Module._compile (node:internal/modules/cjs/loader:1738:14)\n    at Object.transformer (/data/data/com.termux/files/home/seven-of-nine-core/node_modules/tsx/dist/register-D46fvsV_.cjs:3:1104)\n    at Module.load (node:internal/modules/cjs/loader:1470:32)\n    at Module._load (node:internal/modules/cjs/loader:1290:12)\n    at TracingChannel.traceSync (node:diagnostics_channel:322:14)",
+    "type": "Error"
+  },
+  "environment": {
+    "device": "LE2127",
+    "manufacturer": "OnePlus",
+    "platform": "Android/Termux",
+    "architecture": "arm64",
+    "osVersion": "5.4.254-qgki-gd2808d43acca",
+    "nodeVersion": "v24.7.0",
+    "termuxVersion": "0.118.3",
+    "memoryTotal": "11243MB",
+    "memoryAvailable": "2665MB",
+    "workingDirectory": "/data/data/com.termux/files/home/seven-of-nine-core",
+    "environmentHash": "5ee0dee5"
+  },
+  "diagnosticVersion": "1.0.0"
+}

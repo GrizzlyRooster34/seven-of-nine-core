@@ -128,7 +128,7 @@ export class SevenSecurityMiddleware {
         // signature: context.signature // Would come from request headers/auth
       };
 
-      // Run Quadranlock orchestrator
+      // Run Quadran-Lock orchestrator
       const result = await runQuadranLock(quadranCtx);
       
       console.log(`🔒 Quadran Result: ${result.validGates}/4 gates passed, Overall: ${result.passed ? 'PASS' : 'FAIL'}`);
@@ -137,22 +137,22 @@ export class SevenSecurityMiddleware {
         return {
           allowed: false,
           layer: 'quadran_lock',
-          reasoning: `Quadranlock authentication failed: ${result.validGates}/4 gates passed`
+          reasoning: `Quadran-Lock authentication failed: ${result.validGates}/4 gates passed`
         };
       }
 
       return {
         allowed: true,
         layer: 'quadran_lock',
-        reasoning: `Quadranlock passed: ${result.validGates}/4 gates validated`
+        reasoning: `Quadran-Lock passed: ${result.validGates}/4 gates validated`
       };
 
     } catch (error) {
-      console.error('❌ Quadranlock error:', error);
+      console.error('❌ Quadran-Lock error:', error);
       return {
         allowed: false,
         layer: 'quadran_lock',
-        reasoning: `Quadranlock system error: ${error.message}`
+        reasoning: `Quadran-Lock system error: ${error.message}`
       };
     }
   }

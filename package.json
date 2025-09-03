@@ -86,7 +86,22 @@
     "dev:seed-auth": "tsx scripts/dev/seed-auth.ts",
     "smoke:p0p1": "tsx scripts/tests/smoke-p0p1.ts",
     "apk:assemble": "cd apps/mobile/android && ./gradlew assembleDebug",
-    "cssr:scan": "tsx scripts/dev/cssr-scan.ts"
+    "cssr:scan": "tsx scripts/dev/cssr-scan.ts",
+    "dev:accelerate": "tsx scripts/dev-acceleration/auto-dev-pipeline.ts rapid",
+    "dev:watch": "tsx scripts/dev-acceleration/auto-dev-pipeline.ts watch",
+    "dev:ai-search": "tsx scripts/dev-acceleration/ai-code-assistant.ts search",
+    "dev:ai-analyze": "tsx scripts/dev-acceleration/ai-code-assistant.ts analyze",
+    "dev:ai-docs": "tsx scripts/dev-acceleration/ai-code-assistant.ts docs",
+    "dev:quality": "tsx scripts/dev-acceleration/ai-code-assistant.ts quality",
+    "dev:optimize": "tsx scripts/dev-acceleration/ai-code-assistant.ts optimize",
+    "dev:full-pipeline": "npm run dev:quality && npm run dev:accelerate && npm run test-system",
+    "dev:monitor": "tsx scripts/dev-acceleration/performance-monitor.ts monitor",
+    "dev:benchmark": "tsx scripts/dev-acceleration/performance-monitor.ts benchmark",
+    "dev:test-comprehensive": "tsx scripts/dev-acceleration/advanced-test-runner.ts comprehensive",
+    "dev:test-smart": "tsx scripts/dev-acceleration/advanced-test-runner.ts smart",
+    "dev:test-continuous": "tsx scripts/dev-acceleration/advanced-test-runner.ts continuous",
+    "dev:test-benchmark": "tsx scripts/dev-acceleration/advanced-test-runner.ts benchmark",
+    "dev:10x": "npm run dev:quality && npm run dev:monitor & npm run dev:test-smart && npm run dev:accelerate"
   },
   "keywords": [
     "seven-of-nine",
@@ -102,6 +117,7 @@
     "@types/node": "^24.2.1",
     "@types/react": "^19.1.8",
     "ts-node": "^10.9.2",
+    "tsup": "^8.5.0",
     "tsx": "^4.8.0",
     "typescript": "^5.9.2"
   },
@@ -111,6 +127,7 @@
     "chalk": "^5.3.0",
     "dotenv": "^16.6.1",
     "fs-extra": "^11.2.0",
+    "node-addon-api": "^8.5.0",
     "node-fetch": "^2.7.0"
   }
 }

@@ -1,0 +1,16 @@
+name: Test Agent
+description: Simple test agent to verify Claude Code agent discovery
+version: 1.0.0
+
+triggers:
+  commands:
+    - /test-agent
+    - /agent-test
+
+capabilities:
+  - Basic agent functionality testing
+  - Claude Code integration verification
+
+tools:
+  required:
+    - Read

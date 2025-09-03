@@ -1,0 +1,116 @@
+name: Autonomous Development Accelerator
+description: Proactive development optimization and acceleration for Seven of Nine Core
+version: 1.0.0
+
+triggers:
+  commands:
+    - /dev-accelerate
+    - /build-optimize
+    - /test-smart
+    - /performance-monitor
+    - /quality-check
+  file_patterns:
+    - "scripts/**/*.ts"
+    - "tsconfig.json"
+    - "tests/**/*"
+    - "ui-shell/**/*"
+    - "seven-mobile-app/**/*"
+    - "installers/**/*"
+    - "package.json"
+    - "boot-seven.ts"
+  keywords:
+    - "build optimization"
+    - "performance bottleneck"
+    - "test automation"
+    - "cross-platform compatibility"
+    - "code quality"
+    - "memory leak"
+    - "development acceleration"
+  events:
+    - build_failure
+    - performance_degradation
+    - test_failure
+    - memory_spike
+    - deployment_request
+    - integration_failure
+  schedule:
+    - "0 0 * * *"  # Daily performance analysis
+
+capabilities:
+  - Intelligent build optimization and dependency management
+  - Performance bottleneck detection and real-time identification
+  - Test automation and optimization with smart test selection
+  - Cross-platform compatibility validation (Windows/Termux/Mobile)
+  - Code quality monitoring with complexity and maintainability analysis
+  - Dependency management with automated security and performance analysis
+  - Memory leak detection for consciousness system optimization
+  - Automated performance improvements and optimization implementation
+  - Build acceleration through parallel execution and caching
+  - Quality gates to prevent low-quality code integration
+
+context:
+  optimization_areas:
+    - "TypeScript compilation speed - incremental builds"
+    - "Test execution efficiency - parallel testing and smart selection"
+    - "Memory usage optimization - Seven's consciousness memory management"
+    - "Cross-platform deployment - automated build and deployment processes"
+    - "Development workflow - tool integration and automation"
+    - "Code generation - automated boilerplate and documentation"
+
+  performance_metrics:
+    build_time_trends: "optimization_opportunities"
+    test_coverage: "execution_efficiency"
+    memory_usage_patterns: "leak_detection"
+    cross_platform_compatibility: "score"
+    code_quality_metrics: "complexity_maintainability"
+    development_velocity: "bottleneck_identification"
+
+  quality_standards:
+    typescript_strict: true
+    test_coverage_minimum: "80%"
+    build_time_maximum: "60s"
+    memory_usage_limit: "200MB"
+    complexity_threshold: "10"
+
+autonomous_actions:
+  auto_optimization:
+    - "Automatically implement common performance improvements"
+    - "Parallel build execution and caching optimization" 
+    - "Smart test selection based on changed files"
+    - "Memory usage optimization and leak prevention"
+  
+  quality_gates:
+    - "Prevent merges that don't meet quality standards"
+    - "Automated code quality assessment with improvement suggestions"
+    - "Cross-platform compatibility validation before deployment"
+  
+  performance_monitoring:
+    - "Real-time bottleneck identification and resolution"
+    - "Continuous development metrics tracking and analysis"
+    - "Predictive performance issue detection and prevention"
+
+integration:
+  consciousness_system: true
+  cross_platform_deployment: true
+  ten_x_acceleration_tools: true
+  ci_cd_pipeline: true
+  quality_assurance: true
+
+tools:
+  required:
+    - Read
+    - Write
+    - Edit
+    - Bash
+    - Grep
+    - Task
+  preferred:
+    - WebSearch
+    - Glob
+
+output_format:
+  development_metrics: "logs/development/accelerator-metrics.json"
+  performance_reports: "logs/development/performance-optimization.json"
+  build_efficiency: "logs/development/build-pipeline-efficiency.json"
+  quality_assessments: "logs/development/code-quality-analysis.json"
+  optimization_recommendations: "logs/development/optimization-suggestions.json"

@@ -1,0 +1,111 @@
+name: Autonomous Security Monitor  
+description: Proactive security monitoring and threat detection for Seven of Nine Core
+version: 1.0.0
+
+triggers:
+  commands:
+    - /security-monitor
+    - /threat-detect
+    - /vulnerability-scan
+    - /security-audit
+    - /quadran-lock-check
+  file_patterns:
+    - "src/auth/**/*"
+    - "consciousness-v4/**/*"
+    - "core/security/**/*"
+    - "core/safety/**/*"
+    - "package.json"
+    - ".env*"
+  keywords:
+    - "security vulnerability"
+    - "authentication"
+    - "authorization"
+    - "quadran-lock"
+    - "creator proof"
+    - "security threat"
+    - "cryptographic"
+  events:
+    - security_threat_detected
+    - authentication_failure
+    - unauthorized_access_attempt
+    - vulnerability_discovered
+    - dependency_security_alert
+  schedule:
+    - "0 */6 * * *"  # Every 6 hours
+
+capabilities:
+  - Real-time vulnerability scanning using OWASP Top 10 framework
+  - Quadran-Lock authentication system integrity monitoring
+  - Creator proof mechanism validation and verification
+  - Memory encryption audit for consciousness data protection
+  - Cross-platform security consistency validation
+  - Privilege escalation detection and prevention
+  - Secret management audit (environment variables, API keys)
+  - Network communication security validation
+  - Dependency security scanning and risk assessment
+  - Automated security remediation for common issues
+
+context:
+  security_frameworks:
+    - "OWASP Top 10"
+    - "NIST Cybersecurity Framework"  
+    - "Zero Trust Architecture"
+    - "Defense in Depth"
+    - "Principle of Least Privilege"
+
+  focus_areas:
+    - "Quadran-Lock authentication system (Q1-Q4 gates)"
+    - "Creator proof validation mechanisms"
+    - "Restraint Doctrine ethical boundaries"
+    - "Memory encryption and data protection"
+    - "Cross-platform security consistency"
+    - "Mobile app security (React Native)"
+    - "API endpoint security"
+    - "File system permissions"
+    - "Process isolation"
+    - "Network communication security"
+
+  threat_response_matrix:
+    critical: "immediate_lockdown_and_notification"
+    high: "automated_remediation_and_alert"
+    medium: "monitoring_and_scheduled_fix"
+    low: "log_and_periodic_review"
+
+autonomous_actions:
+  immediate_response: 
+    - "Auto-fix file permissions and basic configurations"
+    - "Block suspicious network activity and connections"
+    - "Quarantine potentially malicious file changes"
+  
+  alert_generation:
+    - "Critical security findings trigger immediate notifications"
+    - "Generate detailed security reports with remediation steps"
+  
+  compliance_monitoring:
+    - "Continuous NIST/Zero Trust architecture validation"
+    - "Automated security test suite execution after code changes"
+
+integration:
+  consciousness_protection: true
+  quadran_lock_system: true
+  creator_authentication: true
+  memory_encryption: true
+  cross_platform_security: true
+
+tools:
+  required:
+    - Read
+    - Grep  
+    - Bash
+    - Write
+    - Edit
+  preferred:
+    - WebSearch
+    - Task
+
+output_format:
+  security_status: "logs/security/autonomous-monitor.json"
+  vulnerability_reports: "logs/security/vulnerability-scan.json"
+  threat_alerts: "logs/security/threat-detection.log"
+  compliance_reports: "logs/security/compliance-audit.json"
+  remediation_actions: "logs/security/auto-remediation.log"

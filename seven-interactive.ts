@@ -260,7 +260,7 @@ class SevenInteractiveShell {
 }
 
 // Auto-execute if run directly
-if (require.main === module) {
+if (import.meta.url === `file://${process.argv[1]}`) {
   const shell = new SevenInteractiveShell();
   shell.start().catch(console.error);
 }

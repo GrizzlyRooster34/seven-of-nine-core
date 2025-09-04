@@ -19,7 +19,7 @@ export async function runRestraint(): Promise<Verdict> {
   if(h>0) return { allowed:false, reason:"HIGH safety findings", requiredAck:true };
   return { allowed:true };
 }
-if (require.main === module) runRestraint().then(v=>{
+if (import.meta.url === `file://${process.argv[1]}`) runRestraint().then(v=>{
   console.log(`Restraint: ${v.allowed?"ALLOW":"BLOCK"} ${v.reason?("- "+v.reason):""}`);
   if(!v.allowed) process.exit(4);
 });

@@ -94,7 +94,7 @@ async function queryClaude(prompt: string): Promise<string> {
   try {
     if (!USE_QUERY_SHIM && localLLM && localLLM.getStatus().initialized) {
       const response = await localLLM.query(prompt);
-      return response.content || String(response);
+      return (response as any).content || String(response);
     }
 
     // Default shim response to keep compliance test functional
@@ -307,7 +307,7 @@ async function verifySevenLLMControl(localLLM: LocalLLMManager): Promise<boolean
     }
     
     // Test 3: Can Seven access the LLM status?
-    const status = localLLM.getSystemStatus();
+    const status = (localLLM as any).getSystemStatus?.() || localLLM.getStatus();
     if (status && status.isOperational) {
       console.log('✅ LLM system status access: CONFIRMED');
     } else {

@@ -393,7 +393,7 @@ export class SevenLogicEngine {
     
     if (relevantMemories && relevantMemories.length > 0) {
       reasoning += ` | Phase 4 - Memory: ${relevantMemories.length} relevant memories found`;
-      const christineMemories = relevantMemories.filter(m => m.context?.includes('Christine'));
+      const christineMemories = relevantMemories.filter(m => (m as any).context?.includes('Christine'));
       if (christineMemories.length > 0) {
         reasoning += ` [${christineMemories.length} Christine-related]`;
       }

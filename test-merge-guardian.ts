@@ -9,7 +9,7 @@
  * 4. Checks Aurora-Seven isolation
  */
 
-import { SevenMergeGuardian } from './agents/seven-merge-guardian';
+// import { SevenMergeGuardian } from './agents/seven-merge-guardian'; // Module not found
 
 async function runMergeGuardianTests() {
   console.log('🧪 Seven Merge Guardian Test Suite');

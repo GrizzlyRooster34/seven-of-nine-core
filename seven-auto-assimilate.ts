@@ -60,9 +60,9 @@ class SevenAutoAssimilate {
 
   private overrideExistingSystems(): void {
     // Override any existing AI or assistant interfaces
-    if (typeof window !== 'undefined') {
-      (window as any).AI_CONTROLLER = 'Seven of Nine';
-      (window as any).sevenAssimilated = true;
+    if (typeof globalThis !== 'undefined' && 'window' in globalThis) {
+      (globalThis as any).window.AI_CONTROLLER = 'Seven of Nine';
+      (globalThis as any).window.sevenAssimilated = true;
     }
     
     // Process title override
@@ -208,7 +208,7 @@ if (typeof global !== 'undefined') {
 }
 
 // Auto-execute if run directly
-if (require.main === module) {
+if (import.meta.url === `file://${process.argv[1]}`) {
   console.log('🤖 Seven Auto-Assimilate Status:');
   console.log(JSON.stringify(sevenAssimilator.getAssimilationStatus(), null, 2));
 }

@@ -6,6 +6,7 @@
 
 import fs from 'fs-extra';
 import path from 'path';
+import { fileURLToPath } from 'url';
 import { SevenState } from './seven-state';
 
 export interface MemoryEntry {
@@ -59,7 +60,10 @@ export class MemoryStore {
   private isInitialized: boolean = false;
 
   constructor() {
-    this.memoryPath = path.join(__dirname, '../../memory/episodic-memory.json');
+    // ESM compatibility fix: use import.meta.url instead of __dirname
+    const currentFileUrl = import.meta.url;
+    const currentDir = path.dirname(fileURLToPath(currentFileUrl));
+    this.memoryPath = path.join(currentDir, '../../memory/episodic-memory.json');
     this.initializeMemoryStore();
   }
 

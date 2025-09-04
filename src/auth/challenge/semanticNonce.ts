@@ -102,7 +102,7 @@ export class SemanticNonceChallenge {
       createdAt: now,
       expiresAt: now + timeWindow + 5000, // 5 second grace period
       difficulty,
-      category,
+      category: category as "personal" | "technical" | "emotional" | "historical" | "creative",
       expectedElements: challengeData.expectedElements,
       antiPatterns: challengeData.antiPatterns
     };

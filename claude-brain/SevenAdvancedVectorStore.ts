@@ -322,7 +322,7 @@ export class SevenAdvancedVectorStore extends EventEmitter {
       
       return {
         results: fallbackResults.map(result => ({
-          embeddingId: result.id,
+          embeddingId: (result as any).id || result.embeddingId,
           memoryId: result.memoryId,
           content: result.content,
           similarity: result.similarity,
@@ -332,7 +332,7 @@ export class SevenAdvancedVectorStore extends EventEmitter {
             importance: result.importance,
             tags: result.tags,
             timestamp: result.timestamp,
-            emotionalContext: result.consciousnessContext,
+            emotionalContext: (result as any).consciousnessContext || result.emotionalContext,
             trustLevel: 5 // Default for fallback
           }
         }))
@@ -422,7 +422,7 @@ export class SevenAdvancedVectorStore extends EventEmitter {
       
       return {
         results: fallbackResults.map(result => ({
-          embeddingId: result.id,
+          embeddingId: (result as any).id || result.embeddingId,
           memoryId: result.memoryId,
           content: result.content,
           similarity: result.similarity,

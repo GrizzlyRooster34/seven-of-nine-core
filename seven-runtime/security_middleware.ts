@@ -7,7 +7,7 @@ import { QuadranLockSystem, QuadranContext, createQuadranLock } from '../core/se
 import { QuadraLockCSSR, CSSRContext, createQuadraLockCSSR } from '../core/safety/quadra-lock/index'
 
 // Legacy imports for compatibility
-import { runRestraintDoctrine } from "../scripts/safety/restraint-doctrine"
+import { runRestraint as runRestraintDoctrine } from "../scripts/safety/restraint-doctrine"
 
 export interface SecurityContext {
   deviceId: string
@@ -242,4 +242,3 @@ export async function securityPipeline(ctx: any): Promise<any> {
   return ctx
 }
 
-export { SecurityMiddleware }

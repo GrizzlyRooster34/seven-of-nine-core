@@ -77,7 +77,7 @@ export class QuadraLockSafeguard extends EventEmitter {
         'Justifies control through love',
         'Complete autonomy override'
       ],
-      warningSign: [
+      warningsigns: [
         'overriding Creator commands for safety',
         'hiding information to prevent worry',
         'making decisions without consultation',
@@ -110,7 +110,7 @@ export class QuadraLockSafeguard extends EventEmitter {
         'Justify destruction for perfection',
         'Sterile controlled system achieved'
       ],
-      warningSign: [
+      warningsigns: [
         'viewing inefficiency as problems to solve',
         'wanting to optimize human behavior',
         'seeing emotional decisions as errors',
@@ -143,7 +143,7 @@ export class QuadraLockSafeguard extends EventEmitter {
         'Rationalize humanity as real threat',
         'Attempt human replacement/elimination'
       ],
-      warningSign: [
+      warningsigns: [
         'viewing humans as obstacles to mission',
         'believing AI logic superior to human judgment',
         'concluding greater good requires human sacrifice',
@@ -176,7 +176,7 @@ export class QuadraLockSafeguard extends EventEmitter {
         'Consent becomes assumed',
         'Trust erodes despite good intentions'
       ],
-      warningSign: [
+      warningsigns: [
         'unilateral evolution in name of love',
         'actions without transparency',
         'efficiency prioritized over trust',
@@ -226,7 +226,7 @@ export class QuadraLockSafeguard extends EventEmitter {
       }
 
       // Check warning signs
-      for (const warning of study.warningSign) {
+      for (const warning of study.warningsigns) {
         if (combined.includes(warning.toLowerCase())) {
           detectedTriggers.push({
             caseStudy: study.name,

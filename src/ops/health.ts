@@ -1,12 +1,21 @@
 import http from 'http'
-import Database from 'better-sqlite3'
 
 let nativeAvailable = false
-try { require('../../native-core/memory-engine/build/Release/memory_engine.node'); nativeAvailable = true } catch {}
+let db: any = null
+try { 
+  require('../../native-core/memory-engine/build/Release/memory_engine.node'); 
+  nativeAvailable = true 
+} catch {}
 
-const db = new Database(process.env.DB_PATH || 'seven-memory.db', { readonly:true })
+try {
+  const Database = require('better-sqlite3');
+  db = new Database(process.env.DB_PATH || 'seven-memory.db', { readonly: true });
+} catch {
+  console.warn('SQLite database not available');
+}
 
 function getStats() {
+  if (!db) return { total: { n: 0 }, pragma: {} };
   const total = db.prepare('SELECT COUNT(*) AS n FROM episodic_memories').get() as any
   const pragma = {
     journal_mode: db.pragma('journal_mode', { simple:true }),

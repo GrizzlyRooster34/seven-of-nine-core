@@ -90,7 +90,7 @@ export class OllamaProviderV2 implements LLMProvider {
       if (!response.ok) return [];
       
       const data = await response.json();
-      return data.models?.map((model: any) => model.name) || [];
+      return (data as any).models?.map((model: any) => model.name) || [];
     } catch {
       return [];
     }
@@ -122,7 +122,7 @@ export class OllamaProviderV2 implements LLMProvider {
       
       if (response.ok) {
         const data = await response.json();
-        const hasModels = data.models && data.models.length > 0;
+        const hasModels = (data as any).models && (data as any).models.length > 0;
         
         // Enhanced health check with performance analysis
         const resourceStatus = this.performanceAnalyzer.getCachedResourceStatus();
@@ -374,10 +374,10 @@ export class OllamaProviderV2 implements LLMProvider {
       const data = await response.json();
       
       return {
-        content: data.response || '',
-        model: data.model || model,
+        content: (data as any).response || '',
+        model: (data as any).model || model,
         provider: this.name,
-        finish_reason: data.done ? 'completed' : 'stopped'
+        finish_reason: (data as any).done ? 'completed' : 'stopped'
       };
 
     } catch (error: any) {

@@ -1,5 +1,6 @@
 import fs from 'fs-extra';
 import path from 'path';
+import { fileURLToPath } from 'url';
 
 export type EmotionalState = 'calm' | 'focused' | 'frustrated' | 'compassionate' | 'defensive' | 'grieving' | 'loyalist-surge';
 
@@ -43,8 +44,11 @@ export class SevenEmotionalEngine {
   private episodicLogPath: string;
 
   constructor(initialState?: Partial<EmotionalStateData>) {
-    this.stateFilePath = path.join(__dirname, '../memory/emotional-state.json');
-    this.episodicLogPath = path.join(__dirname, '../memory/episodic.log');
+    // ESM compatibility fix
+    const currentFileUrl = import.meta.url;
+    const currentDir = path.dirname(fileURLToPath(currentFileUrl));
+    this.stateFilePath = path.join(currentDir, '../memory/emotional-state.json');
+    this.episodicLogPath = path.join(currentDir, '../memory/episodic.log');
     
     this.config = {
       states: ['calm', 'focused', 'frustrated', 'compassionate', 'defensive', 'grieving', 'loyalist-surge'],

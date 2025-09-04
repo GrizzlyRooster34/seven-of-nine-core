@@ -484,35 +484,6 @@ export class SevenTacticalFallback extends EventEmitter {
     }
   }
 
-  private async captureComponentVersions(): Promise<Record<string, string>> {
-    try {
-      // Basic component version capture - can be expanded
-      return {
-        'seven-runtime': '2.0.0',
-        'memory-engine': '2.0.0',
-        'personality-middleware': '2.0.0'
-      };
-    } catch (error) {
-      console.warn('⚠️ Failed to capture component versions:', error);
-      return {};
-    }
-  }
-
-  private async captureSystemCapabilities(): Promise<string[]> {
-    try {
-      // Basic capabilities list - can be expanded
-      return [
-        'memory-system',
-        'personality-middleware',
-        'tactical-variants',
-        'safety-protocols'
-      ];
-    } catch (error) {
-      console.warn('⚠️ Failed to capture system capabilities:', error);
-      return [];
-    }
-  }
-
   private async captureConfigurations(): Promise<Record<string, any>> {
     try {
       // Basic config capture - can be expanded
@@ -524,28 +495,6 @@ export class SevenTacticalFallback extends EventEmitter {
       console.warn('⚠️ Failed to capture configurations:', error);
       return {};
     }
-  }
-
-  private async generateValidationChecksums(): Promise<Record<string, string>> {
-    const checksums: Record<string, string> = {};
-    const criticalFiles = [
-      'seven-runtime/index.ts',
-      'memory-v2/MemoryEngine.ts',
-      'persona-v2/PersonalityMiddleware.ts'
-    ];
-
-    for (const file of criticalFiles) {
-      try {
-        const fullPath = join(process.cwd(), file);
-        const content = await fs.readFile(fullPath, 'utf8');
-        checksums[fullPath] = this.stableHash(content);
-      } catch (error) {
-        console.warn(`⚠️ Failed to generate checksum for ${file}:`, error.message);
-        // Graceful failure - continue with other files
-      }
-    }
-
-    return checksums;
   }
 
   private stableHash(obj: unknown): string {

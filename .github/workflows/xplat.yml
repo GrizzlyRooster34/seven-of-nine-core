@@ -1,0 +1,29 @@
+name: Cross-Platform Parity
+on:
+  pull_request:
+    paths:
+      - "apps/**"
+      - "seven-companion-app/**"
+      - "scripts/xplat-validate.ts"
+      - ".claude/agents/cross-platform-builder.yaml"
+  push:
+    branches: [ main ]
+jobs:
+  xplat:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with: { version: 9 }
+      - name: Install
+        run: pnpm install --frozen-lockfile
+      - name: Validate parity
+        env:
+          FAIL_ON_GAP: "true"
+          REPORT_PATH: XPLAT_REPORT.md
+        run: pnpm xplat
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: XPLAT_REPORT
+          path: XPLAT_REPORT.md

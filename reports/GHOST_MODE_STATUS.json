@@ -1,0 +1,10 @@
+{
+  "enabled": true,
+  "level": "moderate",
+  "effects": [
+    "disable-tools-nonessential",
+    "redact-pii",
+    "sandbox-fs"
+  ],
+  "ts": 1756613830664
+}

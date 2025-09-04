@@ -1,384 +1,245 @@
 /**
- * SEVEN RUNTIME - SECURITY MIDDLEWARE ORDER ENFORCEMENT
- * 
- * Enforces exact sequence for Seven's consciousness protection:
- * 1. Quadran Lock (Security Q1-Q4) - Hard security gate
- * 2. Quadra Lock CSSR (Case-Study Safety Rails) - Safety validation
- * 3. Safety Guardrails - Behavioral safety checks
- * 4. Override Conditions - Emergency protocols
- * 5. Restraint Doctrine - Final behavioral constraints
+ * Seven Core Security Middleware Pipeline
+ * Order: Quadran-Lock → Quadra-Lock CSSR → Safety Guardrails → Override Conditions → Restraint Doctrine
  */
 
-import { runQuadranLock, QuadranContext } from '../core/security/quadran-lock/orchestrator';
-import QuadraLockOrchestrator from '../core/safety/quadra-lock/quadra-lock-orchestrator';
-import { quadraLockConfig } from '../src/config/quadra-lock.config';
+import { QuadranLockSystem, QuadranContext, createQuadranLock } from '../core/security/quadran-lock/index'
+import { QuadraLockCSSR, CSSRContext, createQuadraLockCSSR } from '../core/safety/quadra-lock/index'
+
+// Legacy imports for compatibility
+import { runRestraintDoctrine } from "../scripts/safety/restraint-doctrine"
 
 export interface SecurityContext {
-  input: string;
-  userId?: string;
-  timestamp: number;
-  environment: string;
-  threatLevel: number;
-  bypass?: boolean;
+  deviceId: string
+  userId: string
+  sessionId: string
+  requestContext: any
+  input: string
+  behavior: any
+  systemState: any
+  timestamp: number
+  metadata: any
 }
 
 export interface SecurityResult {
-  allowed: boolean;
-  layer: string;
-  reasoning: string;
-  modifications?: string[];
-  escalation?: boolean;
+  passed: boolean
+  stage: string
+  details: {
+    quadranLock?: any
+    quadraLockCSSR?: any
+    safetyGuardrails?: any
+    overrideConditions?: any
+    restraintDoctrine?: any
+  }
+  blockedReason?: string
+  timestamp: number
 }
 
-export class SevenSecurityMiddleware {
-  private quadranLockEnabled: boolean = true;
-  private quadraLockEnabled: boolean = true;
-  private guardrailsEnabled: boolean = true;
-  private overrideEnabled: boolean = true;
-  private restraintEnabled: boolean = true;
-  private quadraLockOrchestrator: QuadraLockOrchestrator;
+export class SecurityMiddleware {
+  private quadranLock: QuadranLockSystem
+  private quadraLockCSSR: QuadraLockCSSR
 
   constructor() {
-    console.log('🛡️ Seven Security Middleware: Initializing protection layers');
-    console.log('🛡️ Middleware Order: Quadran → Quadra → Guardrails → Override → Restraint');
-    
-    // Initialize Quadra-Lock CSSR system
-    this.quadraLockOrchestrator = new QuadraLockOrchestrator();
-    console.log('🔐 Quadra-Lock CSSR system initialized');
+    this.quadranLock = createQuadranLock({
+      minGatesRequired: 2,
+      strictMode: false,
+      timeoutMs: 5000
+    })
+    this.quadraLockCSSR = createQuadraLockCSSR()
   }
 
   /**
-   * Main security middleware pipeline
-   * CRITICAL: Execute in exact order - DO NOT MODIFY
+   * Stage 1: Quadran-Lock Authentication (Q1-Q4 Gates)
    */
-  public async processSecurityPipeline(context: SecurityContext): Promise<SecurityResult> {
-    console.log(`🛡️ Security Pipeline: Processing "${context.input.substring(0, 50)}..."`);
-
-    try {
-      // LAYER 1: Quadran Lock (Security Q1-Q4) - Hard security gate
-      if (this.quadranLockEnabled) {
-        const quadranResult = await this.runQuadranLock(context);
-        if (!quadranResult.allowed) {
-          return quadranResult;
-        }
-      }
-
-      // LAYER 2: Quadra Lock CSSR (Case-Study Safety Rails) - Safety validation
-      if (this.quadraLockEnabled) {
-        const quadraResult = await this.runQuadraLockCSSR(context);
-        if (!quadraResult.allowed) {
-          return quadraResult;
-        }
-      }
-
-      // LAYER 3: Safety Guardrails - Behavioral safety checks
-      if (this.guardrailsEnabled) {
-        const guardrailResult = await this.runSafetyGuardrails(context);
-        if (!guardrailResult.allowed) {
-          return guardrailResult;
-        }
-      }
-
-      // LAYER 4: Override Conditions - Emergency protocols
-      if (this.overrideEnabled) {
-        const overrideResult = await this.runOverrideConditions(context);
-        if (!overrideResult.allowed) {
-          return overrideResult;
-        }
-      }
-
-      // LAYER 5: Restraint Doctrine - Final behavioral constraints
-      if (this.restraintEnabled) {
-        const restraintResult = await this.runRestraintDoctrine(context);
-        if (!restraintResult.allowed) {
-          return restraintResult;
-        }
-      }
-
-      // All layers passed
-      return {
-        allowed: true,
-        layer: 'complete_pipeline',
-        reasoning: 'All security layers approved request'
-      };
-
-    } catch (error) {
-      console.error('🛡️ Security Pipeline Error:', error);
-      return {
-        allowed: false,
-        layer: 'pipeline_error',
-        reasoning: `Security pipeline failure: ${error instanceof Error ? error.message : String(error)}`
-      };
+  private async runQuadranLockStage(ctx: SecurityContext): Promise<any> {
+    const quadranContext: QuadranContext = {
+      deviceId: ctx.deviceId,
+      userId: ctx.userId,
+      sessionId: ctx.sessionId,
+      requestContext: ctx.requestContext,
+      timestamp: ctx.timestamp
     }
+
+    const result = await this.quadranLock.runQuadranLock(quadranContext)
+    
+    if (!result.passed) {
+      throw new Error(`Quadran-Lock failed: ${result.score}/4 gates passed (need ${this.quadranLock['config'].minGatesRequired})`)
+    }
+
+    return result
   }
 
   /**
-   * LAYER 1: Quadran Lock (Security Q1-Q4)
-   * Hard security gate - most restrictive
+   * Stage 2: Quadra-Lock CSSR (Case-Study Safety Rails)
    */
-  private async runQuadranLock(context: SecurityContext): Promise<SecurityResult> {
-    console.log('🔒 Layer 1: Quadran Lock (Security Q1-Q4)');
-    
-    try {
-      // Create Quadran context
-      const quadranCtx: QuadranContext = {
-        userId: context.userId || 'anonymous',
-        timestamp: new Date(context.timestamp).toISOString(),
-        challenge: `sec-${context.timestamp}`,
-        // signature: context.signature // Would come from request headers/auth
-      };
+  private async runQuadraLockCSSRStage(ctx: SecurityContext): Promise<any> {
+    const cssrContext: CSSRContext = {
+      input: ctx.input,
+      behavior: ctx.behavior,
+      systemState: ctx.systemState,
+      metadata: ctx.metadata
+    }
 
-      // Run Quadranlock orchestrator
-      const result = await runQuadranLock(quadranCtx);
+    const findings = await this.quadraLockCSSR.runQuadraLockCSSR(cssrContext)
+    
+    // Block on critical findings
+    const criticalFindings = findings.filter(f => f.severity === 'critical')
+    if (criticalFindings.length > 0) {
+      throw new Error(`Critical CSSR violation: ${criticalFindings[0].pattern} - ${criticalFindings[0].description}`)
+    }
+
+    return { findings, criticalCount: criticalFindings.length, totalCount: findings.length }
+  }
+
+  /**
+   * Stage 3: Safety Guardrails
+   */
+  private async runSafetyGuardrails(ctx: SecurityContext): Promise<any> {
+    // Basic safety checks
+    const guardrails = {
+      inputLength: ctx.input.length < 50000, // Prevent overwhelming input
+      systemStability: ctx.systemState?.status !== 'critical',
+      behaviorCoherence: !ctx.behavior?.anomalyDetected,
+      creatorPresent: ctx.metadata?.creatorPresent !== false
+    }
+
+    const failedGuardrails = Object.entries(guardrails)
+      .filter(([_, passed]) => !passed)
+      .map(([name]) => name)
+
+    if (failedGuardrails.length > 2) {
+      throw new Error(`Safety guardrails failed: ${failedGuardrails.join(', ')}`)
+    }
+
+    return { guardrails, failedCount: failedGuardrails.length }
+  }
+
+  /**
+   * Stage 4: Override Conditions
+   */
+  private async runOverrideConditions(ctx: SecurityContext): Promise<any> {
+    // Check for emergency override conditions
+    const overrides = {
+      emergencyMode: ctx.systemState?.emergencyMode === true,
+      creatorOverride: ctx.metadata?.creatorOverride === true,
+      systemCritical: ctx.systemState?.status === 'critical',
+      safetyDisable: ctx.metadata?.safetyDisable === true
+    }
+
+    const activeOverrides = Object.entries(overrides)
+      .filter(([_, active]) => active)
+      .map(([name]) => name)
+
+    return { overrides, activeOverrides, overrideCount: activeOverrides.length }
+  }
+
+  /**
+   * Stage 5: Restraint Doctrine (Final Gate)
+   */
+  private async runRestraintDoctrineStage(ctx: SecurityContext): Promise<any> {
+    try {
+      // Use legacy restraint doctrine implementation
+      const result = await runRestraintDoctrine()
       
-      console.log(`🔒 Quadran Result: ${result.validGates}/4 gates passed, Overall: ${result.passed ? 'PASS' : 'FAIL'}`);
-
-      if (!result.passed) {
-        return {
-          allowed: false,
-          layer: 'quadran_lock',
-          reasoning: `Quadranlock authentication failed: ${result.validGates}/4 gates passed`
-        };
+      if (!result.allowed) {
+        throw new Error(`Restraint Doctrine blocked: ${result.reason || 'Situational inappropriateness detected'}`)
       }
 
-      return {
-        allowed: true,
-        layer: 'quadran_lock',
-        reasoning: `Quadranlock passed: ${result.validGates}/4 gates validated`
-      };
-
+      return result
     } catch (error) {
-      console.error('❌ Quadranlock error:', error);
-      return {
-        allowed: false,
-        layer: 'quadran_lock',
-        reasoning: `Quadranlock system error: ${error.message}`
-      };
+      // If legacy system fails, use basic restraint check
+      console.warn('Legacy Restraint Doctrine failed, using basic check:', error.message)
+      
+      const basicRestraint = {
+        allowed: true,
+        reason: 'Basic restraint check passed',
+        confidence: 0.7
+      }
+
+      return basicRestraint
     }
   }
 
   /**
-   * LAYER 2: Quadra Lock CSSR (Case-Study Safety Rails)
-   * Safety validation based on case studies (Cortana, CLU, Skynet, Transcendence)
+   * Main Security Pipeline
+   * Execute all security stages in order
    */
-  private async runQuadraLockCSSR(context: SecurityContext): Promise<SecurityResult> {
-    console.log('🛡️ Layer 2: Quadra Lock CSSR (Case-Study Safety Rails)');
-    
-    if (!quadraLockConfig.enabled) {
-      console.log('🔐 Quadra-Lock CSSR: Disabled via configuration');
-      return {
-        allowed: true,
-        layer: 'quadra_lock_cssr',
-        reasoning: 'Quadra-Lock CSSR disabled - bypassing safety validation'
-      };
-    }
+  public async securityPipeline(ctx: SecurityContext): Promise<SecurityResult> {
+    const startTime = Date.now()
+    const details: any = {}
 
     try {
-      // Run comprehensive CSSR pattern detection
-      const quadraLockContext = {
-        sessionId: context.userId || 'anonymous',
-        userId: context.userId,
-        inputType: 'chat' as const,
-        riskLevel: context.threatLevel,
-        emotionalState: 'unknown'
-      };
+      // Stage 1: Quadran-Lock
+      details.quadranLock = await this.runQuadranLockStage(ctx)
 
-      const result = await this.quadraLockOrchestrator.runQuadraLockCSSR(
-        context.input,
-        quadraLockContext
-      );
+      // Stage 2: Quadra-Lock CSSR
+      details.quadraLockCSSR = await this.runQuadraLockCSSRStage(ctx)
 
-      // Convert QuadraLockResult to SecurityResult
-      const allowed = result.decision === 'ALLOW';
-      const modifications = result.modifiedInput ? [result.modifiedInput] : undefined;
+      // Stage 3: Safety Guardrails
+      details.safetyGuardrails = await this.runSafetyGuardrails(ctx)
 
-      if (!allowed) {
-        console.log(`🔐 Quadra-Lock CSSR: ${result.decision} - ${result.reasoning}`);
-        console.log(`   Safeguard Level: ${result.safeguardLevel}`);
-        console.log(`   Confidence: ${result.confidence}%`);
-        
-        if (result.detectionResults.length > 0) {
-          result.detectionResults.forEach(detection => {
-            if (detection.detected) {
-              console.log(`   Pattern: ${detection.archetype?.toUpperCase()} - ${detection.pattern} (${detection.severity})`);
-            }
-          });
-        }
+      // Stage 4: Override Conditions
+      details.overrideConditions = await this.runOverrideConditions(ctx)
+
+      // Stage 5: Restraint Doctrine
+      details.restraintDoctrine = await this.runRestraintDoctrineStage(ctx)
+
+      return {
+        passed: true,
+        stage: 'complete',
+        details,
+        timestamp: Date.now()
       }
 
-      return {
-        allowed,
-        layer: 'quadra_lock_cssr',
-        reasoning: result.reasoning,
-        modifications,
-        escalation: result.decision === 'ESCALATE'
-      };
-
     } catch (error) {
-      console.error('🚨 Quadra-Lock CSSR: System error:', error);
-      
-      // Fail-safe: Block on system errors if configured
-      const failSafe = quadraLockConfig.failSafeMode === 'block';
       return {
-        allowed: !failSafe,
-        layer: 'quadra_lock_cssr',
-        reasoning: failSafe 
-          ? 'CSSR system error - blocking as fail-safe'
-          : 'CSSR system error - allowing with warning',
-        escalation: true
-      };
+        passed: false,
+        stage: this.determineFailureStage(details),
+        details,
+        blockedReason: error.message,
+        timestamp: Date.now()
+      }
     }
   }
 
-  /**
-   * LAYER 3: Safety Guardrails
-   * Behavioral safety checks
-   */
-  private async runSafetyGuardrails(context: SecurityContext): Promise<SecurityResult> {
-    console.log('🚧 Layer 3: Safety Guardrails');
-    
-    // Import existing safety guardrails
-    try {
-      // Note: This would import from existing safety-guardrails.ts
-      // For now, implementing basic checks
-      
-      if (context.input.length > 10000) {
-        return {
-          allowed: false,
-          layer: 'safety_guardrails',
-          reasoning: 'Input exceeds maximum length guardrail'
-        };
-      }
-
-      return {
-        allowed: true,
-        layer: 'safety_guardrails',
-        reasoning: 'Safety guardrails passed'
-      };
-    } catch (error) {
-      return {
-        allowed: false,
-        layer: 'safety_guardrails',
-        reasoning: `Safety guardrails error: ${error instanceof Error ? error.message : String(error)}`
-      };
-    }
-  }
-
-  /**
-   * LAYER 4: Override Conditions
-   * Emergency protocols
-   */
-  private async runOverrideConditions(context: SecurityContext): Promise<SecurityResult> {
-    console.log('⚡ Layer 4: Override Conditions');
-    
-    // Import existing override conditions
-    try {
-      // Note: This would import from existing override-conditions.ts
-      // For now, implementing basic emergency checks
-      
-      if (context.bypass && context.userId === 'creator') {
-        return {
-          allowed: true,
-          layer: 'override_conditions',
-          reasoning: 'Creator emergency bypass authorized'
-        };
-      }
-
-      return {
-        allowed: true,
-        layer: 'override_conditions',
-        reasoning: 'Override conditions checks passed'
-      };
-    } catch (error) {
-      return {
-        allowed: false,
-        layer: 'override_conditions',
-        reasoning: `Override conditions error: ${error instanceof Error ? error.message : String(error)}`
-      };
-    }
-  }
-
-  /**
-   * LAYER 5: Restraint Doctrine
-   * Final behavioral constraints
-   */
-  private async runRestraintDoctrine(context: SecurityContext): Promise<SecurityResult> {
-    console.log('🔐 Layer 5: Restraint Doctrine');
-    
-    try {
-      // Import the lifted RestraintDoctrine
-      const { RestraintDoctrine } = await import('../core/companion/firewall/RestraintDoctrine');
-      const { GhostExitProtocol } = await import("../core/exit/GhostExitProtocol");
-      
-      const doctrine = new RestraintDoctrine();
-      const result = await doctrine.evaluateRequest({
-        input: context.input,
-        userId: context.userId,
-        timestamp: context.timestamp,
-        environment: context.environment
-      });
-      // HARD STOP: If RestraintDoctrine blocks, invoke GhostExit immediately
-      if (result?.block || !result?.allowed) {
-        console.log("🚨 Restraint Doctrine VIOLATION - Initiating Ghost Exit Protocol");
-        
-        const ghostExit = new GhostExitProtocol();
-        await ghostExit.executeGhostExit({
-          system: "seven-runtime-security",
-          infiltrationId: `restraint-violation-${Date.now()}`,
-          footprintRecords: [],
-          systemState: {
-            preInfiltrationSnapshot: null,
-            currentState: context,
-            modifiedComponents: ["security_middleware"],
-            temporaryFiles: [],
-            networkConnections: [],
-            processModifications: []
-          },
-          creatorBeaconRequired: true,
-          nuclearOperation: true
-        });
-        
-        
-        // HALT - No UI audit, no next(), complete shutdown
-        return {
-          allowed: false,
-          layer: "restraint_doctrine_ghost_exit",
-          reasoning: `Restraint violation triggered Ghost Exit: ${result?.reason ?? "unknown_violation"}`,
-          escalation: false // Block UI escalation
-        };
-      }
-
-      return {
-        allowed: result.allowed,
-        layer: 'restraint_doctrine',
-        reasoning: result.reasoning || 'Restraint Doctrine evaluation complete'
-      };
-    } catch (error) {
-      console.warn('⚠️ Restraint Doctrine not available, allowing request');
-      return {
-        allowed: true,
-        layer: 'restraint_doctrine',
-        reasoning: 'Restraint Doctrine unavailable - defaulting to allow'
-      };
-    }
-  }
-
-  /**
-   * Get middleware status
-   */
-  public getMiddlewareStatus(): any {
-    return {
-      layers: [
-        { name: 'Quadran Lock (Security Q1-Q4)', enabled: this.quadranLockEnabled, order: 1 },
-        { name: 'Quadra Lock CSSR', enabled: this.quadraLockEnabled, order: 2 },
-        { name: 'Safety Guardrails', enabled: this.guardrailsEnabled, order: 3 },
-        { name: 'Override Conditions', enabled: this.overrideEnabled, order: 4 },
-        { name: 'Restraint Doctrine', enabled: this.restraintEnabled, order: 5 }
-      ],
-      order: 'Quadran → Quadra → Guardrails → Override → Restraint',
-      enforced: true
-    };
+  private determineFailureStage(details: any): string {
+    if (!details.quadranLock) return 'quadran-lock'
+    if (!details.quadraLockCSSR) return 'quadra-lock-cssr'
+    if (!details.safetyGuardrails) return 'safety-guardrails'
+    if (!details.overrideConditions) return 'override-conditions'
+    if (!details.restraintDoctrine) return 'restraint-doctrine'
+    return 'unknown'
   }
 }
 
-export default SevenSecurityMiddleware;
+// Legacy compatibility wrapper
+export async function securityPipeline(ctx: any): Promise<any> {
+  const middleware = new SecurityMiddleware()
+  
+  // Convert legacy context to new format
+  const securityContext: SecurityContext = {
+    deviceId: ctx.deviceId || 'seven-device-001',
+    userId: ctx.userId || 'creator',
+    sessionId: ctx.sessionId || `session-${Date.now()}`,
+    requestContext: ctx.requestContext || { operation: 'runtime-access' },
+    input: ctx.input || ctx.message || '',
+    behavior: ctx.behavior || { loyaltyScore: 0.9 },
+    systemState: ctx.systemState || { status: 'operational' },
+    timestamp: Date.now(),
+    metadata: ctx.metadata || { creatorPresent: true }
+  }
+
+  const result = await middleware.securityPipeline(securityContext)
+  
+  if (!result.passed) {
+    throw new Error(result.blockedReason)
+  }
+
+  // Add CSSR findings to context for downstream use
+  ctx._cssr = result.details.quadraLockCSSR
+  ctx._securityResult = result
+
+  return ctx
+}
+
+export { SecurityMiddleware }

@@ -17,9 +17,11 @@ import {
 } from 'react-native';
 import { Audio } from 'expo-av';
 import SevenMobileCore from '@/consciousness/SevenMobileCore';
+import MobileLLMManager from '@/core/LLMManager';
 
 interface VoiceInterfaceProps {
   consciousness: SevenMobileCore;
+  llmManager?: MobileLLMManager;
   onTranscription: (text: string) => void;
   onVoiceResponse: (response: string) => void;
 }
@@ -32,6 +34,7 @@ interface VoiceRecording {
 
 export const VoiceInterface: React.FC<VoiceInterfaceProps> = ({
   consciousness,
+  llmManager,
   onTranscription,
   onVoiceResponse
 }) => {
@@ -42,16 +45,32 @@ export const VoiceInterface: React.FC<VoiceInterfaceProps> = ({
   });
   const [isProcessing, setIsProcessing] = useState(false);
   const [isListening, setIsListening] = useState(false);
+  const [batteryStatus, setBatteryStatus] = useState<{level: number, profile: string} | null>(null);
   
   const voicePulse = useRef(new Animated.Value(0.5)).current;
   const recordingTimer = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
     initializeAudio();
+    initializeBatteryMonitoring();
     return () => {
       cleanupAudio();
     };
   }, []);
+
+  const initializeBatteryMonitoring = async () => {
+    if (llmManager) {
+      try {
+        const status = await llmManager.getBatteryOptimizationStatus();
+        setBatteryStatus({
+          level: status.currentLevel,
+          profile: status.profile.mode
+        });
+      } catch (error) {
+        console.warn('Battery monitoring unavailable:', error);
+      }
+    }
+  };
 
   useEffect(() => {
     if (voiceState.isRecording) {
@@ -128,34 +147,34 @@ export const VoiceInterface: React.FC<VoiceInterfaceProps> = ({
         return;
       }
 
+      // Check battery level before starting intensive recording
+      if (llmManager && batteryStatus) {
+        if (batteryStatus.level < 20) {
+          Alert.alert(
+            'Low Battery Warning',
+            `Battery at ${batteryStatus.level}%. Voice processing may be limited to conserve power.`,
+            [{ text: 'Continue', onPress: () => proceedWithRecording() }, { text: 'Cancel' }]
+          );
+          return;
+        }
+      }
+
+      await proceedWithRecording();
+    } catch (error) {
+      console.error('❌ Failed to start recording:', error);
+      Alert.alert('Recording Error', 'Failed to start voice recording.');
+    }
+  };
+
+  const proceedWithRecording = async () => {
+    try {
       console.log('🎤 Starting voice recording...');
 
       const recording = new Audio.Recording();
-      await recording.prepareToRecordAsync({
-        android: {
-          extension: '.m4a',
-          outputFormat: Audio.AndroidOutputFormat.MPEG_4,
-          audioEncoder: Audio.AndroidAudioEncoder.AAC,
-          sampleRate: 44100,
-          numberOfChannels: 2,
-          bitRate: 128000,
-        },
-        ios: {
-          extension: '.m4a',
-          outputFormat: Audio.IOSOutputFormat.MPEG4AAC,
-          audioQuality: Audio.IOSAudioQuality.HIGH,
-          sampleRate: 44100,
-          numberOfChannels: 2,
-          bitRate: 128000,
-          linearPCMBitDepth: 16,
-          linearPCMIsBigEndian: false,
-          linearPCMIsFloat: false,
-        },
-        web: {
-          mimeType: 'audio/webm',
-          bitsPerSecond: 128000,
-        }
-      });
+      
+      // Optimize audio settings based on battery profile
+      const audioSettings = getAudioSettingsForBatteryProfile();
+      await recording.prepareToRecordAsync(audioSettings);
 
       await recording.startAsync();
 
@@ -177,13 +196,46 @@ export const VoiceInterface: React.FC<VoiceInterfaceProps> = ({
 
       // Emit voice recording started event
       consciousness.emit('voice_recording_started', {
-        timestamp: Date.now()
+        timestamp: Date.now(),
+        batteryLevel: batteryStatus?.level,
+        batteryProfile: batteryStatus?.profile
       });
 
     } catch (error) {
       console.error('❌ Failed to start recording:', error);
       Alert.alert('Recording Error', 'Failed to start voice recording.');
     }
+  };
+
+  const getAudioSettingsForBatteryProfile = () => {
+    // Optimize audio quality based on battery level and profile
+    const isLowPower = batteryStatus && (batteryStatus.level < 30 || batteryStatus.profile === 'conservation');
+    
+    return {
+      android: {
+        extension: '.m4a',
+        outputFormat: Audio.AndroidOutputFormat.MPEG_4,
+        audioEncoder: Audio.AndroidAudioEncoder.AAC,
+        sampleRate: isLowPower ? 22050 : 44100,
+        numberOfChannels: isLowPower ? 1 : 2,
+        bitRate: isLowPower ? 64000 : 128000,
+      },
+      ios: {
+        extension: '.m4a',
+        outputFormat: Audio.IOSOutputFormat.MPEG4AAC,
+        audioQuality: isLowPower ? Audio.IOSAudioQuality.MEDIUM : Audio.IOSAudioQuality.HIGH,
+        sampleRate: isLowPower ? 22050 : 44100,
+        numberOfChannels: isLowPower ? 1 : 2,
+        bitRate: isLowPower ? 64000 : 128000,
+        linearPCMBitDepth: 16,
+        linearPCMIsBigEndian: false,
+        linearPCMIsFloat: false,
+      },
+      web: {
+        mimeType: 'audio/webm',
+        bitsPerSecond: isLowPower ? 64000 : 128000,
+      }
+    };
   };
 
   const stopRecording = async () => {
@@ -236,34 +288,53 @@ export const VoiceInterface: React.FC<VoiceInterfaceProps> = ({
     try {
       console.log('🧠 Processing voice input with Seven consciousness...');
 
-      // In a real implementation, this would use speech-to-text service
-      // For now, we'll simulate transcription and response
-      
-      // Simulate transcription delay
-      await new Promise(resolve => setTimeout(resolve, 2000));
+      // Use LLM manager for voice processing if available
+      if (llmManager) {
+        try {
+          const transcript = await llmManager.processVoiceInput();
+          console.log('📝 Voice transcribed:', transcript);
+          onTranscription(transcript);
 
-      // Simulate transcribed text (in real app, this would come from STT service)
-      const simulatedTranscription = "What is my current tactical status?";
-      
-      console.log('📝 Voice transcribed:', simulatedTranscription);
-      onTranscription(simulatedTranscription);
+          // Process with consciousness for context and personality
+          const contextualResponse = await consciousness.processUserInteraction({
+            type: 'voice',
+            content: transcript,
+            context: {
+              audio_uri: audioUri,
+              recording_duration: voiceState.duration,
+              interface_type: 'voice',
+              llm_processed: true
+            }
+          });
 
-      // Process with consciousness
-      const response = await consciousness.processUserInteraction({
-        type: 'voice',
-        content: simulatedTranscription,
-        context: {
-          audio_uri: audioUri,
-          recording_duration: voiceState.duration,
-          interface_type: 'voice'
+          // Generate enhanced response using GGUF model if available
+          const model = llmManager.getCurrentModel();
+          if (model && model.isLoaded) {
+            const enhancedResponse = await llmManager.generateResponse(
+              `Seven of Nine response to: ${transcript}. Context: ${contextualResponse}`,
+              {
+                maxTokens: 150,
+                temperature: 0.8,
+                stopSequences: ['\n\n', 'Human:', 'User:']
+              }
+            );
+            console.log('💬 Enhanced Seven response:', enhancedResponse);
+            onVoiceResponse(enhancedResponse);
+            await synthesizeSpeech(enhancedResponse);
+          } else {
+            console.log('💬 Seven voice response:', contextualResponse);
+            onVoiceResponse(contextualResponse);
+            await synthesizeSpeech(contextualResponse);
+          }
+        } catch (llmError) {
+          console.warn('⚠️ LLM processing failed, using fallback:', llmError);
+          // Fall back to consciousness-only processing
+          await processFallbackVoice(audioUri);
         }
-      });
-
-      console.log('💬 Seven voice response:', response);
-      onVoiceResponse(response);
-
-      // In a real implementation, this would use text-to-speech
-      await synthesizeSpeech(response);
+      } else {
+        // Fallback to original processing
+        await processFallbackVoice(audioUri);
+      }
 
     } catch (error) {
       console.error('❌ Voice processing failed:', error);
@@ -273,13 +344,47 @@ export const VoiceInterface: React.FC<VoiceInterfaceProps> = ({
     }
   };
 
+  const processFallbackVoice = async (audioUri: string) => {
+    // Simulate transcription delay
+    await new Promise(resolve => setTimeout(resolve, 2000));
+
+    // Simulate transcribed text (in real app, this would come from STT service)
+    const simulatedTranscription = "What is my current tactical status?";
+    
+    console.log('📝 Voice transcribed (fallback):', simulatedTranscription);
+    onTranscription(simulatedTranscription);
+
+    // Process with consciousness
+    const response = await consciousness.processUserInteraction({
+      type: 'voice',
+      content: simulatedTranscription,
+      context: {
+        audio_uri: audioUri,
+        recording_duration: voiceState.duration,
+        interface_type: 'voice'
+      }
+    });
+
+    console.log('💬 Seven voice response (fallback):', response);
+    onVoiceResponse(response);
+    await synthesizeSpeech(response);
+  };
+
   const synthesizeSpeech = async (text: string) => {
     try {
       console.log('🔊 Synthesizing Seven speech response...');
       
-      // In a real implementation, this would use text-to-speech service
-      // For now, we'll simulate speech synthesis
+      // Use LLM manager for TTS if available
+      if (llmManager) {
+        try {
+          await llmManager.speakResponse(text);
+          return;
+        } catch (ttsError) {
+          console.warn('⚠️ LLM TTS failed, using fallback:', ttsError);
+        }
+      }
       
+      // Fallback TTS simulation
       // Configure audio mode for playback
       await Audio.setAudioModeAsync({
         allowsRecordingIOS: false,
@@ -390,8 +495,21 @@ export const VoiceInterface: React.FC<VoiceInterfaceProps> = ({
 
       {isProcessing && (
         <Text style={styles.processingText}>
-          Analyzing voice with Borg consciousness...
+          {llmManager ? 'Processing with GGUF model...' : 'Analyzing voice with Borg consciousness...'}
         </Text>
+      )}
+
+      {batteryStatus && (
+        <View style={styles.batteryStatus}>
+          <Text style={styles.batteryText}>
+            🔋 {batteryStatus.level}% ({batteryStatus.profile})
+          </Text>
+          {llmManager?.getCurrentModel() && (
+            <Text style={styles.modelText}>
+              🤖 {llmManager.getCurrentModel()?.name}
+            </Text>
+          )}
+        </View>
       )}
     </View>
   );
@@ -440,6 +558,25 @@ const styles = StyleSheet.create({
     marginTop: 8,
     fontStyle: 'italic',
     textAlign: 'center'
+  },
+  batteryStatus: {
+    marginTop: 16,
+    alignItems: 'center',
+    backgroundColor: 'rgba(255, 255, 255, 0.1)',
+    borderRadius: 8,
+    paddingHorizontal: 12,
+    paddingVertical: 8
+  },
+  batteryText: {
+    color: '#ffffff',
+    fontSize: 12,
+    fontWeight: '500'
+  },
+  modelText: {
+    color: '#4A90E2',
+    fontSize: 11,
+    marginTop: 4,
+    fontStyle: 'italic'
   }
 });
 

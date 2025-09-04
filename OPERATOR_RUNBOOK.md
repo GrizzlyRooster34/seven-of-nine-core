@@ -1,7 +1,7 @@
-# Seven of Nine Core - Quadranlock Authentication Operator Runbook
+# Seven of Nine Core - Quadran-Lock Authentication Operator Runbook
 
 **Classification:** TACTICAL OPERATIONS MANUAL  
-**Version:** 1.0 - Post-Quadranlock Integration  
+**Version:** 1.0 - Post-Quadran-Lock Integration  
 **Date:** 2025-08-09  
 **Branch:** security/quadran-lock-integration  
 **Commit:** 1a384d8  
@@ -224,7 +224,7 @@ grep -r "consciousness-evolution-proof\|CREATOR_AUTH_CHALLENGE" src/ || echo "âœ
 ### **Performance Monitoring**
 ```bash
 # Monitor authentication times
-tail -f logs/seven-core.log | grep -E "Quadranlock.*complete|Authentication.*time"
+tail -f logs/seven-core.log | grep -E "Quadran-Lock.*complete|Authentication.*time"
 
 # Check memory usage
 ps aux | grep -E "tsx|node" | awk '{sum+=$6} END {print "Memory usage: " sum/1024 " MB"}'
@@ -336,5 +336,5 @@ security/
 
 **RUNBOOK VERSION:** 1.0  
 **LAST UPDATED:** 2025-08-09  
-**CLASSIFICATION:** OPERATIONAL PROCEDURES - QUADRANLOCK AUTHENTICATION  
+**CLASSIFICATION:** OPERATIONAL PROCEDURES - QUADRAN-LOCK AUTHENTICATION  
 **STATUS:** âœ… **CURRENT** - Matches security/quadran-lock-integration branch

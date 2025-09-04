@@ -22,7 +22,7 @@
       "security_critical": true
     },
     {
-      "name": "Quadranlock System",
+      "name": "Quadran-Lock System",
       "path": "src/auth/",
       "purpose": "Four-gate authentication system",
       "api_type": "private",
@@ -126,7 +126,7 @@
   "security": {
     "controls": [
       {
-        "control": "Quadranlock Authentication",
+        "control": "Quadran-Lock Authentication",
         "repo": "seven-of-nine-core",
         "code_refs": ["src/auth/cryptoAuth.ts:25-45", "src/auth/challenge/semanticNonce.ts:1-150"],
         "tests": ["scripts/test_q1_q3_fastpath.ts"]

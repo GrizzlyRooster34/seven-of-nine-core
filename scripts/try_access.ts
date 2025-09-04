@@ -1,14 +1,14 @@
 #!/usr/bin/env npx tsx
 
 /**
- * Simple test script for Quadranlock authentication
+ * Simple test script for Quadran-Lock authentication
  */
 
 const args = process.argv.slice(2);
 const deviceId = args.find(arg => arg.startsWith('--deviceId='))?.split('=')[1] || 'unknown';
 const totp = args.find(arg => arg.startsWith('--totp='))?.split('=')[1];
 
-console.log(`Testing Quadranlock authentication:`);
+console.log(`Testing Quadran-Lock authentication:`);
 console.log(`  Device ID: ${deviceId}`);
 console.log(`  TOTP: ${totp ? '***' : 'missing'}`);
 

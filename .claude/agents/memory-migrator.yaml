@@ -1,0 +1,3 @@
+name: Memory Schema Migrator
+commands: [/memory-migrate]
+script: scripts/sync/migrate-schema.ts

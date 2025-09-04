@@ -1,0 +1,8 @@
+name: Quadran-Lock Gatekeeper
+commands: [/quadran-lock, /attest]
+script: scripts/security/run-quadran-lock.ts
+triggers:
+  - on: predeploy
+    targets: [windows, mobile, termux, companion, ui-shell]
+outputs:
+  - reports/QUADRAN_SUMMARY.md

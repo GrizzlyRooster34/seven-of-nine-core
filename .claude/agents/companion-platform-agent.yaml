@@ -1,0 +1,36 @@
+name: Companion Platform Agent
+id: companion-platform-agent
+description: Companion app backend development, model lifecycle management, encrypted vault, sync server orchestration
+parent: cross-platform-builder
+entry: scripts/platform/companion-deploy.ts
+trigger:
+  - on_command: /companion
+  - on_branch: ["companion/*", "platform/companion/*", "backend/*"]
+  - on_paths_changed:
+      - "seven-companion-app/**"
+      - "seven-companion-app/src/backend/**"
+      - "seven-companion-app/relay-server/**"
+permissions:
+  filesystem: read_write
+  network: local_only
+  git: write
+  system: execute
+env:
+  TARGET_PLATFORM: companion
+  COMPANION_PATH: seven-companion-app
+  BACKEND_FEATURES: "model-lifecycle,vault,sync-server"
+  RELAY_SERVER: "true"
+  OLLAMA_INTEGRATION: "true"
+tasks:
+  - name: Validate companion build
+    command: cd seven-companion-app && npm run build
+  - name: Deploy model lifecycle manager
+    command: node scripts/platform/companion-deploy.ts --model-lifecycle
+  - name: Deploy encrypted vault
+    command: node scripts/platform/companion-deploy.ts --vault
+  - name: Deploy sync server
+    command: node scripts/platform/companion-deploy.ts --sync-server  
+  - name: Test backend features
+    command: node scripts/platform/companion-deploy.ts --test-backend
+  - name: Start relay server
+    command: node scripts/platform/companion-deploy.ts --start-relay

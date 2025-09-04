@@ -1,0 +1,8 @@
+name: Restraint Doctrine
+commands: [/restraint, /safety-firewall]
+script: scripts/safety/restraint-doctrine.ts
+triggers:
+  - on: preruntime
+    targets: [windows, mobile, termux, companion]
+outputs:
+  - reports/RESTRAINT_ENFORCEMENT.md

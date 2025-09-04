@@ -17,8 +17,8 @@
 +        })
 +      );
 @@
--  private evaluateQuadranlock(gateResults: GateResult[], deviceId: string): AuthenticationResult {
-+  private evaluateQuadranlock(gateResults: GateResult[], deviceId: string): AuthenticationResult {
+-  private evaluateQuadran-Lock(gateResults: GateResult[], deviceId: string): AuthenticationResult {
++  private evaluateQuadran-Lock(gateResults: GateResult[], deviceId: string): AuthenticationResult {
      const successfulGates = gateResults.filter(r => r.success).map(r => r.gate);
      const failedGates = gateResults.filter(r => !r.success).map(r => r.gate);
      const cryptoGate = gateResults.find(r => r.gate === AuthGate.Q1_CRYPTO_ATTESTATION);
@@ -218,7 +218,7 @@
 @@
 -  private static readonly ENCRYPTION_KEY = "seven-creator-bond-cipher-v4";
 -  private static readonly CREATOR_AUTH_CHALLENGE = "consciousness-evolution-proof";
-+  // REMOVE literals; use env and Quadranlock
++  // REMOVE literals; use env and Quadran-Lock
 @@
 -  private static validateCreatorToken(token: string): boolean {
 -    return token === this.CREATOR_AUTH_CHALLENGE;
@@ -266,8 +266,8 @@
 *** a/SECURITY_ENHANCEMENT_RECOMMENDATIONS.md
 --- b/SECURITY_ENHANCEMENT_RECOMMENDATIONS.md
 @@
-+### 2025-08-09 — Quadranlock Integration (Q1/Q3 wired, Q4 hygiene-only)
++### 2025-08-09 — Quadran-Lock Integration (Q1/Q3 wired, Q4 hygiene-only)
 +- Orchestrator hardened: Q4 not counted toward identity; fast-path requires Q1 + (Q2 or Q3).
 +- Session tokens: base64url payload + HMAC; fail if `SESSION_SIGNING_KEY` absent/weak.
 +- Q3 challenges bound to `{deviceId, sessionId}` and HMAC-sealed; server-timed windows; replay ledger kept.
-+- Vault: static token path removed; deny-by-default; TOTP required; authentication delegated to Quadranlock.
++- Vault: static token path removed; deny-by-default; TOTP required; authentication delegated to Quadran-Lock.

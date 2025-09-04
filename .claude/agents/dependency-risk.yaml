@@ -1,0 +1,3 @@
+name: Dependency Risk Scanner
+commands: [/dependency-risk]
+script: scripts/security/deps-scan.ts

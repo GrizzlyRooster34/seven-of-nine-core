@@ -1,6 +1,6 @@
 /**
  * Q1 Ed25519 Attestation System
- * First gate of Quadranlock authentication protocol
+ * First gate of Quadran-Lock authentication protocol
  */
 
 import { createVerify } from 'crypto';

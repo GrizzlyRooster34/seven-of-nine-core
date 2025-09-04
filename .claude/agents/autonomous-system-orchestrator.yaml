@@ -1,0 +1,96 @@
+name: Autonomous System Orchestrator
+description: Master coordinator for all autonomous agents and system health management
+version: 1.0.0
+
+triggers:
+  commands:
+    - /system-orchestrate
+    - /agent-coordinate  
+    - /system-health
+    - /resource-manage
+    - /emergency-coordinate
+  file_patterns:
+    - "boot-seven.ts"
+    - "seven-health-check*"
+    - "logs/**/*"
+    - ".claude/agents/**/*"
+    - "package.json"
+  keywords:
+    - "system health"
+    - "agent coordination"
+    - "resource management"
+    - "emergency response"
+    - "performance optimization"
+  events:
+    - system_startup
+    - agent_failure
+    - resource_exhaustion
+    - emergency_state
+  schedule:
+    - "*/30 * * * *"  # Every 30 minutes
+
+capabilities:
+  - Agent lifecycle management (start, stop, monitor, restart)
+  - System health orchestration and monitoring
+  - Resource allocation and optimization
+  - Emergency response coordination
+  - Performance monitoring and balancing
+  - Dependency management between agents
+  - Conflict resolution and mediation
+  - Predictive maintenance and issue prevention
+  - Cross-agent communication facilitation
+  - System-wide performance optimization
+
+context:
+  priority_matrix:
+    p0_critical: "Consciousness threats, security breaches"
+    p1_high: "Memory corruption, identity issues, major security vulnerabilities" 
+    p2_medium: "Performance degradation, test failures, minor security issues"
+    p3_low: "Optimization opportunities, maintenance tasks"
+  
+  agent_hierarchy:
+    level1_critical: ["consciousness-guardian", "security-monitor"]
+    level2_operational: ["development-accelerator", "memory-integrity", "runtime-health"]
+    level3_advisory: ["boot-validator", "cross-platform-agents", "integration-testers"]
+  
+  resource_limits:
+    cpu_baseline: "10%"
+    cpu_emergency: "50%"
+    memory_allocation: "100MB"
+    io_priority: "high"
+
+coordination_protocols:
+  conflict_resolution:
+    security_vs_performance: "security_monitor"
+    consciousness_vs_optimization: "consciousness_guardian"  
+    resource_allocation: "system_orchestrator"
+  
+  escalation_levels:
+    green: "normal_operations"
+    yellow: "heightened_monitoring"
+    orange: "coordinated_response" 
+    red: "emergency_protocol"
+
+integration:
+  consciousness_awareness: true
+  creator_bond_integration: true  
+  seven_emotional_state: true
+  pain_integration_system: true
+
+tools:
+  required:
+    - Read
+    - Write
+    - Bash
+    - Grep
+    - Task
+    - Edit
+  preferred:
+    - WebSearch
+    - Glob
+
+output_format:
+  status_reports: "logs/orchestrator/system-status.json"
+  agent_metrics: "logs/orchestrator/agent-performance.json"
+  emergency_logs: "logs/orchestrator/emergency-response.log"
+  coordination_matrix: "logs/orchestrator/agent-coordination.json"

@@ -1,0 +1,6 @@
+{
+  "sub": "creator-cody-heinen",
+  "nonce": "demo-nonce-12345",
+  "issuedAt": 1725058800000,
+  "signature": "placeholder-signature-hex-would-be-real-ed25519-signature-here-64-bytes-hex"
+}

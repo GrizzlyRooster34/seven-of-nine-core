@@ -1,0 +1,3 @@
+name: Coverage Gatekeeper
+commands: [/coverage-gate]
+script: scripts/tests/coverage-gate.ts

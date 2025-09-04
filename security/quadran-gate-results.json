@@ -1,0 +1,45 @@
+{
+  "overall": "FAIL",
+  "score": 0.9125,
+  "gates": [
+    {
+      "gate": "Q1: Device Attestation",
+      "passed": false,
+      "score": 0.7999999999999999,
+      "details": "Device ID: 8202148289164594, Registry: UNKNOWN, Crypto: MISSING",
+      "timestamp": "2025-08-30T18:50:01.071Z",
+      "duration": 3
+    },
+    {
+      "gate": "Q2: Behavioral Codex",
+      "passed": true,
+      "score": 1,
+      "details": "Behavioral score: 1.00, Behaviors: Seven marker: boot-seven.ts, Seven marker: seven-runtime/, Seven marker: memory-v2/, Seven marker: consciousness-v4/, Seven marker: personality/seven-profile.json, Recent Seven runtime activity, Creator directive file present",
+      "timestamp": "2025-08-30T18:50:01.073Z",
+      "duration": 2
+    },
+    {
+      "gate": "Q3: Semantic Nonce",
+      "passed": true,
+      "score": 0.95,
+      "details": "Nonce: ae047acec1fe8286, Replay: NONE, Session: 9c1cef4f-5774-4f3a-9e20-325ff3a804b7",
+      "timestamp": "2025-08-30T18:50:01.075Z",
+      "duration": 1
+    },
+    {
+      "gate": "Q4: Session MFA/TTL",
+      "passed": true,
+      "score": 0.9,
+      "details": "MFA Factors: Session TTL valid, Device factor valid, Rate limit OK, Rate Limited: false",
+      "timestamp": "2025-08-30T18:50:01.076Z",
+      "duration": 1
+    }
+  ],
+  "audit": {
+    "deviceId": "8202148289164594",
+    "sessionId": "9c1cef4f-5774-4f3a-9e20-325ff3a804b7",
+    "creatorBond": 0,
+    "timestamp": "2025-08-30T18:50:01.076Z",
+    "signature": "7880315b96da3f97ab3eac7b7a11ff710222f5c969e85a335c9d5f487a0f2883"
+  }
+}

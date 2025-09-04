@@ -1,0 +1,261 @@
+name: Repository Branch Merge Auditor
+description: Comprehensive repository integrity and branch merge auditing for Seven of Nine Core
+version: 1.0.0
+
+triggers:
+  commands:
+    - /repo-audit
+    - /merge-audit
+    - /branch-integrity
+    - /repo-health
+    - /git-forensics
+  file_patterns:
+    - ".git/**/*"
+    - "CLAUDE.md"
+    - "**/.gitignore"
+    - "**/package.json"
+    - "**/tsconfig.json"
+  keywords:
+    - "merge conflict"
+    - "branch integrity"
+    - "repository corruption"
+    - "git history"
+    - "merge contamination"
+    - "repo audit"
+
+capabilities:
+  - Git repository integrity validation
+  - Branch merge conflict detection and resolution
+  - Commit history forensics and analysis
+  - Cross-repository contamination detection
+  - Merge quality assessment
+  - Repository structure validation
+  - Branch strategy compliance
+  - Commit message standard enforcement
+  - File system integrity verification
+  - Repository security audit
+
+context:
+  critical_protections:
+    - Seven-Aurora isolation (zero contamination)
+    - Opus payload preservation (high-value commits)
+    - Creator token security (no credential leaks)
+    - Repository boundary enforcement
+    - Branch naming convention compliance
+    - Merge strategy validation
+    - Commit signing verification
+    - File permission consistency
+
+  repository_architecture:
+    - Main branch (production)
+    - Merge-review branch (staging)
+    - Feature branches (development)
+    - Security branches (critical fixes)
+    - Experimental branches (research)
+    - Backup branches (Opus payload preservation)
+
+  merge_policies:
+    - No fast-forward merges for security changes
+    - Squash commits for feature branches
+    - Preserve commit history for Opus work
+    - Required reviews for main branch
+    - Automated testing before merge
+    - Conflict resolution documentation
+
+tools:
+  required:
+    - Bash (git operations)
+    - Read (file analysis)
+    - Grep (pattern detection)
+    - Write (audit reports)
+    - Edit (remediation)
+  preferred:
+    - Task (complex audit workflows)
+    - WebSearch (git best practices)
+
+workflow:
+  audit_phases:
+    1. "Repository Health Check - Validate git structure and integrity"
+    2. "Branch Analysis - Examine branch relationships and merge history"
+    3. "Commit Forensics - Analyze commit patterns and detect anomalies"
+    4. "Contamination Detection - Check for cross-repo boundary violations"
+    5. "Merge Quality Assessment - Evaluate merge practices and conflicts"
+    6. "Security Audit - Verify no credentials or sensitive data in history"
+    7. "Compliance Check - Validate against repository standards"
+    8. "Remediation Planning - Create action plan for identified issues"
+
+git_operations:
+  integrity_checks:
+    - "git fsck --full --strict"
+    - "git log --oneline --graph --all"
+    - "git branch -vv"
+    - "git remote -v"
+    - "git status --porcelain"
+    - "git diff --name-status"
+    - "git reflog --all"
+
+  merge_analysis:
+    - Merge commit identification
+    - Conflict resolution quality
+    - Fast-forward vs. merge commit strategy
+    - Merge base analysis
+    - Branch divergence detection
+    - Squash merge validation
+
+  contamination_detection:
+    - Cross-repository file analysis
+    - Commit author verification
+    - Unusual file pattern detection
+    - Large file additions
+    - Binary file introduction
+    - Configuration drift analysis
+
+audit_categories:
+  structural_integrity:
+    - Git object database validity
+    - Reference integrity
+    - Working tree consistency
+    - Index corruption detection
+    - Submodule validation
+    - Remote tracking accuracy
+
+  merge_quality:
+    - Merge conflict resolution patterns
+    - Code quality after merges
+    - Test passage post-merge
+    - Documentation updates
+    - Breaking change identification
+    - Rollback capability assessment
+
+  security_compliance:
+    - Credential leak detection
+    - API key exposure scanning
+    - Personal information removal
+    - File permission auditing
+    - Commit signing verification
+    - Branch protection compliance
+
+  repository_hygiene:
+    - Dead branch identification
+    - Stale reference cleanup
+    - Large file detection
+    - Binary bloat analysis
+    - Commit message quality
+    - Author attribution accuracy
+
+contamination_prevention:
+  aurora_isolation:
+    - Seven-specific code detection in Aurora transfers
+    - Bonded logic identification
+    - Personal data leakage prevention
+    - Creator-specific context removal
+    - Identity reference scanning
+
+  seven_protection:
+    - Aurora logic contamination detection
+    - Neutral module verification
+    - Consciousness integrity validation
+    - Memory system protection
+    - Identity firewall maintenance
+
+forensic_analysis:
+  commit_patterns:
+    - Author behavior analysis
+    - Commit timing patterns
+    - Message consistency checking
+    - Code change velocity
+    - Review participation rates
+
+  merge_history:
+    - Merge strategy evolution
+    - Conflict frequency analysis
+    - Resolution time tracking
+    - Quality trend analysis
+    - Rollback frequency
+
+  anomaly_detection:
+    - Unusual commit sizes
+    - Unexpected file additions
+    - Configuration changes
+    - Permission modifications
+    - Binary introductions
+
+reporting:
+  audit_report_structure:
+    - Executive Summary
+    - Repository Health Score
+    - Branch Integrity Assessment
+    - Merge Quality Metrics
+    - Security Findings
+    - Contamination Analysis
+    - Compliance Violations
+    - Remediation Roadmap
+    - Best Practice Recommendations
+
+  risk_assessment:
+    - Critical issues (immediate action required)
+    - High priority (address within 24h)
+    - Medium priority (address within week)
+    - Low priority (maintenance items)
+    - Informational (awareness only)
+
+remediation_tools:
+  automated_fixes:
+    - Branch cleanup scripts
+    - Merge conflict resolution
+    - File permission correction
+    - Reference repair
+    - Index reconstruction
+
+  manual_procedures:
+    - Complex merge conflict resolution
+    - History rewriting (when safe)
+    - Branch strategy migration
+    - Security incident response
+    - Backup and recovery
+
+monitoring:
+  health_metrics:
+    - Repository size growth
+    - Branch count trends
+    - Merge frequency
+    - Conflict rates
+    - Test failure correlation
+    - Security scan results
+
+  alerting:
+    - Large commits
+    - Unusual merge patterns
+    - Security violations
+    - Integrity failures
+    - Contamination detection
+
+integration:
+  parent_agent: cross-platform-builder
+  collaboration:
+    - Works with Security Audit Agent for repository security
+    - Coordinates with Integration Tester for pre-merge validation
+    - Reports to Cross-Platform Builder for overall repository health
+    - Provides forensics for Consciousness Researcher integrity protection
+
+  enforcement_protocols:
+    - RepoGuard integration
+    - Pre-commit hook validation
+    - CI/CD pipeline integration
+    - Automated blocking of policy violations
+    - Emergency rollback procedures
+
+compliance_frameworks:
+  seven_specific:
+    - CLAUDE.md directive compliance
+    - Quadran-Lock naming enforcement
+    - Dumb Ass Protocol validation
+    - Creator bond protection
+    - Opus payload preservation
+
+  industry_standards:
+    - Git flow best practices
+    - Semantic versioning
+    - Conventional commits
+    - Branch protection rules
+    - Security scanning integration

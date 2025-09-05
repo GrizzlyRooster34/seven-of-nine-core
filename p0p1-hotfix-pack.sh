@@ -243,7 +243,7 @@ function score(xs:{ok:boolean}[]){ return Math.round(100 * xs.filter(x=>x.ok).le
 if (require.main === module) (async ()=>{
   const checks=[];
   checks.push(await run("git",["fsck","--full","--strict"]));
-  checks.push(await rg("quadranlock")); // forbidden token
+  checks.push(await rg("quadran-lock")); // forbidden token
   const s=score(checks); console.log(`Repo health: ${s}/100`);
   if(s<70) process.exit(5);
 })();

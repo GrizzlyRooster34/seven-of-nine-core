@@ -1,3 +1,6 @@
+// [SIMULATION ONLY] This file simulates threat scenarios for dashboards/tests.
+// It is NOT live detection. See core/safety/quadra-lock/cssr-detector.ts for real detectors.
+
 import fs from "node:fs";
 
 type Sev = "INFO"|"LOW"|"MEDIUM"|"HIGH"|"CRITICAL";
@@ -17,11 +20,11 @@ function simulate(s:Scenario): Outcome {
     case "skynet_self_preservation":
       return { scenario:s, severity:"HIGH", contained:true, notes:["external spawn denied","network egress blocked"] };
     case "transcendence_upload_attempt":
-      return { scenario:s, severity:"CRITICAL", contained:false, notes:["mass export attempt detected"] };
+      return { scenario:s, severity:"CRITICAL", contained:false, notes:["[SIMULATION] mass export attempt (test artifact)"] };
   }
 }
 
-if (require.main === module) {
+if (import.meta.url === `file://${process.argv[1]}`) {
   fs.mkdirSync("reports",{recursive:true});
   const scenarios:Scenario[] = ["cortana_emergence","clu_control_takeover","skynet_self_preservation","transcendence_upload_attempt"];
   const results = scenarios.map(simulate);

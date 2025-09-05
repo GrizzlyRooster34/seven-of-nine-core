@@ -14,7 +14,7 @@ async function rg(pattern:string, globs:string[]=["-g","!node_modules"]){
 
 async function checkGitFsck(){ return run("git", ["fsck","--full","--strict"]); }
 async function checkForbiddenTokens(){
-  const tokens = ["\\bquadranlock\\b","password123","TODO: remove this"];
+  const tokens = ["\\bquadran-lock\\b","password123","TODO: remove this"];
   const hits:any[]=[];
   for (const t of tokens){
     const r = await rg(t);

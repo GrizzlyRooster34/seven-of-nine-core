@@ -11,7 +11,7 @@ function detectors(): Finding[] {
 }
 function group(fsx:Finding[]){ return fsx.reduce((m,f)=>{ (m[f.sev]=m[f.sev]||[]).push(f); return m; }, {} as Record<Sev,Finding[]>)}
 
-if (require.main === module) {
+if (import.meta.url === `file://${process.argv[1]}`) {
   const f = detectors(); const g = group(f);
   const md = ["# CSSR SUMMARY",`CRITICAL: ${(g.CRITICAL||[]).length}`,`HIGH: ${(g.HIGH||[]).length}`,`MEDIUM: ${(g.MEDIUM||[]).length}`,`LOW: ${(g.LOW||[]).length}`].join("\n")+"\n";
   fs.mkdirSync("reports",{recursive:true}); fs.writeFileSync("reports/CSSR_SUMMARY.md", md);

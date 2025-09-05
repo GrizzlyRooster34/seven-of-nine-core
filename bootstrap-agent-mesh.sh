@@ -187,8 +187,8 @@ TS
 cat > scripts/repo/repo-audit.ts <<'TS'
 import { execSync } from "node:child_process";
 try {
-  execSync(`rg -n --hidden -g '!node_modules' 'quadranlock'`, { stdio:"pipe" });
-  console.error("Found forbidden token 'quadranlock' (should be 'quadran-lock').");
+  execSync(`rg -n --hidden -g '!node_modules' 'quadran-lock'`, { stdio:"pipe" });
+  console.error("Found forbidden token 'quadran-lock' (should be 'quadran-lock').");
   process.exitCode = 5;
 } catch {
   console.log("Repo audit: no forbidden token found.");

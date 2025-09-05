@@ -1317,7 +1317,7 @@ async function main() {
   }
 }
 
-if (require.main === module) {
+if (import.meta.url === `file://${process.argv[1]}`) {
   main().catch(error => {
     console.error('Mobile safety porting execution failed:', error);
     process.exit(1);

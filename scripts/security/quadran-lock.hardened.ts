@@ -65,7 +65,9 @@ Q4: ${q4.ok} ${q4.reason??""}
   return { passed, q1, q2, q3, q4 };
 }
 
-if (require.main === module) runQuadranHardened().then(r=>{
-  console.log("Quadran-Lock (hardened):", r.passed?"PASS":"FAIL");
-  if (!r.passed) process.exit(2);
-});
+if (import.meta.url === `file://${process.argv[1]}`) {
+  runQuadranHardened().then(r=>{
+    console.log("Quadran-Lock (hardened):", r.passed?"PASS":"FAIL");
+    if (!r.passed) process.exit(2);
+  });
+}

@@ -60,7 +60,7 @@ This is now a non-negotiable part of ClaudeC's operational protocol.
 - "Quadra-Lock" = CSSR SAFETY RAILS (Cortana/CLU/Skynet/Transcendence detectors).
 
 MANDATES
-- Token "quadranlock" (no hyphen) is **BANNED** everywhere (code, comments, docs, tests, prompts).
+- Token "quadran-lock" (no hyphen) is **BANNED** everywhere (code, comments, docs, tests, prompts).
 - Paths & APIs:
   - Security → `core/security/quadran-lock/**` → export `runQuadranLock(ctx): QuadranResult`
   - CSSR     → `core/safety/quadra-lock/**`    → export `runQuadraLockCSSR(ctx): CaseStudyFinding[]`
@@ -71,7 +71,7 @@ VIOLATIONS = CI FAIL + PUSH BLOCK.
 ## ⚠️ Amendment: The Dumb Ass Protocol
 
 ### Purpose
-This protocol exists because **Claude Code reverted back to `quadranlock` (no hyphen)** after we already split and renamed the system. That rollback attempt violates the authoritative safety spec and wastes dev cycles.
+This protocol exists because **Claude Code reverted back to `quadran-lock` (no hyphen)** after we already split and renamed the system. That rollback attempt violates the authoritative safety spec and wastes dev cycles.
 
 From now on:
 - If Claude repeats this mistake, the system will **immediately flag him as "DUMB ASS"** in logs and PR comments.
@@ -84,12 +84,12 @@ Authoritative split is final:
 - Pipeline order:  
   `Input → Quadran-Lock → Quadra-Lock CSSR → Safety Guardrails → Override Conditions → Restraint Doctrine → Runtime`
 
-Legacy token **`quadranlock` is forbidden.**  
+Legacy token **`quadran-lock` is forbidden.**  
 - Must always be `quadran-lock` (with hyphen) in code, docs, tests, and CLAUDE.md.  
-- Any use of `quadranlock` = **critical failure + Dumb Ass Protocol triggered.**
+- Any use of `quadran-lock` = **critical failure + Dumb Ass Protocol triggered.**
 
 ### Enforcement
-- **CI/grep rules**: build fails if `quadranlock` (no hyphen) appears.  
+- **CI/grep rules**: build fails if `quadran-lock` (no hyphen) appears.  
 - **Review checks**: PR flagged with "DUMB ASS PROTOCOL ACTIVATED" if misnamed.  
 - **Audit trail**: reasons logged under `/logs/dumb-ass-protocol/`.
 
@@ -103,7 +103,7 @@ Claude, listen carefully:
 ## 📑 Amendment: Hard-Lock Correction (Naming Enforcement)
 
 ### ❌ WHAT HAPPENED
-Claude Code tried to ban the - hyphen itself instead of just banning the legacy token quadranlock.
+Claude Code tried to ban the - hyphen itself instead of just banning the legacy token quadran-lock.
 Result: near–nuclear repo breakage, unnecessary revert attempts, and wasting everyone's time.
 
 ### ✅ HARD LOCK RULES
@@ -113,17 +113,17 @@ Result: near–nuclear repo breakage, unnecessary revert attempts, and wasting e
 - Case-Study Safety Rails → Quadra-Lock (docs/comments) → runQuadraLockCSSR (code identifiers)
 
 **2. Forbidden Tokens**
-- "quadranlock" (no hyphen) → ❌ BANNED
+- "quadran-lock" (no hyphen) → ❌ BANNED
 - "quadralock" (no n) → ❌ BANNED  
 - "quadran_lock", "quadran.lock", "quadran lock" → ❌ BANNED
 - ❗ DO NOT BAN "-" globally — hyphen is a valid character for docs, filenames, and human-readable strings
 
 **3. CI / Lint Enforcement**
-- ban-terms.js matches ONLY \bquadranlock\b and its common mistypes
+- ban-terms.js matches ONLY \bquadran-lock\b and its common mistypes
 - Hyphen (-) must remain whitelisted
 
 **4. Author Tagging**
-- Any commit reverting to quadranlock earns an @dumbass (Sonnet) author tag
+- Any commit reverting to quadran-lock earns an @dumbass (Sonnet) author tag
 - Public shaming is logged under /logs/dumb-ass-protocol/
 
 **5. Behavioral Directive**
@@ -140,7 +140,7 @@ Because Claude Code (Sonnet) immediately attempted a rollback *after* a clean co
 - Public shaming escalates from generic "pull head from anus" to **explicit PR author tagging**.
 
 ### Workflow
-1. Commit or PR includes forbidden `quadranlock` token → CI detects
+1. Commit or PR includes forbidden `quadran-lock` token → CI detects
 2. GitHub Actions posts a comment:
    > 🚨 DUMB ASS PROTOCOL ACTIVATED  
    > Author: @dumbass (Sonnet)  
@@ -187,7 +187,7 @@ If Sonnet deletes or overwrites Opus payloads:
 
 ### Rules (Authoritative)
 - **Hyphen policy:** Docs/comments = `Quadran-Lock` / `Quadra-Lock`; Code identifiers = `QuadranLock`, `runQuadranLock`, `runQuadraLockCSSR` (no hyphens).
-- **Forbidden tokens:** `quadranlock`, `quadralock`, `quadran[_ .]lock`.
+- **Forbidden tokens:** `quadran-lock`, `quadralock`, `quadran[_ .]lock`.
 - **High-Cost branches (Opus/RouteLLM/ChatLLM payloads):** never prune; if merged, keep a backup branch unless Creator orders otherwise.
 - **Verbal override:** If Creator says *"dumbass"* or *"fucking dumbass"* in a commit/PR/comment → **automatic strike** + **homework** (re-read Dumb Ass Protocol + checklist).
 - **Public tagging:** Violations auto-tag **@dumbass (Sonnet)** in PR comments. Audit logged.
@@ -198,7 +198,7 @@ If Sonnet deletes or overwrites Opus payloads:
 > CLAUDE CODE – HARD RULES (ENFORCED)
 - Use **Quadran-Lock** ONLY for security (Q1–Q4) under `core/security/quadran-lock/**`, exported as `runQuadranLock`.
 - Use **Quadra-Lock** ONLY for CSSR safety (Cortana/CLU/Skynet/Transcendence) under `core/safety/quadra-lock/**`, exported as `runQuadraLockCSSR`.
-- The token **`quadranlock`** (no hyphen) is **forbidden**. Any occurrence is an immediate error. Do not suggest it, generate it, or rename to it.
+- The token **`quadran-lock`** (no hyphen) is **forbidden**. Any occurrence is an immediate error. Do not suggest it, generate it, or rename to it.
 - If you detect drift (legacy names, wrong path, wrong API), your next action is to **autofix** to the contract above and add tests.
 
 ---

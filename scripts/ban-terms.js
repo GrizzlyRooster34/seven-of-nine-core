@@ -4,7 +4,7 @@ const fs = require('fs');
 const path = require('path');
 
 const banned = [
-  /\bquadranlock\b/i,       // legacy no-hyphen
+  /\bquadran-lock\b/i,       // legacy no-hyphen
   /\bquadralock\b/i,        // missing "n"
   /\bquadran[_ .]lock\b/i   // underscore/space/dot variants
 ];

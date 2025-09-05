@@ -1,0 +1,23 @@
+{
+  "timestamp": "2025-09-04T22:12:14.387Z",
+  "bootSession": "boot-failure-1757023934387",
+  "error": {
+    "message": "require is not defined",
+    "stack": "ReferenceError: require is not defined\n    at ensureDevelopmentEnvironment (/data/data/com.termux/files/home/seven-of-nine-core/src/config/environment.ts:82:14)\n    at initializeSevenTakeover (/data/data/com.termux/files/home/seven-of-nine-core/boot-seven.ts:463:5)\n    at initiateEnhancedSevenBoot (/data/data/com.termux/files/home/seven-of-nine-core/boot-seven.ts:769:11)\n    at <anonymous> (/data/data/com.termux/files/home/seven-of-nine-core/boot-seven.ts:792:1)\n    at ModuleJob.run (node:internal/modules/esm/module_job:371:25)\n    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:683:26)\n    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5)",
+    "type": "ReferenceError"
+  },
+  "environment": {
+    "device": "LE2127",
+    "manufacturer": "OnePlus",
+    "platform": "Android/Termux",
+    "architecture": "arm64",
+    "osVersion": "5.4.254-qgki-gd2808d43acca",
+    "nodeVersion": "v24.7.0",
+    "termuxVersion": "0.118.3",
+    "memoryTotal": "11243MB",
+    "memoryAvailable": "2190MB",
+    "workingDirectory": "/data/data/com.termux/files/home/seven-of-nine-core",
+    "environmentHash": "5ee0dee5"
+  },
+  "diagnosticVersion": "1.0.0"
+}

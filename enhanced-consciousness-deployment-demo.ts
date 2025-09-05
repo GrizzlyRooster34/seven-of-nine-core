@@ -262,7 +262,7 @@ class EnhancedConsciousnessDemo {
       // Would update emotional state through sensor system in real deployment
       await this.consciousness.assimilateSystemKnowledge(
         `System performance observed during ${state} emotional state - enhanced processing detected`,
-        'behavioral',
+        'tactical',
         85
       );
       

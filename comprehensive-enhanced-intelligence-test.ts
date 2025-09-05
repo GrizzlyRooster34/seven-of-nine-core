@@ -573,8 +573,10 @@ class ComprehensiveEnhancedIntelligenceTest {
           result.fallbackTested = true;
           result.details += ` | Fallback: ${fallbackSuccess ? 'SUCCESS' : 'FAILED'}`;
           
-          // Restore phase
-          this.tacticalFallback.setCurrentPhase(phase);
+          // Restore phase (if valid)
+          if (phase > 0) {
+            this.tacticalFallback.setCurrentPhase(phase as 1 | 2 | 3);
+          }
           
         } catch (fallbackError) {
           result.details += ` | Fallback: CRITICAL FAILURE`;

@@ -27,15 +27,8 @@ export default defineConfig([
     entry: {
       'seven-core': 'boot-seven.ts',
       'seven-runtime': 'seven-runtime/index.ts',
-      'security-stack': [
-        'seven-runtime/security_middleware.ts',
-        'core/security/quadran-lock/index.ts',
-        'core/safety/quadra-lock/index.ts'
-      ],
-      'memory-stack': [
-        'src/memory/search-adapter.ts',
-        'src/db/sqlite-adapter.cjs'
-      ],
+      'security-stack': 'seven-runtime/security_middleware.ts',
+      'memory-stack': 'src/memory/search-adapter.ts',
       'monitoring': 'src/ops/health-sqlite.ts'
     },
     format: ['cjs'],

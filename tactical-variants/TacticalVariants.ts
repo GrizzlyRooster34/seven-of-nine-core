@@ -206,7 +206,7 @@ export class TacticalVariants {
       variant: 'crew',
       operationalFocus: focus,
       intensityLevel: 3,
-      problemType: 'collaborative'
+      problemType: 'interpersonal'
     });
   }
 

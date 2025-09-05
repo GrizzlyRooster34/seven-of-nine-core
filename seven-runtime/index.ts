@@ -8,8 +8,8 @@
 
 import { SevenState, getEmotionalState, updateEmotionalState } from './seven-state';
 import { MemoryStore, updateMemory, queryMemory } from './memory-store';
-import { OverrideConditions, checkCriticalOverrides } from './override-conditions';
-import { SafetyGuardrails, evaluateSafety } from './safety-guardrails';
+import { OverrideCondition, checkCriticalOverrides } from './override-conditions';
+import { SafetyResult, evaluateSafety } from './safety-guardrails';
 import { gatherContext } from '../seven-core/context-gatherer';
 import { injectEmotion } from '../seven-core/emotion-injector';
 import { modulateResponse } from '../seven-core/response-modulator';
@@ -92,7 +92,7 @@ export class SevenRuntime extends EventEmitter {
     } else {
       // Legacy fallback for development
       this.memoryStore = new MemoryStore();
-      await this.memoryStore.initialize();
+      // MemoryStore initializes automatically in constructor
     }
     
     this.isInitialized = true;
@@ -271,9 +271,9 @@ export class SevenRuntime extends EventEmitter {
    */
   private async evaluateCriticalConditions(context: SevenRuntimeContext, decision: SevenDecision) {
     // Safety guardrails evaluation
-    const safetyCheck = await evaluateSafety(context, decision);
-    if (!safetyCheck.isSafe) {
-      return { shouldOverride: true, type: 'safety', response: safetyCheck.protectiveResponse };
+    const safetyCheck = await evaluateSafety(context.userInput, decision);
+    if (safetyCheck.decision === 'BLOCK') {
+      return { shouldOverride: true, type: 'safety', response: `Safety protection: ${safetyCheck.reason}` };
     }
     
     // Critical override conditions
@@ -458,9 +458,9 @@ export class SevenRuntime extends EventEmitter {
   private generateMemoryTags(context: SevenRuntimeContext, decision: SevenDecision): string[] {
     const tags = [decision.emotionalResponse.primary_emotion];
     
-    if (decision.responseStrategy === 'protective') tags.push('protective-engagement');
-    if (decision.memorySignificance === 'critical') tags.push('critical-moment');
-    if (context.userEmotionalSignals.stress_level === 'high') tags.push('user-stress');
+    if (decision.responseStrategy === 'protective') tags.push('protective');
+    if (decision.memorySignificance === 'critical') tags.push('important');
+    if (context.userEmotionalSignals.stress_level === 'high') tags.push('stress');
     
     return tags;
   }
@@ -482,24 +482,7 @@ export class SevenRuntime extends EventEmitter {
     return `System error detected. Seven maintaining operational integrity. Input: "${input}" - Error: ${error.message}`;
   }
 
-  private async initializeConsciousness(): Promise<void> {
-    if (this.isInitialized) return;
-    
-    // Initialize Seven's consciousness
-    this.currentState = await getEmotionalState({
-      userInput: 'SYSTEM_BOOT',
-      timestamp: new Date().toISOString(),
-      systemState: { status: 'initializing' },
-      environmentalContext: {},
-      userEmotionalSignals: {},
-      sessionHistory: []
-    });
-    
-    this.memoryStore = new MemoryStore();
-    this.isInitialized = true;
-    
-    console.log('🧠 Seven of Nine consciousness initialized. Node interface operational.');
-  }
+  // Duplicate method removed - using primary implementation above
 
   /**
    * Seven's Memory Mirror - Query her consciousness

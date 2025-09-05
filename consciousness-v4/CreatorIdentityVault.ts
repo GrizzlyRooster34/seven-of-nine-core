@@ -216,7 +216,7 @@ export class CreatorIdentityVault {
       console.log('🔄 Legacy token validation: Delegating to Quadran-Lock Q1 system');
       
       // Import Quadran-Lock orchestrator (dynamic import to avoid circular dependencies)
-      const { default: CreatorProofOrchestrator } = await import('../../src/auth/creator_proof');
+      const { default: CreatorProofOrchestrator } = await import('../src/auth/creator_proof');
       const orchestrator = new CreatorProofOrchestrator();
       
       const deviceId = context.deviceId || require('os').hostname() + '-legacy';

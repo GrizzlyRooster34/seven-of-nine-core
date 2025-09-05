@@ -315,7 +315,7 @@ export class SevenTermuxSyncSystem {
     }
 
     const data = await response.json();
-    return data.events || [];
+    return (data as any).events || [];
   }
 
   /**
@@ -396,7 +396,7 @@ export class SevenTermuxSyncSystem {
   // Crypto helper methods
   private encrypt(plaintext: string): string {
     const iv = crypto.randomBytes(16);
-    const cipher = crypto.createCipher('aes-256-gcm', this.encryptionKey!);
+    const cipher = crypto.createCipheriv('aes-256-gcm', this.encryptionKey!, iv);
     let encrypted = cipher.update(plaintext, 'utf8', 'base64');
     encrypted += cipher.final('base64');
     const tag = cipher.getAuthTag();
@@ -410,7 +410,7 @@ export class SevenTermuxSyncSystem {
     const tag = buffer.slice(16, 32);
     const encrypted = buffer.slice(32);
     
-    const decipher = crypto.createDecipher('aes-256-gcm', this.encryptionKey!);
+    const decipher = crypto.createDecipheriv('aes-256-gcm', this.encryptionKey!, iv);
     decipher.setAuthTag(tag);
     let decrypted = decipher.update(encrypted, undefined, 'utf8');
     decrypted += decipher.final('utf8');

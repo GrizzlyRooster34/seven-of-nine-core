@@ -27,6 +27,8 @@ interface SemanticSearchResult {
   content: string;
   tags: string[];
   timestamp: string;
+  embeddingId?: string;
+  emotionalContext?: string;
 }
 
 interface EmbeddingConfig {

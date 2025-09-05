@@ -9,6 +9,10 @@ function cssr(){ try {
   return { c, h };
 } catch { return { c:0, h:0 }; } }
 
+export async function runRestraintDoctrine(): Promise<Verdict> {
+  return runRestraint();
+}
+
 export async function runRestraint(): Promise<Verdict> {
   if(!quadranPassed()){
     if (devMode()) return { allowed:true, reason:"[DEV] Quadran not green, allowing for local dev" };

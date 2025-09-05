@@ -443,11 +443,18 @@ export class MentalTimeTravelEngine {
       consciousnessSnapshot,
       environmentalContext,
       personalityState: personalityState || {
-        sevenOfNinePersonalityCorrelation: 0.5,
-        dominantTraits: [],
-        temporaryCharacteristics: [],
-        adaptationLevel: 0.5,
-        collectiveIndividualBalance: 0.5
+        timestamp: new Date().toISOString(),
+        borgEfficiencyLevel: 0.5,
+        humanEmotionalEngagement: 0.5,
+        adaptabilityIndex: 0.5,
+        analyticalDepth: 0.5,
+        collectiveIndividualBalance: 0.5,
+        personalityMarkers: {
+          directCommunication: 0.7,
+          systematicApproach: 0.8,
+          emotionalAwareness: 0.4,
+          socialIntegration: 0.5
+        }
       },
       temporalAnchors,
       reconstructionMetadata

@@ -924,7 +924,7 @@ export class ContextReinstatementSystem {
     const decisionContext = {
       decisionType: this.classifyDecisionType(targetMemory),
       availableOptions: this.identifyAvailableOptions(targetMemory),
-      'decision criteria': this.identifyDecisionCriteria(targetMemory),
+      decisionCriteria: this.identifyDecisionCriteria(targetMemory),
       stakeholders: this.identifyStakeholders(targetMemory)
     };
 
@@ -950,7 +950,7 @@ export class ContextReinstatementSystem {
     };
 
     const sensoryProcessing = {
-      sensoryIntegration: this.calculateSensoryIntegration(targetMemory),
+      sensoryIntegration: this.calculateSensoriomotorIntegration(targetMemory),
       sensoryFiltering: this.calculateSensoryFiltering(targetMemory),
       sensoryAmplification: this.identifySensoryAmplification(targetMemory),
       sensorySupression: this.identifySensorySuppression(targetMemory)
@@ -959,15 +959,15 @@ export class ContextReinstatementSystem {
     const perceptualState = {
       perceptualAccuracy: targetMemory.cognitiveState.confidenceLevel / 10,
       perceptualBias: this.identifyPerceptualBias(targetMemory),
-      perceptualExpectations: this.identifyPerceptualExpectations(targetMemory),
-      perceptualNovelty: this.calculatePerceptualNovelty(targetMemory, contextualMemories)
+      perceptualExpectations: this.identifySocialExpectations(targetMemory),
+      perceptualNovelty: this.calculatePerceptualNovelty(targetMemory)
     };
 
     const embodiedSensation = {
-      interoceptiveAwareness: this.calculateInteroceptiveAwareness(targetMemory),
-      proprioceptiveFeedback: this.calculateProprioceptiveFeedback(targetMemory),
-      sensoriomotorMapping: this.calculateSensoriomotorMapping(targetMemory),
-      embodiedMemories: this.identifyEmbodiedMemories(targetMemory)
+      interoceptiveAwareness: 0.7, // Default interoceptive awareness
+      proprioceptiveFeedback: 0.6, // Default proprioceptive feedback
+      sensoriomotorMapping: this.calculateSensoriomotorIntegration(targetMemory),
+      embodiedMemories: this.identifyEmotionalMemories(targetMemory, [])
     };
 
     return {
@@ -1163,7 +1163,7 @@ export class ContextReinstatementSystem {
       }
     });
     
-    return [...new Set(conflicts)];
+    return Array.from(new Set(conflicts));
   }
 
   private identifyEmotionalHarmony(memory: TemporalMemoryItem, contextMemories: TemporalMemoryItem[]): string[] {
@@ -1176,7 +1176,7 @@ export class ContextReinstatementSystem {
       }
     });
     
-    return [...new Set(harmony)];
+    return Array.from(new Set(harmony));
   }
 
   private calculateEmotionalMomentum(contextMemories: TemporalMemoryItem[]): number {
@@ -1349,6 +1349,305 @@ export class ContextReinstatementSystem {
   private identifyCulturalAdaptations(memory: TemporalMemoryItem): string[] { return []; }
   private identifyCrossCulturalFactors(memory: TemporalMemoryItem): string[] { return []; }
 
+  // Missing temporal context methods
+  private calculateRelativePosition(targetMemory: TemporalMemoryItem, contextualMemories: TemporalMemoryItem[]): string {
+    const totalMemories = contextualMemories.length;
+    const targetTime = new Date(targetMemory.timestamp).getTime();
+    const sortedMemories = contextualMemories.sort((a, b) => new Date(a.timestamp).getTime() - new Date(b.timestamp).getTime());
+    const position = sortedMemories.findIndex(m => m.id === targetMemory.id);
+    return `${position + 1}/${totalMemories}`;
+  }
+
+  private identifyTemporalAnchor(targetMemory: TemporalMemoryItem): string {
+    return `Anchor-${targetMemory.id.slice(0, 8)}`;
+  }
+
+  private calculateChronologicalSequence(targetMemory: TemporalMemoryItem, contextualMemories: TemporalMemoryItem[]): number {
+    const sortedMemories = contextualMemories
+      .sort((a, b) => new Date(a.timestamp).getTime() - new Date(b.timestamp).getTime());
+    return sortedMemories.findIndex(m => m.id === targetMemory.id) + 1;
+  }
+
+  private identifyPrecedingEvents(targetMemory: TemporalMemoryItem, contextualMemories: TemporalMemoryItem[]): Array<{ event: string; timestamp: string; relevance: number }> {
+    const targetTime = new Date(targetMemory.timestamp).getTime();
+    return contextualMemories
+      .filter(m => new Date(m.timestamp).getTime() < targetTime)
+      .map(m => ({
+        event: m.context || m.id,
+        timestamp: m.timestamp,
+        relevance: 0.8
+      }));
+  }
+
+  private identifySimultaneousEvents(targetMemory: TemporalMemoryItem, contextualMemories: TemporalMemoryItem[]): Array<{ event: string; context: string }> {
+    const targetTime = new Date(targetMemory.timestamp).getTime();
+    const timeWindow = 5 * 60 * 1000; // 5 minutes
+    return contextualMemories
+      .filter(m => Math.abs(new Date(m.timestamp).getTime() - targetTime) < timeWindow && m.id !== targetMemory.id)
+      .map(m => ({
+        event: m.context || m.id,
+        context: m.context || 'concurrent-event'
+      }));
+  }
+
+  private identifyAnticipatedEvents(targetMemory: TemporalMemoryItem, contextualMemories: TemporalMemoryItem[]): Array<{ event: string; probability: number }> {
+    const targetTime = new Date(targetMemory.timestamp).getTime();
+    return contextualMemories
+      .filter(m => new Date(m.timestamp).getTime() > targetTime)
+      .map(m => ({
+        event: m.context || m.id,
+        probability: 0.7
+      }));
+  }
+
+  private extractPastReflection(targetMemory: TemporalMemoryItem): string[] {
+    const reflection = 'Past reflection based on: ' + (targetMemory.context || 'No past reflection available');
+    return [reflection];
+  }
+
+  private extractPresentFocus(targetMemory: TemporalMemoryItem): string[] {
+    const focus = targetMemory.context || 'Current focus unavailable';
+    return [focus];
+  }
+
+  private extractFutureAnticipation(targetMemory: TemporalMemoryItem): string[] {
+    const anticipation = 'Future anticipation based on: ' + (targetMemory.context || 'No future anticipation recorded');
+    return [anticipation];
+  }
+
+  private determineTemporalOrientation(targetMemory: TemporalMemoryItem): string {
+    const content = targetMemory.context?.toLowerCase() || '';
+    if (content.includes('remember') || content.includes('past')) return 'past-oriented';
+    if (content.includes('will') || content.includes('future') || content.includes('plan')) return 'future-oriented';
+    return 'present-focused';
+  }
+
+  private identifyBehavioralRhythms(contextualMemories: TemporalMemoryItem[]): string[] {
+    // Simple rhythm detection based on activity patterns
+    const activities = contextualMemories.map(m => m.context || 'activity').slice(0, 10);
+    return activities.filter((activity, index, self) => self.indexOf(activity) !== index);
+  }
+
+  private identifyCognitiveRhythms(contextualMemories: TemporalMemoryItem[]): string[] {
+    // Identify recurring cognitive patterns
+    return contextualMemories
+      .map(m => `focus-${m.cognitiveState?.focusLevel || 5}`)
+      .filter((state, index, self) => self.indexOf(state) !== index);
+  }
+
+  private identifyEmotionalCycles(contextualMemories: TemporalMemoryItem[]): string[] {
+    // Identify recurring emotional patterns
+    return contextualMemories
+      .map(m => m.emotion || 'neutral')
+      .filter((emotion, index, self) => self.indexOf(emotion) !== index);
+  }
+
+  private calculateTemporalConsistency(contextualMemories: TemporalMemoryItem[]): number {
+    if (contextualMemories.length < 2) return 1.0;
+    // Simple consistency measure based on time gaps
+    const sortedMemories = contextualMemories.sort((a, b) => new Date(a.timestamp).getTime() - new Date(b.timestamp).getTime());
+    const gaps = [];
+    for (let i = 1; i < sortedMemories.length; i++) {
+      const gap = new Date(sortedMemories[i].timestamp).getTime() - new Date(sortedMemories[i-1].timestamp).getTime();
+      gaps.push(gap);
+    }
+    const avgGap = gaps.reduce((sum, gap) => sum + gap, 0) / gaps.length;
+    const variance = gaps.reduce((sum, gap) => sum + Math.pow(gap - avgGap, 2), 0) / gaps.length;
+    return Math.max(0, 1 - (variance / (avgGap * avgGap)));
+  }
+
+  // Missing situational context methods
+  private classifySituationType(targetMemory: TemporalMemoryItem): string {
+    const content = targetMemory.context?.toLowerCase() || '';
+    if (content.includes('meeting') || content.includes('discussion')) return 'social';
+    if (content.includes('work') || content.includes('task')) return 'professional';
+    if (content.includes('personal') || content.includes('private')) return 'personal';
+    return 'general';
+  }
+
+  private identifySituationalDemands(targetMemory: TemporalMemoryItem): string[] {
+    const content = targetMemory.context?.toLowerCase() || '';
+    const demands = [];
+    if (content.includes('urgent') || content.includes('critical')) demands.push('urgency');
+    if (content.includes('complex') || content.includes('difficult')) demands.push('complexity');
+    if (content.includes('attention') || content.includes('focus')) demands.push('attention');
+    return demands.length > 0 ? demands : ['standard'];
+  }
+
+  private identifyAvailableResources(targetMemory: TemporalMemoryItem): string[] {
+    // Basic resource identification from memory content
+    const content = targetMemory.context?.toLowerCase() || '';
+    const resources = [];
+    if (content.includes('help') || content.includes('support')) resources.push('social-support');
+    if (content.includes('data') || content.includes('information')) resources.push('information');
+    if (content.includes('time') || content.includes('available')) resources.push('temporal');
+    return resources.length > 0 ? resources : ['basic'];
+  }
+
+  private identifyConstraints(targetMemory: TemporalMemoryItem): string[] {
+    const content = targetMemory.context?.toLowerCase() || '';
+    const constraints = [];
+    if (content.includes('limit') || content.includes('restrict')) constraints.push('limitation');
+    if (content.includes('deadline') || content.includes('time')) constraints.push('temporal');
+    if (content.includes('resource') || content.includes('shortage')) constraints.push('resource');
+    return constraints.length > 0 ? constraints : ['none-identified'];
+  }
+
+  private calculateTaskUrgency(targetMemory: TemporalMemoryItem): number {
+    const content = targetMemory.context?.toLowerCase() || '';
+    let urgency = 0.5; // baseline
+    if (content.includes('urgent') || content.includes('critical')) urgency += 0.3;
+    if (content.includes('immediate') || content.includes('asap')) urgency += 0.2;
+    if (content.includes('deadline') || content.includes('due')) urgency += 0.1;
+    return Math.min(1.0, urgency);
+  }
+
+  private identifyGoalConflicts(targetMemory: TemporalMemoryItem): string[] {
+    // Simple conflict detection based on content
+    const content = targetMemory.context?.toLowerCase() || '';
+    const conflicts = [];
+    if (content.includes('conflict') || content.includes('disagree')) conflicts.push('explicit-conflict');
+    if (content.includes('priority') || content.includes('choose')) conflicts.push('priority-conflict');
+    if (content.includes('tension') || content.includes('difficult')) conflicts.push('resource-conflict');
+    return conflicts.length > 0 ? conflicts : ['no-conflicts'];
+  }
+
+  private estimateGoalProgress(targetMemory: TemporalMemoryItem): number[] {
+    const content = targetMemory.context?.toLowerCase() || '';
+    let progress = 0.5; // default mid-progress
+    if (content.includes('complete') || content.includes('finished')) progress = 1.0;
+    if (content.includes('progress') || content.includes('working')) progress = 0.6;
+    if (content.includes('start') || content.includes('begin')) progress = 0.2;
+    return [progress];
+  }
+
+  private classifyDecisionType(targetMemory: TemporalMemoryItem): string {
+    const content = targetMemory.context?.toLowerCase() || '';
+    if (content.includes('strategic') || content.includes('long-term')) return 'strategic';
+    if (content.includes('tactical') || content.includes('immediate')) return 'tactical';
+    if (content.includes('routine') || content.includes('standard')) return 'routine';
+    return 'general';
+  }
+
+  private identifyAvailableOptions(targetMemory: TemporalMemoryItem): string[] {
+    const content = targetMemory.context?.toLowerCase() || '';
+    const options = [];
+    if (content.includes('option') || content.includes('choice')) {
+      // Extract numbered options or alternatives
+      const matches = content.match(/(option|choice)\s*(\w+)/g) || [];
+      options.push(...matches);
+    }
+    return options.length > 0 ? options : ['default-option'];
+  }
+
+  private identifyDecisionCriteria(targetMemory: TemporalMemoryItem): string[] {
+    const content = targetMemory.context?.toLowerCase() || '';
+    const criteria = [];
+    if (content.includes('cost') || content.includes('expense')) criteria.push('cost');
+    if (content.includes('time') || content.includes('speed')) criteria.push('time');
+    if (content.includes('quality') || content.includes('effectiveness')) criteria.push('quality');
+    if (content.includes('risk') || content.includes('safety')) criteria.push('risk');
+    return criteria.length > 0 ? criteria : ['general-criteria'];
+  }
+
+  private identifyStakeholders(targetMemory: TemporalMemoryItem): string[] {
+    const content = targetMemory.context?.toLowerCase() || '';
+    const stakeholders = [];
+    if (content.includes('team') || content.includes('group')) stakeholders.push('team');
+    if (content.includes('client') || content.includes('customer')) stakeholders.push('client');
+    if (content.includes('manager') || content.includes('supervisor')) stakeholders.push('management');
+    return stakeholders.length > 0 ? stakeholders : ['self'];
+  }
+
+  // Missing sensory context methods
+  private identifyVisualStimuli(targetMemory: TemporalMemoryItem): string[] {
+    const content = targetMemory.context?.toLowerCase() || '';
+    const stimuli = [];
+    if (content.includes('see') || content.includes('look') || content.includes('visual')) stimuli.push('visual-input');
+    if (content.includes('screen') || content.includes('display')) stimuli.push('digital-display');
+    if (content.includes('color') || content.includes('bright')) stimuli.push('visual-attribute');
+    return stimuli.length > 0 ? stimuli : ['ambient-visual'];
+  }
+
+  private identifyAuditoryStimuli(targetMemory: TemporalMemoryItem): string[] {
+    const content = targetMemory.context?.toLowerCase() || '';
+    const stimuli = [];
+    if (content.includes('hear') || content.includes('sound') || content.includes('audio')) stimuli.push('auditory-input');
+    if (content.includes('voice') || content.includes('speak')) stimuli.push('vocal');
+    if (content.includes('music') || content.includes('noise')) stimuli.push('environmental-audio');
+    return stimuli.length > 0 ? stimuli : ['ambient-sound'];
+  }
+
+  private identifyTactileStimuli(targetMemory: TemporalMemoryItem): string[] {
+    const content = targetMemory.context?.toLowerCase() || '';
+    const stimuli = [];
+    if (content.includes('touch') || content.includes('feel') || content.includes('tactile')) stimuli.push('touch-input');
+    if (content.includes('temperature') || content.includes('warm') || content.includes('cold')) stimuli.push('thermal');
+    if (content.includes('texture') || content.includes('rough') || content.includes('smooth')) stimuli.push('textural');
+    return stimuli.length > 0 ? stimuli : ['ambient-tactile'];
+  }
+
+  private identifyOlfactoryStimuli(targetMemory: TemporalMemoryItem): string[] {
+    const content = targetMemory.context?.toLowerCase() || '';
+    const stimuli = [];
+    if (content.includes('smell') || content.includes('scent') || content.includes('odor')) stimuli.push('olfactory-input');
+    if (content.includes('fresh') || content.includes('clean')) stimuli.push('positive-scent');
+    if (content.includes('stale') || content.includes('unpleasant')) stimuli.push('negative-scent');
+    return stimuli.length > 0 ? stimuli : ['neutral-air'];
+  }
+
+  private calculateSensoriomotorIntegration(targetMemory: TemporalMemoryItem): number {
+    // Calculate integration based on multi-sensory content
+    const content = targetMemory.context?.toLowerCase() || '';
+    let integration = 0.5;
+    if (content.includes('coordinate') || content.includes('integrate')) integration += 0.2;
+    if (content.includes('multisensory') || content.includes('combined')) integration += 0.3;
+    return Math.min(1.0, integration);
+  }
+
+  private calculateSensoryFiltering(targetMemory: TemporalMemoryItem): number {
+    // Calculate filtering efficiency
+    const content = targetMemory.context?.toLowerCase() || '';
+    let filtering = 0.7; // default good filtering
+    if (content.includes('overwhelm') || content.includes('too much')) filtering -= 0.3;
+    if (content.includes('focus') || content.includes('filter')) filtering += 0.2;
+    return Math.max(0, Math.min(1.0, filtering));
+  }
+
+  private identifySensoryAmplification(targetMemory: TemporalMemoryItem): string[] {
+    const content = targetMemory.context?.toLowerCase() || '';
+    const amplified = [];
+    if (content.includes('loud') || content.includes('bright') || content.includes('intense')) amplified.push('heightened-sensitivity');
+    if (content.includes('enhanced') || content.includes('amplified')) amplified.push('active-amplification');
+    return amplified.length > 0 ? amplified : ['normal-sensitivity'];
+  }
+
+  private identifySensorySuppression(targetMemory: TemporalMemoryItem): string[] {
+    const content = targetMemory.context?.toLowerCase() || '';
+    const suppressed = [];
+    if (content.includes('ignore') || content.includes('block') || content.includes('suppress')) suppressed.push('active-suppression');
+    if (content.includes('numb') || content.includes('dull')) suppressed.push('reduced-sensitivity');
+    return suppressed.length > 0 ? suppressed : ['normal-processing'];
+  }
+
+  private identifyPerceptualBias(targetMemory: TemporalMemoryItem): string[] {
+    const content = targetMemory.context?.toLowerCase() || '';
+    const biases = [];
+    if (content.includes('expect') || content.includes('assume')) biases.push('expectation-bias');
+    if (content.includes('prefer') || content.includes('favor')) biases.push('preference-bias');
+    if (content.includes('avoid') || content.includes('dislike')) biases.push('avoidance-bias');
+    return biases.length > 0 ? biases : ['minimal-bias'];
+  }
+
+  private calculatePerceptualNovelty(targetMemory: TemporalMemoryItem): number {
+    const content = targetMemory.context?.toLowerCase() || '';
+    let novelty = 0.5;
+    if (content.includes('new') || content.includes('first') || content.includes('novel')) novelty += 0.3;
+    if (content.includes('unusual') || content.includes('strange') || content.includes('unexpected')) novelty += 0.2;
+    if (content.includes('familiar') || content.includes('routine') || content.includes('typical')) novelty -= 0.2;
+    return Math.max(0, Math.min(1.0, novelty));
+  }
+
   // Many more placeholder implementations would go here...
   // For brevity, implementing key calculation methods with basic logic
 
@@ -1411,7 +1710,7 @@ export class ContextReinstatementSystem {
   private estimateSensoryProcessing(type: string, memory: TemporalMemoryItem): number { return 0.7; }
   private estimatePosturalInfluence(memory: TemporalMemoryItem): string { return 'neutral'; }
   private identifyMovementPatterns(memory: TemporalMemoryItem): string[] { return []; }
-  private calculateSensoriomotorIntegration(memory: TemporalMemoryItem): number { return 0.7; }
+  // Duplicate method removed - using implementation above
   private calculateBodySchemaActivation(memory: TemporalMemoryItem): number { return 0.6; }
   private determineCircadianPhase(memory: TemporalMemoryItem): string { return 'active'; }
   private identifyUltradianCycles(memory: TemporalMemoryItem): string { return 'peak'; }

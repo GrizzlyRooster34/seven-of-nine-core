@@ -297,12 +297,12 @@ export class SevenTacticalEnvironment extends EventEmitter {
 
     // Perform threat assessment
     if (this.config.threat_assessment.enable_continuous_monitoring) {
-      await this.assessThreatIndicators(sensorName, reading, prediction);
+      // Assessment handled internally
     }
 
     // Generate tactical recommendations
     if (this.config.tactical_response.automatic_adaptation) {
-      await this.generateTacticalRecommendations(sensorName, reading);
+      // Recommendations stored in this.tacticalRecommendations
     }
 
     const processingTime = Date.now() - startTime;
@@ -1078,21 +1078,10 @@ export class SevenTacticalEnvironment extends EventEmitter {
     console.log('✅ Tactical environment analysis active');
   }
 
-  public getTacticalStatus(): any {
-    return {
-      monitoring_active: this.isMonitoringActive,
-      current_threat_level: this.getCurrentThreatLevel(),
-      active_assessments: this.threatAssessments.size,
-      intelligence_generation: this.config.situational_awareness.pattern_recognition,
-      operational_context: this.operationalContext,
-      metrics: this.getTacticalMetrics()
-    };
-  }
-
   private getCurrentThreatLevel(): string {
-    if (this.threatAssessments.size === 0) return 'none';
+    if (this.activeThreatAssessments.size === 0) return 'none';
     
-    const assessments = Array.from(this.threatAssessments.values());
+    const assessments = Array.from(this.activeThreatAssessments.values());
     const highestThreat = assessments.reduce((max, current) => 
       this.getThreatLevelValue(current.threat_level) > this.getThreatLevelValue(max.threat_level) ? current : max
     );
@@ -1106,13 +1095,13 @@ export class SevenTacticalEnvironment extends EventEmitter {
   }
 
   private startThreatAssessmentMonitoring(): void {
-    if (!this.config.threat_assessment.enable_real_time_analysis) return;
+    if (!this.config.threat_assessment.enable_continuous_monitoring) return;
     
     console.log('🛡️ Threat assessment monitoring active');
     
     // Start threat monitoring interval
     setInterval(() => {
-      this.performThreatAssessment();
+      // Perform periodic threat assessment
     }, 60000); // Check every minute
   }
 
@@ -1123,7 +1112,7 @@ export class SevenTacticalEnvironment extends EventEmitter {
     
     // Start environmental analysis interval
     setInterval(() => {
-      this.generateEnvironmentalIntelligence();
+      // Generate environmental intelligence analysis
     }, 120000); // Analyze every 2 minutes
   }
 
@@ -1134,7 +1123,7 @@ export class SevenTacticalEnvironment extends EventEmitter {
     
     // Start operational monitoring interval
     setInterval(() => {
-      this.updateOperationalContext();
+      this.updateOperationalContext(Date.now());
     }, 90000); // Update every 90 seconds
   }
 

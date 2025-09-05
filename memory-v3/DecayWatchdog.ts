@@ -561,16 +561,16 @@ export class DecayWatchdog extends EventEmitter {
     return memory;
   }
 
-  private async handleCriticalDecay(memory: TemporalMemoryItem): void {
+  private async handleCriticalDecay(memory: TemporalMemoryItem): Promise<void> {
     console.log(`🚨 Critical decay detected for memory: ${memory.temporal_id}`);
     await this.scheduleIntervention(memory, 'critical');
   }
 
-  private async handleInterventionCompleted(event: any): void {
+  private async handleInterventionCompleted(event: any): Promise<void> {
     console.log(`✅ Intervention completed for ${event.memory_id}: ${event.effectiveness.toFixed(2)} effectiveness`);
   }
 
-  private async handleBatchRescue(criticalMemories: TemporalMemoryItem[]): void {
+  private async handleBatchRescue(criticalMemories: TemporalMemoryItem[]): Promise<void> {
     console.log(`🚨 Batch rescue needed for ${criticalMemories.length} critical memories`);
     // Would trigger MemoryRescueScheduler
   }

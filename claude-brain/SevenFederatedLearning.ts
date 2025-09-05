@@ -582,7 +582,7 @@ export class SevenFederatedLearning extends EventEmitter {
     if (contributions.length < 2) return false;
     
     // Calculate agreement level among contributions
-    const confidences = contributions.map(c => c.confidence);
+    const confidences = contributions.map(c => c.insight.confidence);
     const avgConfidence = confidences.reduce((sum, conf) => sum + conf, 0) / confidences.length;
     
     return avgConfidence >= this.collectiveIntelligence.consensusThreshold;

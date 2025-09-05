@@ -12,6 +12,9 @@ import SevenMemoryOptimization from './seven-memory-optimization';
 import SevenAdvancedIndexing from './seven-advanced-indexing';
 import SevenIntelligentQueryEngine, { QueryContext, IntelligentQueryResult } from './seven-intelligent-query-engine';
 
+// Re-export types needed by other modules
+export { QueryContext };
+
 export interface UnifiedMemoryConfig {
   optimization: {
     enable_compression: boolean;

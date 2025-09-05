@@ -36,7 +36,7 @@ export function runQuadranLock(ctx: any) {
   return { q1, q2, q3, q4, passed: q1 && q2 && q3 && q4, reasons: [] as string[] };
 }
 
-export async function securityPipeline(ctx: any) {
+export async function legacySecurityPipeline(ctx: any) {
   const q = runQuadranLock(ctx);
   if (!q.passed) throw new Error(q.reasons?.join("; ") || "Quadran-Lock failed");
   const cssr = await runQuadraLockCSSR();

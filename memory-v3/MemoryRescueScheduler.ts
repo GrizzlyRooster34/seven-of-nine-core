@@ -677,15 +677,15 @@ export class MemoryRescueScheduler extends EventEmitter {
     // based on the memories' decay timing
   }
 
-  private async handleBatchRescueCompleted(event: any): void {
+  private async handleBatchRescueCompleted(event: any): Promise<void> {
     console.log(`✅ Batch rescue completed: ${event.operation_id} - ${event.successful_rescues}/${event.successful_rescues + event.failed_rescues} successful`);
   }
 
-  private async handleRescueOperationFailed(event: any): void {
+  private async handleRescueOperationFailed(event: any): Promise<void> {
     console.log(`❌ Rescue operation failed: ${event.operation_id} - ${event.error}`);
   }
 
-  private async handleScheduleUpdated(event: any): void {
+  private async handleScheduleUpdated(event: any): Promise<void> {
     console.log(`📅 Schedule updated: ${event.schedule_id}`);
   }
 

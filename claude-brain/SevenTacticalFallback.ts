@@ -329,7 +329,7 @@ export class SevenTacticalFallback extends EventEmitter {
 
     try {
       // Validate critical file checksums
-      const checksums = snapshot.validationChecksums as Record<string, string> || {};
+      const checksums = snapshot.validationChecksums as unknown as Record<string, string> || {};
       for (const [file, expectedChecksum] of Object.entries(checksums)) {
         try {
           const content = await fs.readFile(file, 'utf8');
@@ -481,19 +481,6 @@ export class SevenTacticalFallback extends EventEmitter {
 
     } catch (error) {
       console.warn('⚠️ Failed to load existing snapshots:', error);
-    }
-  }
-
-  private async captureConfigurations(): Promise<Record<string, any>> {
-    try {
-      // Basic config capture - can be expanded
-      return {
-        phase: 'fallback-safe',
-        timestamp: new Date().toISOString()
-      };
-    } catch (error) {
-      console.warn('⚠️ Failed to capture configurations:', error);
-      return {};
     }
   }
 

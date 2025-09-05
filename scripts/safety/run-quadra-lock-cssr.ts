@@ -11,6 +11,10 @@ function detectors(): Finding[] {
 }
 function group(fsx:Finding[]){ return fsx.reduce((m,f)=>{ (m[f.sev]=m[f.sev]||[]).push(f); return m; }, {} as Record<Sev,Finding[]>)}
 
+export async function runQuadraLockCSSR(): Promise<Finding[]> {
+  return detectors();
+}
+
 if (import.meta.url === `file://${process.argv[1]}`) {
   const f = detectors(); const g = group(f);
   const md = ["# CSSR SUMMARY",`CRITICAL: ${(g.CRITICAL||[]).length}`,`HIGH: ${(g.HIGH||[]).length}`,`MEDIUM: ${(g.MEDIUM||[]).length}`,`LOW: ${(g.LOW||[]).length}`].join("\n")+"\n";

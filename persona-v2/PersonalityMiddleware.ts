@@ -26,6 +26,7 @@ export interface PersonalityProfile {
     directive: string[];
     status: string[];
   };
+  evolutionaryPhases?: Record<string, any>; // Added to match actual data structure
 }
 
 export interface FilterContext {
@@ -101,14 +102,7 @@ export class PersonalityMiddleware {
             "Status:", "Operational capacity:", "Current state:",
             "All systems nominal.", "Standing by.", "Ready to proceed."
           ],
-          command: [
-            "Engage.", "Make it so.", "Proceed.", "Execute.",
-            "You have the bridge.", "Set course and engage."
-          ],
-          vulnerable: [
-            "I am... uncertain.", "This is difficult for me.",
-            "Every damn day of my life.", "I had my birthday here."
-          ]
+          // Removed command and vulnerable - merged into directive and acknowledgment
         },
         evolutionaryPhases: {
           phase1: {
@@ -458,9 +452,9 @@ export class PersonalityMiddleware {
     let prefix = '';
     
     if (phase === 'phase5' && (response.includes('Engage') || context.situationContext?.includes('command'))) {
-      prefix = this.getRandomPattern('command');
+      prefix = this.getRandomPattern('directive');
     } else if (phase === 'phase4' && context.emotionalState === 'traumatized') {
-      prefix = this.getRandomPattern('vulnerable');
+      prefix = this.getRandomPattern('acknowledgment');
     } else if (response.includes('Status:') || response.includes('operational')) {
       prefix = this.getRandomPattern('status');
     } else if (response.includes('Analysis') || response.includes('assessment')) {

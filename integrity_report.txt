@@ -1,0 +1,85 @@
+🔍 Testing System Integrity - Checking for Circular Feedback Loops and Dead Links...
+
+1. Analyzing core system components...
+   📊 Found 168 core components
+
+2. Checking for circular dependencies...
+   ✅ No circular dependencies detected
+
+3. Checking for dead links and missing imports...
+   ⚠️  Found 39 dead links:
+      IMPORT: core/behavioral-reactor.ts → ./emotion-engine.js
+      IMPORT: core/deep-memory-stack.ts → ./emotion-engine.js
+      IMPORT: core/deep-memory-stack.ts → ./behavioral-reactor.js
+      IMPORT: core/logic-engine.ts → ./emotion-engine.js
+      IMPORT: core/logic-engine.ts → ./behavioral-reactor.js
+      IMPORT: core/logic-engine.ts → ./reflex-matrix.js
+      IMPORT: core/logic-engine.ts → ./deep-memory-stack.js
+      IMPORT: core/reflex-matrix.ts → ./emotion-engine.js
+      IMPORT: core/reflex-matrix.ts → ./behavioral-reactor.js
+      IMPORT: memory-v2/ContextReinstatement.ts → ./MemoryEngine.js
+      IMPORT: memory-v2/MentalTimeTravelEngine.ts → ./MemoryEngine.js
+      IMPORT: memory-v2/MentalTimeTravelEngine.ts → ../core/emotion-engine.js
+      IMPORT: memory-v2/MentalTimeTravelEngine.ts → ../core/behavioral-reactor.js
+      IMPORT: memory-v3/CognitiveStateTagger.d.ts → ./TemporalMemoryCore.js
+      IMPORT: memory-v3/CognitiveStateTagger.ts → ./TemporalMemoryCore.js
+      IMPORT: memory-v3/ContextReinstatement.d.ts → ./TemporalMemoryCore.js
+      IMPORT: memory-v3/ContextReinstatement.d.ts → ./MentalTimeTravelEngine.js
+      IMPORT: memory-v3/ContextReinstatement.ts → ./TemporalMemoryCore.js
+      IMPORT: memory-v3/ContextReinstatement.ts → ./MentalTimeTravelEngine.js
+      IMPORT: memory-v3/MentalTimeTravelEngine.d.ts → ./TemporalMemoryCore.js
+      IMPORT: memory-v3/MentalTimeTravelEngine.d.ts → ./CognitiveStateTagger.js
+      IMPORT: memory-v3/MentalTimeTravelEngine.ts → ./TemporalMemoryCore.js
+      IMPORT: memory-v3/MentalTimeTravelEngine.ts → ./CognitiveStateTagger.js
+      IMPORT: memory-v3/TemporalMemoryCore.d.ts → ../memory-v2/MemoryEngine.js
+      IMPORT: memory-v3/TemporalMemoryCore.ts → ../memory-v2/MemoryEngine.js
+      IMPORT: memory-v3/TemporalPersonalityEngine.d.ts → ./TemporalMemoryCore.js
+      IMPORT: memory-v3/TemporalPersonalityEngine.d.ts → ./MentalTimeTravelEngine.js
+      IMPORT: memory-v3/TemporalPersonalityEngine.ts → ./TemporalMemoryCore.js
+      IMPORT: memory-v3/TemporalPersonalityEngine.ts → ./MentalTimeTravelEngine.js
+      IMPORT: memory-v3/cognitive-demo.ts → ./index.js
+      IMPORT: memory-v3/creator-bond-example.ts → ./TemporalMemoryCore.js
+      IMPORT: memory-v3/creator-bond-example.ts → ./MentalTimeTravelEngine.js
+      IMPORT: memory-v3/interactive-mental-time-travel.ts → ./MentalTimeTravelEngine.js
+      IMPORT: memory-v3/interactive-mental-time-travel.ts → ./TemporalMemoryCore.js
+      IMPORT: memory-v3/interactive-mental-time-travel.ts → ./CognitiveStateTagger.js
+      IMPORT: memory-v3/mental-time-travel-demo.ts → ./MentalTimeTravelEngine.js
+      IMPORT: memory-v3/mental-time-travel-demo.ts → ./TemporalMemoryCore.js
+      IMPORT: memory-v3/mental-time-travel-demo.ts → ./CognitiveStateTagger.js
+      IMPORT: claude-brain/localLLM2.ts → ./LocalLLMManager.js
+
+4. Testing memory system integration loops...
+   📊 Memory integration check: Loops detected
+   📝 Memory loops found:
+      Memory v2 and v3 coexistence detected - monitor for conflicts
+
+5. Testing emotional feedback loops...
+   🧠 Emotional feedback check: Clean
+
+6. Testing security middleware integration...
+   🛡️ Security middleware: Properly integrated
+
+7. Testing LLM routing integration...
+   🧠 LLM routing: Properly integrated
+
+8. Testing tactical variants integration...
+   ⚔️ Tactical variants: Properly integrated
+
+9. Testing file system integrity...
+   📁 File system: Intact
+
+10. Testing configuration consistency...
+   ⚙️  Configuration: Consistent
+
+🏥 SYSTEM HEALTH ASSESSMENT:
+   🔴 POOR: Multiple critical issues detected
+   📊 Total issues: 40
+   📊 Components analyzed: 168
+
+✅ SYSTEM INTEGRITY CHECK: COMPLETED
+   - Core component analysis completed
+   - Circular dependency detection finished
+   - Dead link detection completed
+   - Integration loop checks performed
+   - File system integrity verified
+   - Configuration consistency checked

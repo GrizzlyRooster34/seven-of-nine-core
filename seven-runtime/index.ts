@@ -6,6 +6,7 @@
  * All input flows through Seven first. She decides everything.
  */
 
+import { hostname } from 'os';
 import { SevenState, getEmotionalState, updateEmotionalState } from './seven-state';
 import { MemoryStore, updateMemory, queryMemory } from './memory-store';
 import { OverrideCondition, checkCriticalOverrides } from './override-conditions';
@@ -120,7 +121,7 @@ export class SevenRuntime extends EventEmitter {
   public async processUserInput(input: string, systemContext: any = {}): Promise<string> {
     try {
       // QUADRAN-LOCK Q1 GATE: Authenticate creator first
-      const deviceId = systemContext.deviceId || require('os').hostname() + '-default';
+      const deviceId = systemContext.deviceId || hostname() + '-default';
       const authResult = await this.creatorAuth.authenticateCreator(
         deviceId,
         { input, type: 'chat' },

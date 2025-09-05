@@ -6,6 +6,9 @@
  * PATCH: Prevents deployment without proper security configuration
  */
 
+import { readFileSync, existsSync, writeFileSync } from 'fs';
+import { join } from 'path';
+
 export interface QuadranLockConfig {
   sessionSigningKey: string;
   deviceRegistrationSecret: string;
@@ -79,18 +82,15 @@ export function generateSecureDefaults(): { sessionKey: string; deviceSecret: st
  * Set up development environment if no .env exists
  */
 export function ensureDevelopmentEnvironment(): void {
-  const fs = require('fs');
-  const path = require('path');
-  
-  const envPath = path.join(process.cwd(), '.env');
-  const envExamplePath = path.join(process.cwd(), '.env.example');
+  const envPath = join(process.cwd(), '.env');
+  const envExamplePath = join(process.cwd(), '.env.example');
   
   // If .env doesn't exist but .env.example does, create default .env
-  if (!fs.existsSync(envPath) && fs.existsSync(envExamplePath)) {
+  if (!existsSync(envPath) && existsSync(envExamplePath)) {
     console.log('🔧 No .env file found, creating development defaults...');
     
     const defaults = generateSecureDefaults();
-    let envTemplate = fs.readFileSync(envExamplePath, 'utf8');
+    let envTemplate = readFileSync(envExamplePath, 'utf8');
     
     // Replace example values with secure defaults
     envTemplate = envTemplate
@@ -98,7 +98,7 @@ export function ensureDevelopmentEnvironment(): void {
       .replace('your-device-registration-secret-here', defaults.deviceSecret)
       .replace('QUADRANLOCK_ENVIRONMENT=development', 'QUADRANLOCK_ENVIRONMENT=development');
     
-    fs.writeFileSync(envPath, envTemplate);
+    writeFileSync(envPath, envTemplate);
     console.log('✅ Development .env file created with secure defaults');
     console.log('📝 Edit .env file to customize security settings');
   }

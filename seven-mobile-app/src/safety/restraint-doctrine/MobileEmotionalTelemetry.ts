@@ -1,3 +1,8 @@
+import { EventEmitter } from 'events';
+import { Platform, AppState, AppStateStatus } from 'react-native';
+import * as Battery from 'expo-battery';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
 /**
  * MOBILE EMOTIONAL TELEMETRY SYSTEM
  * Advanced emotional state detection and Creator well-being monitoring for mobile deployment
@@ -9,10 +14,6 @@
  * @platform React Native / Mobile
  */
 
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import { Platform, AppState, AppStateStatus } from 'react-native';
-import * as Battery from 'expo-battery';
-import { EventEmitter } from 'events';
 
 export interface CreatorEmotionalProfile {
   stress_level: number; // 0-100 scale

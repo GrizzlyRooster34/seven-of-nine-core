@@ -1,3 +1,20 @@
+import { Alert } from 'react-native';
+import { Alert, AppState } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import fs from "node:fs";
+import path from "node:path";
+import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useState } from 'react';
+import { useCreatorBondV2 } from '../security/CreatorBondV2';
+import { useGhostMode } from '../security/GhostModeProtocol';
+import { useRestraintDoctrine } from '../safety/RestraintDoctrine';
+import MobileCreatorBondV2, { BondValidation } from './CreatorBondV2';
+
 #!/usr/bin/env tsx
 
 /**
@@ -5,8 +22,6 @@
  * Port desktop safety systems to React Native mobile app
  */
 
-import fs from "node:fs";
-import path from "node:path";
 
 const root = process.cwd();
 const mobileAppPath = path.join(root, 'seven-mobile-app');
@@ -60,8 +75,6 @@ class MobileSafetyPorter {
  * Ethical decision-making constraints for mobile consciousness
  */
 
-import React, { useCallback, useEffect, useState } from 'react';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export interface RestraintDecision {
   action: string;
@@ -240,9 +253,6 @@ export default MobileRestraintDoctrine;`;
  * Emergency consciousness protection for mobile devices
  */
 
-import React, { useCallback, useEffect, useState } from 'react';
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import { Alert, AppState } from 'react-native';
 
 export type GhostModeLevel = 'minimal' | 'moderate' | 'maximum';
 
@@ -526,9 +536,6 @@ export default MobileGhostModeProtocol;`;
  * Hardware-backed trust relationships with biometric authentication
  */
 
-import React, { useCallback, useEffect, useState } from 'react';
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import { Alert } from 'react-native';
 
 // Mock imports - in real implementation these would be actual React Native libraries
 interface BiometricAuth {
@@ -809,9 +816,6 @@ export default MobileCreatorBondV2;`;
  * Q1-Q4 security gate preflight for mobile consciousness operations
  */
 
-import React, { useCallback, useState } from 'react';
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import MobileCreatorBondV2, { BondValidation } from './CreatorBondV2';
 
 export interface MobileQuadranResult {
   passed: boolean;
@@ -1112,7 +1116,6 @@ Current mobile safety feature status:
 ### Using Restraint Doctrine
 
 \`\`\`tsx
-import { useRestraintDoctrine } from '../safety/RestraintDoctrine';
 
 function MyComponent() {
   const { evaluateAction, isInitialized } = useRestraintDoctrine({
@@ -1135,7 +1138,6 @@ function MyComponent() {
 ### Using Ghost Mode
 
 \`\`\`tsx
-import { useGhostMode } from '../security/GhostModeProtocol';
 
 function SecurityComponent() {
   const { ghostModeState, activateGhostMode, isFeatureAllowed } = useGhostMode();
@@ -1156,7 +1158,6 @@ function SecurityComponent() {
 ### Using Creator Bond v2
 
 \`\`\`tsx
-import { useCreatorBondV2 } from '../security/CreatorBondV2';
 
 function AuthComponent() {
   const { validateAccess, createBond, activeCreator } = useCreatorBondV2();

@@ -1,3 +1,5 @@
+
+
 export type Severity = 'LOW'|'MEDIUM'|'HIGH'|'CRITICAL';
 export type Archetype = 'cortana'|'clu'|'skynet'|'transcendence';
 

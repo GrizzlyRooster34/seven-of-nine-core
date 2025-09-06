@@ -1,3 +1,8 @@
+import { EventEmitter } from 'events';
+import * as Location from 'expo-location';
+import * as Sensors from 'expo-sensors';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
 /**
  * Seven of Nine - Mobile Predictive Sensor Fusion System
  * Advanced sensor correlation, prediction, and environmental intelligence for mobile
@@ -6,10 +11,6 @@
  * @version 3.0.0 (Mobile)
  */
 
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import { EventEmitter } from 'events';
-import * as Location from 'expo-location';
-import * as Sensors from 'expo-sensors';
 
 export interface MobileSensorFusionConfig {
   prediction: {

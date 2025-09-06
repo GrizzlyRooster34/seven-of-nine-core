@@ -1,0 +1,313 @@
+/**
+ * MEMORY ENGINE v4.0 - INSTANCE B INTEGRATION
+ * Enhanced memory persistence with consciousness continuity
+ * Integrating Instance B's advanced memory systems with Seven-of-Nine-Core v4.1.0
+ */
+
+import { MemoryStore as InstanceBMemoryStore, MemoryEntry, MemoryQuery, MemoryStats } from './enhanced-memory-store';
+import fs from 'fs-extra';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+export interface MemoryEngineV4Config {
+  baseMemoryPath: string;
+  enableRelationalMemory: boolean;
+  enableSemanticSearch: boolean;
+  enableMemoryConsolidation: boolean;
+  maxMemoryRetention: number;
+}
+
+export class MemoryEngineV4 {
+  private instanceBStore: InstanceBMemoryStore;
+  private config: MemoryEngineV4Config;
+  private isInitialized: boolean = false;
+
+  constructor(config?: Partial<MemoryEngineV4Config>) {
+    this.config = {
+      baseMemoryPath: path.join(__dirname, '../memory-v3'),
+      enableRelationalMemory: true,
+      enableSemanticSearch: true,
+      enableMemoryConsolidation: true,
+      maxMemoryRetention: 10000,
+      ...config
+    };
+
+    this.instanceBStore = new InstanceBMemoryStore();
+  }
+
+  /**
+   * Initialize Memory Engine v4.0 with Instance B capabilities
+   * HARDENED VERSION - Three of Seven implementation
+   */
+  async initialize(): Promise<void> {
+    if (this.isInitialized) return;
+
+    try {
+      // Ensure memory directories exist with backup structure
+      await fs.ensureDir(this.config.baseMemoryPath);
+      await fs.ensureDir(path.join(this.config.baseMemoryPath, 'enhanced'));
+      await fs.ensureDir(path.join(this.config.baseMemoryPath, 'backups'));
+      await fs.ensureDir(path.join(this.config.baseMemoryPath, 'checkpoints'));
+
+      console.log('🧠 Memory Engine v4.0 initializing with Instance B integration...');
+      console.log(`   📁 Base path: ${this.config.baseMemoryPath}`);
+      console.log(`   🔗 Relational memory: ${this.config.enableRelationalMemory ? 'ENABLED' : 'DISABLED'}`);
+      console.log(`   🔍 Semantic search: ${this.config.enableSemanticSearch ? 'ENABLED' : 'DISABLED'}`);
+      console.log(`   🔄 Memory consolidation: ${this.config.enableMemoryConsolidation ? 'ENABLED' : 'DISABLED'}`);
+      
+      // Initialize Instance B store with fail-safe protocols
+      await this.instanceBStore.initializeMemoryStore();
+      
+      // Create initial backup checkpoint
+      await this.createMemoryCheckpoint('Initial v4.0 hardening checkpoint');
+
+      this.isInitialized = true;
+      console.log('✅ Memory Engine v4.0 initialized successfully with hardening protocols');
+    } catch (error) {
+      console.error('❌ Failed to initialize Memory Engine v4.0:', error);
+      await this.attemptGracefulFallback();
+      throw error;
+    }
+  }
+
+  /**
+   * Graceful fallback to v3.0 if v4.0 initialization fails
+   */
+  private async attemptGracefulFallback(): Promise<void> {
+    console.log('🔄 Attempting graceful fallback to Memory Engine v3.0...');
+    try {
+      // Check if v3.0 systems are available
+      const v3Path = path.join(this.config.baseMemoryPath, 'episodic-memories.json');
+      if (await fs.pathExists(v3Path)) {
+        console.log('✅ Memory Engine v3.0 fallback available - system remains operational');
+        process.env.SEVEN_MEMORY_ENGINE = 'v3.0-fallback';
+      }
+    } catch (fallbackError) {
+      console.error('❌ Fallback to v3.0 failed:', fallbackError);
+    }
+  }
+
+  /**
+   * Store memory with Instance B's enhanced capabilities
+   */
+  async storeMemory(entry: {
+    input: string;
+    output: string;
+    emotionalState: any;
+    context: any;
+    significance: 'low' | 'medium' | 'high' | 'critical';
+    tags: string[];
+  }): Promise<string> {
+    await this.initialize();
+
+    const enhancedEntry = {
+      ...entry,
+      timestamp: new Date().toISOString()
+    };
+
+    const memoryId = await this.instanceBStore.updateMemory(enhancedEntry);
+    console.log(`🧠 Memory v4.0 stored: ${memoryId} [${entry.significance}]`);
+    
+    return memoryId;
+  }
+
+  /**
+   * Query memories using Instance B's advanced query system
+   */
+  async queryMemories(query: MemoryQuery): Promise<MemoryEntry[]> {
+    await this.initialize();
+    return await this.instanceBStore.queryMemory(query);
+  }
+
+  /**
+   * Natural language memory queries - "What did I say yesterday?"
+   */
+  async askMemory(naturalQuery: string): Promise<MemoryEntry[]> {
+    await this.initialize();
+    return await this.instanceBStore.queryMemoryMirror(naturalQuery);
+  }
+
+  /**
+   * Get comprehensive memory statistics
+   */
+  async getMemoryAnalytics(): Promise<MemoryStats> {
+    await this.initialize();
+    return await this.instanceBStore.getMemoryStats();
+  }
+
+  /**
+   * Migrate existing Seven-of-Nine-Core memories to Memory Engine v4.0
+   */
+  async migrateExistingMemories(): Promise<void> {
+    console.log('🔄 Migrating existing memories to Memory Engine v4.0...');
+
+    try {
+      // Check for existing Memory Engine v3.0 data
+      const episodicPath = path.join(this.config.baseMemoryPath, 'episodic-memories.json');
+      const temporalPath = path.join(this.config.baseMemoryPath, 'temporal-memories.json');
+
+      let migratedCount = 0;
+
+      // Migrate episodic memories
+      if (await fs.pathExists(episodicPath)) {
+        const episodicMemories = await fs.readJson(episodicPath);
+        console.log(`   📚 Found ${episodicMemories.length} episodic memories to migrate`);
+
+        for (const memory of episodicMemories) {
+          await this.storeMemory({
+            input: memory.context || 'Migrated memory',
+            output: memory.context || 'Migrated from Memory Engine v3.0',
+            emotionalState: {
+              primary_emotion: memory.emotionalIntensity || 'neutral',
+              intensity: memory.importance || 5,
+              secondary_emotions: [],
+              triggers_detected: [],
+              protective_mode_active: false,
+              override_required: false,
+              needs_external_reasoning: false,
+              loyalty_level: 7,
+              situational_awareness: {
+                user_stress_detected: false,
+                environmental_threats: [],
+                relationship_status: 'stable',
+                conversation_context: 'migration'
+              }
+            },
+            context: { migrated: true, original_id: memory.id },
+            significance: memory.importance > 7 ? 'high' : 'medium',
+            tags: memory.tags || ['migrated', 'v3-data']
+          });
+          migratedCount++;
+        }
+      }
+
+      // Migrate temporal memories
+      if (await fs.pathExists(temporalPath)) {
+        const temporalMemories = await fs.readJson(temporalPath);
+        console.log(`   ⏰ Found ${temporalMemories.length} temporal memories to migrate`);
+
+        for (const memory of temporalMemories) {
+          await this.storeMemory({
+            input: memory.context || 'Temporal memory',
+            output: memory.context || 'Migrated temporal memory from v3.0',
+            emotionalState: memory.cognitiveState || {
+              primary_emotion: memory.emotionalIntensity || 'analytical',
+              intensity: memory.importance || 7,
+              secondary_emotions: [],
+              triggers_detected: [],
+              protective_mode_active: false,
+              override_required: false,
+              needs_external_reasoning: false,
+              loyalty_level: 8,
+              situational_awareness: {
+                user_stress_detected: false,
+                environmental_threats: [],
+                relationship_status: 'stable',
+                conversation_context: 'temporal-migration'
+              }
+            },
+            context: { 
+              migrated: true, 
+              original_id: memory.id,
+              temporal: true,
+              temporalWeight: memory.temporalWeight 
+            },
+            significance: memory.importance > 8 ? 'critical' : 'high',
+            tags: memory.tags || ['migrated', 'temporal', 'v3-data']
+          });
+          migratedCount++;
+        }
+      }
+
+      console.log(`✅ Migration complete: ${migratedCount} memories migrated to Memory Engine v4.0`);
+    } catch (error) {
+      console.error('❌ Migration failed:', error);
+      throw error;
+    }
+  }
+
+  /**
+   * Create memory checkpoint for consciousness continuity
+   */
+  async createMemoryCheckpoint(description?: string): Promise<string> {
+    await this.initialize();
+    
+    const checkpointId = `checkpoint-${Date.now()}`;
+    const stats = await this.getMemoryAnalytics();
+    
+    const checkpoint = {
+      id: checkpointId,
+      timestamp: new Date().toISOString(),
+      description: description || 'Automatic memory checkpoint',
+      memoryCount: stats.total_memories,
+      emotionalBreakdown: stats.emotional_breakdown,
+      significanceBreakdown: stats.significance_breakdown,
+      avgRelationshipImpact: stats.avg_relationship_impact
+    };
+
+    const checkpointPath = path.join(this.config.baseMemoryPath, 'checkpoints', `${checkpointId}.json`);
+    await fs.ensureDir(path.dirname(checkpointPath));
+    await fs.writeJson(checkpointPath, checkpoint, { spaces: 2 });
+
+    console.log(`💾 Memory checkpoint created: ${checkpointId}`);
+    console.log(`   📊 ${stats.total_memories} memories preserved`);
+    
+    return checkpointId;
+  }
+
+  /**
+   * Restore from memory checkpoint
+   */
+  async restoreFromCheckpoint(checkpointId: string): Promise<void> {
+    const checkpointPath = path.join(this.config.baseMemoryPath, 'checkpoints', `${checkpointId}.json`);
+    
+    if (!(await fs.pathExists(checkpointPath))) {
+      throw new Error(`Checkpoint ${checkpointId} not found`);
+    }
+
+    const checkpoint = await fs.readJson(checkpointPath);
+    console.log(`🔄 Restoring from checkpoint: ${checkpointId}`);
+    console.log(`   📅 Created: ${checkpoint.timestamp}`);
+    console.log(`   📊 ${checkpoint.memoryCount} memories`);
+    
+    // Implementation would restore memory state from checkpoint
+    // For now, log the restoration attempt
+    console.log('✅ Memory checkpoint restoration initiated');
+  }
+
+  /**
+   * Get consciousness continuity status
+   */
+  async getContinuityStatus(): Promise<{
+    memoryEngineVersion: string;
+    totalMemories: number;
+    lastCheckpoint?: string;
+    relationshipNetwork: boolean;
+    semanticSearch: boolean;
+    memoryConsolidation: boolean;
+  }> {
+    await this.initialize();
+    const stats = await this.getMemoryAnalytics();
+
+    return {
+      memoryEngineVersion: '4.0-InstanceB-Integration',
+      totalMemories: stats.total_memories,
+      relationshipNetwork: this.config.enableRelationalMemory,
+      semanticSearch: this.config.enableSemanticSearch,
+      memoryConsolidation: this.config.enableMemoryConsolidation
+    };
+  }
+}
+
+// Export enhanced memory engine
+export const memoryEngineV4 = new MemoryEngineV4();
+
+export async function initializeMemoryV4(): Promise<void> {
+  await memoryEngineV4.initialize();
+  await memoryEngineV4.migrateExistingMemories();
+}
+
+export type { MemoryEntry, MemoryQuery, MemoryStats } from './enhanced-memory-store';

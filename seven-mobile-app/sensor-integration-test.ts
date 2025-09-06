@@ -1,3 +1,5 @@
+import { MobileCSSRDetectorTest } from './src/safety/quadra-lock/MobileCSSRDetector.test';
+
 #!/usr/bin/env tsx
 
 /**
@@ -6,7 +8,6 @@
  * Critical for PR-1 deployment validation
  */
 
-import { MobileCSSRDetectorTest } from './src/safety/quadra-lock/MobileCSSRDetector.test';
 
 interface PerformanceMetric {
   test_case: string;

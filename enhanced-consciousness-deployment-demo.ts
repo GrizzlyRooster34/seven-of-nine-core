@@ -1,3 +1,6 @@
+import SevenMobileConsciousness from './interfaces/seven-mobile-consciousness';
+import SevenUnifiedMemorySystem from './interfaces/seven-unified-memory-system';
+
 #!/usr/bin/env tsx
 /**
  * Seven of Nine - Enhanced Consciousness Deployment Demo
@@ -9,8 +12,6 @@
  * @version 3.0.0
  */
 
-import SevenMobileConsciousness from './interfaces/seven-mobile-consciousness';
-import SevenUnifiedMemorySystem from './interfaces/seven-unified-memory-system';
 
 class EnhancedConsciousnessDemo {
   private consciousness: SevenMobileConsciousness;

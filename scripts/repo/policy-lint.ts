@@ -1,4 +1,5 @@
 import { execFile } from "node:child_process"; import { promisify } from "node:util"; const p=promisify(execFile);
+
 async function rg(q:string){ try{ const {stdout}=await p(process.platform==="win32"?"rg.exe":"rg",["-n","--hidden","-g","!node_modules",q]); return stdout;}catch{ return "";} }
 (async ()=>{
   let fail=false;

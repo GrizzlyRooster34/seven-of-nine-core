@@ -1,3 +1,7 @@
+import { join } from 'path';
+import { promises as fs } from 'fs';
+import { MemoryEncryptionEngine } from '../memory-v3/MemoryEncryption';
+
 /**
  * SEVEN OF NINE - MEMORY ENGINE v2.0
  * Enhanced episodic memory system with structured recall
@@ -6,9 +10,6 @@
  * SECURITY UPDATE: Memory encryption at rest using AES-256-GCM
  */
 
-import { promises as fs } from 'fs';
-import { join } from 'path';
-import { MemoryEncryptionEngine } from '../memory-v3/MemoryEncryption';
 
 export interface MemoryItem {
   id: string;

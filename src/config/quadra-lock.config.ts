@@ -1,3 +1,5 @@
+
+
 /**
  * QUADRA-LOCK CONFIGURATION
  * Centralized configuration for Quadra-Lock CSSR safety systems

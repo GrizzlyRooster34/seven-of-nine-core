@@ -1,4 +1,5 @@
 import fs from "node:fs";
+
 const rel = "apps/mobile/android/app/build/outputs/apk/release/app-release.apk";
 const dbg = "apps/mobile/android/app/build/outputs/apk/debug/app-debug.apk";
 if (fs.existsSync(rel)) { console.log("APK FOUND (release):", rel); process.exit(0); }

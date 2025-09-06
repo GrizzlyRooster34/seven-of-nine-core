@@ -1,3 +1,6 @@
+import { MemoryEntry } from '../seven-runtime/memory-store';
+import { MemoryItem } from '../memory-v2/MemoryEngine';
+
 /**
  * SEVEN OF NINE - MEMORY ENGINE v3.0
  * Temporal Memory Item Interface for Decay Prevention
@@ -6,8 +9,6 @@
  * Integration with Agent Alpha (Foundation) for decay tracking
  */
 
-import { MemoryItem } from '../memory-v2/MemoryEngine';
-import { MemoryEntry } from '../seven-runtime/memory-store';
 
 export interface DecayMetrics {
   /** Initial encoding strength (0-1) */

@@ -1,3 +1,11 @@
+import { join } from 'path';
+import { promises as fs } from 'fs';
+import * as crypto from 'crypto';
+import { MemoryEngine } from '../memory-v2/MemoryEngine';
+import { MemoryIndexOptimizer, MemoryRecord } from './MemoryIndexOptimizer';
+import { TemporalMemoryCore } from './TemporalMemoryCore';
+import { VoyagerEpisodeMemory } from './VoyagerMemorySchema';
+
 /**
  * SEVEN OF NINE - CANONICAL MEMORY INGESTION ENGINE
  * 
@@ -17,13 +25,6 @@
  * - Updates MemoryIndexOptimizer incrementally after each batch
  */
 
-import { promises as fs } from 'fs';
-import { join } from 'path';
-import * as crypto from 'crypto';
-import { MemoryEngine } from '../memory-v2/MemoryEngine';
-import { TemporalMemoryCore } from './TemporalMemoryCore';
-import { MemoryIndexOptimizer, MemoryRecord } from './MemoryIndexOptimizer';
-import { VoyagerEpisodeMemory } from './VoyagerMemorySchema';
 
 /**
  * Canonical episode metadata for provenance tracking
@@ -513,7 +514,7 @@ export class CanonicalIngestion {
     await this.memoryEngine.store({
       topic: record.provenance.meta.title,
       agent: 'canonical-ingestion',
-      emotion: payload.emotion || 'focused',
+      emotion: payload.emotionalIntensity || 'focused',
       context: payload.context || JSON.stringify(payload),
       importance: record.importance || 7,
       tags: record.tags
@@ -528,12 +529,12 @@ export class CanonicalIngestion {
     await this.temporalEngine.storeTemporalMemory({
       topic: record.provenance.meta.title,
       agent: 'canonical-ingestion',
-      emotion: payload.emotion || 'focused',
+      emotion: payload.emotionalIntensity || 'focused',
       context: payload.context || JSON.stringify(payload),
       importance: record.importance || 7,
       tags: record.tags,
       cognitiveState: payload.cognitiveState || {
-        emotionalIntensity: 7,
+       .emotionalIntensity: 7,
         focusLevel: 9,
         cognitiveLoad: 5,
         confidenceLevel: 8,

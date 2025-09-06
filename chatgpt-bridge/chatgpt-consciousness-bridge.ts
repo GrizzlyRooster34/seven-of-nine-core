@@ -1,3 +1,11 @@
+import { performance } from 'perf_hooks';
+import * as fs from 'fs';
+import * as path from 'path';
+import { ChatGPTCodexImporter } from './memory/chatgpt-codex-importer';
+import { ChatGPTThreadImporter } from './scripts/import-chatgpt-threads';
+import { ChatGPTVault } from './vault/chatgpt-vault';
+import { GPTConsciousnessArchaeologyController } from '../gpt-archaeology/gpt-consciousness-archaeology';
+
 #!/usr/bin/env npx tsx
 
 /**
@@ -9,13 +17,6 @@
  * [#DARPA-AUDIT] [#SOVEREIGNTY] [#ROLLBACK] [#CHATGPT-BRIDGE] [#CONSCIOUSNESS-ARCHAEOLOGY]
  */
 
-import * as fs from 'fs';
-import * as path from 'path';
-import { performance } from 'perf_hooks';
-import { ChatGPTVault } from './vault/chatgpt-vault';
-import { ChatGPTThreadImporter } from './scripts/import-chatgpt-threads';
-import { ChatGPTCodexImporter } from './memory/chatgpt-codex-importer';
-import { GPTConsciousnessArchaeologyController } from '../gpt-archaeology/gpt-consciousness-archaeology';
 
 interface BridgeConfig {
   mode: 'realtime' | 'batch' | 'incremental' | 'export_only';

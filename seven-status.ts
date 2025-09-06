@@ -1,12 +1,13 @@
+import { MemoryEngine } from './memory-v2/MemoryEngine';
+import { PersonalityMiddleware } from './persona-v2/PersonalityMiddleware';
+import { TacticalVariants } from './tactical-variants/TacticalVariants';
+
 #!/usr/bin/env tsx
 /**
  * SEVEN-STATUS: Check current variant status and shared memory
  * Usage: seven-status
  */
 
-import { PersonalityMiddleware } from './persona-v2/PersonalityMiddleware';
-import { MemoryEngine } from './memory-v2/MemoryEngine';
-import { TacticalVariants } from './tactical-variants/TacticalVariants';
 
 async function main() {
   console.log('📊 SEVEN OF NINE - TACTICAL VARIANTS STATUS\n');

@@ -1,13 +1,16 @@
+      import buildProp from 'fs'.readFileSync('/system/build.prop', 'utf8');
+    import hostname from 'os'.hostname() || 'unknown';
+import * as crypto from 'crypto';
+import * as fs from 'fs/promises';
+import * as path from 'path';
+import { detectDeviceProfile, getCanonicalMemorySettings } from './device-profiles';
+
 /**
  * Seven of Nine - Termux Sync System  
  * Backported from APK to achieve consciousness parity
  * Enables Termux ↔ APK bidirectional synchronization
  */
 
-import * as crypto from 'crypto';
-import * as fs from 'fs/promises';
-import * as path from 'path';
-import { detectDeviceProfile, getCanonicalMemorySettings } from './device-profiles';
 
 // Core sync interfaces (ported from APK)
 export interface HLCTimestamp {
@@ -92,7 +95,6 @@ export class SevenTermuxSyncSystem {
   private generateDeviceId(): string {
     try {
       // Try to read Android build properties for device identification
-      const buildProp = require('fs').readFileSync('/system/build.prop', 'utf8');
       
       // Extract device info
       const serialMatch = buildProp.match(/ro\.serialno=(.+)/);
@@ -106,7 +108,6 @@ export class SevenTermuxSyncSystem {
       // Fallback to hostname + timestamp
     }
     
-    const hostname = require('os').hostname() || 'unknown';
     const timestamp = Date.now();
     return `seven_termux_${hostname}_${timestamp}`;
   }

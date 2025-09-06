@@ -1,3 +1,5 @@
+
+
 /**
  * Claude-themed syntax highlighting theme
  * Features orange, purple, and violet colors to match Claude's aesthetic

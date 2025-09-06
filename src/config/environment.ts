@@ -1,3 +1,7 @@
+  import crypto from 'crypto';
+import { join } from 'path';
+import { readFileSync, existsSync, writeFileSync } from 'fs';
+
 /**
  * QUADRAN-LOCK ENVIRONMENT VALIDATION
  * Ensures all required security environment variables are present
@@ -6,8 +10,6 @@
  * PATCH: Prevents deployment without proper security configuration
  */
 
-import { readFileSync, existsSync, writeFileSync } from 'fs';
-import { join } from 'path';
 
 export interface QuadranLockConfig {
   sessionSigningKey: string;
@@ -70,7 +72,6 @@ export function validateQuadranLockEnvironment(): QuadranLockConfig {
  * Generate secure default keys for development
  */
 export function generateSecureDefaults(): { sessionKey: string; deviceSecret: string } {
-  const crypto = require('crypto');
   
   return {
     sessionKey: crypto.randomBytes(32).toString('hex'),

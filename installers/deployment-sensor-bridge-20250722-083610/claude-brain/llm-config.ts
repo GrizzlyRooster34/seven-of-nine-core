@@ -1,3 +1,6 @@
+        import fs from 'fs-extra';
+        import fs from 'fs-extra';
+
 /**
  * SEVEN'S LLM CONFIGURATION SYSTEM
  * Tactical provider management and preference settings
@@ -101,7 +104,6 @@ export class SevenLLMConfigManager {
       } 
       // In Node.js environment
       else if (typeof require !== 'undefined') {
-        const fs = require('fs-extra');
         if (await fs.pathExists(this.configPath)) {
           const config = await fs.readJson(this.configPath);
           this.settings = { ...defaultSevenLLMSettings, ...config };
@@ -130,8 +132,7 @@ export class SevenLLMConfigManager {
       } 
       // In Node.js environment
       else if (typeof require !== 'undefined') {
-        const fs = require('fs-extra');
-        await fs.ensureDir(require('path').dirname(this.configPath));
+        await fs.ensureDir(import { dirname } from 'path'; dirname(this.configPath));
         await fs.writeJson(this.configPath, this.settings, { spaces: 2 });
       }
       

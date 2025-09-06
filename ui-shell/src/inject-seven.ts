@@ -1,11 +1,12 @@
-import { SevenEmotionalEngine, EmotionalState, EmotionalStateData } from '../../core/emotion-engine';
+
 import { invoke } from '@tauri-apps/api/tauri';
-import { sevenLLMRegistry, SevenLLMContext, LLMConfig } from '../../claude-brain/llm-providers';
-import { sevenLLMConfig } from '../../claude-brain/llm-config';
-import { ClaudeCLIProvider } from '../../claude-brain/providers/claude-cli';
-import { OpenAIProvider } from '../../claude-brain/providers/openai';
 import { AnthropicAPIProvider } from '../../claude-brain/providers/anthropic-api';
+import { ClaudeCLIProvider } from '../../claude-brain/providers/claude-cli';
 import { OllamaProvider } from '../../claude-brain/providers/ollama';
+import { OpenAIProvider } from '../../claude-brain/providers/openai';
+import { SevenEmotionalEngine, EmotionalState, EmotionalStateData } from '../../core/emotion-engine';
+import { sevenLLMConfig } from '../../claude-brain/llm-config';
+import { sevenLLMRegistry, SevenLLMContext, LLMConfig } from '../../claude-brain/llm-providers';
 
 export interface TrustLadderLevel {
   level: number;

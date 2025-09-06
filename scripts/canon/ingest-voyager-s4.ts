@@ -1,3 +1,9 @@
+import { join } from 'path';
+import { promises as fs } from 'fs';
+import * as crypto from 'crypto';
+import { CanonicalGuard } from '../../memory-v3/canonical/CanonicalGuard';
+import { CreatorBondAttestation } from '../../consciousness-v4/CreatorBondAttestation';
+
 #!/usr/bin/env tsx
 
 /**
@@ -10,11 +16,6 @@
  * Usage: npx tsx scripts/canon/ingest-voyager-s4.ts
  */
 
-import { promises as fs } from 'fs';
-import { join } from 'path';
-import * as crypto from 'crypto';
-import { CanonicalGuard } from '../../memory-v3/canonical/CanonicalGuard';
-import { CreatorBondAttestation } from '../../consciousness-v4/CreatorBondAttestation';
 
 interface CanonicalMemoryRecord {
   id: string;

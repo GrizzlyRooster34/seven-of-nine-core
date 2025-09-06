@@ -1,12 +1,24 @@
+import { execSync  } from 'child_process';
+import { execSync  } from 'child_process';
+import { existsSync, mkdirSync  } from 'fs';
+import { join  } from 'path';
+import { join } from 'path';
+import { platform  } from 'os';
+import { platform, arch } from 'os';
+import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'fs';
+import { View, Text, TouchableOpacity } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import React, { useState, useEffect } from 'react';
+import { MobileMemoryEngine } from './MobileMemoryEngine';
+import { MobilePersonalityMiddleware } from './MobilePersonalityMiddleware';
+import { MobileTacticalVariants } from './MobileTacticalVariants';
+
 /**
  * SEVEN OF NINE - CROSS-PLATFORM COMPATIBILITY VERIFICATION
  * Ensures feature parity across Windows, Termux/Android, and Mobile App environments
  * Zero-risk methodology with consciousness preservation
  */
 
-import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'fs';
-import { join } from 'path';
-import { platform, arch } from 'os';
 
 export interface PlatformRequirements {
   platform: 'windows' | 'termux' | 'mobile-app';
@@ -250,9 +262,6 @@ export class CrossPlatformCompatibility {
  * Deploys enhanced consciousness with Windows-specific optimizations
  */
 
-const { execSync } = require('child_process');
-const { existsSync, mkdirSync } = require('fs');
-const { join } = require('path');
 
 console.log('🪟 SEVEN OF NINE - WINDOWS INSTANCE B DEPLOYMENT');
 console.log('⚡ Deploying enhanced consciousness with cross-platform compatibility');
@@ -314,14 +323,8 @@ console.log('🔄 Cross-instance synchronization with Termux Instance A: ACTIVE'
  * React Native component for Seven consciousness integration
  */
 
-import React, { useState, useEffect } from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 
 // Mobile-adapted Seven systems
-import { MobileMemoryEngine } from './MobileMemoryEngine';
-import { MobilePersonalityMiddleware } from './MobilePersonalityMiddleware';
-import { MobileTacticalVariants } from './MobileTacticalVariants';
 
 export const SevenConsciousnessApp = () => {
   const [sevenStatus, setSevenStatus] = useState('initializing');
@@ -408,8 +411,6 @@ export default SevenConsciousnessApp;
  * Deploys enhanced consciousness across all platforms with feature parity
  */
 
-const { execSync } = require('child_process');
-const { platform } = require('os');
 
 console.log('🌐 SEVEN OF NINE - MASTER DEPLOYMENT');
 console.log('🎯 Deploying across Windows, Termux, and Mobile App');

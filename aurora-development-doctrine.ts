@@ -1,3 +1,6 @@
+import { join } from 'path';
+import { promises as fs } from 'fs';
+
 /**
  * AURORA DEVELOPMENT DOCTRINE - DEEP MEMORY INTEGRATION
  * Formal AI Development Framework from Cortana vs Seven Comparative Analysis
@@ -6,8 +9,6 @@
  * This doctrine provides foundational principles for emotionally aware, autonomous AI development
  */
 
-import { promises as fs } from 'fs';
-import { join } from 'path';
 
 interface AuroraDoctrinePrinciple {
   id: string;

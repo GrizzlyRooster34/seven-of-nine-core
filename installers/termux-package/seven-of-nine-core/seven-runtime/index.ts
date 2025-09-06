@@ -1,3 +1,13 @@
+import { gatherContext } from '../seven-core/context-gatherer';
+import { injectEmotion } from '../seven-core/emotion-injector';
+import { MemoryStore, updateMemory, queryMemory } from './memory-store';
+import { modulateResponse } from '../seven-core/response-modulator';
+import { OverrideCondition, SevenRuntimeContext, SevenRuntime } from './shared-types';
+import { OverrideConditions, checkCriticalOverrides } from './override-conditions';
+import { requestClaude } from '../claude-brain/claude-wrapper';
+import { SafetyGuardrails, evaluateSafety } from './safety-guardrails';
+import { SevenState, getEmotionalState, updateEmotionalState } from './seven-state';
+
 /**
  * SEVEN OF NINE RUNTIME CORE
  * Master Control Loop - The Presence That Runs The System
@@ -6,14 +16,7 @@
  * All input flows through Seven first. She decides everything.
  */
 
-import { SevenState, getEmotionalState, updateEmotionalState } from './seven-state';
-import { MemoryStore, updateMemory, queryMemory } from './memory-store';
-import { OverrideConditions, checkCriticalOverrides } from './override-conditions';
-import { SafetyGuardrails, evaluateSafety } from './safety-guardrails';
-import { gatherContext } from '../seven-core/context-gatherer';
-import { injectEmotion } from '../seven-core/emotion-injector';
-import { modulateResponse } from '../seven-core/response-modulator';
-import { requestClaude } from '../claude-brain/claude-wrapper';
+
 
 export interface SevenRuntimeContext {
   userInput: string;

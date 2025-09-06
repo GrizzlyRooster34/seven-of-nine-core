@@ -1,3 +1,9 @@
+import { EventEmitter } from 'events';
+import { exec } from 'child_process';
+import { promises as fs } from 'fs';
+import { promisify } from 'util';
+import PerformanceAnalyzer from './PerformanceAnalyzer';
+
 /**
  * SEVEN'S MOBILE OPTIMIZATION TRIGGERS
  * Phase 1 Implementation: Battery-aware intelligence with performance adaptation
@@ -7,8 +13,6 @@
  * network conditions. Ensures optimal performance while preserving device health.
  */
 
-import { EventEmitter } from 'events';
-import PerformanceAnalyzer from './PerformanceAnalyzer';
 
 interface MobileDeviceState {
   batteryLevel: number; // 0-100
@@ -226,8 +230,7 @@ export class MobileOptimizationTriggers extends EventEmitter {
     }
 
     try {
-      const { exec } = require('child_process');
-      const { promisify } = require('util');
+      // Using imported exec and promisify
       const execAsync = promisify(exec);
       
       const result = await execAsync('termux-battery-status 2>/dev/null || echo \'{"percentage": 100}\'');
@@ -242,8 +245,7 @@ export class MobileOptimizationTriggers extends EventEmitter {
     if (!this.isTermuxEnvironment) return true;
 
     try {
-      const { exec } = require('child_process');
-      const { promisify } = require('util');
+      // Using imported exec and promisify
       const execAsync = promisify(exec);
       
       const result = await execAsync('termux-battery-status 2>/dev/null || echo \'{"status": "CHARGING"}\'');
@@ -288,8 +290,7 @@ export class MobileOptimizationTriggers extends EventEmitter {
   private async getNetworkType(): Promise<'wifi' | 'cellular' | 'offline'> {
     // Simplified network detection - could be enhanced with actual network APIs
     try {
-      const { exec } = require('child_process');
-      const { promisify } = require('util');
+      // Using imported exec and promisify
       const execAsync = promisify(exec);
       
       await execAsync('ping -c 1 8.8.8.8');
@@ -317,9 +318,9 @@ export class MobileOptimizationTriggers extends EventEmitter {
 
   private async getAvailableStorage(): Promise<number> {
     try {
-      const { promises: fs } = require('fs');
+      // Using imported fs promises
       const stats = await fs.statfs(process.cwd());
-      return Math.floor(stats.free / (1024 * 1024)); // Convert to MB
+      return Math.floor(stats.bfree / (1024 * 1024)); // Convert to MB
     } catch {
       return 1000; // 1GB default assumption
     }

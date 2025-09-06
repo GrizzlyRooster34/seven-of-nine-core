@@ -1,11 +1,12 @@
+import { ContextData } from './context-gatherer';
+import { SevenState } from '../seven-runtime/seven-state';
+
 /**
  * CLAUDIA EMOTION INJECTOR
  * Injects Seven's emotional state and values into Claude prompts
  * Transforms user input into emotionally-contextualized requests
  */
 
-import { SevenState } from '../seven-runtime/seven-state';
-import { ContextData } from './context-gatherer';
 
 export interface EmotionInjectionConfig {
   intensity_threshold: number;

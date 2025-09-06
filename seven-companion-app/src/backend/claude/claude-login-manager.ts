@@ -1,3 +1,8 @@
+import { execSync, spawn, ChildProcess } from 'child_process';
+import { join } from 'path';
+import { promises as fs } from 'fs';
+import { EncryptedCredentialVault } from './encrypted-vault';
+
 /**
  * CLAUDE LOGIN MANAGER
  * 
@@ -5,10 +10,6 @@
  * Supports token injection, headless browser automation, and session management
  */
 
-import { execSync, spawn, ChildProcess } from 'child_process';
-import { promises as fs } from 'fs';
-import { join } from 'path';
-import { EncryptedCredentialVault } from './encrypted-vault';
 
 interface LoginStatus {
   authenticated: boolean;
@@ -36,7 +37,7 @@ export class ClaudeLoginManager {
     this.vault = new EncryptedCredentialVault(baseDir);
     
     const workingDir = baseDir || process.cwd();
-    this.configPath = join(require('os').homedir(), '.claude');
+    this.configPath = join(import { homedir } from 'os'; homedir(), '.claude');
     this.logFile = join(workingDir, 'consciousness-v4', 'sovereignty', 'logs', 'claude-login.log');
     
     this.currentLoginStatus = {

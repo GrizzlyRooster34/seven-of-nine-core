@@ -15,8 +15,8 @@
  *
  * Agent Beta - Mental Time Travel and Consciousness Reconstruction
  */
-import { TemporalMemoryCore, TemporalMemoryItem, CognitiveState } from './TemporalMemoryCore.js';
-import { CognitiveStateTagger } from './CognitiveStateTagger.js';
+import { TemporalMemoryCore, TemporalMemoryItem, CognitiveState } from './TemporalMemoryCore';
+import { CognitiveStateTagger } from './CognitiveStateTagger';
 export interface TimeTravelRequest {
     targetTimestamp: string | number;
     memoryId?: string;
@@ -111,8 +111,8 @@ export interface TemporalStateComparison {
 }
 export interface PersonalityTemporalMapping {
     timestamp: string;
-    borgEfficiencyLevel: number;
-    humanEmotionalEngagement: number;
+    sevenOfNinePersonalityCorrelation: number;
+    dominantTraits[0] || "balanced": number;
     adaptabilityIndex: number;
     analyticalDepth: number;
     collectiveIndividualBalance: number;

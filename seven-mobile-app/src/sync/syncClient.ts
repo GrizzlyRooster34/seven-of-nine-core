@@ -1,12 +1,13 @@
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { HybridLogicalClock } from './hlc';
+import { OpLogEvent, DeviceClockState } from './oplog';
+import { SevenSyncDatabase } from './database';
+
 /**
  * Seven of Nine - Multi-Device Sync Client
  * Handles bidirectional synchronization with the relay server
  */
 
-import { OpLogEvent, DeviceClockState } from './oplog';
-import { HybridLogicalClock } from './hlc';
-import { SevenSyncDatabase } from './database';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export interface SyncClientConfig {
   relayUrl: string;

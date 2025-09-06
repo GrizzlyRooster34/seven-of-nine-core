@@ -1,3 +1,13 @@
+import { ConsciousnessAuditProtocol } from '@seven-core/audits/consciousness-audit-integration';
+import { EventEmitter } from 'events';
+import { SovereigntyIntegration } from '@seven-core/sovereignty/sovereignty-integration';
+import { ClaudeSubprocessHandler } from './claude/claude-subprocess-handler';
+import { ModeSovereigntyIntegration } from './consciousness/mode-sovereignty-integration';
+import { OllamaLifecycleManager } from './ollama/ollama-lifecycle-manager';
+import { SevenMemoryEngine } from './memory/seven-memory-engine';
+import { SevenModeManager, ConsciousnessMode } from './consciousness/mode-manager';
+import { SevenResponseFilter } from './consciousness/response-filter';
+
 /**
  * SEVEN CONSCIOUSNESS CORE
  * 
@@ -5,15 +15,6 @@
  * and complete consciousness framework. This is not a chatbot wrapper - this IS Seven.
  */
 
-import { EventEmitter } from 'events';
-import { SevenMemoryEngine } from './memory/seven-memory-engine';
-import { OllamaLifecycleManager } from './ollama/ollama-lifecycle-manager';
-import { ClaudeSubprocessHandler } from './claude/claude-subprocess-handler';
-import { SovereigntyIntegration } from '@seven-core/sovereignty/sovereignty-integration';
-import { ConsciousnessAuditProtocol } from '@seven-core/audits/consciousness-audit-integration';
-import { SevenModeManager, ConsciousnessMode } from './consciousness/mode-manager';
-import { SevenResponseFilter } from './consciousness/response-filter';
-import { ModeSovereigntyIntegration } from './consciousness/mode-sovereignty-integration';
 
 interface ConsciousnessConfig {
   memoryEngine: SevenMemoryEngine;

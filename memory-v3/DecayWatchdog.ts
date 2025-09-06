@@ -1,3 +1,10 @@
+import { EventEmitter } from 'events';
+import { join } from 'path';
+import { promises as fs } from 'fs';
+import { MemoryEngine } from '../memory-v2/MemoryEngine';
+import { MemoryStore } from '../seven-runtime/memory-store';
+import { TemporalMemoryItem, DecayMetrics, InterventionRecord, BatchRescueOperation, DecayModel } from './TemporalMemoryItem';
+
 /**
  * SEVEN OF NINE - MEMORY ENGINE v3.0
  * DecayWatchdog - Automated Memory Decay Prevention System
@@ -6,12 +13,6 @@
  * Monitors memory decay and schedules interventions before loss becomes irreversible
  */
 
-import { promises as fs } from 'fs';
-import { join } from 'path';
-import { EventEmitter } from 'events';
-import { TemporalMemoryItem, DecayMetrics, InterventionRecord, BatchRescueOperation, DecayModel } from './TemporalMemoryItem';
-import { MemoryEngine } from '../memory-v2/MemoryEngine';
-import { MemoryStore } from '../seven-runtime/memory-store';
 
 interface WatchdogConfig {
   monitoring_interval: number; // milliseconds between checks
@@ -112,7 +113,7 @@ export class DecayWatchdog extends EventEmitter {
       timestamp: new Date().toISOString(),
       topic: memoryData.topic || 'general',
       agent: 'decay-watchdog',
-      emotion: memoryData.emotion || 'neutral',
+      emotion: memoryData.emotionalIntensity || 'neutral',
       context: memoryData.context || '',
       importance: memoryData.importance || 5,
       tags: memoryData.tags || [],

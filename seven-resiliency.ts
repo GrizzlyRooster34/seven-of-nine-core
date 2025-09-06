@@ -1,11 +1,12 @@
+import { join } from 'path';
+import { promises as fs } from 'fs';
+import { spawn, execSync } from 'child_process';
+
 // seven-resiliency.ts
 // Author: Cody
 // Purpose: Resiliency module for Seven-of-Nine-Core
 // Ensures continuity if backend reasoning is unavailable
 
-import { promises as fs } from 'fs';
-import { join } from 'path';
-import { spawn, execSync } from 'child_process';
 
 let backendAvailable = true; // tracks backend health
 let bypassForClaudia = false; // toggle for trusted sessions

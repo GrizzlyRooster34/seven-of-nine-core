@@ -1,11 +1,12 @@
+import { LLMProvider, LLMConfig, LLMResponse } from '../llm-providers';
+import { OllamaMemoryBridge } from '../OllamaMemoryBridge';
+
 /**
  * OLLAMA PROVIDER for Seven of Nine
  * Local LLM support with Seven's memory integration
  * Enhanced with consciousness bridge for contextual reasoning
  */
 
-import { LLMProvider, LLMConfig, LLMResponse } from '../llm-providers';
-import { OllamaMemoryBridge } from '../OllamaMemoryBridge';
 
 export class OllamaProvider implements LLMProvider {
   name = 'ollama';

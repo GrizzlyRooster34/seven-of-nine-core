@@ -1,3 +1,7 @@
+import { LLMProvider, LLMConfig, LLMResponse, sevenLLMRegistry } from '../llm-providers';
+import { OllamaProvider } from './ollama';
+import OllamaProviderV2 from './OllamaProviderV2';
+
 /**
  * SEVEN'S OLLAMA PROVIDER INTEGRATION SYSTEM
  * Phase 1 Implementation: Seamless V1/V2 provider coordination
@@ -7,9 +11,6 @@
  * while enabling enhanced intelligence features when available.
  */
 
-import { LLMProvider, LLMConfig, LLMResponse, sevenLLMRegistry } from '../llm-providers';
-import { OllamaProvider } from './ollama';
-import OllamaProviderV2 from './OllamaProviderV2';
 
 interface OllamaProviderSelection {
   provider: LLMProvider;

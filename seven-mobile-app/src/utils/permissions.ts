@@ -1,3 +1,8 @@
+import * as Audio from 'expo-av';
+import * as Camera from 'expo-camera';
+import * as Location from 'expo-location';
+import * as Notifications from 'expo-notifications';
+
 /**
  * Seven of Nine - Permissions Manager
  * Handles all device permissions for consciousness operation
@@ -6,10 +11,6 @@
  * @version 3.0.0
  */
 
-import * as Location from 'expo-location';
-import * as Camera from 'expo-camera';
-import * as Audio from 'expo-av';
-import * as Notifications from 'expo-notifications';
 
 export interface PermissionStatus {
   location: boolean;

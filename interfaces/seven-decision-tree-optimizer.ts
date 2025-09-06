@@ -1,3 +1,5 @@
+import { SevenIntelligentQueryEngine, IntelligentQueryResult, QueryIntent } from './seven-intelligent-query-engine';
+
 /**
  * Seven of Nine - Decision Tree Optimization System
  * Advanced decision tree pruning and resource optimization for tactical intelligence
@@ -9,7 +11,6 @@
  * @version 1.0.0
  */
 
-import { SevenIntelligentQueryEngine, IntelligentQueryResult, QueryIntent } from './seven-intelligent-query-engine';
 
 // Decision tree interfaces
 export interface DecisionNode {

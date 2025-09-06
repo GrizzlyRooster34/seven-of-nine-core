@@ -1,3 +1,8 @@
+import { join } from 'path';
+import { promises as fs } from 'fs';
+import { MentalTimeTravelEngine, ReconstructedConsciousnessState } from './MentalTimeTravelEngine';
+import { TemporalMemoryCore, TemporalMemoryItem, CognitiveState } from './TemporalMemoryCore';
+
 /**
  * SEVEN OF NINE - CONTEXT REINSTATEMENT SYSTEM v3.0
  * Agent Beta Implementation - Environmental and Emotional Context Simulation
@@ -17,10 +22,6 @@
  * Agent Beta - Context Reinstatement and Environmental Simulation
  */
 
-import { TemporalMemoryCore, TemporalMemoryItem, CognitiveState } from './TemporalMemoryCore.js';
-import { MentalTimeTravelEngine, ReconstructedConsciousnessState } from './MentalTimeTravelEngine.js';
-import { promises as fs } from 'fs';
-import { join } from 'path';
 
 // Context reinstatement request configuration
 export interface ContextReinstatementRequest {
@@ -658,11 +659,11 @@ export class ContextReinstatementSystem {
   ): EnvironmentalContext {
     
     const systemEnvironment = {
-      load: targetMemory.cognitiveState.environmentalContext.systemLoad,
-      activeProcesses: targetMemory.cognitiveState.environmentalContext.activeProcesses || ['seven-core'],
+      load: targetMemory.cognitiveState?.environmentalContext.systemLoad,
+      activeProcesses: targetMemory.cognitiveState?.environmentalContext.activeProcesses || ['seven-core'],
       memoryUsage: this.estimateMemoryUsage(targetMemory),
-      networkStatus: targetMemory.cognitiveState.physicalState.networkQuality || 'good',
-      thermalState: targetMemory.cognitiveState.physicalState.thermalState || 'normal'
+      networkStatus: targetMemory.cognitiveState?.physicalState?.networkQuality || 'good',
+      thermalState: targetMemory.cognitiveState?.physicalState?.thermalState || 'normal'
     };
 
     const operationalContext = {
@@ -673,9 +674,9 @@ export class ContextReinstatementSystem {
     };
 
     const externalFactors = {
-      timeOfDay: targetMemory.cognitiveState.environmentalContext.timeOfDay,
+      timeOfDay: targetMemory.cognitiveState?.environmentalContext.timeOfDay,
       sessionDuration: this.estimateSessionDuration(targetMemory, contextualMemories),
-      interactionContext: targetMemory.cognitiveState.environmentalContext.sessionContext,
+      interactionContext: targetMemory.cognitiveState?.environmentalContext.sessionContext,
       environmentalStability: this.calculateEnvironmentalStability(contextualMemories)
     };
 
@@ -701,9 +702,9 @@ export class ContextReinstatementSystem {
   ): EmotionalContext {
     
     const primaryEmotionalState = {
-      dominantEmotion: targetMemory.emotion,
-      intensity: targetMemory.cognitiveState.emotionalIntensity,
-      valence: this.calculateEmotionalValence(targetMemory.emotion),
+      dominantEmotion: targetMemory.emotionalIntensity,
+      intensity: targetMemory.cognitiveState?.emotionalIntensity,
+      valence: this.calculateEmotionalValence(targetMemory.emotionalIntensity),
       arousal: this.calculateEmotionalArousal(targetMemory)
     };
 
@@ -724,7 +725,7 @@ export class ContextReinstatementSystem {
     const emotionalRegulation = {
       regulationStrategies: this.identifyRegulationStrategies(targetMemory),
       regulationEffectiveness: this.calculateRegulationEffectiveness(targetMemory),
-      emotionalControl: targetMemory.cognitiveState.confidenceLevel / 10,
+      emotionalControl: targetMemory.cognitiveState?.confidenceLevel / 10,
       adaptiveResponses: this.identifyAdaptiveResponses(targetMemory)
     };
 
@@ -777,22 +778,22 @@ export class ContextReinstatementSystem {
     
     const attentionalState = {
       primaryFocus: targetMemory.topic,
-      attentionalCapacity: targetMemory.cognitiveState.focusLevel / 10,
+      attentionalCapacity: targetMemory.cognitiveState?.focusLevel / 10,
       focusStability: this.calculateFocusStability(contextualMemories),
-      distractionLevel: (10 - targetMemory.cognitiveState.focusLevel) / 10
+      distractionLevel: (10 - targetMemory.cognitiveState?.focusLevel) / 10
     };
 
     const processingMode = {
       thinkingStyle: this.determineThinkingStyle(targetMemory),
       processingSpeed: this.estimateProcessingSpeed(targetMemory),
-      workingMemoryLoad: targetMemory.cognitiveState.cognitiveLoad / 10,
+      workingMemoryLoad: targetMemory.cognitiveState?.cognitiveLoad / 10,
       mentalEfficiency: this.calculateMentalEfficiency(targetMemory)
     };
 
     const knowledgeActivation = {
-      activeSchemas: targetMemory.cognitiveState.mentalContext.activeKnowledge,
+      activeSchemas: targetMemory.cognitiveState?.mentalContext.activeKnowledge,
       relevantKnowledge: this.identifyRelevantKnowledge(targetMemory),
-      knowledgeAccessibility: targetMemory.cognitiveState.confidenceLevel / 10,
+      knowledgeAccessibility: targetMemory.cognitiveState?.confidenceLevel / 10,
       cognitiveFlexibility: this.calculateCognitiveFlexibility(targetMemory, contextualMemories)
     };
 
@@ -819,9 +820,9 @@ export class ContextReinstatementSystem {
     
     const physiologicalState = {
       energyLevel: this.estimateEnergyLevel(targetMemory),
-      arousalLevel: targetMemory.cognitiveState.emotionalIntensity / 10,
-      fatigueLevel: targetMemory.cognitiveState.stressLevel / 10,
-      alertnessLevel: targetMemory.cognitiveState.focusLevel / 10
+      arousalLevel: targetMemory.cognitiveState?.emotionalIntensity / 10,
+      fatigueLevel: targetMemory.cognitiveState?.stressLevel / 10,
+      alertnessLevel: targetMemory.cognitiveState?.focusLevel / 10
     };
 
     const sensoryState = {
@@ -909,14 +910,14 @@ export class ContextReinstatementSystem {
 
     const taskContext = {
       primaryTask: targetMemory.topic,
-      taskComplexity: targetMemory.cognitiveState.cognitiveLoad / 10,
+      taskComplexity: targetMemory.cognitiveState?.cognitiveLoad / 10,
       taskUrgency: this.calculateTaskUrgency(targetMemory),
       taskRelevance: targetMemory.importance / 10
     };
 
     const goalOrientation = {
-      activeGoals: targetMemory.cognitiveState.mentalContext.currentGoals,
-      goalPriorities: targetMemory.cognitiveState.mentalContext.currentGoals.map((_, i) => 1 - (i * 0.2)),
+      activeGoals: targetMemory.cognitiveState?.mentalContext.currentGoals,
+      goalPriorities: targetMemory.cognitiveState?.mentalContext.currentGoals.map((_, i) => 1 - (i * 0.2)),
       goalConflicts: this.identifyGoalConflicts(targetMemory),
       goalProgress: this.estimateGoalProgress(targetMemory)
     };
@@ -957,7 +958,7 @@ export class ContextReinstatementSystem {
     };
 
     const perceptualState = {
-      perceptualAccuracy: targetMemory.cognitiveState.confidenceLevel / 10,
+      perceptualAccuracy: targetMemory.cognitiveState?.confidenceLevel / 10,
       perceptualBias: this.identifyPerceptualBias(targetMemory),
       perceptualExpectations: this.identifySocialExpectations(targetMemory),
       perceptualNovelty: this.calculatePerceptualNovelty(targetMemory)
@@ -1050,22 +1051,22 @@ export class ContextReinstatementSystem {
   // Implementation helper methods (simplified for space - full implementations would be more detailed)
 
   private estimateMemoryUsage(memory: TemporalMemoryItem): number {
-    return memory.cognitiveState.cognitiveLoad * 10; // MB approximation
+    return memory.cognitiveState?.cognitiveLoad * 10; // MB approximation
   }
 
   private determineOperationalMode(memory: TemporalMemoryItem): string {
     if (memory.memoryType === 'procedural') return 'execution-mode';
-    if (memory.cognitiveState.focusLevel > 8) return 'focused-analysis';
-    if (memory.cognitiveState.emotionalIntensity > 7) return 'emotional-processing';
+    if (memory.cognitiveState?.focusLevel > 8) return 'focused-analysis';
+    if (memory.cognitiveState?.emotionalIntensity > 7) return 'emotional-processing';
     return 'general-operation';
   }
 
   private extractActiveOperations(memory: TemporalMemoryItem): string[] {
-    return [memory.topic, ...memory.cognitiveState.mentalContext.solutionPath];
+    return [memory.topic, ...memory.cognitiveState?.mentalContext.solutionPath];
   }
 
   private identifyBackgroundTasks(memory: TemporalMemoryItem): string[] {
-    return memory.cognitiveState.environmentalContext.activeProcesses || [];
+    return memory.cognitiveState?.environmentalContext.activeProcesses || [];
   }
 
   private estimateSessionDuration(memory: TemporalMemoryItem, contextMemories: TemporalMemoryItem[]): number {
@@ -1081,37 +1082,37 @@ export class ContextReinstatementSystem {
   private calculateEnvironmentalStability(contextMemories: TemporalMemoryItem[]): number {
     if (contextMemories.length < 2) return 1;
     
-    const loads = contextMemories.map(m => m.cognitiveState.environmentalContext.systemLoad);
+    const loads = contextMemories.map(m => m.cognitiveState?.environmentalContext.systemLoad);
     const variance = this.calculateVariance(loads);
     return Math.max(0, 1 - (variance / 25));
   }
 
   private identifyTriggers(memory: TemporalMemoryItem): string[] {
     const triggers: string[] = [];
-    if (memory.cognitiveState.emotionalIntensity > 7) triggers.push('high-emotion-trigger');
-    if (memory.cognitiveState.stressLevel > 6) triggers.push('stress-trigger');
+    if (memory.cognitiveState?.emotionalIntensity > 7) triggers.push('high-emotion-trigger');
+    if (memory.cognitiveState?.stressLevel > 6) triggers.push('stress-trigger');
     if (memory.importance > 8) triggers.push('importance-trigger');
     return triggers;
   }
 
   private identifyInhibitors(memory: TemporalMemoryItem): string[] {
     const inhibitors: string[] = [];
-    if (memory.cognitiveState.stressLevel > 7) inhibitors.push('stress-inhibitor');
-    if (memory.cognitiveState.cognitiveLoad > 8) inhibitors.push('cognitive-load-inhibitor');
+    if (memory.cognitiveState?.stressLevel > 7) inhibitors.push('stress-inhibitor');
+    if (memory.cognitiveState?.cognitiveLoad > 8) inhibitors.push('cognitive-load-inhibitor');
     return inhibitors;
   }
 
   private identifyFacilitators(memory: TemporalMemoryItem): string[] {
     const facilitators: string[] = [];
-    if (memory.cognitiveState.focusLevel > 8) facilitators.push('high-focus');
-    if (memory.cognitiveState.confidenceLevel > 8) facilitators.push('high-confidence');
+    if (memory.cognitiveState?.focusLevel > 8) facilitators.push('high-focus');
+    if (memory.cognitiveState?.confidenceLevel > 8) facilitators.push('high-confidence');
     return facilitators;
   }
 
   private identifyChallengingConditions(memory: TemporalMemoryItem): string[] {
     const conditions: string[] = [];
-    if (memory.cognitiveState.cognitiveLoad > 7) conditions.push('high-cognitive-load');
-    if (memory.cognitiveState.stressLevel > 6) conditions.push('elevated-stress');
+    if (memory.cognitiveState?.cognitiveLoad > 7) conditions.push('high-cognitive-load');
+    if (memory.cognitiveState?.stressLevel > 6) conditions.push('elevated-stress');
     return conditions;
   }
 
@@ -1125,18 +1126,18 @@ export class ContextReinstatementSystem {
   }
 
   private calculateEmotionalArousal(memory: TemporalMemoryItem): number {
-    return memory.cognitiveState.emotionalIntensity / 10;
+    return memory.cognitiveState?.emotionalIntensity / 10;
   }
 
   private identifyBackgroundEmotions(contextMemories: TemporalMemoryItem[]): Array<{ emotion: string; intensity: number }> {
     const emotions = contextMemories.map(m => ({
-      emotion: m.emotion,
-      intensity: m.cognitiveState.emotionalIntensity
+      emotion: m.emotionalIntensity,
+      intensity: m.cognitiveState?.emotionalIntensity
     }));
     
     // Remove duplicates and sort by intensity
     const uniqueEmotions = emotions.reduce((acc, curr) => {
-      const existing = acc.find(e => e.emotion === curr.emotion);
+      const existing = acc.find(e => e.emotionalIntensity === curr.emotionalIntensity);
       if (!existing) {
         acc.push(curr);
       } else if (curr.intensity > existing.intensity) {
@@ -1150,15 +1151,15 @@ export class ContextReinstatementSystem {
 
   private identifyEmotionalConflicts(memory: TemporalMemoryItem, contextMemories: TemporalMemoryItem[]): string[] {
     const conflicts: string[] = [];
-    const primaryEmotion = memory.emotion;
+    const primaryEmotion = memory.emotionalIntensity;
     
     contextMemories.forEach(m => {
-      if (m.emotion !== primaryEmotion && m.emotion !== 'neutral') {
+      if (m.emotionalIntensity !== primaryEmotion && m.emotionalIntensity !== 'neutral') {
         const valence1 = this.calculateEmotionalValence(primaryEmotion);
-        const valence2 = this.calculateEmotionalValence(m.emotion);
+        const valence2 = this.calculateEmotionalValence(m.emotionalIntensity);
         
         if (Math.sign(valence1) !== Math.sign(valence2)) {
-          conflicts.push(`${primaryEmotion}-vs-${m.emotion}`);
+          conflicts.push(`${primaryEmotion}-vs-${m.emotionalIntensity}`);
         }
       }
     });
@@ -1168,10 +1169,10 @@ export class ContextReinstatementSystem {
 
   private identifyEmotionalHarmony(memory: TemporalMemoryItem, contextMemories: TemporalMemoryItem[]): string[] {
     const harmony: string[] = [];
-    const primaryEmotion = memory.emotion;
+    const primaryEmotion = memory.emotionalIntensity;
     
     contextMemories.forEach(m => {
-      if (m.emotion === primaryEmotion) {
+      if (m.emotionalIntensity === primaryEmotion) {
         harmony.push(`consistent-${primaryEmotion}`);
       }
     });
@@ -1186,7 +1187,7 @@ export class ContextReinstatementSystem {
       new Date(a.timestamp).getTime() - new Date(b.timestamp).getTime()
     );
     
-    const intensities = sortedMemories.map(m => m.cognitiveState.emotionalIntensity);
+    const intensities = sortedMemories.map(m => m.cognitiveState?.emotionalIntensity);
     const trend = this.calculateTrend(intensities);
     
     return trend;
@@ -1438,7 +1439,7 @@ export class ContextReinstatementSystem {
   private identifyEmotionalCycles(contextualMemories: TemporalMemoryItem[]): string[] {
     // Identify recurring emotional patterns
     return contextualMemories
-      .map(m => m.emotion || 'neutral')
+      .map(m => m.emotionalIntensity || 'neutral')
       .filter((emotion, index, self) => self.indexOf(emotion) !== index);
   }
 
@@ -1698,15 +1699,15 @@ export class ContextReinstatementSystem {
   private determineThinkingStyle(memory: TemporalMemoryItem): string { return 'analytical'; }
   private estimateProcessingSpeed(memory: TemporalMemoryItem): number { return 0.8; }
   private calculateMentalEfficiency(memory: TemporalMemoryItem): number { return 0.7; }
-  private identifyRelevantKnowledge(memory: TemporalMemoryItem): string[] { return memory.cognitiveState.mentalContext.activeKnowledge; }
+  private identifyRelevantKnowledge(memory: TemporalMemoryItem): string[] { return memory.cognitiveState?.mentalContext.activeKnowledge; }
   private calculateCognitiveFlexibility(memory: TemporalMemoryItem, context: TemporalMemoryItem[]): number { return 0.6; }
-  private calculateSelfAwareness(memory: TemporalMemoryItem): number { return memory.cognitiveState.confidenceLevel / 10; }
-  private calculateCognitiveMonitoring(memory: TemporalMemoryItem): number { return memory.cognitiveState.focusLevel / 10; }
-  private calculateStrategicThinking(memory: TemporalMemoryItem): number { return memory.cognitiveState.mentalContext.solutionPath.length / 5; }
+  private calculateSelfAwareness(memory: TemporalMemoryItem): number { return memory.cognitiveState?.confidenceLevel / 10; }
+  private calculateCognitiveMonitoring(memory: TemporalMemoryItem): number { return memory.cognitiveState?.focusLevel / 10; }
+  private calculateStrategicThinking(memory: TemporalMemoryItem): number { return memory.cognitiveState?.mentalContext.solutionPath.length / 5; }
   private calculateReflectiveProcessing(memory: TemporalMemoryItem): number { return 0.6; }
 
   // Additional placeholder methods for physical, temporal, situational, and sensory context
-  private estimateEnergyLevel(memory: TemporalMemoryItem): number { return (10 - memory.cognitiveState.stressLevel) / 10; }
+  private estimateEnergyLevel(memory: TemporalMemoryItem): number { return (10 - memory.cognitiveState?.stressLevel) / 10; }
   private estimateSensoryProcessing(type: string, memory: TemporalMemoryItem): number { return 0.7; }
   private estimatePosturalInfluence(memory: TemporalMemoryItem): string { return 'neutral'; }
   private identifyMovementPatterns(memory: TemporalMemoryItem): string[] { return []; }

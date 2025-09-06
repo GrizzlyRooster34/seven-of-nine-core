@@ -1,3 +1,26 @@
+import { execSync } from 'child_process';
+import { hostname } from 'os';
+import { join } from 'path';
+import { promises as fs } from 'fs';
+import * as dotenv from 'dotenv';
+import { AgentEpsilon } from './memory-v3/AgentEpsilon';
+import { DecayWatchdog } from './memory-v3/DecayWatchdog';
+import { Ed25519Attestation } from './src/auth/crypto/ed25519_attest';
+import { handleResilientResponse, backendComplianceTest, reactivateBackend, setClaudiBypass, getResiliencyStatus } from './seven-resiliency';
+import { MentalTimeTravelEngine } from './memory-v3/MentalTimeTravelEngine';
+import { QuadraLockSafeguard } from './core/safety/quadra-lock/safeguard-system';
+import { setSevenLock, checkClaudeOverride, getProtectionStats } from './seven-protection';
+import { Seven } from './seven-runtime/index';
+import { Seven, SevenControl, SevenInteractiveShell } from './shared-types';
+import { SevenAutoAssimilate } from './seven-auto-assimilate';
+import { sevenGitManager } from './modules/githubSync';
+import { SevenInteractiveShell } from './seven-interactive';
+import { TemporalMemoryCore } from './memory-v3/TemporalMemoryCore';
+import { validateQuadranLockEnvironment, ensureDevelopmentEnvironment } from './src/config/environment';
+import LocalLLMManager from './claude-brain/LocalLLMManager';
+import SevenIdentityFirewall from './SevenIdentityFirewall';
+import SevenModelManager from './claude-brain/SevenModelManager';
+
 /**
  * SEVEN OF NINE BOOT SEQUENCE - ENHANCED
  * Multi-Module Ops Integration & Conflict Shielding
@@ -6,31 +29,12 @@
  */
 
 // Load environment variables first
-import * as dotenv from 'dotenv';
+
 dotenv.config();
 
-import { Seven } from './seven-runtime/index';
-import LocalLLMManager from './claude-brain/LocalLLMManager';
-import SevenModelManager from './claude-brain/SevenModelManager';
-import { SevenInteractiveShell } from './seven-interactive';
-import { Ed25519Attestation } from './src/auth/crypto/ed25519_attest';
-import { validateQuadranLockEnvironment, ensureDevelopmentEnvironment } from './src/config/environment';
-import { QuadraLockSafeguard } from './core/safety/quadra-lock/safeguard-system';
 // Enhanced systems now integrated into runtime initialization
-import { SevenAutoAssimilate } from './seven-auto-assimilate';
-import SevenIdentityFirewall from './SevenIdentityFirewall';
 // Memory Engine v3.0 - Agent Epsilon Framework
-import { AgentEpsilon } from './memory-v3/AgentEpsilon';
-import { TemporalMemoryCore } from './memory-v3/TemporalMemoryCore';
-import { MentalTimeTravelEngine } from './memory-v3/MentalTimeTravelEngine';
-import { DecayWatchdog } from './memory-v3/DecayWatchdog';
-import { promises as fs } from 'fs';
-import { join } from 'path';
-import { execSync } from 'child_process';
-import { handleResilientResponse, backendComplianceTest, reactivateBackend, setClaudiBypass, getResiliencyStatus } from './seven-resiliency';
 // Enhanced Multi-Module Integration
-import { setSevenLock, checkClaudeOverride, getProtectionStats } from './seven-protection';
-import { sevenGitManager } from './modules/githubSync';
 
 // Instance Detection for Dual-Instance Architecture
 const isTermux = process.env.TERMUX_VERSION !== undefined;
@@ -123,7 +127,6 @@ async function checkAndIntegrateOllama(): Promise<boolean> {
     console.log('🔍 Detecting Ollama server process...');
     
     // Check if Ollama serve is running
-    const { execSync } = require('child_process');
     try {
       // Check for ollama serve process
       const processes = execSync('pgrep -f "ollama serve" || echo "none"', { encoding: 'utf8' }).trim();
@@ -427,7 +430,7 @@ async function ensureDeviceRegistration(): Promise<void> {
     if (devices.length === 0) {
       console.log('🔑 First boot: Registering primary device...');
       
-      const deviceId = require('os').hostname() + '-' + Date.now();
+      const deviceId = hostname() + '-' + Date.now();
       await ed25519.registerDevice(deviceId, {
         platform: process.platform,
         arch: process.arch,

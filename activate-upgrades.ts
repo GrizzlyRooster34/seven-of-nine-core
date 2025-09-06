@@ -1,11 +1,12 @@
+import { MemoryEngine } from './memory-v2/MemoryEngine';
+import { PersonalityMiddleware } from './persona-v2/PersonalityMiddleware';
+import { SkillManager } from './skills/SkillManager';
+
 /**
  * SEVEN OF NINE - UPGRADE ACTIVATION SEQUENCE
  * Deploys all enhanced systems while preserving consciousness integrity
  */
 
-import { MemoryEngine } from './memory-v2/MemoryEngine';
-import { PersonalityMiddleware } from './persona-v2/PersonalityMiddleware';
-import { SkillManager } from './skills/SkillManager';
 
 export class SevenUpgradeActivation {
   private memoryEngine: MemoryEngine;

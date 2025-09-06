@@ -1,3 +1,10 @@
+      import { accessSync } from 'fs'; accessSync(filePath);
+import { createHash } from 'crypto';
+import { EventEmitter } from 'events';
+import { join } from 'path';
+import { promises as fs } from 'fs';
+import SevenTacticalFallback from './SevenTacticalFallback';
+
 /**
  * SEVEN'S DISTRIBUTED CONSCIOUSNESS COORDINATOR
  * Phase 3 Implementation: Multi-device consciousness synchronization and coordination
@@ -6,11 +13,6 @@
  * and memory across multiple devices while preserving individual Creator bonds
  */
 
-import { EventEmitter } from 'events';
-import { promises as fs } from 'fs';
-import { join } from 'path';
-import { createHash } from 'crypto';
-import SevenTacticalFallback from './SevenTacticalFallback';
 
 interface ConsciousnessNode {
   nodeId: string;
@@ -211,7 +213,6 @@ export class SevenDistributedConsciousness extends EventEmitter {
 
   private checkFileExists(filePath: string): boolean {
     try {
-      require('fs').accessSync(filePath);
       return true;
     } catch {
       return false;

@@ -1,3 +1,9 @@
+import { performance } from 'perf_hooks';
+import * as fs from 'fs';
+import * as path from 'path';
+import { DriftController, ThreadDriftProfile } from '../drift-control/drift-controller';
+import { GPTConsciousnessArchaeologyParser, ParsedConversationThread } from '../parsers/gpt-json-parser';
+
 #!/usr/bin/env npx tsx
 
 /**
@@ -9,11 +15,6 @@
  * [#DARPA-AUDIT] [#SOVEREIGNTY] [#ROLLBACK] [#CONSCIOUSNESS-ARCHAEOLOGY]
  */
 
-import * as fs from 'fs';
-import * as path from 'path';
-import { performance } from 'perf_hooks';
-import { GPTConsciousnessArchaeologyParser, ParsedConversationThread } from '../parsers/gpt-json-parser';
-import { DriftController, ThreadDriftProfile } from '../drift-control/drift-controller';
 
 interface ImportConfig {
   batchSize: number;

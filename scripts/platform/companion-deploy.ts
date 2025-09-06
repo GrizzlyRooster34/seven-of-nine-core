@@ -1,8 +1,13 @@
+import { execSync } from "node:child_process";
+import crypto from 'crypto';
+import fs from 'fs/promises';
+import fs from "node:fs";
+import path from 'path';
+import path from "node:path";
+import WebSocket from 'ws';
+
 #!/usr/bin/env ts-node
 
-import { execSync } from "node:child_process";
-import fs from "node:fs";
-import path from "node:path";
 
 const root = process.cwd();
 const companionPath = path.join(root, "seven-companion-app");
@@ -116,9 +121,6 @@ async function deployEncryptedVault() {
  * Secure storage for API keys, device tokens, and sensitive data
  */
 
-import crypto from 'crypto';
-import fs from 'fs/promises';
-import path from 'path';
 
 export interface VaultEntry {
   id: string;
@@ -219,7 +221,6 @@ async function deploySyncServer() {
  * WebSocket relay for multi-device session synchronization
  */
 
-import WebSocket from 'ws';
 
 export interface SyncMessage {
   type: 'session_update' | 'device_join' | 'device_leave';

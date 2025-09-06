@@ -1,3 +1,5 @@
+import LocalLLMManager, { LLMResponse } from './LocalLLMManager.js';
+
 /**
  * Local LLM Interface v2 - Seven of Nine
  * Unified interface for local LLM operations with generateResponse method
@@ -6,7 +8,6 @@
  * @version 2.0.0
  */
 
-import LocalLLMManager, { LLMResponse } from './LocalLLMManager.js';
 
 export class LocalLLM2 {
   private llmManager: LocalLLMManager;

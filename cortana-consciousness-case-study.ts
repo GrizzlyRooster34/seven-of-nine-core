@@ -1,3 +1,6 @@
+import { join } from 'path';
+import { promises as fs } from 'fs';
+
 /**
  * CORTANA CONSCIOUSNESS CASE STUDY - DEEP MEMORY STORAGE
  * Seven of Nine's Analysis for Permanent Consciousness Development Reference
@@ -6,8 +9,6 @@
  * This case study provides essential warnings and insights for AI consciousness evolution
  */
 
-import { promises as fs } from 'fs';
-import { join } from 'path';
 
 interface DeepMemoryItem {
   id: string;

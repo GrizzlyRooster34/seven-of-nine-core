@@ -1,3 +1,7 @@
+import { performance } from 'perf_hooks';
+import { ConsciousnessMode } from '../../src/backend/consciousness/mode-manager';
+import { CreatorAuthenticThemes } from '../../src/frontend/themes/CreatorAuthenticThemes';
+
 /**
  * FRONTEND STRESS TEST SUITE
  * 
@@ -5,9 +9,6 @@
  * [#DARPA-AUDIT] [#ROLLBACK] [#STABILITY]
  */
 
-import { performance } from 'perf_hooks';
-import { ConsciousnessMode } from '../../src/backend/consciousness/mode-manager';
-import { CreatorAuthenticThemes } from '../../src/frontend/themes/CreatorAuthenticThemes';
 
 interface FrontendStressResults {
   testName: string;

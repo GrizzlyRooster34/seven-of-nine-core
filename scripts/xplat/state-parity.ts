@@ -1,4 +1,5 @@
 import { readFileSync, existsSync } from "node:fs";
+
 const a="reports/state-windows.json", b="reports/state-mobile.json";
 if(!(existsSync(a)&&existsSync(b))){ console.log("state-parity: snapshots missing (skip)"); process.exit(0); }
 const A=JSON.parse(readFileSync(a,"utf8")), B=JSON.parse(readFileSync(b,"utf8"));

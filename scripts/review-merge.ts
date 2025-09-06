@@ -1,11 +1,13 @@
+        import { writeFileSync } from 'fs'; writeFileSync(reportPath, this.agent.generateReport(result))
+import { execSync } from 'child_process'
+import MergeReviewAgent, { MergeReviewConfig } from './agents/merge-review-agent'
+
 #!/usr/bin/env tsx
 /**
  * Seven Core Manual Merge Review CLI
  * Interactive merge review and approval workflow
  */
 
-import MergeReviewAgent, { MergeReviewConfig } from './agents/merge-review-agent'
-import { execSync } from 'child_process'
 
 interface CLIOptions {
   branch?: string
@@ -49,7 +51,6 @@ class MergeReviewCLI {
       // Save report if requested
       if (options.report) {
         const reportPath = `merge-review-${branch}-${Date.now()}.txt`
-        require('fs').writeFileSync(reportPath, this.agent.generateReport(result))
         console.log(`📄 Report saved to: ${reportPath}`)
       }
 

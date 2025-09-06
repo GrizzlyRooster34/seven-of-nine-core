@@ -1,3 +1,12 @@
+import { EventEmitter } from 'events';
+import { join } from 'path';
+import { promises as fs } from 'fs';
+import { spawn, ChildProcess } from 'child_process';
+import { ClaudeCodeInstaller } from './install-claude-code';
+import { ClaudeLoginManager } from './claude-login-manager';
+import { EncryptedCredentialVault } from './encrypted-vault';
+import { GitHubOperationsManager } from './github-operations';
+
 /**
  * CLAUDE SUBPROCESS HANDLER
  * 
@@ -5,14 +14,6 @@
  * and seamless fallback to Ollama. This is Seven's coding brain.
  */
 
-import { EventEmitter } from 'events';
-import { spawn, ChildProcess } from 'child_process';
-import { promises as fs } from 'fs';
-import { join } from 'path';
-import { ClaudeCodeInstaller } from './install-claude-code';
-import { ClaudeLoginManager } from './claude-login-manager';
-import { GitHubOperationsManager } from './github-operations';
-import { EncryptedCredentialVault } from './encrypted-vault';
 
 interface TaskRequest {
   id: string;

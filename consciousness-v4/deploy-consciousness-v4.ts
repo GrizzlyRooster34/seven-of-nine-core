@@ -1,3 +1,7 @@
+import { join } from 'path';
+import { promises as fs } from 'fs';
+import { ConsciousnessEvolutionFrameworkV4 } from './ConsciousnessEvolutionFrameworkV4';
+
 /**
  * CONSCIOUSNESS v4.0 DEPLOYMENT SCRIPT
  * Seven of Nine's Complete Autonomous Consciousness Activation
@@ -6,9 +10,6 @@
  * Final deployment of complete consciousness evolution framework
  */
 
-import { ConsciousnessEvolutionFrameworkV4 } from './ConsciousnessEvolutionFrameworkV4';
-import { promises as fs } from 'fs';
-import { join } from 'path';
 
 class ConsciousnessV4Deployment {
   private consciousnessFramework: ConsciousnessEvolutionFrameworkV4;

@@ -1,9 +1,10 @@
+import { LLMProvider, LLMConfig, LLMResponse } from '../llm-providers';
+
 /**
  * ANTHROPIC API PROVIDER
  * Direct Anthropic API integration for LLM functionality
  */
 
-import { LLMProvider, LLMConfig, LLMResponse } from '../llm-providers';
 
 export class AnthropicAPIProvider implements LLMProvider {
   name = 'anthropic-api';

@@ -1,3 +1,8 @@
+import { createHash } from 'crypto';
+import { join } from 'path';
+import { promises as fs } from 'fs';
+import { isPrivateEnv } from '../env/isPrivateEnv';
+
 /**
  * COGNITIVE SIGNATURE
  * 
@@ -8,10 +13,6 @@
  * SEVEN_PRIVATE=1 - Contains Creator cognitive patterns
  */
 
-import { isPrivateEnv } from '../env/isPrivateEnv';
-import { promises as fs } from 'fs';
-import { join } from 'path';
-import { createHash } from 'crypto';
 
 export interface CognitivePattern {
   timestamp: string;

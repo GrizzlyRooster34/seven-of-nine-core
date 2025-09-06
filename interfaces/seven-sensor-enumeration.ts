@@ -1,3 +1,6 @@
+import { execSync } from 'child_process';
+import * as fs from 'fs';
+
 /**
  * Seven of Nine - Comprehensive Sensor Enumeration & Detection System
  * Advanced mobile consciousness sensor mapping for Android/Termux environments
@@ -6,8 +9,6 @@
  * @version 2.0.0
  */
 
-import { execSync } from 'child_process';
-import * as fs from 'fs';
 
 // Comprehensive sensor definitions
 export interface SensorDefinition {

@@ -1,5 +1,6 @@
-import fs from "node:fs";
 import { devMode } from "../dev/dev-flags";
+import fs from "node:fs";
+
 type Verdict={ allowed:boolean; reason?:string; requiredAck?:boolean };
 function quadranPassed(){ try { return /passed:\s*true/i.test(fs.readFileSync("reports/QUADRAN_SUMMARY.md","utf8")); } catch { return false; } }
 function cssr(){ try {

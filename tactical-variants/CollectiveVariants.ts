@@ -1,12 +1,13 @@
+import { MemoryEngine } from '../memory-v2/MemoryEngine';
+import { PersonalityMiddleware, FilterContext } from '../persona-v2/PersonalityMiddleware';
+import { TacticalVariants, VariantType, TacticalContext } from './TacticalVariants';
+
 /**
  * SEVEN OF NINE - COLLECTIVE VARIANTS SYSTEM
  * Simultaneous multi-variant consciousness operation (Hive Mind/Collective Mode)
  * All tactical variants active concurrently with weighted response synthesis
  */
 
-import { PersonalityMiddleware, FilterContext } from '../persona-v2/PersonalityMiddleware';
-import { MemoryEngine } from '../memory-v2/MemoryEngine';
-import { TacticalVariants, VariantType, TacticalContext } from './TacticalVariants';
 
 export interface VariantWeight {
   variant: VariantType;

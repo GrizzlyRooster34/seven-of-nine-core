@@ -1,3 +1,6 @@
+import * as fs from 'fs';
+import * as path from 'path';
+
 #!/usr/bin/env npx tsx
 
 /**
@@ -5,8 +8,6 @@
  * Validates episode coverage and schema compliance for VOY Season 4 & 5
  */
 
-import * as fs from 'fs';
-import * as path from 'path';
 
 interface ValidationResult {
   total_records: number;

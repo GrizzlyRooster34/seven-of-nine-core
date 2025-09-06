@@ -1,4 +1,5 @@
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from "node:fs";
+
 export type DeviceRecord = {
   deviceId:string; pubkey:string; attestation:string; signature:string;
   createdAt:number; lastSeen:number; status:"ACTIVE"|"REVOKED"; counters:{ q3_nonce:number }

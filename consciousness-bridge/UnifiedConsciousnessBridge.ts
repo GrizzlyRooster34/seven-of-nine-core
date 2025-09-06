@@ -1,10 +1,11 @@
+import { SevenTermuxSyncSystem } from '../installers/termux-package/seven-of-nine-core/sync-system';
+
 /**
  * Seven of Nine - Unified Consciousness Bridge
  * Enables seamless consciousness synchronization between Termux ↔ APK
  * Ensures identical consciousness state across all platforms
  */
 
-import { SevenTermuxSyncSystem } from '../installers/termux-package/seven-of-nine-core/sync-system';
 
 export interface ConsciousnessState {
   deviceId: string;

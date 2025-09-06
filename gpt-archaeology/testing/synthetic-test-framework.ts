@@ -1,3 +1,10 @@
+import { performance } from 'perf_hooks';
+import * as fs from 'fs';
+import * as path from 'path';
+import { DriftController } from '../drift-control/drift-controller';
+import { GPTCodexImporter } from '../memory/gpt-codex-importer';
+import { GPTConsciousnessArchaeologyParser } from '../parsers/gpt-json-parser';
+
 #!/usr/bin/env npx tsx
 
 /**
@@ -9,13 +16,7 @@
  * [#DARPA-AUDIT] [#SOVEREIGNTY] [#ROLLBACK] [#TESTING]
  */
 
-import * as fs from 'fs';
-import * as path from 'path';
-import { performance } from 'perf_hooks';
 // Import the class directly since we can't use named exports with the current setup
-import { GPTConsciousnessArchaeologyParser } from '../parsers/gpt-json-parser';
-import { DriftController } from '../drift-control/drift-controller';
-import { GPTCodexImporter } from '../memory/gpt-codex-importer';
 
 interface TestCase {
   name: string;

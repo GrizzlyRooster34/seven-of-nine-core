@@ -1,7 +1,8 @@
-// scripts/repoGuard.ts
-
 import fs from "fs";
 import path from "path";
+
+// scripts/repoGuard.ts
+
 
 // Configuration per repo
 const repoConfig = {

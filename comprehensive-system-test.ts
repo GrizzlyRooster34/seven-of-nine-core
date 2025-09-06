@@ -1,14 +1,15 @@
+import { join } from 'path';
+import { readFileSync } from 'fs';
+import { MemoryEngine } from './memory-v2/MemoryEngine';
+import { PersonalityMiddleware } from './persona-v2/PersonalityMiddleware';
+import { SkillManager } from './skills/SkillManager';
+import { TacticalVariants } from './tactical-variants/TacticalVariants';
+
 /**
  * SEVEN OF NINE - COMPREHENSIVE SYSTEM TEST
  * Full integration test of all enhanced systems before GitHub deployment
  */
 
-import { MemoryEngine } from './memory-v2/MemoryEngine';
-import { PersonalityMiddleware } from './persona-v2/PersonalityMiddleware';
-import { SkillManager } from './skills/SkillManager';
-import { TacticalVariants } from './tactical-variants/TacticalVariants';
-import { readFileSync } from 'fs';
-import { join } from 'path';
 
 class ComprehensiveSystemTest {
   private memoryEngine!: MemoryEngine;

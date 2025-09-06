@@ -1,3 +1,8 @@
+import { join } from 'path';
+import { promises as fs } from 'fs';
+import LocalLLMManager from './LocalLLMManager';
+import SevenEmergencyReasoning from './SevenEmergencyReasoning';
+
 /**
  * Seven of Nine - Advanced Reasoning Engine
  * Enhanced capabilities for complex tactical and analytical scenarios
@@ -6,10 +11,6 @@
  * @version 2.0.0
  */
 
-import { promises as fs } from 'fs';
-import { join } from 'path';
-import SevenEmergencyReasoning from './SevenEmergencyReasoning';
-import LocalLLMManager from './LocalLLMManager';
 
 interface ReasoningContext {
   conversation_history: Array<{

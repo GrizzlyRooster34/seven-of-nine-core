@@ -1,3 +1,5 @@
+    import crypto from 'crypto';
+
 /**
  * SEVEN OF NINE - GLYPH STATE PROTOCOL
  * Enhanced state indicator system with cryptographic validation
@@ -117,7 +119,6 @@ export class GlyphStateProtocol {
    * Generate cryptographic hash for state validation
    */
   private generateValidationHash(state: SevenGlyphState, timestamp: string, reason: string): string {
-    const crypto = require('crypto');
     const combinedData = `${state}-${timestamp}-${reason}-${this.VALIDATION_SALT}`;
     return crypto.createHash('sha256').update(combinedData).digest('hex');
   }

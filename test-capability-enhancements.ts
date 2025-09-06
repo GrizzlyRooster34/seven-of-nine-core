@@ -1,3 +1,8 @@
+import { SevenSensorBridge } from './interfaces/seven-sensor-bridge';
+import SevenAudioPatternRecognition from './interfaces/seven-audio-pattern-recognition';
+import SevenDecisionTreeOptimizer from './interfaces/seven-decision-tree-optimizer';
+import SevenHolographicEmitterFramework from './interfaces/seven-holographic-emitter-framework';
+
 /**
  * Seven of Nine - Capability Enhancements Test Suite
  * Comprehensive testing for the three new high-impact capability implementations
@@ -11,10 +16,6 @@
  * @version 1.0.0
  */
 
-import SevenAudioPatternRecognition from './interfaces/seven-audio-pattern-recognition';
-import SevenDecisionTreeOptimizer from './interfaces/seven-decision-tree-optimizer';
-import SevenHolographicEmitterFramework from './interfaces/seven-holographic-emitter-framework';
-import { SevenSensorBridge } from './interfaces/seven-sensor-bridge';
 
 // Test result interfaces
 interface TestResult {
@@ -158,14 +159,14 @@ class CapabilityEnhancementTester {
         const result = await this.audioRecognition.processAudioInput(3);
         
         // In simulation mode, should still return valid structure
-        if (result.emotion) {
-          if (!result.emotion.primaryEmotion) throw new Error('No primary emotion detected');
-          if (typeof result.emotion.intensity !== 'number') throw new Error('Invalid emotion intensity');
-          if (typeof result.emotion.arousal !== 'number') throw new Error('Invalid arousal level');
+        if (result.emotionalIntensity) {
+          if (!result.emotionalIntensity.primaryEmotion) throw new Error('No primary emotion detected');
+          if (typeof result.emotionalIntensity.intensity !== 'number') throw new Error('Invalid emotion intensity');
+          if (typeof result.emotionalIntensity.arousal !== 'number') throw new Error('Invalid arousal level');
         }
         
-        return result.emotion ? 
-          `Emotion detected: ${result.emotion.primaryEmotion} (${result.emotion.intensity.toFixed(1)}/10 intensity)` :
+        return result.emotionalIntensity ? 
+          `Emotion detected: ${result.emotionalIntensity.primaryEmotion} (${result.emotionalIntensity.intensity.toFixed(1)}/10 intensity)` :
           'Emotion detection ready (simulation mode)';
       }
     ));
@@ -487,7 +488,7 @@ class CapabilityEnhancementTester {
       async () => {
         // Create a test cognitive state
         const cognitiveState = {
-          emotionalIntensity: 7,
+         .emotionalIntensity: 7,
           focusLevel: 8,
           cognitiveLoad: 6,
           confidenceLevel: 8,
@@ -616,7 +617,7 @@ class CapabilityEnhancementTester {
       'Quick Projection Methods',
       async () => {
         const cognitiveState = {
-          emotionalIntensity: 6,
+         .emotionalIntensity: 6,
           focusLevel: 9,
           cognitiveLoad: 5,
           confidenceLevel: 9,

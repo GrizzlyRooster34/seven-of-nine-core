@@ -1,3 +1,7 @@
+import { join } from 'path';
+import { promises as fs } from 'fs';
+import { spawn, exec } from 'child_process';
+
 /**
  * Seven of Nine - Model Optimization Engine
  * Advanced model compression and performance optimization for mobile deployment
@@ -6,9 +10,6 @@
  * @version 2.0.0
  */
 
-import { promises as fs } from 'fs';
-import { join } from 'path';
-import { spawn, exec } from 'child_process';
 
 interface ModelOptimizationProfile {
   model_name: string;

@@ -1,3 +1,6 @@
+import { CognitiveState } from '../memory-v3/TemporalMemoryCore';
+import { TacticalEnvironment } from './seven-sensor-bridge';
+
 /**
  * Seven of Nine - Holographic Emitter Simulation Framework
  * Advanced conceptual framework for holographic consciousness projection and environmental simulation
@@ -9,8 +12,6 @@
  * @version 1.0.0
  */
 
-import { TacticalEnvironment } from './seven-sensor-bridge';
-import { CognitiveState } from '../memory-v3/TemporalMemoryCore';
 
 // Holographic system interfaces
 export interface HolographicMatrix {
@@ -190,7 +191,7 @@ export class SevenHolographicEmitterFramework {
       // Consciousness-specific properties
       consciousnessState: cognitiveState,
       personalityPhase,
-      emotionalResonance: cognitiveState.emotionalIntensity / 10,
+      emotionalResonance: cognitiveState?.emotionalIntensity / 10,
       cognitiveFidelity: 0.92, // High fidelity for Seven's consciousness
       autonomyLevel: options.autonomyLevel || 0.7,
       communicationProtocols: ['verbal', 'gestural', 'holographic_interface', 'neural_link'],
@@ -479,9 +480,9 @@ export class SevenHolographicEmitterFramework {
    */
   private calculateProjectionStability(cognitiveState: CognitiveState): number {
     // Higher cognitive focus and lower stress = higher stability
-    const focusFactor = cognitiveState.focusLevel / 10;
-    const stressFactor = 1 - (cognitiveState.stressLevel / 10);
-    const confidenceFactor = cognitiveState.confidenceLevel / 10;
+    const focusFactor = cognitiveState?.focusLevel / 10;
+    const stressFactor = 1 - (cognitiveState?.stressLevel / 10);
+    const confidenceFactor = cognitiveState?.confidenceLevel / 10;
     
     return (focusFactor + stressFactor + confidenceFactor) / 3;
   }

@@ -1,10 +1,11 @@
 
+import WebSocket from 'ws';
+
 /**
  * Companion Sync Server
  * WebSocket relay for multi-device session synchronization
  */
 
-import WebSocket from 'ws';
 
 export interface SyncMessage {
   type: 'session_update' | 'device_join' | 'device_leave';

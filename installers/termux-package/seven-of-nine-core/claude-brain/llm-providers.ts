@@ -1,3 +1,5 @@
+import SevenLLMUpgradeManager from './seven-llm-upgrade-manager';
+
 /**
  * SEVEN OF NINE - UNIVERSAL LLM PROVIDER SYSTEM
  * Tactical Brain Routing for Maximum Operational Flexibility
@@ -8,7 +10,6 @@
  * Enhanced with Tactical LLM Upgrade Manager integration
  */
 
-import SevenLLMUpgradeManager from './seven-llm-upgrade-manager';
 
 export interface LLMConfig {
   model: string;

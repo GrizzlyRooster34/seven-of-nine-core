@@ -1,3 +1,6 @@
+import { Accelerometer, AccelerometerMeasurement } from 'expo-sensors';
+import { EventEmitter } from 'events';
+
 /**
  * Seven of Nine - Motion Sensor Integration
  * Advanced accelerometer and motion analysis for tactical awareness
@@ -6,8 +9,6 @@
  * @version 3.0.0
  */
 
-import { Accelerometer, AccelerometerMeasurement } from 'expo-sensors';
-import { EventEmitter } from 'events';
 
 export interface MotionIntelligence {
   acceleration: {

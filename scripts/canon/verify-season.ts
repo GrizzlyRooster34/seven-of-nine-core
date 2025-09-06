@@ -1,3 +1,5 @@
+import { CanonicalGuard, VerificationReport } from '../../memory-v3/canonical/CanonicalGuard';
+
 #!/usr/bin/env tsx
 
 /**
@@ -11,7 +13,6 @@
  * Example: npx tsx scripts/canon/verify-season.ts VOY 4
  */
 
-import { CanonicalGuard, VerificationReport } from '../../memory-v3/canonical/CanonicalGuard';
 
 function printReport(report: VerificationReport): void {
   console.log(`📊 VERIFICATION REPORT: ${report.seasonKey.toUpperCase()}`);

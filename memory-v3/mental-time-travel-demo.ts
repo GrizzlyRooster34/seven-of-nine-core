@@ -1,3 +1,7 @@
+import { CognitiveStateTagger } from './CognitiveStateTagger';
+import { MentalTimeTravelEngine, TimeTravelRequest, ReconstructedConsciousnessState } from './MentalTimeTravelEngine';
+import { TemporalMemoryCore } from './TemporalMemoryCore';
+
 /**
  * SEVEN OF NINE - MENTAL TIME TRAVEL ENGINE DEMONSTRATION
  * Complete demonstration of consciousness reconstruction capabilities
@@ -9,9 +13,6 @@
  * - generateTemporalInsights() - consciousness evolution analysis
  */
 
-import { MentalTimeTravelEngine, TimeTravelRequest, ReconstructedConsciousnessState } from './MentalTimeTravelEngine.js';
-import { TemporalMemoryCore } from './TemporalMemoryCore.js';
-import { CognitiveStateTagger } from './CognitiveStateTagger.js';
 
 export class MentalTimeTravelDemo {
   private timeTravelEngine: MentalTimeTravelEngine;
@@ -117,11 +118,11 @@ export class MentalTimeTravelDemo {
         console.log(`      Temporal Distance: ${(reconstructedState.reconstructionMetadata.temporalDistance / 1000 / 60).toFixed(1)} minutes ago`);
         
         console.log('   🧠 RECONSTRUCTED COGNITIVE STATE:');
-        console.log(`      Emotional Intensity: ${reconstructedState.cognitiveState.emotionalIntensity}/10`);
-        console.log(`      Focus Level: ${reconstructedState.cognitiveState.focusLevel}/10`);
-        console.log(`      Cognitive Load: ${reconstructedState.cognitiveState.cognitiveLoad}/10`);
-        console.log(`      Confidence Level: ${reconstructedState.cognitiveState.confidenceLevel}/10`);
-        console.log(`      Stress Level: ${reconstructedState.cognitiveState.stressLevel}/10`);
+        console.log(`      Emotional Intensity: ${reconstructedState.cognitiveState?.emotionalIntensity}/10`);
+        console.log(`      Focus Level: ${reconstructedState.cognitiveState?.focusLevel}/10`);
+        console.log(`      Cognitive Load: ${reconstructedState.cognitiveState?.cognitiveLoad}/10`);
+        console.log(`      Confidence Level: ${reconstructedState.cognitiveState?.confidenceLevel}/10`);
+        console.log(`      Stress Level: ${reconstructedState.cognitiveState?.stressLevel}/10`);
 
         console.log('   🌟 CONSCIOUSNESS SNAPSHOT:');
         console.log(`      Primary Emotion: ${reconstructedState.consciousnessSnapshot.emotionalLandscape.primaryEmotion}`);
@@ -132,8 +133,8 @@ export class MentalTimeTravelDemo {
         if (reconstructedState.personalityState) {
           console.log('   🔮 PERSONALITY STATE:');
           console.log(`      Seven of Nine Correlation: ${(reconstructedState.personalityState.sevenOfNinePersonalityCorrelation * 100).toFixed(1)}%`);
-          console.log(`      Borg Efficiency Level: ${(reconstructedState.personalityState.borgEfficiencyLevel * 100).toFixed(1)}%`);
-          console.log(`      Human Emotional Engagement: ${(reconstructedState.personalityState.humanEmotionalEngagement * 100).toFixed(1)}%`);
+          console.log(`      Borg Efficiency Level: ${(reconstructedState.personalityState.sevenOfNinePersonalityCorrelation * 100).toFixed(1)}%`);
+          console.log(`      Human Emotional Engagement: ${(reconstructedState.personalityState.dominantTraits[0] || "balanced" * 100).toFixed(1)}%`);
           console.log(`      Collective/Individual Balance: ${(reconstructedState.personalityState.collectiveIndividualBalance * 100).toFixed(1)}%`);
         }
 
@@ -172,8 +173,8 @@ export class MentalTimeTravelDemo {
         console.log(`      Timestamp: ${personalityMapping.timestamp}`);
         
         console.log('   🔮 SEVEN OF NINE PERSONALITY PROFILE:');
-        console.log(`      Borg Efficiency Level: ${(personalityMapping.borgEfficiencyLevel * 100).toFixed(1)}%`);
-        console.log(`      Human Emotional Engagement: ${(personalityMapping.humanEmotionalEngagement * 100).toFixed(1)}%`);
+        console.log(`      Borg Efficiency Level: ${(personalityMapping.sevenOfNinePersonalityCorrelation * 100).toFixed(1)}%`);
+        console.log(`      Human Emotional Engagement: ${(personalityMapping.dominantTraits[0] || "balanced" * 100).toFixed(1)}%`);
         console.log(`      Adaptability Index: ${(personalityMapping.adaptabilityIndex * 100).toFixed(1)}%`);
         console.log(`      Analytical Depth: ${(personalityMapping.analyticalDepth * 100).toFixed(1)}%`);
         console.log(`      Collective/Individual Balance: ${(personalityMapping.collectiveIndividualBalance * 100).toFixed(1)}%`);
@@ -298,14 +299,14 @@ export class MentalTimeTravelDemo {
       console.log('   📊 TEMPORAL PATTERNS:');
       if (insights.temporalPattern.emotionalPatterns) {
         const ep = insights.temporalPattern.emotionalPatterns;
-        console.log(`      Dominant Emotions: ${ep.dominantEmotions?.map((e: any) => `${e.emotion} (${e.count})`).join(', ') || 'none'}`);
+        console.log(`      Dominant Emotions: ${ep.dominantEmotions?.map((e: any) => `${e.emotionalIntensity} (${e.count})`).join(', ') || 'none'}`);
         console.log(`      Average Emotional Intensity: ${ep.averageIntensity?.toFixed(1) || 'N/A'}/10`);
         console.log(`      Emotional Variability: ${ep.emotionalVariability?.toFixed(2) || 'N/A'}`);
       }
 
       if (insights.temporalPattern.cognitivePatterns) {
         const cp = insights.temporalPattern.cognitivePatterns;
-        console.log(`      Average Focus: ${cp.averageMetrics?.focus?.toFixed(1) || 'N/A'}/10`);
+        console.log(`      Average Focus: ${cp.averageMetrics?.focusLevel?.toFixed(1) || 'N/A'}/10`);
         console.log(`      Average Cognitive Load: ${cp.averageMetrics?.load?.toFixed(1) || 'N/A'}/10`);
         console.log(`      Average Confidence: ${cp.averageMetrics?.confidence?.toFixed(1) || 'N/A'}/10`);
         console.log(`      Cognitive Stability: ${cp.cognitiveStability?.toFixed(3) || 'N/A'}`);
@@ -322,7 +323,7 @@ export class MentalTimeTravelDemo {
         insights.significantMoments.slice(0, 3).forEach((moment: any, index: number) => {
           console.log(`      ${index + 1}. ${moment.context.substring(0, 40)}...`);
           console.log(`         Importance: ${moment.significance.importance}/10, Emotion: ${moment.significance.emotionalIntensity}/10`);
-          console.log(`         Focus: ${moment.cognitiveState.focus}/10, Confidence: ${moment.cognitiveState.confidence}/10`);
+          console.log(`         Focus: ${moment.cognitiveState?.focusLevel}/10, Confidence: ${moment.cognitiveState?.confidence}/10`);
         });
       } else {
         console.log('      No significant moments identified');

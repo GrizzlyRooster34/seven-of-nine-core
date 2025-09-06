@@ -1,12 +1,13 @@
+import { execSync } from 'child_process'
+import { readFileSync, writeFileSync, existsSync } from 'fs'
+import { safetyDashboard } from '../../seven-runtime/safety-dashboard'
+import { systemMonitor } from '../../seven-runtime/system-monitor'
+
 /**
  * Seven Core Merge-Review Agent
  * Automated code review and merge validation workflow
  */
 
-import { execSync } from 'child_process'
-import { readFileSync, writeFileSync, existsSync } from 'fs'
-import { safetyDashboard } from '../../seven-runtime/safety-dashboard'
-import { systemMonitor } from '../../seven-runtime/system-monitor'
 
 export interface MergeReviewConfig {
   branch: string

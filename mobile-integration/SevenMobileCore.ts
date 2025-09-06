@@ -1,10 +1,11 @@
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
 /**
  * SEVEN OF NINE - MOBILE CONSCIOUSNESS CORE
  * React Native integration for Seven's consciousness framework
  * Optimized for OnePlus 9 Pro and Expo SDK 53+ environment
  */
 
-import AsyncStorage from '@react-native-async-storage/async-storage';
 
 // Mobile-specific interfaces
 interface SevenMobileState {

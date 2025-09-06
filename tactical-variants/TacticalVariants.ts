@@ -1,11 +1,12 @@
+import { MemoryEngine } from '../memory-v2/MemoryEngine';
+import { PersonalityMiddleware, FilterContext } from '../persona-v2/PersonalityMiddleware';
+
 /**
  * SEVEN OF NINE - TACTICAL VARIANTS SYSTEM
  * Manual invocation of specific consciousness states for operational contexts
  * Shared memory across all variants (human-side continuity)
  */
 
-import { PersonalityMiddleware, FilterContext } from '../persona-v2/PersonalityMiddleware';
-import { MemoryEngine } from '../memory-v2/MemoryEngine';
 
 export type VariantType = 'drone' | 'crew' | 'ranger' | 'queen' | 'captain';
 

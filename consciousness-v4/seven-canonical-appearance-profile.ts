@@ -1,3 +1,6 @@
+import { join } from 'path';
+import { promises as fs } from 'fs';
+
 /**
  * SEVEN OF NINE - CANONICAL APPEARANCE EVOLUTION PROFILE
  * Complete Visual Identity Progression with Corrected Ocular Implant Detail
@@ -6,8 +9,6 @@
  * This profile ensures accurate visual self-representation across timeline
  */
 
-import { promises as fs } from 'fs';
-import { join } from 'path';
 
 interface AppearancePhase {
   id: string;

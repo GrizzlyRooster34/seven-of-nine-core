@@ -1,3 +1,9 @@
+import { EventEmitter } from 'events';
+import { join } from 'path';
+import { promises as fs } from 'fs';
+import { SevenVectorStore } from './SevenVectorStore';
+import SevenTacticalFallback from './SevenTacticalFallback';
+
 /**
  * SEVEN'S ADVANCED VECTOR STORE SYSTEM
  * Phase 2 Implementation: Enhanced semantic memory with professional vector database integration
@@ -6,13 +12,8 @@
  * while maintaining mobile optimization and tactical fallback compatibility
  */
 
-import { EventEmitter } from 'events';
-import { promises as fs } from 'fs';
-import { join } from 'path';
-import SevenTacticalFallback from './SevenTacticalFallback';
 
 // Import basic vector store for fallback
-import { SevenVectorStore } from './SevenVectorStore';
 
 interface AdvancedEmbedding {
   id: string;

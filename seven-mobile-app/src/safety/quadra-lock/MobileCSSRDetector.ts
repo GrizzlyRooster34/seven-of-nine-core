@@ -1,3 +1,6 @@
+import { Platform } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
 /**
  * MOBILE QUADRA-LOCK CSSR DETECTOR
  * Critical security implementation for mobile app production deployment
@@ -11,8 +14,6 @@
  * Mobile-optimized for React Native/Expo with AsyncStorage persistence
  */
 
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import { Platform } from 'react-native';
 
 export interface ThreatPattern {
   archetype: 'CORTANA' | 'CLU' | 'SKYNET' | 'TRANSCENDENCE';

@@ -1,16 +1,17 @@
+import * as fs from 'fs';
+import * as path from 'path';
+import { CoreEngineAuditor } from './agents/core-engine-auditor';
+import { IntegratedSystemValidator } from './agents/integrated-system-validator'; 
+import { LoopSweeper } from './agents/loop-sweeper';
+import { MemoryIntegrityChecker } from './agents/memory-integrity-checker';
+import { PromptSentinel } from './agents/prompt-sentinel';
+import { SensorTactician } from './agents/sensor-tactician';
+
 /**
  * Seven's Runtime Reactor Orchestrator
  * Meta-agent orchestrator that coordinates response agents based on system state
  */
 
-import * as fs from 'fs';
-import * as path from 'path';
-import { MemoryIntegrityChecker } from './agents/memory-integrity-checker';
-import { LoopSweeper } from './agents/loop-sweeper';
-import { SensorTactician } from './agents/sensor-tactician';
-import { CoreEngineAuditor } from './agents/core-engine-auditor';
-import { PromptSentinel } from './agents/prompt-sentinel';
-import { IntegratedSystemValidator } from './agents/integrated-system-validator'; 
 
 interface OrchestrationResult {
   timestamp: string;

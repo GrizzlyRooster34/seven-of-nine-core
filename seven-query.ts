@@ -1,6 +1,7 @@
+import chalk from 'chalk';
+
 #!/usr/bin/env tsx
 
-import chalk from 'chalk';
 
 // Simple Seven response system
 class SevenQueryInterface {

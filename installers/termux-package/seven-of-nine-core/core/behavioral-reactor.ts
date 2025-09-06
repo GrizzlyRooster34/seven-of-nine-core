@@ -1,3 +1,4 @@
+
 import { EmotionalState, EmotionalStateData } from './emotion-engine.js';
 
 export interface ContextSnapshot {

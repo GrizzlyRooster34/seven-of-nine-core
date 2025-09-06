@@ -8,7 +8,7 @@
  *
  * Agent Alpha Implementation - Real-time cognitive state monitoring
  */
-import { CognitiveState } from './TemporalMemoryCore.js';
+import { CognitiveState } from './TemporalMemoryCore';
 export interface CognitiveStateSample {
     timestamp: string;
     state: CognitiveState;

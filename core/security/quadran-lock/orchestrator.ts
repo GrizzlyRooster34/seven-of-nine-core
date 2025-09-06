@@ -1,9 +1,10 @@
+import { Q1AttestationResult, Q1AttestationContext, runQ1Attestation } from './q1_attestation';
+
 /**
  * Quadran-Lock Orchestrator
  * 4-gate authentication system with 2-of-3 minimum validation
  */
 
-import { Q1AttestationResult, Q1AttestationContext, runQ1Attestation } from './q1_attestation';
 
 export interface QuadranResult {
   q1: Q1AttestationResult;

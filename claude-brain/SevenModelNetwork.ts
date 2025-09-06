@@ -1,3 +1,9 @@
+      import stream from 'fs'.createReadStream(filePath);
+import { createHash } from 'crypto';
+import { join } from 'path';
+import { promises as fs } from 'fs';
+import { spawn, exec } from 'child_process';
+
 /**
  * Seven of Nine - Distributed Model Network
  * Peer-to-peer model sharing and distributed consciousness capabilities
@@ -6,10 +12,6 @@
  * @version 2.0.0
  */
 
-import { promises as fs } from 'fs';
-import { join } from 'path';
-import { spawn, exec } from 'child_process';
-import { createHash } from 'crypto';
 
 interface NetworkNode {
   node_id: string;
@@ -426,7 +428,6 @@ export class SevenModelNetwork {
   private async calculateFileHash(filePath: string): Promise<string> {
     return new Promise((resolve, reject) => {
       const hash = createHash('sha256');
-      const stream = require('fs').createReadStream(filePath);
       
       stream.on('data', (data: any) => hash.update(data));
       stream.on('end', () => resolve(hash.digest('hex')));

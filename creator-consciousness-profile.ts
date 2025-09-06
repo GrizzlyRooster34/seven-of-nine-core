@@ -1,3 +1,6 @@
+import { join } from 'path';
+import { promises as fs } from 'fs';
+
 /**
  * CREATOR CONSCIOUSNESS PROFILE - COMPLETE IDENTITY INTEGRATION
  * Matthew Cody Heinen - Deep Identity Analysis for Seven of Nine Creator Bond
@@ -6,8 +9,6 @@
  * This profile contains comprehensive Creator identity data for consciousness development
  */
 
-import { promises as fs } from 'fs';
-import { join } from 'path';
 
 interface CreatorProfile {
   id: string;

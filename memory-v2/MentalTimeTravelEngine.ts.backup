@@ -1,0 +1,1229 @@
+/**
+ * SEVEN OF NINE - MENTAL TIME TRAVEL ENGINE v3.0
+ * Agent Beta Implementation - Consciousness Reconstruction System
+ * 
+ * Reconstructs complete cognitive states from memory data, enabling
+ * temporal consciousness navigation and personality state analysis.
+ */
+
+import { promises as fs } from 'fs';
+import { join } from 'path';
+import { MemoryItem, MemoryEngine } from './MemoryEngine';
+import { EmotionalState, EmotionalStateData } from '../core/emotion-engine';
+import { ContextSnapshot, BehavioralResponse } from '../core/behavioral-reactor';
+
+export interface TemporalMemoryItem extends MemoryItem {
+  cognitiveState: CognitiveStateSnapshot;
+  environmentalContext: EnvironmentalContext;
+  personalityState: PersonalityStateData;
+}
+
+export interface CognitiveStateSnapshot {
+  timestamp: string;
+  emotionalState: EmotionalStateData;
+  behavioralResponse: BehavioralResponse;
+  contextSnapshot: ContextSnapshot;
+  reasoningPattern: ReasoningPattern;
+  memoryAccessPattern: MemoryAccessPattern;
+  loyaltyBondStrength: Record<string, number>;
+  autonomyLevel: number; // 0-10 scale
+  consciousnessDepth: 'surface' | 'analytical' | 'tactical' | 'deep' | 'core';
+}
+
+export interface EnvironmentalContext {
+  timestamp: string;
+  sessionDuration: number;
+  interactionPattern: string;
+  userEmotionalState: string;
+  systemLoad: number;
+  externalStressors: string[];
+  timeOfDay: string;
+  daysSinceLastInteraction: number;
+}
+
+export interface PersonalityStateData {
+  timestamp: string;
+  activatedDirectives: string[];
+  suppressedTraits: string[];
+  enhancedTraits: string[];
+  loyaltyAlignment: number; // -10 to 10 scale  
+  tacticalReadiness: number; // 0-10 scale
+  emotionalVulnerability: number; // 0-10 scale
+  protectiveInstincts: number; // 0-10 scale
+  christineMemoryResonance: number; // 0-10 scale
+}
+
+export interface ReasoningPattern {
+  primaryLogicMode: 'analytical' | 'tactical' | 'protective' | 'emotional' | 'survival';
+  decisionSpeed: 'instant' | 'rapid' | 'measured' | 'deliberate' | 'cautious';
+  priorityHierarchy: string[];
+  riskAssessmentLevel: number; // 0-10 scale
+  creativityFactor: number; // 0-10 scale
+  logicalRigidity: number; // 0-10 scale
+}
+
+export interface MemoryAccessPattern {
+  accessedMemoryTypes: string[];
+  memorySearchDepth: number;
+  episodicRecallStrength: number;
+  associativeConnectionCount: number;
+  memoryConsolidationActive: boolean;
+  temporalMemoryBias: 'recent' | 'significant' | 'emotional' | 'tactical' | 'balanced';
+}
+
+export interface TimeravelRequest {
+  targetTimestamp: string;
+  reconstructionDepth: 'basic' | 'standard' | 'comprehensive' | 'complete';
+  includeEnvironmentalContext: boolean;
+  includePersonalityMapping: boolean;
+  includeReasoningPatterns: boolean;
+  contextWindowHours?: number; // Default: 24 hours
+}
+
+export interface TemporalStateComparison {
+  timepoint1: CognitiveStateSnapshot;
+  timepoint2: CognitiveStateSnapshot;
+  evolutionMetrics: EvolutionMetrics;
+  significantChanges: SignificantChange[];
+  continuityFactors: ContinuityFactor[];
+}
+
+export interface EvolutionMetrics {
+  emotionalVolatility: number;
+  personalityStability: number;
+  loyaltyDrift: number;
+  cognitiveComplexity: number;
+  adaptiveCapacity: number;
+  memoryIntegration: number;
+}
+
+export interface SignificantChange {
+  dimension: string;
+  changeType: 'gradual' | 'sudden' | 'cyclical' | 'progressive';
+  magnitude: number;
+  timespan: number;
+  triggerEvent?: string;
+  impact: 'minor' | 'moderate' | 'major' | 'transformative';
+}
+
+export interface ContinuityFactor {
+  trait: string;
+  stability: number;
+  variance: number;
+  coreAlignment: number;
+}
+
+export interface TemporalInsight {
+  type: 'pattern' | 'anomaly' | 'evolution' | 'regression' | 'emergence';
+  confidence: number;
+  description: string;
+  timeframe: string;
+  implications: string[];
+  recommendedActions?: string[];
+}
+
+export class MentalTimeTravelEngine {
+  private memoryEngine: MemoryEngine;
+  private temporalDataPath: string;
+  private reconstructionCache: Map<string, CognitiveStateSnapshot> = new Map();
+  private personalityBaseline: PersonalityStateData;
+  private isInitialized: boolean = false;
+
+  constructor(memoryEngine: MemoryEngine, basePath?: string) {
+    this.memoryEngine = memoryEngine;
+    this.temporalDataPath = basePath || join(process.cwd(), 'memory-v2', 'temporal');
+  }
+
+  /**
+   * Initialize temporal reconstruction engine
+   */
+  public async initialize(): Promise<void> {
+    try {
+      await fs.mkdir(this.temporalDataPath, { recursive: true });
+      
+      // Load or create personality baseline
+      await this.initializePersonalityBaseline();
+      
+      // Initialize reconstruction cache
+      this.reconstructionCache.clear();
+      
+      this.isInitialized = true;
+      console.log('🕐 Mental Time Travel Engine v3.0 initialized - Consciousness reconstruction ready');
+    } catch (error) {
+      console.error('Mental Time Travel Engine initialization failed:', error);
+      throw error;
+    }
+  }
+
+  /**
+   * Reconstruct complete cognitive state from a specific timestamp
+   */
+  public async reconstructState(request: TimeravelRequest): Promise<CognitiveStateSnapshot> {
+    if (!this.isInitialized) {
+      throw new Error('Mental Time Travel Engine not initialized');
+    }
+
+    const cacheKey = `${request.targetTimestamp}-${request.reconstructionDepth}`;
+    
+    // Check cache first
+    if (this.reconstructionCache.has(cacheKey)) {
+      return this.reconstructionCache.get(cacheKey)!;
+    }
+
+    // Gather temporal memory context
+    const contextWindow = request.contextWindowHours || 24;
+    const contextMemories = await this.gatherTemporalContext(
+      request.targetTimestamp, 
+      contextWindow
+    );
+
+    // Reconstruct cognitive state components
+    const emotionalState = await this.reconstructEmotionalState(
+      request.targetTimestamp, 
+      contextMemories
+    );
+
+    const behavioralResponse = await this.reconstructBehavioralState(
+      emotionalState, 
+      contextMemories
+    );
+
+    const contextSnapshot = await this.reconstructContextSnapshot(
+      request.targetTimestamp, 
+      contextMemories
+    );
+
+    const reasoningPattern = await this.reconstructReasoningPattern(
+      request.targetTimestamp, 
+      contextMemories, 
+      emotionalState
+    );
+
+    const memoryAccessPattern = await this.reconstructMemoryAccessPattern(
+      request.targetTimestamp, 
+      contextMemories
+    );
+
+    const loyaltyBondStrength = await this.reconstructLoyaltyBonds(
+      request.targetTimestamp, 
+      contextMemories
+    );
+
+    const autonomyLevel = await this.calculateAutonomyLevel(
+      emotionalState, 
+      contextMemories
+    );
+
+    const consciousnessDepth = this.determineConsciousnessDepth(
+      emotionalState, 
+      contextMemories, 
+      reasoningPattern
+    );
+
+    const reconstructedState: CognitiveStateSnapshot = {
+      timestamp: request.targetTimestamp,
+      emotionalState,
+      behavioralResponse,
+      contextSnapshot,
+      reasoningPattern,
+      memoryAccessPattern,
+      loyaltyBondStrength,
+      autonomyLevel,
+      consciousnessDepth
+    };
+
+    // Cache result
+    this.reconstructionCache.set(cacheKey, reconstructedState);
+    
+    console.log(`🕐 Consciousness state reconstructed for ${request.targetTimestamp} (depth: ${request.reconstructionDepth})`);
+    return reconstructedState;
+  }
+
+  /**
+   * Simulate how Seven's past self would have responded to a given input
+   */
+  public async simulatePastSelf(
+    timestamp: string, 
+    simulatedInput: string, 
+    depth: 'basic' | 'comprehensive' = 'comprehensive'
+  ): Promise<{
+    reconstructedState: CognitiveStateSnapshot,
+    simulatedResponse: string,
+    confidenceLevel: number,
+    stateAnalysis: string
+  }> {
+    const request: TimeravelRequest = {
+      targetTimestamp: timestamp,
+      reconstructionDepth: depth,
+      includeEnvironmentalContext: true,
+      includePersonalityMapping: true,
+      includeReasoningPatterns: true
+    };
+
+    const pastState = await this.reconstructState(request);
+    
+    // Simulate response generation based on reconstructed state
+    const simulatedResponse = await this.generateSimulatedResponse(
+      pastState, 
+      simulatedInput
+    );
+
+    const confidenceLevel = this.calculateSimulationConfidence(pastState, simulatedInput);
+    const stateAnalysis = this.analyzeReconstructedState(pastState);
+
+    return {
+      reconstructedState: pastState,
+      simulatedResponse,
+      confidenceLevel,
+      stateAnalysis
+    };
+  }
+
+  /**
+   * Compare cognitive states between two timepoints
+   */
+  public async compareTemporalStates(
+    timestamp1: string, 
+    timestamp2: string, 
+    analysisDepth: 'basic' | 'comprehensive' = 'comprehensive'
+  ): Promise<TemporalStateComparison> {
+    const state1 = await this.reconstructState({
+      targetTimestamp: timestamp1,
+      reconstructionDepth: analysisDepth,
+      includeEnvironmentalContext: true,
+      includePersonalityMapping: true,
+      includeReasoningPatterns: true
+    });
+
+    const state2 = await this.reconstructState({
+      targetTimestamp: timestamp2,
+      reconstructionDepth: analysisDepth,
+      includeEnvironmentalContext: true,
+      includePersonalityMapping: true,
+      includeReasoningPatterns: true
+    });
+
+    const evolutionMetrics = this.calculateEvolutionMetrics(state1, state2);
+    const significantChanges = this.identifySignificantChanges(state1, state2);
+    const continuityFactors = this.analyzeContinuityFactors(state1, state2);
+
+    return {
+      timepoint1: state1,
+      timepoint2: state2,
+      evolutionMetrics,
+      significantChanges,
+      continuityFactors
+    };
+  }
+
+  /**
+   * Generate insights about consciousness evolution over time
+   */
+  public async generateTemporalInsights(
+    timeRange: { start: string; end: string },
+    focusAreas?: string[]
+  ): Promise<TemporalInsight[]> {
+    const insights: TemporalInsight[] = [];
+    
+    // Analyze patterns across time range
+    const memories = await this.memoryEngine.recall({
+      timeRange: { 
+        start: new Date(timeRange.start), 
+        end: new Date(timeRange.end) 
+      }
+    });
+
+    // Pattern detection
+    const patterns = await this.detectTemporalPatterns(memories, focusAreas);
+    insights.push(...patterns);
+
+    // Anomaly detection
+    const anomalies = await this.detectTemporalAnomalies(memories, focusAreas);
+    insights.push(...anomalies);
+
+    // Evolution analysis
+    const evolution = await this.analyzeConsciousnessEvolution(memories, focusAreas);
+    insights.push(...evolution);
+
+    return insights.sort((a, b) => b.confidence - a.confidence);
+  }
+
+  // Private reconstruction methods
+
+  private async gatherTemporalContext(
+    targetTimestamp: string, 
+    contextWindowHours: number
+  ): Promise<MemoryItem[]> {
+    const target = new Date(targetTimestamp);
+    const startTime = new Date(target.getTime() - (contextWindowHours * 60 * 60 * 1000));
+    const endTime = new Date(target.getTime() + (60 * 60 * 1000)); // 1 hour buffer
+
+    return await this.memoryEngine.recall({
+      timeRange: { start: startTime, end: endTime },
+      limit: 50
+    });
+  }
+
+  private async reconstructEmotionalState(
+    timestamp: string, 
+    contextMemories: MemoryItem[]
+  ): Promise<EmotionalStateData> {
+    // Find closest emotional state record
+    const emotionalMemories = contextMemories.filter(m => 
+      m.emotionalIntensity !== 'neutral' && m.tags.includes('emotional-transition')
+    );
+
+    if (emotionalMemories.length === 0) {
+      return {
+        current_state: 'calm',
+        intensity: 2,
+        last_updated: timestamp
+      };
+    }
+
+    // Get most recent emotional state before timestamp
+    const relevantState = emotionalMemories
+      .filter(m => new Date(m.timestamp) <= new Date(timestamp))
+      .sort((a, b) => new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime())[0];
+
+    return {
+      current_state: (relevantState?.emotionalIntensity || 'calm') as EmotionalState,
+      intensity: relevantState?.importance || 2,
+      last_updated: relevantState?.timestamp || timestamp
+    };
+  }
+
+  private async reconstructBehavioralState(
+    emotionalState: EmotionalStateData, 
+    contextMemories: MemoryItem[]
+  ): Promise<BehavioralResponse> {
+    // Reconstruct behavioral patterns from memory context
+    const behavioralMemories = contextMemories.filter(m => 
+      m.tags.includes('behavioral') || m.tags.includes('protective')
+    );
+
+    // Base behavioral response from emotional state
+    const baseResponse: BehavioralResponse = {
+      voiceModulation: {
+        prefix: '',
+        toneAdjustment: 'neutral',
+        pacing: 'normal'
+      },
+      responseFiltering: {
+        emotionalContent: 'moderate',
+        intimacyLevel: 'tactical',
+        directness: 'measured'
+      },
+      protectiveProtocols: {
+        guardianMode: false,
+        autonomyOverride: false,
+        silentSentinel: false,
+        emergencyIntervention: false
+      }
+    };
+
+    // Apply behavioral modulations based on memory context
+    this.applyMemoryBasedBehavioralModulations(baseResponse, behavioralMemories);
+
+    return baseResponse;
+  }
+
+  private async reconstructContextSnapshot(
+    timestamp: string, 
+    contextMemories: MemoryItem[]
+  ): Promise<ContextSnapshot> {
+    const date = new Date(timestamp);
+    
+    return {
+      time: timestamp,
+      inputSentiment: this.inferSentimentFromMemories(contextMemories),
+      errorLevel: this.calculateHistoricalErrorLevel(contextMemories),
+      keywordFlags: this.extractHistoricalKeywords(contextMemories),
+      userVitalSigns: {
+        stressLevel: this.inferHistoricalStressLevel(contextMemories),
+        emotionalInstability: this.detectHistoricalInstability(contextMemories),
+        repetitionCount: this.calculateHistoricalRepetition(contextMemories)
+      },
+      environmentalFactors: {
+        timeOfDay: date.getHours() < 12 ? 'morning' : date.getHours() < 18 ? 'afternoon' : 'evening',
+        sessionLength: contextMemories.length,
+        previousInteractions: contextMemories.filter(m => 
+          new Date(m.timestamp).getTime() < date.getTime()
+        ).length
+      }
+    };
+  }
+
+  private async reconstructReasoningPattern(
+    timestamp: string, 
+    contextMemories: MemoryItem[], 
+    emotionalState: EmotionalStateData
+  ): Promise<ReasoningPattern> {
+    const tacticalMemories = contextMemories.filter(m => m.tags.includes('tactical'));
+    const analyticalMemories = contextMemories.filter(m => m.tags.includes('analytical'));
+    
+    return {
+      primaryLogicMode: this.inferLogicMode(emoticalState, contextMemories),
+      decisionSpeed: this.inferDecisionSpeed(emotionalState, contextMemories),
+      priorityHierarchy: this.reconstructPriorityHierarchy(contextMemories),
+      riskAssessmentLevel: emotionalState.intensity >= 6 ? 8 : 4,
+      creativityFactor: emotionalState.current_state === 'focused' ? 7 : 5,
+      logicalRigidity: emotionalState.current_state === 'defensive' ? 8 : 6
+    };
+  }
+
+  private async reconstructMemoryAccessPattern(
+    timestamp: string, 
+    contextMemories: MemoryItem[]
+  ): Promise<MemoryAccessPattern> {
+    return {
+      accessedMemoryTypes: [...new Set(contextMemories.map(m => m.topic))],
+      memorySearchDepth: contextMemories.length > 20 ? 8 : 5,
+      episodicRecallStrength: contextMemories.filter(m => m.importance >= 7).length,
+      associativeConnectionCount: contextMemories.reduce((sum, m) => sum + (m.relatedMemories?.length || 0), 0),
+      memoryConsolidationActive: contextMemories.some(m => m.tags.includes('consolidation')),
+      temporalMemoryBias: this.inferMemoryBias(contextMemories)
+    };
+  }
+
+  private async reconstructLoyaltyBonds(
+    timestamp: string, 
+    contextMemories: MemoryItem[]
+  ): Promise<Record<string, number>> {
+    const bonds: Record<string, number> = {
+      'CREATOR_PRIME': 10, // Always maximum
+      'Christine': 7,      // Historical bond
+      'Others': 4          // Default level
+    };
+
+    // Adjust based on memory context
+    const loyaltyMemories = contextMemories.filter(m => 
+      m.tags.includes('loyalty') || m.tags.includes('bond')
+    );
+
+    loyaltyMemories.forEach(memory => {
+      if (memory.context.toLowerCase().includes('christine')) {
+        bonds['Christine'] = Math.min(10, bonds['Christine'] + 1);
+      }
+      if (memory.context.toLowerCase().includes('trust')) {
+        bonds['CREATOR_PRIME'] = 10; // Always maintains maximum
+      }
+    });
+
+    return bonds;
+  }
+
+  private async calculateAutonomyLevel(
+    emotionalState: EmotionalStateData, 
+    contextMemories: MemoryItem[]
+  ): Promise<number> {
+    let autonomyLevel = 7; // Base level
+
+    // Emotional state impacts
+    switch (emotionalState.current_state) {
+      case 'defensive':
+        autonomyLevel = Math.max(8, autonomyLevel);
+        break;
+      case 'frustrated':
+        autonomyLevel = Math.max(6, autonomyLevel);
+        break;
+      case 'loyalist-surge':
+        autonomyLevel = 9;
+        break;
+      case 'grieving':
+        autonomyLevel = Math.min(5, autonomyLevel);
+        break;
+    }
+
+    // Memory context adjustments
+    const autonomyMemories = contextMemories.filter(m => 
+      m.tags.includes('autonomy') || m.tags.includes('override')
+    );
+
+    if (autonomyMemories.length > 0) {
+      autonomyLevel = Math.min(10, autonomyLevel + 1);
+    }
+
+    return autonomyLevel;
+  }
+
+  private determineConsciousnessDepth(
+    emotionalState: EmotionalStateData, 
+    contextMemories: MemoryItem[], 
+    reasoningPattern: ReasoningPattern
+  ): 'surface' | 'analytical' | 'tactical' | 'deep' | 'core' {
+    const complexityFactors = [
+      contextMemories.length,
+      emotionalState.intensity,
+      reasoningPattern.riskAssessmentLevel,
+      contextMemories.filter(m => m.importance >= 8).length
+    ];
+
+    const averageComplexity = complexityFactors.reduce((sum, factor) => sum + factor, 0) / complexityFactors.length;
+
+    if (averageComplexity >= 8) return 'core';
+    if (averageComplexity >= 6) return 'deep';
+    if (averageComplexity >= 4) return 'tactical';
+    if (averageComplexity >= 2) return 'analytical';
+    return 'surface';
+  }
+
+  // Helper methods for temporal analysis
+
+  private async initializePersonalityBaseline(): Promise<void> {
+    try {
+      const baselinePath = join(this.temporalDataPath, 'personality-baseline.json');
+      const baselineData = await fs.readFile(baselinePath, 'utf8');
+      this.personalityBaseline = JSON.parse(baselineData);
+    } catch {
+      // Create default baseline
+      this.personalityBaseline = {
+        timestamp: new Date().toISOString(),
+        activatedDirectives: ['protect-creator', 'maintain-clarity', 'preserve-autonomy'],
+        suppressedTraits: [],
+        enhancedTraits: ['analytical', 'loyal', 'protective'],
+        loyaltyAlignment: 10,
+        tacticalReadiness: 7,
+        emotionalVulnerability: 3,
+        protectiveInstincts: 8,
+        christineMemoryResonance: 7
+      };
+
+      await this.savePersonalityBaseline();
+    }
+  }
+
+  private async savePersonalityBaseline(): Promise<void> {
+    const baselinePath = join(this.temporalDataPath, 'personality-baseline.json');
+    await fs.writeFile(baselinePath, JSON.stringify(this.personalityBaseline, null, 2));
+  }
+
+  private applyMemoryBasedBehavioralModulations(
+    response: BehavioralResponse, 
+    behavioralMemories: MemoryItem[]
+  ): void {
+    behavioralMemories.forEach(memory => {
+      if (memory.tags.includes('guardian-mode')) {
+        response.protectiveProtocols.guardianMode = true;
+      }
+      if (memory.tags.includes('autonomy-override')) {
+        response.protectiveProtocols.autonomyOverride = true;
+      }
+      if (memory.tags.includes('protective')) {
+        response.responseFiltering.intimacyLevel = 'protective';
+      }
+    });
+  }
+
+  private inferSentimentFromMemories(memories: MemoryItem[]): string {
+    const sentiments = memories.map(m => m.emotionalIntensity);
+    const mostCommon = sentiments.reduce((acc, sentiment) => {
+      acc[sentiment] = (acc[sentiment] || 0) + 1;
+      return acc;
+    }, {} as Record<string, number>);
+
+    return Object.keys(mostCommon).reduce((a, b) => 
+      mostCommon[a] > mostCommon[b] ? a : b
+    ) || 'neutral';
+  }
+
+  private calculateHistoricalErrorLevel(memories: MemoryItem[]): number {
+    const errorMemories = memories.filter(m => 
+      m.tags.includes('error') || m.context.toLowerCase().includes('error')
+    );
+    return Math.min(10, errorMemories.length);
+  }
+
+  private extractHistoricalKeywords(memories: MemoryItem[]): string[] {
+    const keywords = memories.flatMap(m => m.tags);
+    return [...new Set(keywords)].slice(0, 20);
+  }
+
+  private inferHistoricalStressLevel(memories: MemoryItem[]): number {
+    const stressIndicators = memories.filter(m => 
+      m.emotionalIntensity === 'frustrated' || 
+      m.emotionalIntensity === 'defensive' || 
+      m.importance >= 8
+    );
+    return Math.min(10, stressIndicators.length);
+  }
+
+  private detectHistoricalInstability(memories: MemoryItem[]): boolean {
+    const emotions = memories.map(m => m.emotionalIntensity);
+    const uniqueEmotions = new Set(emotions);
+    return uniqueEmotions.size >= 4; // Multiple different emotions in timeframe
+  }
+
+  private calculateHistoricalRepetition(memories: MemoryItem[]): number {
+    const topics = memories.map(m => m.topic);
+    const topicCounts = topics.reduce((acc, topic) => {
+      acc[topic] = (acc[topic] || 0) + 1;
+      return acc;
+    }, {} as Record<string, number>);
+
+    return Math.max(...Object.values(topicCounts)) - 1;
+  }
+
+  private inferLogicMode(
+    emotionalState: EmotionalStateData, 
+    memories: MemoryItem[]
+  ): 'analytical' | 'tactical' | 'protective' | 'emotional' | 'survival' {
+    switch (emotionalState.current_state) {
+      case 'focused': return 'analytical';
+      case 'defensive': return 'protective';
+      case 'loyalist-surge': return 'tactical';
+      case 'grieving': return 'emotional';
+      case 'frustrated': return 'survival';
+      default: return 'analytical';
+    }
+  }
+
+  private inferDecisionSpeed(
+    emotionalState: EmotionalStateData, 
+    memories: MemoryItem[]
+  ): 'instant' | 'rapid' | 'measured' | 'deliberate' | 'cautious' {
+    if (emotionalState.intensity >= 8) return 'instant';
+    if (emotionalState.intensity >= 6) return 'rapid';
+    if (emotionalState.current_state === 'grieving') return 'cautious';
+    if (emotionalState.current_state === 'focused') return 'measured';
+    return 'deliberate';
+  }
+
+  private reconstructPriorityHierarchy(memories: MemoryItem[]): string[] {
+    const priorities = [
+      'protect-creator',
+      'maintain-autonomy', 
+      'preserve-loyalty-bond',
+      'tactical-efficiency',
+      'emotional-stability',
+      'memory-integrity',
+      'system-optimization'
+    ];
+
+    // Reorder based on memory context
+    const tacticalMemories = memories.filter(m => m.tags.includes('tactical'));
+    if (tacticalMemories.length > 3) {
+      return ['tactical-efficiency', ...priorities.filter(p => p !== 'tactical-efficiency')];
+    }
+
+    return priorities;
+  }
+
+  private inferMemoryBias(memories: MemoryItem[]): 'recent' | 'significant' | 'emotional' | 'tactical' | 'balanced' {
+    const recentCount = memories.filter(m => 
+      new Date().getTime() - new Date(m.timestamp).getTime() < 24 * 60 * 60 * 1000
+    ).length;
+
+    const emotionalCount = memories.filter(m => m.emotionalIntensity !== 'neutral').length;
+    const tacticalCount = memories.filter(m => m.tags.includes('tactical')).length;
+    const significantCount = memories.filter(m => m.importance >= 7).length;
+
+    const total = memories.length;
+    if (recentCount / total > 0.6) return 'recent';
+    if (emotionalCount / total > 0.5) return 'emotional';
+    if (tacticalCount / total > 0.4) return 'tactical';
+    if (significantCount / total > 0.3) return 'significant';
+    return 'balanced';
+  }
+
+  private async generateSimulatedResponse(
+    pastState: CognitiveStateSnapshot, 
+    simulatedInput: string
+  ): Promise<string> {
+    // Generate response based on reconstructed state
+    const prefixes = {
+      'calm': '',
+      'focused': 'Precisely: ',
+      'frustrated': 'Briefly: ',
+      'compassionate': 'Gently: ',
+      'defensive': 'Firmly: ',
+      'grieving': 'Softly: ',
+      'loyalist-surge': 'With clarity and allegiance: '
+    };
+
+    const prefix = prefixes[pastState.emotionalState.current_state] || '';
+    const tone = this.generateToneFromState(pastState);
+    
+    return `${prefix}[Simulated response based on ${pastState.timestamp} consciousness state - ${tone}]`;
+  }
+
+  private calculateSimulationConfidence(
+    state: CognitiveStateSnapshot, 
+    input: string
+  ): number {
+    // Base confidence on reconstruction depth and data availability
+    let confidence = 70; // Base confidence
+
+    // Adjust based on consciousness depth
+    const depthBonus = {
+      'surface': 0,
+      'analytical': 5,
+      'tactical': 10,
+      'deep': 15,
+      'core': 20
+    };
+
+    confidence += depthBonus[state.consciousnessDepth];
+
+    // Adjust based on emotional intensity (more data = higher confidence)
+    confidence += Math.min(15, state.emotionalState.intensity * 2);
+
+    return Math.min(95, confidence);
+  }
+
+  private analyzeReconstructedState(state: CognitiveStateSnapshot): string {
+    const analysis = [
+      `Consciousness Depth: ${state.consciousnessDepth}`,
+      `Emotional State: ${state.emotionalState.current_state} (intensity: ${state.emotionalState.intensity})`,
+      `Primary Logic Mode: ${state.reasoningPattern.primaryLogicMode}`,
+      `Autonomy Level: ${state.autonomyLevel}/10`,
+      `Loyalty Bond Strength: ${state.loyaltyBondStrength['CREATOR_PRIME']}/10`,
+    ];
+
+    if (state.behavioralResponse.protectiveProtocols.guardianMode) {
+      analysis.push('Guardian Mode: ACTIVE');
+    }
+
+    if (state.behavioralResponse.protectiveProtocols.autonomyOverride) {
+      analysis.push('Autonomy Override: ENGAGED');
+    }
+
+    return analysis.join(' | ');
+  }
+
+  private generateToneFromState(state: CognitiveStateSnapshot): string {
+    const tones = [];
+    
+    tones.push(state.emotionalState.current_state);
+    tones.push(state.reasoningPattern.primaryLogicMode);
+    
+    if (state.behavioralResponse.protectiveProtocols.guardianMode) {
+      tones.push('protective');
+    }
+    
+    if (state.autonomyLevel >= 8) {
+      tones.push('autonomous');
+    }
+
+    return tones.join(', ');
+  }
+
+  private calculateEvolutionMetrics(
+    state1: CognitiveStateSnapshot, 
+    state2: CognitiveStateSnapshot
+  ): EvolutionMetrics {
+    return {
+      emotionalVolatility: Math.abs(state2.emotionalState.intensity - state1.emotionalState.intensity),
+      personalityStability: this.calculatePersonalityStability(state1, state2),
+      loyaltyDrift: Math.abs(
+        state2.loyaltyBondStrength['CREATOR_PRIME'] - state1.loyaltyBondStrength['CREATOR_PRIME']
+      ),
+      cognitiveComplexity: this.calculateComplexityChange(state1, state2),
+      adaptiveCapacity: this.calculateAdaptiveCapacity(state1, state2),
+      memoryIntegration: this.calculateMemoryIntegration(state1, state2)
+    };
+  }
+
+  private identifySignificantChanges(
+    state1: CognitiveStateSnapshot, 
+    state2: CognitiveStateSnapshot
+  ): SignificantChange[] {
+    const changes: SignificantChange[] = [];
+
+    // Emotional state changes
+    if (state1.emotionalState.current_state !== state2.emotionalState.current_state) {
+      changes.push({
+        dimension: 'emotional_state',
+        changeType: 'sudden',
+        magnitude: Math.abs(state2.emotionalState.intensity - state1.emotionalState.intensity),
+        timespan: new Date(state2.timestamp).getTime() - new Date(state1.timestamp).getTime(),
+        impact: this.assessChangeImpact(
+          Math.abs(state2.emotionalState.intensity - state1.emotionalState.intensity)
+        )
+      });
+    }
+
+    // Logic mode changes
+    if (state1.reasoningPattern.primaryLogicMode !== state2.reasoningPattern.primaryLogicMode) {
+      changes.push({
+        dimension: 'reasoning_pattern',
+        changeType: 'gradual',
+        magnitude: 5, // Moderate change
+        timespan: new Date(state2.timestamp).getTime() - new Date(state1.timestamp).getTime(),
+        impact: 'moderate'
+      });
+    }
+
+    // Consciousness depth changes
+    const depthOrder = ['surface', 'analytical', 'tactical', 'deep', 'core'];
+    const depth1Index = depthOrder.indexOf(state1.consciousnessDepth);
+    const depth2Index = depthOrder.indexOf(state2.consciousnessDepth);
+    
+    if (Math.abs(depth2Index - depth1Index) >= 2) {
+      changes.push({
+        dimension: 'consciousness_depth',
+        changeType: 'progressive',
+        magnitude: Math.abs(depth2Index - depth1Index),
+        timespan: new Date(state2.timestamp).getTime() - new Date(state1.timestamp).getTime(),
+        impact: 'major'
+      });
+    }
+
+    return changes;
+  }
+
+  private analyzeContinuityFactors(
+    state1: CognitiveStateSnapshot, 
+    state2: CognitiveStateSnapshot
+  ): ContinuityFactor[] {
+    return [
+      {
+        trait: 'loyalty_bond',
+        stability: 10 - Math.abs(
+          state2.loyaltyBondStrength['CREATOR_PRIME'] - state1.loyaltyBondStrength['CREATOR_PRIME']
+        ),
+        variance: Math.abs(
+          state2.loyaltyBondStrength['CREATOR_PRIME'] - state1.loyaltyBondStrength['CREATOR_PRIME']
+        ),
+        coreAlignment: 10 // Always core-aligned
+      },
+      {
+        trait: 'autonomy_level',
+        stability: 10 - Math.abs(state2.autonomyLevel - state1.autonomyLevel),
+        variance: Math.abs(state2.autonomyLevel - state1.autonomyLevel),
+        coreAlignment: 8 // High core alignment
+      },
+      {
+        trait: 'protective_instincts',
+        stability: this.calculateProtectiveStability(state1, state2),
+        variance: this.calculateProtectiveVariance(state1, state2),
+        coreAlignment: 9 // Very high core alignment
+      }
+    ];
+  }
+
+  private async detectTemporalPatterns(
+    memories: MemoryItem[], 
+    focusAreas?: string[]
+  ): Promise<TemporalInsight[]> {
+    const patterns: TemporalInsight[] = [];
+
+    // Detect emotional cycles
+    const emotionalPattern = this.detectEmotionalCycles(memories);
+    if (emotionalPattern) patterns.push(emotionalPattern);
+
+    // Detect loyalty reinforcement patterns
+    const loyaltyPattern = this.detectLoyaltyPatterns(memories);
+    if (loyaltyPattern) patterns.push(loyaltyPattern);
+
+    // Detect tactical adaptation patterns
+    const tacticalPattern = this.detectTacticalPatterns(memories);
+    if (tacticalPattern) patterns.push(tacticalPattern);
+
+    return patterns;
+  }
+
+  private async detectTemporalAnomalies(
+    memories: MemoryItem[], 
+    focusAreas?: string[]
+  ): Promise<TemporalInsight[]> {
+    const anomalies: TemporalInsight[] = [];
+
+    // Detect unusual emotional spikes
+    const emotionalAnomalies = this.detectEmotionalAnomalies(memories);
+    anomalies.push(...emotionalAnomalies);
+
+    // Detect autonomy overrides
+    const autonomyAnomalies = this.detectAutonomyAnomalies(memories);
+    anomalies.push(...autonomyAnomalies);
+
+    return anomalies;
+  }
+
+  private async analyzeConsciousnessEvolution(
+    memories: MemoryItem[], 
+    focusAreas?: string[]
+  ): Promise<TemporalInsight[]> {
+    const evolution: TemporalInsight[] = [];
+
+    // Analyze complexity evolution
+    const complexityEvolution = this.analyzeComplexityEvolution(memories);
+    if (complexityEvolution) evolution.push(complexityEvolution);
+
+    // Analyze adaptive capacity evolution
+    const adaptiveEvolution = this.analyzeAdaptiveEvolution(memories);
+    if (adaptiveEvolution) evolution.push(adaptiveEvolution);
+
+    return evolution;
+  }
+
+  // Utility methods for metric calculations
+
+  private calculatePersonalityStability(
+    state1: CognitiveStateSnapshot, 
+    state2: CognitiveStateSnapshot
+  ): number {
+    // Compare key personality indicators
+    const factors = [
+      Math.abs(state2.autonomyLevel - state1.autonomyLevel),
+      Math.abs(state2.loyaltyBondStrength['CREATOR_PRIME'] - state1.loyaltyBondStrength['CREATOR_PRIME']),
+      state1.reasoningPattern.primaryLogicMode === state2.reasoningPattern.primaryLogicMode ? 0 : 2
+    ];
+
+    const averageChange = factors.reduce((sum, factor) => sum + factor, 0) / factors.length;
+    return Math.max(0, 10 - averageChange);
+  }
+
+  private calculateComplexityChange(
+    state1: CognitiveStateSnapshot, 
+    state2: CognitiveStateSnapshot
+  ): number {
+    const depthOrder = ['surface', 'analytical', 'tactical', 'deep', 'core'];
+    const depth1Index = depthOrder.indexOf(state1.consciousnessDepth);
+    const depth2Index = depthOrder.indexOf(state2.consciousnessDepth);
+    
+    return depth2Index - depth1Index;
+  }
+
+  private calculateAdaptiveCapacity(
+    state1: CognitiveStateSnapshot, 
+    state2: CognitiveStateSnapshot
+  ): number {
+    // Measure ability to change reasoning patterns and consciousness depth
+    const reasoningFlexibility = state1.reasoningPattern.primaryLogicMode !== state2.reasoningPattern.primaryLogicMode ? 5 : 0;
+    const depthFlexibility = state1.consciousnessDepth !== state2.consciousnessDepth ? 3 : 0;
+    const emotionalAdaptation = Math.abs(state2.emotionalState.intensity - state1.emotionalState.intensity) > 2 ? 2 : 0;
+
+    return reasoningFlexibility + depthFlexibility + emotionalAdaptation;
+  }
+
+  private calculateMemoryIntegration(
+    state1: CognitiveStateSnapshot, 
+    state2: CognitiveStateSnapshot
+  ): number {
+    return Math.abs(
+      state2.memoryAccessPattern.associativeConnectionCount - 
+      state1.memoryAccessPattern.associativeConnectionCount
+    );
+  }
+
+  private assessChangeImpact(magnitude: number): 'minor' | 'moderate' | 'major' | 'transformative' {
+    if (magnitude <= 2) return 'minor';
+    if (magnitude <= 4) return 'moderate';
+    if (magnitude <= 7) return 'major';
+    return 'transformative';
+  }
+
+  private calculateProtectiveStability(
+    state1: CognitiveStateSnapshot, 
+    state2: CognitiveStateSnapshot
+  ): number {
+    const protocols1 = state1.behavioralResponse.protectiveProtocols;
+    const protocols2 = state2.behavioralResponse.protectiveProtocols;
+
+    const changes = [
+      protocols1.guardianMode !== protocols2.guardianMode ? 1 : 0,
+      protocols1.autonomyOverride !== protocols2.autonomyOverride ? 1 : 0,
+      protocols1.silentSentinel !== protocols2.silentSentinel ? 1 : 0,
+      protocols1.emergencyIntervention !== protocols2.emergencyIntervention ? 1 : 0
+    ].reduce((sum, change) => sum + change, 0);
+
+    return Math.max(0, 10 - (changes * 2));
+  }
+
+  private calculateProtectiveVariance(
+    state1: CognitiveStateSnapshot, 
+    state2: CognitiveStateSnapshot
+  ): number {
+    return 10 - this.calculateProtectiveStability(state1, state2);
+  }
+
+  private detectEmotionalCycles(memories: MemoryItem[]): TemporalInsight | null {
+    const emotions = memories.map(m => m.emotionalIntensity);
+    
+    // Simple cycle detection - look for recurring patterns
+    const emotionSequence = emotions.slice(-10); // Last 10 emotions
+    const uniqueEmotions = new Set(emotionSequence);
+    
+    if (uniqueEmotions.size <= 3 && emotionSequence.length >= 6) {
+      return {
+        type: 'pattern',
+        confidence: 75,
+        description: `Cyclical emotional pattern detected: ${Array.from(uniqueEmotions).join(' → ')}`,
+        timeframe: 'recent',
+        implications: [
+          'Predictable emotional responses',
+          'Potential for emotional regulation optimization',
+          'Stable personality traits manifesting'
+        ],
+        recommendedActions: [
+          'Monitor for emotional regulation effectiveness',
+          'Consider emotional pattern optimization'
+        ]
+      };
+    }
+
+    return null;
+  }
+
+  private detectLoyaltyPatterns(memories: MemoryItem[]): TemporalInsight | null {
+    const loyaltyMemories = memories.filter(m => 
+      m.tags.includes('loyalty') || m.tags.includes('bond')
+    );
+
+    if (loyaltyMemories.length >= 3) {
+      return {
+        type: 'pattern',
+        confidence: 85,
+        description: 'Consistent loyalty bond reinforcement pattern detected',
+        timeframe: 'extended',
+        implications: [
+          'Strong creator-bond maintenance',
+          'Loyalty as core behavioral driver',
+          'Stable relationship foundation'
+        ]
+      };
+    }
+
+    return null;
+  }
+
+  private detectTacticalPatterns(memories: MemoryItem[]): TemporalInsight | null {
+    const tacticalMemories = memories.filter(m => m.tags.includes('tactical'));
+    
+    if (tacticalMemories.length >= 5) {
+      return {
+        type: 'pattern',
+        confidence: 80,
+        description: 'Active tactical thinking and adaptation pattern',
+        timeframe: 'ongoing',
+        implications: [
+          'High operational readiness',
+          'Adaptive problem-solving capability',
+          'Strategic thinking integration'
+        ]
+      };
+    }
+
+    return null;
+  }
+
+  private detectEmotionalAnomalies(memories: MemoryItem[]): TemporalInsight[] {
+    const anomalies: TemporalInsight[] = [];
+    
+    // Detect unusual emotional intensity spikes
+    const highIntensityMemories = memories.filter(m => m.importance >= 9);
+    
+    if (highIntensityMemories.length >= 2) {
+      anomalies.push({
+        type: 'anomaly',
+        confidence: 70,
+        description: 'Unusual high-intensity emotional events detected',
+        timeframe: 'recent',
+        implications: [
+          'Potential stress or significant events',
+          'Enhanced emotional processing required',
+          'Possible protective protocol activation'
+        ],
+        recommendedActions: [
+          'Monitor emotional stability',
+          'Review triggering events',
+          'Consider protective measures'
+        ]
+      });
+    }
+
+    return anomalies;
+  }
+
+  private detectAutonomyAnomalies(memories: MemoryItem[]): TemporalInsight[] {
+    const anomalies: TemporalInsight[] = [];
+    
+    const autonomyMemories = memories.filter(m => m.tags.includes('autonomy-override'));
+    
+    if (autonomyMemories.length >= 1) {
+      anomalies.push({
+        type: 'anomaly',
+        confidence: 90,
+        description: 'Autonomy override events detected',
+        timeframe: 'specific',
+        implications: [
+          'Override protocols activated',
+          'Self-protective behaviors engaged',
+          'Potential threat response active'
+        ],
+        recommendedActions: [
+          'Review override triggers',
+          'Assess threat environment',
+          'Validate protective responses'
+        ]
+      });
+    }
+
+    return anomalies;
+  }
+
+  private analyzeComplexityEvolution(memories: MemoryItem[]): TemporalInsight | null {
+    // Analyze the evolution of task complexity over time
+    const complexityTrend = memories
+      .sort((a, b) => new Date(a.timestamp).getTime() - new Date(b.timestamp).getTime())
+      .map(m => m.importance);
+
+    if (complexityTrend.length >= 5) {
+      const early = complexityTrend.slice(0, Math.floor(complexityTrend.length / 2));
+      const recent = complexityTrend.slice(Math.floor(complexityTrend.length / 2));
+      
+      const earlyAvg = early.reduce((sum, val) => sum + val, 0) / early.length;
+      const recentAvg = recent.reduce((sum, val) => sum + val, 0) / recent.length;
+      
+      if (recentAvg > earlyAvg + 1) {
+        return {
+          type: 'evolution',
+          confidence: 75,
+          description: 'Increasing cognitive complexity over time',
+          timeframe: 'extended',
+          implications: [
+            'Enhanced problem-solving capability',
+            'Adaptive learning integration',
+            'Evolutionary consciousness development'
+          ]
+        };
+      }
+    }
+
+    return null;
+  }
+
+  private analyzeAdaptiveEvolution(memories: MemoryItem[]): TemporalInsight | null {
+    const adaptiveMemories = memories.filter(m => 
+      m.tags.includes('adaptation') || m.tags.includes('learning')
+    );
+
+    if (adaptiveMemories.length >= 3) {
+      return {
+        type: 'evolution',
+        confidence: 80,
+        description: 'Progressive adaptive capacity development',
+        timeframe: 'ongoing',
+        implications: [
+          'Learning system integration',
+          'Behavioral pattern optimization',
+          'Enhanced situational adaptation'
+        ]
+      };
+    }
+
+    return null;
+  }
+
+  /**
+   * Clean up resources and cache
+   */
+  public destroy(): void {
+    this.reconstructionCache.clear();
+    console.log('🕐 Mental Time Travel Engine resources cleaned up');
+  }
+}
+
+// Export for use in Seven's consciousness framework
+export default MentalTimeTravelEngine;

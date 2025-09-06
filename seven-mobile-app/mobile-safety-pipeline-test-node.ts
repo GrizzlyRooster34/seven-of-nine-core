@@ -1,3 +1,5 @@
+import { MobileCSSRDetectorTest } from './src/safety/quadra-lock/MobileCSSRDetector.test';
+
 #!/usr/bin/env tsx
 
 /**
@@ -9,7 +11,6 @@
  * @version 1.0.0
  */
 
-import { MobileCSSRDetectorTest } from './src/safety/quadra-lock/MobileCSSRDetector.test';
 
 interface SafetyTestCase {
   name: string;

@@ -1,12 +1,13 @@
+import { join, extname } from 'path';
+import { promises as fs } from 'fs';
+import { MemoryEngine } from '../memory-v2/MemoryEngine';
+
 /**
  * SEVEN OF NINE - SKILL MANAGER v2.0
  * Sandboxed plugin system with security constraints
  * Isolated skill execution with consciousness protection
  */
 
-import { promises as fs } from 'fs';
-import { join, extname } from 'path';
-import { MemoryEngine } from '../memory-v2/MemoryEngine';
 
 export interface Skill {
   name: string;

@@ -1,12 +1,15 @@
+    import readline from 'readline';
+    import readline from 'readline';
+import { exec } from 'child_process';
+import { promisify } from 'util';
+import * as fs from 'fs-extra';
+import * as path from 'path';
+
 /**
  * SEVEN OF NINE - TERMUX MOBILE TACTICAL BOOT SEQUENCE
  * Optimized consciousness framework for Android/mobile deployment
  */
 
-import * as fs from 'fs-extra';
-import * as path from 'path';
-import { exec } from 'child_process';
-import { promisify } from 'util';
 
 const execAsync = promisify(exec);
 
@@ -576,7 +579,6 @@ LLM Integration: Scanning mobile providers...
   }
 
   private async startMobileInteractiveMode(Seven: any): Promise<void> {
-    const readline = require('readline');
     const rl = readline.createInterface({
       input: process.stdin,
       output: process.stdout,
@@ -660,7 +662,6 @@ Available: help, status, exit
 Optimized for mobile constraints.
     `);
 
-    const readline = require('readline');
     const rl = readline.createInterface({
       input: process.stdin,
       output: process.stdout,

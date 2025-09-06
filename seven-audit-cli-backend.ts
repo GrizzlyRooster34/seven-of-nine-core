@@ -1,3 +1,8 @@
+import { exec } from 'child_process';
+import { join } from 'path';
+import { promises as fs } from 'fs';
+import { promisify } from 'util';
+
 #!/usr/bin/env npx tsx
 /**
  * SEVEN CLI BACKEND AUDIT COMMAND
@@ -6,10 +11,6 @@
  * Usage: npx tsx seven-audit-cli-backend.ts [--dry-run]
  */
 
-import { promises as fs } from 'fs';
-import { join } from 'path';
-import { exec } from 'child_process';
-import { promisify } from 'util';
 
 const execAsync = promisify(exec);
 

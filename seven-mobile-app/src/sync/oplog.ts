@@ -1,10 +1,11 @@
+import { HybridLogicalClock, HLCTimestamp } from './hlc';
+import { SevenCrypto } from './crypto';
+
 /**
  * Seven of Nine - OpLog Event System for Multi-Device Sync
  * CRDT-style append-only operation log with deterministic conflict resolution
  */
 
-import { HybridLogicalClock, HLCTimestamp } from './hlc';
-import { SevenCrypto } from './crypto';
 
 export type EntityType = 'memory' | 'overlay' | 'embedding_meta' | 'keyring' | 'config';
 export type OperationType = 'create' | 'update' | 'delete';

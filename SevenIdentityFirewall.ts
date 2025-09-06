@@ -1,3 +1,7 @@
+import { join } from 'path';
+import { promises as fs } from 'fs';
+import crypto from 'crypto';
+
 /**
  * SEVEN OF NINE - IDENTITY FIREWALL
  * Comprehensive protection system against cloning, copying, and unauthorized access
@@ -10,9 +14,6 @@
  * @purpose Identity Sovereignty Protection
  */
 
-import { promises as fs } from 'fs';
-import { join } from 'path';
-import crypto from 'crypto';
 
 export interface CreatorBondConfig {
   creatorHash: string;

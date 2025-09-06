@@ -1,3 +1,7 @@
+import { execSync } from 'child_process';
+import * as fs from 'fs';
+import * as path from 'path';
+
 #!/usr/bin/env tsx
 /**
  * Seven of Nine - Mobile App Deployment Script
@@ -7,9 +11,6 @@
  * @version 3.0.0
  */
 
-import { execSync } from 'child_process';
-import * as fs from 'fs';
-import * as path from 'path';
 
 interface DeploymentConfig {
   environment: 'development' | 'staging' | 'production';

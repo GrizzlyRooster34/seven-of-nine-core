@@ -1,3 +1,7 @@
+import { join } from 'path';
+import { promises as fs } from 'fs';
+import { MemoryEngine, MemoryItem } from './MemoryEngine';
+
 /**
  * SEVEN OF NINE - SELF MODEL DIVERGENCE TRACKER v3.0
  * Agent Epsilon - Advanced Temporal Analytics
@@ -6,9 +10,6 @@
  * through comparative analysis of temporal self-states.
  */
 
-import { MemoryEngine, MemoryItem } from './MemoryEngine';
-import { promises as fs } from 'fs';
-import { join } from 'path';
 
 export interface SelfState {
   id: string;

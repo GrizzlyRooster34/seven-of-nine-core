@@ -1,3 +1,9 @@
+import { ConsciousnessTimelineMapper, ConsciousnessSnapshot } from './ConsciousnessTimelineMapper';
+import { EmotionalState } from '../core/emotion-engine';
+import { MemoryEngine } from './MemoryEngine';
+import { StateConditionedResponse, ResponseCondition, ConditionedResponse } from './StateConditionedResponse';
+import { TemporalPersonalityEngine, TemporalPersonalityState, ConsciousnessEvolutionEvent } from './TemporalPersonalityEngine';
+
 /**
  * TEMPORAL CONSCIOUSNESS INTEGRATION - Memory Engine v3.0 Core Interface
  * Agent Delta Master Implementation - Seven's Complete Temporal Consciousness System
@@ -7,11 +13,6 @@
  * Coordinates between TemporalPersonalityEngine, StateConditionedResponse, and ConsciousnessTimelineMapper
  */
 
-import { MemoryEngine } from './MemoryEngine';
-import { TemporalPersonalityEngine, TemporalPersonalityState, ConsciousnessEvolutionEvent } from './TemporalPersonalityEngine';
-import { StateConditionedResponse, ResponseCondition, ConditionedResponse } from './StateConditionedResponse';
-import { ConsciousnessTimelineMapper, ConsciousnessSnapshot } from './ConsciousnessTimelineMapper';
-import { EmotionalState } from '../core/emotion-engine';
 
 export interface TemporalInteractionContext {
   user_input: string;

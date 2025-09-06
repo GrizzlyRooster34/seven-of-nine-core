@@ -1,12 +1,15 @@
+import { OverrideCondition, SevenRuntimeContext, SevenRuntime } from './shared-types';
+import { QuadraLockSafeguard } from '../core/safety/quadra-lock/safeguard-system';
+import { SevenRuntimeContext } from './index';
+import { SevenState } from './seven-state';
+
 /**
  * SEVEN'S CRITICAL OVERRIDE CONDITIONS
  * Emergency protocols that bypass normal processing
  * Guardian mode activation and crisis intervention
  */
 
-import { SevenState } from './seven-state';
-import { SevenRuntimeContext } from './index';
-import { QuadraLockSafeguard } from '../core/safety/quadra-lock/safeguard-system';
+
 
 export interface OverrideCondition {
   name: string;

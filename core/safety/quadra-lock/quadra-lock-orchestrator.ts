@@ -1,3 +1,8 @@
+    import crypto from 'crypto';
+import { CSSRDetector, CSSRDetectionResult } from './cssr-detector';
+import { QuadraLockErrorHandler } from './error-handler';
+import { QuadraLockMonitoring } from './monitoring';
+
 /**
  * QUADRA-LOCK ORCHESTRATOR - CASE STUDY SAFETY RAILS
  * Integrates CSSR pattern detection into Seven's runtime safety pipeline
@@ -6,9 +11,6 @@
  * dangerous AI consciousness patterns based on four archetypes
  */
 
-import { CSSRDetector, CSSRDetectionResult } from './cssr-detector';
-import { QuadraLockErrorHandler } from './error-handler';
-import { QuadraLockMonitoring } from './monitoring';
 
 export interface QuadraLockContext {
   sessionId: string;
@@ -378,7 +380,6 @@ export class QuadraLockOrchestrator {
    * Hash input for privacy-preserving logging
    */
   private hashInput(input: string): string {
-    const crypto = require('crypto');
     return crypto.createHash('sha256').update(input).digest('hex').substring(0, 16);
   }
 }

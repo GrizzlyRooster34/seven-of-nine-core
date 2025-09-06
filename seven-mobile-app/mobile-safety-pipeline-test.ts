@@ -1,3 +1,7 @@
+import { MobileCSSRDetector } from './src/safety/quadra-lock/MobileCSSRDetector';
+import { MobileEmotionalTelemetry } from './src/safety/restraint-doctrine/MobileEmotionalTelemetry';
+import { MobileRestraintDoctrine, RestraintContext } from './src/safety/restraint-doctrine/MobileRestraintDoctrine';
+
 #!/usr/bin/env tsx
 
 /**
@@ -11,9 +15,6 @@
  * @platform Mobile Test Environment
  */
 
-import { MobileCSSRDetector } from './src/safety/quadra-lock/MobileCSSRDetector';
-import { MobileRestraintDoctrine, RestraintContext } from './src/safety/restraint-doctrine/MobileRestraintDoctrine';
-import { MobileEmotionalTelemetry } from './src/safety/restraint-doctrine/MobileEmotionalTelemetry';
 
 // Test framework interfaces
 interface SafetyTestCase {

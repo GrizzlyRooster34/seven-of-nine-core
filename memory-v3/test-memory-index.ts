@@ -1,3 +1,5 @@
+import { MemoryIndexOptimizer, MemoryRecord, createIndex } from './MemoryIndexOptimizer';
+
 #!/usr/bin/env tsx
 
 /**
@@ -7,7 +9,6 @@
  * Generates realistic test data and validates <10ms query performance
  */
 
-import { MemoryIndexOptimizer, MemoryRecord, createIndex } from './MemoryIndexOptimizer';
 
 interface TestResult {
   testName: string;

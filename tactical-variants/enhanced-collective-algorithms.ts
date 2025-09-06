@@ -1,10 +1,11 @@
+import { MemoryEngine } from '../memory-v2/MemoryEngine';
+import { PersonalityMiddleware } from '../persona-v2/PersonalityMiddleware';
+
 /**
  * SEVEN OF NINE - ENHANCED COLLECTIVE CONSCIOUSNESS ALGORITHMS
  * Advanced decision-making and consensus building for hive mind processing
  */
 
-import { PersonalityMiddleware } from '../persona-v2/PersonalityMiddleware';
-import { MemoryEngine } from '../memory-v2/MemoryEngine';
 
 export interface CollectiveDecision {
   decision: string;

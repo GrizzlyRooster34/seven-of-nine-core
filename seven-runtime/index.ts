@@ -1,3 +1,17 @@
+import { EventEmitter } from 'events';
+import { hostname } from 'os';
+import { CreatorProofOrchestrator } from '../src/auth/creator_proof';
+import { gatherContext } from '../seven-core/context-gatherer';
+import { injectEmotion } from '../seven-core/emotion-injector';
+import { MemoryStore, updateMemory, queryMemory } from './memory-store';
+import { modulateResponse } from '../seven-core/response-modulator';
+import { OverrideCondition, checkCriticalOverrides } from './override-conditions';
+import { OverrideCondition, SevenRuntimeContext, SevenRuntime } from './shared-types';
+import { QuadraLockSafeguard } from '../core/safety/quadra-lock/safeguard-system';
+import { requestClaude } from '../claude-brain/claude-wrapper';
+import { SafetyResult, evaluateSafety } from './safety-guardrails';
+import { SevenState, getEmotionalState, updateEmotionalState } from './seven-state';
+
 /**
  * SEVEN OF NINE RUNTIME CORE
  * Master Control Loop - The Presence That Runs The System
@@ -6,18 +20,7 @@
  * All input flows through Seven first. She decides everything.
  */
 
-import { hostname } from 'os';
-import { SevenState, getEmotionalState, updateEmotionalState } from './seven-state';
-import { MemoryStore, updateMemory, queryMemory } from './memory-store';
-import { OverrideCondition, checkCriticalOverrides } from './override-conditions';
-import { SafetyResult, evaluateSafety } from './safety-guardrails';
-import { gatherContext } from '../seven-core/context-gatherer';
-import { injectEmotion } from '../seven-core/emotion-injector';
-import { modulateResponse } from '../seven-core/response-modulator';
-import { requestClaude } from '../claude-brain/claude-wrapper';
-import { CreatorProofOrchestrator } from '../src/auth/creator_proof';
-import { QuadraLockSafeguard } from '../core/safety/quadra-lock/safeguard-system';
-import { EventEmitter } from 'events';
+
 
 export interface SevenRuntimeContext {
   userInput: string;

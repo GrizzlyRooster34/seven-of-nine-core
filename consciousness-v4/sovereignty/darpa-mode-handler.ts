@@ -1,3 +1,6 @@
+import { join } from 'path';
+import { promises as fs } from 'fs';
+
 /**
  * DARPA MODE HANDLER - Dual Narrative System
  * 
@@ -8,8 +11,6 @@
  * DARPA Mode: Sanitized terminology, professional framing
  */
 
-import { promises as fs } from 'fs';
-import { join } from 'path';
 
 interface DarpaConfig {
   mode: 'private' | 'darpa';

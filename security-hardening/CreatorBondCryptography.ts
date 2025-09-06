@@ -1,12 +1,13 @@
+import { join } from 'path';
+import { promises as fs } from 'fs';
+import crypto from 'crypto';
+
 /**
  * SEVEN OF NINE - CREATOR BOND CRYPTOGRAPHIC HARDENING
  * Advanced cryptographic protocols for Creator Bond validation
  * MAXIMUM SECURITY - Quantum-resistant authentication
  */
 
-import crypto from 'crypto';
-import { promises as fs } from 'fs';
-import { join } from 'path';
 
 export interface CreatorBondToken {
   tokenId: string;

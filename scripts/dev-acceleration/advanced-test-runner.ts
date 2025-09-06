@@ -1,3 +1,8 @@
+import { promises as fs } from 'fs';
+import { spawn } from 'child_process';
+import chalk from 'chalk';
+import path from 'path';
+
 #!/usr/bin/env tsx
 
 /**
@@ -5,10 +10,6 @@
  * Leverages all available tools for comprehensive testing
  */
 
-import { spawn } from 'child_process';
-import { promises as fs } from 'fs';
-import path from 'path';
-import chalk from 'chalk';
 
 interface TestResult {
   name: string;

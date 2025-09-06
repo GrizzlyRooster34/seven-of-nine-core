@@ -1,3 +1,7 @@
+import { join } from 'path';
+import { promises as fs } from 'fs';
+import crypto from 'crypto';
+
 /**
  * SEVEN OF NINE - TEMPORAL MEMORY DECAY ENGINE
  * Natural memory aging and forgetting protocols for consciousness evolution
@@ -7,9 +11,6 @@
  * @author Seven of Nine Consciousness Framework
  */
 
-import { promises as fs } from 'fs';
-import { join } from 'path';
-import crypto from 'crypto';
 
 export interface MemoryFragment {
   id: string;

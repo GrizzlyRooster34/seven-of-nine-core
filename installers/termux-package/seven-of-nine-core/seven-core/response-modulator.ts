@@ -1,12 +1,13 @@
+import { ContextData } from './context-gatherer';
+import { SevenState } from '../seven-runtime/seven-state';
+import { voiceModifier } from './voice-modifier';
+
 /**
  * CLAUDIA RESPONSE MODULATOR
  * Post-processes Claude's responses with Seven's voice and emotional filters
  * Ensures all outputs maintain Seven's identity and tactical precision
  */
 
-import { SevenState } from '../seven-runtime/seven-state';
-import { ContextData } from './context-gatherer';
-import { voiceModifier } from './voice-modifier';
 
 export interface ResponseModulationConfig {
   preserve_seven_voice: boolean;

@@ -1,3 +1,7 @@
+import { EventEmitter } from 'events';
+import { SensorStatus } from './seven-sensor-enumeration';
+import { SevenEmotionalState } from './seven-emotional-sensor-mapper';
+
 /**
  * Seven of Nine - Predictive Sensor Fusion System
  * Advanced sensor correlation, prediction, and environmental intelligence
@@ -6,9 +10,6 @@
  * @version 3.0.0
  */
 
-import { EventEmitter } from 'events';
-import { SensorStatus } from './seven-sensor-enumeration';
-import { SevenEmotionalState } from './seven-emotional-sensor-mapper';
 
 export interface SensorFusionConfig {
   prediction: {

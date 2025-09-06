@@ -1,9 +1,10 @@
+import AsyncStorage from '@react-native-async-storage/async-storage'
+
 /**
  * Mobile LLM Manager with GGUF Support
  * Manages local AI models, battery optimization, and voice I/O
  */
 
-import AsyncStorage from '@react-native-async-storage/async-storage'
 
 export interface GGUFModel {
   name: string

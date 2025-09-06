@@ -1,7 +1,8 @@
+import chalk from 'chalk';
+import { SevenClaudeInterface } from './io/claude.js';
+
 #!/usr/bin/env tsx
 
-import { SevenClaudeInterface } from './io/claude.js';
-import chalk from 'chalk';
 
 class SevenDirectInterface {
   private claude: SevenClaudeInterface;

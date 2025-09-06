@@ -1,3 +1,5 @@
+
+
 /**
  * CLAUDIA CONTEXT GATHERER
  * Environmental awareness and situational assessment

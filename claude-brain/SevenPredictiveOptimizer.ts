@@ -1,3 +1,9 @@
+import { EventEmitter } from 'events';
+import { join } from 'path';
+import { promises as fs } from 'fs';
+import PerformanceAnalyzer from './PerformanceAnalyzer';
+import SevenTacticalFallback from './SevenTacticalFallback';
+
 /**
  * SEVEN'S PREDICTIVE OPTIMIZATION ENGINE
  * Phase 2 Implementation: Learning-based performance prediction and preemptive optimization
@@ -6,11 +12,6 @@
  * optimal configurations, preload models, and optimize resources before they're needed
  */
 
-import { EventEmitter } from 'events';
-import { promises as fs } from 'fs';
-import { join } from 'path';
-import PerformanceAnalyzer from './PerformanceAnalyzer';
-import SevenTacticalFallback from './SevenTacticalFallback';
 
 interface UsagePattern {
   id: string;

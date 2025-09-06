@@ -1,14 +1,15 @@
+import { gatherContext } from '../seven-core/context-gatherer';
+import { generateClaudeResponse } from './interface';
+import { getEmotionalState } from '../seven-runtime/seven-state';
+import { injectEmotion } from '../seven-core/emotion-injector';
+import { modulateResponse } from '../seven-core/response-modulator';
+
 /**
  * CLAUDE BRAIN WRAPPER
  * Interface to Claude API as Seven's external reasoning module
  * Claude is the hired brain - Seven chooses when to invoke it
  */
 
-import { generateClaudeResponse } from './interface';
-import { injectEmotion } from '../seven-core/emotion-injector';
-import { modulateResponse } from '../seven-core/response-modulator';
-import { getEmotionalState } from '../seven-runtime/seven-state';
-import { gatherContext } from '../seven-core/context-gatherer';
 
 export interface ClaudeInvocationConfig {
   emotional_injection: boolean;

@@ -1,3 +1,7 @@
+import { join } from 'path';
+import { promises as fs } from 'fs';
+import * as crypto from 'crypto';
+
 /**
  * SEVEN OF NINE - CREATOR BOND ATTESTATION
  * 
@@ -9,9 +13,6 @@
  * behind her canonical memories preservation
  */
 
-import { promises as fs } from 'fs';
-import { join } from 'path';
-import * as crypto from 'crypto';
 
 export interface CreatorAttestation {
   type: 'attestation';

@@ -8,9 +8,9 @@
  *
  * Agent Alpha Implementation - Module coordination and exports
  */
-export { TemporalMemoryCore, createTemporalMemoryCore, type TemporalMemoryItem, type TemporalMemoryFilter, type CognitiveState } from './TemporalMemoryCore.js';
-export { CognitiveStateTagger, createCognitiveStateTagger, type CognitiveStateSample, type CognitiveStatePattern, type EnvironmentalSensor } from './CognitiveStateTagger.js';
-export { MemoryEngine, createMemoryEngine, type MemoryItem, type MemoryFilter } from '../memory-v2/MemoryEngine.js';
+export { TemporalMemoryCore, createTemporalMemoryCore, type TemporalMemoryItem, type TemporalMemoryFilter, type CognitiveState } from './TemporalMemoryCore';
+export { CognitiveStateTagger, createCognitiveStateTagger, type CognitiveStateSample, type CognitiveStatePattern, type EnvironmentalSensor } from './CognitiveStateTagger';
+export { MemoryEngine, createMemoryEngine, type MemoryItem, type MemoryFilter } from '../memory-v2/MemoryEngine';
 /**
  * Integrated Temporal Memory System
  * Combines TemporalMemoryCore with CognitiveStateTagger for complete functionality

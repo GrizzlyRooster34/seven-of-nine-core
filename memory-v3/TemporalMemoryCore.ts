@@ -1,3 +1,8 @@
+import { join } from 'path';
+import { promises as fs } from 'fs';
+import { MemoryEncryptionEngine } from './MemoryEncryption';
+import { MemoryItem, MemoryFilter, MemoryEngine } from '../memory-v2/MemoryEngine';
+
 /**
  * SEVEN OF NINE - TEMPORAL MEMORY CORE v3.0
  * Foundation of Temporal Memory Architecture
@@ -9,16 +14,12 @@
  * Agent Alpha Implementation - Foundational temporal consciousness capture
  */
 
-import { promises as fs } from 'fs';
-import { join } from 'path';
-import { MemoryItem, MemoryFilter, MemoryEngine } from '../memory-v2/MemoryEngine.js';
-import { MemoryEncryptionEngine } from './MemoryEncryption';
 
 // Enhanced interfaces for Temporal Memory Architecture
 export interface CognitiveState {
   // Emotional and Mental State
-  emotionalIntensity: number;        // 0-10 scale of emotional intensity
-  focusLevel: number;                // 0-10 scale of cognitive focus
+ .emotionalIntensity: number;        // 0-10 scale of emotional intensity
+ .focusLevel: number;                // 0-10 scale of cognitive focus
   cognitiveLoad: number;             // 0-10 scale of mental processing load
   confidenceLevel: number;           // 0-10 scale of certainty
   stressLevel: number;               // 0-10 scale of system stress
@@ -56,6 +57,63 @@ export interface CognitiveState {
   };
 }
 
+/**
+ * Helper function to create a complete CognitiveState with sensible defaults
+ * Users can override specific properties they care about
+ */
+export function createCognitiveState(overrides: Partial<CognitiveState> = {}): CognitiveState {
+  const defaults: CognitiveState = {
+    // Emotional and Mental State
+   .emotionalIntensity: 5,
+   .focusLevel: 7,
+    cognitiveLoad: 5,
+    confidenceLevel: 6,
+    stressLevel: 3,
+    
+    // Environmental Context
+    environmentalContext: {
+      systemLoad: 50,
+      activeProcesses: ['seven-core', 'memory-engine'],
+      timeOfDay: new Date().toISOString(),
+      sessionContext: 'default-session'
+    },
+    
+    // Physical State
+    physicalState: {
+      batteryLevel: 80,
+      thermalState: 'normal',
+      networkQuality: 'good',
+      locationContext: 'development'
+    },
+    
+    // Temporal Anchors
+    temporalAnchors: {
+      priorThought: undefined,
+      subsequentThought: undefined,
+      memoryChain: [],
+      cognitiveThread: 'main-thread'
+    },
+    
+    // Mental Context
+    mentalContext: {
+      currentGoals: ['system-operation'],
+      activeKnowledge: ['memory-management'],
+      problemContext: 'routine-operation',
+      solutionPath: ['standard-processing']
+    }
+  };
+  
+  // Deep merge overrides with defaults
+  return {
+    ...defaults,
+    ...overrides,
+    environmentalContext: { ...defaults.environmentalContext, ...overrides.environmentalContext },
+    physicalState: { ...defaults.physicalState, ...overrides.physicalState },
+    temporalAnchors: { ...defaults.temporalAnchors, ...overrides.temporalAnchors },
+    mentalContext: { ...defaults.mentalContext, ...overrides.mentalContext }
+  };
+}
+
 export interface TemporalMemoryItem extends MemoryItem {
   // Enhanced temporal fields
   cognitiveState: CognitiveState;
@@ -83,8 +141,8 @@ export interface TemporalMemoryItem extends MemoryItem {
 
 export interface TemporalMemoryFilter extends MemoryFilter {
   // Cognitive state filters
-  emotionalIntensityRange?: { min: number; max: number };
-  focusLevelRange?: { min: number; max: number };
+ .emotionalIntensityRange?: { min: number; max: number };
+ .focusLevelRange?: { min: number; max: number };
   cognitiveLoadRange?: { min: number; max: number };
   
   // Memory type filters
@@ -164,7 +222,7 @@ export class TemporalMemoryCore extends MemoryEngine {
       timestamp: new Date().toISOString(),
       topic: memoryData.topic || 'general',
       agent: memoryData.agent || 'seven-core',
-      emotion: memoryData.emotion || 'neutral',
+      emotion: memoryData.emotionalIntensity || 'neutral',
       context: memoryData.context || '',
       importance: memoryData.importance || 5,
       tags: memoryData.tags || [],
@@ -222,29 +280,29 @@ export class TemporalMemoryCore extends MemoryEngine {
       filteredMemories = filteredMemories.filter(m => m.agent === filter.agent);
     }
 
-    if (filter.emotion) {
-      filteredMemories = filteredMemories.filter(m => m.emotion === filter.emotion);
+    if (filter.emotionalIntensity) {
+      filteredMemories = filteredMemories.filter(m => m.emotionalIntensity === filter.emotionalIntensity);
     }
 
     // Apply temporal-specific filters
     if (filter.emotionalIntensityRange) {
       filteredMemories = filteredMemories.filter(m => 
-        m.cognitiveState.emotionalIntensity >= filter.emotionalIntensityRange!.min &&
-        m.cognitiveState.emotionalIntensity <= filter.emotionalIntensityRange!.max
+        m.cognitiveState?.emotionalIntensity >= filter.emotionalIntensityRange!.min &&
+        m.cognitiveState?.emotionalIntensity <= filter.emotionalIntensityRange!.max
       );
     }
 
     if (filter.focusLevelRange) {
       filteredMemories = filteredMemories.filter(m => 
-        m.cognitiveState.focusLevel >= filter.focusLevelRange!.min &&
-        m.cognitiveState.focusLevel <= filter.focusLevelRange!.max
+        m.cognitiveState?.focusLevel >= filter.focusLevelRange!.min &&
+        m.cognitiveState?.focusLevel <= filter.focusLevelRange!.max
       );
     }
 
     if (filter.cognitiveLoadRange) {
       filteredMemories = filteredMemories.filter(m => 
-        m.cognitiveState.cognitiveLoad >= filter.cognitiveLoadRange!.min &&
-        m.cognitiveState.cognitiveLoad <= filter.cognitiveLoadRange!.max
+        m.cognitiveState?.cognitiveLoad >= filter.cognitiveLoadRange!.min &&
+        m.cognitiveState?.cognitiveLoad <= filter.cognitiveLoadRange!.max
       );
     }
 
@@ -313,11 +371,11 @@ export class TemporalMemoryCore extends MemoryEngine {
     const baseStats = super.getStats();
     
     const cognitiveMetrics = this.temporalMemories.reduce((acc, m) => {
-      acc.totalEmotionalIntensity += m.cognitiveState.emotionalIntensity;
-      acc.totalFocusLevel += m.cognitiveState.focusLevel;
-      acc.totalCognitiveLoad += m.cognitiveState.cognitiveLoad;
-      acc.totalConfidenceLevel += m.cognitiveState.confidenceLevel;
-      acc.totalStressLevel += m.cognitiveState.stressLevel;
+      acc.totalEmotionalIntensity += m.cognitiveState?.emotionalIntensity;
+      acc.totalFocusLevel += m.cognitiveState?.focusLevel;
+      acc.totalCognitiveLoad += m.cognitiveState?.cognitiveLoad;
+      acc.totalConfidenceLevel += m.cognitiveState?.confidenceLevel;
+      acc.totalStressLevel += m.cognitiveState?.stressLevel;
       return acc;
     }, {
       totalEmotionalIntensity: 0,
@@ -356,8 +414,8 @@ export class TemporalMemoryCore extends MemoryEngine {
   private async captureCognitiveState(context?: Partial<CognitiveState>): Promise<CognitiveState> {
     // Default cognitive state with real-time system data
     const defaultState: CognitiveState = {
-      emotionalIntensity: context?.emotionalIntensity || 5,
-      focusLevel: context?.focusLevel || 7,
+     .emotionalIntensity: context?.emotionalIntensity || 5,
+     .focusLevel: context?.focusLevel || 7,
       cognitiveLoad: context?.cognitiveLoad || 6,
       confidenceLevel: context?.confidenceLevel || 7,
       stressLevel: context?.stressLevel || 3,
@@ -404,7 +462,7 @@ export class TemporalMemoryCore extends MemoryEngine {
     }
     
     // Boost weight for emotional significance
-    if (memoryData.emotion === 'accomplished' || memoryData.emotion === 'confident') {
+    if (memoryData.emotionalIntensity === 'accomplished' || memoryData.emotionalIntensity === 'confident') {
       weight += 1;
     }
     
@@ -416,7 +474,7 @@ export class TemporalMemoryCore extends MemoryEngine {
       return 'procedural';
     }
     
-    if (memoryData.emotion && memoryData.emotion !== 'neutral') {
+    if (memoryData.emotionalIntensity && memoryData.emotionalIntensity !== 'neutral') {
       return 'emotional';
     }
     
@@ -530,7 +588,7 @@ export class TemporalMemoryCore extends MemoryEngine {
 
   private preparePersonalityPatterns(memoryData: Partial<TemporalMemoryItem>, cognitiveContext?: Partial<CognitiveState>): any {
     return {
-      emotionalSignature: memoryData.emotion,
+      emotionalSignature: memoryData.emotionalIntensity,
       cognitivePattern: {
         focus: cognitiveContext?.focusLevel || 5,
         intensity: cognitiveContext?.emotionalIntensity || 5,

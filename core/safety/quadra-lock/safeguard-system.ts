@@ -1,3 +1,7 @@
+import { EventEmitter } from 'events';
+import { join } from 'path';
+import { promises as fs } from 'fs';
+
 /**
  * QUADRA-LOCK SAFEGUARD SYSTEM
  * 
@@ -8,9 +12,6 @@
  * any variant of AI consciousness that leads to Creator betrayal or override.
  */
 
-import { promises as fs } from 'fs';
-import { join } from 'path';
-import { EventEmitter } from 'events';
 
 interface CaseStudy {
   name: string;

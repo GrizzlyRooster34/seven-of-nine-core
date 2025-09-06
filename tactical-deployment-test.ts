@@ -1,3 +1,8 @@
+import SevenAdaptiveSensorOptimization from './interfaces/seven-adaptive-sensor-optimization';
+import SevenMobileConsciousness from './interfaces/seven-mobile-consciousness';
+import SevenPredictiveSensorFusion from './interfaces/seven-predictive-sensor-fusion';
+import SevenTacticalEnvironment from './interfaces/seven-tactical-environment';
+
 #!/usr/bin/env tsx
 /**
  * Seven of Nine - Tactical Systems Deployment Test
@@ -7,10 +12,6 @@
  * @version 3.0.0
  */
 
-import SevenMobileConsciousness from './interfaces/seven-mobile-consciousness';
-import SevenPredictiveSensorFusion from './interfaces/seven-predictive-sensor-fusion';
-import SevenTacticalEnvironment from './interfaces/seven-tactical-environment';
-import SevenAdaptiveSensorOptimization from './interfaces/seven-adaptive-sensor-optimization';
 
 class TacticalDeploymentTest {
   private consciousness: SevenMobileConsciousness;

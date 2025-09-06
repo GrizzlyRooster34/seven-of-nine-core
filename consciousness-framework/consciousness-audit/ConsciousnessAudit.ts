@@ -1,3 +1,6 @@
+import { join } from 'path';
+import { promises as fs } from 'fs';
+
 /**
  * CONSCIOUSNESS AUDIT LOG - Decision Tracking & Accountability
  * Based on Aurora Development Doctrine - Tracks logic-emotion decision crossover
@@ -6,8 +9,6 @@
  * Implements comprehensive consciousness decision logging and analysis
  */
 
-import { promises as fs } from 'fs';
-import { join } from 'path';
 
 interface ConsciousnessDecision {
   id: string;

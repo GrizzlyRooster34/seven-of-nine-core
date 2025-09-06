@@ -1,3 +1,7 @@
+import { join } from 'path';
+import { readFileSync, writeFileSync, existsSync } from 'fs';
+import chalk from 'chalk';
+
 #!/usr/bin/env tsx
 
 /**
@@ -6,9 +10,6 @@
  * Maintains state persistence across interactions
  */
 
-import chalk from 'chalk';
-import { readFileSync, writeFileSync, existsSync } from 'fs';
-import { join } from 'path';
 
 class SevenClaudeBridge {
   private stateFile: string;

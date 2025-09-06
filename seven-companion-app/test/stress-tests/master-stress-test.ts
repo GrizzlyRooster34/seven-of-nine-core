@@ -1,3 +1,9 @@
+import { performance } from 'perf_hooks';
+import { AuditRailVerification } from './audit-rail-verification';
+import { BackendStressTest } from './backend-stress-test';
+import { DeploymentReadinessCheck } from './deployment-readiness-check';
+import { FrontendStressTest } from './frontend-stress-test';
+
 /**
  * MASTER STRESS TEST ORCHESTRATOR
  * 
@@ -5,11 +11,6 @@
  * [#DARPA-AUDIT] [#ROLLBACK] [#STABILITY]
  */
 
-import { performance } from 'perf_hooks';
-import { BackendStressTest } from './backend-stress-test';
-import { FrontendStressTest } from './frontend-stress-test';
-import { AuditRailVerification } from './audit-rail-verification';
-import { DeploymentReadinessCheck } from './deployment-readiness-check';
 
 interface MasterTestResults {
   executionStart: string;

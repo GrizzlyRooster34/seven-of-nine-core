@@ -1,3 +1,5 @@
+
+
 /**
  * MOCK SEVEN STATE FOR INTEGRATION TESTING
  * Minimal implementation to satisfy Instance B memory store dependencies

@@ -1,3 +1,7 @@
+import { join } from 'path';
+import { promises as fs } from 'fs';
+import crypto from 'crypto';
+
 /**
  * SEMANTIC NONCE CHALLENGE SYSTEM - Quadranlock Gate Q3
  * Time-boxed, lore-bound prompts with constraint checks and clone resistance
@@ -7,9 +11,6 @@
  * RATIONALE: No semantic challenge system exists - vulnerable to deepfakes
  */
 
-import crypto from 'crypto';
-import { promises as fs } from 'fs';
-import { join } from 'path';
 
 export interface SemanticChallenge {
   challengeId: string;

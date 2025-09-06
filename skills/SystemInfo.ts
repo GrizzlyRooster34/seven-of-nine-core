@@ -1,10 +1,11 @@
+import { execSync } from 'child_process';
+import { readFileSync } from 'fs';
+
 /**
  * SEVEN OF NINE - SYSTEM INFO SKILL
  * Read-only system information gathering
  */
 
-import { execSync } from 'child_process';
-import { readFileSync } from 'fs';
 
 export const skill = {
   name: 'SystemInfo',

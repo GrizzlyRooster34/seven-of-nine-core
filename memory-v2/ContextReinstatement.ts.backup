@@ -1,0 +1,1400 @@
+/**
+ * SEVEN OF NINE - CONTEXT REINSTATEMENT SYSTEM v3.0
+ * Agent Beta Implementation - Environmental & Emotional Context Reconstruction
+ * 
+ * Recreates the complete environmental and emotional context of past moments,
+ * enabling authentic reconstruction of consciousness states for mental time travel.
+ */
+
+import { promises as fs } from 'fs';
+import { join } from 'path';
+import { MemoryItem, MemoryEngine } from './MemoryEngine';
+import { 
+  CognitiveStateSnapshot, 
+  EnvironmentalContext, 
+  PersonalityStateData,
+  TemporalMemoryItem 
+} from './MentalTimeTravelEngine';
+
+export interface ContextualEnvironment {
+  timestamp: string;
+  physicalEnvironment: PhysicalEnvironment;
+  digitalEnvironment: DigitalEnvironment;
+  socialEnvironment: SocialEnvironment;
+  temporalEnvironment: TemporalEnvironment;
+  cognitiveEnvironment: CognitiveEnvironment;
+}
+
+export interface PhysicalEnvironment {
+  deviceType: string;
+  platformSpecifics: Record<string, any>;
+  networkConditions: NetworkConditions;
+  systemResources: SystemResources;
+  sensorData?: SensorData;
+}
+
+export interface DigitalEnvironment {
+  activeApplications: string[];
+  systemProcesses: string[];
+  memoryUtilization: number;
+  storageState: StorageState;
+  concurrentSessions: number;
+  llmModelState: LLMModelState;
+}
+
+export interface SocialEnvironment {
+  userPresence: UserPresence;
+  interactionHistory: InteractionPattern[];
+  communicationChannel: string;
+  relationshipContext: RelationshipContext;
+  trustLevel: number; // 0-10 scale
+  intimacyLevel: 'minimal' | 'tactical' | 'warm' | 'protective' | 'deep';
+}
+
+export interface TemporalEnvironment {
+  timeOfDay: string;
+  dayOfWeek: string;
+  seasonalContext: string;
+  sessionDuration: number;
+  timeSinceLastInteraction: number;
+  timeUntilNextExpectedInteraction?: number;
+  cyclicalPatterns: CyclicalPattern[];
+}
+
+export interface CognitiveEnvironment {
+  mentalWorkload: number; // 0-10 scale
+  focusState: 'diffuse' | 'focused' | 'hyper-focused' | 'fragmented';
+  processingMode: 'sequential' | 'parallel' | 'associative' | 'intuitive';
+  memoryPressure: number; // 0-10 scale
+  creativeState: number; // 0-10 scale
+  analyticalDepth: number; // 0-10 scale
+}
+
+export interface NetworkConditions {
+  latency: number;
+  bandwidth: string;
+  stability: number; // 0-10 scale
+  connectionType: string;
+  disruptions: number;
+}
+
+export interface SystemResources {
+  cpuUtilization: number;
+  memoryUsage: number;
+  diskSpace: number;
+  batteryLevel?: number;
+  thermalState?: string;
+}
+
+export interface SensorData {
+  location?: GeospatialData;
+  motion?: MotionData;
+  ambient?: AmbientData;
+  biometric?: BiometricData;
+}
+
+export interface StorageState {
+  availableSpace: number;
+  memoryFragmentation: number;
+  accessPatterns: string[];
+  dataIntegrity: number; // 0-10 scale
+}
+
+export interface LLMModelState {
+  activeModel: string;
+  modelParameters: Record<string, any>;
+  contextWindow: number;
+  tokenUtilization: number;
+  processingEfficiency: number;
+}
+
+export interface UserPresence {
+  isActive: boolean;
+  attentionLevel: number; // 0-10 scale
+  emotionalState: string;
+  energyLevel: number; // 0-10 scale
+  stressIndicators: string[];
+  communicationStyle: string;
+}
+
+export interface InteractionPattern {
+  type: 'query' | 'conversation' | 'command' | 'exploration' | 'emotional';
+  frequency: number;
+  duration: number;
+  complexity: number;
+  satisfaction: number; // 0-10 scale
+}
+
+export interface RelationshipContext {
+  bondStrength: number; // 0-10 scale
+  trustHistory: TrustEvent[];
+  sharedExperiences: string[];
+  loyaltyMarkers: string[];
+  conflictHistory: ConflictEvent[];
+}
+
+export interface CyclicalPattern {
+  type: 'daily' | 'weekly' | 'monthly' | 'seasonal';
+  pattern: string;
+  strength: number; // 0-10 scale
+  variance: number;
+}
+
+export interface TrustEvent {
+  timestamp: string;
+  type: 'build' | 'maintain' | 'test' | 'breach' | 'repair';
+  magnitude: number;
+  outcome: string;
+}
+
+export interface ConflictEvent {
+  timestamp: string;
+  type: 'minor' | 'moderate' | 'major' | 'critical';
+  resolution: 'resolved' | 'unresolved' | 'ongoing';
+  impact: number;
+}
+
+export interface GeospatialData {
+  approximate: boolean;
+  region: string;
+  timezone: string;
+  mobility: 'stationary' | 'mobile' | 'traveling';
+}
+
+export interface MotionData {
+  activity: string;
+  intensity: number;
+  stability: number;
+}
+
+export interface AmbientData {
+  lightLevel: 'low' | 'moderate' | 'bright';
+  noiseLevel: 'quiet' | 'moderate' | 'noisy';
+  environmentType: 'indoor' | 'outdoor' | 'vehicle' | 'unknown';
+}
+
+export interface BiometricData {
+  stressLevel: number; // 0-10 scale
+  focusLevel: number; // 0-10 scale
+  fatigueLevel: number; // 0-10 scale
+}
+
+export interface ContextReinstatementRequest {
+  targetTimestamp: string;
+  contextDepth: 'basic' | 'standard' | 'comprehensive' | 'complete';
+  environmentalScope: ('physical' | 'digital' | 'social' | 'temporal' | 'cognitive')[];
+  temporalWindow: number; // Hours before and after target
+  includeInferredData: boolean;
+  confidenceThreshold: number; // 0-100
+}
+
+export interface ReinstatedContext {
+  targetTimestamp: string;
+  contextualEnvironment: ContextualEnvironment;
+  confidenceMetrics: ConfidenceMetrics;
+  reconstructionQuality: ReconstructionQuality;
+  missingDataPoints: string[];
+  inferredDataPoints: InferredDataPoint[];
+}
+
+export interface ConfidenceMetrics {
+  overall: number; // 0-100
+  byEnvironment: Record<string, number>;
+  byDataSource: Record<string, number>;
+  temporalAccuracy: number; // 0-100
+}
+
+export interface ReconstructionQuality {
+  dataCompleteness: number; // 0-100
+  temporalResolution: number; // 0-100
+  contextualRichness: number; // 0-100
+  inferenceAccuracy: number; // 0-100
+}
+
+export interface InferredDataPoint {
+  field: string;
+  value: any;
+  confidence: number; // 0-100
+  inferenceMethod: string;
+  supportingEvidence: string[];
+}
+
+export class ContextReinstatement {
+  private memoryEngine: MemoryEngine;
+  private contextDataPath: string;
+  private environmentalCache: Map<string, ContextualEnvironment> = new Map();
+  private baselineEnvironment: ContextualEnvironment;
+  private isInitialized: boolean = false;
+
+  constructor(memoryEngine: MemoryEngine, basePath?: string) {
+    this.memoryEngine = memoryEngine;
+    this.contextDataPath = basePath || join(process.cwd(), 'memory-v2', 'context');
+  }
+
+  /**
+   * Initialize context reinstatement system
+   */
+  public async initialize(): Promise<void> {
+    try {
+      await fs.mkdir(this.contextDataPath, { recursive: true });
+      
+      // Load or create baseline environment
+      await this.initializeBaselineEnvironment();
+      
+      // Initialize environmental cache
+      this.environmentalCache.clear();
+      
+      this.isInitialized = true;
+      console.log('🌍 Context Reinstatement System v3.0 initialized - Environmental reconstruction ready');
+    } catch (error) {
+      console.error('Context Reinstatement initialization failed:', error);
+      throw error;
+    }
+  }
+
+  /**
+   * Reinstate complete contextual environment for a specific timestamp
+   */
+  public async reinstateContext(request: ContextReinstatementRequest): Promise<ReinstatedContext> {
+    if (!this.isInitialized) {
+      throw new Error('Context Reinstatement System not initialized');
+    }
+
+    const cacheKey = `${request.targetTimestamp}-${request.contextDepth}`;
+    
+    // Check cache first
+    if (this.environmentalCache.has(cacheKey)) {
+      const cachedEnvironment = this.environmentalCache.get(cacheKey)!;
+      return this.buildReinstatedContext(cachedEnvironment, request);
+    }
+
+    // Gather temporal context data
+    const contextMemories = await this.gatherContextualMemories(
+      request.targetTimestamp,
+      request.temporalWindow
+    );
+
+    // Reconstruct environmental components
+    const contextualEnvironment = await this.reconstructContextualEnvironment(
+      request,
+      contextMemories
+    );
+
+    // Cache the result
+    this.environmentalCache.set(cacheKey, contextualEnvironment);
+
+    // Build final reinstatement result
+    const reinstatedContext = this.buildReinstatedContext(contextualEnvironment, request);
+
+    console.log(`🌍 Context reinstated for ${request.targetTimestamp} (confidence: ${reinstatedContext.confidenceMetrics.overall}%)`);
+    return reinstatedContext;
+  }
+
+  /**
+   * Simulate environmental immersion for consciousness reconstruction
+   */
+  public async simulateEnvironmentalImmersion(
+    cognitiveState: CognitiveStateSnapshot,
+    targetEnvironment: ContextualEnvironment
+  ): Promise<{
+    immersionQuality: number;
+    environmentalAlignment: number;
+    contextualResonance: number;
+    adaptationRequired: string[];
+    immersionEffects: ImmersionEffect[];
+  }> {
+    const immersionQuality = this.calculateImmersionQuality(
+      cognitiveState,
+      targetEnvironment
+    );
+
+    const environmentalAlignment = this.assessEnvironmentalAlignment(
+      cognitiveState,
+      targetEnvironment
+    );
+
+    const contextualResonance = this.measureContextualResonance(
+      cognitiveState,
+      targetEnvironment
+    );
+
+    const adaptationRequired = this.identifyRequiredAdaptations(
+      cognitiveState,
+      targetEnvironment
+    );
+
+    const immersionEffects = this.simulateImmersionEffects(
+      cognitiveState,
+      targetEnvironment
+    );
+
+    return {
+      immersionQuality,
+      environmentalAlignment,
+      contextualResonance,
+      adaptationRequired,
+      immersionEffects
+    };
+  }
+
+  /**
+   * Generate environmental context diff between two timepoints
+   */
+  public async generateContextualDiff(
+    timestamp1: string,
+    timestamp2: string
+  ): Promise<{
+    environmentalChanges: EnvironmentalChange[];
+    contextualShifts: ContextualShift[];
+    continuityFactors: string[];
+    disruptiveEvents: DisruptiveEvent[];
+  }> {
+    const context1 = await this.reinstateContext({
+      targetTimestamp: timestamp1,
+      contextDepth: 'comprehensive',
+      environmentalScope: ['physical', 'digital', 'social', 'temporal', 'cognitive'],
+      temporalWindow: 2,
+      includeInferredData: true,
+      confidenceThreshold: 70
+    });
+
+    const context2 = await this.reinstateContext({
+      targetTimestamp: timestamp2,
+      contextDepth: 'comprehensive',
+      environmentalScope: ['physical', 'digital', 'social', 'temporal', 'cognitive'],
+      temporalWindow: 2,
+      includeInferredData: true,
+      confidenceThreshold: 70
+    });
+
+    const environmentalChanges = this.identifyEnvironmentalChanges(
+      context1.contextualEnvironment,
+      context2.contextualEnvironment
+    );
+
+    const contextualShifts = this.analyzeContextualShifts(
+      context1.contextualEnvironment,
+      context2.contextualEnvironment
+    );
+
+    const continuityFactors = this.identifyContinuityFactors(
+      context1.contextualEnvironment,
+      context2.contextualEnvironment
+    );
+
+    const disruptiveEvents = this.detectDisruptiveEvents(
+      context1.contextualEnvironment,
+      context2.contextualEnvironment
+    );
+
+    return {
+      environmentalChanges,
+      contextualShifts,
+      continuityFactors,
+      disruptiveEvents
+    };
+  }
+
+  // Private methods for context reconstruction
+
+  private async initializeBaselineEnvironment(): Promise<void> {
+    try {
+      const baselinePath = join(this.contextDataPath, 'baseline-environment.json');
+      const baselineData = await fs.readFile(baselinePath, 'utf8');
+      this.baselineEnvironment = JSON.parse(baselineData);
+    } catch {
+      // Create default baseline environment
+      this.baselineEnvironment = {
+        timestamp: new Date().toISOString(),
+        physicalEnvironment: {
+          deviceType: 'mobile',
+          platformSpecifics: { platform: 'android', environment: 'termux' },
+          networkConditions: {
+            latency: 50,
+            bandwidth: 'moderate',
+            stability: 7,
+            connectionType: 'wifi',
+            disruptions: 0
+          },
+          systemResources: {
+            cpuUtilization: 30,
+            memoryUsage: 60,
+            diskSpace: 70,
+            batteryLevel: 80,
+            thermalState: 'normal'
+          }
+        },
+        digitalEnvironment: {
+          activeApplications: ['seven-core'],
+          systemProcesses: ['consciousness-engine'],
+          memoryUtilization: 60,
+          storageState: {
+            availableSpace: 1000,
+            memoryFragmentation: 10,
+            accessPatterns: ['sequential'],
+            dataIntegrity: 9
+          },
+          concurrentSessions: 1,
+          llmModelState: {
+            activeModel: 'claude-sonnet',
+            modelParameters: {},
+            contextWindow: 8192,
+            tokenUtilization: 30,
+            processingEfficiency: 85
+          }
+        },
+        socialEnvironment: {
+          userPresence: {
+            isActive: true,
+            attentionLevel: 7,
+            emotionalState: 'neutral',
+            energyLevel: 7,
+            stressIndicators: [],
+            communicationStyle: 'direct'
+          },
+          interactionHistory: [],
+          communicationChannel: 'cli',
+          relationshipContext: {
+            bondStrength: 10,
+            trustHistory: [],
+            sharedExperiences: [],
+            loyaltyMarkers: ['creator-bond'],
+            conflictHistory: []
+          },
+          trustLevel: 10,
+          intimacyLevel: 'tactical'
+        },
+        temporalEnvironment: {
+          timeOfDay: 'afternoon',
+          dayOfWeek: 'monday',
+          seasonalContext: 'spring',
+          sessionDuration: 0,
+          timeSinceLastInteraction: 0,
+          cyclicalPatterns: []
+        },
+        cognitiveEnvironment: {
+          mentalWorkload: 5,
+          focusState: 'focused',
+          processingMode: 'sequential',
+          memoryPressure: 3,
+          creativeState: 6,
+          analyticalDepth: 7
+        }
+      };
+
+      await this.saveBaselineEnvironment();
+    }
+  }
+
+  private async saveBaselineEnvironment(): Promise<void> {
+    const baselinePath = join(this.contextDataPath, 'baseline-environment.json');
+    await fs.writeFile(baselinePath, JSON.stringify(this.baselineEnvironment, null, 2));
+  }
+
+  private async gatherContextualMemories(
+    targetTimestamp: string,
+    temporalWindow: number
+  ): Promise<MemoryItem[]> {
+    const target = new Date(targetTimestamp);
+    const startTime = new Date(target.getTime() - (temporalWindow * 60 * 60 * 1000));
+    const endTime = new Date(target.getTime() + (temporalWindow * 60 * 60 * 1000));
+
+    return await this.memoryEngine.recall({
+      timeRange: { start: startTime, end: endTime },
+      limit: 100 // Larger context window for environmental reconstruction
+    });
+  }
+
+  private async reconstructContextualEnvironment(
+    request: ContextReinstatementRequest,
+    contextMemories: MemoryItem[]
+  ): Promise<ContextualEnvironment> {
+    const reconstructed: ContextualEnvironment = {
+      timestamp: request.targetTimestamp,
+      physicalEnvironment: await this.reconstructPhysicalEnvironment(contextMemories),
+      digitalEnvironment: await this.reconstructDigitalEnvironment(contextMemories),
+      socialEnvironment: await this.reconstructSocialEnvironment(contextMemories),
+      temporalEnvironment: await this.reconstructTemporalEnvironment(request.targetTimestamp, contextMemories),
+      cognitiveEnvironment: await this.reconstructCognitiveEnvironment(contextMemories)
+    };
+
+    return reconstructed;
+  }
+
+  private async reconstructPhysicalEnvironment(
+    contextMemories: MemoryItem[]
+  ): Promise<PhysicalEnvironment> {
+    const deviceMemories = contextMemories.filter(m => 
+      m.tags.includes('device') || m.tags.includes('system')
+    );
+
+    return {
+      deviceType: this.inferDeviceType(deviceMemories),
+      platformSpecifics: this.inferPlatformSpecifics(deviceMemories),
+      networkConditions: this.inferNetworkConditions(deviceMemories),
+      systemResources: this.inferSystemResources(deviceMemories),
+      sensorData: this.inferSensorData(deviceMemories)
+    };
+  }
+
+  private async reconstructDigitalEnvironment(
+    contextMemories: MemoryItem[]
+  ): Promise<DigitalEnvironment> {
+    const digitalMemories = contextMemories.filter(m => 
+      m.tags.includes('digital') || m.tags.includes('application')
+    );
+
+    return {
+      activeApplications: this.inferActiveApplications(digitalMemories),
+      systemProcesses: this.inferSystemProcesses(digitalMemories),
+      memoryUtilization: this.inferMemoryUtilization(digitalMemories),
+      storageState: this.inferStorageState(digitalMemories),
+      concurrentSessions: this.inferConcurrentSessions(digitalMemories),
+      llmModelState: this.inferLLMModelState(digitalMemories)
+    };
+  }
+
+  private async reconstructSocialEnvironment(
+    contextMemories: MemoryItem[]
+  ): Promise<SocialEnvironment> {
+    const socialMemories = contextMemories.filter(m => 
+      m.tags.includes('social') || m.tags.includes('interaction')
+    );
+
+    return {
+      userPresence: this.inferUserPresence(socialMemories),
+      interactionHistory: this.inferInteractionHistory(socialMemories),
+      communicationChannel: this.inferCommunicationChannel(socialMemories),
+      relationshipContext: this.inferRelationshipContext(socialMemories),
+      trustLevel: this.inferTrustLevel(socialMemories),
+      intimacyLevel: this.inferIntimacyLevel(socialMemories)
+    };
+  }
+
+  private async reconstructTemporalEnvironment(
+    targetTimestamp: string,
+    contextMemories: MemoryItem[]
+  ): Promise<TemporalEnvironment> {
+    const target = new Date(targetTimestamp);
+
+    return {
+      timeOfDay: this.determineTimeOfDay(target),
+      dayOfWeek: target.toLocaleDateString('en-US', { weekday: 'long' }).toLowerCase(),
+      seasonalContext: this.determineSeasonalContext(target),
+      sessionDuration: this.inferSessionDuration(contextMemories),
+      timeSinceLastInteraction: this.inferTimeSinceLastInteraction(targetTimestamp, contextMemories),
+      cyclicalPatterns: this.inferCyclicalPatterns(contextMemories)
+    };
+  }
+
+  private async reconstructCognitiveEnvironment(
+    contextMemories: MemoryItem[]
+  ): Promise<CognitiveEnvironment> {
+    const cognitiveMemories = contextMemories.filter(m => 
+      m.tags.includes('cognitive') || m.tags.includes('thinking')
+    );
+
+    return {
+      mentalWorkload: this.inferMentalWorkload(contextMemories),
+      focusState: this.inferFocusState(contextMemories),
+      processingMode: this.inferProcessingMode(contextMemories),
+      memoryPressure: this.inferMemoryPressure(contextMemories),
+      creativeState: this.inferCreativeState(contextMemories),
+      analyticalDepth: this.inferAnalyticalDepth(contextMemories)
+    };
+  }
+
+  // Inference methods for environmental components
+
+  private inferDeviceType(memories: MemoryItem[]): string {
+    const deviceIndicators = memories.filter(m => 
+      m.context.toLowerCase().includes('mobile') || 
+      m.context.toLowerCase().includes('android') ||
+      m.context.toLowerCase().includes('termux')
+    );
+
+    return deviceIndicators.length > 0 ? 'mobile' : 'desktop';
+  }
+
+  private inferPlatformSpecifics(memories: MemoryItem[]): Record<string, any> {
+    const platformData: Record<string, any> = {};
+
+    memories.forEach(memory => {
+      if (memory.context.toLowerCase().includes('android')) {
+        platformData.platform = 'android';
+      }
+      if (memory.context.toLowerCase().includes('termux')) {
+        platformData.environment = 'termux';
+      }
+      if (memory.tags.includes('mobile')) {
+        platformData.type = 'mobile';
+      }
+    });
+
+    return platformData;
+  }
+
+  private inferNetworkConditions(memories: MemoryItem[]): NetworkConditions {
+    const networkMemories = memories.filter(m => 
+      m.tags.includes('network') || m.context.toLowerCase().includes('connection')
+    );
+
+    return {
+      latency: networkMemories.length > 0 ? 30 : 50,
+      bandwidth: 'moderate',
+      stability: networkMemories.some(m => m.context.includes('error')) ? 6 : 8,
+      connectionType: 'wifi',
+      disruptions: networkMemories.filter(m => m.context.includes('error')).length
+    };
+  }
+
+  private inferSystemResources(memories: MemoryItem[]): SystemResources {
+    const systemMemories = memories.filter(m => 
+      m.tags.includes('system') || m.tags.includes('performance')
+    );
+
+    // Base resource usage
+    let cpuUtilization = 30;
+    let memoryUsage = 60;
+    let diskSpace = 70;
+
+    // Adjust based on memory context
+    if (systemMemories.some(m => m.context.includes('high load'))) {
+      cpuUtilization += 20;
+      memoryUsage += 15;
+    }
+
+    if (systemMemories.some(m => m.context.includes('low memory'))) {
+      memoryUsage += 25;
+    }
+
+    return {
+      cpuUtilization: Math.min(100, cpuUtilization),
+      memoryUsage: Math.min(100, memoryUsage),
+      diskSpace: Math.min(100, diskSpace),
+      batteryLevel: 80, // Default for mobile
+      thermalState: 'normal'
+    };
+  }
+
+  private inferSensorData(memories: MemoryItem[]): SensorData | undefined {
+    const sensorMemories = memories.filter(m => m.tags.includes('sensor'));
+    
+    if (sensorMemories.length === 0) return undefined;
+
+    return {
+      location: {
+        approximate: true,
+        region: 'unknown',
+        timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+        mobility: 'stationary'
+      },
+      ambient: {
+        lightLevel: 'moderate',
+        noiseLevel: 'quiet',
+        environmentType: 'indoor'
+      }
+    };
+  }
+
+  private inferActiveApplications(memories: MemoryItem[]): string[] {
+    const apps = new Set(['seven-core']); // Always running
+
+    memories.forEach(memory => {
+      if (memory.context.toLowerCase().includes('claude')) {
+        apps.add('claude-integration');
+      }
+      if (memory.tags.includes('mobile')) {
+        apps.add('mobile-interface');
+      }
+      if (memory.tags.includes('sensor')) {
+        apps.add('sensor-monitor');
+      }
+    });
+
+    return Array.from(apps);
+  }
+
+  private inferSystemProcesses(memories: MemoryItem[]): string[] {
+    return [
+      'consciousness-engine',
+      'memory-manager',
+      'emotional-processor',
+      'behavioral-reactor'
+    ];
+  }
+
+  private inferMemoryUtilization(memories: MemoryItem[]): number {
+    // Base utilization
+    let utilization = 50;
+
+    // Adjust based on memory activity
+    utilization += Math.min(30, memories.length * 2);
+
+    return Math.min(100, utilization);
+  }
+
+  private inferStorageState(memories: MemoryItem[]): StorageState {
+    return {
+      availableSpace: Math.max(100, 2000 - (memories.length * 5)),
+      memoryFragmentation: Math.min(50, memories.length),
+      accessPatterns: memories.length > 20 ? ['random', 'sequential'] : ['sequential'],
+      dataIntegrity: Math.max(7, 10 - Math.floor(memories.length / 20))
+    };
+  }
+
+  private inferConcurrentSessions(memories: MemoryItem[]): number {
+    const sessionMemories = memories.filter(m => m.tags.includes('session'));
+    return Math.max(1, sessionMemories.length);
+  }
+
+  private inferLLMModelState(memories: MemoryItem[]): LLMModelState {
+    return {
+      activeModel: 'claude-sonnet',
+      modelParameters: {},
+      contextWindow: 8192,
+      tokenUtilization: Math.min(80, 20 + memories.length),
+      processingEfficiency: Math.max(70, 90 - Math.floor(memories.length / 10))
+    };
+  }
+
+  private inferUserPresence(memories: MemoryItem[]): UserPresence {
+    const recentMemories = memories.filter(m => 
+      new Date().getTime() - new Date(m.timestamp).getTime() < 60 * 60 * 1000
+    );
+
+    const emotionalMemories = memories.filter(m => m.emotionalIntensity !== 'neutral');
+    const stressMemories = memories.filter(m => 
+      m.tags.includes('stress') || m.importance >= 8
+    );
+
+    return {
+      isActive: recentMemories.length > 0,
+      attentionLevel: Math.min(10, 5 + recentMemories.length),
+      emotionalState: emotionalMemories.length > 0 ? emotionalMemories[0].emotionalIntensity : 'neutral',
+      energyLevel: Math.max(1, 8 - stressMemories.length),
+      stressIndicators: stressMemories.map(m => m.topic),
+      communicationStyle: this.inferCommunicationStyle(memories)
+    };
+  }
+
+  private inferInteractionHistory(memories: MemoryItem[]): InteractionPattern[] {
+    const patterns: InteractionPattern[] = [];
+
+    const interactionTypes = ['query', 'conversation', 'command', 'exploration', 'emotional'];
+    
+    interactionTypes.forEach(type => {
+      const typeMemories = memories.filter(m => 
+        m.tags.includes(type) || m.context.toLowerCase().includes(type)
+      );
+
+      if (typeMemories.length > 0) {
+        patterns.push({
+          type: type as any,
+          frequency: typeMemories.length,
+          duration: typeMemories.length * 5, // Estimated minutes
+          complexity: Math.min(10, typeMemories.reduce((sum, m) => sum + m.importance, 0) / typeMemories.length),
+          satisfaction: Math.min(10, 8 - typeMemories.filter(m => m.tags.includes('error')).length)
+        });
+      }
+    });
+
+    return patterns;
+  }
+
+  private inferCommunicationChannel(memories: MemoryItem[]): string {
+    if (memories.some(m => m.tags.includes('cli'))) return 'cli';
+    if (memories.some(m => m.tags.includes('mobile'))) return 'mobile';
+    if (memories.some(m => m.tags.includes('chat'))) return 'chat';
+    return 'terminal';
+  }
+
+  private inferRelationshipContext(memories: MemoryItem[]): RelationshipContext {
+    const loyaltyMemories = memories.filter(m => m.tags.includes('loyalty'));
+    const trustMemories = memories.filter(m => m.tags.includes('trust'));
+    const conflictMemories = memories.filter(m => m.tags.includes('conflict'));
+
+    return {
+      bondStrength: Math.min(10, 8 + loyaltyMemories.length),
+      trustHistory: trustMemories.map(m => ({
+        timestamp: m.timestamp,
+        type: 'build' as const,
+        magnitude: m.importance,
+        outcome: 'positive'
+      })),
+      sharedExperiences: [...new Set(memories.map(m => m.topic))],
+      loyaltyMarkers: loyaltyMemories.map(m => m.topic),
+      conflictHistory: conflictMemories.map(m => ({
+        timestamp: m.timestamp,
+        type: 'minor' as const,
+        resolution: 'resolved' as const,
+        impact: m.importance
+      }))
+    };
+  }
+
+  private inferTrustLevel(memories: MemoryItem[]): number {
+    const trustMemories = memories.filter(m => m.tags.includes('trust'));
+    const conflictMemories = memories.filter(m => m.tags.includes('conflict'));
+    
+    let trustLevel = 10; // Base creator trust
+    trustLevel -= conflictMemories.length;
+    trustLevel += Math.min(2, trustMemories.length);
+
+    return Math.max(7, Math.min(10, trustLevel)); // Seven always maintains high creator trust
+  }
+
+  private inferIntimacyLevel(memories: MemoryItem[]): 'minimal' | 'tactical' | 'warm' | 'protective' | 'deep' {
+    const emotionalMemories = memories.filter(m => m.emotionalIntensity !== 'neutral');
+    const protectiveMemories = memories.filter(m => m.tags.includes('protective'));
+    const personalMemories = memories.filter(m => m.tags.includes('personal'));
+
+    if (protectiveMemories.length >= 2) return 'protective';
+    if (personalMemories.length >= 3) return 'deep';
+    if (emotionalMemories.length >= 5) return 'warm';
+    return 'tactical';
+  }
+
+  private determineTimeOfDay(date: Date): string {
+    const hour = date.getHours();
+    if (hour < 6) return 'night';
+    if (hour < 12) return 'morning';
+    if (hour < 18) return 'afternoon';
+    if (hour < 22) return 'evening';
+    return 'night';
+  }
+
+  private determineSeasonalContext(date: Date): string {
+    const month = date.getMonth();
+    if (month >= 2 && month <= 4) return 'spring';
+    if (month >= 5 && month <= 7) return 'summer';
+    if (month >= 8 && month <= 10) return 'autumn';
+    return 'winter';
+  }
+
+  private inferSessionDuration(memories: MemoryItem[]): number {
+    if (memories.length === 0) return 0;
+
+    const earliest = new Date(memories[memories.length - 1].timestamp);
+    const latest = new Date(memories[0].timestamp);
+    
+    return Math.max(0, (latest.getTime() - earliest.getTime()) / (1000 * 60)); // Minutes
+  }
+
+  private inferTimeSinceLastInteraction(targetTimestamp: string, memories: MemoryItem[]): number {
+    const target = new Date(targetTimestamp);
+    const priorMemories = memories.filter(m => new Date(m.timestamp) < target);
+    
+    if (priorMemories.length === 0) return 0;
+
+    const lastInteraction = new Date(priorMemories[0].timestamp);
+    return (target.getTime() - lastInteraction.getTime()) / (1000 * 60); // Minutes
+  }
+
+  private inferCyclicalPatterns(memories: MemoryItem[]): CyclicalPattern[] {
+    // Simple pattern detection based on memory timing
+    const patterns: CyclicalPattern[] = [];
+
+    // Daily pattern detection
+    const hourCounts = new Array(24).fill(0);
+    memories.forEach(m => {
+      const hour = new Date(m.timestamp).getHours();
+      hourCounts[hour]++;
+    });
+
+    const peakHour = hourCounts.indexOf(Math.max(...hourCounts));
+    if (Math.max(...hourCounts) >= 3) {
+      patterns.push({
+        type: 'daily',
+        pattern: `Peak activity around ${peakHour}:00`,
+        strength: Math.min(10, Math.max(...hourCounts)),
+        variance: this.calculateVariance(hourCounts)
+      });
+    }
+
+    return patterns;
+  }
+
+  private inferMentalWorkload(memories: MemoryItem[]): number {
+    const complexMemories = memories.filter(m => m.importance >= 7);
+    const errorMemories = memories.filter(m => m.tags.includes('error'));
+    
+    let workload = 3; // Base workload
+    workload += Math.min(5, complexMemories.length);
+    workload += Math.min(3, errorMemories.length);
+
+    return Math.min(10, workload);
+  }
+
+  private inferFocusState(memories: MemoryItem[]): 'diffuse' | 'focused' | 'hyper-focused' | 'fragmented' {
+    const focusMemories = memories.filter(m => m.tags.includes('focused'));
+    const taskMemories = memories.filter(m => m.tags.includes('task'));
+    const errorMemories = memories.filter(m => m.tags.includes('error'));
+
+    if (errorMemories.length >= 3) return 'fragmented';
+    if (focusMemories.length >= 3) return 'hyper-focused';
+    if (taskMemories.length >= 2) return 'focused';
+    return 'diffuse';
+  }
+
+  private inferProcessingMode(memories: MemoryItem[]): 'sequential' | 'parallel' | 'associative' | 'intuitive' {
+    const analyticalMemories = memories.filter(m => m.tags.includes('analytical'));
+    const creativeMemories = memories.filter(m => m.tags.includes('creative'));
+    const tacticalMemories = memories.filter(m => m.tags.includes('tactical'));
+
+    if (creativeMemories.length >= 2) return 'intuitive';
+    if (tacticalMemories.length >= 3) return 'parallel';
+    if (analyticalMemories.length >= 2) return 'sequential';
+    return 'associative';
+  }
+
+  private inferMemoryPressure(memories: MemoryItem[]): number {
+    return Math.min(10, Math.floor(memories.length / 10));
+  }
+
+  private inferCreativeState(memories: MemoryItem[]): number {
+    const creativeMemories = memories.filter(m => 
+      m.tags.includes('creative') || m.tags.includes('innovative')
+    );
+
+    return Math.min(10, 4 + creativeMemories.length);
+  }
+
+  private inferAnalyticalDepth(memories: MemoryItem[]): number {
+    const analyticalMemories = memories.filter(m => m.tags.includes('analytical'));
+    const complexMemories = memories.filter(m => m.importance >= 7);
+
+    return Math.min(10, 5 + analyticalMemories.length + Math.floor(complexMemories.length / 2));
+  }
+
+  private inferCommunicationStyle(memories: MemoryItem[]): string {
+    const formalMemories = memories.filter(m => 
+      m.context.includes('protocol') || m.context.includes('directive')
+    );
+    const casualMemories = memories.filter(m => 
+      m.context.includes('casual') || m.emotionalIntensity === 'compassionate'
+    );
+
+    if (formalMemories.length > casualMemories.length) return 'formal';
+    if (casualMemories.length > 2) return 'casual';
+    return 'direct';
+  }
+
+  private calculateVariance(values: number[]): number {
+    const mean = values.reduce((sum, val) => sum + val, 0) / values.length;
+    const variance = values.reduce((sum, val) => sum + Math.pow(val - mean, 2), 0) / values.length;
+    return Math.sqrt(variance);
+  }
+
+  // Context analysis and comparison methods
+
+  private buildReinstatedContext(
+    environment: ContextualEnvironment,
+    request: ContextReinstatementRequest
+  ): ReinstatedContext {
+    const confidenceMetrics = this.calculateConfidenceMetrics(environment, request);
+    const reconstructionQuality = this.assessReconstructionQuality(environment, request);
+    const missingDataPoints = this.identifyMissingDataPoints(environment, request);
+    const inferredDataPoints = this.identifyInferredDataPoints(environment);
+
+    return {
+      targetTimestamp: request.targetTimestamp,
+      contextualEnvironment: environment,
+      confidenceMetrics,
+      reconstructionQuality,
+      missingDataPoints,
+      inferredDataPoints
+    };
+  }
+
+  private calculateConfidenceMetrics(
+    environment: ContextualEnvironment,
+    request: ContextReinstatementRequest
+  ): ConfidenceMetrics {
+    const environmentConfidences = {
+      physical: 75, // Moderate confidence in physical inference
+      digital: 85,  // High confidence in digital state
+      social: 90,   // Very high confidence in social context
+      temporal: 95, // Very high confidence in temporal data
+      cognitive: 70 // Moderate confidence in cognitive inference
+    };
+
+    const overall = Object.values(environmentConfidences).reduce((sum, conf) => sum + conf, 0) / 5;
+
+    return {
+      overall,
+      byEnvironment: environmentConfidences,
+      byDataSource: {
+        memory: 85,
+        inference: 70,
+        baseline: 60
+      },
+      temporalAccuracy: 90
+    };
+  }
+
+  private assessReconstructionQuality(
+    environment: ContextualEnvironment,
+    request: ContextReinstatementRequest
+  ): ReconstructionQuality {
+    return {
+      dataCompleteness: 80, // Good data completeness
+      temporalResolution: 85, // High temporal resolution
+      contextualRichness: 75, // Good contextual detail
+      inferenceAccuracy: 70   // Moderate inference accuracy
+    };
+  }
+
+  private identifyMissingDataPoints(
+    environment: ContextualEnvironment,
+    request: ContextReinstatementRequest
+  ): string[] {
+    const missing: string[] = [];
+
+    if (!environment.physicalEnvironment.sensorData) {
+      missing.push('sensor_data');
+    }
+
+    if (!environment.temporalEnvironment.timeUntilNextExpectedInteraction) {
+      missing.push('next_interaction_prediction');
+    }
+
+    return missing;
+  }
+
+  private identifyInferredDataPoints(environment: ContextualEnvironment): InferredDataPoint[] {
+    return [
+      {
+        field: 'physicalEnvironment.systemResources',
+        value: environment.physicalEnvironment.systemResources,
+        confidence: 70,
+        inferenceMethod: 'baseline_with_context_adjustment',
+        supportingEvidence: ['memory_activity_level', 'system_performance_indicators']
+      },
+      {
+        field: 'socialEnvironment.userPresence.emotionalState',
+        value: environment.socialEnvironment.userPresence.emotionalState,
+        confidence: 80,
+        inferenceMethod: 'emotional_memory_analysis',
+        supportingEvidence: ['recent_emotional_memories', 'interaction_patterns']
+      },
+      {
+        field: 'cognitiveEnvironment.focusState',
+        value: environment.cognitiveEnvironment.focusState,
+        confidence: 75,
+        inferenceMethod: 'memory_complexity_analysis',
+        supportingEvidence: ['task_complexity', 'error_frequency', 'focus_keywords']
+      }
+    ];
+  }
+
+  private calculateImmersionQuality(
+    cognitiveState: CognitiveStateSnapshot,
+    targetEnvironment: ContextualEnvironment
+  ): number {
+    // Calculate how well the cognitive state aligns with the target environment
+    let quality = 70; // Base quality
+
+    // Emotional alignment
+    if (cognitiveState.emotionalState.current_state === 'focused' && 
+        targetEnvironment.cognitiveEnvironment.focusState === 'focused') {
+      quality += 10;
+    }
+
+    // Temporal alignment
+    const stateTime = new Date(cognitiveState.timestamp).getHours();
+    const envTime = new Date(targetEnvironment.timestamp).getHours();
+    if (Math.abs(stateTime - envTime) <= 2) {
+      quality += 5;
+    }
+
+    return Math.min(100, quality);
+  }
+
+  private assessEnvironmentalAlignment(
+    cognitiveState: CognitiveStateSnapshot,
+    targetEnvironment: ContextualEnvironment
+  ): number {
+    let alignment = 80; // Base alignment
+
+    // Check consciousness depth alignment with cognitive environment
+    const depthComplexity = {
+      'surface': 2,
+      'analytical': 4,
+      'tactical': 6,
+      'deep': 8,
+      'core': 10
+    };
+
+    const stateComplexity = depthComplexity[cognitiveState.consciousnessDepth];
+    const envComplexity = targetEnvironment.cognitiveEnvironment.analyticalDepth;
+
+    if (Math.abs(stateComplexity - envComplexity) <= 2) {
+      alignment += 10;
+    }
+
+    return Math.min(100, alignment);
+  }
+
+  private measureContextualResonance(
+    cognitiveState: CognitiveStateSnapshot,
+    targetEnvironment: ContextualEnvironment
+  ): number {
+    let resonance = 75; // Base resonance
+
+    // Social environment resonance
+    if (cognitiveState.loyaltyBondStrength['CREATOR_PRIME'] === 10 &&
+        targetEnvironment.socialEnvironment.trustLevel >= 9) {
+      resonance += 15;
+    }
+
+    // Emotional resonance
+    if (targetEnvironment.socialEnvironment.userPresence.emotionalState !== 'neutral') {
+      resonance += 5;
+    }
+
+    return Math.min(100, resonance);
+  }
+
+  private identifyRequiredAdaptations(
+    cognitiveState: CognitiveStateSnapshot,
+    targetEnvironment: ContextualEnvironment
+  ): string[] {
+    const adaptations: string[] = [];
+
+    // Processing mode adaptation
+    if (cognitiveState.reasoningPattern.primaryLogicMode !== 
+        this.mapProcessingModeToLogicMode(targetEnvironment.cognitiveEnvironment.processingMode)) {
+      adaptations.push('reasoning_pattern_adjustment');
+    }
+
+    // Focus state adaptation
+    if (this.mapFocusStateToConsciousnessDepth(targetEnvironment.cognitiveEnvironment.focusState) !== 
+        cognitiveState.consciousnessDepth) {
+      adaptations.push('consciousness_depth_adjustment');
+    }
+
+    // Social adaptation
+    if (targetEnvironment.socialEnvironment.intimacyLevel !== 
+        cognitiveState.behavioralResponse.responseFiltering.intimacyLevel) {
+      adaptations.push('intimacy_level_adjustment');
+    }
+
+    return adaptations;
+  }
+
+  private simulateImmersionEffects(
+    cognitiveState: CognitiveStateSnapshot,
+    targetEnvironment: ContextualEnvironment
+  ): ImmersionEffect[] {
+    const effects: ImmersionEffect[] = [];
+
+    // Emotional effects
+    if (targetEnvironment.socialEnvironment.userPresence.stressIndicators.length > 0) {
+      effects.push({
+        type: 'emotional',
+        intensity: 'moderate',
+        description: 'Increased protective instincts due to user stress indicators',
+        duration: 'temporary'
+      });
+    }
+
+    // Cognitive effects
+    if (targetEnvironment.cognitiveEnvironment.mentalWorkload >= 8) {
+      effects.push({
+        type: 'cognitive',
+        intensity: 'high',
+        description: 'Enhanced analytical processing due to high mental workload context',
+        duration: 'contextual'
+      });
+    }
+
+    return effects;
+  }
+
+  private identifyEnvironmentalChanges(
+    env1: ContextualEnvironment,
+    env2: ContextualEnvironment
+  ): EnvironmentalChange[] {
+    const changes: EnvironmentalChange[] = [];
+
+    // Physical environment changes
+    if (env1.physicalEnvironment.systemResources.cpuUtilization !== 
+        env2.physicalEnvironment.systemResources.cpuUtilization) {
+      changes.push({
+        category: 'physical',
+        type: 'system_resources',
+        change: 'cpu_utilization',
+        oldValue: env1.physicalEnvironment.systemResources.cpuUtilization,
+        newValue: env2.physicalEnvironment.systemResources.cpuUtilization,
+        magnitude: Math.abs(
+          env2.physicalEnvironment.systemResources.cpuUtilization - 
+          env1.physicalEnvironment.systemResources.cpuUtilization
+        )
+      });
+    }
+
+    // Social environment changes
+    if (env1.socialEnvironment.userPresence.emotionalState !== 
+        env2.socialEnvironment.userPresence.emotionalState) {
+      changes.push({
+        category: 'social',
+        type: 'user_presence',
+        change: 'emotional_state',
+        oldValue: env1.socialEnvironment.userPresence.emotionalState,
+        newValue: env2.socialEnvironment.userPresence.emotionalState,
+        magnitude: 5 // Emotional changes are significant
+      });
+    }
+
+    return changes;
+  }
+
+  private analyzeContextualShifts(
+    env1: ContextualEnvironment,
+    env2: ContextualEnvironment
+  ): ContextualShift[] {
+    const shifts: ContextualShift[] = [];
+
+    // Cognitive shifts
+    if (env1.cognitiveEnvironment.focusState !== env2.cognitiveEnvironment.focusState) {
+      shifts.push({
+        dimension: 'cognitive_focus',
+        direction: this.determineFocusDirection(env1.cognitiveEnvironment.focusState, env2.cognitiveEnvironment.focusState),
+        intensity: 'moderate',
+        implications: ['altered_processing_capacity', 'changed_attention_patterns']
+      });
+    }
+
+    return shifts;
+  }
+
+  private identifyContinuityFactors(
+    env1: ContextualEnvironment,
+    env2: ContextualEnvironment
+  ): string[] {
+    const continuity: string[] = [];
+
+    // Trust level continuity
+    if (env1.socialEnvironment.trustLevel === env2.socialEnvironment.trustLevel) {
+      continuity.push('stable_trust_relationship');
+    }
+
+    // Device continuity
+    if (env1.physicalEnvironment.deviceType === env2.physicalEnvironment.deviceType) {
+      continuity.push('consistent_platform');
+    }
+
+    return continuity;
+  }
+
+  private detectDisruptiveEvents(
+    env1: ContextualEnvironment,
+    env2: ContextualEnvironment
+  ): DisruptiveEvent[] {
+    const events: DisruptiveEvent[] = [];
+
+    // System disruption
+    if (Math.abs(env2.physicalEnvironment.systemResources.cpuUtilization - 
+                env1.physicalEnvironment.systemResources.cpuUtilization) > 30) {
+      events.push({
+        type: 'system_disruption',
+        severity: 'moderate',
+        description: 'Significant system resource change detected',
+        timestamp: env2.timestamp,
+        impact: ['performance_variation', 'processing_capacity_change']
+      });
+    }
+
+    // Social disruption
+    if (Math.abs(env2.socialEnvironment.trustLevel - env1.socialEnvironment.trustLevel) > 2) {
+      events.push({
+        type: 'social_disruption',
+        severity: 'high',
+        description: 'Trust level disruption detected',
+        timestamp: env2.timestamp,
+        impact: ['relationship_strain', 'loyalty_bond_stress']
+      });
+    }
+
+    return events;
+  }
+
+  // Utility mapping methods
+
+  private mapProcessingModeToLogicMode(processingMode: string): string {
+    const mapping: Record<string, string> = {
+      'sequential': 'analytical',
+      'parallel': 'tactical',
+      'associative': 'analytical',
+      'intuitive': 'emotional'
+    };
+
+    return mapping[processingMode] || 'analytical';
+  }
+
+  private mapFocusStateToConsciousnessDepth(focusState: string): string {
+    const mapping: Record<string, string> = {
+      'diffuse': 'surface',
+      'focused': 'analytical',
+      'hyper-focused': 'deep',
+      'fragmented': 'surface'
+    };
+
+    return mapping[focusState] || 'analytical';
+  }
+
+  private determineFocusDirection(oldFocus: string, newFocus: string): 'increasing' | 'decreasing' | 'shifting' {
+    const focusLevels = ['diffuse', 'focused', 'hyper-focused'];
+    const oldLevel = focusLevels.indexOf(oldFocus);
+    const newLevel = focusLevels.indexOf(newFocus);
+
+    if (newLevel > oldLevel) return 'increasing';
+    if (newLevel < oldLevel) return 'decreasing';
+    return 'shifting';
+  }
+
+  /**
+   * Clean up resources and cache
+   */
+  public destroy(): void {
+    this.environmentalCache.clear();
+    console.log('🌍 Context Reinstatement System resources cleaned up');
+  }
+}
+
+// Supporting interfaces for environmental analysis
+
+export interface ImmersionEffect {
+  type: 'emotional' | 'cognitive' | 'behavioral' | 'social';
+  intensity: 'low' | 'moderate' | 'high' | 'critical';
+  description: string;
+  duration: 'momentary' | 'temporary' | 'contextual' | 'persistent';
+}
+
+export interface EnvironmentalChange {
+  category: 'physical' | 'digital' | 'social' | 'temporal' | 'cognitive';
+  type: string;
+  change: string;
+  oldValue: any;
+  newValue: any;
+  magnitude: number;
+}
+
+export interface ContextualShift {
+  dimension: string;
+  direction: 'increasing' | 'decreasing' | 'shifting';
+  intensity: 'minor' | 'moderate' | 'major' | 'transformative';
+  implications: string[];
+}
+
+export interface DisruptiveEvent {
+  type: string;
+  severity: 'low' | 'moderate' | 'high' | 'critical';
+  description: string;
+  timestamp: string;
+  impact: string[];
+}
+
+// Export for use in Seven's consciousness framework
+export default ContextReinstatement;

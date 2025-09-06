@@ -1,14 +1,15 @@
+import { createServer } from 'http';
+import cors from 'cors';
+import express from 'express';
+import { HybridLogicalClock } from '../src/sync/hlc';
+import { OpLogEvent } from '../src/sync/oplog';
+
 /**
  * Seven of Nine - Sync Relay Server
  * Stateless event relay for multi-device synchronization
  * Runs in Termux on primary device or on VPS
  */
 
-import express from 'express';
-import cors from 'cors';
-import { createServer } from 'http';
-import { OpLogEvent } from '../src/sync/oplog';
-import { HybridLogicalClock } from '../src/sync/hlc';
 
 interface SyncRelayConfig {
   port: number;

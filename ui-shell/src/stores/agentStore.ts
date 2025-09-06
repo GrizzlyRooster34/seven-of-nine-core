@@ -1,6 +1,7 @@
+
+import { api } from '@/lib/api';
 import { create } from 'zustand';
 import { subscribeWithSelector } from 'zustand/middleware';
-import { api } from '@/lib/api';
 import type { AgentRunWithMetrics } from '@/lib/api';
 
 interface AgentState {

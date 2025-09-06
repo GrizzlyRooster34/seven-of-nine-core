@@ -1,10 +1,11 @@
+import * as Crypto from 'expo-crypto';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
 /**
  * Seven of Nine - Cryptographic Operations for Multi-Device Sync
  * Handles encryption, signing, and key management for OpLog events
  */
 
-import * as Crypto from 'expo-crypto';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export interface DeviceKeyPair {
   deviceId: string;

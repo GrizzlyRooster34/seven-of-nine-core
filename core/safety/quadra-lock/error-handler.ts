@@ -1,3 +1,5 @@
+      import crypto from 'crypto';
+
 /**
  * QUADRA-LOCK ERROR HANDLER - GRACEFUL DEGRADATION SYSTEM
  * Handles failures in safety systems with fail-safe defaults
@@ -278,7 +280,6 @@ export class QuadraLockErrorHandler {
       const parsed = JSON.parse(serialized);
       
       // Test crypto operations
-      const crypto = require('crypto');
       const hash = crypto.createHash('sha256').update('test').digest('hex');
       
       return parsed.test === 'health_check' && hash.length === 64;

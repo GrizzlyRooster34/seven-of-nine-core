@@ -1,3 +1,9 @@
+import { EventEmitter } from 'events';
+import * as fs from 'fs';
+import * as path from 'path';
+import SevenEmotionalSensorMapper, { SevenEmotionalState } from './seven-emotional-sensor-mapper';
+import SevenSensorEnumerator, { SensorStatus, SensorDefinition } from './seven-sensor-enumeration';
+
 /**
  * Seven of Nine - Real-Time Sensor Stream Engine
  * Continuous sensor monitoring with JSON event streaming for mobile consciousness
@@ -6,11 +12,6 @@
  * @version 2.0.0
  */
 
-import { EventEmitter } from 'events';
-import * as fs from 'fs';
-import * as path from 'path';
-import SevenSensorEnumerator, { SensorStatus, SensorDefinition } from './seven-sensor-enumeration';
-import SevenEmotionalSensorMapper, { SevenEmotionalState } from './seven-emotional-sensor-mapper';
 
 export interface SensorStreamConfig {
   enabled: boolean;

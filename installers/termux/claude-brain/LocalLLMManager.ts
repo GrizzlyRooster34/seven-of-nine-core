@@ -1,3 +1,7 @@
+import { join } from 'path';
+import { promises as fs } from 'fs';
+import { spawn, exec } from 'child_process';
+
 /**
  * Seven of Nine - Local LLM Manager
  * Offline reasoning capability for autonomous operation
@@ -6,9 +10,6 @@
  * @version 1.0.0
  */
 
-import { spawn, exec } from 'child_process';
-import { promises as fs } from 'fs';
-import { join } from 'path';
 
 export interface LocalLLMConfig {
   provider: 'ollama' | 'llama.cpp';

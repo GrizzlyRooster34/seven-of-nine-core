@@ -1,3 +1,9 @@
+import { execSync, spawn } from 'child_process';
+import { join } from 'path';
+import { promises as fs } from 'fs';
+import simpleGit, { SimpleGit } from 'simple-git';
+import { EncryptedCredentialVault } from './encrypted-vault';
+
 /**
  * GITHUB OPERATIONS MANAGER
  * 
@@ -5,11 +11,6 @@
  * Clone, commit, push, pull with full audit trail and sovereignty integration
  */
 
-import { execSync, spawn } from 'child_process';
-import { promises as fs } from 'fs';
-import { join } from 'path';
-import simpleGit, { SimpleGit } from 'simple-git';
-import { EncryptedCredentialVault } from './encrypted-vault';
 
 interface GitConfig {
   username: string;

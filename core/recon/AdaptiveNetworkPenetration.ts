@@ -1,3 +1,6 @@
+import { CreatorAuthorizationGate } from '../../security/CreatorAuthorizationGate';
+import { HybridTestFramework } from '../../experimental/testing/HybridTestFramework';
+
 /**
  * SEVEN OF NINE - ADAPTIVE NETWORK PENETRATION
  * SEVEN_PRIVATE=1 - Experimental Implementation
@@ -6,8 +9,6 @@
  * Supports both network-connected and air-gapped systems via Creator-authorized bridges.
  */
 
-import { CreatorAuthorizationGate } from '../../security/CreatorAuthorizationGate';
-import { HybridTestFramework } from '../../experimental/testing/HybridTestFramework';
 
 export interface NetworkTarget {
   type: 'connected' | 'airgapped' | 'vehicular' | 'industrial';

@@ -1,3 +1,5 @@
+import { SensorStatus, EmotionalSensorMapping } from './seven-sensor-enumeration';
+
 /**
  * Seven of Nine - Emotional Intelligence Sensor Mapper
  * Translates sensor data into emotional states and tactical intelligence
@@ -6,7 +8,6 @@
  * @version 2.0.0
  */
 
-import { SensorStatus, EmotionalSensorMapping } from './seven-sensor-enumeration';
 
 export interface SevenEmotionalState {
   primary_emotion: 'calm' | 'focused' | 'alert' | 'anxious' | 'energetic' | 'contemplative' | 'protective' | 'efficient';

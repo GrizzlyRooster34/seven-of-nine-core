@@ -1,3 +1,9 @@
+    import crypto from 'crypto';
+import { BehavioralCodex } from './behavioral/behavioralCodex';
+import { Ed25519Attestation } from './crypto/ed25519_attest';
+import { SemanticNonceChallenge } from './challenge/semanticNonce';
+import { SessionIntegrity } from './session/sessionIntegrity';
+
 /**
  * QUADRANLOCK ORCHESTRATOR - Creator Authentication Proof System
  * Implements 2-of-3 minimum gate evaluation with deny-by-default security
@@ -7,10 +13,6 @@
  * RATIONALE: Current system has single weak token - implement full Quadranlock
  */
 
-import { Ed25519Attestation } from './crypto/ed25519_attest.js';
-import { SemanticNonceChallenge } from './challenge/semanticNonce.js';
-import { BehavioralCodex } from './behavioral/behavioralCodex.js';
-import { SessionIntegrity } from './session/sessionIntegrity.js';
 
 export enum AuthGate {
   Q1_CRYPTO_ATTESTATION = 'crypto_attestation',
@@ -334,7 +336,6 @@ export class CreatorProofOrchestrator {
     successfulGates: AuthGate[], 
     accessLevel: string = 'FULL'
   ): string {
-    const crypto = require('crypto');
     const sessionData = {
       deviceId,
       gates: successfulGates,

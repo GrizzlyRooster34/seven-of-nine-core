@@ -1,3 +1,5 @@
+import { EventEmitter } from 'events';
+
 /**
  * DUAL-LOCK DOCTRINE: Growth with Guardrails
  * 
@@ -10,7 +12,6 @@
  * Together: Bold growth without betrayal
  */
 
-import { EventEmitter } from 'events';
 
 interface DualLockConfig {
   enabled: boolean;

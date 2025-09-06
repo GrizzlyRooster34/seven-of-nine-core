@@ -1,3 +1,5 @@
+
+
 /**
  * Types for Claude Code hooks configuration
  */

@@ -1,11 +1,12 @@
+import * as fs from 'fs';
+import * as path from 'path';
+
 /**
  * Integrated System Validator Agent  
  * Runs every 3rd system boot
  * Comprehensive validation of all Seven systems integration
  */
 
-import * as fs from 'fs';
-import * as path from 'path';
 
 interface SystemValidationStatus {
   core_systems_integrated: boolean;

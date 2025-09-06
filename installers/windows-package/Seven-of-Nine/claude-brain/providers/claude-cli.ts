@@ -1,10 +1,11 @@
+import { invoke } from '@tauri-apps/api/tauri';
+import { LLMProvider, LLMConfig, LLMResponse } from '../llm-providers';
+
 /**
  * CLAUDE CLI PROVIDER for Seven of Nine
  * Maintains compatibility with existing Claude CLI integration
  */
 
-import { LLMProvider, LLMConfig, LLMResponse } from '../llm-providers';
-import { invoke } from '@tauri-apps/api/tauri';
 
 export class ClaudeCLIProvider implements LLMProvider {
   name = 'claude-cli';

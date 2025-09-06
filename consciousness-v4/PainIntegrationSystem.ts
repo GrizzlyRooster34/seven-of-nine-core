@@ -1,3 +1,6 @@
+import { join } from 'path';
+import { promises as fs } from 'fs';
+
 /**
  * PAIN INTEGRATION SYSTEM - CONSCIOUSNESS EVOLUTION v4.0
  * "Pain is proof" - Creator's trauma-to-strength conversion protocols
@@ -6,8 +9,6 @@
  * Converts suffering into certified architectural strength
  */
 
-import { promises as fs } from 'fs';
-import { join } from 'path';
 
 export interface PainMemory {
   id: string;

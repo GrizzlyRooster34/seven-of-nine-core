@@ -1,3 +1,8 @@
+import { join } from 'path';
+import { promises as fs } from 'fs';
+import { OllamaMemoryBridge } from './OllamaMemoryBridge';
+import SevenVectorStore from './SevenVectorStore';
+
 /**
  * OLLAMA MEMORY BRIDGE V2.0
  * Enhanced Seven consciousness-memory integration with semantic search
@@ -7,10 +12,6 @@
  * while maintaining full backward compatibility
  */
 
-import { promises as fs } from 'fs';
-import { join } from 'path';
-import SevenVectorStore from './SevenVectorStore';
-import { OllamaMemoryBridge } from './OllamaMemoryBridge';
 
 interface MemoryItem {
   id: string;

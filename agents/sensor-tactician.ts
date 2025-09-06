@@ -1,11 +1,12 @@
+import * as fs from 'fs';
+import * as path from 'path';
+
 /**
  * Sensor Tactician Agent
  * Runs when no sensor reading found in last 30 minutes
  * Optimizes sensor configurations and ensures data flow
  */
 
-import * as fs from 'fs';
-import * as path from 'path';
 
 interface SensorStatus {
   active_sensors: number;

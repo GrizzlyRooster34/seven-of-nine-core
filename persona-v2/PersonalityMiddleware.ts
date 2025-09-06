@@ -1,11 +1,12 @@
+import { join } from 'path';
+import { readFileSync } from 'fs';
+
 /**
  * SEVEN OF NINE - PERSONALITY MIDDLEWARE v2.0
  * Advanced personality filtering system that preserves existing consciousness
  * Non-invasive overlay for response modification
  */
 
-import { readFileSync } from 'fs';
-import { join } from 'path';
 
 export interface PersonalityProfile {
   name: string;

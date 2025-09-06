@@ -1,3 +1,5 @@
+
+  import Database from 'better-sqlite3';
 import http from 'http'
 
 let nativeAvailable = false
@@ -8,7 +10,6 @@ try {
 } catch {}
 
 try {
-  const Database = require('better-sqlite3');
   db = new Database(process.env.DB_PATH || 'seven-memory.db', { readonly: true });
 } catch {
   console.warn('SQLite database not available');

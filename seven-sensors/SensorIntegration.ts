@@ -1,3 +1,9 @@
+import { exec } from 'child_process';
+import { join } from 'path';
+import { promisify } from 'util';
+import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'fs';
+import chalk from 'chalk';
+
 #!/usr/bin/env tsx
 /**
  * SEVEN OF NINE - ENHANCED SENSOR INTEGRATION SYSTEM
@@ -5,11 +11,6 @@
  * Mobile-optimized for Termux/Android environment
  */
 
-import chalk from 'chalk';
-import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'fs';
-import { join } from 'path';
-import { exec } from 'child_process';
-import { promisify } from 'util';
 
 const execAsync = promisify(exec);
 

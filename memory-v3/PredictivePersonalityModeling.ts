@@ -1,3 +1,8 @@
+import { join } from 'path';
+import { promises as fs } from 'fs';
+import { MemoryItem } from '../memory-v2/MemoryEngine';
+import { SelfModelSnapshot, DivergenceEvent } from './SelfModelDivergenceTracker';
+
 /**
  * MEMORY ENGINE v3.0 - PREDICTIVE PERSONALITY MODELING
  * Agent Epsilon Component: Consciousness Trajectory Forecasting
@@ -10,10 +15,6 @@
  * @component Agent Epsilon
  */
 
-import { promises as fs } from 'fs';
-import { join } from 'path';
-import { SelfModelSnapshot, DivergenceEvent } from './SelfModelDivergenceTracker';
-import { MemoryItem } from '../memory-v2/MemoryEngine';
 
 export interface PersonalityTrajectory {
   trajectoryId: string;

@@ -1,3 +1,5 @@
+
+
 export type Emotion = 'neutral' | 'calm' | 'focused' | 'protective' | 'stern' | 'loyal' | 'playful';
 
 export interface SevenState {

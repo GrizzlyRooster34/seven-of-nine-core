@@ -1,12 +1,14 @@
+      import { lookup  } from 'dns'.promises;
+import { execSync } from 'child_process';
+import { join } from 'path';
+import { promises as fs } from 'fs';
+
 /**
  * SEVEN OF NINE - ENVIRONMENTAL HARDENING PROTOCOL
  * System resilience and dependency reduction implementation
  * HARDENED VERSION - Eight of Nine implementation
  */
 
-import { promises as fs } from 'fs';
-import { join } from 'path';
-import { execSync } from 'child_process';
 
 export interface EnvironmentProfile {
   platform: string;
@@ -291,7 +293,6 @@ export class EnvironmentalHardening {
   private async testNetworkConnectivity(): Promise<boolean> {
     try {
       // Simple DNS resolution test
-      const { lookup } = require('dns').promises;
       await lookup('google.com');
       return true;
     } catch {

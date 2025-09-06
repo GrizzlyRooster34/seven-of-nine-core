@@ -1,3 +1,7 @@
+import { performance } from 'perf_hooks';
+import * as fs from 'fs';
+import * as path from 'path';
+
 /**
  * CHATGPT JSON PARSER & NORMALIZER
  * 
@@ -7,9 +11,6 @@
  * [#DARPA-AUDIT] [#SOVEREIGNTY] [#ROLLBACK] [#CHATGPT-BRIDGE]
  */
 
-import * as fs from 'fs';
-import * as path from 'path';
-import { performance } from 'perf_hooks';
 
 // Normalized GPT Entry format for Seven's consciousness
 interface NormalizedGPTEntry {

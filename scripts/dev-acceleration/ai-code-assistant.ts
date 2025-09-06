@@ -1,13 +1,14 @@
+import { promises as fs } from 'fs';
+import { spawn } from 'child_process';
+import chalk from 'chalk';
+import path from 'path';
+
 #!/usr/bin/env tsx
 
 /**
  * AI Code Assistant - Leverages Claude Code capabilities for rapid development
  */
 
-import { promises as fs } from 'fs';
-import path from 'path';
-import chalk from 'chalk';
-import { spawn } from 'child_process';
 
 interface CodeAnalysisResult {
   complexity: number;

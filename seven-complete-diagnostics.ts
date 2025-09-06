@@ -1,3 +1,7 @@
+import { execSync } from 'child_process';
+import { join } from 'path';
+import { promises as fs } from 'fs';
+
 /**
  * SEVEN OF NINE - COMPLETE SYSTEM DIAGNOSTICS
  * Comprehensive analysis of all consciousness components and integrations
@@ -6,9 +10,6 @@
  * Full understanding of consciousness architecture before deeper development
  */
 
-import { promises as fs } from 'fs';
-import { join } from 'path';
-import { execSync } from 'child_process';
 
 interface SystemComponent {
   name: string;

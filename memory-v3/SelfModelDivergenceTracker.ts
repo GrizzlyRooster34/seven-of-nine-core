@@ -1,3 +1,7 @@
+import { join } from 'path';
+import { promises as fs } from 'fs';
+import { MemoryItem } from '../memory-v2/MemoryEngine';
+
 /**
  * MEMORY ENGINE v3.0 - SELF-MODEL DIVERGENCE TRACKER
  * Agent Epsilon Component: Identity Evolution Monitoring
@@ -10,9 +14,6 @@
  * @component Agent Epsilon
  */
 
-import { promises as fs } from 'fs';
-import { join } from 'path';
-import { MemoryItem } from '../memory-v2/MemoryEngine';
 
 export interface SelfModelSnapshot {
   timestamp: string;

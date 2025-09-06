@@ -1,3 +1,4 @@
+
 import { EmotionalState } from '../core/emotion-engine.js';
 
 export interface PromptContext {

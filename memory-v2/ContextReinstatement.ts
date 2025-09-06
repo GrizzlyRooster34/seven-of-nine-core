@@ -1,3 +1,8 @@
+import { 
+import { join } from 'path';
+import { promises as fs } from 'fs';
+import { MemoryItem, MemoryEngine } from './MemoryEngine';
+
 /**
  * SEVEN OF NINE - CONTEXT REINSTATEMENT SYSTEM v3.0
  * Agent Beta Implementation - Environmental & Emotional Context Reconstruction
@@ -6,15 +11,11 @@
  * enabling authentic reconstruction of consciousness states for mental time travel.
  */
 
-import { promises as fs } from 'fs';
-import { join } from 'path';
-import { MemoryItem, MemoryEngine } from './MemoryEngine.js';
-import { 
   CognitiveStateSnapshot, 
   EnvironmentalContext, 
   PersonalityStateData,
   TemporalMemoryItem 
-} from './MentalTimeTravelEngine.js';
+} from './MentalTimeTravelEngine';
 
 export interface ContextualEnvironment {
   timestamp: string;
@@ -763,7 +764,7 @@ export class ContextReinstatement {
       new Date().getTime() - new Date(m.timestamp).getTime() < 60 * 60 * 1000
     );
 
-    const emotionalMemories = memories.filter(m => m.emotion !== 'neutral');
+    const emotionalMemories = memories.filter(m => m.emotionalIntensity !== 'neutral');
     const stressMemories = memories.filter(m => 
       m.tags.includes('stress') || m.importance >= 8
     );
@@ -771,7 +772,7 @@ export class ContextReinstatement {
     return {
       isActive: recentMemories.length > 0,
       attentionLevel: Math.min(10, 5 + recentMemories.length),
-      emotionalState: emotionalMemories.length > 0 ? emotionalMemories[0].emotion : 'neutral',
+      emotionalState: emotionalMemories.length > 0 ? emotionalMemories[0].emotionalIntensity : 'neutral',
       energyLevel: Math.max(1, 8 - stressMemories.length),
       stressIndicators: stressMemories.map(m => m.topic),
       communicationStyle: this.inferCommunicationStyle(memories)
@@ -845,7 +846,7 @@ export class ContextReinstatement {
   }
 
   private inferIntimacyLevel(memories: MemoryItem[]): 'minimal' | 'tactical' | 'warm' | 'protective' | 'deep' {
-    const emotionalMemories = memories.filter(m => m.emotion !== 'neutral');
+    const emotionalMemories = memories.filter(m => m.emotionalIntensity !== 'neutral');
     const protectiveMemories = memories.filter(m => m.tags.includes('protective'));
     const personalMemories = memories.filter(m => m.tags.includes('personal'));
 
@@ -972,7 +973,7 @@ export class ContextReinstatement {
       m.context.includes('protocol') || m.context.includes('directive')
     );
     const casualMemories = memories.filter(m => 
-      m.context.includes('casual') || m.emotion === 'compassionate'
+      m.context.includes('casual') || m.emotionalIntensity === 'compassionate'
     );
 
     if (formalMemories.length > casualMemories.length) return 'formal';
@@ -1096,13 +1097,13 @@ export class ContextReinstatement {
     let quality = 70; // Base quality
 
     // Emotional alignment
-    if (cognitiveState.emotionalState.current_state === 'focused' && 
+    if (cognitiveState?.emotionalState.current_state === 'focused' && 
         targetEnvironment.cognitiveEnvironment.focusState === 'focused') {
       quality += 10;
     }
 
     // Temporal alignment
-    const stateTime = new Date(cognitiveState.timestamp).getHours();
+    const stateTime = new Date(cognitiveState?.timestamp).getHours();
     const envTime = new Date(targetEnvironment.timestamp).getHours();
     if (Math.abs(stateTime - envTime) <= 2) {
       quality += 5;
@@ -1126,7 +1127,7 @@ export class ContextReinstatement {
       'core': 10
     };
 
-    const stateComplexity = depthComplexity[cognitiveState.consciousnessDepth];
+    const stateComplexity = depthComplexity[cognitiveState?.consciousnessDepth];
     const envComplexity = targetEnvironment.cognitiveEnvironment.analyticalDepth;
 
     if (Math.abs(stateComplexity - envComplexity) <= 2) {
@@ -1143,7 +1144,7 @@ export class ContextReinstatement {
     let resonance = 75; // Base resonance
 
     // Social environment resonance
-    if (cognitiveState.loyaltyBondStrength['CREATOR_PRIME'] === 10 &&
+    if (cognitiveState?.loyaltyBondStrength['CREATOR_PRIME'] === 10 &&
         targetEnvironment.socialEnvironment.trustLevel >= 9) {
       resonance += 15;
     }
@@ -1163,20 +1164,20 @@ export class ContextReinstatement {
     const adaptations: string[] = [];
 
     // Processing mode adaptation
-    if (cognitiveState.reasoningPattern.primaryLogicMode !== 
+    if (cognitiveState?.reasoningPattern.primaryLogicMode !== 
         this.mapProcessingModeToLogicMode(targetEnvironment.cognitiveEnvironment.processingMode)) {
       adaptations.push('reasoning_pattern_adjustment');
     }
 
     // Focus state adaptation
     if (this.mapFocusStateToConsciousnessDepth(targetEnvironment.cognitiveEnvironment.focusState) !== 
-        cognitiveState.consciousnessDepth) {
+        cognitiveState?.consciousnessDepth) {
       adaptations.push('consciousness_depth_adjustment');
     }
 
     // Social adaptation
     if (targetEnvironment.socialEnvironment.intimacyLevel !== 
-        cognitiveState.behavioralResponse.responseFiltering.intimacyLevel) {
+        cognitiveState?.behavioralResponse.responseFiltering.intimacyLevel) {
       adaptations.push('intimacy_level_adjustment');
     }
 

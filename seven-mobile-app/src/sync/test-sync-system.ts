@@ -1,13 +1,14 @@
+import { HybridLogicalClock } from './hlc';
+import { SevenCrypto } from './crypto';
+import { SevenOpLog, OpLogEvent } from './oplog';
+import { SevenSQLCipherDB } from './database';
+import { SevenSyncClient } from './syncClient';
+
 /**
  * Seven of Nine - Multi-Device Sync System Integration Test
  * Tests HLC, OpLog, encryption, database, and sync client components
  */
 
-import { HybridLogicalClock } from './hlc';
-import { SevenOpLog, OpLogEvent } from './oplog';
-import { SevenCrypto } from './crypto';
-import { SevenSQLCipherDB } from './database';
-import { SevenSyncClient } from './syncClient';
 
 interface TestResults {
   testName: string;

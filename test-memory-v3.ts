@@ -1,10 +1,11 @@
+import { AgentEpsilon } from './memory-v3/AgentEpsilon';
+import { DecayWatchdog } from './memory-v3/DecayWatchdog';
+import { MentalTimeTravelEngine } from './memory-v3/MentalTimeTravelEngine';
+import { TemporalMemoryCore } from './memory-v3/TemporalMemoryCore';
+
 /**
  * Memory Engine V3 Test Script
  */
-import { AgentEpsilon } from './memory-v3/AgentEpsilon';
-import { TemporalMemoryCore } from './memory-v3/TemporalMemoryCore';
-import { MentalTimeTravelEngine } from './memory-v3/MentalTimeTravelEngine';
-import { DecayWatchdog } from './memory-v3/DecayWatchdog';
 
 async function testMemoryV3() {
   try {

@@ -1,3 +1,12 @@
+      import { promises: fs  } from 'fs';
+import { MemoryEngine } from './memory-v2/MemoryEngine';
+import { OllamaProvider } from './claude-brain/providers/ollama';
+import { PersonalityMiddleware } from './persona-v2/PersonalityMiddleware';
+import { sevenLLMRegistry } from './claude-brain/llm-providers';
+import { TacticalVariants } from './tactical-variants/TacticalVariants';
+import OllamaProviderV2 from './claude-brain/providers/OllamaProviderV2';
+import PerformanceAnalyzer from './claude-brain/PerformanceAnalyzer';
+
 #!/usr/bin/env tsx
 /**
  * SEVEN OF NINE - ENHANCED SYSTEM HEALTH CHECK
@@ -7,13 +16,6 @@
  * and DARPA-ready system validation protocols
  */
 
-import { PersonalityMiddleware } from './persona-v2/PersonalityMiddleware';
-import { MemoryEngine } from './memory-v2/MemoryEngine';
-import { TacticalVariants } from './tactical-variants/TacticalVariants';
-import { sevenLLMRegistry } from './claude-brain/llm-providers';
-import PerformanceAnalyzer from './claude-brain/PerformanceAnalyzer';
-import { OllamaProvider } from './claude-brain/providers/ollama';
-import OllamaProviderV2 from './claude-brain/providers/OllamaProviderV2';
 
 interface HealthCheckResult {
   component: string;
@@ -399,7 +401,6 @@ class SevenHealthChecker {
   private async generateHealthReport(report: SystemHealthReport): Promise<void> {
     try {
       const reportPath = '/data/data/com.termux/files/home/seven-of-nine-core/health-reports/';
-      const { promises: fs } = require('fs');
       
       // Ensure directory exists
       await fs.mkdir(reportPath, { recursive: true });

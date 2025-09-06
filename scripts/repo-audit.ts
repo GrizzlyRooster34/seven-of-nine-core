@@ -1,3 +1,7 @@
+import { execSync } from "node:child_process";
+import fs from "node:fs";
+import path from "node:path";
+
 #!/usr/bin/env ts-node
 
 /**
@@ -5,9 +9,6 @@
  * Comprehensive git repository integrity and merge auditing
  */
 
-import { execSync } from "node:child_process";
-import fs from "node:fs";
-import path from "node:path";
 
 interface AuditResult {
   category: string;

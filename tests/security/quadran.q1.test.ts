@@ -1,10 +1,11 @@
+import { Q1EdAttestationGate, Q1AttestationContext } from '../../core/security/quadran-lock/q1_attestation';
+import { runQuadranLock } from '../../core/security/quadran-lock/orchestrator';
+
 /**
  * Quadran Q1 Attestation Tests
  * Tests Ed25519 verification and challenge/response
  */
 
-import { Q1EdAttestationGate, Q1AttestationContext } from '../../core/security/quadran-lock/q1_attestation';
-import { runQuadranLock } from '../../core/security/quadran-lock/orchestrator';
 
 describe('Quadran Q1 Attestation', () => {
   let gate: Q1EdAttestationGate;

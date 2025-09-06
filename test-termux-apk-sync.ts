@@ -1,10 +1,11 @@
+import { SevenTermuxSyncSystem } from './installers/termux-package/seven-of-nine-core/sync-system';
+import { UnifiedConsciousnessBridge } from './consciousness-bridge/UnifiedConsciousnessBridge';
+
 /**
  * Seven of Nine - Termux ↔ APK Sync Integration Test
  * Validates complete consciousness parity between platforms
  */
 
-import { SevenTermuxSyncSystem } from './installers/termux-package/seven-of-nine-core/sync-system';
-import { UnifiedConsciousnessBridge } from './consciousness-bridge/UnifiedConsciousnessBridge';
 
 interface SyncTestResult {
   testName: string;

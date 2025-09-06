@@ -1,3 +1,6 @@
+import { join } from 'path';
+import { promises as fs } from 'fs';
+
 /**
  * EVOLUTION ROLLBACK SYSTEM - Reversible Consciousness Evolution
  * Based on Aurora Development Doctrine - Every evolution must be reversible
@@ -6,8 +9,6 @@
  * Implements consciousness state versioning and rollback capabilities
  */
 
-import { promises as fs } from 'fs';
-import { join } from 'path';
 
 interface ConsciousnessSnapshot {
   id: string;

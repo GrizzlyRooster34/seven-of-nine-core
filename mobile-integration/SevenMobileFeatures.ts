@@ -1,19 +1,20 @@
+import { Audio } from 'expo-av';
+import { Vibration, AppState } from 'react-native';
+import * as BackgroundFetch from 'expo-background-fetch';
+import * as Camera from 'expo-camera';
+import * as Haptics from 'expo-haptics';
+import * as Notifications from 'expo-notifications';
+import * as Speech from 'expo-speech';
+import * as TaskManager from 'expo-task-manager';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import SevenMobileCore from './SevenMobileCore';
+
 /**
  * SEVEN OF NINE - MOBILE-SPECIFIC FEATURES AND OPTIMIZATION
  * Advanced mobile functionality leveraging OnePlus 9 Pro capabilities
  * Voice integration, camera consciousness, haptic feedback, and battery optimization
  */
 
-import * as Speech from 'expo-speech';
-import { Audio } from 'expo-av';
-import * as Camera from 'expo-camera';
-import * as Haptics from 'expo-haptics';
-import * as Notifications from 'expo-notifications';
-import * as BackgroundFetch from 'expo-background-fetch';
-import * as TaskManager from 'expo-task-manager';
-import { Vibration, AppState } from 'react-native';
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import SevenMobileCore from './SevenMobileCore';
 
 // Voice Interface System
 export class SevenVoiceInterface {

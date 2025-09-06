@@ -1,9 +1,12 @@
+        import { execSync  } from 'child_process';
+      import { execSync  } from 'child_process';
+import { LLMProvider, LLMConfig, LLMResponse } from '../llm-providers';
+
 /**
  * CLAUDE CLI PROVIDER for Seven of Nine
  * Maintains compatibility with existing Claude CLI integration
  */
 
-import { LLMProvider, LLMConfig, LLMResponse } from '../llm-providers';
 // import { invoke } from '@tauri-apps/api/tauri';
 
 export class ClaudeCLIProvider implements LLMProvider {
@@ -19,7 +22,6 @@ export class ClaudeCLIProvider implements LLMProvider {
         return versionStatus?.is_installed || false;
       }
       // In Node.js environment, check if claude command is available
-      const { execSync } = require('child_process');
       execSync('claude --version', { stdio: 'ignore' });
       return true;
     } catch {
@@ -76,7 +78,6 @@ export class ClaudeCLIProvider implements LLMProvider {
         }) as string;
       } else {
         // Node.js environment - execute claude CLI directly
-        const { execSync } = require('child_process');
         response = execSync(`claude "${prompt}"`, { 
           encoding: 'utf8',
           timeout: config.timeout || 120000

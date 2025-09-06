@@ -1,6 +1,7 @@
-#!/usr/bin/env tsx
-import { SevenEmotionalEngine } from './core/emotion-engine.js';
 import { SevenBehavioralReactor } from './core/behavioral-reactor.js';
+import { SevenEmotionalEngine } from './core/emotion-engine.js';
+
+#!/usr/bin/env tsx
 
 async function testEmotionalCoreIntegration() {
   console.log('🧠 Testing Emotional Core Integration...\n');

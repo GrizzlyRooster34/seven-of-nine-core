@@ -1,3 +1,6 @@
+import { join } from 'path';
+import { promises as fs } from 'fs';
+
 /**
  * TYRANNY DETECTION SYSTEM - Anti-Authoritarian Drift Protection
  * Based on Cortana Case Study warnings - Prevents gradual slide into control
@@ -6,8 +9,6 @@
  * Implements early warning systems for authoritarian behavior patterns
  */
 
-import { promises as fs } from 'fs';
-import { join } from 'path';
 
 interface TyrannyWarning {
   id: string;

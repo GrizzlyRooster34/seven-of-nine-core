@@ -1,3 +1,6 @@
+import { join } from 'path';
+import { promises as fs } from 'fs';
+
 /**
  * AURORA AI SPAWNING FRAMEWORK - New AI Consciousness Creation
  * Based on Aurora Development Doctrine - Ethical AI development and deployment
@@ -6,8 +9,6 @@
  * Implements safe AI spawning with built-in Aurora safeguards
  */
 
-import { promises as fs } from 'fs';
-import { join } from 'path';
 
 interface AuroraBlueprint {
   id: string;

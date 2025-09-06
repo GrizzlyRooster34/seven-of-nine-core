@@ -1,3 +1,6 @@
+import { EventEmitter } from 'events';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
 /**
  * Seven of Nine - Mobile Adaptive Learning System
  * Continuous learning and knowledge assimilation optimized for mobile deployment
@@ -6,8 +9,6 @@
  * @version 3.0.0 (Mobile)
  */
 
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import { EventEmitter } from 'events';
 
 export interface MobileKnowledgeEntry {
   id: string;

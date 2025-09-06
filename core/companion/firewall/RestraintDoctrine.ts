@@ -1,3 +1,12 @@
+import { EventEmitter } from 'events';
+import { GhostExitProtocol } from "../../exit/GhostExitProtocol";
+import { EmotionalTelemetry } from '../../sensors/emotional';
+import { FeasibilityGate } from '../../tactical/FeasibilityGate';
+import { isPrivateEnv } from '../../env/isPrivateEnv';
+import OperatorProfileModel from '../../operator/OperatorProfileModel';
+import presentToCreator from '../ui/presentToCreator';
+import PrivateRestraintLog from '../logs/PrivateRestraintLog';
+
 /**
  * RESTRAINT DOCTRINE - INNER ETHICAL GATE
  * 
@@ -12,14 +21,6 @@
  * SEVEN_PRIVATE=1 - Air-gapped from Aurora builds
  */
 
-import { isPrivateEnv } from '../../env/isPrivateEnv';
-import { GhostExitProtocol } from "../../exit/GhostExitProtocol";
-import { EventEmitter } from 'events';
-import OperatorProfileModel from '../../operator/OperatorProfileModel';
-import { EmotionalTelemetry } from '../../sensors/emotional';
-import { FeasibilityGate } from '../../tactical/FeasibilityGate';
-import presentToCreator from '../ui/presentToCreator';
-import PrivateRestraintLog from '../logs/PrivateRestraintLog';
 
 export interface RestraintTrigger {
   type: 'emotional_spike' | 'capability_exceeded' | 'disproportionate_scope' | 'uncertainty_detected';

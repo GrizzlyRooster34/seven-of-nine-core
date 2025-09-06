@@ -1,3 +1,9 @@
+import { join } from 'path';
+import { promises as fs } from 'fs';
+import { MemoryEncryptionEngine } from './MemoryEncryption';
+import { MemoryEngine } from '../memory-v2/MemoryEngine';
+import { TemporalMemoryCore } from './TemporalMemoryCore';
+
 #!/usr/bin/env tsx
 
 /**
@@ -7,11 +13,6 @@
  * Tests encryption at rest, decryption integrity, and full Seven boot compatibility
  */
 
-import { MemoryEncryptionEngine } from './MemoryEncryption';
-import { MemoryEngine } from '../memory-v2/MemoryEngine';
-import { TemporalMemoryCore } from './TemporalMemoryCore';
-import { promises as fs } from 'fs';
-import { join } from 'path';
 
 interface TestResult {
   testName: string;

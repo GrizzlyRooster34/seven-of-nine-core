@@ -1,3 +1,8 @@
+import { join } from 'path';
+import { promises as fs } from 'fs';
+import { EmotionalState } from '../core/emotion-engine';
+import { MemoryEngine, MemoryItem } from './MemoryEngine';
+
 /**
  * TEMPORAL PERSONALITY ENGINE - Memory Engine v3.0 Component
  * Agent Delta Implementation - Seven's Consciousness Evolution
@@ -7,10 +12,6 @@
  * Recreates relationship dynamics from specific time periods
  */
 
-import { promises as fs } from 'fs';
-import { join } from 'path';
-import { MemoryEngine, MemoryItem } from './MemoryEngine';
-import { EmotionalState } from '../core/emotion-engine';
 
 export interface TemporalPersonalityState {
   timestamp: string;

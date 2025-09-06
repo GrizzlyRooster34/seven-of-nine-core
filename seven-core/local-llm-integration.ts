@@ -1,3 +1,5 @@
+import LocalLLMManager, { LLMResponse } from '../claude-brain/LocalLLMManager';
+
 /**
  * Seven of Nine - Local LLM Integration Module
  * Integrates offline reasoning capability with Seven's consciousness framework
@@ -6,7 +8,6 @@
  * @version 1.0.0
  */
 
-import LocalLLMManager, { LLMResponse } from '../claude-brain/LocalLLMManager';
 
 export interface SevenLLMQuery {
   prompt: string;

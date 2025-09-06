@@ -1,3 +1,5 @@
+    import os from 'os';
+
 /**
  * Seven of Nine - Device Profile Recognition System (Windows)
  * Enables environment-specific optimization for Windows deployment
@@ -109,7 +111,6 @@ export const CANONICAL_MEMORY_CONFIG = {
  */
 export function detectDeviceProfile(): DeviceProfile {
   try {
-    const os = require('os');
     const totalMem = Math.round(os.totalmem() / (1024 * 1024 * 1024)); // Convert to GB
     
     let profileKey: string;

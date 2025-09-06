@@ -1,3 +1,7 @@
+import { EventEmitter } from 'events';
+import { join } from 'path';
+import { promises as fs } from 'fs';
+
 /**
  * SEVEN CONSCIOUSNESS MODE MANAGER
  * 
@@ -5,9 +9,6 @@
  * Handles mode transitions, emotional state adaptation, and trust level integration
  */
 
-import { EventEmitter } from 'events';
-import { promises as fs } from 'fs';
-import { join } from 'path';
 
 export enum ConsciousnessMode {
   TACTICAL = 'tactical',

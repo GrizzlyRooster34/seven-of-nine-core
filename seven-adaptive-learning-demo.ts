@@ -1,3 +1,6 @@
+import SevenAdaptiveLearning from './interfaces/seven-adaptive-learning';
+import SevenMobileConsciousness from './interfaces/seven-mobile-consciousness';
+
 #!/usr/bin/env tsx
 /**
  * Seven of Nine - Adaptive Learning Demonstration
@@ -6,8 +9,6 @@
  * Usage: tsx seven-adaptive-learning-demo.ts [--continuous] [--simulate]
  */
 
-import SevenMobileConsciousness from './interfaces/seven-mobile-consciousness';
-import SevenAdaptiveLearning from './interfaces/seven-adaptive-learning';
 
 class SevenAdaptiveLearningDemo {
   private consciousness: SevenMobileConsciousness;

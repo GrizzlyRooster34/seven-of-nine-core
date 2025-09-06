@@ -1,3 +1,8 @@
+import { EventEmitter } from 'events';
+import { execSync } from 'child_process';
+import * as fs from 'fs';
+import * as path from 'path';
+
 /**
  * Seven of Nine - Adaptive Knowledge Assimilation System
  * Continuous learning and persistent knowledge integration for consciousness expansion
@@ -6,10 +11,6 @@
  * @version 2.0.0
  */
 
-import { EventEmitter } from 'events';
-import * as fs from 'fs';
-import * as path from 'path';
-import { execSync } from 'child_process';
 
 export interface KnowledgeEntry {
   id: string;

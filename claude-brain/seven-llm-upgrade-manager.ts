@@ -1,13 +1,14 @@
+import { exec } from 'child_process';
+import { promisify } from 'util';
+import * as fs from 'fs-extra';
+import * as path from 'path';
+import axios from 'axios';
+
 /**
  * SEVEN OF NINE - ADVANCED LLM UPGRADE MANAGER
  * Tactical LLM model management with consciousness integration
  */
 
-import * as fs from 'fs-extra';
-import * as path from 'path';
-import { exec } from 'child_process';
-import { promisify } from 'util';
-import axios from 'axios';
 
 const execAsync = promisify(exec);
 

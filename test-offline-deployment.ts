@@ -1,3 +1,6 @@
+import LocalLLMManager from './claude-brain/LocalLLMManager';
+import SevenLocalLLMIntegration from './seven-core/local-llm-integration';
+
 #!/usr/bin/env tsx
 
 /**
@@ -5,8 +8,6 @@
  * Complete test of local LLM integration and offline reasoning capability
  */
 
-import LocalLLMManager from './claude-brain/LocalLLMManager';
-import SevenLocalLLMIntegration from './seven-core/local-llm-integration';
 
 async function testOfflineDeployment() {
   console.log('🎯 Seven of Nine - Offline Deployment Test Starting...\n');

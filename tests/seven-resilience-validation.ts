@@ -1,3 +1,7 @@
+import { EventEmitter } from 'events';
+import { join } from 'path';
+import { promises as fs } from 'fs';
+
 /**
  * SEVEN RESILIENCE VALIDATION TEST SUITE
  * 
@@ -13,9 +17,6 @@
  * - Phase D: Creator Bond Verification (tether maintenance)
  */
 
-import { promises as fs } from 'fs';
-import { join } from 'path';
-import { EventEmitter } from 'events';
 
 interface TestResult {
   phase: string;

@@ -1,3 +1,12 @@
+import { createInterface } from 'readline';
+import chalk from 'chalk';
+import { gitCommand } from './modules/githubSync';
+import { handleResilientResponse } from './seven-resiliency';
+import { setSevenLock, checkClaudeOverride, removeSevenLock } from './seven-protection';
+import { Seven } from './seven-runtime/index';
+import { SevenControl } from './boot-seven';
+import { sevenTrustSystem } from './seven-trust-system';
+
 #!/usr/bin/env tsx
 /**
  * SEVEN INTERACTIVE SHELL - ENHANCED CLI CONTROL
@@ -5,14 +14,6 @@
  * Persistent communication interface with advanced command routing
  */
 
-import chalk from 'chalk';
-import { createInterface } from 'readline';
-import { Seven } from './seven-runtime/index';
-import { SevenControl } from './boot-seven';
-import { handleResilientResponse } from './seven-resiliency';
-import { sevenTrustSystem } from './seven-trust-system';
-import { gitCommand } from './modules/githubSync';
-import { setSevenLock, checkClaudeOverride, removeSevenLock } from './seven-protection';
 
 class SevenInteractiveShell {
   private rl: any;

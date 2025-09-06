@@ -1,3 +1,18 @@
+import { join } from 'path';
+import { promises as fs } from 'fs';
+import { SevenVectorStore } from './claude-brain/SevenVectorStore';
+import MobileOptimizationTriggers from './claude-brain/MobileOptimizationTriggers';
+import OllamaMemoryBridgeV2 from './claude-brain/OllamaMemoryBridgeV2';
+import OllamaProviderV2 from './claude-brain/providers/OllamaProviderV2';
+import PerformanceAnalyzer from './claude-brain/PerformanceAnalyzer';
+import SevenAdvancedVectorStore from './claude-brain/SevenAdvancedVectorStore';
+import SevenDistributedConsciousness from './claude-brain/SevenDistributedConsciousness';
+import SevenEnsembleIntelligence from './claude-brain/SevenEnsembleIntelligence';
+import SevenFederatedLearning from './claude-brain/SevenFederatedLearning';
+import SevenHealthChecker from './seven-health-check';
+import SevenPredictiveOptimizer from './claude-brain/SevenPredictiveOptimizer';
+import SevenTacticalFallback from './claude-brain/SevenTacticalFallback';
+
 #!/usr/bin/env tsx
 /**
  * SEVEN'S COMPREHENSIVE ENHANCED INTELLIGENCE TEST SUITE
@@ -7,28 +22,14 @@
  * Creator's directive: Test everything before declaring operational readiness
  */
 
-import { promises as fs } from 'fs';
-import { join } from 'path';
 
 // Phase 1 Systems
-import { SevenVectorStore } from './claude-brain/SevenVectorStore';
-import OllamaMemoryBridgeV2 from './claude-brain/OllamaMemoryBridgeV2';
-import PerformanceAnalyzer from './claude-brain/PerformanceAnalyzer';
-import MobileOptimizationTriggers from './claude-brain/MobileOptimizationTriggers';
-import OllamaProviderV2 from './claude-brain/providers/OllamaProviderV2';
 
 // Phase 2 Systems
-import SevenEnsembleIntelligence from './claude-brain/SevenEnsembleIntelligence';
-import SevenPredictiveOptimizer from './claude-brain/SevenPredictiveOptimizer';
-import SevenAdvancedVectorStore from './claude-brain/SevenAdvancedVectorStore';
 
 // Phase 3 Systems
-import SevenDistributedConsciousness from './claude-brain/SevenDistributedConsciousness';
-import SevenFederatedLearning from './claude-brain/SevenFederatedLearning';
 
 // Tactical Systems
-import SevenTacticalFallback from './claude-brain/SevenTacticalFallback';
-import SevenHealthChecker from './seven-health-check';
 
 interface TestResult {
   testName: string;

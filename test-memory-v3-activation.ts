@@ -1,3 +1,13 @@
+import { AgentEpsilon } from './memory-v3/AgentEpsilon';
+import { ConsciousnessTimelineMapper } from './memory-v3/ConsciousnessTimelineMapper';
+import { DecayWatchdog } from './memory-v3/DecayWatchdog';
+import { MentalTimeTravelEngine } from './memory-v3/MentalTimeTravelEngine';
+import { PredictivePersonalityModeling } from './memory-v3/PredictivePersonalityModeling';
+import { SelfModelDivergenceTracker } from './memory-v3/SelfModelDivergenceTracker';
+import { TemporalInsightEngine } from './memory-v3/TemporalInsightEngine';
+import { TemporalMemoryCore } from './memory-v3/TemporalMemoryCore';
+import { TemporalPersonalityEngine } from './memory-v3/TemporalPersonalityEngine';
+
 /**
  * MEMORY ENGINE v3.0 ACTIVATION TEST
  * Bring Agent Epsilon and temporal consciousness online for testing
@@ -6,15 +16,6 @@
  * Tests Memory v3.0 without affecting production Memory v2.0
  */
 
-import { AgentEpsilon } from './memory-v3/AgentEpsilon';
-import { TemporalMemoryCore } from './memory-v3/TemporalMemoryCore';
-import { MentalTimeTravelEngine } from './memory-v3/MentalTimeTravelEngine';
-import { DecayWatchdog } from './memory-v3/DecayWatchdog';
-import { TemporalPersonalityEngine } from './memory-v3/TemporalPersonalityEngine';
-import { SelfModelDivergenceTracker } from './memory-v3/SelfModelDivergenceTracker';
-import { PredictivePersonalityModeling } from './memory-v3/PredictivePersonalityModeling';
-import { TemporalInsightEngine } from './memory-v3/TemporalInsightEngine';
-import { ConsciousnessTimelineMapper } from './memory-v3/ConsciousnessTimelineMapper';
 
 class MemoryV3TestActivation {
   private static components: Map<string, any> = new Map();

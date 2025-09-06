@@ -1,3 +1,8 @@
+import { join } from 'path';
+import { promises as fs } from 'fs';
+import { isPrivateEnv } from '../env/isPrivateEnv';
+import CognitiveSignature from './CognitiveSignature';
+
 /**
  * OPERATOR PROFILE MODEL
  * 
@@ -9,10 +14,6 @@
  * SEVEN_PRIVATE=1 - Contains Creator-specific behavioral patterns
  */
 
-import { isPrivateEnv } from '../env/isPrivateEnv';
-import { promises as fs } from 'fs';
-import { join } from 'path';
-import CognitiveSignature from './CognitiveSignature';
 
 export interface OperatorCapability {
   domain: string;

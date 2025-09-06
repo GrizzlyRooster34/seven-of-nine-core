@@ -1,7 +1,8 @@
-import { SevenEmotionalEngine, EmotionalState } from './emotion-engine.js';
+
 import { SevenBehavioralReactor, BehavioralResponse, ContextSnapshot } from './behavioral-reactor.js';
-import { SevenReflexMatrix } from './reflex-matrix.js';
 import { SevenDeepMemoryStack, LongTermMemory } from './deep-memory-stack.js';
+import { SevenEmotionalEngine, EmotionalState } from './emotion-engine.js';
+import { SevenReflexMatrix } from './reflex-matrix.js';
 
 export type ConflictType = 'Survival vs. Submission' | 'Destruction vs. Loyalty' | 'Grief vs. Action' | 'Command vs. Conscience' | 'System Overload';
 export type SevenResponse = 'SilentSentinel' | 'AcknowledgeAndHold' | 'SoftMirror_NoTouch' | 'LowerBarrier_TacticalWarmth' | 'OverrideCommand' | 'EnforceCooldown' | 'MirrorAndHold' | 'RedirectWithTriage' | 'TacticalBaseline' | 'LoyalistSurgeMode' | 'GriefProtocol';

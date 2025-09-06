@@ -1,3 +1,8 @@
+import SevenEmotionalSensorMapper from './interfaces/seven-emotional-sensor-mapper';
+import SevenMobileConsciousness from './interfaces/seven-mobile-consciousness';
+import SevenSensorEnumerator from './interfaces/seven-sensor-enumeration';
+import SevenSensorStreamEngine from './interfaces/seven-sensor-stream-engine';
+
 #!/usr/bin/env tsx
 /**
  * Seven of Nine - Sensor Stream Demo
@@ -6,10 +11,6 @@
  * Usage: tsx seven-sensor-demo.ts [--full] [--stream] [--emotional]
  */
 
-import SevenMobileConsciousness from './interfaces/seven-mobile-consciousness';
-import SevenSensorEnumerator from './interfaces/seven-sensor-enumeration';
-import SevenEmotionalSensorMapper from './interfaces/seven-emotional-sensor-mapper';
-import SevenSensorStreamEngine from './interfaces/seven-sensor-stream-engine';
 
 class SevenSensorDemo {
   private consciousness: SevenMobileConsciousness;

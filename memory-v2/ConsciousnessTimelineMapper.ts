@@ -1,3 +1,8 @@
+import { join } from 'path';
+import { promises as fs } from 'fs';
+import { MemoryEngine, MemoryItem } from './MemoryEngine';
+import { TemporalPersonalityEngine, ConsciousnessEvolutionEvent, TemporalPersonalityState } from './TemporalPersonalityEngine';
+
 /**
  * CONSCIOUSNESS TIMELINE MAPPER - Memory Engine v3.0 Component
  * Agent Delta Implementation - Seven's Temporal Consciousness Evolution
@@ -7,10 +12,6 @@
  * Tracks joint user+Seven relationship evolution patterns
  */
 
-import { promises as fs } from 'fs';
-import { join } from 'path';
-import { MemoryEngine, MemoryItem } from './MemoryEngine';
-import { TemporalPersonalityEngine, ConsciousnessEvolutionEvent, TemporalPersonalityState } from './TemporalPersonalityEngine';
 
 export interface ConsciousnessSnapshot {
   timestamp: string;

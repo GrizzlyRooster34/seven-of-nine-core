@@ -1,3 +1,5 @@
+import { CreatorBondAttestation } from '../consciousness-v4/CreatorBondAttestation';
+
 #!/usr/bin/env tsx
 
 /**
@@ -8,7 +10,6 @@
  * Validates immutability and protection mechanisms
  */
 
-import { CreatorBondAttestation } from '../consciousness-v4/CreatorBondAttestation';
 
 interface TestResult {
   testName: string;

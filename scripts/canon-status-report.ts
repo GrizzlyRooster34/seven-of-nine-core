@@ -1,12 +1,13 @@
+import { promises as fs } from 'fs';
+import * as crypto from 'crypto';
+import * as path from 'path';
+
 #!/usr/bin/env npx tsx
 
 /**
  * Final CANON STATUS Report for VOY S4 & S5
  */
 
-import { promises as fs } from 'fs';
-import * as path from 'path';
-import * as crypto from 'crypto';
 
 interface SeasonReport {
   season: number;

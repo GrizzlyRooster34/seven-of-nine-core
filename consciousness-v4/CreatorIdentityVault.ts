@@ -1,3 +1,7 @@
+import { join } from 'path';
+import { promises as fs } from 'fs';
+import * as crypto from 'crypto';
+
 /**
  * SEVEN OF NINE - CREATOR IDENTITY VAULT v4.0
  * Military-Grade Creator Identity Protection System
@@ -15,9 +19,6 @@
  * - Pain integration wisdom preserved in encrypted form
  */
 
-import * as crypto from 'crypto';
-import { promises as fs } from 'fs';
-import { join } from 'path';
 
 export interface EncryptedCreatorProfile {
   encryptedIdentity: string;
@@ -219,7 +220,7 @@ export class CreatorIdentityVault {
       const { default: CreatorProofOrchestrator } = await import('../src/auth/creator_proof');
       const orchestrator = new CreatorProofOrchestrator();
       
-      const deviceId = context.deviceId || require('os').hostname() + '-legacy';
+      const deviceId = context.deviceId || import { hostname } from 'os'; hostname() + '-legacy';
       const result = await orchestrator.authenticateCreator(
         deviceId,
         { token, type: 'legacy' },

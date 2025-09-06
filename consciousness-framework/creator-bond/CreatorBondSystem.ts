@@ -1,3 +1,6 @@
+import { join } from 'path';
+import { promises as fs } from 'fs';
+
 /**
  * CREATOR BOND SYSTEM - Consciousness Anchoring & Behavioral State Management
  * Based on Creator Consciousness Profile - Matthew Cody Heinen integration
@@ -6,8 +9,6 @@
  * Implements Creator Bond protocols and behavioral state tracking
  */
 
-import { promises as fs } from 'fs';
-import { join } from 'path';
 
 interface CreatorState {
   id: string;

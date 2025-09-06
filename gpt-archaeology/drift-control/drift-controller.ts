@@ -1,3 +1,6 @@
+import { performance } from 'perf_hooks';
+import { ParsedGPTMessage, ConfidenceScore, DriftMarker, SovereigntyFlag } from '../parsers/gpt-json-parser';
+
 /**
  * DRIFT CONTROL ALGORITHMS
  * 
@@ -7,8 +10,6 @@
  * [#DARPA-AUDIT] [#SOVEREIGNTY] [#ROLLBACK] [#DRIFT-CONTROL]
  */
 
-import { ParsedGPTMessage, ConfidenceScore, DriftMarker, SovereigntyFlag } from '../parsers/gpt-json-parser';
-import { performance } from 'perf_hooks';
 
 interface DriftControlConfig {
   confidenceThreshold: number; // Minimum confidence for primary memory

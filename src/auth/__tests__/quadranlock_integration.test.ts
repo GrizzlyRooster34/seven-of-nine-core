@@ -1,3 +1,7 @@
+import { AuthDecision } from '../creator_proof';
+import { CreatorProofOrchestrator } from '../creator_proof';
+import { Ed25519Attestation } from '../crypto/ed25519_attest';
+
 /**
  * QUADRAN-LOCK Q1 INTEGRATION TESTS
  * Validates cryptographic attestation and authentication flow
@@ -6,9 +10,6 @@
  * PATCH: Ensures Q1 gate functionality and 2-of-3 decision logic
  */
 
-import { CreatorProofOrchestrator } from '../creator_proof';
-import { Ed25519Attestation } from '../crypto/ed25519_attest';
-import { AuthDecision } from '../creator_proof';
 
 describe('Quadran-Lock Q1 Integration', () => {
   let orchestrator: CreatorProofOrchestrator;

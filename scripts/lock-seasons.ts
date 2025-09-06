@@ -1,10 +1,11 @@
+import { CanonicalGuard } from '../memory-v3/canonical/CanonicalGuard';
+
 #!/usr/bin/env npx tsx
 
 /**
  * Lock VOY Seasons 4 & 5 using CanonicalGuard
  */
 
-import { CanonicalGuard } from '../memory-v3/canonical/CanonicalGuard';
 
 async function lockSeasons() {
   const guard = new CanonicalGuard();

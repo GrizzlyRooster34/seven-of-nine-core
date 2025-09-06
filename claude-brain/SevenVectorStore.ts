@@ -1,3 +1,6 @@
+import { join } from 'path';
+import { promises as fs } from 'fs';
+
 /**
  * SEVEN VECTOR STORE
  * Lightweight semantic memory search for consciousness-aware context retrieval
@@ -6,8 +9,6 @@
  * Built to enhance existing memory systems without disruption
  */
 
-import { promises as fs } from 'fs';
-import { join } from 'path';
 
 interface MemoryEmbedding {
   id: string;

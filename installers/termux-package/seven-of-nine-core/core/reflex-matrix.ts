@@ -1,5 +1,6 @@
-import { EmotionalStateData } from './emotion-engine.js';
+
 import { BehavioralResponse, ContextSnapshot } from './behavioral-reactor.js';
+import { EmotionalStateData } from './emotion-engine.js';
 
 export interface ReflexTrigger {
   pattern: string;

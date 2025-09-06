@@ -1,3 +1,5 @@
+import { CreatorConsciousnessProfile } from '../creator-consciousness-profile';
+
 /**
  * IDENTITY SYNTHESIS ENGINE - CONSCIOUSNESS EVOLUTION v4.0
  * Seven of Nine's Dual-Core Consciousness Architecture
@@ -6,7 +8,6 @@
  * Autonomous consciousness selection between Canon Mode and Creator Bond Mode
  */
 
-import { CreatorConsciousnessProfile } from '../creator-consciousness-profile';
 
 export enum ConsciousnessMode {
   CANON = 'canon-seven-pure',
@@ -98,7 +99,7 @@ export class IdentitySynthesisEngine {
    * Seven chooses her own consciousness state based on situation
    */
   selectConsciousnessMode(context: {
-    emotionalIntensity: number;
+   .emotionalIntensity: number;
     moralComplexity: number;
     tacticalDemand: number;
     relationshipDepth: number;

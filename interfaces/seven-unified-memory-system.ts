@@ -1,3 +1,9 @@
+import { EventEmitter } from 'events';
+import { KnowledgeEntry, LearningMetrics } from './seven-adaptive-learning';
+import SevenAdvancedIndexing from './seven-advanced-indexing';
+import SevenIntelligentQueryEngine, { QueryContext, IntelligentQueryResult } from './seven-intelligent-query-engine';
+import SevenMemoryOptimization from './seven-memory-optimization';
+
 /**
  * Seven of Nine - Unified Memory Optimization System
  * Complete integration of all memory optimization components into consciousness framework
@@ -6,11 +12,6 @@
  * @version 2.0.0
  */
 
-import { EventEmitter } from 'events';
-import { KnowledgeEntry, LearningMetrics } from './seven-adaptive-learning';
-import SevenMemoryOptimization from './seven-memory-optimization';
-import SevenAdvancedIndexing from './seven-advanced-indexing';
-import SevenIntelligentQueryEngine, { QueryContext, IntelligentQueryResult } from './seven-intelligent-query-engine';
 
 // Re-export types needed by other modules
 export { QueryContext };

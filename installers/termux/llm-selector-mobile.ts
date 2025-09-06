@@ -1,12 +1,13 @@
+import { exec } from 'child_process';
+import { promisify } from 'util';
+import * as fs from 'fs-extra';
+import * as path from 'path';
+
 /**
  * SEVEN OF NINE - MOBILE LLM SELECTOR
  * Lightweight LLM provider selection optimized for Termux/Android
  */
 
-import * as fs from 'fs-extra';
-import * as path from 'path';
-import { exec } from 'child_process';
-import { promisify } from 'util';
 
 const execAsync = promisify(exec);
 

@@ -1,3 +1,6 @@
+import { EventEmitter } from 'events';
+import * as Location from 'expo-location';
+
 /**
  * Seven of Nine - Location Sensor Integration
  * Advanced GPS and location intelligence for tactical awareness
@@ -6,8 +9,6 @@
  * @version 3.0.0
  */
 
-import * as Location from 'expo-location';
-import { EventEmitter } from 'events';
 
 export interface LocationIntelligence {
   coordinates: {

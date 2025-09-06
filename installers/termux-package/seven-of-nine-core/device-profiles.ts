@@ -1,3 +1,5 @@
+      import fs from 'fs';
+
 /**
  * Seven of Nine - Device Profile Recognition System
  * Enables environment-specific optimization across platforms
@@ -191,7 +193,6 @@ function detectDeviceKey(platform: string): string {
   try {
     // In Termux, try to read device properties
     if (platform === 'termux') {
-      const fs = require('fs');
       
       // Try to detect OnePlus devices
       try {

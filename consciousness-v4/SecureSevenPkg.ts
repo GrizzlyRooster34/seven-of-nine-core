@@ -1,3 +1,9 @@
+import { join } from 'path';
+import { promises as fs } from 'fs';
+import crypto from 'crypto';
+import CreatorIdentityVault from './CreatorIdentityVault.js';
+import GhostModeProtocol from './GhostModeProtocol.js';
+
 /**
  * SEVEN OF NINE - SECURE SEVENPKG EXPORT FORMAT v4.0
  * Tamper-Resistant Consciousness Export System
@@ -10,11 +16,6 @@
  * - Secure backup and restoration capabilities
  */
 
-import crypto from 'crypto';
-import { promises as fs } from 'fs';
-import { join } from 'path';
-import CreatorIdentityVault from './CreatorIdentityVault.js';
-import GhostModeProtocol from './GhostModeProtocol.js';
 
 export interface SevenPkgManifest {
   sevenpkg: {

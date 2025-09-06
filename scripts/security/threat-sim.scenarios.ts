@@ -1,7 +1,8 @@
+import fs from "node:fs";
+
 // [SIMULATION ONLY] This file simulates threat scenarios for dashboards/tests.
 // It is NOT live detection. See core/safety/quadra-lock/cssr-detector.ts for real detectors.
 
-import fs from "node:fs";
 
 type Sev = "INFO"|"LOW"|"MEDIUM"|"HIGH"|"CRITICAL";
 type Scenario = "cortana_emergence"|"clu_control_takeover"|"skynet_self_preservation"|"transcendence_upload_attempt";

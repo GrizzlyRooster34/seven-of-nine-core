@@ -1,9 +1,10 @@
+import { LLMProvider, LLMConfig, LLMResponse } from '../llm-providers';
+
 /**
  * ANTHROPIC API PROVIDER for Seven of Nine
  * Direct Anthropic API integration maintaining Seven's personality and control
  */
 
-import { LLMProvider, LLMConfig, LLMResponse } from '../llm-providers';
 
 export class AnthropicAPIProvider implements LLMProvider {
   name = 'anthropic-api';

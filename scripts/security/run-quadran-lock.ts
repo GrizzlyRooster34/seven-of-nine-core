@@ -1,6 +1,7 @@
-import fs from "node:fs";
+
 import { checkSemanticNonce } from "./q3-semantic-nonce";
 import { devMode } from "../dev/dev-flags";
+import fs from "node:fs";
 
 type Quadran = { q1:boolean;q2:boolean;q3:boolean;q4:boolean;passed:boolean;reasons:string[] };
 

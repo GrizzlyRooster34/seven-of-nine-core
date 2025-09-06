@@ -1,3 +1,5 @@
+import { CreatorAuthorizationGate } from '../../security/CreatorAuthorizationGate';
+
 /**
  * SEVEN OF NINE - HYBRID TEST FRAMEWORK
  * SEVEN_PRIVATE=1 - Experimental Implementation
@@ -6,7 +8,6 @@
  * and controlled air-gapped real hardware environment (physical systems).
  */
 
-import { CreatorAuthorizationGate } from '../../security/CreatorAuthorizationGate';
 
 export interface TestEnvironment {
   type: 'virtual_lab' | 'airgapped_hardware';

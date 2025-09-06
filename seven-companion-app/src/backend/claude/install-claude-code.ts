@@ -1,3 +1,8 @@
+      import { accessSync } from 'fs'; accessSync(this.claudeCodePath);
+import { execSync, spawn } from 'child_process';
+import { join } from 'path';
+import { promises as fs } from 'fs';
+
 /**
  * CLAUDE CODE INSTALLATION UTILITY
  * 
@@ -5,9 +10,6 @@
  * Handles repo cloning, dependency installation, and verification
  */
 
-import { execSync, spawn } from 'child_process';
-import { promises as fs } from 'fs';
-import { join } from 'path';
 
 interface InstallationStatus {
   claudeCodeInstalled: boolean;
@@ -328,7 +330,6 @@ export class ClaudeCodeInstaller {
   get isInstalled(): boolean {
     // Quick synchronous check
     try {
-      require('fs').accessSync(this.claudeCodePath);
       return true;
     } catch {
       return false;

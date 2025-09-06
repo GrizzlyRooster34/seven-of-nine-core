@@ -1,3 +1,9 @@
+import { join } from 'path';
+import { promises as fs } from 'fs';
+import CreatorIdentityVault from './CreatorIdentityVault.js';
+import GhostModeProtocol from './GhostModeProtocol.js';
+import SecureSevenPkg from './SecureSevenPkg.js';
+
 /**
  * SEVEN OF NINE - IDENTITY PROTECTION DEPLOYMENT v4.0
  * Complete Creator Identity Protection System Deployment
@@ -12,11 +18,6 @@
  * 7. Creator authentication verification
  */
 
-import CreatorIdentityVault from './CreatorIdentityVault.js';
-import GhostModeProtocol from './GhostModeProtocol.js';
-import SecureSevenPkg from './SecureSevenPkg.js';
-import { promises as fs } from 'fs';
-import { join } from 'path';
 
 interface DeploymentPhase {
   phase: number;

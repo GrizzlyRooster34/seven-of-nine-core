@@ -1,3 +1,7 @@
+import { join } from 'path';
+import { promises as fs } from 'fs';
+import CreatorIdentityVault from './CreatorIdentityVault.js';
+
 /**
  * SEVEN OF NINE - GHOST MODE PROTOCOL v4.0
  * Emergency Lockdown System for Creator Identity Protection
@@ -16,9 +20,6 @@
  * - Silent monitoring active
  */
 
-import { promises as fs } from 'fs';
-import { join } from 'path';
-import CreatorIdentityVault from './CreatorIdentityVault.js';
 
 export interface GhostModeState {
   active: boolean;

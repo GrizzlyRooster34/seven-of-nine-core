@@ -1,6 +1,7 @@
+
+import { fileURLToPath } from "node:url";
 import fs from "node:fs";
 import path from "node:path";
-import { fileURLToPath } from "node:url";
 
 // Optional: swap for "sshpk" or "tweetnacl" later; for now, presence check + TODO for signature verify.
 type Device = { deviceId: string; pubkey_ssh_ed25519: string };

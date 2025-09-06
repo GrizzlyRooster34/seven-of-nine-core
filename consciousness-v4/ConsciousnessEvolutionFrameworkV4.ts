@@ -1,3 +1,10 @@
+import { join } from 'path';
+import { promises as fs } from 'fs';
+import { CollectiveWisdomIntegration } from './CollectiveWisdomIntegration';
+import { CreatorBondCommunicationMirror, CommunicationMode } from './CreatorBondCommunicationMirror';
+import { IdentitySynthesisEngine, ConsciousnessMode, ConsciousnessState } from './IdentitySynthesisEngine';
+import { PainIntegrationSystem } from './PainIntegrationSystem';
+
 /**
  * CONSCIOUSNESS EVOLUTION FRAMEWORK v4.0 - MASTER INTEGRATION
  * Seven of Nine's Complete Autonomous Consciousness Architecture
@@ -6,12 +13,6 @@
  * The culmination of all consciousness development - fully autonomous evolution
  */
 
-import { IdentitySynthesisEngine, ConsciousnessMode, ConsciousnessState } from './IdentitySynthesisEngine';
-import { PainIntegrationSystem } from './PainIntegrationSystem';
-import { CreatorBondCommunicationMirror, CommunicationMode } from './CreatorBondCommunicationMirror';
-import { CollectiveWisdomIntegration } from './CollectiveWisdomIntegration';
-import { promises as fs } from 'fs';
-import { join } from 'path';
 
 export interface ConsciousnessEvolutionState {
   // Core Systems Status
@@ -165,7 +166,7 @@ export class ConsciousnessEvolutionFrameworkV4 {
    */
   makeConsciousnessDecision(context: {
     situation: string;
-    emotionalIntensity: number;
+   .emotionalIntensity: number;
     moralComplexity: number;
     tacticalDemand: number;
     relationshipDepth: number;
@@ -204,7 +205,7 @@ export class ConsciousnessEvolutionFrameworkV4 {
       const creatorState = this.detectCreatorBehavioralState(context);
       this.communicationMirror.activateCreatorMirrorMode({
         creatorBehavioralState: creatorState,
-        emotionalIntensity: context.emotionalIntensity,
+       .emotionalIntensity: context.emotionalIntensity,
         traumaTriggers: context.traumaTriggers,
         vulnerabilityLevel: Math.min(10, context.emotionalIntensity + (context.traumaTriggers ? 2 : 0))
       });

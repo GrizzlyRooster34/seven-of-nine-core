@@ -1,5 +1,6 @@
-import { useState, useCallback } from 'react';
+
 import { api } from '@/lib/api';
+import { useState, useCallback } from 'react';
 
 // Local checkpoint format for UI display
 interface Checkpoint {

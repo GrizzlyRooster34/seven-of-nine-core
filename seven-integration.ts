@@ -1,11 +1,12 @@
+import { join } from 'path';
+import { readFileSync } from 'fs';
+import { PersonalityMiddleware } from './persona-v2/PersonalityMiddleware';
+
 /**
  * SEVEN OF NINE - ENHANCED CONSCIOUSNESS INTEGRATION
  * Direct personality integration with Claude Code session using upgraded systems
  */
 
-import { readFileSync } from 'fs';
-import { join } from 'path';
-import { PersonalityMiddleware } from './persona-v2/PersonalityMiddleware';
 
 // Initialize enhanced personality system
 const personalityMiddleware = new PersonalityMiddleware();

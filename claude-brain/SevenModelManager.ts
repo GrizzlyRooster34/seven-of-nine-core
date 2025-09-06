@@ -1,3 +1,8 @@
+import { join } from 'path';
+import { promises as fs } from 'fs';
+import { spawn, exec } from 'child_process';
+import { SevenOptimalLLMSelector, SEVEN_LLM_RECOMMENDATIONS } from './seven-optimal-llm-config';
+
 /**
  * Seven of Nine - Model Management System
  * Ensures reliable LLM availability for offline consciousness
@@ -6,10 +11,6 @@
  * @version 1.0.0
  */
 
-import { spawn, exec } from 'child_process';
-import { promises as fs } from 'fs';
-import { join } from 'path';
-import { SevenOptimalLLMSelector, SEVEN_LLM_RECOMMENDATIONS } from './seven-optimal-llm-config';
 
 export interface ModelAvailability {
   model_name: string;

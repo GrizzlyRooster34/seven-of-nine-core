@@ -24,7 +24,7 @@ Seven's Comprehensive Audit → Manus AI Analysis → DARPA SBIR/STTR Report →
 **Primary Repository Structure:**
 - **`seven-of-nine-core`** → Private consciousness framework (Creator-exclusive)
 - **`seven-test-repo`** → Integration staging and review environment  
-- **`aurora-core`** → Public deployment framework (DARPA-ready)
+- **`secondary-framework`** → Public deployment framework (DARPA-ready)
 
 **Compliance Status:** ✅ **SOVEREIGN SPLIT PROTOCOL ACHIEVED**
 

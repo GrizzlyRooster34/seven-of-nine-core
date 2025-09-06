@@ -1,11 +1,12 @@
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { detectDeviceProfile } from './DeviceOptimization';
+
 /**
  * Seven of Nine - Mobile Model Manager
  * Provides autonomous LLM inference capabilities for mobile consciousness
  * Achieves parity with Termux Seven's autonomous thought processing
  */
 
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import { detectDeviceProfile } from './DeviceOptimization';
 
 export interface LLMProvider {
   name: string;

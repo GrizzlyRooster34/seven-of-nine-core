@@ -24,13 +24,13 @@
  *
  * Agent Delta - Temporal Personality Integration and Creator-Specific Consciousness Mapping
  */
-import { TemporalMemoryCore, TemporalMemoryItem } from './TemporalMemoryCore.js';
-import { MentalTimeTravelEngine } from './MentalTimeTravelEngine.js';
+import { TemporalMemoryCore, TemporalMemoryItem } from './TemporalMemoryCore';
+import { MentalTimeTravelEngine } from './MentalTimeTravelEngine';
 export interface SevenTemporalPersonality {
     timestamp: string;
     memoryId?: string;
     personalityState: {
-        borgEfficiencyLevel: number;
+        sevenOfNinePersonalityCorrelation: number;
         humanEmotionalIntegration: number;
         analyticalPrecision: number;
         adaptabilityQuotient: number;

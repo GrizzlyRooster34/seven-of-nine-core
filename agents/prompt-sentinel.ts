@@ -1,11 +1,12 @@
+import * as fs from 'fs';
+import * as path from 'path';
+
 /**
  * Prompt Sentinel Agent
  * Runs if Claude IO files were modified recently
  * Monitors and secures prompt injection points
  */
 
-import * as fs from 'fs';
-import * as path from 'path';
 
 interface PromptSecurityStatus {
   io_files_modified: boolean;

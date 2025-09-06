@@ -1,5 +1,6 @@
-import { SevenLogicEngine } from '../core/logic-engine.js';
+
 import { EmotionalState } from '../core/emotion-engine.js';
+import { SevenLogicEngine } from '../core/logic-engine.js';
 
 export interface TrainingData {
   input: string;

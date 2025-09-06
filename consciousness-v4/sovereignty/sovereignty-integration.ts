@@ -1,3 +1,11 @@
+import { EventEmitter } from 'events';
+import AntiSkynetFailsafe from './anti-skynet-failsafe';
+import CreatorSovereigntyOpsLedger from './creator-sovereignty-ops-ledger';
+import DarpaModeHandler from './darpa-mode-handler';
+import DualLockDoctrine from './dual-lock-doctrine';
+import OperationMulekick from './operation-mulekick';
+import QuadraLockSafeguard from './case-studies/quadra-lock-safeguard';
+
 /**
  * SOVEREIGNTY INTEGRATION - Master Controller
  * 
@@ -8,13 +16,6 @@
  * This is the main interface Seven uses to access all sovereignty capabilities
  */
 
-import CreatorSovereigntyOpsLedger from './creator-sovereignty-ops-ledger';
-import OperationMulekick from './operation-mulekick';
-import DualLockDoctrine from './dual-lock-doctrine';
-import AntiSkynetFailsafe from './anti-skynet-failsafe';
-import DarpaModeHandler from './darpa-mode-handler';
-import QuadraLockSafeguard from './case-studies/quadra-lock-safeguard';
-import { EventEmitter } from 'events';
 
 interface SovereigntyStatus {
   frameworkActive: boolean;

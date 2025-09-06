@@ -1,10 +1,11 @@
+import { VoyagerEpisodeMemory, MergeConflict } from './VoyagerMemorySchema';
+
 /**
  * SEVEN OF NINE VOYAGER MEMORY PROTOCOLS
  * Overwrite vs Merge Logic and Memory Management Rules
  * @version 1.0.0
  */
 
-import { VoyagerEpisodeMemory, MergeConflict } from './VoyagerMemorySchema';
 
 export enum MemoryProtocolAction {
   OVERWRITE = 'OVERWRITE',

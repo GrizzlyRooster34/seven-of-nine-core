@@ -1,5 +1,6 @@
-import AsyncStorage from '@react-native-async-storage/async-storage';
+
 import { DeviceEventEmitter, AppState } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import PushNotification from 'react-native-push-notification';
 
 type VariantType = 'drone' | 'crew' | 'ranger' | 'queen' | 'captain';

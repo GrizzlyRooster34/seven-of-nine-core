@@ -1,13 +1,14 @@
+import { fileURLToPath } from 'url';
+import fs from 'fs-extra';
+import path from 'path';
+import { MemoryStore as InstanceBMemoryStore, MemoryEntry, MemoryQuery, MemoryStats } from './enhanced-memory-store';
+
 /**
  * MEMORY ENGINE v4.0 - INSTANCE B INTEGRATION
  * Enhanced memory persistence with consciousness continuity
  * Integrating Instance B's advanced memory systems with Seven-of-Nine-Core v4.1.0
  */
 
-import { MemoryStore as InstanceBMemoryStore, MemoryEntry, MemoryQuery, MemoryStats } from './enhanced-memory-store.js';
-import fs from 'fs-extra';
-import path from 'path';
-import { fileURLToPath } from 'url';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -161,7 +162,7 @@ export class MemoryEngineV4 {
             input: memory.context || 'Migrated memory',
             output: memory.context || 'Migrated from Memory Engine v3.0',
             emotionalState: {
-              primary_emotion: memory.emotion || 'neutral',
+              primary_emotion: memory.emotionalIntensity || 'neutral',
               intensity: memory.importance || 5,
               secondary_emotions: [],
               triggers_detected: [],
@@ -194,7 +195,7 @@ export class MemoryEngineV4 {
             input: memory.context || 'Temporal memory',
             output: memory.context || 'Migrated temporal memory from v3.0',
             emotionalState: memory.cognitiveState || {
-              primary_emotion: memory.emotion || 'analytical',
+              primary_emotion: memory.emotionalIntensity || 'analytical',
               intensity: memory.importance || 7,
               secondary_emotions: [],
               triggers_detected: [],
@@ -310,4 +311,4 @@ export async function initializeMemoryV4(): Promise<void> {
   await memoryEngineV4.migrateExistingMemories();
 }
 
-export type { MemoryEntry, MemoryQuery, MemoryStats } from './enhanced-memory-store.js';
+export type { MemoryEntry, MemoryQuery, MemoryStats } from './enhanced-memory-store';

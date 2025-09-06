@@ -9,7 +9,7 @@ This directory contains comprehensive technical reviews and analysis of the Seve
 ### `gemini_comprehensive_review_20250903.md`
 - **Reviewer**: Gemini 2.5 Pro (Google DeepMind)
 - **Date**: September 3, 2025
-- **Scope**: Complete architectural deep-dive of both `seven-of-nine-core` and `aurora-core` projects
+- **Scope**: Complete architectural deep-dive of both `seven-of-nine-core` and `secondary-framework` projects
 - **Analysis Type**: Ground-up technical review with no prior knowledge
 - **Key Focus Areas**:
   - Architectural patterns and design philosophy

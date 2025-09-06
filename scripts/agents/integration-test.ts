@@ -1,12 +1,13 @@
+import { execSync, spawn } from 'child_process';
+import { join } from 'path';
+import { readFileSync, writeFileSync, existsSync } from 'fs';
+
 #!/usr/bin/env tsx
 /**
  * Agent Mesh Integration Tests
  * Comprehensive testing suite for the 27-agent orchestration system
  */
 
-import { execSync, spawn } from 'child_process';
-import { readFileSync, writeFileSync, existsSync } from 'fs';
-import { join } from 'path';
 
 interface TestResult {
   agent: string;

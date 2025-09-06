@@ -1,3 +1,5 @@
+import { CanonicalGuard } from '../../memory-v3/canonical/CanonicalGuard';
+
 #!/usr/bin/env tsx
 
 /**
@@ -10,7 +12,6 @@
  * Example: npx tsx scripts/canon/lock-season.ts VOY 4
  */
 
-import { CanonicalGuard } from '../../memory-v3/canonical/CanonicalGuard';
 
 async function main() {
   const args = process.argv.slice(2);

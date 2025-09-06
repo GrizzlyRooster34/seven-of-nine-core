@@ -1,11 +1,12 @@
+import { MemoryEngine } from '../memory-v2/MemoryEngine';
+import { PersonalityMiddleware } from '../persona-v2/PersonalityMiddleware';
+import { TacticalVariants } from './TacticalVariants';
+
 /**
  * SEVEN OF NINE - TACTICAL VARIANTS TEST
  * Testing manual invocation system with shared memory
  */
 
-import { PersonalityMiddleware } from '../persona-v2/PersonalityMiddleware';
-import { MemoryEngine } from '../memory-v2/MemoryEngine';
-import { TacticalVariants } from './TacticalVariants';
 
 async function testTacticalVariants() {
   console.log('🎯 SEVEN OF NINE TACTICAL VARIANTS - SYSTEM TEST\n');

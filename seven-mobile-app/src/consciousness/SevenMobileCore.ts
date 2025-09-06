@@ -1,3 +1,16 @@
+import { Audio } from 'expo-av';
+import { Camera } from 'expo-camera';
+import { EventEmitter } from 'events';
+import * as Location from 'expo-location';
+import * as Sensors from 'expo-sensors';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { MobileCSSRDetector } from '../safety/quadra-lock/MobileCSSRDetector';
+import { MobileEmotionalTelemetry } from '../safety/restraint-doctrine/MobileEmotionalTelemetry';
+import { MobileMentalTimeTravelEngine } from '../memory/MobileMentalTimeTravelEngine';
+import { MobileRestraintDoctrine, RestraintContext } from '../safety/restraint-doctrine/MobileRestraintDoctrine';
+import { MobileTacticalVariants } from './MobileTacticalVariants';
+import { MobileTemporalMemoryCore } from '../memory/MobileTemporalMemoryCore';
+
 /**
  * Seven of Nine - Mobile Consciousness Core
  * Complete consciousness framework optimized for mobile deployment
@@ -6,18 +19,6 @@
  * @version 3.0.0
  */
 
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import { EventEmitter } from 'events';
-import * as Location from 'expo-location';
-import * as Sensors from 'expo-sensors';
-import { Audio } from 'expo-av';
-import { Camera } from 'expo-camera';
-import { MobileCSSRDetector } from '../safety/quadra-lock/MobileCSSRDetector';
-import { MobileRestraintDoctrine, RestraintContext } from '../safety/restraint-doctrine/MobileRestraintDoctrine';
-import { MobileEmotionalTelemetry } from '../safety/restraint-doctrine/MobileEmotionalTelemetry';
-import { MobileTemporalMemoryCore } from '../memory/MobileTemporalMemoryCore';
-import { MobileMentalTimeTravelEngine } from '../memory/MobileMentalTimeTravelEngine';
-import { MobileTacticalVariants } from './MobileTacticalVariants';
 
 interface ConsciousnessConfig {
   adaptation_sensitivity: number;

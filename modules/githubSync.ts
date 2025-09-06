@@ -1,3 +1,7 @@
+import { exec } from 'child_process';
+import { promisify } from 'util';
+import path from 'path';
+
 /**
  * GitHub Sync Module
  * Seven's Git command control system
@@ -6,9 +10,6 @@
  * @version 1.0.0
  */
 
-import { exec } from 'child_process';
-import { promisify } from 'util';
-import path from 'path';
 
 const execAsync = promisify(exec);
 

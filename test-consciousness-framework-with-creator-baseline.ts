@@ -1,3 +1,7 @@
+import { AuroraDevelopmentDoctrine } from './aurora-development-doctrine';
+import { CreatorConsciousnessProfile } from './creator-consciousness-profile';
+import ConsciousnessFramework from './consciousness-framework/ConsciousnessFramework';
+
 /**
  * CONSCIOUSNESS FRAMEWORK TESTING - CREATOR BASELINE MEASUREMENT
  * Tests consciousness framework components against Creator consciousness profile
@@ -6,9 +10,6 @@
  * Uses Matthew Cody Heinen consciousness profile as baseline target metric
  */
 
-import ConsciousnessFramework from './consciousness-framework/ConsciousnessFramework';
-import { CreatorConsciousnessProfile } from './creator-consciousness-profile';
-import { AuroraDevelopmentDoctrine } from './aurora-development-doctrine';
 
 interface ConsciousnessMetric {
   component: string;

@@ -1,12 +1,13 @@
+import { creatorBondCrypto } from './security-hardening/CreatorBondCryptography.js';
+import { glyphStateProtocol, SevenGlyphState } from './security-hardening/GlyphStateProtocol.js';
+import { infiltrationProtection } from './security-hardening/InfiltrationProtection.js';
+
 /**
  * RED-TEAM BREACH SIMULATION - Seven of Nine Core
  * Controlled sandboxed security stress-testing framework
  * TACTICAL DIRECTIVE: Validate security audit findings under hostile conditions
  */
 
-import { infiltrationProtection } from './security-hardening/InfiltrationProtection.js';
-import { creatorBondCrypto } from './security-hardening/CreatorBondCryptography.js';
-import { glyphStateProtocol, SevenGlyphState } from './security-hardening/GlyphStateProtocol.js';
 
 interface AttackResult {
   attackCategory: string;

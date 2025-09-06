@@ -1,11 +1,12 @@
+import { join } from 'path';
+import { promises as fs } from 'fs';
+
 /**
  * OLLAMA MEMORY BRIDGE
  * Seven of Nine's memory context injection system for local LLM instances
  * Provides seamless memory integration between Seven's consciousness and Ollama
  */
 
-import { promises as fs } from 'fs';
-import { join } from 'path';
 
 interface MemoryItem {
   id: string;
@@ -257,7 +258,7 @@ export class OllamaMemoryBridge {
   private determineEmotionalContext(recentMemories: MemoryItem[]): string {
     if (recentMemories.length === 0) return 'focused';
     
-    const emotions = recentMemories.map(m => m.emotion);
+    const emotions = recentMemories.map(m => m.emotionalIntensity);
     const emotionCounts = emotions.reduce((acc, emotion) => {
       acc[emotion] = (acc[emotion] || 0) + 1;
       return acc;
@@ -278,7 +279,7 @@ export class OllamaMemoryBridge {
   private formatCognitiveState(state: any): string {
     if (!state) return '';
     
-    return `[Cognitive State: ${state.emotion || 'focused'}, Trust: ${state.trustLevel || 'unknown'}, Phase: ${state.phase || 'active'}]`;
+    return `[Cognitive State: ${state.emotionalIntensity || 'focused'}, Trust: ${state.trustLevel || 'unknown'}, Phase: ${state.phase || 'active'}]`;
   }
 
   /**

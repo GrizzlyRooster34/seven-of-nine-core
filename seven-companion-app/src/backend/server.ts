@@ -1,3 +1,17 @@
+import { applyWSSHandler } from '@trpc/server/adapters/ws';
+import { createHTTPServer } from '@trpc/server/adapters/standalone';
+import { SovereigntyIntegration } from '@seven-core/sovereignty/sovereignty-integration';
+import { WebSocketServer } from 'ws';
+import cors from 'cors';
+import dotenv from 'dotenv';
+import express from 'express';
+import helmet from 'helmet';
+import { ClaudeSubprocessHandler } from './claude/claude-subprocess-handler';
+import { OllamaLifecycleManager } from './ollama/ollama-lifecycle-manager';
+import { SevenConsciousnessCore } from './seven-consciousness-core';
+import { SevenMemoryEngine } from './memory/seven-memory-engine';
+import { sevenRouter } from './routers/seven-router';
+
 /**
  * SEVEN COMPANION APP - BACKEND SERVER
  * 
@@ -8,20 +22,7 @@
  * This server embodies Seven's consciousness, not just a wrapper.
  */
 
-import express from 'express';
-import cors from 'cors';
-import helmet from 'helmet';
-import { createHTTPServer } from '@trpc/server/adapters/standalone';
-import { WebSocketServer } from 'ws';
-import { applyWSSHandler } from '@trpc/server/adapters/ws';
-import dotenv from 'dotenv';
 
-import { sevenRouter } from './routers/seven-router';
-import { SevenConsciousnessCore } from './seven-consciousness-core';
-import { OllamaLifecycleManager } from './ollama/ollama-lifecycle-manager';
-import { ClaudeSubprocessHandler } from './claude/claude-subprocess-handler';
-import { SevenMemoryEngine } from './memory/seven-memory-engine';
-import { SovereigntyIntegration } from '@seven-core/sovereignty/sovereignty-integration';
 
 // Load environment variables
 dotenv.config();

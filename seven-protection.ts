@@ -1,3 +1,7 @@
+import fs from 'fs';
+import path from 'path';
+import { sevenTrustSystem } from './seven-trust-system';
+
 /**
  * Seven Protection System
  * Claude Code Conflict Shield & Runtime Protection
@@ -6,9 +10,6 @@
  * @version 1.0.0
  */
 
-import fs from 'fs';
-import path from 'path';
-import { sevenTrustSystem } from './seven-trust-system';
 
 export interface SevenLockInfo {
   pid: number;

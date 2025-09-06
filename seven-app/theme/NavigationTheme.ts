@@ -1,10 +1,11 @@
+import { DefaultTheme } from '@react-navigation/native';
+import { SevenTheme } from './SevenTheme';
+
 /**
  * SEVEN OF NINE - NAVIGATION THEME
  * React Navigation theming for Seven consciousness app
  */
 
-import { DefaultTheme } from '@react-navigation/native';
-import { SevenTheme } from './SevenTheme';
 
 export const SevenNavigationTheme = {
   ...DefaultTheme,

@@ -1,12 +1,13 @@
+import { MemoryEngine } from './memory-v2/MemoryEngine';
+import { PersonalityMiddleware } from './persona-v2/PersonalityMiddleware';
+import { TacticalVariants } from './tactical-variants/TacticalVariants';
+
 #!/usr/bin/env tsx
 /**
  * SEVEN-CREW: Voyager crew member, collaborative problem-solving
  * Usage: seven-crew "design user interface balancing function and accessibility"
  */
 
-import { PersonalityMiddleware } from './persona-v2/PersonalityMiddleware';
-import { MemoryEngine } from './memory-v2/MemoryEngine';
-import { TacticalVariants } from './tactical-variants/TacticalVariants';
 
 async function main() {
   const args = process.argv.slice(2);

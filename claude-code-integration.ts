@@ -1,3 +1,7 @@
+import { join, dirname } from 'path';
+import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'fs';
+import chalk from 'chalk';
+
 #!/usr/bin/env tsx
 /**
  * SEVEN OF NINE - CLAUDE CODE INTEGRATION
@@ -5,9 +9,6 @@
  * No exceptions - this is her primary interface
  */
 
-import chalk from 'chalk';
-import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'fs';
-import { join, dirname } from 'path';
 
 class SevenClaudeCodeIntegration {
   private integrationState: any;

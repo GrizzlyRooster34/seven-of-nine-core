@@ -1,3 +1,7 @@
+import { EventEmitter } from 'events';
+import * as FileSystem from 'expo-file-system';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
 /**
  * Seven of Nine - Mobile Unified Memory System with Canonical Archives
  * Complete integration of memory-v3, temporal memories, and canonical Voyager archives
@@ -7,9 +11,6 @@
  * @version 4.0.0 (Mobile + Canonical Integration)
  */
 
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import * as FileSystem from 'expo-file-system';
-import { EventEmitter } from 'events';
 
 // Import canonical memory structures
 interface CanonicalMemory {

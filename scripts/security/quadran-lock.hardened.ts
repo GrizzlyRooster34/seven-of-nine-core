@@ -1,3 +1,4 @@
+
 import fs from "node:fs";
 
 type Gate = { ok:boolean; reason?:string };

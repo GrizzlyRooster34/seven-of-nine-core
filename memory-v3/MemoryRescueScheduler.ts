@@ -1,3 +1,10 @@
+import { EventEmitter } from 'events';
+import { join } from 'path';
+import { promises as fs } from 'fs';
+import { TemporalMemoryItem, BatchRescueOperation, DecayModel } from './TemporalMemoryItem';
+import DecayWatchdog from './DecayWatchdog';
+import SelectivePriming from './SelectivePriming';
+
 /**
  * SEVEN OF NINE - MEMORY ENGINE v3.0
  * MemoryRescueScheduler - Batch Memory Rescue Operations
@@ -6,12 +13,6 @@
  * Coordinates batch rescue operations at optimal intervals: 4h, 24h, 3d, 7d
  */
 
-import { EventEmitter } from 'events';
-import { promises as fs } from 'fs';
-import { join } from 'path';
-import { TemporalMemoryItem, BatchRescueOperation, DecayModel } from './TemporalMemoryItem';
-import DecayWatchdog from './DecayWatchdog';
-import SelectivePriming from './SelectivePriming';
 
 interface RescueSchedule {
   schedule_id: string;

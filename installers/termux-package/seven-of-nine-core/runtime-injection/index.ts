@@ -1,9 +1,10 @@
+
 import { gatherContext } from "../claudia-core/context-gatherer";
-import { injectEmotion } from "../claudia-core/emotion-injector";
 import { generateClaudeResponse } from "../claude-brain/interface";
+import { injectEmotion } from "../claudia-core/emotion-injector";
 import { modulateResponse } from "../claudia-core/response-modulator";
-import { updateMemory } from "./memory-store";
 import { SevenState, getEmotionalState } from "./seven-state";
+import { updateMemory } from "./memory-store";
 
 // === Seven of Nine: Primary Intelligence Loop ===
 

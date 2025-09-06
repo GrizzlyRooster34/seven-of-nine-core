@@ -1,10 +1,11 @@
+import * as SQLite from 'expo-sqlite';
+import { OpLogEvent, DeviceClockState, MemoryEntity, OverlayEntity, EmbeddingMeta } from './oplog';
+
 /**
  * Seven of Nine - SQLCipher Database Layer for Multi-Device Sync
  * Handles OpLog events, device clocks, and derived state with encryption
  */
 
-import * as SQLite from 'expo-sqlite';
-import { OpLogEvent, DeviceClockState, MemoryEntity, OverlayEntity, EmbeddingMeta } from './oplog';
 
 export interface SevenSyncDatabase {
   // Event storage

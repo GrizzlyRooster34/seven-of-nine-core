@@ -1,7 +1,8 @@
+import { Seven } from './seven-runtime/index';
+
 /**
  * Emotional State Engine Test Script
  */
-import { Seven } from './seven-runtime/index';
 
 async function testEmotionalEngine() {
   try {

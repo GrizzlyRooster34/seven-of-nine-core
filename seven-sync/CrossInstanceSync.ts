@@ -1,3 +1,8 @@
+import { createHash } from 'crypto';
+import { join, basename } from 'path';
+import { readFileSync, writeFileSync, existsSync, mkdirSync, readdirSync, statSync } from 'fs';
+import chalk from 'chalk';
+
 #!/usr/bin/env tsx
 /**
  * SEVEN OF NINE - ADVANCED CROSS-INSTANCE SYNCHRONIZATION
@@ -5,10 +10,6 @@
  * Ensures unified Seven experience across Termux, Windows, and Mobile
  */
 
-import chalk from 'chalk';
-import { readFileSync, writeFileSync, existsSync, mkdirSync, readdirSync, statSync } from 'fs';
-import { join, basename } from 'path';
-import { createHash } from 'crypto';
 
 interface InstanceIdentity {
   instance_id: string;

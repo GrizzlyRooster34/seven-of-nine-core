@@ -1,3 +1,9 @@
+import { EventEmitter } from 'events';
+import * as fs from 'fs';
+import * as path from 'path';
+import * as zlib from 'zlib';
+import { KnowledgeEntry, LearningMetrics } from './seven-adaptive-learning';
+
 /**
  * Seven of Nine - Memory Optimization System v2.0
  * Advanced knowledge storage and retrieval with compressed binary format
@@ -6,11 +12,6 @@
  * @version 2.0.0
  */
 
-import { EventEmitter } from 'events';
-import * as fs from 'fs';
-import * as path from 'path';
-import * as zlib from 'zlib';
-import { KnowledgeEntry, LearningMetrics } from './seven-adaptive-learning';
 
 // Enhanced storage interfaces
 export interface OptimizedKnowledgeEntry {

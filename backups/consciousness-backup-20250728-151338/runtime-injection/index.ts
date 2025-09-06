@@ -1,9 +1,10 @@
+
 import { gatherContext } from "../seven-core/context-gatherer";
-import { injectEmotion } from "../seven-core/emotion-injector";
 import { generateClaudeResponse } from "../claude-brain/interface";
+import { injectEmotion } from "../seven-core/emotion-injector";
 import { modulateResponse } from "../seven-core/response-modulator";
-import { updateMemory } from "./memory-store";
 import { SevenState, getEmotionalState } from "./seven-state";
+import { updateMemory } from "./memory-store";
 
 // === Seven of Nine: Primary Intelligence Loop ===
 

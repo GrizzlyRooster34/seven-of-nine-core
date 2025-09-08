@@ -23,6 +23,7 @@
     "core",
     "interfaces",
     "memory-v3",
+    "memory-v3-hybrid",
     ".claude",
     "examples",
     "scripts",

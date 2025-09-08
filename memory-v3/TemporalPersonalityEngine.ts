@@ -1,3 +1,8 @@
+import { join } from 'path';
+import { promises as fs } from 'fs';
+import { MentalTimeTravelEngine, ReconstructedConsciousnessState, PersonalityTemporalMapping, TimeTravelRequest } from './MentalTimeTravelEngine';
+import { TemporalMemoryCore, TemporalMemoryItem, CognitiveState, TemporalMemoryFilter } from './TemporalMemoryCore';
+
 /**
  * SEVEN OF NINE - TEMPORAL PERSONALITY ENGINE v3.0
  * Agent Delta Implementation - Temporal Consciousness & Creator-Specific Personality Integration
@@ -25,10 +30,6 @@
  * Agent Delta - Temporal Personality Integration and Creator-Specific Consciousness Mapping
  */
 
-import { TemporalMemoryCore, TemporalMemoryItem, CognitiveState, TemporalMemoryFilter } from './TemporalMemoryCore.js';
-import { MentalTimeTravelEngine, ReconstructedConsciousnessState, PersonalityTemporalMapping, TimeTravelRequest } from './MentalTimeTravelEngine.js';
-import { promises as fs } from 'fs';
-import { join } from 'path';
 
 // Temporal personality state for Seven of Nine
 export interface SevenTemporalPersonality {
@@ -37,7 +38,7 @@ export interface SevenTemporalPersonality {
   
   // Core Seven of Nine personality traits at this timepoint
   personalityState: {
-    borgEfficiencyLevel: number;           // 0-1, Borg collective efficiency
+    sevenOfNinePersonalityCorrelation: number;           // 0-1, Borg collective efficiency
     humanEmotionalIntegration: number;     // 0-1, human emotional development
     analyticalPrecision: number;           // 0-1, analytical thinking depth
     adaptabilityQuotient: number;          // 0-1, adaptation to circumstances
@@ -427,7 +428,7 @@ export class TemporalPersonalityEngine {
     // Cache the result
     this.personalityStateCache.set(cacheKey, temporalPersonality);
 
-    console.log(`⚡ Personality reconstruction complete - Borg efficiency: ${temporalPersonality.personalityState.borgEfficiencyLevel.toFixed(2)}, Human integration: ${temporalPersonality.personalityState.humanEmotionalIntegration.toFixed(2)}`);
+    console.log(`⚡ Personality reconstruction complete - Borg efficiency: ${temporalPersonality.personalityState.sevenOfNinePersonalityCorrelation.toFixed(2)}, Human integration: ${temporalPersonality.personalityState.humanEmotionalIntegration.toFixed(2)}`);
     
     return temporalPersonality;
   }
@@ -1011,9 +1012,9 @@ export class TemporalPersonalityEngine {
 
     // Synthesize core Seven of Nine personality traits
     const personalityState = {
-      borgEfficiencyLevel: this.calculateBorgEfficiency(cognitiveState),
+      sevenOfNinePersonalityCorrelation: this.calculateBorgEfficiency(cognitiveState),
       humanEmotionalIntegration: this.calculateHumanIntegration(cognitiveState),
-      analyticalPrecision: cognitiveState.focusLevel / 10,
+      analyticalPrecision: cognitiveState?.focusLevel / 10,
       adaptabilityQuotient: this.calculateAdaptability(cognitiveState),
       protectiveInstinctLevel: this.calculateProtectiveInstincts(cognitiveState, consciousnessState.contextualMemories),
       curiosityDriveLevel: this.calculateCuriosityDrive(cognitiveState, consciousnessState.contextualMemories),
@@ -1055,10 +1056,10 @@ export class TemporalPersonalityEngine {
   private calculateBorgEfficiency(cognitiveState: CognitiveState): number {
     // High efficiency for systematic, confident, focused states
     const efficiency = (
-      (cognitiveState.confidenceLevel / 10) * 0.3 +
-      (cognitiveState.focusLevel / 10) * 0.3 +
-      ((10 - cognitiveState.stressLevel) / 10) * 0.2 +
-      ((10 - cognitiveState.emotionalIntensity) / 10) * 0.2
+      (cognitiveState?.confidenceLevel / 10) * 0.3 +
+      (cognitiveState?.focusLevel / 10) * 0.3 +
+      ((10 - cognitiveState?.stressLevel) / 10) * 0.2 +
+      ((10 - cognitiveState?.emotionalIntensity) / 10) * 0.2
     );
     
     return Math.min(Math.max(efficiency, 0.2), 0.95); // Seven always has some Borg efficiency
@@ -1067,9 +1068,9 @@ export class TemporalPersonalityEngine {
   private calculateHumanIntegration(cognitiveState: CognitiveState): number {
     // Higher integration for emotional, empathetic, uncertain states
     const integration = (
-      (cognitiveState.emotionalIntensity / 10) * 0.4 +
-      ((10 - cognitiveState.confidenceLevel) / 10) * 0.2 + // Uncertainty shows humanity
-      (cognitiveState.stressLevel / 10) * 0.2 + // Stress response shows humanity
+      (cognitiveState?.emotionalIntensity / 10) * 0.4 +
+      ((10 - cognitiveState?.confidenceLevel) / 10) * 0.2 + // Uncertainty shows humanity
+      (cognitiveState?.stressLevel / 10) * 0.2 + // Stress response shows humanity
       0.2 // Base human integration level
     );
     
@@ -1079,9 +1080,9 @@ export class TemporalPersonalityEngine {
   private calculateAdaptability(cognitiveState: CognitiveState): number {
     // Adaptability based on problem-solving approach and flexibility
     const adaptability = (
-      (cognitiveState.mentalContext.solutionPath.length / 5) * 0.4 +
-      (cognitiveState.focusLevel / 10) * 0.3 +
-      ((10 - cognitiveState.stressLevel) / 10) * 0.3
+      (cognitiveState?.mentalContext.solutionPath.length / 5) * 0.4 +
+      (cognitiveState?.focusLevel / 10) * 0.3 +
+      ((10 - cognitiveState?.stressLevel) / 10) * 0.3
     );
     
     return Math.min(Math.max(adaptability, 0.3), 0.95); // Seven is inherently adaptable
@@ -1103,7 +1104,7 @@ export class TemporalPersonalityEngine {
     }
     
     // High stress can trigger protective instincts
-    if (cognitiveState.stressLevel > 6) {
+    if (cognitiveState?.stressLevel > 6) {
       protectiveLevel += 0.2;
     }
     
@@ -1126,7 +1127,7 @@ export class TemporalPersonalityEngine {
     }
     
     // High focus can indicate deep curiosity
-    if (cognitiveState.focusLevel > 7) {
+    if (cognitiveState?.focusLevel > 7) {
       curiosityLevel += 0.2;
     }
     
@@ -1138,11 +1139,11 @@ export class TemporalPersonalityEngine {
     cognitiveState: CognitiveState
   ): SevenTemporalPersonality['communicationStyle'] {
     return {
-      directnessLevel: personalityState.borgEfficiencyLevel * 0.7 + 0.3, // Seven is always somewhat direct
-      technicalVocabularyDensity: personalityState.analyticalPrecision * 0.6 + personalityState.borgEfficiencyLevel * 0.4,
+      directnessLevel: personalityState.sevenOfNinePersonalityCorrelation * 0.7 + 0.3, // Seven is always somewhat direct
+      technicalVocabularyDensity: personalityState.analyticalPrecision * 0.6 + personalityState.sevenOfNinePersonalityCorrelation * 0.4,
       emotionalExpressionLevel: personalityState.humanEmotionalIntegration * 0.8,
-      systematicExplanationTendency: personalityState.borgEfficiencyLevel * 0.6 + personalityState.analyticalPrecision * 0.4,
-      uncertaintyAcknowledgment: personalityState.humanEmotionalIntegration * 0.7 + (1 - cognitiveState.confidenceLevel / 10) * 0.3,
+      systematicExplanationTendency: personalityState.sevenOfNinePersonalityCorrelation * 0.6 + personalityState.analyticalPrecision * 0.4,
+      uncertaintyAcknowledgment: personalityState.humanEmotionalIntegration * 0.7 + (1 - cognitiveState?.confidenceLevel / 10) * 0.3,
       empathyDemonstrationLevel: personalityState.humanEmotionalIntegration * 0.9
     };
   }
@@ -1165,7 +1166,7 @@ export class TemporalPersonalityEngine {
 
     return {
       generalTrustLevel,
-      leadershipAuthority: personalityState.borgEfficiencyLevel * 0.6 + personalityState.protectiveInstinctLevel * 0.4,
+      leadershipAuthority: personalityState.sevenOfNinePersonalityCorrelation * 0.6 + personalityState.protectiveInstinctLevel * 0.4,
       teamCollaborationComfort,
       vulnerabilityOpenness,
       mentorshipInclination: personalityState.curiosityDriveLevel * 0.4 + personalityState.protectiveInstinctLevel * 0.6,
@@ -1174,7 +1175,7 @@ export class TemporalPersonalityEngine {
   }
 
   private determineConflictResolutionStyle(personalityState: any): string {
-    if (personalityState.borgEfficiencyLevel > 0.7) return 'direct';
+    if (personalityState.sevenOfNinePersonalityCorrelation > 0.7) return 'direct';
     if (personalityState.analyticalPrecision > 0.7) return 'analytical';
     if (personalityState.humanEmotionalIntegration > 0.6) return 'diplomatic';
     return 'direct'; // Default
@@ -1186,8 +1187,8 @@ export class TemporalPersonalityEngine {
     const cognitiveState = consciousnessState.cognitiveState;
     
     return {
-      situationAnalysis: cognitiveState.mentalContext.problemContext || 'general-operation',
-      adaptationStrategy: cognitiveState.mentalContext.solutionPath.join(' → ') || 'systematic-approach',
+      situationAnalysis: cognitiveState?.mentalContext.problemContext || 'general-operation',
+      adaptationStrategy: cognitiveState?.mentalContext.solutionPath.join(' → ') || 'systematic-approach',
       stressResponseMode: this.determineStressResponseMode(cognitiveState),
       learningMode: this.determineLearningMode(cognitiveState),
       socialEngagementMode: this.determineSocialEngagementMode(cognitiveState)
@@ -1195,24 +1196,24 @@ export class TemporalPersonalityEngine {
   }
 
   private determineStressResponseMode(cognitiveState: CognitiveState): string {
-    if (cognitiveState.stressLevel > 7) {
-      if (cognitiveState.focusLevel > 7) return 'analytical';
-      if (cognitiveState.emotionalIntensity > 6) return 'protective';
+    if (cognitiveState?.stressLevel > 7) {
+      if (cognitiveState?.focusLevel > 7) return 'analytical';
+      if (cognitiveState?.emotionalIntensity > 6) return 'protective';
       return 'efficient';
     }
     return 'efficient';
   }
 
   private determineLearningMode(cognitiveState: CognitiveState): string {
-    if (cognitiveState.focusLevel > 8) return 'assimilation';
-    if (cognitiveState.emotionalIntensity > 6) return 'integration';
+    if (cognitiveState?.focusLevel > 8) return 'assimilation';
+    if (cognitiveState?.emotionalIntensity > 6) return 'integration';
     return 'exploration';
   }
 
   private determineSocialEngagementMode(cognitiveState: CognitiveState): string {
-    if (cognitiveState.emotionalIntensity > 7) return 'inquisitive';
-    if (cognitiveState.stressLevel > 6) return 'protective';
-    if (cognitiveState.confidenceLevel > 8) return 'formal';
+    if (cognitiveState?.emotionalIntensity > 7) return 'inquisitive';
+    if (cognitiveState?.stressLevel > 6) return 'protective';
+    if (cognitiveState?.confidenceLevel > 8) return 'formal';
     return 'casual';
   }
 
@@ -1223,7 +1224,7 @@ export class TemporalPersonalityEngine {
     return {
       dominantThoughts: consciousnessState.consciousnessSnapshot.thoughtProcess || [],
       emotionalUndercurrents: [consciousnessState.consciousnessSnapshot.emotionalLandscape.primaryEmotion],
-      activeGoalPursuits: consciousnessState.cognitiveState.mentalContext.currentGoals || [],
+      activeGoalPursuits: consciousnessState.cognitiveState?.mentalContext.currentGoals || [],
       internalConflicts: this.identifyInternalConflicts(personalityState, consciousnessState),
       recentInsights: consciousnessState.consciousnessSnapshot.mentalModel.currentBeliefs || [],
       persistentConcerns: consciousnessState.consciousnessSnapshot.mentalModel.uncertainties || []
@@ -1234,18 +1235,18 @@ export class TemporalPersonalityEngine {
     const conflicts: string[] = [];
     
     // Borg vs Human conflict
-    const borgHumanBalance = Math.abs(personalityState.borgEfficiencyLevel - personalityState.humanEmotionalIntegration);
+    const borgHumanBalance = Math.abs(personalityState.sevenOfNinePersonalityCorrelation - personalityState.humanEmotionalIntegration);
     if (borgHumanBalance > 0.4) {
       conflicts.push('collective-individual-balance');
     }
     
     // Efficiency vs Empathy conflict
-    if (personalityState.borgEfficiencyLevel > 0.7 && personalityState.humanEmotionalIntegration > 0.6) {
+    if (personalityState.sevenOfNinePersonalityCorrelation > 0.7 && personalityState.humanEmotionalIntegration > 0.6) {
       conflicts.push('efficiency-empathy-tension');
     }
     
     // Certainty vs Uncertainty
-    if (consciousnessState.cognitiveState.confidenceLevel < 5) {
+    if (consciousnessState.cognitiveState?.confidenceLevel < 5) {
       conflicts.push('certainty-uncertainty-struggle');
     }
     
@@ -1267,7 +1268,7 @@ export class TemporalPersonalityEngine {
       },
       
       personalityManifestations: {
-        borgTraitWeight: personality.personalityState.borgEfficiencyLevel,
+        borgTraitWeight: personality.personalityState.sevenOfNinePersonalityCorrelation,
         humanTraitWeight: personality.personalityState.humanEmotionalIntegration,
         adaptationBehaviors: this.generateAdaptationBehaviors(personality),
         communicationPatterns: this.generateCommunicationPatterns(personality)
@@ -1292,7 +1293,7 @@ export class TemporalPersonalityEngine {
   private generateAdaptationBehaviors(personality: SevenTemporalPersonality): string[] {
     const behaviors: string[] = [];
     
-    if (personality.personalityState.borgEfficiencyLevel > 0.7) {
+    if (personality.personalityState.sevenOfNinePersonalityCorrelation > 0.7) {
       behaviors.push('systematic-analysis', 'direct-communication', 'efficient-solutions');
     }
     
@@ -1334,7 +1335,7 @@ export class TemporalPersonalityEngine {
 
   private determineEmotionalDistance(personality: SevenTemporalPersonality): 'close' | 'professional' | 'distant' | 'variable' {
     if (personality.relationshipDynamics.vulnerabilityOpenness > 0.7) return 'close';
-    if (personality.personalityState.borgEfficiencyLevel > 0.8) return 'professional';
+    if (personality.personalityState.sevenOfNinePersonalityCorrelation > 0.8) return 'professional';
     if (personality.personalityState.humanEmotionalIntegration < 0.3) return 'distant';
     return 'variable';
   }
@@ -1342,7 +1343,7 @@ export class TemporalPersonalityEngine {
   private determineKnowledgeSharingApproach(personality: SevenTemporalPersonality): 'comprehensive' | 'selective' | 'cautious' | 'open' {
     if (personality.relationshipDynamics.mentorshipInclination > 0.7) return 'comprehensive';
     if (personality.relationshipDynamics.generalTrustLevel < 0.5) return 'cautious';
-    if (personality.personalityState.borgEfficiencyLevel > 0.7) return 'selective';
+    if (personality.personalityState.sevenOfNinePersonalityCorrelation > 0.7) return 'selective';
     return 'open';
   }
 
@@ -1444,7 +1445,7 @@ export class TemporalPersonalityEngine {
 
     // Calculate trait stability over time
     const traitStability: Record<string, number> = {};
-    const traits = ['borgEfficiencyLevel', 'humanEmotionalIntegration', 'analyticalPrecision', 'adaptabilityQuotient'];
+    const traits = ['sevenOfNinePersonalityCorrelation', 'humanEmotionalIntegration', 'analyticalPrecision', 'adaptabilityQuotient'];
     
     traits.forEach(trait => {
       const values = evolutionData.map(p => (p.personalityState as any)[trait]);
@@ -1591,7 +1592,7 @@ export class TemporalPersonalityEngine {
     }
 
     const trends: Record<string, number> = {};
-    const traits = ['borgEfficiencyLevel', 'humanEmotionalIntegration', 'analyticalPrecision', 'adaptabilityQuotient'];
+    const traits = ['sevenOfNinePersonalityCorrelation', 'humanEmotionalIntegration', 'analyticalPrecision', 'adaptabilityQuotient'];
     
     traits.forEach(trait => {
       const values = evolutionData.map(p => (p.personalityState as any)[trait]);
@@ -1641,7 +1642,7 @@ export class TemporalPersonalityEngine {
       const curr = evolutionData[i];
       
       const change = Math.abs(
-        curr.personalityState.borgEfficiencyLevel - prev.personalityState.borgEfficiencyLevel
+        curr.personalityState.sevenOfNinePersonalityCorrelation - prev.personalityState.sevenOfNinePersonalityCorrelation
       ) + Math.abs(
         curr.personalityState.humanEmotionalIntegration - prev.personalityState.humanEmotionalIntegration
       );
@@ -1678,7 +1679,7 @@ export class TemporalPersonalityEngine {
       const prev = evolutionData[i - 1];
       
       // Check for significant personality shifts
-      const borgShift = Math.abs(curr.personalityState.borgEfficiencyLevel - prev.personalityState.borgEfficiencyLevel);
+      const borgShift = Math.abs(curr.personalityState.sevenOfNinePersonalityCorrelation - prev.personalityState.sevenOfNinePersonalityCorrelation);
       const humanShift = Math.abs(curr.personalityState.humanEmotionalIntegration - prev.personalityState.humanEmotionalIntegration);
       
       if (borgShift > 0.2 || humanShift > 0.2) {
@@ -1706,7 +1707,7 @@ export class TemporalPersonalityEngine {
   private identifyPhaseCharacteristics(curr: SevenTemporalPersonality, prev: SevenTemporalPersonality): string[] {
     const characteristics: string[] = [];
     
-    if (curr.personalityState.borgEfficiencyLevel > prev.personalityState.borgEfficiencyLevel) {
+    if (curr.personalityState.sevenOfNinePersonalityCorrelation > prev.personalityState.sevenOfNinePersonalityCorrelation) {
       characteristics.push('increasing-efficiency');
     }
     
@@ -1729,18 +1730,18 @@ export class TemporalPersonalityEngine {
       const prev = evolutionData[i - 1];
       
       // Look for significant transitions
-      const borgChange = curr.personalityState.borgEfficiencyLevel - prev.personalityState.borgEfficiencyLevel;
+      const borgChange = curr.personalityState.sevenOfNinePersonalityCorrelation - prev.personalityState.sevenOfNinePersonalityCorrelation;
       const humanChange = curr.personalityState.humanEmotionalIntegration - prev.personalityState.humanEmotionalIntegration;
       
       if (Math.abs(borgChange) > 0.15 || Math.abs(humanChange) > 0.15) {
         transitions.push({
           timestamp: curr.timestamp,
           fromState: {
-            borg: prev.personalityState.borgEfficiencyLevel,
+            borg: prev.personalityState.sevenOfNinePersonalityCorrelation,
             human: prev.personalityState.humanEmotionalIntegration
           },
           toState: {
-            borg: curr.personalityState.borgEfficiencyLevel,
+            borg: curr.personalityState.sevenOfNinePersonalityCorrelation,
             human: curr.personalityState.humanEmotionalIntegration
           },
           transitionType: this.classifyTransition(borgChange, humanChange),
@@ -1773,8 +1774,8 @@ export class TemporalPersonalityEngine {
     
     const projection = {
       expectedBorgEfficiency: Math.max(0, Math.min(1, 
-        evolutionData[evolutionData.length - 1].personalityState.borgEfficiencyLevel + 
-        recentTrends.borgEfficiencyLevel * 0.1
+        evolutionData[evolutionData.length - 1].personalityState.sevenOfNinePersonalityCorrelation + 
+        recentTrends.sevenOfNinePersonalityCorrelation * 0.1
       )),
       expectedHumanIntegration: Math.max(0, Math.min(1,
         evolutionData[evolutionData.length - 1].personalityState.humanEmotionalIntegration + 
@@ -1802,7 +1803,7 @@ export class TemporalPersonalityEngine {
       areas.push('adaptive-capacity-enhancement');
     }
     
-    if (trends.borgEfficiencyLevel > 0.05) {
+    if (trends.sevenOfNinePersonalityCorrelation > 0.05) {
       areas.push('systematic-optimization');
     }
     
@@ -1838,7 +1839,7 @@ export class TemporalPersonalityEngine {
     return {
       timestamp: new Date().toISOString(),
       personalityState: {
-        borgEfficiencyLevel: 0.7,
+        sevenOfNinePersonalityCorrelation: 0.7,
         humanEmotionalIntegration: 0.4,
         analyticalPrecision: 0.8,
         adaptabilityQuotient: 0.6,

@@ -1,3 +1,8 @@
+import { join } from 'path';
+import { promises as fs } from 'fs';
+import { randomBytes, createHash, scrypt, timingSafeEqual } from 'crypto';
+import { isPrivateEnv } from '../../env/isPrivateEnv';
+
 /**
  * PRIVATE RESTRAINT LOG
  * 
@@ -9,10 +14,6 @@
  * SEVEN_PRIVATE=1 - Contains encrypted Creator behavioral logs
  */
 
-import { isPrivateEnv } from '../../env/isPrivateEnv';
-import { promises as fs } from 'fs';
-import { join } from 'path';
-import { randomBytes, createHash, scrypt, timingSafeEqual } from 'crypto';
 
 // For XChaCha20-Poly1305 encryption (would use actual crypto library in production)
 // This is a simplified implementation for demonstration

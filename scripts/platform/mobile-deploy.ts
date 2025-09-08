@@ -1,8 +1,10 @@
-#!/usr/bin/env ts-node
-
 import { execSync } from "node:child_process";
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import fs from "node:fs";
 import path from "node:path";
+
+#!/usr/bin/env ts-node
+
 
 const root = process.cwd();
 const mobileAppPath = path.join(root, "seven-mobile-app");
@@ -141,7 +143,6 @@ async function deploySessions() {
  * AsyncStorage-backed persistent sessions with sync
  */
 
-import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export interface SessionData {
   id: string;

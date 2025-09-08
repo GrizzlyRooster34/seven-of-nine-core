@@ -1,10 +1,17 @@
+import { 
+import { Dimensions, Platform } from 'react-native';
+import * as Battery from 'expo-battery';
+import * as Brightness from 'expo-brightness';
+import * as Device from 'expo-device';
+import * as Location from 'expo-location';
+import * as Network from 'expo-network';
+
 /**
  * SEVEN OF NINE - ENHANCED MOBILE SENSOR INTEGRATION  
  * Advanced environmental awareness for OnePlus 9 Pro sensors
  * React Native + Expo optimized sensor utilization
  */
 
-import { 
   Accelerometer, 
   Gyroscope, 
   Magnetometer,
@@ -12,12 +19,6 @@ import {
   LightSensor,
   DeviceMotion
 } from 'expo-sensors';
-import * as Location from 'expo-location';
-import * as Battery from 'expo-battery';
-import * as Network from 'expo-network';
-import * as Device from 'expo-device';
-import * as Brightness from 'expo-brightness';
-import { Dimensions, Platform } from 'react-native';
 
 interface SensorReading {
   sensor_type: string;

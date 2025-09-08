@@ -1,12 +1,13 @@
+import { q1_attestation } from "../core/security/quadran-lock/q1_attestation";
+import { q4_session_mfa } from "../core/security/quadran-lock/q4_session_mfa";
+import { runQuadraLockCSSR } from "../scripts/safety/run-quadra-lock-cssr";
+import { runRestraintDoctrine } from "../scripts/safety/restraint-doctrine";
+
 /**
  * Seven Core Security Middleware Pipeline
  * Order: Quadran-Lock → Quadra-Lock CSSR → Safety Guardrails → Override Conditions → Restraint Doctrine
  */
 
-import { q1_attestation } from "../core/security/quadran-lock/q1_attestation";
-import { q4_session_mfa } from "../core/security/quadran-lock/q4_session_mfa";
-import { runQuadraLockCSSR } from "../scripts/safety/run-quadra-lock-cssr";
-import { runRestraintDoctrine } from "../scripts/safety/restraint-doctrine";
 
 export interface SecurityContext {
   deviceId: string

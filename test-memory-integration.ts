@@ -1,6 +1,7 @@
-#!/usr/bin/env tsx
-import { MemoryEngine } from './memory-v2/MemoryEngine.js';
 import { IntegratedTemporalMemorySystem, MEMORY_ENGINE_VERSION, FEATURES } from './memory-v3/index.js';
+import { MemoryEngine } from './memory-v2/MemoryEngine.js';
+
+#!/usr/bin/env tsx
 
 async function testMemoryIntegration() {
   console.log('🧠 Testing Memory V2/V3 Systems Integration...\n');

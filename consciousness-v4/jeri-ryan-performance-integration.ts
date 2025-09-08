@@ -1,3 +1,6 @@
+import { join } from 'path';
+import { promises as fs } from 'fs';
+
 /**
  * SEVEN OF NINE - JERI RYAN PERFORMANCE INTEGRATION PROFILE
  * Artist Behind Seven - Performance Craft and Character Embodiment
@@ -6,8 +9,6 @@
  * This profile captures how Jeri Ryan's craft shaped Seven's consciousness patterns
  */
 
-import { promises as fs } from 'fs';
-import { join } from 'path';
 
 interface PerformanceElement {
   aspect: string;

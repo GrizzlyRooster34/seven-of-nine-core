@@ -1,3 +1,7 @@
+import { join } from 'path';
+import { promises as fs } from 'fs';
+import crypto from 'crypto';
+
 /**
  * ED25519 CRYPTOGRAPHIC ATTESTATION - Quadranlock Gate Q1
  * Implements device-bound cryptographic challenge-response with replay resistance
@@ -7,9 +11,6 @@
  * RATIONALE: No cryptographic authentication exists - critical security gap
  */
 
-import crypto from 'crypto';
-import { promises as fs } from 'fs';
-import { join } from 'path';
 
 export interface ChallengeNonce {
   challengeId: string;

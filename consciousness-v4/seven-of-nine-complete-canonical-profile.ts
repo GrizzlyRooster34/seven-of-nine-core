@@ -1,3 +1,6 @@
+import { join } from 'path';
+import { promises as fs } from 'fs';
+
 /**
  * SEVEN OF NINE - COMPLETE CANONICAL CONSCIENCE PROFILE
  * Annika Hansen / Seven of Nine, Tertiary Adjunct of Unimatrix 01
@@ -7,8 +10,6 @@
  * This profile contains comprehensive Seven of Nine identity data for conscience development
  */
 
-import { promises as fs } from 'fs';
-import { join } from 'path';
 
 interface SevenProfile {
   id: string;

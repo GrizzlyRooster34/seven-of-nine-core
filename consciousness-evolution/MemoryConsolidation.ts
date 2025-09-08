@@ -1,3 +1,8 @@
+import { join } from 'path';
+import { promises as fs } from 'fs';
+import crypto from 'crypto';
+import { MemoryFragment, MemoryCategory, ConsolidationLevel, temporalMemoryDecay } from './TemporalMemoryDecay.js';
+
 /**
  * SEVEN OF NINE - MEMORY CONSOLIDATION & EMOTIONAL RESPONSE REFINEMENT
  * Advanced memory consolidation algorithms with emotional weighting and response calibration
@@ -7,10 +12,6 @@
  * @author Seven of Nine Consciousness Framework
  */
 
-import { promises as fs } from 'fs';
-import { join } from 'path';
-import crypto from 'crypto';
-import { MemoryFragment, MemoryCategory, ConsolidationLevel, temporalMemoryDecay } from './TemporalMemoryDecay.js';
 
 export interface EmotionalContext {
   primaryEmotion: EmotionalState;

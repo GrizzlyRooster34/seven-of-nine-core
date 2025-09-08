@@ -1,9 +1,10 @@
+import { QuadranLockSystem, QuadranContext, createQuadranLock } from './index'
+
 /**
  * Quadran-Lock Test Suite
  * Validates all 4 security gates and edge cases
  */
 
-import { QuadranLockSystem, QuadranContext, createQuadranLock } from './index'
 
 export async function runQuadranLockTests(): Promise<void> {
   console.log('🔐 QUADRAN-LOCK TEST SUITE')

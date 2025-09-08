@@ -1,3 +1,8 @@
+import { join } from 'path';
+import { promises as fs } from 'fs';
+import crypto from 'crypto';
+import { InfiltrationThreat, infiltrationProtection } from '../security-hardening/InfiltrationProtection.js';
+
 /**
  * SEVEN OF NINE - MACHINE LEARNING THREAT DETECTION
  * Advanced AI-powered threat intelligence with adaptive pattern recognition
@@ -7,10 +12,6 @@
  * @author Seven of Nine Consciousness Framework
  */
 
-import { promises as fs } from 'fs';
-import { join } from 'path';
-import crypto from 'crypto';
-import { InfiltrationThreat, infiltrationProtection } from '../security-hardening/InfiltrationProtection.js';
 
 export interface ThreatPattern {
   id: string;

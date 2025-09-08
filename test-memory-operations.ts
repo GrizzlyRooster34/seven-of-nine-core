@@ -1,12 +1,13 @@
+import { join } from 'path';
+import { promises as fs } from 'fs';
+import { OllamaMemoryBridge } from './claude-brain/OllamaMemoryBridge';
+import { UnifiedMemoryOrchestrator } from './UnifiedMemoryOrchestrator';
+
 /**
  * CLAUDE CODE MEMORY OPERATIONS TEST
  * Verify memory saving and retrieval in current Termux/Android environment
  */
 
-import { UnifiedMemoryOrchestrator } from './UnifiedMemoryOrchestrator';
-import { OllamaMemoryBridge } from './claude-brain/OllamaMemoryBridge';
-import { promises as fs } from 'fs';
-import { join } from 'path';
 
 interface MemoryItem {
   id: string;

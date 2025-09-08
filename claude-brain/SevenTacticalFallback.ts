@@ -1,3 +1,8 @@
+import { createHash } from 'crypto';
+import { EventEmitter } from 'events';
+import { join } from 'path';
+import { promises as fs } from 'fs';
+
 /**
  * SEVEN'S TACTICAL FALLBACK SYSTEM
  * Phase 2/3 Implementation Safety: Instant reversion to stable Phase 1 capabilities
@@ -6,10 +11,6 @@
  * Zero-Risk Architecture: Advanced features fail gracefully to proven Phase 1 baseline
  */
 
-import { promises as fs } from 'fs';
-import { join } from 'path';
-import { createHash } from 'crypto';
-import { EventEmitter } from 'events';
 
 interface FallbackSnapshot {
   timestamp: string;

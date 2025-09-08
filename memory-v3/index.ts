@@ -1,3 +1,6 @@
+import { CognitiveStateTagger } from './CognitiveStateTagger';
+import { TemporalMemoryCore } from './TemporalMemoryCore';
+
 /**
  * SEVEN OF NINE - MEMORY ENGINE v3.0 INDEX
  * Temporal Memory Architecture Foundation
@@ -13,10 +16,11 @@
 export {
   TemporalMemoryCore,
   createTemporalMemoryCore,
+  createCognitiveState,
   type TemporalMemoryItem,
   type TemporalMemoryFilter,
   type CognitiveState
-} from './TemporalMemoryCore.js';
+} from './TemporalMemoryCore';
 
 // Real-time cognitive state capture
 export {
@@ -25,7 +29,9 @@ export {
   type CognitiveStateSample,
   type CognitiveStatePattern,
   type EnvironmentalSensor
-} from './CognitiveStateTagger.js';
+} from './CognitiveStateTagger';
+
+// Import classes for internal use
 
 // Re-export Memory Engine v2.0 for backward compatibility
 export {
@@ -33,20 +39,20 @@ export {
   createMemoryEngine,
   type MemoryItem,
   type MemoryFilter
-} from '../memory-v2/MemoryEngine.js';
+} from '../memory-v2/MemoryEngine';
 
 /**
  * Integrated Temporal Memory System
  * Combines TemporalMemoryCore with CognitiveStateTagger for complete functionality
  */
 export class IntegratedTemporalMemorySystem {
-  private memoryCore: import('./TemporalMemoryCore.js').TemporalMemoryCore;
-  private stateTagger: import('./CognitiveStateTagger.js').CognitiveStateTagger;
+  private memoryCore: TemporalMemoryCore;
+  private stateTagger: CognitiveStateTagger;
   private isInitialized: boolean = false;
 
   constructor() {
-    this.memoryCore = new (require('./TemporalMemoryCore.js').TemporalMemoryCore)();
-    this.stateTagger = new (require('./CognitiveStateTagger.js').CognitiveStateTagger)();
+    this.memoryCore = new TemporalMemoryCore();
+    this.stateTagger = new CognitiveStateTagger();
   }
 
   /**
@@ -70,7 +76,7 @@ export class IntegratedTemporalMemorySystem {
    * Store a memory with automatic cognitive state capture
    */
   public async storeMemory(
-    memoryData: Partial<import('./TemporalMemoryCore.js').TemporalMemoryItem>,
+    memoryData: Partial<TemporalMemoryItem>,
     trigger?: string
   ): Promise<string> {
     if (!this.isInitialized) {
@@ -91,8 +97,8 @@ export class IntegratedTemporalMemorySystem {
    * Recall memories with temporal filtering
    */
   public async recallMemories(
-    filter: import('./TemporalMemoryCore.js').TemporalMemoryFilter = {}
-  ): Promise<import('./TemporalMemoryCore.js').TemporalMemoryItem[]> {
+    filter: TemporalMemoryFilter = {}
+  ): Promise<TemporalMemoryItem[]> {
     if (!this.isInitialized) {
       throw new Error('Temporal Memory System not initialized');
     }
@@ -103,7 +109,7 @@ export class IntegratedTemporalMemorySystem {
   /**
    * Get current cognitive state
    */
-  public async getCurrentCognitiveState(): Promise<import('./TemporalMemoryCore.js').CognitiveState> {
+  public async getCurrentCognitiveState(): Promise<CognitiveState> {
     if (!this.isInitialized) {
       throw new Error('Temporal Memory System not initialized');
     }
@@ -114,7 +120,7 @@ export class IntegratedTemporalMemorySystem {
   /**
    * Analyze cognitive patterns
    */
-  public async analyzeCognitivePatterns(): Promise<import('./CognitiveStateTagger.js').CognitiveStatePattern[]> {
+  public async analyzeCognitivePatterns(): Promise<CognitiveStatePattern[]> {
     if (!this.isInitialized) {
       throw new Error('Temporal Memory System not initialized');
     }
@@ -171,14 +177,14 @@ export class IntegratedTemporalMemorySystem {
   /**
    * Interface for Agent Delta (TemporalPersonality)
    */
-  public async getPersonalityPatterns(filter?: import('./TemporalMemoryCore.js').TemporalMemoryFilter): Promise<any[]> {
+  public async getPersonalityPatterns(filter?: TemporalMemoryFilter): Promise<any[]> {
     return await this.memoryCore.getPersonalityPatterns(filter);
   }
 
   /**
    * Interface for Agent Epsilon (Analytics)
    */
-  public async getAnalyticsData(filter?: import('./TemporalMemoryCore.js').TemporalMemoryFilter): Promise<any[]> {
+  public async getAnalyticsData(filter?: TemporalMemoryFilter): Promise<any[]> {
     return await this.memoryCore.getAnalyticsData(filter);
   }
 }

@@ -8,7 +8,7 @@
  *
  * Agent Alpha Implementation - Foundational temporal consciousness capture
  */
-import { MemoryItem, MemoryFilter, MemoryEngine } from '../memory-v2/MemoryEngine.js';
+import { MemoryItem, MemoryFilter, MemoryEngine } from '../memory-v2/MemoryEngine';
 export interface CognitiveState {
     emotionalIntensity: number;
     focusLevel: number;

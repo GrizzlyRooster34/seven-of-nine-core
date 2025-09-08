@@ -1,3 +1,8 @@
+import { CollectiveVariants, CollectiveContext } from './tactical-variants/CollectiveVariants';
+import { MemoryEngine } from './memory-v2/MemoryEngine';
+import { PersonalityMiddleware } from './persona-v2/PersonalityMiddleware';
+import { TacticalVariants } from './tactical-variants/TacticalVariants';
+
 #!/usr/bin/env node
 
 /**
@@ -12,10 +17,6 @@
  * Strategies: weighted_average, dominant_lead, consensus_merge, crisis_override
  */
 
-import { PersonalityMiddleware } from './persona-v2/PersonalityMiddleware';
-import { MemoryEngine } from './memory-v2/MemoryEngine';
-import { TacticalVariants } from './tactical-variants/TacticalVariants';
-import { CollectiveVariants, CollectiveContext } from './tactical-variants/CollectiveVariants';
 
 interface CollectiveActivationArgs {
   objective: string;

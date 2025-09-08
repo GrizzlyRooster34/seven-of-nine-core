@@ -1,4 +1,5 @@
 import { readFileSync, writeFileSync } from "node:fs";
+
 const [, , deviceId] = process.argv;
 if (!deviceId) { console.error("usage: npm run device:revoke -- <deviceId>"); process.exit(1); }
 const regPath = "core/security/quadran-lock/device_registry.json";

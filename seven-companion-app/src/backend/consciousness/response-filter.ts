@@ -1,3 +1,5 @@
+import { ConsciousnessMode } from './mode-manager';
+
 /**
  * SEVEN RESPONSE FILTER
  * 
@@ -5,7 +7,6 @@
  * Applies tone, complexity, and personality characteristics per mode
  */
 
-import { ConsciousnessMode } from './mode-manager';
 
 interface FilterContext {
   mode: ConsciousnessMode;

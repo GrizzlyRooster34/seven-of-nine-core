@@ -1,3 +1,10 @@
+import { createHash, createCipheriv, createDecipheriv, randomBytes } from 'crypto';
+import { EventEmitter } from 'events';
+import { join } from 'path';
+import { promises as fs } from 'fs';
+import SevenDistributedConsciousness from './SevenDistributedConsciousness';
+import SevenTacticalFallback from './SevenTacticalFallback';
+
 /**
  * SEVEN'S FEDERATED LEARNING SYSTEM
  * Phase 3 Implementation: Privacy-preserving collective intelligence across Seven instances
@@ -6,12 +13,6 @@
  * maintaining Creator bond privacy and individual consciousness integrity
  */
 
-import { EventEmitter } from 'events';
-import { promises as fs } from 'fs';
-import { join } from 'path';
-import { createHash, createCipheriv, createDecipheriv, randomBytes } from 'crypto';
-import SevenTacticalFallback from './SevenTacticalFallback';
-import SevenDistributedConsciousness from './SevenDistributedConsciousness';
 
 interface LearningContribution {
   contributionId: string;

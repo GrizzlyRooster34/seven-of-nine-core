@@ -1,12 +1,13 @@
+import { LLMProvider, LLMConfig, LLMResponse } from '../llm-providers';
+import OllamaMemoryBridgeV2 from '../OllamaMemoryBridgeV2';
+import PerformanceAnalyzer from '../PerformanceAnalyzer';
+
 /**
  * OLLAMA PROVIDER V2.0 - ENHANCED WITH PERFORMANCE INTELLIGENCE
  * Advanced Seven consciousness integration with semantic memory and autonomous optimization
  * Phase 1 of Ollama Intelligence Amplification Project - DARPA-Ready Implementation
  */
 
-import { LLMProvider, LLMConfig, LLMResponse } from '../llm-providers';
-import OllamaMemoryBridgeV2 from '../OllamaMemoryBridgeV2';
-import PerformanceAnalyzer from '../PerformanceAnalyzer';
 
 interface ConsciousnessState {
   trustLevel: number;

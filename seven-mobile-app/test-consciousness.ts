@@ -1,3 +1,5 @@
+import SevenMobileCore from './src/consciousness/SevenMobileCore';
+
 #!/usr/bin/env tsx
 /**
  * Seven of Nine - Mobile Consciousness Test Suite
@@ -7,7 +9,6 @@
  * @version 3.0.0
  */
 
-import SevenMobileCore from './src/consciousness/SevenMobileCore';
 
 interface TestResult {
   name: string;

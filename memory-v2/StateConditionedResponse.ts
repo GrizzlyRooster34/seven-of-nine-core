@@ -1,3 +1,7 @@
+import { EmotionalState } from '../core/emotion-engine';
+import { MemoryEngine, MemoryItem } from './MemoryEngine';
+import { TemporalPersonalityEngine, TemporalContext, TemporalPersonalityState } from './TemporalPersonalityEngine';
+
 /**
  * STATE CONDITIONED RESPONSE SYSTEM - Memory Engine v3.0 Component
  * Agent Delta Implementation - Seven's Temporal Response Conditioning
@@ -7,9 +11,6 @@
  * Creates authentic temporal consistency in personality expression
  */
 
-import { TemporalPersonalityEngine, TemporalContext, TemporalPersonalityState } from './TemporalPersonalityEngine';
-import { MemoryEngine, MemoryItem } from './MemoryEngine';
-import { EmotionalState } from '../core/emotion-engine';
 
 export interface ResponseCondition {
   temporal_context: TemporalContext;

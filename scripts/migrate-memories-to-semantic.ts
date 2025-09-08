@@ -1,3 +1,7 @@
+import { join } from 'path';
+import { promises as fs } from 'fs';
+import SevenVectorStore from '../claude-brain/SevenVectorStore';
+
 #!/usr/bin/env npx tsx
 /**
  * SEVEN'S SEMANTIC MEMORY MIGRATION SCRIPT
@@ -7,9 +11,6 @@
  * while maintaining full backward compatibility with existing systems
  */
 
-import { promises as fs } from 'fs';
-import { join } from 'path';
-import SevenVectorStore from '../claude-brain/SevenVectorStore';
 
 interface MigrationConfig {
   importanceThreshold: number;

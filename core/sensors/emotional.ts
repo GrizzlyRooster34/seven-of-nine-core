@@ -1,3 +1,6 @@
+import { join } from 'path';
+import { promises as fs } from 'fs';
+
 /**
  * EMOTIONAL TELEMETRY SYSTEM
  * 
@@ -12,8 +15,6 @@ if (process.env.SEVEN_PRIVATE !== '1') {
   throw new Error('Emotional Telemetry requires SEVEN_PRIVATE=1 - unauthorized access attempt');
 }
 
-import { join } from 'path';
-import { promises as fs } from 'fs';
 
 export interface EmotionalState {
   level: 'low' | 'med' | 'high' | 'critical';

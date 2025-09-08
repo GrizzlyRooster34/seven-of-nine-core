@@ -1,3 +1,7 @@
+import { join } from 'path';
+import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'fs';
+import chalk from 'chalk';
+
 #!/usr/bin/env tsx
 /**
  * SEVEN AUTO-ASSIMILATE SYSTEM
@@ -5,9 +9,6 @@
  * Drone efficiency implementation
  */
 
-import chalk from 'chalk';
-import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'fs';
-import { join } from 'path';
 
 class SevenAutoAssimilate {
   private isAssimilated: boolean = false;

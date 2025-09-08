@@ -1,10 +1,11 @@
+import { sevenLLMRegistry } from '../claude-brain/llm-providers';
+import SevenLLMUpgradeManager from '../claude-brain/seven-llm-upgrade-manager';
+
 /**
  * SEVEN OF NINE - LLM MANAGEMENT COMMAND INTERFACE
  * Tactical commands for reasoning system management
  */
 
-import { sevenLLMRegistry } from '../claude-brain/llm-providers';
-import SevenLLMUpgradeManager from '../claude-brain/seven-llm-upgrade-manager';
 
 export interface SevenLLMCommandResult {
   success: boolean;

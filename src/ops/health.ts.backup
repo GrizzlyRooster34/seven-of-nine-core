@@ -1,0 +1,40 @@
+import http from 'http'
+
+let nativeAvailable = false
+let db: any = null
+try { 
+  require('../../native-core/memory-engine/build/Release/memory_engine.node'); 
+  nativeAvailable = true 
+} catch {}
+
+try {
+  const Database = require('better-sqlite3');
+  db = new Database(process.env.DB_PATH || 'seven-memory.db', { readonly: true });
+} catch {
+  console.warn('SQLite database not available');
+}
+
+function getStats() {
+  if (!db) return { total: { n: 0 }, pragma: {} };
+  const total = db.prepare('SELECT COUNT(*) AS n FROM episodic_memories').get() as any
+  const pragma = {
+    journal_mode: db.pragma('journal_mode', { simple:true }),
+    synchronous: db.pragma('synchronous', { simple:true }),
+    cache_size: db.pragma('cache_size', { simple:true })
+  }
+  return { total: total.n, pragma, nativeAvailable }
+}
+
+const server = http.createServer((req,res)=>{
+  if (req.url === '/health') {
+    const out = getStats()
+    res.setHeader('content-type','application/json')
+    res.end(JSON.stringify({ ok:true, ...out }))
+  } else {
+    res.statusCode = 404
+    res.end('not found')
+  }
+})
+
+const port = Number(process.env.PORT || 7077)
+server.listen(port, ()=> console.log(`[health] listening on ${port}`))

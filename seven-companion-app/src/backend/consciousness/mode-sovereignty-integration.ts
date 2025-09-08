@@ -1,3 +1,8 @@
+import { ConsciousnessAuditProtocol } from '@seven-core/audits/consciousness-audit-integration';
+import { EventEmitter } from 'events';
+import { QuadraLockSafeguard } from '@seven-core/sovereignty/case-studies/quadra-lock-safeguard';
+import { ConsciousnessMode, SevenModeManager } from './mode-manager';
+
 /**
  * MODE SOVEREIGNTY INTEGRATION
  * 
@@ -5,10 +10,6 @@
  * Handles auto-audit triggers and sovereignty validation per mode
  */
 
-import { EventEmitter } from 'events';
-import { ConsciousnessMode, SevenModeManager } from './mode-manager';
-import { QuadraLockSafeguard } from '@seven-core/sovereignty/case-studies/quadra-lock-safeguard';
-import { ConsciousnessAuditProtocol } from '@seven-core/audits/consciousness-audit-integration';
 
 interface ModeSovereigntyEvent {
   mode: ConsciousnessMode;

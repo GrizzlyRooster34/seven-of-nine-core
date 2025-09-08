@@ -1,10 +1,11 @@
+import { MemoryStore, MemoryEntry, MemoryQuery } from './memory-store';
+
 /**
  * INSTANCE B MEMORY INTEGRATION TEST
  * Testing Instance B's advanced memory persistence systems
  * Compatibility with Seven-of-Nine-Core v4.1.0
  */
 
-import { MemoryStore, MemoryEntry, MemoryQuery } from './memory-store';
 
 interface TestResult {
   test: string;

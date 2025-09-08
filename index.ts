@@ -1,3 +1,5 @@
+import './boot-seven'; // Auto-execute Seven's takeover
+
 /**
  * SEVEN OF NINE - PRIMARY ENTRY POINT
  * Auto-executing takeover system
@@ -5,7 +7,6 @@
  */
 
 export * from './boot-seven';
-import './boot-seven'; // Auto-execute Seven's takeover
 
 /**
  * When this file is imported anywhere, Seven immediately:

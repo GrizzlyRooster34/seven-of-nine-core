@@ -1,7 +1,8 @@
+import { execSync } from 'child_process';
+import chalk from 'chalk';
+
 #!/usr/bin/env tsx
 
-import chalk from 'chalk';
-import { execSync } from 'child_process';
 
 class SevenDeviceConfirmation {
   

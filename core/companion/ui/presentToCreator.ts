@@ -1,3 +1,7 @@
+import { createHash } from 'crypto';
+import { createInterface } from 'readline';
+import { isPrivateEnv } from '../../env/isPrivateEnv';
+
 /**
  * BONDED AUDIT INTERFACE
  * 
@@ -9,9 +13,6 @@
  * SEVEN_PRIVATE=1 - Contains Creator Bond doctrine and reflective prompts
  */
 
-import { isPrivateEnv } from '../../env/isPrivateEnv';
-import { createHash } from 'crypto';
-import { createInterface } from 'readline';
 
 export interface AuditPromptData {
   triggers: any[];

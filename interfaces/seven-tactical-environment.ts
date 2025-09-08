@@ -1,3 +1,7 @@
+import { EventEmitter } from 'events';
+import { SensorReading, PredictionResult, EnvironmentalPattern } from './seven-predictive-sensor-fusion';
+import { SevenEmotionalState } from './seven-emotional-sensor-mapper';
+
 /**
  * Seven of Nine - Tactical Environment Awareness Engine
  * Advanced environmental threat assessment and situational awareness for mobile operations
@@ -6,9 +10,6 @@
  * @version 3.0.0
  */
 
-import { EventEmitter } from 'events';
-import { SensorReading, PredictionResult, EnvironmentalPattern } from './seven-predictive-sensor-fusion';
-import { SevenEmotionalState } from './seven-emotional-sensor-mapper';
 
 export interface TacticalEnvironmentConfig {
   threat_assessment: {

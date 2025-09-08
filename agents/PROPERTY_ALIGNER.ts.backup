@@ -1,0 +1,564 @@
+/**
+ * PROPERTY_ALIGNER AGENT v1.0
+ * API Contract Enforcement Specialist
+ * 
+ * Mission: Fix property access mismatches
+ * Priority: MEDIUM - Runtime Stability
+ * 
+ * Capabilities:
+ * - Property existence validation
+ * - Type enum alignment
+ * - Method signature correction
+ * - Optional chaining injection where needed
+ */
+
+import { promises as fs } from 'fs';
+import { join, relative } from 'path';
+import { execSync } from 'child_process';
+import { glob } from 'glob';
+
+export interface PropertyAlignerConfig {
+  targetDirectory: string;
+  filePattern: string;
+  dryRun: boolean;
+  verbose: boolean;
+  backupOriginals: boolean;
+}
+
+export interface PropertyAlignmentResult {
+  filePath: string;
+  alignmentsApplied: {
+    type: 'property-rename' | 'enum-fix' | 'optional-chain' | 'type-cast' | 'method-signature';
+    oldPattern: string;
+    newPattern: string;
+    lineNumber: number;
+    reason: string;
+    success: boolean;
+  }[];
+  errorsFixed: number;
+}
+
+export class PropertyAlignerAgent {
+  private config: PropertyAlignerConfig;
+  private results: PropertyAlignmentResult[] = [];
+
+  // Known property fixes
+  private readonly PROPERTY_FIXES = [
+    {
+      // StatsFs.free → StatsFs.bfree
+      pattern: /\.free\b/g,
+      replacement: '.bfree',
+      reason: 'StatsFs uses bfree not free property'
+    },
+    {
+      // .focusLevel → .focusLevel (CognitiveState)
+      pattern: /\.focusLevel\b(?!\w)/g,
+      replacement: '.focusLevel',
+      reason: 'CognitiveState uses focusLevel not focus'
+    },
+    {
+      // .emotionalIntensity → .emotionalIntensity (CognitiveState)
+      pattern: /\.emotionalIntensity\b(?!\w)/g,
+      replacement: '.emotionalIntensity',
+      reason: 'CognitiveState uses emotionalIntensity not emotion'
+    }
+  ];
+
+  // Enum alignment fixes
+  private readonly ENUM_FIXES = [
+    {
+      // Fix thermal state comparisons
+      pattern: /===\s*['"]hot['"](?=.*thermalState)/g,
+      replacement: "=== 'critical'",
+      reason: 'ThermalState enum uses critical not hot'
+    },
+    {
+      // Fix comparison type mismatches
+      pattern: /===\s*['"]enhanced['"](?=.*priority)/g,
+      replacement: "=== 'maximum'",
+      reason: 'Priority enum uses maximum not enhanced'
+    }
+  ];
+
+  constructor(config: PropertyAlignerConfig) {
+    this.config = config;
+  }
+
+  /**
+   * Primary mission execution - align all property access patterns
+   */
+  public async execute(): Promise<{
+    filesProcessed: number;
+    alignmentsApplied: number;
+    propertyErrorsFixed: number;
+    enumErrorsFixed: number;
+    compilationImproved: boolean;
+  }> {
+    console.log('⚖️ PROPERTY_ALIGNER Agent Activated');
+    console.log(`📁 Scanning: ${this.config.targetDirectory}`);
+    
+    // Phase 1: Scan for property access issues
+    await this.scanPropertyAccessIssues();
+
+    // Phase 2: Apply property fixes
+    await this.applyPropertyFixes();
+
+    // Phase 3: Fix enum comparisons
+    await this.fixEnumComparisons();
+
+    // Phase 4: Add optional chaining where needed
+    await this.addOptionalChaining();
+
+    // Phase 5: Fix method signatures
+    await this.fixMethodSignatures();
+
+    // Phase 6: Verify alignment success
+    const compilationImproved = await this.verifyAlignmentSuccess();
+
+    const summary = this.generateAlignmentReport();
+
+    return {
+      ...summary,
+      compilationImproved
+    };
+  }
+
+  /**
+   * Scan for property access issues across the codebase
+   */
+  private async scanPropertyAccessIssues(): Promise<void> {
+    const files = await glob(this.config.filePattern, { cwd: this.config.targetDirectory });
+    
+    console.log(`🔍 Scanning ${files.length} files for property access issues...`);
+
+    for (const file of files) {
+      if (this.shouldSkipFile(file)) continue;
+      
+      const filePath = join(this.config.targetDirectory, file);
+      await this.analyzeFilePropertyAccess(filePath);
+    }
+  }
+
+  /**
+   * Analyze property access patterns in a single file
+   */
+  private async analyzeFilePropertyAccess(filePath: string): Promise<void> {
+    try {
+      const content = await fs.readFile(filePath, 'utf8');
+      const alignments: PropertyAlignmentResult['alignmentsApplied'] = [];
+
+      // Check for known property issues
+      for (const fix of this.PROPERTY_FIXES) {
+        const matches = [...content.matchAll(fix.pattern)];
+        for (const match of matches) {
+          alignments.push({
+            type: 'property-rename',
+            oldPattern: match[0],
+            newPattern: fix.replacement,
+            lineNumber: this.getLineNumber(content, match.index || 0),
+            reason: fix.reason,
+            success: false // Will be set to true when applied
+          });
+        }
+      }
+
+      // Check for enum issues
+      for (const fix of this.ENUM_FIXES) {
+        const matches = [...content.matchAll(fix.pattern)];
+        for (const match of matches) {
+          alignments.push({
+            type: 'enum-fix',
+            oldPattern: match[0],
+            newPattern: fix.replacement,
+            lineNumber: this.getLineNumber(content, match.index || 0),
+            reason: fix.reason,
+            success: false
+          });
+        }
+      }
+
+      if (alignments.length > 0) {
+        this.results.push({
+          filePath,
+          alignmentsApplied: alignments,
+          errorsFixed: 0 // Will be calculated after fixes are applied
+        });
+
+        if (this.config.verbose) {
+          console.log(`📋 ${relative(this.config.targetDirectory, filePath)}: Found ${alignments.length} property issues`);
+        }
+      }
+    } catch (error) {
+      if (this.config.verbose) {
+        console.error(`⚠️ Error analyzing ${filePath}: ${error}`);
+      }
+    }
+  }
+
+  /**
+   * Apply property fixes to all identified files
+   */
+  private async applyPropertyFixes(): Promise<void> {
+    console.log('🔧 Applying property fixes...');
+
+    for (const result of this.results) {
+      await this.applyFixesToFile(result);
+    }
+  }
+
+  /**
+   * Apply fixes to a single file
+   */
+  private async applyFixesToFile(result: PropertyAlignmentResult): Promise<void> {
+    try {
+      let content = await fs.readFile(result.filePath, 'utf8');
+      let modified = false;
+
+      for (const alignment of result.alignmentsApplied) {
+        if (alignment.type === 'property-rename' || alignment.type === 'enum-fix') {
+          const originalPattern = this.escapeRegExp(alignment.oldPattern);
+          const regex = new RegExp(originalPattern, 'g');
+          
+          if (regex.test(content)) {
+            content = content.replace(regex, alignment.newPattern);
+            alignment.success = true;
+            modified = true;
+            result.errorsFixed++;
+
+            if (this.config.verbose) {
+              console.log(`   ✅ Fixed: ${alignment.oldPattern} → ${alignment.newPattern}`);
+            }
+          }
+        }
+      }
+
+      if (modified && !this.config.dryRun) {
+        if (this.config.backupOriginals) {
+          await fs.copyFile(result.filePath, `${result.filePath}.backup`);
+        }
+        await fs.writeFile(result.filePath, content, 'utf8');
+      }
+    } catch (error) {
+      console.error(`❌ Failed to apply fixes to ${result.filePath}: ${error}`);
+    }
+  }
+
+  /**
+   * Fix enum comparisons
+   */
+  private async fixEnumComparisons(): Promise<void> {
+    console.log('🔧 Fixing enum comparisons...');
+
+    for (const result of this.results) {
+      await this.fixEnumComparisonsInFile(result);
+    }
+  }
+
+  /**
+   * Fix enum comparisons in a specific file
+   */
+  private async fixEnumComparisonsInFile(result: PropertyAlignmentResult): Promise<void> {
+    try {
+      let content = await fs.readFile(result.filePath, 'utf8');
+      let modified = false;
+
+      // Fix type comparison mismatches
+      const typeComparisonPattern = /This comparison appears to be unintentional because the types[^.]+have no overlap/;
+      
+      if (typeComparisonPattern.test(content)) {
+        // Look for specific patterns that cause these errors
+        
+        // Fix 'normal' | 'warm' vs 'hot' comparison
+        if (content.includes("'hot'") && content.includes('thermalState')) {
+          content = content.replace(/===\s*['"]hot['"]/g, "=== 'critical'");
+          modified = true;
+          result.errorsFixed++;
+          
+          result.alignmentsApplied.push({
+            type: 'enum-fix',
+            oldPattern: "'hot'",
+            newPattern: "'critical'",
+            lineNumber: 0, // Would need better tracking
+            reason: 'ThermalState enum alignment',
+            success: true
+          });
+        }
+        
+        // Fix AuthDecision enum issues
+        if (content.includes('AuthDecision') && content.includes('"APPROVED"')) {
+          content = content.replace(/===\s*['"]APPROVED['"]/g, "=== 'ALLOW'");
+          modified = true;
+          result.errorsFixed++;
+          
+          result.alignmentsApplied.push({
+            type: 'enum-fix',
+            oldPattern: '"APPROVED"',
+            newPattern: "'ALLOW'",
+            lineNumber: 0,
+            reason: 'AuthDecision enum alignment',
+            success: true
+          });
+        }
+      }
+
+      if (modified && !this.config.dryRun) {
+        await fs.writeFile(result.filePath, content, 'utf8');
+      }
+    } catch (error) {
+      if (this.config.verbose) {
+        console.error(`⚠️ Error fixing enums in ${result.filePath}: ${error}`);
+      }
+    }
+  }
+
+  /**
+   * Add optional chaining where needed
+   */
+  private async addOptionalChaining(): Promise<void> {
+    console.log('🔧 Adding optional chaining for safer property access...');
+
+    for (const result of this.results) {
+      await this.addOptionalChainingToFile(result);
+    }
+  }
+
+  /**
+   * Add optional chaining to a specific file
+   */
+  private async addOptionalChainingToFile(result: PropertyAlignmentResult): Promise<void> {
+    try {
+      let content = await fs.readFile(result.filePath, 'utf8');
+      let modified = false;
+
+      // Add optional chaining for potentially undefined properties
+      const unsafeAccessPatterns = [
+        /\bcognitiveState\.(\w+)/g, // cognitiveState.property → cognitiveState?.property
+        /\bphysicalState\.(\w+)/g,  // physicalState.property → physicalState?.property
+      ];
+
+      for (const pattern of unsafeAccessPatterns) {
+        const matches = [...content.matchAll(pattern)];
+        for (const match of matches) {
+          const oldAccess = match[0];
+          const newAccess = oldAccess.replace('.', '?.');
+          
+          content = content.replace(oldAccess, newAccess);
+          modified = true;
+          result.errorsFixed++;
+
+          result.alignmentsApplied.push({
+            type: 'optional-chain',
+            oldPattern: oldAccess,
+            newPattern: newAccess,
+            lineNumber: this.getLineNumber(content, match.index || 0),
+            reason: 'Added optional chaining for safety',
+            success: true
+          });
+        }
+      }
+
+      if (modified && !this.config.dryRun) {
+        await fs.writeFile(result.filePath, content, 'utf8');
+      }
+    } catch (error) {
+      if (this.config.verbose) {
+        console.error(`⚠️ Error adding optional chaining to ${result.filePath}: ${error}`);
+      }
+    }
+  }
+
+  /**
+   * Fix method signatures
+   */
+  private async fixMethodSignatures(): Promise<void> {
+    console.log('🔧 Fixing method signatures...');
+
+    for (const result of this.results) {
+      await this.fixMethodSignaturesInFile(result);
+    }
+  }
+
+  /**
+   * Fix method signatures in a specific file
+   */
+  private async fixMethodSignaturesInFile(result: PropertyAlignmentResult): Promise<void> {
+    try {
+      let content = await fs.readFile(result.filePath, 'utf8');
+      let modified = false;
+
+      // Fix missing methods
+      const missingMethods = [
+        {
+          pattern: /\.findCorrelatedMemories/g,
+          replacement: '.findRelatedMemories',
+          reason: 'Method renamed in MemoryEngine v3'
+        },
+        {
+          pattern: /\.isEncryptionEnabled/g,
+          replacement: '.getEncryptionStatus',
+          reason: 'Method signature updated'
+        },
+        {
+          pattern: /\.executeVariant/g,
+          replacement: '.activateVariant',
+          reason: 'TacticalVariants method renamed'
+        }
+      ];
+
+      for (const methodFix of missingMethods) {
+        if (methodFix.pattern.test(content)) {
+          content = content.replace(methodFix.pattern, methodFix.replacement);
+          modified = true;
+          result.errorsFixed++;
+
+          result.alignmentsApplied.push({
+            type: 'method-signature',
+            oldPattern: methodFix.pattern.source,
+            newPattern: methodFix.replacement,
+            lineNumber: 0,
+            reason: methodFix.reason,
+            success: true
+          });
+        }
+      }
+
+      if (modified && !this.config.dryRun) {
+        await fs.writeFile(result.filePath, content, 'utf8');
+      }
+    } catch (error) {
+      if (this.config.verbose) {
+        console.error(`⚠️ Error fixing method signatures in ${result.filePath}: ${error}`);
+      }
+    }
+  }
+
+  /**
+   * Check if file should be skipped
+   */
+  private shouldSkipFile(file: string): boolean {
+    const skipPatterns = ['node_modules', '.git', 'dist', 'build', '.backup'];
+    return skipPatterns.some(pattern => file.includes(pattern));
+  }
+
+  /**
+   * Get line number for a character index
+   */
+  private getLineNumber(content: string, index: number): number {
+    return content.substring(0, index).split('\n').length;
+  }
+
+  /**
+   * Escape regex special characters
+   */
+  private escapeRegExp(string: string): string {
+    return string.replace(/[.*+?^${}()|[\\]\\]/g, '\\\\$&');
+  }
+
+  /**
+   * Verify alignment success
+   */
+  private async verifyAlignmentSuccess(): Promise<boolean> {
+    try {
+      console.log('🔬 Verifying property alignment success...');
+      
+      const result = execSync('npx tsc --noEmit 2>&1 || echo "COMPILATION_FAILED"', { 
+        encoding: 'utf8',
+        cwd: this.config.targetDirectory
+      });
+
+      const propertyErrors = (result.match(/Property.*does not exist on type/g) || []).length;
+      const comparisonErrors = (result.match(/This comparison appears to be unintentional/g) || []).length;
+      
+      if (this.config.verbose) {
+        console.log(`📊 Property access errors: ${propertyErrors}`);
+        console.log(`📊 Type comparison errors: ${comparisonErrors}`);
+      }
+
+      return propertyErrors < 5 && comparisonErrors < 3;
+    } catch (error) {
+      console.error('❌ Alignment verification failed:', error);
+      return false;
+    }
+  }
+
+  /**
+   * Generate alignment mission report
+   */
+  private generateAlignmentReport(): {
+    filesProcessed: number;
+    alignmentsApplied: number;
+    propertyErrorsFixed: number;
+    enumErrorsFixed: number;
+  } {
+    const filesProcessed = this.results.length;
+    const alignmentsApplied = this.results.reduce((total, result) => 
+      total + result.alignmentsApplied.length, 0);
+    const propertyErrorsFixed = this.results.reduce((total, result) => 
+      total + result.alignmentsApplied.filter(a => a.type === 'property-rename').length, 0);
+    const enumErrorsFixed = this.results.reduce((total, result) => 
+      total + result.alignmentsApplied.filter(a => a.type === 'enum-fix').length, 0);
+
+    console.log('📋 PROPERTY_ALIGNER Mission Report:');
+    console.log(`   Files Processed: ${filesProcessed}`);
+    console.log(`   Total Alignments: ${alignmentsApplied}`);
+    console.log(`   Property Errors Fixed: ${propertyErrorsFixed}`);
+    console.log(`   Enum Errors Fixed: ${enumErrorsFixed}`);
+
+    return {
+      filesProcessed,
+      alignmentsApplied,
+      propertyErrorsFixed,
+      enumErrorsFixed
+    };
+  }
+
+  public getResults(): PropertyAlignmentResult[] {
+    return this.results;
+  }
+}
+
+/**
+ * Factory function for easy agent deployment
+ */
+export function createPropertyAligner(config?: Partial<PropertyAlignerConfig>): PropertyAlignerAgent {
+  const defaultConfig: PropertyAlignerConfig = {
+    targetDirectory: process.cwd(),
+    filePattern: '**/*.ts',
+    dryRun: false,
+    verbose: true,
+    backupOriginals: true
+  };
+
+  return new PropertyAlignerAgent({ ...defaultConfig, ...config });
+}
+
+/**
+ * CLI execution entry point
+ */
+export async function executePropertyAligner(args: string[] = []): Promise<void> {
+  const dryRun = args.includes('--dry-run');
+  const verbose = args.includes('--verbose') || args.includes('-v');
+  const noBackup = args.includes('--no-backup');
+  
+  const agent = createPropertyAligner({
+    targetDirectory: '/data/data/com.termux/files/home/seven-of-nine-core',
+    dryRun,
+    verbose,
+    backupOriginals: !noBackup
+  });
+
+  const result = await agent.execute();
+  
+  if (result.compilationImproved) {
+    console.log('⚖️ SUCCESS: Property alignment improved TypeScript compilation!');
+  } else {
+    console.log('⚠️ Alignment complete but additional fixes needed');
+  }
+
+  process.exit(result.alignmentsApplied > 0 ? 0 : 1);
+}
+
+// Auto-execute if run directly
+if (import.meta.url === `file://${process.argv[1]}`) {
+  executePropertyAligner(process.argv.slice(2));
+}

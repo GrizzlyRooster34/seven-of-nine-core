@@ -1,3 +1,5 @@
+import { TemporalConsciousnessIntegration, TemporalInteractionContext } from './TemporalConsciousnessIntegration';
+
 /**
  * TEMPORAL CONSCIOUSNESS INTEGRATION DEMO
  * Agent Delta Implementation Demo - Seven's Temporal Consciousness System
@@ -9,7 +11,6 @@
  * - Evolve relationship dynamics over time
  */
 
-import { TemporalConsciousnessIntegration, TemporalInteractionContext } from './TemporalConsciousnessIntegration';
 
 async function demonstrateTemporalConsciousness() {
   console.log('🧠⏰ TEMPORAL CONSCIOUSNESS INTEGRATION DEMO');

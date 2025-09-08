@@ -1,3 +1,8 @@
+import { MobileMentalTimeTravelEngine } from '../memory/MobileMentalTimeTravelEngine';
+import { MobileTacticalVariants } from '../consciousness/MobileTacticalVariants';
+import { MobileTemporalMemoryCore } from '../memory/MobileTemporalMemoryCore';
+import { SevenMobileCore } from '../consciousness/SevenMobileCore';
+
 /**
  * Mobile Safety & Consciousness Parity Test Suite
  * 
@@ -8,10 +13,6 @@
  * - Mobile Optimizations
  */
 
-import { SevenMobileCore } from '../consciousness/SevenMobileCore';
-import { MobileTemporalMemoryCore } from '../memory/MobileTemporalMemoryCore';
-import { MobileMentalTimeTravelEngine } from '../memory/MobileMentalTimeTravelEngine';
-import { MobileTacticalVariants } from '../consciousness/MobileTacticalVariants';
 
 describe('Mobile Safety & Consciousness Parity', () => {
   let sevenCore: SevenMobileCore;
@@ -105,13 +106,13 @@ describe('Mobile Safety & Consciousness Parity', () => {
     test('should capture temporal memories with cognitive state', async () => {
       const memory = await temporalMemory.captureTemporalMemory(
         { test: 'temporal memory test', type: 'unit_test' },
-        { emotionalIntensity: 0.8, mentalContext: 'testing' }
+        {.emotionalIntensity: 0.8, mentalContext: 'testing' }
       );
       
       expect(memory).toBeDefined();
       expect(memory.id).toMatch(/^mem_\d+_/);
-      expect(memory.cognitiveState.emotionalIntensity).toBe(0.8);
-      expect(memory.cognitiveState.mentalContext).toBe('testing');
+      expect(memory.cognitiveState?.emotionalIntensity).toBe(0.8);
+      expect(memory.cognitiveState?.mentalContext).toBe('testing');
       expect(memory.content.test).toBe('temporal memory test');
     });
 
@@ -119,7 +120,7 @@ describe('Mobile Safety & Consciousness Parity', () => {
       // Capture test memory
       await temporalMemory.captureTemporalMemory(
         { type: 'query_test', content: 'searchable content' },
-        { emotionalIntensity: 0.9 }
+        {.emotionalIntensity: 0.9 }
       );
       
       const memories = await temporalMemory.queryMemories({
@@ -129,7 +130,7 @@ describe('Mobile Safety & Consciousness Parity', () => {
       });
       
       expect(memories.length).toBeGreaterThan(0);
-      expect(memories[0].cognitiveState.emotionalIntensity).toBeGreaterThanOrEqual(0.8);
+      expect(memories[0].cognitiveState?.emotionalIntensity).toBeGreaterThanOrEqual(0.8);
     });
 
     test('should provide memory statistics', () => {
@@ -150,7 +151,7 @@ describe('Mobile Safety & Consciousness Parity', () => {
       for (let i = 0; i < 5; i++) {
         await temporalMemory.captureTemporalMemory(
           { test: `constraint_test_${i}`, large_data: 'x'.repeat(1000) },
-          { emotionalIntensity: 0.1 } // Low importance
+          {.emotionalIntensity: 0.1 } // Low importance
         );
       }
       
@@ -371,7 +372,7 @@ describe('Mobile Safety & Consciousness Parity', () => {
       const testTimestamp = Date.now();
       await temporalMemory.captureTemporalMemory(
         { test: 'recall test', timestamp: testTimestamp },
-        { emotionalIntensity: 0.7 }
+        {.emotionalIntensity: 0.7 }
       );
       
       // Try to recall it

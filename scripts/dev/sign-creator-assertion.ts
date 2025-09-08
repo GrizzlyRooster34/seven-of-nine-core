@@ -1,6 +1,7 @@
-// Usage (secure host): node scripts/dev/sign-creator-assertion.ts <hex-ed25519-privkey> <subject> <nonce>
 import { sign } from "@noble/ed25519";
 import { writeFileSync } from "node:fs";
+
+// Usage (secure host): node scripts/dev/sign-creator-assertion.ts <hex-ed25519-privkey> <subject> <nonce>
 (async () => {
   const [, , privHex, sub = "CreatorPrime", nonce = `nonce-${Date.now()}`] = process.argv;
   if (!privHex) { console.error("need <hex-ed25519-privkey>"); process.exit(1); }

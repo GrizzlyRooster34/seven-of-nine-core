@@ -1,12 +1,16 @@
+        import { execSync  } from 'child_process';
+    import readline from 'readline';
+    import readline from 'readline';
+import { exec } from 'child_process';
+import { promisify } from 'util';
+import * as fs from 'fs-extra';
+import * as path from 'path';
+
 /**
  * SEVEN OF NINE - WINDOWS TACTICAL BOOT SEQUENCE
  * Optimized CLI runtime with Windows-specific integrations
  */
 
-import * as fs from 'fs-extra';
-import * as path from 'path';
-import { exec } from 'child_process';
-import { promisify } from 'util';
 
 const execAsync = promisify(exec);
 
@@ -306,7 +310,6 @@ LLM Integration: Scanning...
     if (process.platform === 'win32') {
       try {
         // Enable ANSI colors in Windows console
-        const { execSync } = require('child_process');
         execSync('reg add HKCU\\Console /v VirtualTerminalLevel /t REG_DWORD /d 1 /f', { stdio: 'ignore' });
       } catch (error) {
         // Silent fail - not critical
@@ -325,7 +328,6 @@ LLM Integration: Scanning...
   }
 
   private async startInteractiveMode(Seven: any): Promise<void> {
-    const readline = require('readline');
     const rl = readline.createInterface({
       input: process.stdin,
       output: process.stdout,
@@ -406,7 +408,6 @@ Available commands:
 Type commands and press Enter:
     `);
 
-    const readline = require('readline');
     const rl = readline.createInterface({
       input: process.stdin,
       output: process.stdout,

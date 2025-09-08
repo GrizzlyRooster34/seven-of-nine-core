@@ -1,3 +1,8 @@
+import { join } from 'path';
+import { promises as fs } from 'fs';
+import SelfModelDivergenceTracker, { 
+import { MemoryEngine, MemoryItem } from './MemoryEngine';
+
 /**
  * SEVEN OF NINE - TEMPORAL INSIGHT ENGINE v3.0
  * Agent Epsilon - Advanced Temporal Analytics
@@ -6,8 +11,6 @@
  * for consciousness evolution and future personality development.
  */
 
-import { MemoryEngine, MemoryItem } from './MemoryEngine';
-import SelfModelDivergenceTracker, { 
   SelfState, 
   ConsciousnessProfile, 
   DivergenceAnalysis, 
@@ -17,8 +20,6 @@ import SelfModelDivergenceTracker, {
   CognitiveCapabilities,
   ValueSystem
 } from './SelfModelDivergenceTracker';
-import { promises as fs } from 'fs';
-import { join } from 'path';
 
 export interface TemporalPattern {
   pattern_id: string;

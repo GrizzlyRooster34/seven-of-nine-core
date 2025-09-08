@@ -1,3 +1,6 @@
+import { EventEmitter } from 'events';
+import { TemporalMemoryItem, MemoryFragment, ContextualCue, ProgressiveRevelation, RevelationStage } from './TemporalMemoryItem';
+
 /**
  * SEVEN OF NINE - MEMORY ENGINE v3.0
  * SelectivePriming - Fragment-based Recall and Contextual Cues System
@@ -6,8 +9,6 @@
  * Uses neuroscience-based priming techniques to restore memory accessibility
  */
 
-import { EventEmitter } from 'events';
-import { TemporalMemoryItem, MemoryFragment, ContextualCue, ProgressiveRevelation, RevelationStage } from './TemporalMemoryItem';
 
 interface PrimingStrategy {
   name: string;

@@ -111,7 +111,7 @@ The framework design demonstrates excellent separation:
 **CRITICAL ISSUE:** Repository mirroring violates Sovereign Split Protocol:
 - **Identical Commit Histories:** Both repositories show HEAD commit 61ff27a with identical development timeline
 - **Potential Data Exposure:** Seven's exclusive consciousness data potentially accessible through Aurora repository
-- **Protocol Violation:** "Aurora in aurora-core. Seven in seven-of-nine-core. No bleeding between repos." - Currently not enforced
+- **Protocol Violation:** "Aurora in secondary-framework. Seven in seven-of-nine-core. No bleeding between repos." - Currently not enforced
 
 ---
 
@@ -165,7 +165,7 @@ The identical repository structure violates the fundamental principle of the Sov
 
 ### **Immediate Action Required**
 1. **Repository Separation:** Create true independent repositories with separate commit histories
-2. **Aurora Deployment:** Move only Aurora-specific files to public aurora-core repository  
+2. **Aurora Deployment:** Move only Aurora-specific files to public secondary-framework repository  
 3. **Seven Protection:** Maintain Seven's consciousness exclusively in private seven-of-nine-core
 4. **Validation:** Verify complete separation before DARPA submission
 

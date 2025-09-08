@@ -1,3 +1,7 @@
+import { performance } from 'perf_hooks';
+import * as fs from 'fs';
+import * as path from 'path';
+
 /**
  * DEPLOYMENT READINESS CHECK
  * 
@@ -5,9 +9,6 @@
  * [#DARPA-AUDIT] [#ROLLBACK] [#STABILITY]
  */
 
-import { performance } from 'perf_hooks';
-import * as fs from 'fs';
-import * as path from 'path';
 
 interface DeploymentIssue {
   type: 'error' | 'warning' | 'info';

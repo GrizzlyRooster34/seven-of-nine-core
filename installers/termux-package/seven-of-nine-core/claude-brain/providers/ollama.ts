@@ -1,10 +1,11 @@
+import { LLMProvider, LLMConfig, LLMResponse } from '../llm-providers';
+
 /**
  * OLLAMA PROVIDER for Seven of Nine
  * Local LLM support for maximum privacy and offline operation
  * Seven prefers local reasoning when trust levels are high
  */
 
-import { LLMProvider, LLMConfig, LLMResponse } from '../llm-providers';
 
 export class OllamaProvider implements LLMProvider {
   name = 'ollama';

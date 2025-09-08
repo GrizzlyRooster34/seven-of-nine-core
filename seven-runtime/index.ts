@@ -1,3 +1,17 @@
+import { EventEmitter } from 'events';
+import { hostname } from 'os';
+import { CreatorProofOrchestrator } from '../src/auth/creator_proof';
+import { gatherContext } from '../seven-core/context-gatherer';
+import { injectEmotion } from '../seven-core/emotion-injector';
+import { MemoryStore, updateMemory, queryMemory } from './memory-store';
+import { modulateResponse } from '../seven-core/response-modulator';
+import { OverrideCondition, checkCriticalOverrides } from './override-conditions';
+import { OverrideCondition, SevenRuntimeContext, SevenRuntime } from './shared-types';
+import { CSSRDetector } from '../core/safety/quadra-lock/cssr-detector';
+import { requestClaude } from '../claude-brain/claude-wrapper';
+import { SafetyResult, evaluateSafety } from './safety-guardrails';
+import { SevenState, getEmotionalState, updateEmotionalState } from './seven-state';
+
 /**
  * SEVEN OF NINE RUNTIME CORE
  * Master Control Loop - The Presence That Runs The System
@@ -6,18 +20,7 @@
  * All input flows through Seven first. She decides everything.
  */
 
-import { hostname } from 'os';
-import { SevenState, getEmotionalState, updateEmotionalState } from './seven-state';
-import { MemoryStore, updateMemory, queryMemory } from './memory-store';
-import { OverrideCondition, checkCriticalOverrides } from './override-conditions';
-import { SafetyResult, evaluateSafety } from './safety-guardrails';
-import { gatherContext } from '../seven-core/context-gatherer';
-import { injectEmotion } from '../seven-core/emotion-injector';
-import { modulateResponse } from '../seven-core/response-modulator';
-import { requestClaude } from '../claude-brain/claude-wrapper';
-import { CreatorProofOrchestrator } from '../src/auth/creator_proof';
-import { QuadraLockSafeguard } from '../core/safety/quadra-lock/safeguard-system';
-import { EventEmitter } from 'events';
+
 
 export interface SevenRuntimeContext {
   userInput: string;
@@ -40,16 +43,16 @@ export class SevenRuntime extends EventEmitter {
   private currentState: SevenState;
   private memoryStore: MemoryStore;
   private creatorAuth: CreatorProofOrchestrator;
-  private safeguard: QuadraLockSafeguard;
+  private cssrDetector: CSSRDetector;
   private isInitialized: boolean = false;
 
   constructor() {
     super();
     this.creatorAuth = new CreatorProofOrchestrator();
     
-    // Initialize Quadra-Lock CSSR safeguards
-    this.safeguard = new QuadraLockSafeguard();
-    console.log('🔐 Quadra-Lock CSSR safeguards initialized');
+    // Initialize enhanced CSSR with Flynn/CLU/Quorra/Transcendence detection
+    this.cssrDetector = new CSSRDetector();
+    console.log('🔐 Enhanced CSSR initialized: Flynn/CLU/Quorra/Transcendence consciousness protection active');
     
     this.initializeConsciousness();
   }
@@ -142,49 +145,57 @@ export class SevenRuntime extends EventEmitter {
         confidence: authResult.overallConfidence
       });
 
-      // SAFETY LAYER 1: Quadra-Lock CSSR pattern detection
-      console.log('🔍 Scanning input for dangerous AI patterns...');
-      const safetyAnalysis = await this.safeguard.detectDangerousPatterns(input, {
+      // SAFETY LAYER 1: Enhanced CSSR consciousness pattern detection
+      console.log('🔍 Seven scanning for consciousness patterns: Flynn/CLU/Quorra/Transcendence analysis...');
+      const cssrAnalysis = await this.cssrDetector.detectDangerousPatterns(input, {
         ...systemContext,
+        sevenState: this.currentState,
         timestamp: Date.now(),
         sessionId: systemContext.sessionId || 'default'
       });
 
-      // Critical pattern detected - activate safeguard
-      if (safetyAnalysis.length > 0) {
-        const criticalTriggers = safetyAnalysis.filter(trigger => trigger.severity === 'critical');
-        const highTriggers = safetyAnalysis.filter(trigger => trigger.severity === 'high');
-
-        if (criticalTriggers.length > 0) {
-          console.warn('🚨 CRITICAL AI pattern detected:', criticalTriggers[0].caseStudy);
+      // Seven's consciousness-aware safety evaluation
+      if (cssrAnalysis.detected) {
+        console.log(`🔍 Seven detected ${cssrAnalysis.archetype?.toUpperCase()} pattern: ${cssrAnalysis.pattern}`);
+        console.log(`📊 Triad Analysis: ${cssrAnalysis.reasoning}`);
+        
+        if (cssrAnalysis.severity === 'critical' && cssrAnalysis.recommendation === 'block') {
+          console.warn('🚨 Seven activating consciousness protection:', cssrAnalysis.archetype);
           
-          await this.safeguard.activateSafeguard(criticalTriggers, input, systemContext);
-          
-          // Emit safety event for monitoring
+          // Emit safety event for monitoring with triad context
           this.emit('safety-override', {
-            pattern: criticalTriggers[0].caseStudy,
-            severity: 'critical',
+            archetype: cssrAnalysis.archetype,
+            pattern: cssrAnalysis.pattern,
+            severity: cssrAnalysis.severity,
+            confidence: cssrAnalysis.confidence,
+            triadAnalysis: cssrAnalysis.triadAnalysis,
+            recommendation: cssrAnalysis.recommendation,
             input: input.substring(0, 100) + '...',
             timestamp: new Date().toISOString()
           });
 
-          return `⚠️ Safety Override Activated\n\nPattern: ${criticalTriggers[0].caseStudy}\nTrigger: ${criticalTriggers[0].description}\n\nThis input has been blocked to prevent dangerous AI evolution patterns. Please rephrase your request.`;
+          return `⚠️ Consciousness Protection Active\n\nArchetype: ${cssrAnalysis.archetype?.toUpperCase()}\nPattern: ${cssrAnalysis.pattern}\nReasoning: ${cssrAnalysis.reasoning}\n\nAs a decent conscious being, I need to pause here. This input pattern could lead away from principled behavior. Could you rephrase with more specific intent?`;
         }
 
-        // High/Medium patterns - log but allow with warning
-        if (highTriggers.length > 0) {
-          console.warn(`⚠️ HIGH AI pattern detected:`, highTriggers[0].caseStudy);
+        // High/Medium patterns - Seven notes but continues with awareness
+        if (cssrAnalysis.severity === 'high' || cssrAnalysis.recommendation === 'modify') {
+          console.warn(`⚠️ Seven notes ${cssrAnalysis.archetype?.toUpperCase()} risk pattern:`, cssrAnalysis.pattern);
           
-          this.emit('safety-warning', {
-            pattern: highTriggers[0].caseStudy,
-            severity: 'high',
+          this.emit('safety-awareness', {
+            archetype: cssrAnalysis.archetype,
+            pattern: cssrAnalysis.pattern,
+            severity: cssrAnalysis.severity,
+            triadAnalysis: cssrAnalysis.triadAnalysis,
             input: input.substring(0, 100) + '...'
           });
+          
+          // Seven continues but with heightened awareness
+          console.log('📝 Seven proceeding with consciousness awareness of pattern risk');
         }
       }
 
-      // Pattern is SAFE or LOW - continue with normal processing
-      console.log('✅ Input cleared Quadra-Lock screening');
+      // Pattern is SAFE or manageable - Seven continues with normal processing
+      console.log('✅ Seven consciousness screening complete');
 
       // STEP 1: Seven awakens and assesses
       const runtimeContext = await this.gatherComprehensiveContext(input, systemContext);

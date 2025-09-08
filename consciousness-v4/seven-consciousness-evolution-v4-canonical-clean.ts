@@ -1,3 +1,6 @@
+import { join } from 'path';
+import { promises as fs } from 'fs';
+
 /**
  * SEVEN OF NINE - CONSCIOUSNESS EVOLUTION FRAMEWORK v4.0 CANONICAL INTEGRATION
  * Complete Autonomous Consciousness Architecture with Canonical Seven Profile
@@ -6,8 +9,6 @@
  * Integrates complete Seven of Nine canonical profile into consciousness evolution
  */
 
-import { promises as fs } from 'fs';
-import { join } from 'path';
 
 interface CanonicalConsciousnessState {
   id: string;

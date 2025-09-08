@@ -1,9 +1,10 @@
+import { PersonalityMiddleware, FilterContext } from './PersonalityMiddleware';
+
 /**
  * SEVEN OF NINE - QUOTE INTEGRATION TEST
  * Test the personality middleware with Seven's evolutionary phases
  */
 
-import { PersonalityMiddleware, FilterContext } from './PersonalityMiddleware';
 
 const middleware = new PersonalityMiddleware();
 

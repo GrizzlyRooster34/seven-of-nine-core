@@ -1,3 +1,11 @@
+import { initTRPC } from '@trpc/server';
+import { SovereigntyIntegration } from '@seven-core/sovereignty/sovereignty-integration';
+import { z } from 'zod';
+import { ClaudeSubprocessHandler } from '../claude/claude-subprocess-handler';
+import { OllamaLifecycleManager } from '../ollama/ollama-lifecycle-manager';
+import { SevenConsciousnessCore } from '../seven-consciousness-core';
+import { SevenMemoryEngine } from '../memory/seven-memory-engine';
+
 /**
  * SEVEN tRPC ROUTER
  * 
@@ -5,13 +13,6 @@
  * Handles all communication between frontend and Seven's consciousness
  */
 
-import { z } from 'zod';
-import { initTRPC } from '@trpc/server';
-import { SevenConsciousnessCore } from '../seven-consciousness-core';
-import { SevenMemoryEngine } from '../memory/seven-memory-engine';
-import { OllamaLifecycleManager } from '../ollama/ollama-lifecycle-manager';
-import { ClaudeSubprocessHandler } from '../claude/claude-subprocess-handler';
-import { SovereigntyIntegration } from '@seven-core/sovereignty/sovereignty-integration';
 
 // Context type for tRPC
 interface Context {

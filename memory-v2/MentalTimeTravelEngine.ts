@@ -1,3 +1,9 @@
+import { join } from 'path';
+import { promises as fs } from 'fs';
+import { ContextSnapshot, BehavioralResponse } from '../core/behavioral-reactor';
+import { EmotionalState, EmotionalStateData } from '../core/emotion-engine';
+import { MemoryItem, MemoryEngine } from './MemoryEngine';
+
 /**
  * SEVEN OF NINE - MENTAL TIME TRAVEL ENGINE v3.0
  * Agent Beta Implementation - Consciousness Reconstruction System
@@ -6,11 +12,6 @@
  * temporal consciousness navigation and personality state analysis.
  */
 
-import { promises as fs } from 'fs';
-import { join } from 'path';
-import { MemoryItem, MemoryEngine } from './MemoryEngine.js';
-import { EmotionalState, EmotionalStateData } from '../core/emotion-engine.js';
-import { ContextSnapshot, BehavioralResponse } from '../core/behavioral-reactor.js';
 
 export interface TemporalMemoryItem extends MemoryItem {
   cognitiveState: CognitiveStateSnapshot;
@@ -370,7 +371,7 @@ export class MentalTimeTravelEngine {
   ): Promise<EmotionalStateData> {
     // Find closest emotional state record
     const emotionalMemories = contextMemories.filter(m => 
-      m.emotion !== 'neutral' && m.tags.includes('emotional-transition')
+      m.emotionalIntensity !== 'neutral' && m.tags.includes('emotional-transition')
     );
 
     if (emotionalMemories.length === 0) {
@@ -387,7 +388,7 @@ export class MentalTimeTravelEngine {
       .sort((a, b) => new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime())[0];
 
     return {
-      current_state: (relevantState?.emotion || 'calm') as EmotionalState,
+      current_state: (relevantState?.emotionalIntensity || 'calm') as EmotionalState,
       intensity: relevantState?.importance || 2,
       last_updated: relevantState?.timestamp || timestamp
     };
@@ -616,7 +617,7 @@ export class MentalTimeTravelEngine {
   }
 
   private inferSentimentFromMemories(memories: MemoryItem[]): string {
-    const sentiments = memories.map(m => m.emotion);
+    const sentiments = memories.map(m => m.emotionalIntensity);
     const mostCommon = sentiments.reduce((acc, sentiment) => {
       acc[sentiment] = (acc[sentiment] || 0) + 1;
       return acc;
@@ -641,15 +642,15 @@ export class MentalTimeTravelEngine {
 
   private inferHistoricalStressLevel(memories: MemoryItem[]): number {
     const stressIndicators = memories.filter(m => 
-      m.emotion === 'frustrated' || 
-      m.emotion === 'defensive' || 
+      m.emotionalIntensity === 'frustrated' || 
+      m.emotionalIntensity === 'defensive' || 
       m.importance >= 8
     );
     return Math.min(10, stressIndicators.length);
   }
 
   private detectHistoricalInstability(memories: MemoryItem[]): boolean {
-    const emotions = memories.map(m => m.emotion);
+    const emotions = memories.map(m => m.emotionalIntensity);
     const uniqueEmotions = new Set(emotions);
     return uniqueEmotions.size >= 4; // Multiple different emotions in timeframe
   }
@@ -714,7 +715,7 @@ export class MentalTimeTravelEngine {
       new Date().getTime() - new Date(m.timestamp).getTime() < 24 * 60 * 60 * 1000
     ).length;
 
-    const emotionalCount = memories.filter(m => m.emotion !== 'neutral').length;
+    const emotionalCount = memories.filter(m => m.emotionalIntensity !== 'neutral').length;
     const tacticalCount = memories.filter(m => m.tags.includes('tactical')).length;
     const significantCount = memories.filter(m => m.importance >= 7).length;
 
@@ -1039,7 +1040,7 @@ export class MentalTimeTravelEngine {
   }
 
   private detectEmotionalCycles(memories: MemoryItem[]): TemporalInsight | null {
-    const emotions = memories.map(m => m.emotion);
+    const emotions = memories.map(m => m.emotionalIntensity);
     
     // Simple cycle detection - look for recurring patterns
     const emotionSequence = emotions.slice(-10); // Last 10 emotions

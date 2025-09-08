@@ -1,8 +1,9 @@
+
 import axios from "axios";
 import fs from 'fs-extra';
 import path from 'path';
-import { SevenLogicEngine } from '../core/logic-engine.js';
 import { EmotionalState } from '../core/emotion-engine.js';
+import { SevenLogicEngine } from '../core/logic-engine.js';
 
 export interface SevenPersonality {
   name: string;

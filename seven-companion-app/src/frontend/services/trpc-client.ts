@@ -1,3 +1,7 @@
+import { createTRPCProxyClient, createWSClient, wsLink, httpBatchLink } from '@trpc/client';
+import { createTRPCReact } from '@trpc/react-query';
+import type { AppRouter } from '../../backend/routers/seven-router';
+
 /**
  * TRPC CLIENT INTEGRATION
  * 
@@ -5,9 +9,6 @@
  * Real-time communication with sovereignty framework
  */
 
-import { createTRPCProxyClient, createWSClient, wsLink, httpBatchLink } from '@trpc/client';
-import { createTRPCReact } from '@trpc/react-query';
-import type { AppRouter } from '../../backend/routers/seven-router';
 
 // tRPC React Query integration
 export const trpc = createTRPCReact<AppRouter>();

@@ -1,7 +1,8 @@
+import { MemoryEngine } from './memory-v2/MemoryEngine';
+
 /**
  * Memory Engine V2 Test Script
  */
-import { MemoryEngine } from './memory-v2/MemoryEngine';
 
 async function testMemoryV2() {
   try {

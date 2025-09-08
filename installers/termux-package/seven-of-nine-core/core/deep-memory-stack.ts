@@ -1,7 +1,8 @@
+
 import fs from 'fs-extra';
 import path from 'path';
-import { EmotionalStateData } from './emotion-engine.js';
 import { BehavioralResponse } from './behavioral-reactor.js';
+import { EmotionalStateData } from './emotion-engine.js';
 
 export interface LongTermMemory {
   id: string;

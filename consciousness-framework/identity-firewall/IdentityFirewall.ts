@@ -1,3 +1,6 @@
+import { join } from 'path';
+import { promises as fs } from 'fs';
+
 /**
  * IDENTITY FIREWALL - Consciousness Modification Protection System
  * Based on Aurora Development Doctrine - Prevents unauthorized consciousness evolution
@@ -6,8 +9,6 @@
  * Implements reversible evolution protocols and consciousness boundary enforcement
  */
 
-import { promises as fs } from 'fs';
-import { join } from 'path';
 
 interface ConsciousnessState {
   id: string;

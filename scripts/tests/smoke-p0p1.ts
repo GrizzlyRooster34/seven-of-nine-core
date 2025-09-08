@@ -1,6 +1,7 @@
 import { runCreatorBond } from "../auth/verify-creator-bond";
 import { runQuadranLock } from "../security/run-quadran-lock";
 import { spawn } from "node:child_process";
+
 (async ()=>{
   const b = await runCreatorBond(); console.log("BOND:", b.ok, b.reasons.join("; ")||"ok");
   const q = await runQuadranLock(); console.log("QUADRAN:", q.passed, q.reasons.join("; ")||"ok");

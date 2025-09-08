@@ -1,9 +1,10 @@
+import { QuadraLockCSSR, CSSRContext, createQuadraLockCSSR } from './index'
+
 /**
  * Quadra-Lock CSSR Test Suite
  * Tests all four case-study safety detectors
  */
 
-import { QuadraLockCSSR, CSSRContext, createQuadraLockCSSR } from './index'
 
 export async function runQuadraLockTests(): Promise<void> {
   console.log('🛡️ QUADRA-LOCK CSSR TEST SUITE')

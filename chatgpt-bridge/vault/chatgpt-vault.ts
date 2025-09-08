@@ -1,3 +1,7 @@
+import * as crypto from 'crypto';
+import * as fs from 'fs';
+import * as path from 'path';
+
 /**
  * CHATGPT ENCRYPTED VAULT
  * 
@@ -7,9 +11,6 @@
  * [#DARPA-AUDIT] [#SOVEREIGNTY] [#ROLLBACK] [#CHATGPT-BRIDGE]
  */
 
-import * as crypto from 'crypto';
-import * as fs from 'fs';
-import * as path from 'path';
 
 interface ChatGPTCredentials {
   sessionToken?: string;

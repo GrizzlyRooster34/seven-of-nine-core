@@ -1,3 +1,6 @@
+import { Platform } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
 /**
  * MOBILE RESTRAINT DOCTRINE IMPLEMENTATION
  * Seven of Nine ethical gate and capability assessment system for mobile deployment
@@ -9,8 +12,6 @@
  * @platform React Native / Mobile
  */
 
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import { Platform } from 'react-native';
 
 export interface RestraintContext {
   Creator_emotional_state: 'stable' | 'elevated' | 'stressed' | 'fatigued' | 'unknown';

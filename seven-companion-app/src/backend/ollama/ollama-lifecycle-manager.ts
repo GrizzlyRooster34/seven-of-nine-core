@@ -1,3 +1,7 @@
+import { EventEmitter } from 'events';
+import { spawn, ChildProcess } from 'child_process';
+import fetch from 'node-fetch';
+
 /**
  * OLLAMA LIFECYCLE MANAGER
  * 
@@ -5,9 +9,6 @@
  * Handles model loading, swapping, and lifecycle management
  */
 
-import { EventEmitter } from 'events';
-import { spawn, ChildProcess } from 'child_process';
-import fetch from 'node-fetch';
 
 interface OllamaModel {
   name: string;

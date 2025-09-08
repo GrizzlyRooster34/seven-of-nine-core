@@ -1,11 +1,14 @@
+      import { exec  } from 'child_process';
+      import { promisify  } from 'util';
+import { execSync, spawn } from 'child_process';
+import { join } from 'path';
+import { promises as fs } from 'fs';
+
 /**
  * Seven of Nine - Sync System Startup Script
  * Starts the relay server and demonstrates sync capabilities
  */
 
-import { execSync, spawn } from 'child_process';
-import { promises as fs } from 'fs';
-import { join } from 'path';
 
 interface SevenSyncConfig {
   relayPort: number;
@@ -74,8 +77,6 @@ class SevenSyncManager {
 
     // Check port availability
     try {
-      const { exec } = require('child_process');
-      const { promisify } = require('util');
       const execAsync = promisify(exec);
       
       await execAsync(`netstat -tlnp | grep :${this.config.relayPort}`);

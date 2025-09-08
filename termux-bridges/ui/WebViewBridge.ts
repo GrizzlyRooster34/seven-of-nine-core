@@ -1,4 +1,5 @@
 
+
 /**
  * Termux WebView Bridge (Optional)
  * Simple web interface for Seven when GUI needed

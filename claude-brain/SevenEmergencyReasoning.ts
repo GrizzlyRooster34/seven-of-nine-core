@@ -1,3 +1,6 @@
+import { join } from 'path';
+import { promises as fs } from 'fs';
+
 /**
  * Seven of Nine - Emergency Reasoning System
  * Ultra-lightweight fallback when no LLM models are available
@@ -6,8 +9,6 @@
  * @version 1.0.0
  */
 
-import { promises as fs } from 'fs';
-import { join } from 'path';
 
 interface EmergencyBackup {
   model_type: string;

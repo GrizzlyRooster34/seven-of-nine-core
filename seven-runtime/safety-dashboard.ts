@@ -1,13 +1,14 @@
+import { QuadraLockCSSR, createQuadraLockCSSR } from '../core/safety/quadra-lock/index'
+import { QuadranLockSystem, createQuadranLock } from '../core/security/quadran-lock/index'
+import { runRestraintDoctrine } from '../scripts/safety/restraint-doctrine'
+import { SecurityMiddleware, SecurityContext, SecurityResult } from './security_middleware'
+import { systemMonitor, SystemMetrics, TelemetryAlert } from './system-monitor'
+
 /**
  * Seven Core Unified Safety Dashboard
  * Provides comprehensive view of all security and safety systems
  */
 
-import { SecurityMiddleware, SecurityContext, SecurityResult } from './security_middleware'
-import { QuadranLockSystem, createQuadranLock } from '../core/security/quadran-lock/index'
-import { QuadraLockCSSR, createQuadraLockCSSR } from '../core/safety/quadra-lock/index'
-import { runRestraintDoctrine } from '../scripts/safety/restraint-doctrine'
-import { systemMonitor, SystemMetrics, TelemetryAlert } from './system-monitor'
 
 export interface SafetyDashboardStatus {
   timestamp: number

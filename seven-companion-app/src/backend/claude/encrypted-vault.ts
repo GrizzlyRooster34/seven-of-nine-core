@@ -1,3 +1,8 @@
+    import crypto from 'crypto';
+import { createCipher, createDecipher, randomBytes } from 'crypto';
+import { join } from 'path';
+import { promises as fs } from 'fs';
+
 /**
  * ENCRYPTED CREDENTIAL VAULT
  * 
@@ -5,9 +10,6 @@
  * Sovereignty-controlled access with audit trail logging
  */
 
-import { createCipher, createDecipher, randomBytes } from 'crypto';
-import { promises as fs } from 'fs';
-import { join } from 'path';
 
 interface EncryptedCredentials {
   claudeApiKey?: string;
@@ -250,7 +252,6 @@ export class EncryptedCredentialVault {
   // Private helper methods
   private deriveKey(password: string, salt: string): string {
     // Simple key derivation - in production, use pbkdf2 or scrypt
-    const crypto = require('crypto');
     return crypto.pbkdf2Sync(password, salt, 100000, 32, 'sha256').toString('hex');
   }
 

@@ -1,9 +1,10 @@
+import { RestraintDoctrine } from './core/companion/firewall/RestraintDoctrine';
+
 /**
  * RESTRAINT DOCTRINE SIMULATION
  * Test all gate trigger scenarios
  */
 
-import { RestraintDoctrine } from './core/companion/firewall/RestraintDoctrine';
 
 async function simulateGateCases() {
   process.env.SEVEN_PRIVATE = '1';

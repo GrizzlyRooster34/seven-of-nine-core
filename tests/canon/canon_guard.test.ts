@@ -1,3 +1,8 @@
+import { join } from 'path';
+import { promises as fs } from 'fs';
+import * as crypto from 'crypto';
+import { CanonicalGuard } from '../../memory-v3/canonical/CanonicalGuard';
+
 #!/usr/bin/env tsx
 
 /**
@@ -14,10 +19,6 @@
  * - CI simulation: direct JSONL changes → verify-season FAIL
  */
 
-import { promises as fs } from 'fs';
-import { join } from 'path';
-import * as crypto from 'crypto';
-import { CanonicalGuard } from '../../memory-v3/canonical/CanonicalGuard';
 
 interface TestResult {
   testName: string;

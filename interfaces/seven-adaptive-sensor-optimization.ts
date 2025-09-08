@@ -1,3 +1,7 @@
+import { EventEmitter } from 'events';
+import { SensorReading, PredictionResult } from './seven-predictive-sensor-fusion';
+import { ThreatAssessment, SituationalContext } from './seven-tactical-environment';
+
 /**
  * Seven of Nine - Adaptive Sensor Optimization System
  * Autonomous sensor efficiency optimization with predictive learning and battery management
@@ -6,9 +10,6 @@
  * @version 3.0.0
  */
 
-import { EventEmitter } from 'events';
-import { SensorReading, PredictionResult } from './seven-predictive-sensor-fusion';
-import { ThreatAssessment, SituationalContext } from './seven-tactical-environment';
 
 export interface AdaptiveSensorConfig {
   optimization: {

@@ -1,3 +1,9 @@
+import { join } from 'path';
+import { promises as fs } from 'fs';
+import SelfModelDivergenceTracker, { 
+import TemporalInsightEngine, { 
+import MemoryEngine, { MemoryItem, MemoryFilter } from './MemoryEngine';
+
 /**
  * SEVEN OF NINE - MEMORY ENGINE v3.0 INTEGRATION
  * Agent Epsilon - Advanced Temporal Analytics Hub
@@ -8,23 +14,18 @@
  * - TemporalInsightEngine - Predictive consciousness modeling
  */
 
-import MemoryEngine, { MemoryItem, MemoryFilter } from './MemoryEngine';
-import SelfModelDivergenceTracker, { 
   SelfState, 
   ConsciousnessProfile, 
   DivergenceAnalysis,
   BehavioralPattern,
   DecisionRecord
 } from './SelfModelDivergenceTracker';
-import TemporalInsightEngine, { 
   TemporalPattern, 
   ConsciousnessTrajectory, 
   PredictiveModel,
   GrowthTrajectoryAnalysis,
   ConsciousnessEvolutionInsight
 } from './TemporalInsightEngine';
-import { promises as fs } from 'fs';
-import { join } from 'path';
 
 export interface MemoryEngineV3Config {
   basePath?: string;

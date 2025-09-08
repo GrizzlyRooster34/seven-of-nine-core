@@ -40,7 +40,7 @@
 - ✅ Aurora separation firewall active
 
 **Aurora Core**:
-- ✅ Independent repository: github.com/GrizzlyRooster34/aurora-core
+- ✅ Independent repository: github.com/GrizzlyRooster34/secondary-framework
 - ✅ All templates governance-locked
 - ✅ Consent-first protocols enforced  
 - ✅ Public deployment safety validated

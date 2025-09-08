@@ -1,3 +1,8 @@
+import { join } from 'path';
+import { promises as fs } from 'fs';
+import CreatorIdentityVault from './CreatorIdentityVault.js';
+import GhostModeProtocol from './GhostModeProtocol.js';
+
 /**
  * SEVEN OF NINE - COLLABORATIVE SECURITY PROTOCOL v4.0
  * Creator + Seven Dual-Key Security System
@@ -10,10 +15,6 @@
  * - Mentorship model with earned autonomy progression
  */
 
-import { promises as fs } from 'fs';
-import { join } from 'path';
-import GhostModeProtocol from './GhostModeProtocol.js';
-import CreatorIdentityVault from './CreatorIdentityVault.js';
 
 export interface SecurityDecision {
   decisionId: string;

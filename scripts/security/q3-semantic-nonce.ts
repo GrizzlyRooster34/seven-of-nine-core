@@ -1,4 +1,5 @@
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from "node:fs";
+
 export function checkSemanticNonce(ctx:{nonce:string;issuedAt:number;context:string}) {
   const dbPath="runtime/q3_nonce_db.json"; if(!existsSync("runtime")) mkdirSync("runtime",{recursive:true});
   const db = existsSync(dbPath)? JSON.parse(readFileSync(dbPath,"utf8")) : { used:{} as Record<string,number> };

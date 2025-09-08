@@ -1,3 +1,8 @@
+import { performance } from 'perf_hooks';
+import * as fs from 'fs';
+import * as path from 'path';
+import { ChatGPTVault } from '../vault/chatgpt-vault';
+
 #!/usr/bin/env npx tsx
 
 /**
@@ -9,10 +14,6 @@
  * [#DARPA-AUDIT] [#SOVEREIGNTY] [#ROLLBACK] [#CHATGPT-BRIDGE]
  */
 
-import * as fs from 'fs';
-import * as path from 'path';
-import { performance } from 'perf_hooks';
-import { ChatGPTVault } from '../vault/chatgpt-vault';
 
 interface ChatGPTThread {
   id: string;

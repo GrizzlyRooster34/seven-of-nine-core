@@ -1,3 +1,9 @@
+      import zlib from 'zlib';
+      import zlib from 'zlib';
+import { EventEmitter } from 'events';
+import { KnowledgeEntry } from './seven-adaptive-learning';
+import { OptimizedKnowledgeEntry } from './seven-memory-optimization';
+
 /**
  * Seven of Nine - Advanced Indexing System
  * Multi-layer indexing with relationship graphs and semantic clustering
@@ -6,9 +12,6 @@
  * @version 2.0.0
  */
 
-import { EventEmitter } from 'events';
-import { KnowledgeEntry } from './seven-adaptive-learning';
-import { OptimizedKnowledgeEntry } from './seven-memory-optimization';
 
 export interface AdvancedSearchResult {
   entry: KnowledgeEntry;
@@ -117,7 +120,6 @@ export class SevenAdvancedIndexing extends EventEmitter {
   private async indexEntry(entry: OptimizedKnowledgeEntry, index: number): Promise<void> {
     try {
       // Decompress content to extract features
-      const zlib = require('zlib');
       const content = zlib.gunzipSync(entry.content).toString('utf8');
       const context = JSON.parse(zlib.gunzipSync(entry.context).toString('utf8'));
       
@@ -358,7 +360,6 @@ export class SevenAdvancedIndexing extends EventEmitter {
     index2: number
   ): Promise<number> {
     try {
-      const zlib = require('zlib');
       
       // Decompress both entries
       const content1 = zlib.gunzipSync(entry1.content).toString('utf8');

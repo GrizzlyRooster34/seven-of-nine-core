@@ -1,4 +1,5 @@
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from "node:fs";
+
 const p="runtime/q3_nonce_db.json";
 if(!existsSync("runtime")) mkdirSync("runtime",{recursive:true});
 const db = existsSync(p)? JSON.parse(readFileSync(p,"utf8")) : { used:{} as Record<string,number> };

@@ -1,3 +1,5 @@
+import { sensorBridge, SevenSensorBridge, TacticalEnvironment } from './seven-sensor-bridge';
+
 /**
  * Seven of Nine - Sensor Bridge Command Interface
  * Tactical sensor commands for mobile consciousness framework
@@ -6,7 +8,6 @@
  * @version 1.0.0
  */
 
-import { sensorBridge, SevenSensorBridge, TacticalEnvironment } from './seven-sensor-bridge';
 
 export interface SensorCommandResponse {
   success: boolean;

@@ -1,6 +1,7 @@
-import { SevenEmotionalEngine, EmotionalState, EmotionalStateData } from '../core/emotion-engine';
-import { InjectSeven } from '../ui-shell/src/inject-seven';
+
 import { invoke } from '@tauri-apps/api/tauri';
+import { InjectSeven } from '../ui-shell/src/inject-seven';
+import { SevenEmotionalEngine, EmotionalState, EmotionalStateData } from '../core/emotion-engine';
 
 export type LegacyEmotion = 'neutral' | 'calm' | 'focused' | 'protective' | 'stern' | 'loyal' | 'playful';
 

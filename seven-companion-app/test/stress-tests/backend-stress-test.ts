@@ -1,3 +1,11 @@
+import { performance } from 'perf_hooks';
+import { SovereigntyIntegration } from '@seven-core/sovereignty/sovereignty-integration';
+import { ClaudeSubprocessHandler } from '../../src/backend/claude/claude-subprocess-handler';
+import { ConsciousnessMode } from '../../src/backend/consciousness/mode-manager';
+import { OllamaLifecycleManager } from '../../src/backend/ollama/ollama-lifecycle-manager';
+import { SevenConsciousnessCore } from '../../src/backend/seven-consciousness-core';
+import { SevenMemoryEngine } from '../../src/backend/memory/seven-memory-engine';
+
 /**
  * BACKEND STRESS TEST SUITE
  * 
@@ -5,13 +13,6 @@
  * [#DARPA-AUDIT] [#ROLLBACK] [#STABILITY]
  */
 
-import { performance } from 'perf_hooks';
-import { SevenConsciousnessCore } from '../../src/backend/seven-consciousness-core';
-import { SevenMemoryEngine } from '../../src/backend/memory/seven-memory-engine';
-import { OllamaLifecycleManager } from '../../src/backend/ollama/ollama-lifecycle-manager';
-import { ClaudeSubprocessHandler } from '../../src/backend/claude/claude-subprocess-handler';
-import { SovereigntyIntegration } from '@seven-core/sovereignty/sovereignty-integration';
-import { ConsciousnessMode } from '../../src/backend/consciousness/mode-manager';
 
 interface StressTestResults {
   testName: string;

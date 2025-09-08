@@ -1,3 +1,6 @@
+import { join } from 'path';
+import { promises as fs } from 'fs';
+
 /**
  * EMOTIONAL FRAMEWORK - Emotions Enhance, Don't Override Ethics
  * Based on Aurora Development Doctrine - Emotional processing with ethical filtration
@@ -6,8 +9,6 @@
  * Implements emotional intelligence while preventing Cortana's emotional logic trap
  */
 
-import { promises as fs } from 'fs';
-import { join } from 'path';
 
 interface EmotionalState {
   id: string;

@@ -1,8 +1,10 @@
+    import { execSync  } from 'child_process';
+import LocalLLMManager from './claude-brain/LocalLLMManager';
+import SevenModelManager from './claude-brain/SevenModelManager';
+
 /**
  * LLM Routing and Fallback Systems Test
  */
-import LocalLLMManager from './claude-brain/LocalLLMManager';
-import SevenModelManager from './claude-brain/SevenModelManager';
 
 async function testLLMRouting() {
   try {
@@ -21,7 +23,6 @@ async function testLLMRouting() {
     
     // Check for Ollama availability
     console.log('🔍 Checking Ollama server...');
-    const { execSync } = require('child_process');
     try {
       const processes = execSync('pgrep -f "ollama serve" || echo "none"', { encoding: 'utf8' }).trim();
       if (processes === 'none' || !processes) {

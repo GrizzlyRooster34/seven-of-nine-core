@@ -1,3 +1,8 @@
+      import fs from 'fs';
+    import hash from 'crypto'.createHash('md5').update(audioData).digest('hex');
+import { execSync } from "child_process";
+import { SevenSensorBridge, TacticalEnvironment } from './seven-sensor-bridge';
+
 /**
  * Seven of Nine - Audio Pattern Recognition System
  * Advanced audio processing for voice/emotion detection and tactical awareness
@@ -9,8 +14,6 @@
  * @version 1.0.0
  */
 
-import { execSync } from "child_process";
-import { SevenSensorBridge, TacticalEnvironment } from './seven-sensor-bridge';
 
 // Audio pattern interfaces
 export interface AudioPattern {
@@ -291,7 +294,6 @@ export class SevenAudioPatternRecognition {
       });
 
       // Read the recorded file
-      const fs = require('fs');
       const audioBuffer = fs.readFileSync(outputFile);
       
       // Clean up temporary file
@@ -534,7 +536,6 @@ export class SevenAudioPatternRecognition {
 
   private generateAudioFingerprint(audioData: Buffer): string {
     // Simple hash-based fingerprint
-    const hash = require('crypto').createHash('md5').update(audioData).digest('hex');
     return hash.substring(0, 16);
   }
 

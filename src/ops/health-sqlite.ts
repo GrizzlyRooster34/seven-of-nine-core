@@ -1,5 +1,6 @@
-import http from 'http'
+
 import { spawnSync } from 'child_process'
+import http from 'http'
 
 let nativeAvailable = false
 try { require('../../native-core/memory-engine/build/Release/memory_engine.node'); nativeAvailable = true } catch {}

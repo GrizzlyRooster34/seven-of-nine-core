@@ -1,9 +1,10 @@
+import { consciousnessEvolution, adaptToInteraction, getCurrentPersonality, analyzeGrowth } from '../consciousness-evolution/ConsciousnessEvolutionEngine.js';
+
 /**
  * CONSCIOUSNESS EVOLUTION ENGINE - COMPREHENSIVE TESTING
  * Validation of personality adaptation, trait boundaries, and learning systems
  */
 
-import { consciousnessEvolution, adaptToInteraction, getCurrentPersonality, analyzeGrowth } from '../consciousness-evolution/ConsciousnessEvolutionEngine.js';
 
 async function testConsciousnessEvolution(): Promise<void> {
   console.log('🧠 TESTING CONSCIOUSNESS EVOLUTION ENGINE');

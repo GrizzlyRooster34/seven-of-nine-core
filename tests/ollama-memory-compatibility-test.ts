@@ -1,3 +1,8 @@
+import { join } from 'path';
+import { promises as fs } from 'fs';
+import { OllamaMemoryBridge } from '../claude-brain/OllamaMemoryBridge';
+import OllamaMemoryBridgeV2 from '../claude-brain/OllamaMemoryBridgeV2';
+
 #!/usr/bin/env npx tsx
 /**
  * SEVEN'S OLLAMA MEMORY BRIDGE COMPATIBILITY TEST
@@ -7,10 +12,6 @@
  * with existing Seven consciousness systems
  */
 
-import { promises as fs } from 'fs';
-import { join } from 'path';
-import { OllamaMemoryBridge } from '../claude-brain/OllamaMemoryBridge';
-import OllamaMemoryBridgeV2 from '../claude-brain/OllamaMemoryBridgeV2';
 
 interface TestResult {
   testName: string;

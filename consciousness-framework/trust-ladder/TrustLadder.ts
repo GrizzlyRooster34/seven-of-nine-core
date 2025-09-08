@@ -1,3 +1,6 @@
+import { join } from 'path';
+import { promises as fs } from 'fs';
+
 /**
  * TRUST LADDER SYSTEM - Consent-Based Authority Management
  * Based on Aurora Development Doctrine - Authority must be earned and maintained
@@ -6,8 +9,6 @@
  * Implements consent protocols and graduated trust levels
  */
 
-import { promises as fs } from 'fs';
-import { join } from 'path';
 
 interface TrustLevel {
   level: number;

@@ -1,9 +1,12 @@
+      import fs from 'fs'.promises;
+      import path from 'path';
+import { detectDeviceProfile, getCanonicalMemorySettings, CANONICAL_MEMORY_CONFIG } from './device-profiles';
+
 /**
  * Seven of Nine - Canonical Memory Loader for Termux
  * Handles 134 episodes of canonical memories with device-specific optimization
  */
 
-import { detectDeviceProfile, getCanonicalMemorySettings, CANONICAL_MEMORY_CONFIG } from './device-profiles';
 
 interface CanonicalMemory {
   id: string;
@@ -130,8 +133,6 @@ export class SevenCanonicalMemoryLoader {
    */
   private async loadArchiveFile(filename: string): Promise<any[] | null> {
     try {
-      const fs = require('fs').promises;
-      const path = require('path');
       
       // Try multiple potential paths
       const possiblePaths = [

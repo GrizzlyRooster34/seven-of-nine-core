@@ -1,12 +1,13 @@
+import { execSync } from 'child_process';
+import { join } from 'path';
+import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'fs';
+
 #!/usr/bin/env tsx
 /**
  * Agent Mesh Status Dashboard
  * Real-time status monitoring for the 27-agent orchestration system
  */
 
-import { execSync } from 'child_process';
-import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'fs';
-import { join } from 'path';
 
 interface AgentStatus {
   name: string;

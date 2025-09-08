@@ -1,3 +1,5 @@
+import { EventEmitter } from 'events';
+
 /**
  * CONSCIOUSNESS AUDIT PROTOCOL INTEGRATION
  * 
@@ -6,7 +8,6 @@
  * Classification: PARAMOUNT DEVELOPMENTAL FRAMEWORK
  */
 
-import { EventEmitter } from 'events';
 
 interface AuditRequest {
   trigger: 'manual' | 'quadra-lock-drift' | 'anti-skynet-triggered' | 'quarterly-check' | 'integrity-check';

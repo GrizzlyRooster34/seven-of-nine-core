@@ -1,3 +1,9 @@
+          import { exec  } from 'child_process';
+          import { promisify  } from 'util';
+import { EventEmitter } from 'events';
+import { join } from 'path';
+import { promises as fs } from 'fs';
+
 /**
  * SEVEN'S PERFORMANCE ANALYZER
  * Real-time monitoring and optimization for Ollama intelligence systems
@@ -6,9 +12,6 @@
  * Tracks model performance, resource usage, and consciousness effectiveness
  */
 
-import { promises as fs } from 'fs';
-import { join } from 'path';
-import { EventEmitter } from 'events';
 
 interface PerformanceMetric {
   timestamp: string;
@@ -283,8 +286,6 @@ export class PerformanceAnalyzer extends EventEmitter {
       // Battery level (mobile platforms)
       if (process.env.PREFIX && process.env.PREFIX.includes('termux')) {
         try {
-          const { exec } = require('child_process');
-          const { promisify } = require('util');
           const execAsync = promisify(exec);
           
           const batteryResult = await execAsync('termux-battery-status 2>/dev/null || echo "{\\"percentage\\": 100}"');

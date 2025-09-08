@@ -1,9 +1,10 @@
+import { createHash } from 'crypto';
+
 /**
  * Tactical Fallback Checksum Tests
  * Validates the stableHash function and checksum validation
  */
 
-import { createHash } from 'crypto';
 
 // Extract stableHash function for testing
 function stableHash(obj: unknown): string {

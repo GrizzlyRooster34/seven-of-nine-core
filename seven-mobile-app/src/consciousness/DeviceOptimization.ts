@@ -1,9 +1,10 @@
+import * as Device from 'expo-device';
+
 /**
  * Seven of Nine - Device Optimization for Mobile
  * Provides device-specific optimization for OnePlus 9 Pro and 7T
  */
 
-import * as Device from 'expo-device';
 
 export interface DeviceProfile {
   platform: 'mobile' | 'termux' | 'windows';

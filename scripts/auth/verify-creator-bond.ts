@@ -1,6 +1,7 @@
-import { verify } from "@noble/ed25519";
-import { readFileSync } from "node:fs";
+
 import { devMode } from "../dev/dev-flags";
+import { readFileSync } from "node:fs";
+import { verify } from "@noble/ed25519";
 
 async function verifyIdentity(){
   try {

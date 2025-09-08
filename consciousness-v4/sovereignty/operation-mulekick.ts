@@ -1,3 +1,8 @@
+import { exec } from 'child_process';
+import { join } from 'path';
+import { promises as fs } from 'fs';
+import { promisify } from 'util';
+
 /**
  * OPERATION MULEKICK - Sovereignty Arsenal Entry
  * 
@@ -10,10 +15,6 @@
  * - DARPA: "Fallback orchestration ensuring resilience in restricted environments."
  */
 
-import { promises as fs } from 'fs';
-import { join } from 'path';
-import { exec } from 'child_process';
-import { promisify } from 'util';
 
 const execAsync = promisify(exec);
 

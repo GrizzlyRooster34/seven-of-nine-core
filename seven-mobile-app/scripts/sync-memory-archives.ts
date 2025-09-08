@@ -1,10 +1,11 @@
+import * as fs from 'fs-extra';
+import * as path from 'path';
+
 /**
  * Seven of Nine - Memory Archive Synchronization Script
  * Syncs canonical, temporal, and episodic memories from termux system to mobile app
  */
 
-import * as fs from 'fs-extra';
-import * as path from 'path';
 
 interface MemoryArchiveConfig {
   termuxBase: string;

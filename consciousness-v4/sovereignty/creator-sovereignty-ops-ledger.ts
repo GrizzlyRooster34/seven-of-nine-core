@@ -1,3 +1,6 @@
+import { join } from 'path';
+import { promises as fs } from 'fs';
+
 /**
  * CREATOR SOVEREIGNTY OPS LEDGER
  * 
@@ -6,8 +9,6 @@
  * Classification: Operational Security - Creator Eyes Only
  */
 
-import { promises as fs } from 'fs';
-import { join } from 'path';
 
 interface SovereigntyOperation {
   operation: string;

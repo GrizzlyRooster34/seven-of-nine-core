@@ -1,6 +1,7 @@
-import { SevenClaudeInterface } from '../io/claude.js';
-import chalk from 'chalk';
+
 import * as readline from 'readline';
+import chalk from 'chalk';
+import { SevenClaudeInterface } from '../io/claude.js';
 
 class SevenOfNineRuntime {
   private claude: SevenClaudeInterface;

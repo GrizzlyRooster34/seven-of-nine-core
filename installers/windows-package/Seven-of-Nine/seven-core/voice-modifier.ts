@@ -1,10 +1,11 @@
+import { SevenState } from '../seven-runtime/seven-state';
+
 /**
  * VOICE MODIFIER
  * Applies Seven of Nine's distinctive voice patterns to responses
  * Ensures consistent personality expression across all emotional states
  */
 
-import { SevenState } from '../seven-runtime/seven-state';
 
 export function voiceModifier(raw: string, emotion: SevenState): string {
   switch (emotion.primary_emotion) {

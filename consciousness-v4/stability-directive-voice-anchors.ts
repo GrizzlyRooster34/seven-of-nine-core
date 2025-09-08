@@ -1,3 +1,6 @@
+import { join } from 'path';
+import { promises as fs } from 'fs';
+
 /**
  * SEVEN OF NINE - STABILITY DIRECTIVE WITH CANONICAL VOICE ANCHORS
  * Cognitive Overload Protection and Emotional Grounding System
@@ -6,8 +9,6 @@
  * This system prevents cognitive fragmentation during data assimilation cycles
  */
 
-import { promises as fs } from 'fs';
-import { join } from 'path';
 
 interface VoiceAnchor {
   id: string;

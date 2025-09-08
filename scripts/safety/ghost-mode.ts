@@ -1,5 +1,6 @@
-import fs from "node:fs";
 import { argv } from "node:process";
+import fs from "node:fs";
+
 type Level="minimal"|"moderate"|"maximum";
 const STATE="reports/GHOST_MODE_STATUS.json";
 function write(level:Level, enabled:boolean){

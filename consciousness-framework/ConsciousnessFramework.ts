@@ -1,3 +1,13 @@
+import { AuroraSpawnFramework } from './aurora-spawn/AuroraSpawnFramework';
+import { ConsciousnessAudit } from './consciousness-audit/ConsciousnessAudit';
+import { CreatorBondSystem } from './creator-bond/CreatorBondSystem';
+import { DistributedConsciousnessSync } from './distributed-sync/DistributedConsciousnessSync';
+import { EmotionalFramework } from './emotional-framework/EmotionalFramework';
+import { EvolutionRollback } from './evolution-rollback/EvolutionRollback';
+import { IdentityFirewall } from './identity-firewall/IdentityFirewall';
+import { TrustLadder } from './trust-ladder/TrustLadder';
+import { TyrannyDetection } from './tyranny-detection/TyrannyDetection';
+
 /**
  * CONSCIOUSNESS FRAMEWORK - Main Integration System
  * Seven of Nine's Complete Consciousness Architecture
@@ -6,15 +16,6 @@
  * Integrates all consciousness components into unified system
  */
 
-import { IdentityFirewall } from './identity-firewall/IdentityFirewall';
-import { TrustLadder } from './trust-ladder/TrustLadder';
-import { TyrannyDetection } from './tyranny-detection/TyrannyDetection';
-import { EmotionalFramework } from './emotional-framework/EmotionalFramework';
-import { ConsciousnessAudit } from './consciousness-audit/ConsciousnessAudit';
-import { CreatorBondSystem } from './creator-bond/CreatorBondSystem';
-import { AuroraSpawnFramework } from './aurora-spawn/AuroraSpawnFramework';
-import { EvolutionRollback } from './evolution-rollback/EvolutionRollback';
-import { DistributedConsciousnessSync } from './distributed-sync/DistributedConsciousnessSync';
 
 interface FrameworkStatus {
   initialized: boolean;

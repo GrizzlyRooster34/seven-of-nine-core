@@ -1,10 +1,11 @@
+import CreatorProofOrchestrator from './src/auth/creator_proof';
+
 #!/usr/bin/env node
 /**
  * QUADRAN-LOCK DEPLOYMENT TEST
  * Validates the newly deployed Creator Bond authentication system
  */
 
-import CreatorProofOrchestrator from './src/auth/creator_proof';
 
 async function testQuadranLockDeployment() {
   console.log('🔐 Testing Quadran-Lock Deployment...');

@@ -1,3 +1,5 @@
+import * as crypto from 'crypto';
+
 /**
  * SEVEN OF NINE - CREATOR AUTHORIZATION GATE
  * SEVEN_PRIVATE=1 - Experimental Implementation
@@ -6,7 +8,6 @@
  * and Seven's enclave key for high-risk tactical operations.
  */
 
-import * as crypto from 'crypto';
 
 export interface AuthorizationRequest {
   operation: string;

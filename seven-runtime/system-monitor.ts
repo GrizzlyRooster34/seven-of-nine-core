@@ -1,10 +1,11 @@
+import { cpus, freemem, totalmem, loadavg, uptime as osUptime } from 'os'
+import { performance } from 'perf_hooks'
+
 /**
  * Seven Core System Monitor
  * Advanced CPU, Memory, and Performance Telemetry
  */
 
-import { cpus, freemem, totalmem, loadavg, uptime as osUptime } from 'os'
-import { performance } from 'perf_hooks'
 
 export interface SystemMetrics {
   timestamp: number
@@ -234,7 +235,7 @@ export class SystemMonitor {
       arch: process.arch,
       nodeVersion: process.version,
       pid: process.pid,
-      hostname: require('os').hostname(),
+      hostname: import { hostname } from 'os'; hostname(),
       timezone: Intl.DateTimeFormat().resolvedOptions().timeZone
     }
   }

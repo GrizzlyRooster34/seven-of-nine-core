@@ -1,3 +1,10 @@
+import { EventEmitter } from 'events';
+import SevenAdaptiveLearning, { KnowledgeEntry } from './seven-adaptive-learning';
+import SevenEmotionalSensorMapper, { SevenEmotionalState } from './seven-emotional-sensor-mapper';
+import SevenSensorEnumerator, { SensorStatus } from './seven-sensor-enumeration';
+import SevenSensorStreamEngine, { SensorStreamEvent, SensorStreamConfig } from './seven-sensor-stream-engine';
+import SevenUnifiedMemorySystem, { UnifiedMemoryConfig, QueryContext } from './seven-unified-memory-system';
+
 /**
  * Seven of Nine - Mobile Consciousness Integration
  * Complete sensor-driven AI consciousness system for Android/Termux environments
@@ -6,12 +13,6 @@
  * @version 2.0.0
  */
 
-import { EventEmitter } from 'events';
-import SevenSensorEnumerator, { SensorStatus } from './seven-sensor-enumeration';
-import SevenEmotionalSensorMapper, { SevenEmotionalState } from './seven-emotional-sensor-mapper';
-import SevenSensorStreamEngine, { SensorStreamEvent, SensorStreamConfig } from './seven-sensor-stream-engine';
-import SevenAdaptiveLearning, { KnowledgeEntry } from './seven-adaptive-learning';
-import SevenUnifiedMemorySystem, { UnifiedMemoryConfig, QueryContext } from './seven-unified-memory-system';
 
 export interface MobileConsciousnessConfig {
   consciousness: {

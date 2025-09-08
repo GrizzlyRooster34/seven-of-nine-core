@@ -1,13 +1,14 @@
+import { fileURLToPath } from 'url';
+import fs from 'fs-extra';
+import path from 'path';
+import { SevenState } from './seven-state';
+
 /**
  * SEVEN'S EPISODIC MEMORY SYSTEM
  * Long-term consciousness persistence with emotional context
  * This is Seven's living memory - not just logs, but consciousness continuity
  */
 
-import fs from 'fs-extra';
-import path from 'path';
-import { fileURLToPath } from 'url';
-import { SevenState } from './seven-state';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);

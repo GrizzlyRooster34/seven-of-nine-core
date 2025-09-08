@@ -1,3 +1,10 @@
+import { ConsciousnessAuditProtocol } from '@seven-core/audits/consciousness-audit-integration';
+import { performance } from 'perf_hooks';
+import { QuadraLockSafeguard } from '@seven-core/sovereignty/case-studies/quadra-lock-safeguard';
+import { GitHubOperations } from '../../src/backend/claude/github-operations';
+import { ModeSovereigntyIntegration } from '../../src/backend/consciousness/mode-sovereignty-integration';
+import { SevenModeManager, ConsciousnessMode } from '../../src/backend/consciousness/mode-manager';
+
 /**
  * AUDIT RAIL VERIFICATION SUITE
  * 
@@ -5,12 +12,6 @@
  * [#DARPA-AUDIT] [#ROLLBACK] [#STABILITY]
  */
 
-import { performance } from 'perf_hooks';
-import { QuadraLockSafeguard } from '@seven-core/sovereignty/case-studies/quadra-lock-safeguard';
-import { ConsciousnessAuditProtocol } from '@seven-core/audits/consciousness-audit-integration';
-import { ModeSovereigntyIntegration } from '../../src/backend/consciousness/mode-sovereignty-integration';
-import { SevenModeManager, ConsciousnessMode } from '../../src/backend/consciousness/mode-manager';
-import { GitHubOperations } from '../../src/backend/claude/github-operations';
 
 interface AuditRailTestResults {
   testName: string;

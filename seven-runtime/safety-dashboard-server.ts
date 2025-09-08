@@ -1,12 +1,13 @@
+import { createServer, IncomingMessage, ServerResponse } from 'http'
+import { parse } from 'url'
+import { safetyDashboard, SafetyDashboard } from './safety-dashboard'
+import { systemMonitor } from './system-monitor'
+
 /**
  * Seven Core Safety Dashboard HTTP Server
  * Provides REST API for safety monitoring and dashboard access
  */
 
-import { createServer, IncomingMessage, ServerResponse } from 'http'
-import { parse } from 'url'
-import { safetyDashboard, SafetyDashboard } from './safety-dashboard'
-import { systemMonitor } from './system-monitor'
 
 interface DashboardRequest {
   method: string

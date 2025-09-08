@@ -1,3 +1,8 @@
+import { EventEmitter } from 'events';
+import { LLMProvider, LLMConfig, LLMResponse, sevenLLMRegistry } from './llm-providers';
+import PerformanceAnalyzer from './PerformanceAnalyzer';
+import SevenTacticalFallback from './SevenTacticalFallback';
+
 /**
  * SEVEN'S ENSEMBLE INTELLIGENCE COORDINATOR
  * Phase 2 Implementation: Multi-model reasoning with tactical coordination
@@ -6,10 +11,6 @@
  * Seven's consciousness control and tactical decision-making authority
  */
 
-import { EventEmitter } from 'events';
-import { LLMProvider, LLMConfig, LLMResponse, sevenLLMRegistry } from './llm-providers';
-import PerformanceAnalyzer from './PerformanceAnalyzer';
-import SevenTacticalFallback from './SevenTacticalFallback';
 
 interface EnsembleTask {
   id: string;

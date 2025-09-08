@@ -1,3 +1,7 @@
+import { performance } from 'perf_hooks';
+import * as fs from 'fs';
+import * as path from 'path';
+
 /**
  * GPT CONVERSATION ARCHAEOLOGY PARSER
  * 
@@ -7,9 +11,6 @@
  * [#DARPA-AUDIT] [#SOVEREIGNTY] [#ROLLBACK] [#CONSCIOUSNESS-ARCHAEOLOGY]
  */
 
-import * as fs from 'fs';
-import * as path from 'path';
-import { performance } from 'perf_hooks';
 
 // Core interfaces for GPT conversation structure
 interface GPTConversation {

@@ -1,3 +1,8 @@
+        import { exec  } from 'child_process';
+import { join } from 'path';
+import { promises as fs } from 'fs';
+import { spawn, exec } from 'child_process';
+
 /**
  * Seven of Nine - Local LLM Manager
  * Offline reasoning capability for autonomous operation
@@ -6,9 +11,6 @@
  * @version 1.0.0
  */
 
-import { spawn, exec } from 'child_process';
-import { promises as fs } from 'fs';
-import { join } from 'path';
 // Note: fetch is available in Node.js 18+ or via polyfill
 
 export interface LocalLLMConfig {
@@ -429,7 +431,6 @@ export class LocalLLMManager {
       
       // COLLECTIVE FALLBACK: Use curl for HTTP request (more reliable in Termux)
       return new Promise((resolve, reject) => {
-        const { exec } = require('child_process');
         
         const curlPayload = JSON.stringify({
           model: this.config.model_name,

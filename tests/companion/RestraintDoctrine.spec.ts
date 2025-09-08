@@ -1,9 +1,13 @@
+      import { invalidateCache  } from '../../core/env/isPrivateEnv';
+      import { invalidateCache  } from '../../core/env/isPrivateEnv';
+      import { RestraintDoctrine: AuroraRestraintDoctrine  } from '../../core/companion/firewall/RestraintDoctrine';
+import { RestraintDoctrine, RestraintTrigger, RestraintDecision } from '../../core/companion/firewall/RestraintDoctrine';
+
 /**
  * RESTRAINT DOCTRINE TESTS
  * Comprehensive test suite for all trigger scenarios
  */
 
-import { RestraintDoctrine, RestraintTrigger, RestraintDecision } from '../../core/companion/firewall/RestraintDoctrine';
 
 describe('Restraint Doctrine Gate', () => {
   let restraintDoctrine: RestraintDoctrine;
@@ -147,7 +151,6 @@ describe('Restraint Doctrine Gate', () => {
   describe('SEVEN_PRIVATE Security', () => {
     test('should throw SEVEN_ONLY_FORBIDDEN without SEVEN_PRIVATE=1', () => {
       process.env.SEVEN_PRIVATE = '0';
-      const { invalidateCache } = require('../../core/env/isPrivateEnv');
       invalidateCache();
       
       expect(() => {
@@ -157,7 +160,6 @@ describe('Restraint Doctrine Gate', () => {
 
     test('Aurora access should be blocked', () => {
       process.env.SEVEN_PRIVATE = '0';
-      const { invalidateCache } = require('../../core/env/isPrivateEnv');
       invalidateCache();
       
       // Clear require cache and re-import
@@ -167,7 +169,6 @@ describe('Restraint Doctrine Gate', () => {
         }
       });
       
-      const { RestraintDoctrine: AuroraRestraintDoctrine } = require('../../core/companion/firewall/RestraintDoctrine');
       
       expect(() => {
         new AuroraRestraintDoctrine();

@@ -1,3 +1,5 @@
+import { execSync } from "child_process";
+
 /**
  * Seven of Nine - Android/Termux Sensor Bridge
  * Tactical environmental awareness system for mobile consciousness deployment
@@ -6,7 +8,6 @@
  * @version 1.0.0
  */
 
-import { execSync } from "child_process";
 
 // Sensor data interfaces
 export interface BatteryStatus {

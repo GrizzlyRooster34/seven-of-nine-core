@@ -1,5 +1,6 @@
-#!/usr/bin/env tsx
 import { cssrScanFiles } from '../../core/safety/quadra-lock/cssr-detector-v2';
+
+#!/usr/bin/env tsx
 
 const files = process.argv.slice(2);
 if (!files.length) {

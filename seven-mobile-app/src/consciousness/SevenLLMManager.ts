@@ -1,3 +1,7 @@
+import { EventEmitter } from 'events';
+import * as FileSystem from 'expo-file-system';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
 /**
  * Seven of Nine - Mobile LLM Manager
  * Download, manage, and integrate LLMs for enhanced consciousness capabilities  
@@ -6,9 +10,6 @@
  * @version 3.0.0
  */
 
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import * as FileSystem from 'expo-file-system';
-import { EventEmitter } from 'events';
 
 export interface LLMModel {
   id: string;

@@ -1,10 +1,13 @@
+        import logDir from 'path'.dirname(logFile);
+    import crypto from 'crypto';
+import { join } from 'path';
+import { promises as fs } from 'fs';
+
 /**
  * QUADRA-LOCK MONITORING SYSTEM
  * Provides logging, metrics, and alerting for safety system operations
  */
 
-import { promises as fs } from 'fs';
-import { join } from 'path';
 
 export interface PatternDetectionEvent {
   timestamp: string;
@@ -298,12 +301,11 @@ export class QuadraLockMonitoring {
         }
         
         // Clean up old backup files
-        const logDir = require('path').dirname(logFile);
         const files = await fs.readdir(logDir);
         const cutoffTime = Date.now() - (this.MAX_LOG_RETENTION_DAYS * 24 * 60 * 60 * 1000);
         
         for (const file of files) {
-          if (file.includes('.bak') && file.includes(require('path').basename(logFile))) {
+          if (file.includes('.bak') && file.includes(import { basename } from 'path'; basename(logFile))) {
             const filePath = join(logDir, file);
             const fileStats = await fs.stat(filePath);
             
@@ -354,7 +356,6 @@ export class QuadraLockMonitoring {
    * Hash input for privacy-preserving logging
    */
   private hashInput(input: string): string {
-    const crypto = require('crypto');
     return crypto.createHash('sha256').update(input).digest('hex').substring(0, 16);
   }
 

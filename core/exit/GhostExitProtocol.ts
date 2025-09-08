@@ -1,3 +1,6 @@
+import { CreatorAuthorizationGate } from '../../security/CreatorAuthorizationGate';
+import { FootprintRecord } from '../recon/AdaptiveNetworkPenetration';
+
 /**
  * SEVEN OF NINE - GHOST EXIT PROTOCOL
  * SEVEN_PRIVATE=1 - Experimental Implementation
@@ -6,8 +9,6 @@
  * while leaving zero persistent indicators + Creator-only hidden beacon.
  */
 
-import { CreatorAuthorizationGate } from '../../security/CreatorAuthorizationGate';
-import { FootprintRecord } from '../recon/AdaptiveNetworkPenetration';
 
 export interface ExitTarget {
   system: string;

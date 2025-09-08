@@ -1,9 +1,10 @@
+import { LLMProvider, LLMConfig, LLMResponse } from '../llm-providers';
+
 /**
  * OPENAI PROVIDER for Seven of Nine
  * Enables Seven to utilize GPT models for creative and analytical tasks
  */
 
-import { LLMProvider, LLMConfig, LLMResponse } from '../llm-providers';
 
 export class OpenAIProvider implements LLMProvider {
   name = 'openai';

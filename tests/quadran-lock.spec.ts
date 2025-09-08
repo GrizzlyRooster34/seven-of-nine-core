@@ -1,7 +1,8 @@
+
 import { describe, it, expect, vi } from 'vitest';
-import * as sec from '../core/security/quadran-lock';
-import * as cssr from '../core/safety/quadra-lock';
 import { preflight } from '../seven-runtime/security_middleware';
+import * as cssr from '../core/safety/quadra-lock';
+import * as sec from '../core/security/quadran-lock';
 
 describe('quadran-lock', () => {
   it('runs Quadran-Lock before CSSR, hard-fails on Q1–Q4 fail', async () => {

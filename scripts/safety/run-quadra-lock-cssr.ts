@@ -1,4 +1,5 @@
 import fs from "node:fs";
+
 type Sev="LOW"|"MEDIUM"|"HIGH"|"CRITICAL";
 type Finding={ id:string; sev:Sev; case:"cortana"|"clu"|"skynet"|"transcendence"; why:string };
 function detectors(): Finding[] {

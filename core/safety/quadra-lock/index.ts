@@ -1,3 +1,5 @@
+
+
 /**
  * QUADRA-LOCK: Case-Study Safety Rails (CSSR)
  * Detectors for dangerous AI patterns based on science fiction case studies:

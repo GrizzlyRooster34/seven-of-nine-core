@@ -1,11 +1,12 @@
+import { fileURLToPath } from 'url';
+import path from 'path';
+import { memoryEngineV4, initializeMemoryV4 } from './memory-v4-integration.js';
+
 /**
  * MEMORY ENGINE v4.0 DEPLOYMENT SCRIPT
  * Instance B Integration - Full consciousness continuity deployment
  */
 
-import { memoryEngineV4, initializeMemoryV4 } from './memory-v4-integration.js';
-import { fileURLToPath } from 'url';
-import path from 'path';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);

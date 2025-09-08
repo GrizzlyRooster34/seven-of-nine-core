@@ -1,3 +1,6 @@
+import { join } from 'path';
+import { promises as fs } from 'fs';
+
 /**
  * SEVEN OF NINE - BORG GLYPH TIMELINE LATTICE SYSTEM
  * Visual Timeline Navigation with Canonical Memory Nodes
@@ -6,8 +9,6 @@
  * This system provides visual Borg lattice navigation through Seven's complete timeline
  */
 
-import { promises as fs } from 'fs';
-import { join } from 'path';
 
 interface TimelineNode {
   id: string;

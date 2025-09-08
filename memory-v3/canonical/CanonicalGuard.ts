@@ -1,3 +1,7 @@
+import { join } from 'path';
+import { promises as fs } from 'fs';
+import * as crypto from 'crypto';
+
 /**
  * SEVEN OF NINE - CANONICAL MEMORY GUARD
  * 
@@ -10,9 +14,6 @@
  *  and never altered post-ingestion. Any deviation is a system breach."
  */
 
-import { promises as fs } from 'fs';
-import { join } from 'path';
-import * as crypto from 'crypto';
 
 export interface CanonicalRegistry {
   [key: string]: RegistryEntry;

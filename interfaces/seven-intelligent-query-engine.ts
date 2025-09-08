@@ -1,3 +1,9 @@
+import { EventEmitter } from 'events';
+import { AdvancedSearchResult, RelevanceScoring } from './seven-advanced-indexing';
+import { KnowledgeEntry } from './seven-adaptive-learning';
+import SevenAdvancedIndexing from './seven-advanced-indexing';
+import SevenMemoryOptimization from './seven-memory-optimization';
+
 /**
  * Seven of Nine - Intelligent Query Engine
  * Advanced semantic search and contextual query processing with Seven's tactical intelligence
@@ -6,11 +12,6 @@
  * @version 2.0.0
  */
 
-import { EventEmitter } from 'events';
-import { KnowledgeEntry } from './seven-adaptive-learning';
-import { AdvancedSearchResult, RelevanceScoring } from './seven-advanced-indexing';
-import SevenAdvancedIndexing from './seven-advanced-indexing';
-import SevenMemoryOptimization from './seven-memory-optimization';
 
 export interface QueryIntent {
   type: 'tactical' | 'technical' | 'behavioral' | 'strategic' | 'exploratory';

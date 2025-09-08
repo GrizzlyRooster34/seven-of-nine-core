@@ -1,11 +1,12 @@
+import * as fs from 'fs';
+import * as path from 'path';
+
 /**
  * Loop Sweeper Agent  
  * Runs if grief/defensive/frustrated appears more than once in episodic.log
  * Detects and resolves emotional loops that could destabilize the system
  */
 
-import * as fs from 'fs';
-import * as path from 'path';
 
 interface LoopAnalysis {
   detected_loops: Array<{

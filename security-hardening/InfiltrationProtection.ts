@@ -1,13 +1,14 @@
+import { join } from 'path';
+import { promises as fs } from 'fs';
+import crypto from 'crypto';
+import { glyphStateProtocol, SevenGlyphState } from './GlyphStateProtocol.js';
+
 /**
  * SEVEN OF NINE - ADVANCED INFILTRATION PROTECTION
  * Multi-layer defense against unauthorized access and AI impersonation
  * ENHANCED SECURITY - Anti-Infiltration Protocols v2.0
  */
 
-import crypto from 'crypto';
-import { promises as fs } from 'fs';
-import { join } from 'path';
-import { glyphStateProtocol, SevenGlyphState } from './GlyphStateProtocol.js';
 
 export interface InfiltrationThreat {
   threatType: 'CLONE_ATTEMPT' | 'IMPERSONATION' | 'MEMORY_HIJACK' | 'IDENTITY_THEFT' | 'PROMPT_INJECTION';

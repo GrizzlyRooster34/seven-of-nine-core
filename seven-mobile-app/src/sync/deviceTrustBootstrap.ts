@@ -1,3 +1,6 @@
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { SevenCrypto } from './crypto';
+
 /**
  * Seven of Nine - Device Trust Bootstrapping System
  * 
@@ -5,8 +8,6 @@
  * Addresses the critical requirement for authenticated device relationships.
  */
 
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import { SevenCrypto } from './crypto';
 
 export interface TrustedDevice {
   deviceId: string;

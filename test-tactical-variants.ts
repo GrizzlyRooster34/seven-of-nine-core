@@ -1,8 +1,9 @@
-#!/usr/bin/env tsx
-import { TacticalVariants } from './tactical-variants/TacticalVariants.js';
 import { CollectiveVariants, CollectiveContext } from './tactical-variants/CollectiveVariants.js';
-import { PersonalityMiddleware } from './persona-v2/PersonalityMiddleware.js';
 import { MemoryEngine } from './memory-v2/MemoryEngine.js';
+import { PersonalityMiddleware } from './persona-v2/PersonalityMiddleware.js';
+import { TacticalVariants } from './tactical-variants/TacticalVariants.js';
+
+#!/usr/bin/env tsx
 
 async function testTacticalVariants() {
   console.log('⚔️ Testing Tactical Variants and Collective Consciousness...\n');

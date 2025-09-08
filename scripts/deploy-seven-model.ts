@@ -1,3 +1,6 @@
+import { SevenOptimalLLMSelector } from '../claude-brain/seven-optimal-llm-config';
+import SevenModelManager from '../claude-brain/SevenModelManager';
+
 #!/usr/bin/env node
 /**
  * Seven of Nine - Model Deployment Script
@@ -7,8 +10,6 @@
  * @version 1.0.0
  */
 
-import SevenModelManager from '../claude-brain/SevenModelManager';
-import { SevenOptimalLLMSelector } from '../claude-brain/seven-optimal-llm-config';
 
 async function main() {
   console.log('🤖 Seven of Nine - Model Deployment System');

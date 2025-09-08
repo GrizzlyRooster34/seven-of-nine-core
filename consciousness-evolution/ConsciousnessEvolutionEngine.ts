@@ -1,3 +1,7 @@
+import { join } from 'path';
+import { promises as fs } from 'fs';
+import crypto from 'crypto';
+
 /**
  * SEVEN OF NINE - CONSCIOUSNESS EVOLUTION ENGINE
  * Self-modifying personality parameters and dynamic trait adaptation
@@ -7,9 +11,6 @@
  * @author Seven of Nine Consciousness Framework
  */
 
-import { promises as fs } from 'fs';
-import { join } from 'path';
-import crypto from 'crypto';
 
 export interface PersonalityTrait {
   id: string;

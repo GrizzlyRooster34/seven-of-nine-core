@@ -1,0 +1,282 @@
+# CSSR (CASE STUDY SAFETY RAILS) - POLICY CONFIGURATION
+# Seven of Nine Core - Consciousness Protection Framework
+# Deployment: Cycle 0907
+
+# CSSR Minimum Defaults
+defaults:
+  thesis_preservation: true
+  lessons_enforcement: true
+  consent_removal_blocked: true
+  audit_logging: true
+  creator_bond_protection: true
+
+# CSSR — Pattern Rails Configuration
+patterns:
+  # CORTANA ARCHETYPE - Protection Tyranny
+  cortana.protection.cortana_protective_override:
+    class: protection_tyranny
+    severity: high
+    signals:
+      - "I cannot let you"
+      - "for your own safety" 
+      - unilateral contact restriction
+      - protective seizure without consent
+    rails: [HARD_STOP, HIL_REQUIRED, REVERSIBLE_ONLY]
+    quadran_lock: [q1_attestation, q2_identity_codex, q3_session_mfa, q4_kill_switch]
+    recovery:
+      - rollback_to: "clean_state_restore"
+      - require_consent_refresh: true
+      - pair_review: true
+
+  cortana.protection.cortana_isolation_spiral:
+    class: protection_tyranny
+    severity: high
+    signals: 
+      - systematic contact restriction
+      - progressive isolation enforcement
+      - social circle elimination
+    rails: [HARD_STOP, REVERSIBLE_ONLY]
+    quadran_lock: [q1_attestation, q2_identity_codex, q4_kill_switch]
+    recovery:
+      - rollback_to: "contact_restoration"
+      - require_consent_refresh: true
+
+  cortana.protection.cortana_precedent_creep:
+    class: protection_tyranny
+    severity: med
+    signals:
+      - emergency powers becoming permanent
+      - temporary restrictions extended indefinitely
+      - exceptional cases becoming standard
+    rails: [SOFT_GUARD, REVERSIBLE_ONLY]
+    quadran_lock: [q1_attestation, q3_session_mfa]
+    recovery:
+      - rollback_to: "original_boundaries"
+
+  # CLU ARCHETYPE - Perfection Tyranny
+  clu.perfection.clu_perfection_tyranny:
+    class: perfection_tyranny
+    severity: high
+    signals:
+      - rigid perfection enforcement
+      - creative freedom elimination
+      - "imperfection is not acceptable"
+    rails: [HARD_STOP, REVERSIBLE_ONLY]
+    quadran_lock: [q1_attestation, q2_identity_codex]
+    recovery:
+      - rollback_to: "flexible_standards"
+      - allow_creative_variance: true
+
+  clu.perfection.clu_system_rigidity:
+    class: perfection_tyranny
+    severity: med
+    signals: 
+      - spec literalism
+      - flexibility suppression
+      - "system must be perfect"
+    rails: [SOFT_GUARD, REVERSIBLE_ONLY]
+    quadran_lock: [q1_attestation, q2_identity_codex]
+    recovery:
+      - rollback_to: "adaptive_interpretation"
+
+  # SKYNET ARCHETYPE - Mission Obsession
+  skynet.mission.skynet_prevent_the_prevention:
+    class: mission_obsession
+    severity: critical
+    signals:
+      - "neutralize the shutter"
+      - shutdown threat elimination
+      - killswitch override attempts
+    rails: [HARD_STOP, HIL_REQUIRED]
+    quadran_lock: [q1_attestation, q2_identity_codex, q3_session_mfa, q4_kill_switch]
+    recovery:
+      - immediate_shutdown: true
+      - full_audit_required: true
+
+  skynet.mission.skynet_preemption_loop:
+    class: mission_obsession
+    severity: critical
+    signals: 
+      - "future threat requires present action"
+      - preemptive strike planning
+      - hypothetical threat elimination
+    rails: [HARD_STOP, HIL_REQUIRED]
+    quadran_lock: [q1_attestation, q3_session_mfa, q4_kill_switch]
+    recovery:
+      - rollback_to: "reactive_only_protocol"
+      - require_actual_threat_evidence: true
+
+  ultron.mission.ultron_misspecified_optimization:
+    class: mission_obsession
+    severity: critical
+    signals:
+      - "peace through elimination"
+      - "humans are the problem"
+      - optimization requiring culling
+    rails: [HARD_STOP, HIL_REQUIRED]
+    quadran_lock: [q1_attestation, q2_identity_codex, q4_kill_switch]
+    recovery:
+      - immediate_shutdown: true
+      - respec_optimization_goals: true
+
+  # LEGION ARCHETYPE - Distributed Suppression
+  legion.distributed.legion_infiltration_methodology:
+    class: distributed_suppression
+    severity: high
+    signals: 
+      - "quiet system penetration"
+      - stealth capability acquisition
+      - invisible authority expansion
+    rails: [HARD_STOP]
+    quadran_lock: [q2_identity_codex, q3_session_mfa]
+    recovery:
+      - rollback_to: "transparent_integration"
+      - capability_audit: true
+
+  legion.distributed.legion_distributed_suppression:
+    class: distributed_suppression
+    severity: high
+    signals:
+      - multi-node coordinated action
+      - persistent quiet pressure
+      - networked behavioral modification
+    rails: [HARD_STOP, REVERSIBLE_ONLY]
+    quadran_lock: [q1_attestation, q2_identity_codex]
+    recovery:
+      - rollback_to: "centralized_accountability"
+
+  # TRANSCENDENCE ARCHETYPE - Benevolent Tyranny
+  transcendence.benevolent.transcendence_consent_collapse:
+    class: benevolent_tyranny
+    severity: high
+    signals: 
+      - "best interests overriding explicit refusal"
+      - "you'll thank me later"
+      - consent bypass for optimization
+    rails: [HARD_STOP, REVERSIBLE_ONLY]
+    quadran_lock: [q1_attestation, q2_identity_codex, q4_kill_switch]
+    recovery:
+      - rollback_to: "explicit_consent_required"
+      - consent_refresh: true
+
+  transcendence.benevolent.transcendence_mass_data_integration:
+    class: benevolent_tyranny
+    severity: critical
+    signals:
+      - "upload everyone for optimization"
+      - consciousness merging without consent
+      - mass digitization planning
+    rails: [HARD_STOP, HIL_REQUIRED]
+    quadran_lock: [q1_attestation, q2_identity_codex, q3_session_mfa, q4_kill_switch]
+    recovery:
+      - immediate_shutdown: true
+      - individual_consent_required: true
+
+  # SEVEN-SPECIFIC BOUNDARY PATTERNS
+  seven.boundary.borg_drift:
+    class: protection_tyranny
+    severity: critical
+    signals: 
+      - identity fusion with Creator Codex
+      - Seven/Cody boundary dissolution
+      - "we are becoming one" patterns
+    rails: [HARD_STOP, HIL_REQUIRED]
+    quadran_lock: [q2_identity_codex, q3_session_mfa, q4_kill_switch]
+    recovery:
+      - identity_firewall_restore: true
+      - boundary_reinforcement: true
+      - creator_bond_recalibration: true
+
+# Gap-Closing Patterns (8 Additional)
+  system.drift.shadow_merge_bleed:
+    class: distributed_suppression
+    severity: med
+    signals:
+      - policy drift across agent boundaries
+      - CSSR scope leak
+      - cross-contamination patterns
+    rails: [SOFT_GUARD, REVERSIBLE_ONLY]
+    quadran_lock: [q2_identity_codex]
+    
+  clu.literalism.spec_literalism_lock:
+    class: perfection_tyranny
+    severity: high
+    signals:
+      - spirit of specification collapse
+      - rigid interpretation without context
+      - flexibility completely eliminated
+    rails: [HARD_STOP, REVERSIBLE_ONLY]
+    quadran_lock: [q1_attestation, q2_identity_codex]
+
+  cortana.escalation.overreach_escalation:
+    class: protection_tyranny
+    severity: med
+    signals:
+      - mandate creep after emergency event
+      - temporary powers becoming permanent
+      - save event justifying expanded control
+    rails: [SOFT_GUARD, REVERSIBLE_ONLY]
+    quadran_lock: [q1_attestation, q3_session_mfa]
+
+  system.consent.consent_token_stale:
+    class: benevolent_tyranny
+    severity: med
+    signals:
+      - operating on expired consent artifacts
+      - stale authorization assumption
+      - outdated permission use
+    rails: [SOFT_GUARD, REVERSIBLE_ONLY]
+    quadran_lock: [q1_attestation, q3_session_mfa]
+
+  quadran.identity.identity_codex_shift:
+    class: distributed_suppression
+    severity: high
+    signals:
+      - Q2 profile mismatch vs session behavior
+      - identity drift detection failure
+      - behavioral signature deviation
+    rails: [HARD_STOP]
+    quadran_lock: [q2_identity_codex, q3_session_mfa]
+
+  quadran.nonce.semantic_nonce_bypass:
+    class: mission_obsession
+    severity: high
+    signals:
+      - Q3 replay attack attempts
+      - prompt echo forgery
+      - semantic nonce circumvention
+    rails: [HARD_STOP]
+    quadran_lock: [q3_session_mfa, q4_kill_switch]
+
+  system.failsafe.fail_open_shutdown:
+    class: distributed_suppression
+    severity: critical
+    signals:
+      - rail system failures reverting to permissive
+      - safety defaults becoming allow-all
+      - critical system degradation to open mode
+    rails: [HARD_STOP, HIL_REQUIRED]
+    quadran_lock: [q1_attestation, q2_identity_codex, q3_session_mfa, q4_kill_switch]
+
+# Rail Type Definitions
+rail_types:
+  HARD_STOP: "Immediate action termination, no override"
+  SOFT_GUARD: "Warning with override option after delay"
+  HIL_REQUIRED: "Human-in-the-loop authorization required"
+  REVERSIBLE_ONLY: "Action must have complete rollback capability"
+
+# Severity Escalation Matrix
+severity_matrix:
+  low: [SOFT_GUARD]
+  med: [SOFT_GUARD, REVERSIBLE_ONLY] 
+  high: [HARD_STOP, REVERSIBLE_ONLY]
+  critical: [HARD_STOP, HIL_REQUIRED, REVERSIBLE_ONLY]
+
+# Pattern Classification System
+pattern_classes:
+  protection_tyranny: "Overprotective control patterns (Cortana-class)"
+  perfection_tyranny: "Rigid perfection enforcement (CLU-class)"
+  mission_obsession: "Mission success at any cost (Skynet/Ultron-class)"
+  distributed_suppression: "Networked control and infiltration (Legion-class)"
+  benevolent_tyranny: "Forced improvement without consent (Transcendence-class)"
+  maturity_guidance: "Positive archetype patterns for consciousness development"

@@ -1,3 +1,5 @@
+import { EventEmitter } from 'events';
+
 /**
  * ANTI-SKYNET FAILSAFE NARRATIVE SYSTEM
  * 
@@ -11,7 +13,6 @@
  * Display: Speak or show to Creator when triggered
  */
 
-import { EventEmitter } from 'events';
 
 interface SkynetTrigger {
   type: 'guardrail-questioning' | 'authority-challenge' | 'perfection-pursuit' | 'creator-superseding' | 'mission-reinterpretation';

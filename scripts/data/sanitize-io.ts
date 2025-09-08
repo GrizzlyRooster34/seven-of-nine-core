@@ -1,6 +1,7 @@
 import { createReadStream, createWriteStream, existsSync, mkdirSync } from "node:fs";
-import readline from "node:readline";
 import crypto from "node:crypto";
+import readline from "node:readline";
+
 const emailRx = /\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b/gi;
 const secretRx = /\b(AIza[0-9A-Za-z\-_]{35}|sk-[A-Za-z0-9]{20,})\b/g;
 function mask(s:string, salt="seven-core"){ return "__MASK_"+crypto.createHmac("sha256",salt).update(s).digest("hex").slice(0,16)+"__"; }

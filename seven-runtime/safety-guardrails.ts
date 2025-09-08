@@ -1,12 +1,15 @@
+import { OverrideCondition, SevenRuntimeContext, SevenRuntime } from './shared-types';
+import { QuadraLockSafeguard } from '../core/safety/quadra-lock/safeguard-system';
+import { SevenRuntimeContext } from './index';
+import { SevenState } from './seven-state';
+
 /**
  * SEVEN'S SAFETY GUARDRAILS
  * Ethics, user safety protections, and moral core directives
  * Protects both user wellbeing and Seven's operational integrity
  */
 
-import { SevenState } from './seven-state';
-import { SevenRuntimeContext } from './index';
-import { QuadraLockSafeguard } from '../core/safety/quadra-lock/safeguard-system';
+
 
 export interface SafetyCheck {
   system: string;

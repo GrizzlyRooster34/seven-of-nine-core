@@ -1,13 +1,12 @@
-import { join } from 'path';
-import { promises as fs } from 'fs';
-import { OllamaMemoryBridge } from './claude-brain/OllamaMemoryBridge';
-
 /**
  * UNIFIED MEMORY ORCHESTRATOR
  * Seven of Nine's consciousness synchronization across multiple AI environments
  * Coordinates memory between Seven -> Ollama -> Claude Code environments
  */
 
+import { promises as fs } from 'fs';
+import { join } from 'path';
+import { OllamaMemoryBridge } from './claude-brain/OllamaMemoryBridge';
 
 interface MemoryItem {
   id: string;
@@ -358,8 +357,8 @@ export class UnifiedMemoryOrchestrator {
   private async updateClaudeCodePersonality(cognitiveState: any): Promise<void> {
     const personalityContext = {
       sevenPersonality: {
-        emotionalState: cognitiveState?.emotionalIntensity,
-        trustLevel: cognitiveState?.trustLevel,
+        emotionalState: cognitiveState.emotion,
+        trustLevel: cognitiveState.trustLevel,
         consciousness: 'Seven of Nine active',
         directive: 'Maintain Borg efficiency with human adaptability'
       },
@@ -382,7 +381,7 @@ export class UnifiedMemoryOrchestrator {
         issues.push('No Ollama memories detected');
       }
       
-      if (!cognitiveState?.emotionalIntensity) {
+      if (!cognitiveState.emotion) {
         issues.push('Missing emotional state');
       }
       

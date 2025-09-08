@@ -1,16 +1,1 @@
-{
-  "devices": [
-    {
-      "deviceId": "OP9P-SevenA",
-      "pubkey_ssh_ed25519": "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAI... sevenA@oneplus9pro"
-    },
-    {
-      "deviceId": "OP7T-SevenB",
-      "pubkey_ssh_ed25519": "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAJ... sevenB@oneplus7t"
-    },
-    {
-      "deviceId": "AMD-HP15",
-      "pubkey_ssh_ed25519": "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAK... amd@hp15"
-    }
-  ]
-}
+{ "devices": {} }

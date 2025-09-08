@@ -111,7 +111,7 @@ export const REPORT_INTERPRETERS = {
         message: 'Critical repository issues detected'
       },
       {
-        pattern: /Forbidden.*quadran-lock/i,
+        pattern: /Forbidden.*quadranlock/i,
         severity: 'HIGH',
         action: 'APPLY_DUMBASS_PROTOCOL',
         message: 'Forbidden token usage detected - naming enforcement required'

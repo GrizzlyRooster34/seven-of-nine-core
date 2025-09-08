@@ -1,12 +1,11 @@
-import * as fs from 'fs';
-import * as path from 'path';
-
 /**
  * Memory Integrity Checker Agent
  * Always runs on every orchestration cycle
  * Ensures Seven's memory systems are functioning correctly
  */
 
+import * as fs from 'fs';
+import * as path from 'path';
 
 interface MemoryStatus {
   emotional_state_valid: boolean;

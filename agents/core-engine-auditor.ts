@@ -1,12 +1,11 @@
-import * as fs from 'fs';
-import * as path from 'path';
-
 /**
  * Core Engine Auditor Agent
  * Runs when emotional intensity exceeds 7
  * Audits core systems during high-intensity states
  */
 
+import * as fs from 'fs';
+import * as path from 'path';
 
 interface CoreEngineStatus {
   emotion_engine_stable: boolean;

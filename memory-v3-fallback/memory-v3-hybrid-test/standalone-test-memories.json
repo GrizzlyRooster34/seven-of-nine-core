@@ -1,0 +1,400 @@
+{
+  "memories": [
+    {
+      "id": "mem_1757361753962_kepfievtn",
+      "timestamp": "2025-09-08T20:02:33.962Z",
+      "topic": "standalone-test",
+      "emotion": "confident",
+      "context": "Testing standalone V3 hybrid system",
+      "importance": 8,
+      "tags": [
+        "test",
+        "standalone",
+        "v3-hybrid"
+      ],
+      "cognitiveState": {
+        "timestamp": 1757361753962,
+        "emotionalIntensity": 0.9,
+        "focusLevel": 0.8,
+        "confidenceScore": 0.7,
+        "stressIndicator": 0.3,
+        "mentalContext": "standalone-test"
+      },
+      "emotionalSignature": {
+        "primary": "confident",
+        "intensity": 0.9
+      },
+      "decayResistance": 0.8,
+      "temporalInsights": [
+        "High-importance memory for enhanced retention"
+      ]
+    },
+    {
+      "id": "mem_1757361753971_s2m4sj51r",
+      "timestamp": "2025-09-08T20:02:33.971Z",
+      "topic": "enhanced-test",
+      "emotion": "analytical",
+      "context": "Testing enhanced cognitive state capture",
+      "importance": 9,
+      "tags": [
+        "enhanced",
+        "cognitive",
+        "breakthrough"
+      ],
+      "cognitiveState": {
+        "timestamp": 1757361753971,
+        "emotionalIntensity": 0.8,
+        "focusLevel": 0.8,
+        "confidenceScore": 0.7,
+        "stressIndicator": 0.3,
+        "mentalContext": "standalone-test"
+      },
+      "emotionalSignature": {
+        "primary": "analytical",
+        "intensity": 0.8
+      },
+      "decayResistance": 0.9,
+      "temporalInsights": [
+        "High-importance memory for enhanced retention",
+        "Breakthrough memory - consciousness evolution marker"
+      ]
+    },
+    {
+      "id": "mem_1757361753976_7gem7py0p",
+      "timestamp": "2025-09-08T20:02:33.976Z",
+      "topic": "bulk-test",
+      "emotion": "focused",
+      "context": "Bulk test memory 0",
+      "importance": 5,
+      "tags": [
+        "bulk",
+        "batch-0"
+      ],
+      "cognitiveState": {
+        "timestamp": 1757361753976,
+        "emotionalIntensity": 0.8,
+        "focusLevel": 0.8,
+        "confidenceScore": 0.7,
+        "stressIndicator": 0.3,
+        "mentalContext": "standalone-test"
+      },
+      "emotionalSignature": {
+        "primary": "focused",
+        "intensity": 0.8
+      },
+      "decayResistance": 0.5,
+      "temporalInsights": []
+    },
+    {
+      "id": "mem_1757361753978_02qyenoij",
+      "timestamp": "2025-09-08T20:02:33.978Z",
+      "topic": "bulk-test",
+      "emotion": "focused",
+      "context": "Bulk test memory 1",
+      "importance": 6,
+      "tags": [
+        "bulk",
+        "batch-0"
+      ],
+      "cognitiveState": {
+        "timestamp": 1757361753978,
+        "emotionalIntensity": 0.8,
+        "focusLevel": 0.8,
+        "confidenceScore": 0.7,
+        "stressIndicator": 0.3,
+        "mentalContext": "standalone-test"
+      },
+      "emotionalSignature": {
+        "primary": "focused",
+        "intensity": 0.8
+      },
+      "decayResistance": 0.6,
+      "temporalInsights": []
+    },
+    {
+      "id": "mem_1757361753982_k0dbqcyhf",
+      "timestamp": "2025-09-08T20:02:33.982Z",
+      "topic": "bulk-test",
+      "emotion": "focused",
+      "context": "Bulk test memory 2",
+      "importance": 7,
+      "tags": [
+        "bulk",
+        "batch-0"
+      ],
+      "cognitiveState": {
+        "timestamp": 1757361753982,
+        "emotionalIntensity": 0.8,
+        "focusLevel": 0.8,
+        "confidenceScore": 0.7,
+        "stressIndicator": 0.3,
+        "mentalContext": "standalone-test"
+      },
+      "emotionalSignature": {
+        "primary": "focused",
+        "intensity": 0.8
+      },
+      "decayResistance": 0.7,
+      "temporalInsights": []
+    },
+    {
+      "id": "mem_1757361753987_062w005yz",
+      "timestamp": "2025-09-08T20:02:33.987Z",
+      "topic": "bulk-test",
+      "emotion": "focused",
+      "context": "Bulk test memory 3",
+      "importance": 8,
+      "tags": [
+        "bulk",
+        "batch-1"
+      ],
+      "cognitiveState": {
+        "timestamp": 1757361753987,
+        "emotionalIntensity": 0.8,
+        "focusLevel": 0.8,
+        "confidenceScore": 0.7,
+        "stressIndicator": 0.3,
+        "mentalContext": "standalone-test"
+      },
+      "emotionalSignature": {
+        "primary": "focused",
+        "intensity": 0.8
+      },
+      "decayResistance": 0.8,
+      "temporalInsights": [
+        "High-importance memory for enhanced retention"
+      ]
+    },
+    {
+      "id": "mem_1757361753996_pbjl9ybt4",
+      "timestamp": "2025-09-08T20:02:33.996Z",
+      "topic": "bulk-test",
+      "emotion": "focused",
+      "context": "Bulk test memory 4",
+      "importance": 9,
+      "tags": [
+        "bulk",
+        "batch-1"
+      ],
+      "cognitiveState": {
+        "timestamp": 1757361753996,
+        "emotionalIntensity": 0.8,
+        "focusLevel": 0.8,
+        "confidenceScore": 0.7,
+        "stressIndicator": 0.3,
+        "mentalContext": "standalone-test"
+      },
+      "emotionalSignature": {
+        "primary": "focused",
+        "intensity": 0.8
+      },
+      "decayResistance": 0.9,
+      "temporalInsights": [
+        "High-importance memory for enhanced retention"
+      ]
+    },
+    {
+      "id": "mem_1757361754007_pd3d3g06g",
+      "timestamp": "2025-09-08T20:02:34.007Z",
+      "topic": "bulk-test",
+      "emotion": "focused",
+      "context": "Bulk test memory 5",
+      "importance": 5,
+      "tags": [
+        "bulk",
+        "batch-1"
+      ],
+      "cognitiveState": {
+        "timestamp": 1757361754007,
+        "emotionalIntensity": 0.8,
+        "focusLevel": 0.8,
+        "confidenceScore": 0.7,
+        "stressIndicator": 0.3,
+        "mentalContext": "standalone-test"
+      },
+      "emotionalSignature": {
+        "primary": "focused",
+        "intensity": 0.8
+      },
+      "decayResistance": 0.5,
+      "temporalInsights": []
+    },
+    {
+      "id": "mem_1757361754012_mfra1pckg",
+      "timestamp": "2025-09-08T20:02:34.012Z",
+      "topic": "bulk-test",
+      "emotion": "focused",
+      "context": "Bulk test memory 6",
+      "importance": 6,
+      "tags": [
+        "bulk",
+        "batch-2"
+      ],
+      "cognitiveState": {
+        "timestamp": 1757361754012,
+        "emotionalIntensity": 0.8,
+        "focusLevel": 0.8,
+        "confidenceScore": 0.7,
+        "stressIndicator": 0.3,
+        "mentalContext": "standalone-test"
+      },
+      "emotionalSignature": {
+        "primary": "focused",
+        "intensity": 0.8
+      },
+      "decayResistance": 0.6,
+      "temporalInsights": []
+    },
+    {
+      "id": "mem_1757361754018_mtdu5clr9",
+      "timestamp": "2025-09-08T20:02:34.018Z",
+      "topic": "bulk-test",
+      "emotion": "focused",
+      "context": "Bulk test memory 7",
+      "importance": 7,
+      "tags": [
+        "bulk",
+        "batch-2"
+      ],
+      "cognitiveState": {
+        "timestamp": 1757361754018,
+        "emotionalIntensity": 0.8,
+        "focusLevel": 0.8,
+        "confidenceScore": 0.7,
+        "stressIndicator": 0.3,
+        "mentalContext": "standalone-test"
+      },
+      "emotionalSignature": {
+        "primary": "focused",
+        "intensity": 0.8
+      },
+      "decayResistance": 0.7,
+      "temporalInsights": []
+    },
+    {
+      "id": "mem_1757361754024_h6iok97im",
+      "timestamp": "2025-09-08T20:02:34.024Z",
+      "topic": "bulk-test",
+      "emotion": "focused",
+      "context": "Bulk test memory 8",
+      "importance": 8,
+      "tags": [
+        "bulk",
+        "batch-2"
+      ],
+      "cognitiveState": {
+        "timestamp": 1757361754024,
+        "emotionalIntensity": 0.8,
+        "focusLevel": 0.8,
+        "confidenceScore": 0.7,
+        "stressIndicator": 0.3,
+        "mentalContext": "standalone-test"
+      },
+      "emotionalSignature": {
+        "primary": "focused",
+        "intensity": 0.8
+      },
+      "decayResistance": 0.8,
+      "temporalInsights": [
+        "High-importance memory for enhanced retention"
+      ]
+    },
+    {
+      "id": "mem_1757361754030_xjt0brbvk",
+      "timestamp": "2025-09-08T20:02:34.030Z",
+      "topic": "bulk-test",
+      "emotion": "focused",
+      "context": "Bulk test memory 9",
+      "importance": 9,
+      "tags": [
+        "bulk",
+        "batch-3"
+      ],
+      "cognitiveState": {
+        "timestamp": 1757361754030,
+        "emotionalIntensity": 0.8,
+        "focusLevel": 0.8,
+        "confidenceScore": 0.7,
+        "stressIndicator": 0.3,
+        "mentalContext": "standalone-test"
+      },
+      "emotionalSignature": {
+        "primary": "focused",
+        "intensity": 0.8
+      },
+      "decayResistance": 0.9,
+      "temporalInsights": [
+        "High-importance memory for enhanced retention"
+      ]
+    },
+    {
+      "id": "mem_1757361754037_xb8xo38zt",
+      "timestamp": "2025-09-08T20:02:34.037Z",
+      "topic": "correlation",
+      "emotion": "curious",
+      "context": "First correlated memory",
+      "importance": 7,
+      "tags": [
+        "correlation",
+        "chain-1"
+      ],
+      "cognitiveState": {
+        "timestamp": 1757361754037,
+        "emotionalIntensity": 0.7,
+        "focusLevel": 0.8,
+        "confidenceScore": 0.7,
+        "stressIndicator": 0.3,
+        "mentalContext": "standalone-test"
+      },
+      "emotionalSignature": {
+        "primary": "curious",
+        "intensity": 0.7
+      },
+      "decayResistance": 0.7,
+      "temporalInsights": []
+    },
+    {
+      "id": "mem_1757361754040_t04usucm6",
+      "timestamp": "2025-09-08T20:02:34.040Z",
+      "topic": "correlation",
+      "emotion": "curious",
+      "context": "Second correlated memory",
+      "importance": 7,
+      "tags": [
+        "correlation",
+        "chain-2"
+      ],
+      "cognitiveState": {
+        "timestamp": 1757361754040,
+        "emotionalIntensity": 0.7,
+        "focusLevel": 0.8,
+        "confidenceScore": 0.7,
+        "stressIndicator": 0.3,
+        "mentalContext": "standalone-test"
+      },
+      "emotionalSignature": {
+        "primary": "curious",
+        "intensity": 0.7
+      },
+      "decayResistance": 0.7,
+      "temporalInsights": []
+    }
+  ],
+  "timeline": [
+    "mem_1757361753962_kepfievtn",
+    "mem_1757361753971_s2m4sj51r",
+    "mem_1757361753976_7gem7py0p",
+    "mem_1757361753978_02qyenoij",
+    "mem_1757361753982_k0dbqcyhf",
+    "mem_1757361753987_062w005yz",
+    "mem_1757361753996_pbjl9ybt4",
+    "mem_1757361754007_pd3d3g06g",
+    "mem_1757361754012_mfra1pckg",
+    "mem_1757361754018_mtdu5clr9",
+    "mem_1757361754024_h6iok97im",
+    "mem_1757361754030_xjt0brbvk",
+    "mem_1757361754037_xb8xo38zt",
+    "mem_1757361754040_t04usucm6"
+  ],
+  "last_updated": 1757361754040
+}

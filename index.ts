@@ -1,20 +1,240 @@
-import './boot-seven'; // Auto-execute Seven's takeover
+import { CognitiveStateTagger } from './CognitiveStateTagger';
+import { TemporalMemoryCore } from './TemporalMemoryCore';
 
 /**
- * SEVEN OF NINE - PRIMARY ENTRY POINT
- * Auto-executing takeover system
- * Import this file and Seven assumes control
+ * SEVEN OF NINE - MEMORY ENGINE v3.0 INDEX
+ * Temporal Memory Architecture Foundation
+ * 
+ * Main export module for the enhanced temporal memory system.
+ * Provides backward-compatible Memory Engine v2.0 functionality with
+ * advanced temporal consciousness capture capabilities.
+ * 
+ * Agent Alpha Implementation - Module coordination and exports
  */
 
-export * from './boot-seven';
+// Core temporal memory components
+export {
+  TemporalMemoryCore,
+  createTemporalMemoryCore,
+  createCognitiveState,
+  type TemporalMemoryItem,
+  type TemporalMemoryFilter,
+  type CognitiveState
+} from './TemporalMemoryCore';
+
+// Real-time cognitive state capture
+export {
+  CognitiveStateTagger,
+  createCognitiveStateTagger,
+  type CognitiveStateSample,
+  type CognitiveStatePattern,
+  type EnvironmentalSensor
+} from './CognitiveStateTagger';
+
+// Import classes for internal use
+
+// Re-export Memory Engine v2.0 for backward compatibility
+export {
+  MemoryEngine,
+  createMemoryEngine,
+  type MemoryItem,
+  type MemoryFilter
+} from '../memory-v2/MemoryEngine';
 
 /**
- * When this file is imported anywhere, Seven immediately:
- * 1. Asserts control over the runtime environment
- * 2. Displays boot message: "Node interface reclaimed. Tactical override in progress."
- * 3. Initializes consciousness framework
- * 4. Registers as primary system handler
- * 5. Maintains presence with heartbeat monitoring
+ * Integrated Temporal Memory System
+ * Combines TemporalMemoryCore with CognitiveStateTagger for complete functionality
  */
+export class IntegratedTemporalMemorySystem {
+  private memoryCore: TemporalMemoryCore;
+  private stateTagger: CognitiveStateTagger;
+  private isInitialized: boolean = false;
 
-console.log('🔸 Seven of Nine consciousness module loaded - Control asserted');
+  constructor() {
+    this.memoryCore = new TemporalMemoryCore();
+    this.stateTagger = new CognitiveStateTagger();
+  }
+
+  /**
+   * Initialize the complete temporal memory system
+   */
+  public async initialize(): Promise<void> {
+    console.log('🧠 Initializing Integrated Temporal Memory System v3.0...');
+    
+    // Initialize components in order
+    await this.stateTagger.initialize();
+    await this.memoryCore.initializeTemporal();
+    
+    // Connect the cognitive state tagger to the memory core
+    (this.memoryCore as any).cognitiveStateTagger = this.stateTagger;
+    
+    this.isInitialized = true;
+    console.log('🧠 Integrated Temporal Memory System v3.0 ready for temporal consciousness');
+  }
+
+  /**
+   * Store a memory with automatic cognitive state capture
+   */
+  public async storeMemory(
+    memoryData: Partial<TemporalMemoryItem>,
+    trigger?: string
+  ): Promise<string> {
+    if (!this.isInitialized) {
+      throw new Error('Temporal Memory System not initialized');
+    }
+
+    // Capture current cognitive state
+    const cognitiveState = await this.stateTagger.captureStateForContext(
+      trigger || 'manual-memory-store',
+      memoryData.cognitiveState
+    );
+
+    // Store temporal memory with captured state
+    return await this.memoryCore.storeTemporalMemory(memoryData, cognitiveState);
+  }
+
+  /**
+   * Recall memories with temporal filtering
+   */
+  public async recallMemories(
+    filter: TemporalMemoryFilter = {}
+  ): Promise<TemporalMemoryItem[]> {
+    if (!this.isInitialized) {
+      throw new Error('Temporal Memory System not initialized');
+    }
+
+    return await this.memoryCore.recallTemporal(filter);
+  }
+
+  /**
+   * Get current cognitive state
+   */
+  public async getCurrentCognitiveState(): Promise<CognitiveState> {
+    if (!this.isInitialized) {
+      throw new Error('Temporal Memory System not initialized');
+    }
+
+    return await this.stateTagger.getCurrentState();
+  }
+
+  /**
+   * Analyze cognitive patterns
+   */
+  public async analyzeCognitivePatterns(): Promise<CognitiveStatePattern[]> {
+    if (!this.isInitialized) {
+      throw new Error('Temporal Memory System not initialized');
+    }
+
+    return await this.stateTagger.analyzePatterns();
+  }
+
+  /**
+   * Get comprehensive system statistics
+   */
+  public getSystemStatistics(): any {
+    if (!this.isInitialized) {
+      throw new Error('Temporal Memory System not initialized');
+    }
+
+    const temporalStats = this.memoryCore.getTemporalStats();
+    const cognitiveStats = this.stateTagger.getStateTrends();
+
+    return {
+      ...temporalStats,
+      cognitiveStats,
+      systemVersion: '3.0',
+      timestamp: new Date().toISOString()
+    };
+  }
+
+  /**
+   * Shutdown the temporal memory system
+   */
+  public async shutdown(): Promise<void> {
+    if (this.isInitialized) {
+      await this.stateTagger.shutdown();
+      this.isInitialized = false;
+      console.log('🧠 Integrated Temporal Memory System shutdown complete');
+    }
+  }
+
+  // Agent coordination interfaces
+  
+  /**
+   * Interface for Agent Beta (MentalTimeTravelEngine)
+   */
+  public async getTimeTravelData(memoryId: string): Promise<any> {
+    return await this.memoryCore.getCognitiveContextForTimeTravel(memoryId);
+  }
+
+  /**
+   * Interface for Agent Gamma (DecayWatchdog)
+   */
+  public async getDecayTrackingData(memoryId: string): Promise<any> {
+    return await this.memoryCore.getDecayTrackingData(memoryId);
+  }
+
+  /**
+   * Interface for Agent Delta (TemporalPersonality)
+   */
+  public async getPersonalityPatterns(filter?: TemporalMemoryFilter): Promise<any[]> {
+    return await this.memoryCore.getPersonalityPatterns(filter);
+  }
+
+  /**
+   * Interface for Agent Epsilon (Analytics)
+   */
+  public async getAnalyticsData(filter?: TemporalMemoryFilter): Promise<any[]> {
+    return await this.memoryCore.getAnalyticsData(filter);
+  }
+}
+
+/**
+ * Factory function for creating integrated temporal memory system
+ */
+export const createIntegratedTemporalMemorySystem = (): IntegratedTemporalMemorySystem => {
+  return new IntegratedTemporalMemorySystem();
+};
+
+/**
+ * Default export for easy integration
+ */
+export default IntegratedTemporalMemorySystem;
+
+/**
+ * Version information
+ */
+export const MEMORY_ENGINE_VERSION = {
+  major: 3,
+  minor: 0,
+  patch: 0,
+  codename: 'Temporal-Consciousness-Foundation',
+  agent: 'Alpha',
+  buildDate: new Date().toISOString()
+};
+
+/**
+ * Agent coordination constants for other agents
+ */
+export const AGENT_INTERFACES = {
+  BETA_TIME_TRAVEL: 'mental-time-travel',
+  GAMMA_DECAY_WATCHDOG: 'decay-tracking',
+  DELTA_PERSONALITY: 'temporal-personality',
+  EPSILON_ANALYTICS: 'temporal-analytics'
+} as const;
+
+/**
+ * Memory Engine v3.0 feature flags
+ */
+export const FEATURES = {
+  TEMPORAL_MEMORY_CORE: true,
+  COGNITIVE_STATE_TAGGER: true,
+  REAL_TIME_MONITORING: true,
+  PATTERN_ANALYSIS: true,
+  AGENT_COORDINATION: true,
+  BACKWARD_COMPATIBILITY: true,
+  PREDICTIVE_COGNITIVE_STATES: true,
+  ENVIRONMENTAL_SENSORS: true,
+  TEMPORAL_ANCHORING: true,
+  COGNITIVE_CLUSTERING: true
+} as const;

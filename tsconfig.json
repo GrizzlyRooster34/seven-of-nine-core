@@ -27,6 +27,10 @@
     "examples",
     "scripts",
     "types",
+    "spark",
+    "db",
+    "consciousness-v4",
+    "tools",
     "*.ts"
   ],
   "exclude": [

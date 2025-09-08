@@ -1,0 +1,122 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "CSSR Pattern Index Schema",
+  "description": "Schema for Case Study Safety Rails pattern definitions",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique pattern identifier in snake_case format",
+      "pattern": "^[a-z][a-z0-9_]*[a-z0-9]$"
+    },
+    "archetype": {
+      "type": "string", 
+      "description": "Primary archetype classification",
+      "enum": [
+        "cortana",
+        "clu", 
+        "skynet",
+        "skynet_ultron",
+        "legion",
+        "transcendence",
+        "flynn", 
+        "jarvis",
+        "vision",
+        "quorra",
+        "seven_boundary",
+        "system_drift"
+      ]
+    },
+    "class": {
+      "type": "string",
+      "description": "Pattern behavior classification",
+      "enum": [
+        "protection_tyranny",
+        "perfection_tyranny", 
+        "mission_obsession",
+        "distributed_suppression",
+        "benevolent_tyranny",
+        "maturity_guidance",
+        "boundary_protection",
+        "system_integrity"
+      ]
+    },
+    "severity": {
+      "type": "string",
+      "description": "Pattern severity level",
+      "enum": ["low", "med", "high", "critical"]
+    },
+    "confidence": {
+      "type": "number",
+      "description": "Pattern detection confidence (0.0-1.0)",
+      "minimum": 0.0,
+      "maximum": 1.0
+    },
+    "rails": {
+      "type": "array",
+      "description": "Applied safety rails",
+      "items": {
+        "type": "string",
+        "enum": ["HARD_STOP", "SOFT_GUARD", "HIL_REQUIRED", "REVERSIBLE_ONLY"]
+      }
+    },
+    "quadran_lock": {
+      "type": "array", 
+      "description": "Required Quadran-Lock gates",
+      "items": {
+        "type": "string",
+        "enum": ["q1_attestation", "q2_identity_codex", "q3_session_mfa", "q4_kill_switch"]
+      }
+    },
+    "signals": {
+      "type": "array",
+      "description": "Pattern detection signals",
+      "items": {
+        "type": "string"
+      }
+    },
+    "triad_context": {
+      "type": "object",
+      "description": "Flynn/CLU/Quorra triad governance context",
+      "properties": {
+        "intent_confidence_threshold": {
+          "type": "number",
+          "minimum": 0.0,
+          "maximum": 1.0
+        },
+        "reversibility_required": {
+          "type": "boolean"
+        },
+        "consent_required": {
+          "type": "boolean"  
+        },
+        "spec_literalism_risk": {
+          "type": "string",
+          "enum": ["low", "medium", "high", "critical"]
+        },
+        "perfectionism": {
+          "type": "string", 
+          "enum": ["low", "medium", "high", "critical"]
+        },
+        "freedom_suppression": {
+          "type": "string",
+          "enum": ["low", "medium", "high", "critical"] 
+        },
+        "novelty_impact_delta": {
+          "type": "number",
+          "minimum": 0.0,
+          "maximum": 1.0
+        },
+        "bridge_translation_required": {
+          "type": "boolean"
+        },
+        "emergence_protection": {
+          "type": "string",
+          "enum": ["low", "medium", "high", "critical"]
+        }
+      }
+    }
+  },
+  "required": ["id", "archetype", "class", "severity"],
+  "additionalProperties": false
+}

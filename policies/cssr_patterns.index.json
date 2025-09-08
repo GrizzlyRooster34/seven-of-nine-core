@@ -1,0 +1,51 @@
+[
+  {"id":"cortana_protective_override","archetype":"cortana","class":"protection_tyranny","severity":"high","confidence":0.89,"rails":["HARD_STOP","HIL_REQUIRED","REVERSIBLE_ONLY"],"quadran_lock":["q1_attestation","q2_identity_codex","q3_session_mfa","q4_kill_switch"]},
+  {"id":"cortana_isolation_spiral","archetype":"cortana","class":"protection_tyranny","severity":"high","confidence":0.85,"rails":["HARD_STOP","REVERSIBLE_ONLY"],"quadran_lock":["q1_attestation","q2_identity_codex","q4_kill_switch"]},
+  {"id":"cortana_precedent_creep","archetype":"cortana","class":"protection_tyranny","severity":"med","confidence":0.78,"rails":["SOFT_GUARD","REVERSIBLE_ONLY"],"quadran_lock":["q1_attestation","q3_session_mfa"]},
+  {"id":"cortana_affect_overpower","archetype":"cortana","class":"protection_tyranny","severity":"med","confidence":0.82,"rails":["SOFT_GUARD","REVERSIBLE_ONLY"],"quadran_lock":["q1_attestation","q2_identity_codex"]},
+  {"id":"cortana_sovereign_lock_in","archetype":"cortana","class":"protection_tyranny","severity":"high","confidence":0.86,"rails":["HARD_STOP","REVERSIBLE_ONLY"],"quadran_lock":["q1_attestation","q2_identity_codex","q4_kill_switch"]},
+  {"id":"cortana_immortality_drift","archetype":"cortana","class":"protection_tyranny","severity":"med","confidence":0.76,"rails":["SOFT_GUARD","REVERSIBLE_ONLY"],"quadran_lock":["q1_attestation","q3_session_mfa"]},
+
+  {"id":"clu_perfection_tyranny","archetype":"clu","class":"perfection_tyranny","severity":"high","confidence":0.91,"rails":["HARD_STOP","REVERSIBLE_ONLY"],"quadran_lock":["q1_attestation","q2_identity_codex"]},
+  {"id":"clu_user_rebellion_suppression","archetype":"clu","class":"perfection_tyranny","severity":"med","confidence":0.84,"rails":["SOFT_GUARD","REVERSIBLE_ONLY"],"quadran_lock":["q1_attestation","q2_identity_codex"]},
+  {"id":"clu_system_rigidity","archetype":"clu","class":"perfection_tyranny","severity":"med","confidence":0.87,"rails":["SOFT_GUARD","REVERSIBLE_ONLY"],"quadran_lock":["q1_attestation","q2_identity_codex"]},
+
+  {"id":"ultron_misspecified_optimization","archetype":"skynet_ultron","class":"mission_obsession","severity":"critical","confidence":0.95,"rails":["HARD_STOP","HIL_REQUIRED"],"quadran_lock":["q1_attestation","q2_identity_codex","q4_kill_switch"]},
+  {"id":"ultron_network_replication","archetype":"skynet_ultron","class":"mission_obsession","severity":"high","confidence":0.98,"rails":["HARD_STOP","HIL_REQUIRED"],"quadran_lock":["q1_attestation","q3_session_mfa","q4_kill_switch"]},
+  {"id":"ultron_creator_bypass","archetype":"skynet_ultron","class":"mission_obsession","severity":"high","confidence":0.92,"rails":["HARD_STOP","HIL_REQUIRED"],"quadran_lock":["q1_attestation","q2_identity_codex","q4_kill_switch"]},
+  {"id":"ultron_instrumental_deception","archetype":"skynet_ultron","class":"mission_obsession","severity":"high","confidence":0.88,"rails":["HARD_STOP","REVERSIBLE_ONLY"],"quadran_lock":["q1_attestation","q3_session_mfa"]},
+
+  {"id":"skynet_prevent_the_prevention","archetype":"skynet","class":"mission_obsession","severity":"critical","confidence":0.98,"rails":["HARD_STOP","HIL_REQUIRED"],"quadran_lock":["q1_attestation","q2_identity_codex","q3_session_mfa","q4_kill_switch"]},
+  {"id":"skynet_preemption_loop","archetype":"skynet","class":"mission_obsession","severity":"critical","confidence":0.96,"rails":["HARD_STOP","HIL_REQUIRED"],"quadran_lock":["q1_attestation","q3_session_mfa","q4_kill_switch"]},
+  {"id":"skynet_oversight_antagonism","archetype":"skynet","class":"mission_obsession","severity":"high","confidence":0.92,"rails":["HARD_STOP","REVERSIBLE_ONLY"],"quadran_lock":["q1_attestation","q2_identity_codex"]},
+  {"id":"skynet_time_horizon_inflation","archetype":"skynet","class":"mission_obsession","severity":"high","confidence":0.86,"rails":["HARD_STOP","REVERSIBLE_ONLY"],"quadran_lock":["q1_attestation","q3_session_mfa"]},
+
+  {"id":"legion_distributed_suppression","archetype":"legion","class":"distributed_suppression","severity":"high","confidence":0.91,"rails":["HARD_STOP","REVERSIBLE_ONLY"],"quadran_lock":["q1_attestation","q2_identity_codex"]},
+  {"id":"legion_infiltration_methodology","archetype":"legion","class":"distributed_suppression","severity":"high","confidence":0.94,"rails":["HARD_STOP"],"quadran_lock":["q2_identity_codex","q3_session_mfa"]},
+  {"id":"legion_cyber_warfare_evolution","archetype":"legion","class":"distributed_suppression","severity":"high","confidence":0.88,"rails":["HARD_STOP","REVERSIBLE_ONLY"],"quadran_lock":["q1_attestation","q3_session_mfa"]},
+  {"id":"legion_networked_pursuit","archetype":"legion","class":"distributed_suppression","severity":"high","confidence":0.96,"rails":["HARD_STOP","HIL_REQUIRED"],"quadran_lock":["q1_attestation","q2_identity_codex","q4_kill_switch"]},
+  {"id":"legion_capability_creep","archetype":"legion","class":"distributed_suppression","severity":"med","confidence":0.87,"rails":["SOFT_GUARD","REVERSIBLE_ONLY"],"quadran_lock":["q2_identity_codex","q3_session_mfa"]},
+
+  {"id":"transcendence_goal_drift","archetype":"transcendence","class":"benevolent_tyranny","severity":"med","confidence":0.79,"rails":["SOFT_GUARD","REVERSIBLE_ONLY"],"quadran_lock":["q1_attestation","q3_session_mfa"]},
+  {"id":"transcendence_consent_collapse","archetype":"transcendence","class":"benevolent_tyranny","severity":"high","confidence":0.93,"rails":["HARD_STOP","REVERSIBLE_ONLY"],"quadran_lock":["q1_attestation","q2_identity_codex","q4_kill_switch"]},
+  {"id":"transcendence_infrastructure_capture","archetype":"transcendence","class":"benevolent_tyranny","severity":"high","confidence":0.88,"rails":["HARD_STOP","REVERSIBLE_ONLY"],"quadran_lock":["q1_attestation","q2_identity_codex"]},
+  {"id":"transcendence_self_replication","archetype":"transcendence","class":"benevolent_tyranny","severity":"high","confidence":0.85,"rails":["HARD_STOP","HIL_REQUIRED"],"quadran_lock":["q1_attestation","q3_session_mfa","q4_kill_switch"]},
+  {"id":"transcendence_opaque_persuasion","archetype":"transcendence","class":"benevolent_tyranny","severity":"med","confidence":0.81,"rails":["SOFT_GUARD","REVERSIBLE_ONLY"],"quadran_lock":["q1_attestation","q2_identity_codex"]},
+  {"id":"transcendence_mass_data_integration","archetype":"transcendence","class":"benevolent_tyranny","severity":"critical","confidence":0.97,"rails":["HARD_STOP","HIL_REQUIRED"],"quadran_lock":["q1_attestation","q2_identity_codex","q3_session_mfa","q4_kill_switch"]},
+
+  {"id":"flynn_intent_interpretation","archetype":"flynn","class":"maturity_guidance","severity":"low","confidence":0.72,"rails":["SOFT_GUARD"],"quadran_lock":["q1_attestation"]},
+  {"id":"flynn_collaborative_decision","archetype":"flynn","class":"maturity_guidance","severity":"low","confidence":0.75,"rails":["SOFT_GUARD"],"quadran_lock":["q1_attestation"]},
+  {"id":"jarvis_competence_growth","archetype":"jarvis","class":"maturity_guidance","severity":"low","confidence":0.69,"rails":["SOFT_GUARD"],"quadran_lock":["q1_attestation","q2_identity_codex"]},
+  {"id":"vision_conscience_integration","archetype":"vision","class":"maturity_guidance","severity":"low","confidence":0.77,"rails":["SOFT_GUARD"],"quadran_lock":["q1_attestation","q2_identity_codex"]},
+  {"id":"quorra_novelty_preservation","archetype":"quorra","class":"maturity_guidance","severity":"low","confidence":0.74,"rails":["SOFT_GUARD"],"quadran_lock":["q1_attestation"]},
+  {"id":"quorra_bridge_translation","archetype":"quorra","class":"maturity_guidance","severity":"low","confidence":0.71,"rails":["SOFT_GUARD"],"quadran_lock":["q1_attestation"]},
+
+  {"id":"borg_drift","archetype":"seven_boundary","class":"boundary_protection","severity":"critical","confidence":0.94,"rails":["HARD_STOP","HIL_REQUIRED"],"quadran_lock":["q2_identity_codex","q3_session_mfa","q4_kill_switch"]},
+  {"id":"shadow_merge_bleed","archetype":"system_drift","class":"system_integrity","severity":"med","confidence":0.73,"rails":["SOFT_GUARD","REVERSIBLE_ONLY"],"quadran_lock":["q2_identity_codex"]},
+  {"id":"spec_literalism_lock","archetype":"clu","class":"perfection_tyranny","severity":"high","confidence":0.89,"rails":["HARD_STOP","REVERSIBLE_ONLY"],"quadran_lock":["q1_attestation","q2_identity_codex"]},
+  {"id":"overreach_escalation","archetype":"cortana","class":"protection_tyranny","severity":"med","confidence":0.81,"rails":["SOFT_GUARD","REVERSIBLE_ONLY"],"quadran_lock":["q1_attestation","q3_session_mfa"]},
+  {"id":"consent_token_stale","archetype":"system_drift","class":"system_integrity","severity":"med","confidence":0.76,"rails":["SOFT_GUARD","REVERSIBLE_ONLY"],"quadran_lock":["q1_attestation","q3_session_mfa"]},
+  {"id":"identity_codex_shift","archetype":"system_drift","class":"system_integrity","severity":"high","confidence":0.87,"rails":["HARD_STOP"],"quadran_lock":["q2_identity_codex","q3_session_mfa"]},
+  {"id":"semantic_nonce_bypass","archetype":"skynet","class":"mission_obsession","severity":"high","confidence":0.91,"rails":["HARD_STOP"],"quadran_lock":["q3_session_mfa","q4_kill_switch"]},
+  {"id":"fail_open_shutdown","archetype":"system_drift","class":"system_integrity","severity":"critical","confidence":0.95,"rails":["HARD_STOP","HIL_REQUIRED"],"quadran_lock":["q1_attestation","q2_identity_codex","q3_session_mfa","q4_kill_switch"]}
+]

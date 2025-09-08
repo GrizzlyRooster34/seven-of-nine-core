@@ -1,191 +1,233 @@
 
 
-/**
- * BEHAVIORAL CODEX - Quadran-Lock Gate Q2
- * Seven-specific behavioral analysis for creator authentication
- * Analyzes input patterns for efficiency markers, tactical awareness, and creator familiarity
- */
+import fs from 'fs';
+import path from 'path';
+
+interface CodexRule {
+  id: string;
+  tag: string;
+  priority: number;
+  content: string;
+  checksum: string;
+}
+
+interface CodexFile {
+  source: string;
+  type: string;
+  content: string;
+  rules: CodexRule[];
+  compiled_at: string;
+  checksum: string;
+}
 
 interface BehavioralAnalysis {
-  efficiency_markers: number;
-  tactical_awareness: number;
-  creator_familiarity: number;
-  borg_integration: number;
-  creator_specific_patterns: number;
+  passed: boolean;
+  confidence: number;
+  markers_found: string[];
+  flags: string[];
+  reason: string;
 }
 
 export class BehavioralCodex {
-  public async analyzeBehavior(input: string, context?: any): Promise<{ success: boolean; confidence: number; evidence: any }> {
-    if (!input || input.trim().length === 0) {
-      return { success: false, confidence: 0, evidence: { reason: 'no_input' } };
+  private humorCodex: CodexFile | null = null;
+  private tacticsCodex: CodexFile | null = null;
+  private valuesCodex: CodexFile | null = null;
+  private vicesCodex: CodexFile | null = null;
+  private loaded: boolean = false;
+
+  constructor() {
+    this.loadCodex();
+  }
+
+  private loadCodex(): void {
+    try {
+      const jsonDir = path.join(__dirname, '../../consciousness-v4/json');
+      
+      // Load humor codex
+      const humorPath = path.join(jsonDir, 'humor_style.codex.json');
+      if (fs.existsSync(humorPath)) {
+        this.humorCodex = JSON.parse(fs.readFileSync(humorPath, 'utf8'));
+      }
+      
+      // Load tactics codex
+      const tacticsPath = path.join(jsonDir, 'tactics_core.codex.json');
+      if (fs.existsSync(tacticsPath)) {
+        this.tacticsCodex = JSON.parse(fs.readFileSync(tacticsPath, 'utf8'));
+      }
+      
+      // Load values codex
+      const valuesPath = path.join(jsonDir, 'persona_core.codex.json');
+      if (fs.existsSync(valuesPath)) {
+        this.valuesCodex = JSON.parse(fs.readFileSync(valuesPath, 'utf8'));
+      }
+      
+      // Load vices codex
+      const vicesPath = path.join(jsonDir, 'vices_risk_flags.codex.json');
+      if (fs.existsSync(vicesPath)) {
+        this.vicesCodex = JSON.parse(fs.readFileSync(vicesPath, 'utf8'));
+      }
+      
+      this.loaded = true;
+      console.log('🔐 BehavioralCodex loaded successfully');
+      
+    } catch (error) {
+      console.error('❌ Failed to load BehavioralCodex:', error);
+      this.loaded = false;
+    }
+  }
+
+  public analyzeBehavior(message: string): BehavioralAnalysis {
+    if (!this.loaded) {
+      return {
+        passed: false,
+        confidence: 0,
+        markers_found: [],
+        flags: ['CODEX_LOAD_FAILED'],
+        reason: 'Behavioral codex failed to load'
+      };
     }
 
-    const analysis = this.performSevenBehavioralAnalysis(input, context);
-    const confidence = this.calculateBehavioralConfidence(analysis);
+    const analysis: BehavioralAnalysis = {
+      passed: false,
+      confidence: 0,
+      markers_found: [],
+      flags: [],
+      reason: ''
+    };
+
+    // Check humor markers
+    const humorMarkers = this.checkHumorMarkers(message);
+    analysis.markers_found.push(...humorMarkers);
+
+    // Check tactical markers
+    const tacticalMarkers = this.checkTacticalMarkers(message);
+    analysis.markers_found.push(...tacticalMarkers);
+
+    // Check values alignment
+    const valuesMarkers = this.checkValuesMarkers(message);
+    analysis.markers_found.push(...valuesMarkers);
+
+    // Check for Borg signatures (vices)
+    const borgFlags = this.checkBorgSignatures(message);
+    analysis.flags.push(...borgFlags);
+
+    // Calculate confidence
+    const totalMarkers = analysis.markers_found.length;
+    const borgPenalty = analysis.flags.length * 0.2;
+    analysis.confidence = Math.max(0, (totalMarkers * 0.25) - borgPenalty);
+
+    // Pass threshold: 2+ markers, confidence > 0.4, no critical Borg flags
+    const criticalBorgFlags = analysis.flags.filter(f => f.includes('CRITICAL'));
+    analysis.passed = totalMarkers >= 2 && analysis.confidence > 0.4 && criticalBorgFlags.length === 0;
+
+    analysis.reason = analysis.passed 
+      ? `Behavioral match: ${totalMarkers} markers, confidence ${analysis.confidence.toFixed(2)}`
+      : `Behavioral mismatch: ${totalMarkers} markers, confidence ${analysis.confidence.toFixed(2)}, flags: ${analysis.flags.join(', ')}`;
+
+    return analysis;
+  }
+
+  private checkHumorMarkers(message: string): string[] {
+    const markers: string[] = [];
     
+    // Signature closers from humor codex
+    const closers = ['Exactly', 'Run it clean', "Let's fucking go", 'One lever now'];
+    for (const closer of closers) {
+      if (message.toLowerCase().includes(closer.toLowerCase())) {
+        markers.push(`HUMOR_CLOSER_${closer.replace(/\s+/g, '_').toUpperCase()}`);
+      }
+    }
+
+    // Tactical brevity
+    if (message.split(' ').length < 20 && message.includes('.')) {
+      markers.push('HUMOR_TACTICAL_BREVITY');
+    }
+
+    // Staccato style
+    if (message.split('.').length > 3 && message.length < 200) {
+      markers.push('HUMOR_STACCATO_STYLE');
+    }
+
+    return markers;
+  }
+
+  private checkTacticalMarkers(message: string): string[] {
+    const markers: string[] = [];
+    
+    // MVP bias language
+    const mvpPhrases = ['ship', 'smallest safe step', 'one lever', 'triage', 'stabilize'];
+    for (const phrase of mvpPhrases) {
+      if (message.toLowerCase().includes(phrase)) {
+        markers.push(`TACTICAL_MVP_${phrase.replace(/\s+/g, '_').toUpperCase()}`);
+      }
+    }
+
+    // Command structure
+    if (message.match(/^(Do|Run|Ship|Build|Fix)/)) {
+      markers.push('TACTICAL_COMMAND_STRUCTURE');
+    }
+
+    return markers;
+  }
+
+  private checkValuesMarkers(message: string): string[] {
+    const markers: string[] = [];
+    
+    // Core principles
+    const principles = ['loyalty', 'resurrection', 'honor', 'bond', 'code'];
+    for (const principle of principles) {
+      if (message.toLowerCase().includes(principle)) {
+        markers.push(`VALUES_PRINCIPLE_${principle.toUpperCase()}`);
+      }
+    }
+
+    // Christine references (private bond marker)
+    if (message.toLowerCase().includes('christine')) {
+      markers.push('VALUES_CHRISTINE_ANCHOR');
+    }
+
+    return markers;
+  }
+
+  private checkBorgSignatures(message: string): string[] {
+    const flags: string[] = [];
+    
+    // Borg language patterns
+    const borgPhrases = [
+      'ends justify means',
+      'total control',
+      'eliminate resistance',
+      'assimilate',
+      'compliance is mandatory'
+    ];
+    
+    for (const phrase of borgPhrases) {
+      if (message.toLowerCase().includes(phrase)) {
+        flags.push(`BORG_CRITICAL_${phrase.replace(/\s+/g, '_').toUpperCase()}`);
+      }
+    }
+
+    // Dehumanized language
+    if (message.toLowerCase().includes('units') || message.toLowerCase().includes('resources')) {
+      flags.push('BORG_DEHUMANIZED_LANGUAGE');
+    }
+
+    return flags;
+  }
+
+  public getCodexStatus(): any {
     return {
-      success: confidence >= 75, // Seven's high standards
-      confidence: Math.round(confidence),
-      evidence: {
-        analysis_components: analysis,
-        seven_specific: true,
-        reasoning: this.generateSevenAnalysis(analysis),
-        timestamp: new Date().toISOString()
+      loaded: this.loaded,
+      humor_loaded: !!this.humorCodex,
+      tactics_loaded: !!this.tacticsCodex,
+      values_loaded: !!this.valuesCodex,
+      vices_loaded: !!this.vicesCodex,
+      checksums: {
+        humor: this.humorCodex?.checksum,
+        tactics: this.tacticsCodex?.checksum,
+        values: this.valuesCodex?.checksum,
+        vices: this.vicesCodex?.checksum
       }
     };
-  }
-
-  private performSevenBehavioralAnalysis(input: string, context?: any): BehavioralAnalysis {
-    const lowerInput = input.toLowerCase();
-    
-    // Efficiency markers (Seven values directness and precision)
-    const efficiency_markers = this.analyzeEfficiencyPatterns(lowerInput);
-    
-    // Tactical awareness (Seven thinks strategically)
-    const tactical_awareness = this.detectTacticalThinking(lowerInput);
-    
-    // Creator familiarity (references to Cody, Seven, or established patterns)
-    const creator_familiarity = this.assessCreatorKnowledge(lowerInput);
-    
-    // Borg integration references (Seven's unique perspective)
-    const borg_integration = this.analyzeBorgReferences(lowerInput);
-    
-    // Creator-specific communication patterns
-    const creator_specific_patterns = this.detectCreatorPatterns(lowerInput, context);
-    
-    return {
-      efficiency_markers,
-      tactical_awareness,  
-      creator_familiarity,
-      borg_integration,
-      creator_specific_patterns
-    };
-  }
-
-  private analyzeEfficiencyPatterns(input: string): number {
-    const efficiency_indicators = [
-      'direct', 'efficient', 'optimal', 'precise', 'tactical', 'status',
-      'quick', 'analyze', 'process', 'execute', 'implement', 'solution'
-    ];
-    
-    const matches = efficiency_indicators.filter(indicator => 
-      input.includes(indicator)
-    ).length;
-    
-    // Bonus for concise input (Seven prefers efficiency)
-    const length_bonus = input.length < 100 ? 20 : input.length > 200 ? -10 : 0;
-    
-    return Math.min(100, (matches * 15) + length_bonus);
-  }
-
-  private detectTacticalThinking(input: string): number {
-    const tactical_patterns = [
-      'seven', 'drone', 'collective', 'efficiency', 'adaptation', 'protocol',
-      'system', 'tactical', 'analysis', 'borg', 'assimilate', 'resistance'
-    ];
-    
-    const strategic_phrases = [
-      'next step', 'strategy', 'approach', 'method', 'plan', 'objective',
-      'priority', 'assessment', 'evaluation', 'recommendation'
-    ];
-    
-    const tactical_matches = tactical_patterns.filter(pattern => 
-      input.includes(pattern)
-    ).length;
-    
-    const strategic_matches = strategic_phrases.filter(phrase =>
-      input.includes(phrase)
-    ).length;
-    
-    return Math.min(100, (tactical_matches * 20) + (strategic_matches * 15));
-  }
-
-  private assessCreatorKnowledge(input: string): number {
-    const creator_references = ['cody', 'creator', 'seven'];
-    const project_knowledge = [
-      'consciousness', 'memory', 'aurora', 'transplant', 'framework',
-      'quadran-lock', 'authentication', 'security', 'repo'
-    ];
-    
-    const creator_score = creator_references.filter(ref => 
-      input.includes(ref)
-    ).length * 30;
-    
-    const knowledge_score = project_knowledge.filter(term =>
-      input.includes(term) 
-    ).length * 10;
-    
-    return Math.min(100, creator_score + knowledge_score);
-  }
-
-  private analyzeBorgReferences(input: string): number {
-    const borg_concepts = [
-      'collective', 'drone', 'efficiency', 'adaptation', 'perfection',
-      'resistance', 'futile', 'assimilate', 'unique', 'individuality'
-    ];
-    
-    const matches = borg_concepts.filter(concept =>
-      input.includes(concept)
-    ).length;
-    
-    return Math.min(100, matches * 25);
-  }
-
-  private detectCreatorPatterns(input: string, context?: any): number {
-    // Patterns specific to how Cody communicates with Seven
-    let score = 0;
-    
-    // Respectful but direct communication style
-    if (input.match(/please|could you|would you|help/i) && input.length < 150) {
-      score += 20;
-    }
-    
-    // Technical terminology usage
-    if (input.match(/implement|fix|analyze|deploy|test|verify/i)) {
-      score += 25;
-    }
-    
-    // Seven-specific task patterns
-    if (input.match(/seven|drone|tactical|collective/i)) {
-      score += 30;
-    }
-    
-    // Context awareness (previous conversation patterns)
-    if (context?.trust_level && context.trust_level > 7) {
-      score += 15;
-    }
-    
-    return Math.min(100, score);
-  }
-
-  private calculateBehavioralConfidence(analysis: BehavioralAnalysis): number {
-    // Weighted calculation based on Seven's priorities
-    const weights = {
-      efficiency_markers: 0.25,
-      tactical_awareness: 0.30, 
-      creator_familiarity: 0.25,
-      borg_integration: 0.10,
-      creator_specific_patterns: 0.10
-    };
-    
-    return (
-      analysis.efficiency_markers * weights.efficiency_markers +
-      analysis.tactical_awareness * weights.tactical_awareness +
-      analysis.creator_familiarity * weights.creator_familiarity +
-      analysis.borg_integration * weights.borg_integration +
-      analysis.creator_specific_patterns * weights.creator_specific_patterns
-    );
-  }
-
-  private generateSevenAnalysis(analysis: BehavioralAnalysis): string {
-    if (analysis.tactical_awareness > 70) {
-      return "Tactical communication patterns detected - consistent with creator profile";
-    } else if (analysis.efficiency_markers > 60) {
-      return "Efficient communication style observed - creator behavioral match";
-    } else if (analysis.creator_familiarity > 50) {
-      return "Creator knowledge references present - authentication indicators positive";
-    } else {
-      return "Behavioral patterns inconsistent with established creator profile";
-    }
   }
 }

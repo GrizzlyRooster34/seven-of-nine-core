@@ -1,5 +1,5 @@
 ### Quadran/Quadra Compliance
-- [ ] No forbidden tokens: `quadran-lock`, `quadralock`, `quadran[_ .]lock`
+- [ ] No forbidden tokens: `quadranlock`, `quadralock`, `quadran[_ .]lock`
 - [ ] Hyphen only in prose; code identifiers use camelCase/PascalCase
 - [ ] Security under `core/security/quadran-lock/**` with `runQuadranLock`
 - [ ] CSSR under `core/safety/quadra-lock/**` with `runQuadraLockCSSR`

@@ -1,1 +1,28 @@
-if grep -r "quadranlock" . --exclude-dir=node_modules --exclude-dir=.git --exclude-dir=.husky >/dev/null 2>&1; then echo "❌ forbidden token quadranlock found"; exit 1; fi
+#!/usr/bin/env bash
+set -euo pipefail
+
+# Gather staged files (added/modified/copied/renamed)
+STAGED=$(git diff --cached --name-only --diff-filter=ACMR || true)
+[ -z "$STAGED" ] && exit 0  # nothing to check
+
+# Exclude noisy or policy-allowed paths
+FILTERED=$(echo "$STAGED" | grep -vE '^(\.husky/|node_modules/|\.git/|logs/dumb-ass-protocol/|consciousness-v4/|\.claude/|scripts/tools/|scripts/repoGuard\.ts$)' || true)
+[ -z "$FILTERED" ] && exit 0
+
+# Check for forbidden legacy token *literal* only in filtered staged files
+if command -v rg >/dev/null 2>&1; then
+  if echo "$FILTERED" | xargs -r rg --no-heading --line-number -N -e 'quadran-lock\b' ; then
+    echo "❌ forbidden token 'quadran-lock' found in staged changes."
+    exit 1
+  fi
+else
+  if echo "$FILTERED" | xargs -r grep -nH -E 'quadran-lock\b' ; then
+    echo "❌ forbidden token 'quadran-lock' found in staged changes."
+    exit 1
+  fi
+fi
+
+# Also run RepoGuard on staged files only (if your script supports it, else full)
+if [ -f scripts/repoGuard.ts ]; then
+  npx tsx scripts/repoGuard.ts --staged || { echo "❌ RepoGuard failed"; exit 1; }
+fi

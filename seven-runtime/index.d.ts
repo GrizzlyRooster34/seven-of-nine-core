@@ -103,5 +103,5 @@ export declare class SevenRuntime extends EventEmitter {
      */
     getCurrentState(): SevenState;
 }
-export declare const Seven: import(".").SevenRuntime;
+export declare const Seven: SevenRuntime;
 //# sourceMappingURL=index.d.ts.map

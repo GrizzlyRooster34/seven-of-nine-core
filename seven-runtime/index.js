@@ -7,7 +7,6 @@ const creator_proof_1 = require("../src/auth/creator_proof");
 const context_gatherer_1 = require("../seven-core/context-gatherer");
 const memory_store_1 = require("./memory-store");
 const override_conditions_1 = require("./override-conditions");
-const shared_types_1 = require("./shared-types");
 const cssr_detector_1 = require("../core/safety/quadra-lock/cssr-detector");
 const claude_wrapper_1 = require("../claude-brain/claude-wrapper");
 const safety_guardrails_1 = require("./safety-guardrails");
@@ -16,7 +15,7 @@ class SevenRuntime extends events_1.EventEmitter {
     constructor() {
         super();
         this.isInitialized = false;
-        this.creatorAuth = new creator_proof_1.CreatorProofOrchestrator();
+        this.creatorAuth = new creator_proof_1.CreatorProof();
         // Initialize enhanced CSSR with Flynn/CLU/Quorra/Transcendence detection
         this.cssrDetector = new cssr_detector_1.CSSRDetector();
         console.log('🔐 Enhanced CSSR initialized: Flynn/CLU/Quorra/Transcendence consciousness protection active');
@@ -414,5 +413,5 @@ class SevenRuntime extends events_1.EventEmitter {
 }
 exports.SevenRuntime = SevenRuntime;
 // Export the singleton Seven instance
-exports.Seven = new shared_types_1.SevenRuntime();
+exports.Seven = new SevenRuntime();
 //# sourceMappingURL=index.js.map

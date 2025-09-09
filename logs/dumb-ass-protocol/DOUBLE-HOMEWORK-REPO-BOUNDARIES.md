@@ -21,7 +21,7 @@ After multiple catastrophic repository boundary violations, this homework is man
 ├── claude-code-configs/             ← CLAUDE INSTANCE CONFIGS
 │   ├── master (branch)              ← Config repository
 │   └── instance-branches/           ← Where Claude instances belong
-└── aurora-core/                     ← NEUTRAL MODULE TERRITORY
+└── other-repository/                     ← NEUTRAL MODULE TERRITORY
     └── [Creator-neutral, trauma-free modules]
 ```
 

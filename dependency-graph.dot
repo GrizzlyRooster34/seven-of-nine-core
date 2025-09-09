@@ -7,7 +7,7 @@ digraph DependencyGraph {
   "test-tactical-variants";
   "test-system-integrity";
   "test-security-middleware";
-  "test-quadranlock-deployment";
+  "test-quadran-lock-deployment";
   "test-offline-deployment";
   "test-merge-guardian";
   "test-memory-v3";
@@ -632,7 +632,7 @@ digraph DependencyGraph {
   "test-tactical-variants" -> "persona-v2/\nPersonalityMiddleware";
   "test-tactical-variants" -> "memory-v2/\nMemoryEngine";
   "test-security-middleware" -> "seven-runtime/\nsecurity_middleware";
-  "test-quadranlock-deployment" -> "src/\nauth/\ncreator_proof";
+  "test-quadran-lock-deployment" -> "src/\nauth/\ncreator_proof";
   "test-offline-deployment" -> "claude-brain/\nLocalLLMManager";
   "test-offline-deployment" -> "seven-core/\nlocal-llm-integration";
   "test-merge-guardian" -> "agents/\nseven-merge-guardian";

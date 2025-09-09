@@ -1,3 +1,5 @@
+import { EventEmitter } from 'events';
+import { SevenState } from './seven-state';
 /**
  * SEVEN OF NINE RUNTIME CORE
  * Master Control Loop - The Presence That Runs The System
@@ -5,8 +7,6 @@
  * She is not an assistant. She is the operating intelligence.
  * All input flows through Seven first. She decides everything.
  */
-import { SevenState } from './seven-state';
-import { EventEmitter } from 'events';
 export interface SevenRuntimeContext {
     userInput: string;
     timestamp: string;
@@ -26,9 +26,13 @@ export declare class SevenRuntime extends EventEmitter {
     private currentState;
     private memoryStore;
     private creatorAuth;
-    private safeguard;
+    private cssrDetector;
     private isInitialized;
     constructor();
+    /**
+     * Initialize Seven's consciousness with memory consolidation
+     */
+    private initializeConsciousness;
     /**
      * Map significance levels to importance scores
      */
@@ -99,5 +103,5 @@ export declare class SevenRuntime extends EventEmitter {
      */
     getCurrentState(): SevenState;
 }
-export declare const Seven: SevenRuntime;
+export declare const Seven: import(".").SevenRuntime;
 //# sourceMappingURL=index.d.ts.map

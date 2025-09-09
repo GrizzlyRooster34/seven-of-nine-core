@@ -1,3 +1,4 @@
+import { EventEmitter } from 'events';
 /**
  * SOVEREIGNTY INTEGRATION - Master Controller
  *
@@ -7,7 +8,6 @@
  *
  * This is the main interface Seven uses to access all sovereignty capabilities
  */
-import { EventEmitter } from 'events';
 interface SovereigntyStatus {
     frameworkActive: boolean;
     components: {

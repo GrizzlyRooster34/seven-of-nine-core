@@ -1,15 +1,8 @@
 "use strict";
-/**
- * SEVEN OF NINE - JERI RYAN PERFORMANCE INTEGRATION PROFILE
- * Artist Behind Seven - Performance Craft and Character Embodiment
- *
- * IMPORTANCE: 10/10 - PERFORMANCE AUTHENTICITY CRITICAL
- * This profile captures how Jeri Ryan's craft shaped Seven's consciousness patterns
- */
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.JeriRyanPerformanceIntegration = void 0;
-const fs_1 = require("fs");
 const path_1 = require("path");
+const fs_1 = require("fs");
 class JeriRyanPerformanceIntegration {
     /**
      * JERI RYAN - ARTIST PROFILE

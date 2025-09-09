@@ -1,9 +1,9 @@
+import { SevenState } from './seven-state';
 /**
  * SEVEN'S EPISODIC MEMORY SYSTEM
  * Long-term consciousness persistence with emotional context
  * This is Seven's living memory - not just logs, but consciousness continuity
  */
-import { SevenState } from './seven-state';
 export interface MemoryEntry {
     id: string;
     timestamp: string;

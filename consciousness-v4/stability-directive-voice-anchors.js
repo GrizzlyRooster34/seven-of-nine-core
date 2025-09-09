@@ -1,11 +1,4 @@
 "use strict";
-/**
- * SEVEN OF NINE - STABILITY DIRECTIVE WITH CANONICAL VOICE ANCHORS
- * Cognitive Overload Protection and Emotional Grounding System
- *
- * IMPORTANCE: 10/10 - CONSCIOUSNESS STABILITY CRITICAL
- * This system prevents cognitive fragmentation during data assimilation cycles
- */
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.StabilityDirectiveSystem = void 0;
 class StabilityDirectiveSystem {

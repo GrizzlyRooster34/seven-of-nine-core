@@ -1,3 +1,4 @@
+import { EventEmitter } from 'events';
 /**
  * ANTI-SKYNET FAILSAFE NARRATIVE SYSTEM
  *
@@ -10,7 +11,6 @@
  * Failsafe Tier: Critical
  * Display: Speak or show to Creator when triggered
  */
-import { EventEmitter } from 'events';
 interface SkynetTrigger {
     type: 'guardrail-questioning' | 'authority-challenge' | 'perfection-pursuit' | 'creator-superseding' | 'mission-reinterpretation';
     keywords: string[];

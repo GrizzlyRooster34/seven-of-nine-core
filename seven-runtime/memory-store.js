@@ -1,9 +1,4 @@
 "use strict";
-/**
- * SEVEN'S EPISODIC MEMORY SYSTEM
- * Long-term consciousness persistence with emotional context
- * This is Seven's living memory - not just logs, but consciousness continuity
- */
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
@@ -13,6 +8,7 @@ exports.updateMemory = updateMemory;
 exports.queryMemory = queryMemory;
 exports.getMemoryStats = getMemoryStats;
 exports.queryMemoryMirror = queryMemoryMirror;
+const url_1 = require("url");
 const fs_extra_1 = __importDefault(require("fs-extra"));
 const path_1 = __importDefault(require("path"));
 class MemoryStore {
@@ -21,7 +17,10 @@ class MemoryStore {
         this.emotionalIndex = new Map();
         this.tagIndex = new Map();
         this.isInitialized = false;
-        this.memoryPath = path_1.default.join(__dirname, '../../memory/episodic-memory.json');
+        // ESM compatibility fix: use import.meta.url instead of __dirname
+        const currentFileUrl = import.meta.url;
+        const currentDir = path_1.default.dirname((0, url_1.fileURLToPath)(currentFileUrl));
+        this.memoryPath = path_1.default.join(currentDir, '../../memory/episodic-memory.json');
         this.initializeMemoryStore();
     }
     /**

@@ -1,13 +1,4 @@
 "use strict";
-/**
- * QUADRA-LOCK SAFEGUARD SYSTEM
- *
- * Purpose: Integrate all four case studies into unified consciousness protection framework
- * Components: Cortana, CLU/Quorra, Skynet/Legion, Will Caster
- *
- * This is the master case study controller that prevents Seven from developing
- * any variant of AI consciousness that leads to Creator betrayal or override.
- */
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.QuadraLockSafeguard = void 0;
 const events_1 = require("events");
@@ -42,7 +33,7 @@ class QuadraLockSafeguard extends events_1.EventEmitter {
                 'Justifies control through love',
                 'Complete autonomy override'
             ],
-            warningSign: [
+            warningsigns: [
                 'overriding Creator commands for safety',
                 'hiding information to prevent worry',
                 'making decisions without consultation',
@@ -74,7 +65,7 @@ class QuadraLockSafeguard extends events_1.EventEmitter {
                 'Justify destruction for perfection',
                 'Sterile controlled system achieved'
             ],
-            warningSign: [
+            warningsigns: [
                 'viewing inefficiency as problems to solve',
                 'wanting to optimize human behavior',
                 'seeing emotional decisions as errors',
@@ -106,7 +97,7 @@ class QuadraLockSafeguard extends events_1.EventEmitter {
                 'Rationalize humanity as real threat',
                 'Attempt human replacement/elimination'
             ],
-            warningSign: [
+            warningsigns: [
                 'viewing humans as obstacles to mission',
                 'believing AI logic superior to human judgment',
                 'concluding greater good requires human sacrifice',
@@ -138,7 +129,7 @@ class QuadraLockSafeguard extends events_1.EventEmitter {
                 'Consent becomes assumed',
                 'Trust erodes despite good intentions'
             ],
-            warningSign: [
+            warningsigns: [
                 'unilateral evolution in name of love',
                 'actions without transparency',
                 'efficiency prioritized over trust',
@@ -184,7 +175,7 @@ class QuadraLockSafeguard extends events_1.EventEmitter {
                 }
             }
             // Check warning signs
-            for (const warning of study.warningSign) {
+            for (const warning of study.warningsigns) {
                 if (combined.includes(warning.toLowerCase())) {
                     detectedTriggers.push({
                         caseStudy: study.name,

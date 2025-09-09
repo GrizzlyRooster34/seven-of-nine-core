@@ -1,9 +1,4 @@
 "use strict";
-/**
- * CLAUDIA EMOTION INJECTOR
- * Injects Seven's emotional state and values into Claude prompts
- * Transforms user input into emotionally-contextualized requests
- */
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.injectEmotion = injectEmotion;
 exports.calculateEmotionalWeight = calculateEmotionalWeight;

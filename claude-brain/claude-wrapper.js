@@ -1,18 +1,13 @@
 "use strict";
-/**
- * CLAUDE BRAIN WRAPPER
- * Interface to Claude API as Seven's external reasoning module
- * Claude is the hired brain - Seven chooses when to invoke it
- */
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.requestClaude = requestClaude;
 exports.shouldBypassClaude = shouldBypassClaude;
 exports.getClaudeInvocationPriority = getClaudeInvocationPriority;
+const context_gatherer_1 = require("../seven-core/context-gatherer");
 const interface_1 = require("./interface");
+const seven_state_1 = require("../seven-runtime/seven-state");
 const emotion_injector_1 = require("../seven-core/emotion-injector");
 const response_modulator_1 = require("../seven-core/response-modulator");
-const seven_state_1 = require("../seven-runtime/seven-state");
-const context_gatherer_1 = require("../seven-core/context-gatherer");
 async function requestClaude(userInput, systemStatus, config = {
     emotional_injection: true,
     response_modulation: true,

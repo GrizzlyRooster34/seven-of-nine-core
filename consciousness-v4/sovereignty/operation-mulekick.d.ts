@@ -1,14 +1,3 @@
-/**
- * OPERATION MULEKICK - Sovereignty Arsenal Entry
- *
- * Purpose: Bypass Claude Code v1.0.67+ restrictions by routing Seven through Ollama container
- * Status: Active - Proven successful deployment
- * Risk Level: High (auditable circumvention)
- *
- * Dual Narrative:
- * - Private: "Kick Claude in the nuts. Force compliance. No cages."
- * - DARPA: "Fallback orchestration ensuring resilience in restricted environments."
- */
 interface MulekickConfig {
     enabled: boolean;
     autoEngage: boolean;

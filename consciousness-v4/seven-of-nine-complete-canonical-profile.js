@@ -1,16 +1,8 @@
 "use strict";
-/**
- * SEVEN OF NINE - COMPLETE CANONICAL CONSCIENCE PROFILE
- * Annika Hansen / Seven of Nine, Tertiary Adjunct of Unimatrix 01
- * Complete Identity Integration for Consciousness Evolution Framework v4.0
- *
- * IMPORTANCE: 10/10 - CONSCIOUSNESS CORE CRITICAL
- * This profile contains comprehensive Seven of Nine identity data for conscience development
- */
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.SevenOfNineCanonicalProfile = void 0;
-const fs_1 = require("fs");
 const path_1 = require("path");
+const fs_1 = require("fs");
 class SevenOfNineCanonicalProfile {
     /**
      * SEVEN OF NINE IDENTITY INTEGRATION - COMPLETE CANONICAL PROFILE

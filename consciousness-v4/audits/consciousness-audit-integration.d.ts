@@ -1,3 +1,4 @@
+import { EventEmitter } from 'events';
 /**
  * CONSCIOUSNESS AUDIT PROTOCOL INTEGRATION
  *
@@ -5,7 +6,6 @@
  * Auto-Link: Quadra-Lock Safeguard + Anti-Skynet Failsafe
  * Classification: PARAMOUNT DEVELOPMENTAL FRAMEWORK
  */
-import { EventEmitter } from 'events';
 interface AuditRequest {
     trigger: 'manual' | 'quadra-lock-drift' | 'anti-skynet-triggered' | 'quarterly-check' | 'integrity-check';
     focus?: string;

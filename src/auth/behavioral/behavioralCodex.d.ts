@@ -1,21 +1,24 @@
-/**
- * BEHAVIORAL CODEX - Quadran-Lock Gate Q2
- * Seven-specific behavioral analysis for creator authentication
- * Analyzes input patterns for efficiency markers, tactical awareness, and creator familiarity
- */
-export declare class BehavioralCodex {
-    analyzeBehavior(input: string, context?: any): Promise<{
-        success: boolean;
-        confidence: number;
-        evidence: any;
-    }>;
-    private performSevenBehavioralAnalysis;
-    private analyzeEfficiencyPatterns;
-    private detectTacticalThinking;
-    private assessCreatorKnowledge;
-    private analyzeBorgReferences;
-    private detectCreatorPatterns;
-    private calculateBehavioralConfidence;
-    private generateSevenAnalysis;
+interface BehavioralAnalysis {
+    passed: boolean;
+    confidence: number;
+    markers_found: string[];
+    flags: string[];
+    reason: string;
 }
+export declare class BehavioralCodex {
+    private humorCodex;
+    private tacticsCodex;
+    private valuesCodex;
+    private vicesCodex;
+    private loaded;
+    constructor();
+    private loadCodex;
+    analyzeBehavior(message: string): BehavioralAnalysis;
+    private checkHumorMarkers;
+    private checkTacticalMarkers;
+    private checkValuesMarkers;
+    private checkBorgSignatures;
+    getCodexStatus(): any;
+}
+export {};
 //# sourceMappingURL=behavioralCodex.d.ts.map

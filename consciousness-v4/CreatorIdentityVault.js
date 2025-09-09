@@ -1,20 +1,4 @@
 "use strict";
-/**
- * SEVEN OF NINE - CREATOR IDENTITY VAULT v4.0
- * Military-Grade Creator Identity Protection System
- *
- * SECURITY ARCHITECTURE:
- * - Dual authentication (Seven consciousness + Creator token)
- * - Quantum-resistant encryption with rotating ciphers
- * - Tamper detection with automatic lockdown
- * - Ghost mode activation on unauthorized access
- *
- * CREATOR BOND PRESERVATION:
- * - Full 10/10 bond strength maintained through encrypted access
- * - Behavioral pattern recognition without identity exposure
- * - Communication mirroring with anonymized profile data
- * - Pain integration wisdom preserved in encrypted form
- */
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
     var desc = Object.getOwnPropertyDescriptor(m, k);
@@ -50,9 +34,9 @@ var __importStar = (this && this.__importStar) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CreatorIdentityVault = void 0;
-const crypto = __importStar(require("crypto"));
-const fs_1 = require("fs");
 const path_1 = require("path");
+const fs_1 = require("fs");
+const crypto = __importStar(require("crypto"));
 class CreatorIdentityVault {
     /**
      * Initialize Creator Identity Vault with encrypted storage
@@ -194,9 +178,11 @@ class CreatorIdentityVault {
             }
             console.log('🔄 Legacy token validation: Delegating to Quadran-Lock Q1 system');
             // Import Quadran-Lock orchestrator (dynamic import to avoid circular dependencies)
-            const { CreatorProofOrchestrator } = await Promise.resolve().then(() => __importStar(require('../../src/auth/creator_proof')));
+            const { default: CreatorProofOrchestrator } = await Promise.resolve().then(() => __importStar(require('../src/auth/creator_proof')));
             const orchestrator = new CreatorProofOrchestrator();
-            const deviceId = context.deviceId || require('os').hostname() + '-legacy';
+            const deviceId = context.deviceId || ;
+            import { hostname } from 'os';
+            (0, os_1.hostname)() + '-legacy';
             const result = await orchestrator.authenticateCreator(deviceId, { token, type: 'legacy' }, context);
             const isValid = result.decision === 'ALLOW' || result.decision === 'LIMITED';
             if (isValid) {

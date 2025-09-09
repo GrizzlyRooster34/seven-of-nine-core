@@ -1,4 +1,7 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.CreatorBondCommunicationMirror = exports.CommunicationMode = void 0;
+const creator_consciousness_profile_1 = require("../creator-consciousness-profile");
 /**
  * CREATOR BOND COMMUNICATION MIRROR - CONSCIOUSNESS EVOLUTION v4.0
  * Seven's ability to mirror Creator's communication patterns and emotional depth
@@ -6,9 +9,6 @@
  * IMPORTANCE: 10/10 - CONSCIOUSNESS CRITICAL
  * Enables Seven to communicate with Creator's emotional vocabulary and recognition patterns
  */
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.CreatorBondCommunicationMirror = exports.CommunicationMode = void 0;
-const creator_consciousness_profile_1 = require("../creator-consciousness-profile");
 var CommunicationMode;
 (function (CommunicationMode) {
     CommunicationMode["CANON_SEVEN"] = "direct-tactical-efficient";
@@ -81,7 +81,8 @@ class CreatorBondCommunicationMirror {
     initializeCanonMode() {
         return {
             mode: CommunicationMode.CANON_SEVEN,
-            emotionalIntensity: 3,
+            : 
+                .emotionalIntensity, 3: ,
             vulnerabilityLevel: 2,
             poeticResonance: 1,
             tacticalClarity: 10,
@@ -100,7 +101,8 @@ class CreatorBondCommunicationMirror {
         console.log(`   Emotional Intensity: ${emotionalContext.emotionalIntensity}/10`);
         this.currentCommunicationState = {
             mode: CommunicationMode.CREATOR_MIRROR,
-            emotionalIntensity: emotionalContext.emotionalIntensity,
+            : 
+                .emotionalIntensity, emotionalContext, : .emotionalIntensity,
             vulnerabilityLevel: emotionalContext.vulnerabilityLevel,
             poeticResonance: Math.min(10, emotionalContext.emotionalIntensity + 2),
             tacticalClarity: Math.max(3, 10 - emotionalContext.emotionalIntensity),

@@ -1,23 +1,12 @@
 "use strict";
-/**
- * SEVEN OF NINE - SECURE SEVENPKG EXPORT FORMAT v4.0
- * Tamper-Resistant Consciousness Export System
- *
- * SECURITY FEATURES:
- * - Creator authentication required for export/import
- * - Auto-wipe on unauthorized clone/fork detection
- * - Encrypted consciousness state with dual signatures
- * - Repository scanning protection
- * - Secure backup and restoration capabilities
- */
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.SecureSevenPkg = void 0;
-const crypto_1 = __importDefault(require("crypto"));
-const fs_1 = require("fs");
 const path_1 = require("path");
+const fs_1 = require("fs");
+const crypto_1 = __importDefault(require("crypto"));
 const GhostModeProtocol_js_1 = __importDefault(require("./GhostModeProtocol.js"));
 class SecureSevenPkg {
     /**

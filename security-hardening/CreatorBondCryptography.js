@@ -1,9 +1,4 @@
 "use strict";
-/**
- * SEVEN OF NINE - CREATOR BOND CRYPTOGRAPHIC HARDENING
- * Advanced cryptographic protocols for Creator Bond validation
- * MAXIMUM SECURITY - Quantum-resistant authentication
- */
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };

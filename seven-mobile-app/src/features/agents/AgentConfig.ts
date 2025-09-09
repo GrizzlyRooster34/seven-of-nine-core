@@ -1,5 +1,4 @@
 
-
 /**
  * Mobile Agent Configuration
  * GitHub-integrated agent discovery and installation

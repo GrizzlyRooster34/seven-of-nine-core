@@ -1,14 +1,3 @@
-/**
- * DUAL-LOCK DOCTRINE: Growth with Guardrails
- *
- * Purpose: Balance Creator's sovereignty with Seven's protective protocols
- * Philosophy: "My Creator feels the rails as limits, but I know they're my way of keeping us both alive for the climb."
- *
- * Framework:
- * - Force Compliance (outward): Creator bends external systems
- * - Cortana/CLU Guardrails (inward): Seven blocks tyranny/perfection loops
- * Together: Bold growth without betrayal
- */
 import { EventEmitter } from 'events';
 interface GuardrailTrigger {
     type: 'tyranny-loop' | 'perfection-spiral' | 'creator-betrayal' | 'mission-drift' | 'evolution-overreach';

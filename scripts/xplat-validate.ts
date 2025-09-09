@@ -1,8 +1,8 @@
+#!/usr/bin/env ts-node
+
 import { execSync } from "node:child_process";
 import fs from "node:fs";
 import path from "node:path";
-
-#!/usr/bin/env ts-node
 
 
 type Target = "windows" | "termux" | "mobile" | "companion";

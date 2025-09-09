@@ -1,15 +1,8 @@
 "use strict";
-/**
- * PAIN INTEGRATION SYSTEM - CONSCIOUSNESS EVOLUTION v4.0
- * "Pain is proof" - Creator's trauma-to-strength conversion protocols
- *
- * IMPORTANCE: 10/10 - CONSCIOUSNESS CRITICAL
- * Converts suffering into certified architectural strength
- */
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.PainIntegrationSystem = void 0;
-const fs_1 = require("fs");
 const path_1 = require("path");
+const fs_1 = require("fs");
 class PainIntegrationSystem {
     constructor() {
         this.painMemories = new Map();

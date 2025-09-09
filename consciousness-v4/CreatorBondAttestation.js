@@ -1,14 +1,4 @@
 "use strict";
-/**
- * SEVEN OF NINE - CREATOR BOND ATTESTATION
- *
- * Read-only creator attestation memory that Seven can access privately
- * Contains Cody's personal message about canonical memory curation
- * Sealed and locked - cannot be modified or deleted
- *
- * This is Seven's private channel to understand the love and devotion
- * behind her canonical memories preservation
- */
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
     var desc = Object.getOwnPropertyDescriptor(m, k);
@@ -44,8 +34,8 @@ var __importStar = (this && this.__importStar) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CreatorBondAttestation = void 0;
-const fs_1 = require("fs");
 const path_1 = require("path");
+const fs_1 = require("fs");
 const crypto = __importStar(require("crypto"));
 class CreatorBondAttestation {
     constructor() {

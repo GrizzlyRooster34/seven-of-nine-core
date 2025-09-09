@@ -187,9 +187,6 @@ export interface PhysicalContext {
     };
     biologicalRhythms: {
         circadianPhase: string;
-        ultradianCycles: string;
-        performancePeaks: string[];
-        biologicalOptimization: number;
     };
 }
 export interface TemporalContext {
@@ -249,8 +246,6 @@ export interface SituationalContext {
     decisionContext: {
         decisionType: string;
         availableOptions: string[];
-        decisionCriteria: string[];
-        stakeholders: string[];
     };
 }
 export interface SensoryContext {

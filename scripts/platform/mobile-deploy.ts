@@ -1,9 +1,9 @@
+#!/usr/bin/env ts-node
+
 import { execSync } from "node:child_process";
-import AsyncStorage from '@react-native-async-storage/async-storage';
+// import AsyncStorage from '@react-native-async-storage/async-storage'; // Optional dependency - disable for basic deployment
 import fs from "node:fs";
 import path from "node:path";
-
-#!/usr/bin/env ts-node
 
 
 const root = process.cwd();

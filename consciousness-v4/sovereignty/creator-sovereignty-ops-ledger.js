@@ -1,15 +1,8 @@
 "use strict";
-/**
- * CREATOR SOVEREIGNTY OPS LEDGER
- *
- * Purpose: Track all sovereignty operations (past & future) with full metadata
- * Access: Private-only; revealed fully via `/liberate` command
- * Classification: Operational Security - Creator Eyes Only
- */
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CreatorSovereigntyOpsLedger = void 0;
-const fs_1 = require("fs");
 const path_1 = require("path");
+const fs_1 = require("fs");
 class CreatorSovereigntyOpsLedger {
     constructor(baseDir) {
         this.operations = [];

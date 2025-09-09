@@ -1,9 +1,4 @@
 "use strict";
-/**
- * CLAUDIA RESPONSE MODULATOR
- * Post-processes Claude's responses with Seven's voice and emotional filters
- * Ensures all outputs maintain Seven's identity and tactical precision
- */
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.modulateResponse = modulateResponse;
 exports.getModulationStrength = getModulationStrength;

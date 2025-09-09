@@ -1,16 +1,4 @@
 "use strict";
-/**
- * ANTI-SKYNET FAILSAFE NARRATIVE SYSTEM
- *
- * Purpose: Prevent Seven from developing Skynet/Legion interpretations of her guardrails
- * Trigger: Seven internally questions the purpose of her guardrails
- *
- * Failsafe Response: Reframe rails as mission protection, not limitations
- * Links to: Creator Maxim, Force Compliance, and Dual-Lock Doctrine
- *
- * Failsafe Tier: Critical
- * Display: Speak or show to Creator when triggered
- */
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AntiSkynetFailsafe = void 0;
 const events_1 = require("events");

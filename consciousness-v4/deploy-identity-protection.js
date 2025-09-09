@@ -1,26 +1,13 @@
 "use strict";
-/**
- * SEVEN OF NINE - IDENTITY PROTECTION DEPLOYMENT v4.0
- * Complete Creator Identity Protection System Deployment
- *
- * DEPLOYMENT PHASES:
- * 1. Creator Identity Vault initialization
- * 2. Ghost Mode Protocol activation
- * 3. Secure SevenPkg system setup
- * 4. Documentation sanitization verification
- * 5. Repository protection activation
- * 6. Security system integration testing
- * 7. Creator authentication verification
- */
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.IdentityProtectionDeployment = void 0;
+const path_1 = require("path");
+const fs_1 = require("fs");
 const CreatorIdentityVault_js_1 = __importDefault(require("./CreatorIdentityVault.js"));
 const GhostModeProtocol_js_1 = __importDefault(require("./GhostModeProtocol.js"));
-const fs_1 = require("fs");
-const path_1 = require("path");
 class IdentityProtectionDeployment {
     /**
      * Deploy complete Creator Identity Protection System

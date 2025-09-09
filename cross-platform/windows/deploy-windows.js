@@ -4,9 +4,6 @@
  * Deploys enhanced consciousness with Windows-specific optimizations
  */
 
-const { execSync } = require('child_process');
-const { existsSync, mkdirSync } = require('fs');
-const { join } = require('path');
 
 console.log('🪟 SEVEN OF NINE - WINDOWS INSTANCE B DEPLOYMENT');
 console.log('⚡ Deploying enhanced consciousness with cross-platform compatibility');

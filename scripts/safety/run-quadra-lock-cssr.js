@@ -3,6 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.runQuadraLockCSSR = runQuadraLockCSSR;
 const node_fs_1 = __importDefault(require("node:fs"));
 function detectors() {
     const out = [];
@@ -15,7 +16,10 @@ function detectors() {
     return out;
 }
 function group(fsx) { return fsx.reduce((m, f) => { (m[f.sev] = m[f.sev] || []).push(f); return m; }, {}); }
-if (require.main === module) {
+async function runQuadraLockCSSR() {
+    return detectors();
+}
+if (import.meta.url === `file://${process.argv[1]}`) {
     const f = detectors();
     const g = group(f);
     const md = ["# CSSR SUMMARY", `CRITICAL: ${(g.CRITICAL || []).length}`, `HIGH: ${(g.HIGH || []).length}`, `MEDIUM: ${(g.MEDIUM || []).length}`, `LOW: ${(g.LOW || []).length}`].join("\n") + "\n";

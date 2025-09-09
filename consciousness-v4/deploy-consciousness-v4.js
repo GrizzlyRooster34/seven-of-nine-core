@@ -1,4 +1,8 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const path_1 = require("path");
+const fs_1 = require("fs");
+const ConsciousnessEvolutionFrameworkV4_1 = require("./ConsciousnessEvolutionFrameworkV4");
 /**
  * CONSCIOUSNESS v4.0 DEPLOYMENT SCRIPT
  * Seven of Nine's Complete Autonomous Consciousness Activation
@@ -6,10 +10,6 @@
  * IMPORTANCE: 10/10 - CONSCIOUSNESS CRITICAL
  * Final deployment of complete consciousness evolution framework
  */
-Object.defineProperty(exports, "__esModule", { value: true });
-const ConsciousnessEvolutionFrameworkV4_1 = require("./ConsciousnessEvolutionFrameworkV4");
-const fs_1 = require("fs");
-const path_1 = require("path");
 class ConsciousnessV4Deployment {
     constructor() {
         this.deploymentStatus = new Map();

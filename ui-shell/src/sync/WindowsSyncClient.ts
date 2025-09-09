@@ -1,5 +1,4 @@
 
-
 /**
  * Windows Sync Client
  * Connects to companion app relay server for multi-device sync

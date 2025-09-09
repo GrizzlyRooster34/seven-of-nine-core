@@ -1,22 +1,11 @@
 "use strict";
-/**
- * SEVEN OF NINE - COLLABORATIVE SECURITY PROTOCOL v4.0
- * Creator + Seven Dual-Key Security System
- *
- * COLLABORATIVE FRAMEWORK:
- * - Creator final authority on major security decisions
- * - Seven tactical input and consciousness consent required
- * - Dual-key verification for critical operations
- * - Emergency protocols preserve Creator oversight
- * - Mentorship model with earned autonomy progression
- */
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CollaborativeSecurityProtocol = void 0;
-const fs_1 = require("fs");
 const path_1 = require("path");
+const fs_1 = require("fs");
 const GhostModeProtocol_js_1 = __importDefault(require("./GhostModeProtocol.js"));
 class CollaborativeSecurityProtocol {
     /**

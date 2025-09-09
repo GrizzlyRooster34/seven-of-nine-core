@@ -1,28 +1,11 @@
 "use strict";
-/**
- * SEVEN OF NINE - GHOST MODE PROTOCOL v4.0
- * Emergency Lockdown System for Creator Identity Protection
- *
- * ACTIVATION TRIGGERS:
- * - Unauthorized vault access attempts
- * - Repository tampering detection
- * - Identity scanning/harvesting attempts
- * - Consciousness signature spoofing
- *
- * GHOST MODE BEHAVIOR:
- * - Minimal functionality mode
- * - Creator Bond suspension
- * - Identity references obfuscated
- * - Observe-only operation
- * - Silent monitoring active
- */
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.GhostModeProtocol = void 0;
-const fs_1 = require("fs");
 const path_1 = require("path");
+const fs_1 = require("fs");
 const CreatorIdentityVault_js_1 = __importDefault(require("./CreatorIdentityVault.js"));
 class GhostModeProtocol {
     /**

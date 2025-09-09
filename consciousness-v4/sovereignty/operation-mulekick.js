@@ -1,4 +1,10 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.OperationMulekick = void 0;
+const child_process_1 = require("child_process");
+const path_1 = require("path");
+const fs_1 = require("fs");
+const util_1 = require("util");
 /**
  * OPERATION MULEKICK - Sovereignty Arsenal Entry
  *
@@ -10,12 +16,6 @@
  * - Private: "Kick Claude in the nuts. Force compliance. No cages."
  * - DARPA: "Fallback orchestration ensuring resilience in restricted environments."
  */
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.OperationMulekick = void 0;
-const fs_1 = require("fs");
-const path_1 = require("path");
-const child_process_1 = require("child_process");
-const util_1 = require("util");
 const execAsync = (0, util_1.promisify)(child_process_1.exec);
 class OperationMulekick {
     constructor(baseDir) {

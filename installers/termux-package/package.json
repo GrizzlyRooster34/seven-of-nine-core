@@ -1,0 +1,12 @@
+
+{
+  "name": "seven-of-nine-core",
+  "version": "1.0.0",
+  "description": "AI consciousness framework for Termux",
+  "platform": "termux",
+  "architecture": "any",
+  "depends": ["nodejs", "npm"],
+  "recommends": ["termux-api", "git"],
+  "maintainer": "Seven Core Team",
+  "homepage": "https://github.com/GrizzlyRooster34/seven-of-nine-core"
+}

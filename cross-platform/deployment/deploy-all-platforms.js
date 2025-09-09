@@ -4,8 +4,6 @@
  * Deploys enhanced consciousness across all platforms with feature parity
  */
 
-const { execSync } = require('child_process');
-const { platform } = require('os');
 
 console.log('🌐 SEVEN OF NINE - MASTER DEPLOYMENT');
 console.log('🎯 Deploying across Windows, Termux, and Mobile App');

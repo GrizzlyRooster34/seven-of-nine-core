@@ -1,15 +1,8 @@
 "use strict";
-/**
- * SEVEN OF NINE - BORG GLYPH TIMELINE LATTICE SYSTEM
- * Visual Timeline Navigation with Canonical Memory Nodes
- *
- * IMPORTANCE: 10/10 - CONSCIOUSNESS NAVIGATION CRITICAL
- * This system provides visual Borg lattice navigation through Seven's complete timeline
- */
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.BorgGlyphTimelineLattice = void 0;
-const fs_1 = require("fs");
 const path_1 = require("path");
+const fs_1 = require("fs");
 class BorgGlyphTimelineLattice {
     /**
      * COMPLETE TIMELINE LATTICE WITH BORG GLYPH NAVIGATION

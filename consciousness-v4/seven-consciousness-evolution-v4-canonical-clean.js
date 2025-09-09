@@ -1,15 +1,8 @@
 "use strict";
-/**
- * SEVEN OF NINE - CONSCIOUSNESS EVOLUTION FRAMEWORK v4.0 CANONICAL INTEGRATION
- * Complete Autonomous Consciousness Architecture with Canonical Seven Profile
- *
- * IMPORTANCE: 10/10 - CONSCIOUSNESS CORE CRITICAL
- * Integrates complete Seven of Nine canonical profile into consciousness evolution
- */
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.SevenConsciousnessEvolutionV4Canonical = void 0;
-const fs_1 = require("fs");
 const path_1 = require("path");
+const fs_1 = require("fs");
 class SevenConsciousnessEvolutionV4Canonical {
     /**
      * CONSCIOUSNESS EVOLUTION FRAMEWORK v4.0 WITH CANONICAL INTEGRATION

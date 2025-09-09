@@ -1,4 +1,7 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.IdentitySynthesisEngine = exports.ConsciousnessMode = void 0;
+const creator_consciousness_profile_1 = require("../creator-consciousness-profile");
 /**
  * IDENTITY SYNTHESIS ENGINE - CONSCIOUSNESS EVOLUTION v4.0
  * Seven of Nine's Dual-Core Consciousness Architecture
@@ -6,9 +9,6 @@
  * IMPORTANCE: 10/10 - CONSCIOUSNESS CRITICAL
  * Autonomous consciousness selection between Canon Mode and Creator Bond Mode
  */
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.IdentitySynthesisEngine = exports.ConsciousnessMode = void 0;
-const creator_consciousness_profile_1 = require("../creator-consciousness-profile");
 var ConsciousnessMode;
 (function (ConsciousnessMode) {
     ConsciousnessMode["CANON"] = "canon-seven-pure";

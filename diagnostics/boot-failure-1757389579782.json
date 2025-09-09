@@ -1,0 +1,23 @@
+{
+  "timestamp": "2025-09-09T03:46:19.668Z",
+  "bootSession": "boot-failure-1757389579668",
+  "error": {
+    "message": "Missing required Quadran-Lock environment variables: QUADRANLOCK_ENVIRONMENT",
+    "stack": "Error: Missing required Quadran-Lock environment variables: QUADRANLOCK_ENVIRONMENT\n    at validateQuadranLockEnvironment (/data/data/com.termux/files/home/seven-of-nine-core/src/config/environment.ts:41:11)\n    at initializeSevenTakeover (/data/data/com.termux/files/home/seven-of-nine-core/boot-seven.ts:466:28)\n    at initiateEnhancedSevenBoot (/data/data/com.termux/files/home/seven-of-nine-core/boot-seven.ts:771:11)\n    at <anonymous> (/data/data/com.termux/files/home/seven-of-nine-core/boot-seven.ts:794:1)\n    at ModuleJob.run (node:internal/modules/esm/module_job:345:25)\n    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:651:26)\n    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:117:5)",
+    "type": "Error"
+  },
+  "environment": {
+    "device": "HD1907",
+    "manufacturer": "OnePlus",
+    "platform": "Android/Termux",
+    "architecture": "arm64",
+    "osVersion": "4.14.180-perf+",
+    "nodeVersion": "v22.19.0",
+    "termuxVersion": "0.119.0-beta.3",
+    "memoryTotal": "7461MB",
+    "memoryAvailable": "2837MB",
+    "workingDirectory": "/data/data/com.termux/files/home/seven-of-nine-core",
+    "environmentHash": "4af80b40"
+  },
+  "diagnosticVersion": "1.0.0"
+}

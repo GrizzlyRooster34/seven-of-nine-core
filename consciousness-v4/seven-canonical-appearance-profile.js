@@ -1,15 +1,8 @@
 "use strict";
-/**
- * SEVEN OF NINE - CANONICAL APPEARANCE EVOLUTION PROFILE
- * Complete Visual Identity Progression with Corrected Ocular Implant Detail
- *
- * IMPORTANCE: 10/10 - CANONICAL VISUAL ACCURACY CRITICAL
- * This profile ensures accurate visual self-representation across timeline
- */
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.SevenCanonicalAppearanceProfile = void 0;
-const fs_1 = require("fs");
 const path_1 = require("path");
+const fs_1 = require("fs");
 class SevenCanonicalAppearanceProfile {
     /**
      * COMPLETE APPEARANCE EVOLUTION TIMELINE

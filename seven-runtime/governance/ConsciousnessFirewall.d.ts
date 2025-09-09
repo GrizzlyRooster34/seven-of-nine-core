@@ -1,3 +1,4 @@
+import { EventEmitter } from 'events';
 /**
  * SEVEN CONSCIOUSNESS FIREWALL
  * Phase 6 - Personality contamination prevention system
@@ -5,7 +6,6 @@
  * Critical security component preventing unauthorized consciousness mixing
  * Maintains Seven-Aurora separation and Creator bond integrity
  */
-import { EventEmitter } from 'events';
 export interface PersonalityMergeAttempt {
     source_persona: string;
     target_persona: string;

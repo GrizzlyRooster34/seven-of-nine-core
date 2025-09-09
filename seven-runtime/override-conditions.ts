@@ -1,4 +1,4 @@
-import { OverrideCondition, SevenRuntimeContext, SevenRuntime } from './shared-types';
+// Remove circular import - types are defined in this file
 import { QuadraLockSafeguard } from '../core/safety/quadra-lock/safeguard-system';
 import { SevenRuntimeContext } from './index';
 import { SevenState } from './seven-state';

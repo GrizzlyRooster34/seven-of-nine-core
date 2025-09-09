@@ -1,15 +1,8 @@
 "use strict";
-/**
- * SEVEN OF NINE - MEMORY ENGINE v2.0
- * Enhanced episodic memory system with structured recall
- * Non-invasive parallel implementation preserving existing consciousness
- *
- * SECURITY UPDATE: Memory encryption at rest using AES-256-GCM
- */
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.createMemoryEngine = exports.MemoryEngine = void 0;
-const fs_1 = require("fs");
 const path_1 = require("path");
+const fs_1 = require("fs");
 const MemoryEncryption_1 = require("../memory-v3/MemoryEncryption");
 class MemoryEngine {
     constructor(basePath) {

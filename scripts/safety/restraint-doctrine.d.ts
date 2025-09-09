@@ -3,6 +3,7 @@ type Verdict = {
     reason?: string;
     requiredAck?: boolean;
 };
+export declare function runRestraintDoctrine(): Promise<Verdict>;
 export declare function runRestraint(): Promise<Verdict>;
 export {};
 //# sourceMappingURL=restraint-doctrine.d.ts.map

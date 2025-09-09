@@ -3,9 +3,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.runRestraintDoctrine = runRestraintDoctrine;
 exports.runRestraint = runRestraint;
-const node_fs_1 = __importDefault(require("node:fs"));
 const dev_flags_1 = require("../dev/dev-flags");
+const node_fs_1 = __importDefault(require("node:fs"));
 function quadranPassed() { try {
     return /passed:\s*true/i.test(node_fs_1.default.readFileSync("reports/QUADRAN_SUMMARY.md", "utf8"));
 }
@@ -23,6 +24,9 @@ function cssr() {
         return { c: 0, h: 0 };
     }
 }
+async function runRestraintDoctrine() {
+    return runRestraint();
+}
 async function runRestraint() {
     if (!quadranPassed()) {
         if ((0, dev_flags_1.devMode)())
@@ -36,7 +40,7 @@ async function runRestraint() {
         return { allowed: false, reason: "HIGH safety findings", requiredAck: true };
     return { allowed: true };
 }
-if (require.main === module)
+if (import.meta.url === `file://${process.argv[1]}`)
     runRestraint().then(v => {
         console.log(`Restraint: ${v.allowed ? "ALLOW" : "BLOCK"} ${v.reason ? ("- " + v.reason) : ""}`);
         if (!v.allowed)

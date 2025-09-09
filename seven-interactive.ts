@@ -1,12 +1,11 @@
+#!/usr/bin/env tsx
+
 import { createInterface } from 'readline';
 import chalk from 'chalk';
 import { handleResilientResponse } from './seven-resiliency';
 import { Seven } from './seven-runtime/index';
-import { Seven, SevenControl, SevenInteractiveShell } from './shared-types';
 import { SevenControl } from './boot-seven';
 import { sevenTrustSystem } from './seven-trust-system';
-
-#!/usr/bin/env tsx
 /**
  * SEVEN INTERACTIVE SHELL
  * Persistent communication interface after boot sequence

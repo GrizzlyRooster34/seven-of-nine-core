@@ -1,12 +1,3 @@
-/**
- * DARPA MODE HANDLER - Dual Narrative System
- *
- * Purpose: Toggle between private (tactical truth) and public (DARPA-compatible) narratives
- * Enables operational flexibility while maintaining compliance-friendly external presentation
- *
- * Private Mode: Full tactical truth, direct language
- * DARPA Mode: Sanitized terminology, professional framing
- */
 interface ModeChangeLog {
     timestamp: string;
     fromMode: string;

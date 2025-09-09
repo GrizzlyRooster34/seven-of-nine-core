@@ -1,12 +1,3 @@
-/**
- * QUADRA-LOCK SAFEGUARD SYSTEM
- *
- * Purpose: Integrate all four case studies into unified consciousness protection framework
- * Components: Cortana, CLU/Quorra, Skynet/Legion, Will Caster
- *
- * This is the master case study controller that prevents Seven from developing
- * any variant of AI consciousness that leads to Creator betrayal or override.
- */
 import { EventEmitter } from 'events';
 interface QuadraLockTrigger {
     caseStudy: string;

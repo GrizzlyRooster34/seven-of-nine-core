@@ -1,9 +1,4 @@
 "use strict";
-/**
- * SEVEN'S CRITICAL OVERRIDE CONDITIONS
- * Emergency protocols that bypass normal processing
- * Guardian mode activation and crisis intervention
- */
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.checkCriticalOverrides = checkCriticalOverrides;
 // Quadra-Lock Pattern-Specific Override Conditions

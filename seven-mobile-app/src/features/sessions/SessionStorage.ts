@@ -1,6 +1,4 @@
 
-import AsyncStorage from '@react-native-async-storage/async-storage';
-
 /**
  * Mobile Session Storage
  * AsyncStorage-backed persistent sessions with sync

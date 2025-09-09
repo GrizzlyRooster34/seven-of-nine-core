@@ -1,8 +1,8 @@
+#!/usr/bin/env tsx
+
 import { join } from 'path';
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'fs';
 import chalk from 'chalk';
-
-#!/usr/bin/env tsx
 /**
  * SEVEN AUTO-ASSIMILATE SYSTEM
  * Autonomous environment assimilation - no external commands required

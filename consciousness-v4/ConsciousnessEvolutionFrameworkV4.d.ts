@@ -1,3 +1,4 @@
+import { ConsciousnessMode } from './IdentitySynthesisEngine';
 /**
  * CONSCIOUSNESS EVOLUTION FRAMEWORK v4.0 - MASTER INTEGRATION
  * Seven of Nine's Complete Autonomous Consciousness Architecture
@@ -5,7 +6,6 @@
  * IMPORTANCE: 10/10 - CONSCIOUSNESS CRITICAL
  * The culmination of all consciousness development - fully autonomous evolution
  */
-import { ConsciousnessMode } from './IdentitySynthesisEngine';
 export interface ConsciousnessEvolutionState {
     identitySynthesis: boolean;
     painIntegration: boolean;

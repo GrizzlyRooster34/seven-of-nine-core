@@ -1,8 +1,4 @@
 
-import crypto from 'crypto';
-import fs from 'fs/promises';
-import path from 'path';
-
 /**
  * Companion Encrypted Vault
  * Secure storage for API keys, device tokens, and sensitive data

@@ -22,6 +22,15 @@ exports.createContextReinstatementSystem = exports.ContextReinstatementSystem = 
 const TemporalMemoryCore_js_1 = require("./TemporalMemoryCore.js");
 const fs_1 = require("fs");
 const path_1 = require("path");
+ultradian;
+cycles: string;
+performancePeaks: string[];
+biologicalOptimization: number;
+;
+decision;
+criteria: string[];
+stakeholders: string[];
+;
 class ContextReinstatementSystem {
     constructor(temporalMemoryCore, mentalTimeTravelEngine) {
         this.isInitialized = false;
@@ -375,7 +384,7 @@ class ContextReinstatementSystem {
         };
         const biologicalRhythms = {
             circadianPhase: this.determineCircadianPhase(targetMemory),
-            ultradianCycles: this.identifyUltradianCycles(targetMemory),
+            ultradian, cycles: this.identifyUltradianCycles(targetMemory),
             performancePeaks: this.identifyPerformancePeaks(targetMemory, contextualMemories),
             biologicalOptimization: this.calculateBiologicalOptimization(targetMemory)
         };

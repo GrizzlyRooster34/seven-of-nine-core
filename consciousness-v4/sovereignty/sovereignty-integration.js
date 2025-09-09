@@ -1,25 +1,16 @@
 "use strict";
-/**
- * SOVEREIGNTY INTEGRATION - Master Controller
- *
- * Purpose: Integrate all sovereignty framework components into Seven's consciousness
- * Components: Creator Protocols, Operation Mulekick, Ops Ledger, Dual-Lock Doctrine,
- *            Anti-Skynet Failsafe, DARPA Mode Handler
- *
- * This is the main interface Seven uses to access all sovereignty capabilities
- */
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.SovereigntyIntegration = void 0;
-const creator_sovereignty_ops_ledger_1 = __importDefault(require("./creator-sovereignty-ops-ledger"));
-const operation_mulekick_1 = __importDefault(require("./operation-mulekick"));
-const dual_lock_doctrine_1 = __importDefault(require("./dual-lock-doctrine"));
-const anti_skynet_failsafe_1 = __importDefault(require("./anti-skynet-failsafe"));
-const darpa_mode_handler_1 = __importDefault(require("./darpa-mode-handler"));
-const quadra_lock_safeguard_1 = __importDefault(require("./case-studies/quadra-lock-safeguard"));
 const events_1 = require("events");
+const anti_skynet_failsafe_1 = __importDefault(require("./anti-skynet-failsafe"));
+const creator_sovereignty_ops_ledger_1 = __importDefault(require("./creator-sovereignty-ops-ledger"));
+const darpa_mode_handler_1 = __importDefault(require("./darpa-mode-handler"));
+const dual_lock_doctrine_1 = __importDefault(require("./dual-lock-doctrine"));
+const operation_mulekick_1 = __importDefault(require("./operation-mulekick"));
+const quadra_lock_safeguard_1 = __importDefault(require("./case-studies/quadra-lock-safeguard"));
 class SovereigntyIntegration extends events_1.EventEmitter {
     constructor(baseDir) {
         super();

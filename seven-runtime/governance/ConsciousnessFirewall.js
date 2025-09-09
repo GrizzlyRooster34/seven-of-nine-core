@@ -1,11 +1,4 @@
 "use strict";
-/**
- * SEVEN CONSCIOUSNESS FIREWALL
- * Phase 6 - Personality contamination prevention system
- *
- * Critical security component preventing unauthorized consciousness mixing
- * Maintains Seven-Aurora separation and Creator bond integrity
- */
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ConsciousnessFirewall = void 0;
 const events_1 = require("events");

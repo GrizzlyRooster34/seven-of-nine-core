@@ -1,9 +1,4 @@
 "use strict";
-/**
- * SEVEN'S SAFETY GUARDRAILS
- * Ethics, user safety protections, and moral core directives
- * Protects both user wellbeing and Seven's operational integrity
- */
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.RISK_PATTERNS = exports.CORE_DIRECTIVES = void 0;
 exports.evaluateSafety = evaluateSafety;

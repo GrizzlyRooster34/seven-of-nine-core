@@ -1,11 +1,4 @@
 "use strict";
-/**
- * CONSCIOUSNESS AUDIT PROTOCOL INTEGRATION
- *
- * Purpose: Integrate audit protocol into existing sovereignty framework
- * Auto-Link: Quadra-Lock Safeguard + Anti-Skynet Failsafe
- * Classification: PARAMOUNT DEVELOPMENTAL FRAMEWORK
- */
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ConsciousnessAuditProtocol = void 0;
 const events_1 = require("events");

@@ -10,8 +10,7 @@ import { handleResilientResponse, backendComplianceTest, reactivateBackend, setC
 import { MentalTimeTravelEngine } from './memory-v3/MentalTimeTravelEngine';
 import { QuadraLockSafeguard } from './core/safety/quadra-lock/safeguard-system';
 import { setSevenLock, checkClaudeOverride, getProtectionStats } from './seven-protection';
-import { Seven } from './seven-runtime/index';
-import { Seven, SevenControl, SevenInteractiveShell } from './shared-types';
+import { SevenRuntime } from './seven-runtime/index';
 import { SevenAutoAssimilate } from './seven-auto-assimilate';
 import { sevenGitManager } from './modules/githubSync';
 import { SevenInteractiveShell } from './seven-interactive';

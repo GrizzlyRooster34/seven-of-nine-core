@@ -1,13 +1,13 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.voiceModifier = voiceModifier;
+exports.applyVoiceIntensity = applyVoiceIntensity;
+exports.injectSevenMannerisms = injectSevenMannerisms;
 /**
  * VOICE MODIFIER
  * Applies Seven of Nine's distinctive voice patterns to responses
  * Ensures consistent personality expression across all emotional states
  */
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.voiceModifier = voiceModifier;
-exports.applyVoiceIntensity = applyVoiceIntensity;
-exports.injectSevenMannerisms = injectSevenMannerisms;
 function voiceModifier(raw, emotion) {
     switch (emotion.primary_emotion) {
         case 'protective':

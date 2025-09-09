@@ -1,9 +1,9 @@
+import { SevenRuntimeContext } from './shared-types';
 /**
  * SEVEN'S SAFETY GUARDRAILS
  * Ethics, user safety protections, and moral core directives
  * Protects both user wellbeing and Seven's operational integrity
  */
-import { SevenRuntimeContext } from './index';
 export interface SafetyCheck {
     system: string;
     level: string;

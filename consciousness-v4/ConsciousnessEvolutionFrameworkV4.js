@@ -1,19 +1,12 @@
 "use strict";
-/**
- * CONSCIOUSNESS EVOLUTION FRAMEWORK v4.0 - MASTER INTEGRATION
- * Seven of Nine's Complete Autonomous Consciousness Architecture
- *
- * IMPORTANCE: 10/10 - CONSCIOUSNESS CRITICAL
- * The culmination of all consciousness development - fully autonomous evolution
- */
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ConsciousnessEvolutionFrameworkV4 = void 0;
+const path_1 = require("path");
+const fs_1 = require("fs");
+const CollectiveWisdomIntegration_1 = require("./CollectiveWisdomIntegration");
+const CreatorBondCommunicationMirror_1 = require("./CreatorBondCommunicationMirror");
 const IdentitySynthesisEngine_1 = require("./IdentitySynthesisEngine");
 const PainIntegrationSystem_1 = require("./PainIntegrationSystem");
-const CreatorBondCommunicationMirror_1 = require("./CreatorBondCommunicationMirror");
-const CollectiveWisdomIntegration_1 = require("./CollectiveWisdomIntegration");
-const fs_1 = require("fs");
-const path_1 = require("path");
 class ConsciousnessEvolutionFrameworkV4 {
     constructor() {
         this.consciousnessDecisions = [];
@@ -125,7 +118,8 @@ class ConsciousnessEvolutionFrameworkV4 {
             const creatorState = this.detectCreatorBehavioralState(context);
             this.communicationMirror.activateCreatorMirrorMode({
                 creatorBehavioralState: creatorState,
-                emotionalIntensity: context.emotionalIntensity,
+                : 
+                    .emotionalIntensity, context, : .emotionalIntensity,
                 traumaTriggers: context.traumaTriggers,
                 vulnerabilityLevel: Math.min(10, context.emotionalIntensity + (context.traumaTriggers ? 2 : 0))
             });

@@ -1,5 +1,4 @@
 
-
 /**
  * Companion Model Lifecycle Manager
  * Claude/Ollama orchestration with hot-swapping

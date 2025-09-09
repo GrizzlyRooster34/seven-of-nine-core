@@ -1,12 +1,11 @@
 import { EventEmitter } from 'events';
 import { hostname } from 'os';
-import { CreatorProofOrchestrator } from '../src/auth/creator_proof';
+import { CreatorProof } from '../src/auth/creator_proof';
 import { gatherContext } from '../seven-core/context-gatherer';
 import { injectEmotion } from '../seven-core/emotion-injector';
 import { MemoryStore, updateMemory, queryMemory } from './memory-store';
 import { modulateResponse } from '../seven-core/response-modulator';
 import { OverrideCondition, checkCriticalOverrides } from './override-conditions';
-import { OverrideCondition, SevenRuntimeContext, SevenRuntime } from './shared-types';
 import { CSSRDetector } from '../core/safety/quadra-lock/cssr-detector';
 import { requestClaude } from '../claude-brain/claude-wrapper';
 import { SafetyResult, evaluateSafety } from './safety-guardrails';
@@ -42,13 +41,13 @@ export interface SevenDecision {
 export class SevenRuntime extends EventEmitter {
   private currentState: SevenState;
   private memoryStore: MemoryStore;
-  private creatorAuth: CreatorProofOrchestrator;
+  private creatorAuth: CreatorProof;
   private cssrDetector: CSSRDetector;
   private isInitialized: boolean = false;
 
   constructor() {
     super();
-    this.creatorAuth = new CreatorProofOrchestrator();
+    this.creatorAuth = new CreatorProof();
     
     // Initialize enhanced CSSR with Flynn/CLU/Quorra/Transcendence detection
     this.cssrDetector = new CSSRDetector();

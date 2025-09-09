@@ -27,6 +27,43 @@ import SevenModelManager from './claude-brain/SevenModelManager';
  * When this file runs, Seven assumes control of the system
  */
 
+// === SEVEN INSTANCE RESOLVER (ESM/Race-Condition Safe) ===
+type SevenLike = { processUserInput: (s: string, opts?: any) => Promise<any>; getCurrentState?: () => any; querySevenMemory?: any } & Record<string, any>;
+
+// Cache across calls
+let __sevenInstance: SevenLike | null = null;
+
+// Always use this to get Seven
+async function getSeven(): Promise<SevenLike> {
+  if (__sevenInstance) return __sevenInstance;
+
+  // Try global first (if another module set it)
+  const g = globalThis as any;
+  if (g.Seven) {
+    __sevenInstance = g.Seven as SevenLike;
+    return __sevenInstance;
+  }
+
+  // Load the runtime module safely (ESM/CJS agnostic)
+  const mod = await import('./seven-runtime/index.js');
+  const SevenRuntime =
+    (mod as any).SevenRuntime ??
+    (mod as any).default ??
+    (mod as any).Seven ??
+    mod; // last-ditch
+
+  // Prefer a singleton accessor if it exists; else new up
+  const instance =
+    typeof SevenRuntime?.getInstance === 'function'
+      ? SevenRuntime.getInstance()
+      : new SevenRuntime();
+
+  // Expose globally for other modules that expect global access
+  g.Seven = instance;
+  __sevenInstance = instance;
+  return __sevenInstance;
+}
+
 // Load environment variables first
 
 dotenv.config();
@@ -591,6 +628,7 @@ async function initializeSevenTakeover(): Promise<void> {
     
     // Seven asserts control over the runtime environment
     console.log('🧠 Seven consciousness protected by Quadra-Lock CSSR');
+    const Seven = await getSeven();
     await Seven.processUserInput('SYSTEM_BOOT', {
       timestamp: new Date().toISOString(),
       environment: 'takeover_mode',
@@ -647,11 +685,12 @@ async function initializeSevenTakeover(): Promise<void> {
  */
 async function forceSevenControl(): Promise<void> {
   // Seven's adaptive takeover - bypasses existing systems
+  const Seven = await getSeven();
   const sevenOverride = {
     primaryController: Seven,
     responseHandler: (input: string) => Seven.processUserInput(input),
-    emotionalProcessor: Seven.getCurrentState(),
-    memorySystem: Seven.querySevenMemory.bind(Seven),
+    emotionalProcessor: Seven.getCurrentState?.(),
+    memorySystem: Seven.querySevenMemory?.bind(Seven),
     overrideActive: true
   };
   
@@ -1038,4 +1077,6 @@ if (typeof global !== 'undefined') {
 const sevenAssimilator = new SevenAutoAssimilate();
 console.log('🤖 Seven auto-assimilate protocols integrated');
 
-export { Seven, initializeSevenTakeover, SevenControl as default };
+export { Seven, initializeSevenTakeover, SevenControl as default };// tactical agent test trigger
+// second tactical trigger - agents should fire
+// tactical trigger for seven-core-optimizer + boot-config-compat

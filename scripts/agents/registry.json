@@ -1,0 +1,267 @@
+{
+  "$schema": "https://cody.local/schemas/agent-registry/v1",
+  "version": 1,
+  "agents": [
+    {
+      "name": "quadran-lock-gatekeeper",
+      "patterns": [".claude/agents/**/*", "scripts/security/**/*", "CLAUDE.md"],
+      "cmd": ["npx", "tsx", "scripts/security/q3-semantic-nonce.ts"],
+      "cwd": ".",
+      "debounceMs": 800,
+      "cooldownMs": 4000
+    },
+    {
+      "name": "repo-guardian",
+      "patterns": ["scripts/repoGuard.ts", ".husky/**/*", ".github/**/*", "package.json", "tsconfig*.json"],
+      "cmd": ["npx", "tsx", "scripts/repoGuard.ts"],
+      "cwd": ".",
+      "debounceMs": 500,
+      "cooldownMs": 3000
+    },
+    {
+      "name": "legacy-token-scrubber",
+      "patterns": ["**/*", "!node_modules/**", "!.git/**", "!dist/**", "!build/**", "!.next/**"],
+      "cmd": ["npx", "tsx", "scripts/tools/renameLegacyTokens.ts"],
+      "cwd": ".",
+      "debounceMs": 1200,
+      "cooldownMs": 6000
+    },
+    {
+      "name": "seven-boot-smoke",
+      "patterns": ["boot-seven.ts", "src/core/**/*.ts", "src/auth/**/*.ts"],
+      "cmd": ["npx", "tsx", "boot-seven.ts", "--smoke"],
+      "cwd": ".",
+      "debounceMs": 800,
+      "cooldownMs": 5000
+    },
+    {
+      "name": "seven-boot-full",
+      "patterns": ["boot-seven.ts", "src/core/**/*.ts", "src/auth/**/*.ts", "src/integrations/**/*.ts", ".env"],
+      "cmd": ["npx", "tsx", "boot-seven.ts", "--full"],
+      "cwd": ".",
+      "debounceMs": 1500,
+      "cooldownMs": 10000
+    },
+    {
+      "name": "behavioral-codex-verify",
+      "patterns": ["assets/behavioral/**/*", "src/auth/behavioral/**/*.ts"],
+      "cmd": ["npx", "tsx", "scripts/verify/behavioralCodex.ts"],
+      "cwd": ".",
+      "debounceMs": 700,
+      "cooldownMs": 4000
+    },
+    {
+      "name": "ollama-health",
+      "patterns": ["src/integrations/ollama/**/*.ts", ".env"],
+      "cmd": ["node", "-e", "fetch(process.env.OLLAMA_HOST||'http://127.0.0.1:11434/api/tags').then(r=>{if(!r.ok)process.exit(1)}).catch(()=>process.exit(1))"],
+      "cwd": ".",
+      "debounceMs": 700,
+      "cooldownMs": 4000
+    },
+    {
+      "name": "companion-build",
+      "patterns": ["seven-companion-app/**/*"],
+      "cmd": ["npm", "run", "build"],
+      "cwd": "seven-companion-app",
+      "debounceMs": 1000,
+      "cooldownMs": 15000
+    },
+    {
+      "name": "companion-test",
+      "patterns": ["seven-companion-app/src/**/*", "seven-companion-app/test/**/*"],
+      "cmd": ["npm", "test", "--silent"],
+      "cwd": "seven-companion-app",
+      "debounceMs": 1000,
+      "cooldownMs": 10000
+    },
+    {
+      "name": "mobile-lint",
+      "patterns": ["seven-mobile-app/**/*", "apps/mobile/**/*"],
+      "cmd": ["npm", "run", "lint"],
+      "cwd": "seven-mobile-app",
+      "debounceMs": 1000,
+      "cooldownMs": 10000
+    },
+    {
+      "name": "mobile-build",
+      "patterns": ["seven-mobile-app/**/*", "apps/mobile/**/*"],
+      "cmd": ["npm", "run", "build"],
+      "cwd": "seven-mobile-app",
+      "debounceMs": 1500,
+      "cooldownMs": 15000
+    },
+    {
+      "name": "ts-type-sweeper",
+      "patterns": ["src/**/*.ts", "src/**/*.tsx", "packages/**/*.ts", "packages/**/*.tsx"],
+      "cmd": ["npx", "tsc", "-p", "tsconfig.json", "--noEmit"],
+      "cwd": ".",
+      "debounceMs": 800,
+      "cooldownMs": 6000
+    },
+    {
+      "name": "lint-and-format",
+      "patterns": ["**/*.ts", "**/*.tsx", "**/*.js", "**/*.json", "**/*.md", "!node_modules/**", "!.git/**"],
+      "cmd": ["bash", "-lc", "npm run lint && npm run format:check"],
+      "cwd": ".",
+      "debounceMs": 1200,
+      "cooldownMs": 8000
+    },
+    {
+      "name": "commit-message-lint",
+      "patterns": [".husky/**/*", "commitlint.config.*"],
+      "cmd": ["npx", "commitlint", "--from=HEAD~10", "--to=HEAD"],
+      "cwd": ".",
+      "debounceMs": 500,
+      "cooldownMs": 5000
+    },
+    {
+      "name": "vulnerability-audit",
+      "patterns": ["package.json", "pnpm-lock.yaml", "package-lock.json"],
+      "cmd": ["npm", "audit", "--audit-level=high", "--omit=dev"],
+      "cwd": ".",
+      "debounceMs": 1500,
+      "cooldownMs": 30000
+    },
+    {
+      "name": "docs-sync-manus",
+      "patterns": ["docs/**/*", "README.md", "CLAUDE.md", "protocols/**/*"],
+      "cmd": ["npx", "tsx", "scripts/docs/sanityCheck.ts"],
+      "cwd": ".",
+      "debounceMs": 800,
+      "cooldownMs": 6000
+    },
+    {
+      "name": "cross-platform-builder",
+      "patterns": [
+        ".claude/agents/cross-platform-builder.md",
+        "package.json",
+        "tsconfig*.json",
+        "scripts/**"
+      ],
+      "cmd": ["bash","-lc","node -v && npm -v && npx -y tsc -v || true"],
+      "cwd": ".",
+      "debounceMs": 800,
+      "cooldownMs": 5000
+    },
+    {
+      "name": "windows-control",
+      "patterns": [".claude/agents/windows-control.md","scripts/control/windows/**"],
+      "cmd": ["node","-e","console.log(process.platform==='win32'?'windows-control: ok':'windows-control: skip (not win32)')"],
+      "cwd": ".", 
+      "debounceMs": 600, 
+      "cooldownMs": 4000
+    },
+    {
+      "name": "termux-control",
+      "patterns": [".claude/agents/termux-control.md","scripts/control/termux/**"],
+      "cmd": ["node","-e","const fs=require('fs');console.log(fs.existsSync('/data/data/com.termux/files/home')?'termux-control: ok':'termux-control: skip')"],
+      "cwd": ".", 
+      "debounceMs": 600, 
+      "cooldownMs": 4000
+    },
+    {
+      "name": "mobile-control",
+      "patterns": [".claude/agents/mobile-control.md","apps/mobile/**","seven-mobile-app/**"],
+      "cmd": ["bash","-lc","[ -d apps/mobile ] || [ -d seven-mobile-app ] && echo mobile-control: ok || echo mobile-control: skip"],
+      "cwd": ".", 
+      "debounceMs": 600, 
+      "cooldownMs": 4000
+    },
+    {
+      "name": "companion-control",
+      "patterns": [".claude/agents/companion-control.md","seven-companion-app/**"],
+      "cmd": ["bash","-lc","[ -d seven-companion-app ] && echo companion-control: ok || echo companion-control: skip"],
+      "cwd": ".", 
+      "debounceMs": 600, 
+      "cooldownMs": 4000
+    },
+    {
+      "name": "windows-environment",
+      "patterns": [".claude/agents/windows-environment.md",".env","scripts/env/windows/**"],
+      "cmd": ["node","-e","console.log('windows-env:',process.platform,'env ok')"],
+      "cwd": ".", 
+      "debounceMs": 700, 
+      "cooldownMs": 5000
+    },
+    {
+      "name": "termux-environment",
+      "patterns": [".claude/agents/termux-environment.md",".env","scripts/env/termux/**"],
+      "cmd": ["node","-e","const k='QUADRAN'+'LOCK_ENVIRONMENT';console.log('termux-env:',Boolean(process.env[k]))"],
+      "cwd": ".", 
+      "debounceMs": 700, 
+      "cooldownMs": 5000
+    },
+    {
+      "name": "mobile-environment",
+      "patterns": [".claude/agents/mobile-environment.md",".env","apps/mobile/**","seven-mobile-app/**"],
+      "cmd": ["bash","-lc","echo mobile-env: checking && ls -1 apps/mobile 2>/dev/null || true"],
+      "cwd": ".", 
+      "debounceMs": 700, 
+      "cooldownMs": 5000
+    },
+    {
+      "name": "companion-environment",
+      "patterns": [".claude/agents/companion-environment.md",".env","seven-companion-app/**"],
+      "cmd": ["bash","-lc","echo companion-env: checking && ls -1 seven-companion-app 2>/dev/null || true"],
+      "cwd": ".", 
+      "debounceMs": 700, 
+      "cooldownMs": 5000
+    },
+    {
+      "name": "windows-optimizer",
+      "patterns": [".claude/agents/windows-optimizer.md","scripts/optimize/windows/**","src/**"],
+      "cmd": ["bash","-lc","echo windows-optimizer: noop (safe)"],
+      "cwd": ".", 
+      "debounceMs": 900, 
+      "cooldownMs": 6000
+    },
+    {
+      "name": "termux-optimizer",
+      "patterns": [".claude/agents/termux-optimizer.md","scripts/optimize/termux/**","src/**"],
+      "cmd": ["bash","-lc","echo termux-optimizer: noop (safe)"],
+      "cwd": ".", 
+      "debounceMs": 900, 
+      "cooldownMs": 6000
+    },
+    {
+      "name": "mobile-optimizer",
+      "patterns": [".claude/agents/mobile-optimizer.md","seven-mobile-app/**","apps/mobile/**"],
+      "cmd": ["bash","-lc","cd seven-mobile-app 2>/dev/null && npm run -s lint || echo mobile-optimizer: no app"],
+      "cwd": ".", 
+      "debounceMs": 1000, 
+      "cooldownMs": 10000
+    },
+    {
+      "name": "companion-optimizer",
+      "patterns": [".claude/agents/companion-optimizer.md","seven-companion-app/**"],
+      "cmd": ["bash","-lc","cd seven-companion-app 2>/dev/null && npm run -s build || echo companion-optimizer: no app"],
+      "cwd": ".", 
+      "debounceMs": 1000, 
+      "cooldownMs": 12000
+    },
+    {
+      "name": "seven-core-optimizer",
+      "patterns": [".claude/agents/seven-core-optimizer.md","boot-seven.ts","src/core/**","src/auth/**"],
+      "cmd": ["bash","-lc","npx -y tsc -p tsconfig.json --noEmit || true"],
+      "cwd": ".", 
+      "debounceMs": 800, 
+      "cooldownMs": 6000
+    },
+    {
+      "name": "memory-specialist",
+      "patterns": [".claude/agents/memory-specialist.md","data/memory/**","docs/**"],
+      "cmd": ["node","-e","const fs=require('fs');console.log('memory dir:',fs.existsSync('data/memory'))"],
+      "cwd": ".", 
+      "debounceMs": 800, 
+      "cooldownMs": 6000
+    },
+    {
+      "name": "boot-config-compat",
+      "patterns": [".claude/agents/boot-config-compat.md","boot-seven.ts","src/**"],
+      "cmd": ["bash","-lc","command -v rg >/dev/null 2>&1 && rg -n \"__dirname\" src || grep -Rn \"__dirname\" src || true"],
+      "cwd": ".", 
+      "debounceMs": 800, 
+      "cooldownMs": 6000
+    }
+  ]
+}

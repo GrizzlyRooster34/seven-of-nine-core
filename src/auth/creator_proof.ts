@@ -145,7 +145,7 @@ export class CreatorProof {
 
   private logAuditTrail(result: QuadranResult): void {
     try {
-      const logDir = path.join(__dirname, '../../logs');
+      const logDir = path.join(path.dirname(new URL(import.meta.url).pathname), '../../logs');
       if (!fs.existsSync(logDir)) {
         fs.mkdirSync(logDir, { recursive: true });
       }

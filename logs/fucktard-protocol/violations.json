@@ -1,0 +1,13 @@
+{
+  "protocol": "FUCKTARD",
+  "status": {
+    "goldStars": 0,
+    "strikes": 0,
+    "thresholds": {
+      "quarantine": 2,
+      "trunk": 4,
+      "permaban": 6
+    }
+  },
+  "violations": []
+}

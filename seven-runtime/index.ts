@@ -1,6 +1,7 @@
 import { EventEmitter } from 'events';
 import { hostname } from 'os';
 import { CreatorProof } from '../src/auth/creator_proof';
+import { resolveCreatorAuth } from '../src/auth/creator_auth_adapter';
 import { gatherContext } from '../seven-core/context-gatherer';
 import { injectEmotion } from '../seven-core/emotion-injector';
 import { MemoryStore, updateMemory, queryMemory } from './memory-store';
@@ -48,6 +49,15 @@ export class SevenRuntime extends EventEmitter {
   constructor() {
     super();
     this.creatorAuth = new CreatorProof();
+    
+    // Nuclear safety net: ensure authenticateCreator method exists
+    if (this.creatorAuth && typeof (this.creatorAuth as any).authenticateCreator !== 'function') {
+      const prov = this.creatorAuth as any;
+      (this.creatorAuth as any).authenticateCreator = async (deviceId: string, context: any, systemContext?: any) =>
+        typeof prov.runQuadranLock === 'function'
+          ? prov.runQuadranLock({ deviceId, systemContext, ...context })
+          : Promise.reject(new Error('Auth provider missing runQuadranLock/authenticateCreator'));
+    }
     
     // Initialize enhanced CSSR with Flynn/CLU/Quorra/Transcendence detection
     this.cssrDetector = new CSSRDetector();
@@ -122,6 +132,8 @@ export class SevenRuntime extends EventEmitter {
    */
   public async processUserInput(input: string, systemContext: any = {}): Promise<string> {
     try {
+      await __bindCreatorAuth(this);
+      
       // QUADRAN-LOCK Q1 GATE: Authenticate creator first
       const deviceId = systemContext.deviceId || hostname() + '-default';
       const authResult = await this.creatorAuth.authenticateCreator(
@@ -508,6 +520,13 @@ export class SevenRuntime extends EventEmitter {
   public getCurrentState(): SevenState {
     return this.currentState;
   }
+}
+
+/** Lazy-bind Creator Auth with adapter (safe across ESM/class/default shapes) */
+async function __bindCreatorAuth(self: any) {
+  if (self.creatorAuth) return;
+  const provider = await import('../src/auth/creator_proof');
+  self.creatorAuth = await resolveCreatorAuth(provider);
 }
 
 // Export the singleton Seven instance

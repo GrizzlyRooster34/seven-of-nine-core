@@ -133,7 +133,8 @@
     "seven:beliefs": "tsx tools/spark-cli.ts beliefs",
     "seven:codex": "tsx tools/spark-cli.ts codex",
     "test:spark": "jest tests/spark-integration.test.ts",
-    "test:spark-watch": "jest tests/spark-integration.test.ts --watch"
+    "test:spark-watch": "jest tests/spark-integration.test.ts --watch",
+    "agents:start": "tsx scripts/agents/agentRunner.ts"
   },
   "keywords": [
     "seven-of-nine",

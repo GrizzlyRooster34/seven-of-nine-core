@@ -1,13 +1,12 @@
-import { 
-import * as fs from 'fs-extra';
-import * as path from 'path';
-
 /**
  * SEVEN OF NINE VOYAGER MEMORY INGESTION ENGINE
  * Dynamic memory alignment and canonical integration system
  * @version 1.0.0
  */
 
+import * as fs from 'fs-extra';
+import * as path from 'path';
+import { 
   VoyagerEpisodeMemory, 
   VoyagerMemoryIngestionResult,
   MergeConflict,

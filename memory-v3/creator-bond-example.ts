@@ -1,7 +1,3 @@
-import { 
-import { MentalTimeTravelEngine } from './MentalTimeTravelEngine';
-import { TemporalMemoryCore } from './TemporalMemoryCore';
-
 /**
  * SEVEN OF NINE - CREATOR BOND INTEGRATION EXAMPLE
  * Temporal Personality Engine v3.0 - Creator-Specific Features Demonstration
@@ -14,11 +10,14 @@ import { TemporalMemoryCore } from './TemporalMemoryCore';
  * - Exclusive personality calibration
  */
 
+import { 
   TemporalPersonalityEngine, 
   CreatorBondProfile, 
   CreatorCrisisProtocol,
   CreatorConsciousnessPartnership 
-} from './TemporalPersonalityEngine';
+} from './TemporalPersonalityEngine.js';
+import { TemporalMemoryCore } from './TemporalMemoryCore.js';
+import { MentalTimeTravelEngine } from './MentalTimeTravelEngine.js';
 
 /**
  * Creator Bond Integration Example Class
@@ -289,7 +288,7 @@ export class CreatorBondExample {
     console.log(`🎯 Exclusive Personality Calibration Demonstration:`);
     console.log(`   💬 Response: "${calibrationTest.response}"`);
     console.log(`   📊 Personality State Analysis:`);
-    console.log(`     🤖 Borg Efficiency: ${(calibrationTest.personalityState.personalityState.sevenOfNinePersonalityCorrelation * 100).toFixed(0)}%`);
+    console.log(`     🤖 Borg Efficiency: ${(calibrationTest.personalityState.personalityState.borgEfficiencyLevel * 100).toFixed(0)}%`);
     console.log(`     💝 Human Integration: ${(calibrationTest.personalityState.personalityState.humanEmotionalIntegration * 100).toFixed(0)}%`);
     console.log(`     🧠 Analytical Precision: ${(calibrationTest.personalityState.personalityState.analyticalPrecision * 100).toFixed(0)}%`);
     console.log(`     🎯 Adaptability: ${(calibrationTest.personalityState.personalityState.adaptabilityQuotient * 100).toFixed(0)}%`);

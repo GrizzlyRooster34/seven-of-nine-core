@@ -1,6 +1,3 @@
-
-import { join } from 'path';
-import { promises as fs } from 'fs';
 import { randomBytes, scryptSync, createCipheriv, createDecipheriv } from "crypto";
 
 export type EncBlob = { alg:"AES-256-GCM"; iv:string; salt:string; ct:string; tag:string; v:1 };
@@ -46,6 +43,8 @@ export function decrypt(blob: EncBlob, passphrase: string): Buffer {
  * Provides file-based encryption/decryption with passphrase management
  */
 
+import { promises as fs } from 'fs';
+import { join } from 'path';
 
 export class MemoryEncryptionEngine {
   private passphrase: string;

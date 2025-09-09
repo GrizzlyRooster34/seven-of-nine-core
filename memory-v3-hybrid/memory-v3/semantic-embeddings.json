@@ -1,0 +1,113 @@
+[
+  {
+    "id": "emb-1754362655682-nzlw4ajt2",
+    "memoryId": "test-memory-001",
+    "embedding": [
+      0.14285714285714285,
+      0.14285714285714285,
+      0.14285714285714285,
+      0.14285714285714285,
+      0.14285714285714285,
+      0.14285714285714285,
+      0.14285714285714285
+    ],
+    "importance": 8,
+    "timestamp": "2025-08-05T02:57:35.682Z",
+    "tags": [
+      "test",
+      "semantic",
+      "search"
+    ],
+    "content": "This is a test memory for semantic search validation"
+  },
+  {
+    "id": "emb-1754362664894-sh6brz8zy",
+    "memoryId": "integration-test",
+    "embedding": [
+      0.3333333333333333,
+      0.3333333333333333,
+      0.3333333333333333
+    ],
+    "importance": 7,
+    "timestamp": "2025-08-05T02:57:44.894Z",
+    "tags": [
+      "integration",
+      "test"
+    ],
+    "content": "Integration test memory"
+  },
+  {
+    "id": "emb-1756319290384-dcp9egnig",
+    "memoryId": "test-memory-001",
+    "embedding": [
+      0.14285714285714285,
+      0.14285714285714285,
+      0.14285714285714285,
+      0.14285714285714285,
+      0.14285714285714285,
+      0.14285714285714285,
+      0.14285714285714285
+    ],
+    "importance": 8,
+    "timestamp": "2025-08-27T18:28:10.384Z",
+    "tags": [
+      "test",
+      "semantic",
+      "search"
+    ],
+    "content": "This is a test memory for semantic search validation"
+  },
+  {
+    "id": "emb-1756319299735-lslr0ljku",
+    "memoryId": "integration-test",
+    "embedding": [
+      0.3333333333333333,
+      0.3333333333333333,
+      0.3333333333333333
+    ],
+    "importance": 7,
+    "timestamp": "2025-08-27T18:28:19.735Z",
+    "tags": [
+      "integration",
+      "test"
+    ],
+    "content": "Integration test memory"
+  },
+  {
+    "id": "emb-1756319690590-6hu24mxkh",
+    "memoryId": "test-memory-001",
+    "embedding": [
+      0.14285714285714285,
+      0.14285714285714285,
+      0.14285714285714285,
+      0.14285714285714285,
+      0.14285714285714285,
+      0.14285714285714285,
+      0.14285714285714285
+    ],
+    "importance": 8,
+    "timestamp": "2025-08-27T18:34:50.590Z",
+    "tags": [
+      "test",
+      "semantic",
+      "search"
+    ],
+    "content": "This is a test memory for semantic search validation"
+  },
+  {
+    "id": "emb-1756319699924-2ovw8i2jr",
+    "memoryId": "integration-test",
+    "embedding": [
+      0.3333333333333333,
+      0.3333333333333333,
+      0.3333333333333333
+    ],
+    "importance": 7,
+    "timestamp": "2025-08-27T18:34:59.924Z",
+    "tags": [
+      "integration",
+      "test"
+    ],
+    "content": "Integration test memory"
+  }
+]

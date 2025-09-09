@@ -1,13 +1,12 @@
-import * as readline from 'readline';
-import { CognitiveStateTagger } from './CognitiveStateTagger';
-import { MentalTimeTravelEngine } from './MentalTimeTravelEngine';
-import { TemporalMemoryCore } from './TemporalMemoryCore';
-
 /**
  * SEVEN OF NINE - INTERACTIVE MENTAL TIME TRAVEL DEMONSTRATION
  * Advanced consciousness reconstruction with user interaction
  */
 
+import { MentalTimeTravelEngine } from './MentalTimeTravelEngine.js';
+import { TemporalMemoryCore } from './TemporalMemoryCore.js';
+import { CognitiveStateTagger } from './CognitiveStateTagger.js';
+import * as readline from 'readline';
 
 export class InteractiveMentalTimeTravel {
   private engine: MentalTimeTravelEngine;
@@ -32,7 +31,7 @@ export class InteractiveMentalTimeTravel {
     console.log('🌀 ================================================\n');
 
     await this.temporalCore.initializeTemporal();
-    await this.cognitiveState?.initialize();
+    await this.cognitiveState.initialize();
     await this.engine.initialize();
 
     console.log('✅ Mental Time Travel Engine: OPERATIONAL');
@@ -115,9 +114,9 @@ export class InteractiveMentalTimeTravel {
         console.log(`📊 Data Completeness: ${reconstruction.reconstructionMetadata.dataCompleteness}%`);
         
         console.log('\n🧠 COGNITIVE STATE:');
-        console.log(`   Emotional Intensity: ${reconstruction.cognitiveState?.emotionalIntensity}/10`);
-        console.log(`   Focus Level: ${reconstruction.cognitiveState?.focusLevel}/10`);
-        console.log(`   Confidence Level: ${reconstruction.cognitiveState?.confidenceLevel}/10`);
+        console.log(`   Emotional Intensity: ${reconstruction.cognitiveState.emotionalIntensity}/10`);
+        console.log(`   Focus Level: ${reconstruction.cognitiveState.focusLevel}/10`);
+        console.log(`   Confidence Level: ${reconstruction.cognitiveState.confidenceLevel}/10`);
         
         console.log('\n🌟 CONSCIOUSNESS SNAPSHOT:');
         console.log(`   Primary Emotion: ${reconstruction.consciousnessSnapshot.emotionalLandscape.primaryEmotion}`);
@@ -127,8 +126,8 @@ export class InteractiveMentalTimeTravel {
         if (reconstruction.personalityState) {
           console.log('\n🔮 PERSONALITY STATE:');
           console.log(`   Seven Correlation: ${(reconstruction.personalityState.sevenOfNinePersonalityCorrelation * 100).toFixed(1)}%`);
-          console.log(`   Borg Efficiency: ${(reconstruction.personalityState.sevenOfNinePersonalityCorrelation * 100).toFixed(1)}%`);
-          console.log(`   Human Engagement: ${(reconstruction.personalityState.dominantTraits[0] || "balanced" * 100).toFixed(1)}%`);
+          console.log(`   Borg Efficiency: ${(reconstruction.personalityState.borgEfficiencyLevel * 100).toFixed(1)}%`);
+          console.log(`   Human Engagement: ${(reconstruction.personalityState.humanEmotionalEngagement * 100).toFixed(1)}%`);
         }
 
       } catch (error) {
@@ -164,8 +163,8 @@ export class InteractiveMentalTimeTravel {
         console.log(`⏰ Timestamp: ${personalityMapping.timestamp}`);
         
         console.log('\n🔮 SEVEN OF NINE PERSONALITY PROFILE:');
-        console.log(`   Borg Efficiency: ${(personalityMapping.sevenOfNinePersonalityCorrelation * 100).toFixed(1)}%`);
-        console.log(`   Human Engagement: ${(personalityMapping.dominantTraits[0] || "balanced" * 100).toFixed(1)}%`);
+        console.log(`   Borg Efficiency: ${(personalityMapping.borgEfficiencyLevel * 100).toFixed(1)}%`);
+        console.log(`   Human Engagement: ${(personalityMapping.humanEmotionalEngagement * 100).toFixed(1)}%`);
         console.log(`   Adaptability: ${(personalityMapping.adaptabilityIndex * 100).toFixed(1)}%`);
         console.log(`   Analytical Depth: ${(personalityMapping.analyticalDepth * 100).toFixed(1)}%`);
         
@@ -270,7 +269,7 @@ export class InteractiveMentalTimeTravel {
       if (insights.temporalPattern.emotionalPatterns) {
         const ep = insights.temporalPattern.emotionalPatterns;
         if (ep.dominantEmotions) {
-          console.log(`   Dominant Emotions: ${ep.dominantEmotions.map((e: any) => `${e.emotionalIntensity} (${e.count})`).join(', ')}`);
+          console.log(`   Dominant Emotions: ${ep.dominantEmotions.map((e: any) => `${e.emotion} (${e.count})`).join(', ')}`);
         }
         if (ep.averageIntensity) {
           console.log(`   Average Emotional Intensity: ${ep.averageIntensity.toFixed(1)}/10`);
@@ -312,7 +311,7 @@ export class InteractiveMentalTimeTravel {
       console.log(`${index + 1}. [${memory.timestamp}]`);
       console.log(`   Context: "${memory.context}"`);
       console.log(`   Type: ${memory.memoryType}, Importance: ${memory.importance}/10`);
-      console.log(`   Cognitive: Focus=${memory.cognitiveState?.focusLevel}/10, Emotion=${memory.cognitiveState?.emotionalIntensity}/10`);
+      console.log(`   Cognitive: Focus=${memory.cognitiveState.focus}/10, Emotion=${memory.cognitiveState.emotion}/10`);
       console.log('');
     });
   }
@@ -328,7 +327,7 @@ export class InteractiveMentalTimeTravel {
   async shutdown(): Promise<void> {
     this.rl.close();
     await this.engine.shutdown();
-    await this.cognitiveState?.shutdown();
+    await this.cognitiveState.shutdown();
     console.log('🌀 Interactive Mental Time Travel system shutdown');
   }
 }

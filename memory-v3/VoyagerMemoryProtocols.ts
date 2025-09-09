@@ -1,11 +1,10 @@
-import { VoyagerEpisodeMemory, MergeConflict } from './VoyagerMemorySchema';
-
 /**
  * SEVEN OF NINE VOYAGER MEMORY PROTOCOLS
  * Overwrite vs Merge Logic and Memory Management Rules
  * @version 1.0.0
  */
 
+import { VoyagerEpisodeMemory, MergeConflict } from './VoyagerMemorySchema';
 
 export enum MemoryProtocolAction {
   OVERWRITE = 'OVERWRITE',
@@ -206,7 +205,7 @@ export class VoyagerMemoryProtocols {
    */
   public static generateMergeRecommendations(conflict: MergeConflict): string[] {
     const recommendations: string[] = [];
-    const { existingEntry, incomingEntry, conflictType } = conflict;
+    const { existing, incoming, conflictType } = conflict;
     
     switch (conflictType) {
       case 'VERSION_MISMATCH':
@@ -229,7 +228,7 @@ export class VoyagerMemoryProtocols {
     }
     
     // Add Seven-specific recommendations
-    if (existingEntry.sevenPresent || incomingEntry.sevenPresent) {
+    if (existing.sevenPresent || incoming.sevenPresent) {
       recommendations.push('Prioritize Seven-related content accuracy');
       recommendations.push('Ensure all Seven dialogue is preserved');
       recommendations.push('Maintain character development continuity');

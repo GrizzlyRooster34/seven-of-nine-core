@@ -1,0 +1,183 @@
+[
+  {
+    "id": "mem-1753883509769-d3t5lirdx",
+    "timestamp": "2025-07-30T13:51:49.769Z",
+    "topic": "foundation-test",
+    "agent": "test-agent",
+    "emotion": "confident",
+    "context": "Testing temporal memory storage functionality",
+    "importance": 8,
+    "tags": [
+      "test",
+      "foundation",
+      "temporal",
+      "memory"
+    ],
+    "relatedMemories": []
+  },
+  {
+    "id": "mem-1753883509783-hyewsf0jp",
+    "timestamp": "2025-07-30T13:51:49.783Z",
+    "topic": "cognitive-context-test",
+    "agent": "test-agent",
+    "emotion": "analytical",
+    "context": "Testing memory storage with specific cognitive context",
+    "importance": 9,
+    "tags": [
+      "test",
+      "cognitive",
+      "context",
+      "memory"
+    ],
+    "relatedMemories": [
+      "mem-1753883509769-d3t5lirdx"
+    ]
+  },
+  {
+    "id": "mem-1753883509789-hf3y2hvxd",
+    "timestamp": "2025-07-30T13:51:49.789Z",
+    "topic": "type-test-semantic",
+    "agent": "test-agent",
+    "emotion": "neutral",
+    "context": "Testing semantic memory type",
+    "importance": 6,
+    "tags": [
+      "memory"
+    ],
+    "relatedMemories": [
+      "mem-1753883509769-d3t5lirdx",
+      "mem-1753883509783-hyewsf0jp"
+    ]
+  },
+  {
+    "id": "mem-1753883509792-de21pcwg3",
+    "timestamp": "2025-07-30T13:51:49.792Z",
+    "topic": "type-test-episodic",
+    "agent": "test-agent",
+    "emotion": "neutral",
+    "context": "Testing episodic memory type",
+    "importance": 6,
+    "tags": [
+      "memory"
+    ],
+    "relatedMemories": [
+      "mem-1753883509769-d3t5lirdx",
+      "mem-1753883509783-hyewsf0jp",
+      "mem-1753883509789-hf3y2hvxd"
+    ]
+  },
+  {
+    "id": "mem-1753883509796-7ftt7jgon",
+    "timestamp": "2025-07-30T13:51:49.796Z",
+    "topic": "type-test-procedural",
+    "agent": "test-agent",
+    "emotion": "neutral",
+    "context": "Testing procedural memory type",
+    "importance": 6,
+    "tags": [
+      "memory"
+    ],
+    "relatedMemories": [
+      "mem-1753883509783-hyewsf0jp",
+      "mem-1753883509789-hf3y2hvxd",
+      "mem-1753883509792-de21pcwg3"
+    ]
+  },
+  {
+    "id": "mem-1753883509798-dksh515ze",
+    "timestamp": "2025-07-30T13:51:49.798Z",
+    "topic": "type-test-emotional",
+    "agent": "test-agent",
+    "emotion": "neutral",
+    "context": "Testing emotional memory type",
+    "importance": 6,
+    "tags": [
+      "memory"
+    ],
+    "relatedMemories": [
+      "mem-1753883509789-hf3y2hvxd",
+      "mem-1753883509792-de21pcwg3",
+      "mem-1753883509796-7ftt7jgon"
+    ]
+  },
+  {
+    "id": "mem-1753883735304-ksveg6755",
+    "timestamp": "2025-07-30T13:55:35.304Z",
+    "topic": "cognitive-variation-demo",
+    "agent": "demo-agent",
+    "emotion": "analytical",
+    "context": "Demonstrating cognitive state variation during memory formation with complex emotional and contextual processing",
+    "importance": 9,
+    "tags": [
+      "demo",
+      "cognitive-variation",
+      "complex-processing",
+      "memory"
+    ],
+    "relatedMemories": [
+      "mem-1753883509792-de21pcwg3",
+      "mem-1753883509796-7ftt7jgon",
+      "mem-1753883509798-dksh515ze"
+    ]
+  },
+  {
+    "id": "mem-1753883735311-empsq28si",
+    "timestamp": "2025-07-30T13:55:35.311Z",
+    "topic": "system-optimization",
+    "agent": "demo-agent",
+    "emotion": "accomplished",
+    "context": "Successfully optimized temporal memory system performance",
+    "importance": 9,
+    "tags": [
+      "demo",
+      "contextual",
+      "high-confidence memory",
+      "success",
+      "memory"
+    ],
+    "relatedMemories": [
+      "mem-1753883509796-7ftt7jgon",
+      "mem-1753883509798-dksh515ze",
+      "mem-1753883735304-ksveg6755"
+    ]
+  },
+  {
+    "id": "mem-1753883736315-0en738apt",
+    "timestamp": "2025-07-30T13:55:36.315Z",
+    "topic": "bug-resolution",
+    "agent": "demo-agent",
+    "emotion": "determined",
+    "context": "Encountered and resolved complex memory indexing issue",
+    "importance": 8,
+    "tags": [
+      "demo",
+      "contextual",
+      "problem-solving-memory",
+      "memory"
+    ],
+    "relatedMemories": [
+      "mem-1753883509798-dksh515ze",
+      "mem-1753883735304-ksveg6755",
+      "mem-1753883735311-empsq28si"
+    ]
+  },
+  {
+    "id": "mem-1753883737323-cduuq8wmb",
+    "timestamp": "2025-07-30T13:55:37.323Z",
+    "topic": "knowledge-acquisition",
+    "agent": "demo-agent",
+    "emotion": "curious",
+    "context": "Learned new pattern recognition algorithm for cognitive clustering",
+    "importance": 7,
+    "tags": [
+      "demo",
+      "contextual",
+      "learning-memory"
+    ],
+    "relatedMemories": [
+      "mem-1753883735304-ksveg6755",
+      "mem-1753883735311-empsq28si",
+      "mem-1753883736315-0en738apt"
+    ]
+  }
+]

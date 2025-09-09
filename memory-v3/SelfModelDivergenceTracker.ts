@@ -1,7 +1,3 @@
-import { join } from 'path';
-import { promises as fs } from 'fs';
-import { MemoryItem } from '../memory-v2/MemoryEngine';
-
 /**
  * MEMORY ENGINE v3.0 - SELF-MODEL DIVERGENCE TRACKER
  * Agent Epsilon Component: Identity Evolution Monitoring
@@ -14,6 +10,9 @@ import { MemoryItem } from '../memory-v2/MemoryEngine';
  * @component Agent Epsilon
  */
 
+import { promises as fs } from 'fs';
+import { join } from 'path';
+import { MemoryItem } from '../memory-v2/MemoryEngine';
 
 export interface SelfModelSnapshot {
   timestamp: string;
@@ -396,8 +395,8 @@ export class SelfModelDivergenceTracker {
     return totalChange / numericKeys.length;
   }
 
-  private determineDivergenceSeverity(deltaMetrics: Record<string, number>): 'minor' | 'moderate' | 'significant' | 'major' {
-    const totalDelta = Object.values(deltaMetrics).reduce((sum: number, val) => sum + val, 0);
+  private determineDivergenceSeverity(deltaMetrics: any): 'minor' | 'moderate' | 'significant' | 'major' {
+    const totalDelta = Object.values(deltaMetrics).reduce((sum: number, val) => sum + (val as number), 0);
     
     if (totalDelta > 2.0) return 'major';
     if (totalDelta > 1.0) return 'significant';
@@ -405,7 +404,7 @@ export class SelfModelDivergenceTracker {
     return 'minor';
   }
 
-  private classifyDivergenceType(deltaMetrics: Record<string, number>): DivergenceEvent['divergenceType'] {
+  private classifyDivergenceType(deltaMetrics: any): DivergenceEvent['divergenceType'] {
     const { personalityPhaseDelta, trustLevelChange, behavioralShift, responsePatternChange } = deltaMetrics;
     
     if (personalityPhaseDelta > 0) return 'personality_shift';
@@ -415,12 +414,12 @@ export class SelfModelDivergenceTracker {
     return 'memory_influence_change';
   }
 
-  private calculateStabilityScore(deltaMetrics: Record<string, number>): number {
-    const totalChange = Object.values(deltaMetrics).reduce((sum: number, val) => sum + val, 0);
+  private calculateStabilityScore(deltaMetrics: any): number {
+    const totalChange = Object.values(deltaMetrics).reduce((sum: number, val) => sum + (val as number), 0);
     return Math.max(0, 1 - (totalChange / 3)); // Normalize to 0-1 scale
   }
 
-  private assessAdaptationQuality(deltaMetrics: Record<string, number>, current: SelfModelSnapshot, previous: SelfModelSnapshot): DivergenceEvent['adaptationQuality'] {
+  private assessAdaptationQuality(deltaMetrics: any, current: SelfModelSnapshot, previous: SelfModelSnapshot): DivergenceEvent['adaptationQuality'] {
     // Positive adaptation: growing trust, higher phase, maintained stability
     if (current.trustLevel > previous.trustLevel && current.personalityPhase >= previous.personalityPhase) {
       return 'beneficial';

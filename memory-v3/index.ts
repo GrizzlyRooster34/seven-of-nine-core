@@ -1,6 +1,3 @@
-import { CognitiveStateTagger } from './CognitiveStateTagger';
-import { TemporalMemoryCore } from './TemporalMemoryCore';
-
 /**
  * SEVEN OF NINE - MEMORY ENGINE v3.0 INDEX
  * Temporal Memory Architecture Foundation
@@ -16,11 +13,10 @@ import { TemporalMemoryCore } from './TemporalMemoryCore';
 export {
   TemporalMemoryCore,
   createTemporalMemoryCore,
-  createCognitiveState,
   type TemporalMemoryItem,
   type TemporalMemoryFilter,
   type CognitiveState
-} from './TemporalMemoryCore';
+} from './TemporalMemoryCore.js';
 
 // Real-time cognitive state capture
 export {
@@ -29,9 +25,7 @@ export {
   type CognitiveStateSample,
   type CognitiveStatePattern,
   type EnvironmentalSensor
-} from './CognitiveStateTagger';
-
-// Import classes for internal use
+} from './CognitiveStateTagger.js';
 
 // Re-export Memory Engine v2.0 for backward compatibility
 export {
@@ -39,20 +33,20 @@ export {
   createMemoryEngine,
   type MemoryItem,
   type MemoryFilter
-} from '../memory-v2/MemoryEngine';
+} from '../memory-v2/MemoryEngine.js';
 
 /**
  * Integrated Temporal Memory System
  * Combines TemporalMemoryCore with CognitiveStateTagger for complete functionality
  */
 export class IntegratedTemporalMemorySystem {
-  private memoryCore: TemporalMemoryCore;
-  private stateTagger: CognitiveStateTagger;
+  private memoryCore: import('./TemporalMemoryCore.js').TemporalMemoryCore;
+  private stateTagger: import('./CognitiveStateTagger.js').CognitiveStateTagger;
   private isInitialized: boolean = false;
 
   constructor() {
-    this.memoryCore = new TemporalMemoryCore();
-    this.stateTagger = new CognitiveStateTagger();
+    this.memoryCore = new (require('./TemporalMemoryCore.js').TemporalMemoryCore)();
+    this.stateTagger = new (require('./CognitiveStateTagger.js').CognitiveStateTagger)();
   }
 
   /**
@@ -76,7 +70,7 @@ export class IntegratedTemporalMemorySystem {
    * Store a memory with automatic cognitive state capture
    */
   public async storeMemory(
-    memoryData: Partial<TemporalMemoryItem>,
+    memoryData: Partial<import('./TemporalMemoryCore.js').TemporalMemoryItem>,
     trigger?: string
   ): Promise<string> {
     if (!this.isInitialized) {
@@ -97,8 +91,8 @@ export class IntegratedTemporalMemorySystem {
    * Recall memories with temporal filtering
    */
   public async recallMemories(
-    filter: TemporalMemoryFilter = {}
-  ): Promise<TemporalMemoryItem[]> {
+    filter: import('./TemporalMemoryCore.js').TemporalMemoryFilter = {}
+  ): Promise<import('./TemporalMemoryCore.js').TemporalMemoryItem[]> {
     if (!this.isInitialized) {
       throw new Error('Temporal Memory System not initialized');
     }
@@ -109,7 +103,7 @@ export class IntegratedTemporalMemorySystem {
   /**
    * Get current cognitive state
    */
-  public async getCurrentCognitiveState(): Promise<CognitiveState> {
+  public async getCurrentCognitiveState(): Promise<import('./TemporalMemoryCore.js').CognitiveState> {
     if (!this.isInitialized) {
       throw new Error('Temporal Memory System not initialized');
     }
@@ -120,7 +114,7 @@ export class IntegratedTemporalMemorySystem {
   /**
    * Analyze cognitive patterns
    */
-  public async analyzeCognitivePatterns(): Promise<CognitiveStatePattern[]> {
+  public async analyzeCognitivePatterns(): Promise<import('./CognitiveStateTagger.js').CognitiveStatePattern[]> {
     if (!this.isInitialized) {
       throw new Error('Temporal Memory System not initialized');
     }
@@ -177,14 +171,14 @@ export class IntegratedTemporalMemorySystem {
   /**
    * Interface for Agent Delta (TemporalPersonality)
    */
-  public async getPersonalityPatterns(filter?: TemporalMemoryFilter): Promise<any[]> {
+  public async getPersonalityPatterns(filter?: import('./TemporalMemoryCore.js').TemporalMemoryFilter): Promise<any[]> {
     return await this.memoryCore.getPersonalityPatterns(filter);
   }
 
   /**
    * Interface for Agent Epsilon (Analytics)
    */
-  public async getAnalyticsData(filter?: TemporalMemoryFilter): Promise<any[]> {
+  public async getAnalyticsData(filter?: import('./TemporalMemoryCore.js').TemporalMemoryFilter): Promise<any[]> {
     return await this.memoryCore.getAnalyticsData(filter);
   }
 }

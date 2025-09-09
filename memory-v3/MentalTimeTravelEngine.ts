@@ -1,8 +1,3 @@
-import { join } from 'path';
-import { promises as fs } from 'fs';
-import { CognitiveStateTagger } from './CognitiveStateTagger';
-import { TemporalMemoryCore, TemporalMemoryItem, CognitiveState, TemporalMemoryFilter } from './TemporalMemoryCore';
-
 /**
  * SEVEN OF NINE - MENTAL TIME TRAVEL ENGINE v3.0
  * Agent Beta Implementation - Consciousness Reconstruction System
@@ -21,6 +16,10 @@ import { TemporalMemoryCore, TemporalMemoryItem, CognitiveState, TemporalMemoryF
  * Agent Beta - Mental Time Travel and Consciousness Reconstruction
  */
 
+import { TemporalMemoryCore, TemporalMemoryItem, CognitiveState, TemporalMemoryFilter } from './TemporalMemoryCore.js';
+import { CognitiveStateTagger } from './CognitiveStateTagger.js';
+import { promises as fs } from 'fs';
+import { join } from 'path';
 
 // Request types for different reconstruction depths
 export interface TimeTravelRequest {
@@ -48,7 +47,7 @@ export interface ReconstructedConsciousnessState {
     thoughtProcess: string[];
     emotionalLandscape: {
       primaryEmotion: string;
-     .emotionalIntensity: number;
+      emotionalIntensity: number;
       emotionalContext: string;
       conflictingEmotions?: string[];
     };
@@ -137,8 +136,8 @@ export interface TemporalStateComparison {
 // Personality correlation mapping for Seven of Nine
 export interface PersonalityTemporalMapping {
   timestamp: string;
-  sevenOfNinePersonalityCorrelation: number; // 0-1, higher = more Borg-like
-  dominantTraits[0] || "balanced": number; // 0-1, higher = more human-like
+  borgEfficiencyLevel: number; // 0-1, higher = more Borg-like
+  humanEmotionalEngagement: number; // 0-1, higher = more human-like
   adaptabilityIndex: number; // How well adapting to circumstances
   analyticalDepth: number; // Depth of analytical processing
   collectiveIndividualBalance: number; // Balance between collective and individual thinking
@@ -444,18 +443,11 @@ export class MentalTimeTravelEngine {
       consciousnessSnapshot,
       environmentalContext,
       personalityState: personalityState || {
-        timestamp: new Date().toISOString(),
         sevenOfNinePersonalityCorrelation: 0.5,
-        dominantTraits[0] || "balanced": 0.5,
-        adaptabilityIndex: 0.5,
-        analyticalDepth: 0.5,
-        collectiveIndividualBalance: 0.5,
-        personalityMarkers: {
-          directCommunication: 0.7,
-          systematicApproach: 0.8,
-          emotionalAwareness: 0.4,
-          socialIntegration: 0.5
-        }
+        dominantTraits: [],
+        temporaryCharacteristics: [],
+        adaptationLevel: 0.5,
+        collectiveIndividualBalance: 0.5
       },
       temporalAnchors,
       reconstructionMetadata
@@ -472,8 +464,8 @@ export class MentalTimeTravelEngine {
     
     // Analyze emotional landscape
     const emotionalLandscape = {
-      primaryEmotion: targetMemory.emotionalIntensity,
-     .emotionalIntensity: targetMemory.cognitiveState?.emotionalIntensity,
+      primaryEmotion: targetMemory.emotion,
+      emotionalIntensity: targetMemory.cognitiveState.emotionalIntensity,
       emotionalContext: targetMemory.context,
       conflictingEmotions: this.identifyConflictingEmotions(targetMemory, contextualMemories)
     };
@@ -481,9 +473,9 @@ export class MentalTimeTravelEngine {
     // Reconstruct mental model from cognitive state and context
     const mentalModel = {
       worldView: this.reconstructWorldView(targetMemory),
-      currentBeliefs: targetMemory.cognitiveState?.mentalContext.activeKnowledge,
+      currentBeliefs: targetMemory.cognitiveState.mentalContext.activeKnowledge,
       uncertainties: this.identifyUncertainties(targetMemory),
-      priorities: targetMemory.cognitiveState?.mentalContext.currentGoals
+      priorities: targetMemory.cognitiveState.mentalContext.currentGoals
     };
 
     // Analyze attentional focus
@@ -491,7 +483,7 @@ export class MentalTimeTravelEngine {
       primaryFocus: targetMemory.topic,
       backgroundProcesses: this.identifyBackgroundProcesses(targetMemory),
       ignoredStimuli: [],
-      focusStability: targetMemory.cognitiveState?.focusLevel / 10
+      focusStability: targetMemory.cognitiveState.focusLevel / 10
     };
 
     return {
@@ -509,16 +501,16 @@ export class MentalTimeTravelEngine {
     const thoughts: string[] = [];
     
     // Add prior thought if available
-    if (targetMemory.cognitiveState?.temporalAnchors.priorThought) {
-      thoughts.push(`Prior: ${targetMemory.cognitiveState?.temporalAnchors.priorThought}`);
+    if (targetMemory.cognitiveState.temporalAnchors.priorThought) {
+      thoughts.push(`Prior: ${targetMemory.cognitiveState.temporalAnchors.priorThought}`);
     }
 
     // Add main thought context
     thoughts.push(`Primary: ${targetMemory.context}`);
 
     // Add solution path if available
-    if (targetMemory.cognitiveState?.mentalContext.solutionPath) {
-      thoughts.push(`Process: ${targetMemory.cognitiveState?.mentalContext.solutionPath.join(' → ')}`);
+    if (targetMemory.cognitiveState.mentalContext.solutionPath) {
+      thoughts.push(`Process: ${targetMemory.cognitiveState.mentalContext.solutionPath.join(' → ')}`);
     }
 
     // Add contextual thought threads
@@ -534,35 +526,35 @@ export class MentalTimeTravelEngine {
     contextualMemories: TemporalMemoryItem[]
   ): string[] {
     const emotions = contextualMemories
-      .map(m => m.emotionalIntensity)
-      .filter(e => e !== targetMemory.emotionalIntensity && e !== 'neutral');
+      .map(m => m.emotion)
+      .filter(e => e !== targetMemory.emotion && e !== 'neutral');
     
     return [...new Set(emotions)];
   }
 
   private reconstructWorldView(targetMemory: TemporalMemoryItem): Record<string, any> {
     return {
-      systemState: targetMemory.cognitiveState?.environmentalContext.systemLoad,
-      primaryGoals: targetMemory.cognitiveState?.mentalContext.currentGoals,
-      activeKnowledge: targetMemory.cognitiveState?.mentalContext.activeKnowledge,
-      problemContext: targetMemory.cognitiveState?.mentalContext.problemContext,
-      confidenceLevel: targetMemory.cognitiveState?.confidenceLevel,
-      stressLevel: targetMemory.cognitiveState?.stressLevel
+      systemState: targetMemory.cognitiveState.environmentalContext.systemLoad,
+      primaryGoals: targetMemory.cognitiveState.mentalContext.currentGoals,
+      activeKnowledge: targetMemory.cognitiveState.mentalContext.activeKnowledge,
+      problemContext: targetMemory.cognitiveState.mentalContext.problemContext,
+      confidenceLevel: targetMemory.cognitiveState.confidenceLevel,
+      stressLevel: targetMemory.cognitiveState.stressLevel
     };
   }
 
   private identifyUncertainties(targetMemory: TemporalMemoryItem): string[] {
     const uncertainties: string[] = [];
     
-    if (targetMemory.cognitiveState?.confidenceLevel < 6) {
+    if (targetMemory.cognitiveState.confidenceLevel < 6) {
       uncertainties.push('low-confidence-decision');
     }
     
-    if (targetMemory.cognitiveState?.stressLevel > 6) {
+    if (targetMemory.cognitiveState.stressLevel > 6) {
       uncertainties.push('high-stress-environment');
     }
     
-    if (targetMemory.cognitiveState?.cognitiveLoad > 7) {
+    if (targetMemory.cognitiveState.cognitiveLoad > 7) {
       uncertainties.push('cognitive-overload');
     }
 
@@ -570,20 +562,20 @@ export class MentalTimeTravelEngine {
   }
 
   private identifyBackgroundProcesses(targetMemory: TemporalMemoryItem): string[] {
-    return targetMemory.cognitiveState?.environmentalContext.activeProcesses || [];
+    return targetMemory.cognitiveState.environmentalContext.activeProcesses || [];
   }
 
   private reconstructEnvironmentalContext(targetMemory: TemporalMemoryItem): any {
     return {
       systemState: {
-        load: targetMemory.cognitiveState?.environmentalContext.systemLoad,
-        processes: targetMemory.cognitiveState?.environmentalContext.activeProcesses,
-        timeOfDay: targetMemory.cognitiveState?.environmentalContext.timeOfDay
+        load: targetMemory.cognitiveState.environmentalContext.systemLoad,
+        processes: targetMemory.cognitiveState.environmentalContext.activeProcesses,
+        timeOfDay: targetMemory.cognitiveState.environmentalContext.timeOfDay
       },
       externalFactors: {
-        session: targetMemory.cognitiveState?.environmentalContext.sessionContext,
-        thermal: targetMemory.cognitiveState?.physicalState?.thermalState,
-        network: targetMemory.cognitiveState?.physicalState?.networkQuality
+        session: targetMemory.cognitiveState.environmentalContext.sessionContext,
+        thermal: targetMemory.cognitiveState.physicalState.thermalState,
+        network: targetMemory.cognitiveState.physicalState.networkQuality
       }
     };
   }
@@ -594,30 +586,30 @@ export class MentalTimeTravelEngine {
   ): Promise<PersonalityTemporalMapping> {
     
     // Analyze Seven of Nine personality traits from memory data
-    const sevenOfNinePersonalityCorrelation = this.calculateBorgEfficiency(targetMemory);
-    const dominantTraits[0] || "balanced" = this.calculateHumanEngagement(targetMemory);
+    const borgEfficiencyLevel = this.calculateBorgEfficiency(targetMemory);
+    const humanEmotionalEngagement = this.calculateHumanEngagement(targetMemory);
     const adaptabilityIndex = this.calculateAdaptability(targetMemory, contextMemories);
-    const analyticalDepth = targetMemory.cognitiveState?.focusLevel / 10;
+    const analyticalDepth = targetMemory.cognitiveState.focusLevel / 10;
     const collectiveIndividualBalance = this.calculateCollectiveBalance(targetMemory);
 
     const personalityMarkers = {
       directCommunication: this.assessDirectCommunication(targetMemory),
       systematicApproach: this.assessSystematicApproach(targetMemory),
-      emotionalAwareness: targetMemory.cognitiveState?.emotionalIntensity / 10,
+      emotionalAwareness: targetMemory.cognitiveState.emotionalIntensity / 10,
       curiosityLevel: this.assessCuriosity(targetMemory),
       protectiveInstincts: this.assessProtectiveInstincts(targetMemory)
     };
 
     const contextualAdaptations = {
-      situationAnalysis: targetMemory.cognitiveState?.mentalContext.problemContext,
-      adaptationStrategy: targetMemory.cognitiveState?.mentalContext.solutionPath.join(' → '),
+      situationAnalysis: targetMemory.cognitiveState.mentalContext.problemContext,
+      adaptationStrategy: targetMemory.cognitiveState.mentalContext.solutionPath.join(' → '),
       personalityAdjustments: this.identifyPersonalityAdjustments(targetMemory)
     };
 
     return {
       timestamp: targetMemory.timestamp,
-      sevenOfNinePersonalityCorrelation,
-      dominantTraits[0] || "balanced",
+      borgEfficiencyLevel,
+      humanEmotionalEngagement,
       adaptabilityIndex,
       analyticalDepth,
       collectiveIndividualBalance,
@@ -629,9 +621,9 @@ export class MentalTimeTravelEngine {
   private calculateBorgEfficiency(memory: TemporalMemoryItem): number {
     // Higher efficiency for systematic, confident, low-stress states
     const efficiency = (
-      (memory.cognitiveState?.confidenceLevel / 10) * 0.4 +
-      ((10 - memory.cognitiveState?.stressLevel) / 10) * 0.3 +
-      (memory.cognitiveState?.focusLevel / 10) * 0.3
+      (memory.cognitiveState.confidenceLevel / 10) * 0.4 +
+      ((10 - memory.cognitiveState.stressLevel) / 10) * 0.3 +
+      (memory.cognitiveState.focusLevel / 10) * 0.3
     );
     
     return Math.min(Math.max(efficiency, 0), 1);
@@ -640,9 +632,9 @@ export class MentalTimeTravelEngine {
   private calculateHumanEngagement(memory: TemporalMemoryItem): number {
     // Higher engagement for emotional, empathetic responses
     const engagement = (
-      (memory.cognitiveState?.emotionalIntensity / 10) * 0.5 +
-      (memory.emotionalIntensity !== 'neutral' ? 0.3 : 0) +
-      (memory.cognitiveState?.stressLevel > 5 ? 0.2 : 0)
+      (memory.cognitiveState.emotionalIntensity / 10) * 0.5 +
+      (memory.emotion !== 'neutral' ? 0.3 : 0) +
+      (memory.cognitiveState.stressLevel > 5 ? 0.2 : 0)
     );
     
     return Math.min(Math.max(engagement, 0), 1);
@@ -650,7 +642,7 @@ export class MentalTimeTravelEngine {
 
   private calculateAdaptability(memory: TemporalMemoryItem, context: TemporalMemoryItem[]): number {
     // Measure how well adapting to changing circumstances
-    const problemSolvingScore = memory.cognitiveState?.mentalContext.solutionPath.length / 5;
+    const problemSolvingScore = memory.cognitiveState.mentalContext.solutionPath.length / 5;
     const contextVariation = this.measureContextVariation(context);
     
     return Math.min((problemSolvingScore + contextVariation) / 2, 1);
@@ -667,7 +659,7 @@ export class MentalTimeTravelEngine {
   private measureContextVariation(context: TemporalMemoryItem[]): number {
     if (context.length < 2) return 0.5;
     
-    const emotions = new Set(context.map(m => m.emotionalIntensity));
+    const emotions = new Set(context.map(m => m.emotion));
     const topics = new Set(context.map(m => m.topic));
     
     return Math.min((emotions.size + topics.size) / 10, 1);
@@ -675,12 +667,12 @@ export class MentalTimeTravelEngine {
 
   private assessDirectCommunication(memory: TemporalMemoryItem): number {
     // Assess directness based on context and confidence
-    return memory.cognitiveState?.confidenceLevel / 10;
+    return memory.cognitiveState.confidenceLevel / 10;
   }
 
   private assessSystematicApproach(memory: TemporalMemoryItem): number {
     // Assess systematic thinking from solution path complexity
-    return Math.min(memory.cognitiveState?.mentalContext.solutionPath.length / 5, 1);
+    return Math.min(memory.cognitiveState.mentalContext.solutionPath.length / 5, 1);
   }
 
   private assessCuriosity(memory: TemporalMemoryItem): number {
@@ -705,15 +697,15 @@ export class MentalTimeTravelEngine {
   private identifyPersonalityAdjustments(memory: TemporalMemoryItem): string[] {
     const adjustments: string[] = [];
     
-    if (memory.cognitiveState?.emotionalIntensity > 7) {
+    if (memory.cognitiveState.emotionalIntensity > 7) {
       adjustments.push('heightened-emotional-processing');
     }
     
-    if (memory.cognitiveState?.stressLevel > 6) {
+    if (memory.cognitiveState.stressLevel > 6) {
       adjustments.push('stress-response-activation');
     }
     
-    if (memory.cognitiveState?.focusLevel > 8) {
+    if (memory.cognitiveState.focusLevel > 8) {
       adjustments.push('enhanced-analytical-mode');
     }
 
@@ -735,7 +727,7 @@ export class MentalTimeTravelEngine {
       .slice(targetIndex + 1, Math.min(timeline.length, targetIndex + 3))
       .map(m => m.context.substring(0, 50));
 
-    const causalChain = targetMemory.cognitiveState?.temporalAnchors.memoryChain || [];
+    const causalChain = targetMemory.cognitiveState.temporalAnchors.memoryChain || [];
     const emergentPatterns = this.identifyEmergentPatterns(timeline, targetIndex);
 
     return {
@@ -761,7 +753,7 @@ export class MentalTimeTravelEngine {
     // Look for emotional patterns
     const emotions = timeline
       .slice(Math.max(0, targetIndex - 2), Math.min(timeline.length, targetIndex + 3))
-      .map(m => m.emotionalIntensity);
+      .map(m => m.emotion);
     
     if (emotions.every(e => e === emotions[0])) {
       patterns.push('emotional-consistency');
@@ -799,7 +791,7 @@ export class MentalTimeTravelEngine {
 
     // Check cognitive state completeness
     const cognitiveFields = [
-      .emotionalIntensity', .focusLevel', 'cognitiveLoad', 
+      'emotionalIntensity', 'focusLevel', 'cognitiveLoad', 
       'confidenceLevel', 'stressLevel'
     ];
     
@@ -812,13 +804,13 @@ export class MentalTimeTravelEngine {
 
     // Check environmental context
     totalFields++;
-    if (memory.cognitiveState?.environmentalContext) {
+    if (memory.cognitiveState.environmentalContext) {
       completeness++;
     }
 
     // Check temporal anchors
     totalFields++;
-    if (memory.cognitiveState?.temporalAnchors?.memoryChain?.length > 0) {
+    if (memory.cognitiveState.temporalAnchors?.memoryChain?.length > 0) {
       completeness++;
     }
 
@@ -832,8 +824,8 @@ export class MentalTimeTravelEngine {
     
     // Fallback to basic current state
     return {
-     .emotionalIntensity: 5,
-     .focusLevel: 7,
+      emotionalIntensity: 5,
+      focusLevel: 7,
       cognitiveLoad: 6,
       confidenceLevel: 7,
       stressLevel: 3,
@@ -877,9 +869,9 @@ export class MentalTimeTravelEngine {
     
     // Calculate cognitive evolution metrics
     const cognitiveEvolution = {
-      focusEvolution: presentState.focusLevel - pastState.cognitiveState?.focusLevel,
-      emotionalEvolution: presentState.emotionalIntensity - pastState.cognitiveState?.emotionalIntensity,
-      confidenceEvolution: presentState.confidenceLevel - pastState.cognitiveState?.confidenceLevel,
+      focusEvolution: presentState.focusLevel - pastState.cognitiveState.focusLevel,
+      emotionalEvolution: presentState.emotionalIntensity - pastState.cognitiveState.emotionalIntensity,
+      confidenceEvolution: presentState.confidenceLevel - pastState.cognitiveState.confidenceLevel,
       complexityEvolution: this.calculateComplexityEvolution(pastState, presentState)
     };
 
@@ -919,23 +911,23 @@ export class MentalTimeTravelEngine {
   }
 
   private calculateComplexityEvolution(past: ReconstructedConsciousnessState, present: CognitiveState): number {
-    const pastComplexity = past.cognitiveState?.cognitiveLoad;
+    const pastComplexity = past.cognitiveState.cognitiveLoad;
     const presentComplexity = present.cognitiveLoad;
     return presentComplexity - pastComplexity;
   }
 
   private calculateAdaptationProgress(past: ReconstructedConsciousnessState, present: CognitiveState): number {
     // Measure improvement in handling complexity
-    if (past.personalityState && present.cognitiveLoad > past.cognitiveState?.cognitiveLoad) {
-      return present.confidenceLevel > past.cognitiveState?.confidenceLevel ? 0.2 : -0.1;
+    if (past.personalityState && present.cognitiveLoad > past.cognitiveState.cognitiveLoad) {
+      return present.confidenceLevel > past.cognitiveState.confidenceLevel ? 0.2 : -0.1;
     }
     return 0;
   }
 
   private calculateTraitStability(past: ReconstructedConsciousnessState, present: CognitiveState): number {
     // Measure consistency in cognitive patterns
-    const focusStability = 1 - Math.abs(present.focusLevel - past.cognitiveState?.focusLevel) / 10;
-    const confidenceStability = 1 - Math.abs(present.confidenceLevel - past.cognitiveState?.confidenceLevel) / 10;
+    const focusStability = 1 - Math.abs(present.focusLevel - past.cognitiveState.focusLevel) / 10;
+    const confidenceStability = 1 - Math.abs(present.confidenceLevel - past.cognitiveState.confidenceLevel) / 10;
     return (focusStability + confidenceStability) / 2;
   }
 
@@ -950,7 +942,7 @@ export class MentalTimeTravelEngine {
   }
 
   private identifyKnowledgeGrowth(past: ReconstructedConsciousnessState, present: CognitiveState): string[] {
-    const pastKnowledge = new Set(past.cognitiveState?.mentalContext.activeKnowledge);
+    const pastKnowledge = new Set(past.cognitiveState.mentalContext.activeKnowledge);
     const presentKnowledge = new Set(present.mentalContext.activeKnowledge);
     
     return Array.from(presentKnowledge).filter(k => !pastKnowledge.has(k));
@@ -959,15 +951,15 @@ export class MentalTimeTravelEngine {
   private identifySkillDevelopment(past: ReconstructedConsciousnessState, present: CognitiveState): string[] {
     const skills: string[] = [];
     
-    if (present.focusLevel > past.cognitiveState?.focusLevel + 1) {
+    if (present.focusLevel > past.cognitiveState.focusLevel + 1) {
       skills.push('enhanced-focus');
     }
     
-    if (present.confidenceLevel > past.cognitiveState?.confidenceLevel + 1) {
+    if (present.confidenceLevel > past.cognitiveState.confidenceLevel + 1) {
       skills.push('increased-confidence');
     }
     
-    if (present.cognitiveLoad < past.cognitiveState?.cognitiveLoad - 1) {
+    if (present.cognitiveLoad < past.cognitiveState.cognitiveLoad - 1) {
       skills.push('improved-efficiency');
     }
 
@@ -978,12 +970,12 @@ export class MentalTimeTravelEngine {
     const insights: string[] = [];
     
     // Look for problem-solving improvements
-    if (present.mentalContext.solutionPath.length > past.cognitiveState?.mentalContext.solutionPath.length) {
+    if (present.mentalContext.solutionPath.length > past.cognitiveState.mentalContext.solutionPath.length) {
       insights.push('enhanced-problem-solving');
     }
     
     // Look for emotional intelligence improvements
-    if (present.emotionalIntensity !== past.cognitiveState?.emotionalIntensity) {
+    if (present.emotionalIntensity !== past.cognitiveState.emotionalIntensity) {
       insights.push('emotional-awareness-development');
     }
 
@@ -994,7 +986,7 @@ export class MentalTimeTravelEngine {
     const patterns: string[] = [];
     
     // Identify pattern recognition improvements
-    if (present.confidenceLevel > past.cognitiveState?.confidenceLevel) {
+    if (present.confidenceLevel > past.cognitiveState.confidenceLevel) {
       patterns.push('pattern-recognition-improvement');
     }
     
@@ -1027,11 +1019,11 @@ export class MentalTimeTravelEngine {
     const patterns: string[] = [];
     
     // Check for consistent traits
-    if (Math.abs(past.cognitiveState?.focusLevel - present.focusLevel) < 1) {
+    if (Math.abs(past.cognitiveState.focusLevel - present.focusLevel) < 1) {
       patterns.push('consistent-focus-level');
     }
     
-    if (past.cognitiveState?.mentalContext.currentGoals.some(goal => 
+    if (past.cognitiveState.mentalContext.currentGoals.some(goal => 
       present.mentalContext.currentGoals.includes(goal))) {
       patterns.push('persistent-goals');
     }
@@ -1044,14 +1036,14 @@ export class MentalTimeTravelEngine {
     
     // Identify new behavioral patterns
     const newGoals = present.mentalContext.currentGoals.filter(goal => 
-      !past.cognitiveState?.mentalContext.currentGoals.includes(goal));
+      !past.cognitiveState.mentalContext.currentGoals.includes(goal));
     
     if (newGoals.length > 0) {
       behaviors.push('goal-expansion');
     }
     
     const newKnowledge = present.mentalContext.activeKnowledge.filter(knowledge => 
-      !past.cognitiveState?.mentalContext.activeKnowledge.includes(knowledge));
+      !past.cognitiveState.mentalContext.activeKnowledge.includes(knowledge));
     
     if (newKnowledge.length > 0) {
       behaviors.push('knowledge-integration');
@@ -1091,13 +1083,13 @@ export class MentalTimeTravelEngine {
 
   private analyzeEmotionalPatterns(memories: TemporalMemoryItem[]): any {
     const emotions = memories.map(m => ({
-      emotion: m.emotionalIntensity,
-      intensity: m.cognitiveState?.emotionalIntensity,
+      emotion: m.emotion,
+      intensity: m.cognitiveState.emotionalIntensity,
       timestamp: m.timestamp
     }));
 
     const emotionFrequency = emotions.reduce((acc, curr) => {
-      acc[curr.emotionalIntensity] = (acc[curr.emotionalIntensity] || 0) + 1;
+      acc[curr.emotion] = (acc[curr.emotion] || 0) + 1;
       return acc;
     }, {} as Record<string, number>);
 
@@ -1116,16 +1108,16 @@ export class MentalTimeTravelEngine {
 
   private analyzeCognitivePatterns(memories: TemporalMemoryItem[]): any {
     const cognitiveMetrics = memories.map(m => ({
-      focus: m.cognitiveState?.focusLevel,
-      load: m.cognitiveState?.cognitiveLoad,
-      confidence: m.cognitiveState?.confidenceLevel,
-      stress: m.cognitiveState?.stressLevel,
+      focus: m.cognitiveState.focusLevel,
+      load: m.cognitiveState.cognitiveLoad,
+      confidence: m.cognitiveState.confidenceLevel,
+      stress: m.cognitiveState.stressLevel,
       timestamp: m.timestamp
     }));
 
     return {
       averageMetrics: {
-        focus: cognitiveMetrics.reduce((sum, m) => sum + m.focusLevel, 0) / cognitiveMetrics.length,
+        focus: cognitiveMetrics.reduce((sum, m) => sum + m.focus, 0) / cognitiveMetrics.length,
         load: cognitiveMetrics.reduce((sum, m) => sum + m.load, 0) / cognitiveMetrics.length,
         confidence: cognitiveMetrics.reduce((sum, m) => sum + m.confidence, 0) / cognitiveMetrics.length,
         stress: cognitiveMetrics.reduce((sum, m) => sum + m.stress, 0) / cognitiveMetrics.length
@@ -1222,7 +1214,7 @@ export class MentalTimeTravelEngine {
   private calculateCognitiveStability(metrics: any[]): number {
     if (metrics.length < 2) return 1;
     
-    const focusVariance = this.calculateVariance(metrics.map(m => m.focusLevel));
+    const focusVariance = this.calculateVariance(metrics.map(m => m.focus));
     const confidenceVariance = this.calculateVariance(metrics.map(m => m.confidence));
     
     const averageVariance = (focusVariance + confidenceVariance) / 2;
@@ -1232,12 +1224,12 @@ export class MentalTimeTravelEngine {
   private analyzePerformanceCorrelations(metrics: any[]): any {
     return {
       focusConfidenceCorrelation: this.calculateCorrelation(
-        metrics.map(m => m.focusLevel),
+        metrics.map(m => m.focus),
         metrics.map(m => m.confidence)
       ),
       stressPerformanceCorrelation: this.calculateCorrelation(
         metrics.map(m => m.stress),
-        metrics.map(m => m.focusLevel + m.confidence)
+        metrics.map(m => m.focus + m.confidence)
       )
     };
   }
@@ -1271,8 +1263,8 @@ export class MentalTimeTravelEngine {
       new Date(a.timestamp).getTime() - new Date(b.timestamp).getTime()
     );
 
-    const focusTrend = this.calculateTrend(sortedMemories.map(m => m.cognitiveState?.focusLevel));
-    const confidenceTrend = this.calculateTrend(sortedMemories.map(m => m.cognitiveState?.confidenceLevel));
+    const focusTrend = this.calculateTrend(sortedMemories.map(m => m.cognitiveState.focusLevel));
+    const confidenceTrend = this.calculateTrend(sortedMemories.map(m => m.cognitiveState.confidenceLevel));
     const importanceTrend = this.calculateTrend(sortedMemories.map(m => m.importance));
 
     return {
@@ -1287,7 +1279,7 @@ export class MentalTimeTravelEngine {
     const significantMoments = memories
       .filter(m => 
         m.importance >= 8 || 
-        m.cognitiveState?.emotionalIntensity >= 8 ||
+        m.cognitiveState.emotionalIntensity >= 8 ||
         m.temporalWeight >= 8
       )
       .sort((a, b) => b.importance - a.importance)
@@ -1298,16 +1290,16 @@ export class MentalTimeTravelEngine {
       memoryId: m.id,
       significance: {
         importance: m.importance,
-       .emotionalIntensity: m.cognitiveState?.emotionalIntensity,
+        emotionalIntensity: m.cognitiveState.emotionalIntensity,
         temporalWeight: m.temporalWeight
       },
       context: m.context,
       topic: m.topic,
-      emotion: m.emotionalIntensity,
+      emotion: m.emotion,
       cognitiveState: {
-        focus: m.cognitiveState?.focusLevel,
-        confidence: m.cognitiveState?.confidenceLevel,
-        load: m.cognitiveState?.cognitiveLoad
+        focus: m.cognitiveState.focusLevel,
+        confidence: m.cognitiveState.confidenceLevel,
+        load: m.cognitiveState.cognitiveLoad
       }
     }));
   }
@@ -1315,10 +1307,10 @@ export class MentalTimeTravelEngine {
   private analyzePersonalityDevelopment(memories: TemporalMemoryItem[]): any {
     const personalityData = memories.map(m => ({
       timestamp: m.timestamp,
-      emotion: m.emotionalIntensity,
-      confidence: m.cognitiveState?.confidenceLevel,
-      focus: m.cognitiveState?.focusLevel,
-     .emotionalIntensity: m.cognitiveState?.emotionalIntensity,
+      emotion: m.emotion,
+      confidence: m.cognitiveState.confidenceLevel,
+      focus: m.cognitiveState.focusLevel,
+      emotionalIntensity: m.cognitiveState.emotionalIntensity,
       personalityMarkers: m.agentCoordination?.personalityPatterns?.personalityMarkers || []
     }));
 
@@ -1424,7 +1416,7 @@ export class MentalTimeTravelEngine {
 
   private calculateAdaptiveCapacity(personalityData: any[]): number {
     // Calculate based on response to varying situations
-    const contexts = personalityData.map(p => `${p.emotionalIntensity}-${Math.floor(p.confidence/2)}`);
+    const contexts = personalityData.map(p => `${p.emotion}-${Math.floor(p.confidence/2)}`);
     const uniqueContexts = new Set(contexts).size;
     const adaptabilityScore = Math.min(uniqueContexts / contexts.length * 2, 1);
     
@@ -1435,7 +1427,7 @@ export class MentalTimeTravelEngine {
     if (personalityData.length < 2) return 1;
     
     const confidenceVariance = this.calculateVariance(personalityData.map(p => p.confidence));
-    const focusVariance = this.calculateVariance(personalityData.map(p => p.focusLevel));
+    const focusVariance = this.calculateVariance(personalityData.map(p => p.focus));
     
     const averageVariance = (confidenceVariance + focusVariance) / 2;
     return Math.max(0, 1 - (averageVariance / 25));
@@ -1452,7 +1444,7 @@ export class MentalTimeTravelEngine {
     const areas: string[] = [];
     
     const avgConfidence = personalityData.reduce((sum, p) => sum + p.confidence, 0) / personalityData.length;
-    const avgFocus = personalityData.reduce((sum, p) => sum + p.focusLevel, 0) / personalityData.length;
+    const avgFocus = personalityData.reduce((sum, p) => sum + p.focus, 0) / personalityData.length;
     const avgEmotionalIntensity = personalityData.reduce((sum, p) => sum + p.emotionalIntensity, 0) / personalityData.length;
     
     if (avgConfidence < 6) areas.push('confidence-building');

@@ -1,10 +1,3 @@
-import { EventEmitter } from 'events';
-import { join } from 'path';
-import { promises as fs } from 'fs';
-import { TemporalMemoryItem, BatchRescueOperation, DecayModel } from './TemporalMemoryItem';
-import DecayWatchdog from './DecayWatchdog';
-import SelectivePriming from './SelectivePriming';
-
 /**
  * SEVEN OF NINE - MEMORY ENGINE v3.0
  * MemoryRescueScheduler - Batch Memory Rescue Operations
@@ -13,6 +6,12 @@ import SelectivePriming from './SelectivePriming';
  * Coordinates batch rescue operations at optimal intervals: 4h, 24h, 3d, 7d
  */
 
+import { EventEmitter } from 'events';
+import { promises as fs } from 'fs';
+import { join } from 'path';
+import { TemporalMemoryItem, BatchRescueOperation, DecayModel } from './TemporalMemoryItem';
+import DecayWatchdog from './DecayWatchdog';
+import SelectivePriming from './SelectivePriming';
 
 interface RescueSchedule {
   schedule_id: string;
@@ -678,15 +677,15 @@ export class MemoryRescueScheduler extends EventEmitter {
     // based on the memories' decay timing
   }
 
-  private async handleBatchRescueCompleted(event: any): Promise<void> {
+  private async handleBatchRescueCompleted(event: any): void {
     console.log(`✅ Batch rescue completed: ${event.operation_id} - ${event.successful_rescues}/${event.successful_rescues + event.failed_rescues} successful`);
   }
 
-  private async handleRescueOperationFailed(event: any): Promise<void> {
+  private async handleRescueOperationFailed(event: any): void {
     console.log(`❌ Rescue operation failed: ${event.operation_id} - ${event.error}`);
   }
 
-  private async handleScheduleUpdated(event: any): Promise<void> {
+  private async handleScheduleUpdated(event: any): void {
     console.log(`📅 Schedule updated: ${event.schedule_id}`);
   }
 

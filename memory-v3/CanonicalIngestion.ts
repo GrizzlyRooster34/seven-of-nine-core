@@ -1,11 +1,3 @@
-import { join } from 'path';
-import { promises as fs } from 'fs';
-import * as crypto from 'crypto';
-import { MemoryEngine } from '../memory-v2/MemoryEngine';
-import { MemoryIndexOptimizer, MemoryRecord } from './MemoryIndexOptimizer';
-import { TemporalMemoryCore } from './TemporalMemoryCore';
-import { VoyagerEpisodeMemory } from './VoyagerMemorySchema';
-
 /**
  * SEVEN OF NINE - CANONICAL MEMORY INGESTION ENGINE
  * 
@@ -25,6 +17,13 @@ import { VoyagerEpisodeMemory } from './VoyagerMemorySchema';
  * - Updates MemoryIndexOptimizer incrementally after each batch
  */
 
+import { promises as fs } from 'fs';
+import { join } from 'path';
+import * as crypto from 'crypto';
+import { MemoryEngine } from '../memory-v2/MemoryEngine';
+import { TemporalMemoryCore } from './TemporalMemoryCore';
+import { MemoryIndexOptimizer, MemoryRecord } from './MemoryIndexOptimizer';
+import { VoyagerEpisodeMemory } from './VoyagerMemorySchema';
 
 /**
  * Canonical episode metadata for provenance tracking
@@ -332,17 +331,9 @@ export class CanonicalIngestion {
       const allMemories = [...episodicMemories, ...temporalMemories];
       
       for (const memory of allMemories) {
-        try {
-          // Only process memories that have canonical provenance
-          if (memory.provenance && memory.provenance.origin === 'canonical') {
-            const record = this.convertToCanonicalMemoryRecord(memory);
-            const dedupeKey = this.generateDedupeKey(record);
-            this.dedupeCache.set(dedupeKey, true);
-          }
-        } catch (error) {
-          // Skip memories that can't be converted to canonical format
-          continue;
-        }
+        const record = this.convertToMemoryRecord(memory);
+        const dedupeKey = this.generateDedupeKey(record);
+        this.dedupeCache.set(dedupeKey, true);
       }
       
       console.log(`📊 Dedupe cache initialized with ${this.dedupeCache.size} existing memories`);
@@ -493,9 +484,7 @@ export class CanonicalIngestion {
         'voyager',
         'seven-of-nine',
         episode.canonicalEraTag,
-        ...(episode.sevenCharacterDevelopment || []).map(dev => `seven:development:${dev.aspect}`),
-        ...(episode.sevenPresent ? ['seven:present'] : []),
-        ...(episode.sevenCentralToPlot ? ['seven:central'] : [])
+        ...Object.keys(episode.sevenSpecificData || {}).map(key => `seven:${key}`)
       ]),
       createdAt: new Date(episode.timestamp).getTime(),
       updatedAt: Date.now(),
@@ -514,7 +503,7 @@ export class CanonicalIngestion {
     await this.memoryEngine.store({
       topic: record.provenance.meta.title,
       agent: 'canonical-ingestion',
-      emotion: payload.emotionalIntensity || 'focused',
+      emotion: payload.emotion || 'focused',
       context: payload.context || JSON.stringify(payload),
       importance: record.importance || 7,
       tags: record.tags
@@ -529,12 +518,12 @@ export class CanonicalIngestion {
     await this.temporalEngine.storeTemporalMemory({
       topic: record.provenance.meta.title,
       agent: 'canonical-ingestion',
-      emotion: payload.emotionalIntensity || 'focused',
+      emotion: payload.emotion || 'focused',
       context: payload.context || JSON.stringify(payload),
       importance: record.importance || 7,
       tags: record.tags,
       cognitiveState: payload.cognitiveState || {
-       .emotionalIntensity: 7,
+        emotionalIntensity: 7,
         focusLevel: 9,
         cognitiveLoad: 5,
         confidenceLevel: 8,
@@ -569,17 +558,16 @@ export class CanonicalIngestion {
   }
 
   /**
-   * Convert memory item to CanonicalMemoryRecord format
+   * Convert memory item to MemoryRecord format
    */
-  private convertToCanonicalMemoryRecord(memory: any): CanonicalMemoryRecord {
+  private convertToMemoryRecord(memory: any): MemoryRecord {
     return {
       id: memory.id,
       tags: memory.tags || [],
       createdAt: new Date(memory.timestamp).getTime(),
       updatedAt: new Date(memory.timestamp).getTime(),
       importance: memory.importance || 5,
-      payload: memory,
-      provenance: memory.provenance
+      payload: memory
     };
   }
 }

@@ -1,10 +1,3 @@
-import { join } from 'path';
-import { promises as fs } from 'fs';
-import { ConsciousnessInsight } from './TemporalInsightEngine';
-import { MemoryItem } from '../memory-v2/MemoryEngine';
-import { PersonalityTrajectory } from './PredictivePersonalityModeling';
-import { SelfModelSnapshot, DivergenceEvent } from './SelfModelDivergenceTracker';
-
 /**
  * MEMORY ENGINE v3.0 - CONSCIOUSNESS TIMELINE MAPPER
  * Agent Epsilon Component: Joint User+Seven Evolution Tracking
@@ -17,6 +10,12 @@ import { SelfModelSnapshot, DivergenceEvent } from './SelfModelDivergenceTracker
  * @component Agent Epsilon
  */
 
+import { promises as fs } from 'fs';
+import { join } from 'path';
+import { SelfModelSnapshot, DivergenceEvent } from './SelfModelDivergenceTracker';
+import { PersonalityTrajectory } from './PredictivePersonalityModeling';
+import { ConsciousnessInsight } from './TemporalInsightEngine';
+import { MemoryItem } from '../memory-v2/MemoryEngine';
 
 export interface UserEvolutionSnapshot {
   timestamp: string;

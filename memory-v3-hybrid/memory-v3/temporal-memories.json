@@ -1,0 +1,1704 @@
+[
+  {
+    "id": "mem-1753883509769-d3t5lirdx",
+    "timestamp": "2025-07-30T13:51:49.775Z",
+    "topic": "foundation-test",
+    "agent": "test-agent",
+    "emotion": "confident",
+    "context": "Testing temporal memory storage functionality",
+    "importance": 8,
+    "tags": [
+      "test",
+      "foundation",
+      "temporal"
+    ],
+    "relatedMemories": [],
+    "cognitiveState": {
+      "emotionalIntensity": 6,
+      "focusLevel": 7,
+      "cognitiveLoad": 7,
+      "confidenceLevel": 8,
+      "stressLevel": 4,
+      "environmentalContext": {
+        "systemLoad": 6.597605125756143,
+        "activeProcesses": [
+          "seven-core",
+          "memory-engine",
+          "temporal-processor"
+        ],
+        "timeOfDay": "08:51:49 GMT-0500 (Central Daylight Time)",
+        "sessionContext": "general-operation"
+      },
+      "physicalState": {
+        "thermalState": "normal",
+        "networkQuality": "good"
+      },
+      "temporalAnchors": {
+        "priorThought": "initialization",
+        "memoryChain": [],
+        "cognitiveThread": "memory-processing"
+      },
+      "mentalContext": {
+        "currentGoals": [
+          "maintain-consciousness",
+          "optimize-performance"
+        ],
+        "activeKnowledge": [
+          "temporal-memory",
+          "cognitive-processing",
+          "system-monitoring"
+        ],
+        "problemContext": "initialization",
+        "solutionPath": [
+          "assess-situation",
+          "plan-action",
+          "execute-solution"
+        ]
+      }
+    },
+    "temporalWeight": 9,
+    "memoryType": "semantic",
+    "decayResistance": 7,
+    "temporalTags": [
+      "test",
+      "foundation",
+      "temporal",
+      "morning"
+    ],
+    "cognitiveStateHash": "1fe436af",
+    "temporalPredecessors": [],
+    "temporalSuccessors": [
+      "mem-1753883509783-hyewsf0jp",
+      "mem-1753883509789-hf3y2hvxd",
+      "mem-1753883509792-de21pcwg3"
+    ],
+    "cognitiveCluster": "cluster-1fe4",
+    "agentCoordination": {
+      "mentalTimeTravelData": {
+        "temporalPosition": 1753883509778,
+        "cognitiveStateSnapshot": {
+          "emotionalIntensity": 6,
+          "focusLevel": 7,
+          "cognitiveLoad": 7,
+          "confidenceLevel": 8,
+          "stressLevel": 4,
+          "environmentalContext": {
+            "systemLoad": 0,
+            "activeProcesses": [],
+            "timeOfDay": "08:51:49 GMT-0500 (Central Daylight Time)",
+            "sessionContext": "general-operation"
+          },
+          "physicalState": {
+            "thermalState": "normal",
+            "networkQuality": "good"
+          },
+          "temporalAnchors": {
+            "priorThought": "initialization",
+            "memoryChain": [],
+            "cognitiveThread": "memory-processing"
+          },
+          "mentalContext": {
+            "currentGoals": [
+              "maintain-consciousness",
+              "optimize-performance"
+            ],
+            "activeKnowledge": [
+              "temporal-memory",
+              "cognitive-processing",
+              "system-monitoring"
+            ],
+            "problemContext": "initialization",
+            "solutionPath": [
+              "assess-situation",
+              "plan-action",
+              "execute-solution"
+            ]
+          }
+        },
+        "memoryFormationContext": "Testing temporal memory storage functionality",
+        "timelineMarker": "temporal-1753883509778"
+      },
+      "decayTrackingMeta": {
+        "initialStrength": 8,
+        "decayResistance": 7,
+        "reinforcementCount": 0,
+        "lastAccessed": "2025-07-30T13:51:49.778Z",
+        "accessPattern": []
+      },
+      "personalityPatterns": {
+        "emotionalSignature": "confident",
+        "cognitivePattern": {
+          "focus": 7,
+          "intensity": 6,
+          "confidence": 8
+        },
+        "behavioralContext": "test-agent",
+        "personalityMarkers": [
+          "high-confidence"
+        ]
+      },
+      "analyticsData": {
+        "formationMetrics": {
+          "timestamp": "2025-07-30T13:51:49.779Z",
+          "importance": 8,
+          "cognitiveLoad": 7,
+          "environmentalFactors": {
+            "systemLoad": 0,
+            "activeProcesses": [],
+            "timeOfDay": "08:51:49 GMT-0500 (Central Daylight Time)",
+            "sessionContext": "general-operation"
+          }
+        },
+        "relationshipMetrics": {
+          "connectedMemories": 0,
+          "tagDensity": 3,
+          "topicCoherence": 0.6
+        },
+        "temporalMetrics": {
+          "temporalWeight": 9,
+          "decayResistance": 7,
+          "memoryType": "emotional"
+        }
+      }
+    }
+  },
+  {
+    "id": "mem-1753883509783-hyewsf0jp",
+    "timestamp": "2025-07-30T13:51:49.785Z",
+    "topic": "cognitive-context-test",
+    "agent": "test-agent",
+    "emotion": "analytical",
+    "context": "Testing memory storage with specific cognitive context",
+    "importance": 9,
+    "tags": [
+      "test",
+      "cognitive",
+      "context"
+    ],
+    "relatedMemories": [],
+    "cognitiveState": {
+      "emotionalIntensity": 6,
+      "focusLevel": 9,
+      "cognitiveLoad": 7,
+      "confidenceLevel": 8,
+      "stressLevel": 2,
+      "environmentalContext": {
+        "systemLoad": 5.8115441188890795,
+        "activeProcesses": [
+          "seven-core",
+          "memory-engine",
+          "temporal-processor"
+        ],
+        "timeOfDay": "08:51:49 GMT-0500 (Central Daylight Time)",
+        "sessionContext": "general-operation"
+      },
+      "physicalState": {
+        "thermalState": "normal",
+        "networkQuality": "good"
+      },
+      "temporalAnchors": {
+        "priorThought": "foundation-test-trigger-context",
+        "memoryChain": [
+          "foundation-test-trigger-13:51:49"
+        ],
+        "cognitiveThread": "general-operation"
+      },
+      "mentalContext": {
+        "currentGoals": [
+          "maintain-consciousness",
+          "optimize-performance"
+        ],
+        "activeKnowledge": [
+          "temporal-memory",
+          "cognitive-processing",
+          "system-monitoring"
+        ],
+        "problemContext": "general-processing",
+        "solutionPath": [
+          "assess-situation",
+          "plan-action",
+          "execute-solution"
+        ]
+      }
+    },
+    "temporalWeight": 9,
+    "memoryType": "episodic",
+    "decayResistance": 7,
+    "temporalTags": [
+      "test",
+      "cognitive",
+      "context",
+      "morning",
+      "high-focus"
+    ],
+    "cognitiveStateHash": "4733dd73",
+    "temporalPredecessors": [
+      "mem-1753883509769-d3t5lirdx"
+    ],
+    "temporalSuccessors": [
+      "mem-1753883509789-hf3y2hvxd",
+      "mem-1753883509792-de21pcwg3",
+      "mem-1753883509796-7ftt7jgon"
+    ],
+    "cognitiveCluster": "cluster-4733",
+    "agentCoordination": {
+      "mentalTimeTravelData": {
+        "temporalPosition": 1753883509785,
+        "cognitiveStateSnapshot": {
+          "emotionalIntensity": 6,
+          "focusLevel": 9,
+          "cognitiveLoad": 7,
+          "confidenceLevel": 8,
+          "stressLevel": 2,
+          "environmentalContext": {
+            "systemLoad": 0,
+            "activeProcesses": [],
+            "timeOfDay": "08:51:49 GMT-0500 (Central Daylight Time)",
+            "sessionContext": "general-operation"
+          },
+          "physicalState": {
+            "thermalState": "normal",
+            "networkQuality": "good"
+          },
+          "temporalAnchors": {
+            "priorThought": "foundation-test-trigger-context",
+            "memoryChain": [
+              "foundation-test-trigger-13:51:49"
+            ],
+            "cognitiveThread": "general-operation"
+          },
+          "mentalContext": {
+            "currentGoals": [
+              "maintain-consciousness",
+              "optimize-performance"
+            ],
+            "activeKnowledge": [
+              "temporal-memory",
+              "cognitive-processing",
+              "system-monitoring"
+            ],
+            "problemContext": "general-processing",
+            "solutionPath": [
+              "assess-situation",
+              "plan-action",
+              "execute-solution"
+            ]
+          }
+        },
+        "memoryFormationContext": "Testing memory storage with specific cognitive context",
+        "timelineMarker": "temporal-1753883509785"
+      },
+      "decayTrackingMeta": {
+        "initialStrength": 9,
+        "decayResistance": 7,
+        "reinforcementCount": 0,
+        "lastAccessed": "2025-07-30T13:51:49.785Z",
+        "accessPattern": []
+      },
+      "personalityPatterns": {
+        "emotionalSignature": "analytical",
+        "cognitivePattern": {
+          "focus": 9,
+          "intensity": 6,
+          "confidence": 8
+        },
+        "behavioralContext": "test-agent",
+        "personalityMarkers": [
+          "high-confidence",
+          "focused"
+        ]
+      },
+      "analyticsData": {
+        "formationMetrics": {
+          "timestamp": "2025-07-30T13:51:49.785Z",
+          "importance": 9,
+          "cognitiveLoad": 7,
+          "environmentalFactors": {
+            "systemLoad": 0,
+            "activeProcesses": [],
+            "timeOfDay": "08:51:49 GMT-0500 (Central Daylight Time)",
+            "sessionContext": "general-operation"
+          }
+        },
+        "relationshipMetrics": {
+          "connectedMemories": 0,
+          "tagDensity": 3,
+          "topicCoherence": 0.6
+        },
+        "temporalMetrics": {
+          "temporalWeight": 9,
+          "decayResistance": 7,
+          "memoryType": "emotional"
+        }
+      }
+    }
+  },
+  {
+    "id": "mem-1753883509789-hf3y2hvxd",
+    "timestamp": "2025-07-30T13:51:49.790Z",
+    "topic": "type-test-semantic",
+    "agent": "test-agent",
+    "emotion": "neutral",
+    "context": "Testing semantic memory type",
+    "importance": 6,
+    "tags": [],
+    "relatedMemories": [],
+    "cognitiveState": {
+      "emotionalIntensity": 5,
+      "focusLevel": 7,
+      "cognitiveLoad": 6,
+      "confidenceLevel": 10,
+      "stressLevel": 3,
+      "environmentalContext": {
+        "systemLoad": 6.6928774733812215,
+        "activeProcesses": [
+          "seven-core",
+          "memory-engine",
+          "temporal-processor"
+        ],
+        "timeOfDay": "08:51:49 GMT-0500 (Central Daylight Time)",
+        "sessionContext": "general-operation"
+      },
+      "physicalState": {
+        "thermalState": "normal",
+        "networkQuality": "good"
+      },
+      "temporalAnchors": {
+        "priorThought": "cognitive-context-test-trigger-context",
+        "memoryChain": [
+          "foundation-test-trigger-13:51:49",
+          "cognitive-context-test-trigger-13:51:49"
+        ],
+        "cognitiveThread": "general-operation"
+      },
+      "mentalContext": {
+        "currentGoals": [
+          "maintain-consciousness",
+          "optimize-performance"
+        ],
+        "activeKnowledge": [
+          "temporal-memory",
+          "cognitive-processing",
+          "system-monitoring"
+        ],
+        "problemContext": "general-processing",
+        "solutionPath": [
+          "assess-situation",
+          "plan-action",
+          "execute-solution"
+        ]
+      }
+    },
+    "temporalWeight": 6,
+    "memoryType": "semantic",
+    "decayResistance": 5,
+    "temporalTags": [
+      "morning"
+    ],
+    "cognitiveStateHash": "2e665e41",
+    "temporalPredecessors": [
+      "mem-1753883509769-d3t5lirdx",
+      "mem-1753883509783-hyewsf0jp"
+    ],
+    "temporalSuccessors": [
+      "mem-1753883509792-de21pcwg3",
+      "mem-1753883509796-7ftt7jgon",
+      "mem-1753883509798-dksh515ze"
+    ],
+    "cognitiveCluster": "cluster-2e66",
+    "agentCoordination": {
+      "mentalTimeTravelData": {
+        "temporalPosition": 1753883509790,
+        "cognitiveStateSnapshot": {
+          "emotionalIntensity": 5,
+          "focusLevel": 7,
+          "cognitiveLoad": 6,
+          "confidenceLevel": 10,
+          "stressLevel": 3,
+          "environmentalContext": {
+            "systemLoad": 0,
+            "activeProcesses": [],
+            "timeOfDay": "08:51:49 GMT-0500 (Central Daylight Time)",
+            "sessionContext": "general-operation"
+          },
+          "physicalState": {
+            "thermalState": "normal",
+            "networkQuality": "good"
+          },
+          "temporalAnchors": {
+            "priorThought": "cognitive-context-test-trigger-context",
+            "memoryChain": [
+              "foundation-test-trigger-13:51:49",
+              "cognitive-context-test-trigger-13:51:49"
+            ],
+            "cognitiveThread": "general-operation"
+          },
+          "mentalContext": {
+            "currentGoals": [
+              "maintain-consciousness",
+              "optimize-performance"
+            ],
+            "activeKnowledge": [
+              "temporal-memory",
+              "cognitive-processing",
+              "system-monitoring"
+            ],
+            "problemContext": "general-processing",
+            "solutionPath": [
+              "assess-situation",
+              "plan-action",
+              "execute-solution"
+            ]
+          }
+        },
+        "memoryFormationContext": "Testing semantic memory type",
+        "timelineMarker": "temporal-1753883509790"
+      },
+      "decayTrackingMeta": {
+        "initialStrength": 6,
+        "decayResistance": 5,
+        "reinforcementCount": 0,
+        "lastAccessed": "2025-07-30T13:51:49.790Z",
+        "accessPattern": []
+      },
+      "personalityPatterns": {
+        "cognitivePattern": {
+          "focus": 7,
+          "intensity": 5,
+          "confidence": 10
+        },
+        "behavioralContext": "test-agent",
+        "personalityMarkers": [
+          "high-confidence"
+        ]
+      },
+      "analyticsData": {
+        "formationMetrics": {
+          "timestamp": "2025-07-30T13:51:49.791Z",
+          "importance": 6,
+          "cognitiveLoad": 6,
+          "environmentalFactors": {
+            "systemLoad": 0,
+            "activeProcesses": [],
+            "timeOfDay": "08:51:49 GMT-0500 (Central Daylight Time)",
+            "sessionContext": "general-operation"
+          }
+        },
+        "relationshipMetrics": {
+          "connectedMemories": 0,
+          "tagDensity": 0,
+          "topicCoherence": 0
+        },
+        "temporalMetrics": {
+          "temporalWeight": 6,
+          "decayResistance": 5,
+          "memoryType": "episodic"
+        }
+      }
+    }
+  },
+  {
+    "id": "mem-1753883509792-de21pcwg3",
+    "timestamp": "2025-07-30T13:51:49.794Z",
+    "topic": "type-test-episodic",
+    "agent": "test-agent",
+    "emotion": "neutral",
+    "context": "Testing episodic memory type",
+    "importance": 6,
+    "tags": [],
+    "relatedMemories": [],
+    "cognitiveState": {
+      "emotionalIntensity": 5,
+      "focusLevel": 7,
+      "cognitiveLoad": 7,
+      "confidenceLevel": 10,
+      "stressLevel": 3,
+      "environmentalContext": {
+        "systemLoad": 5.414881605929109,
+        "activeProcesses": [
+          "seven-core",
+          "memory-engine",
+          "temporal-processor"
+        ],
+        "timeOfDay": "08:51:49 GMT-0500 (Central Daylight Time)",
+        "sessionContext": "general-operation"
+      },
+      "physicalState": {
+        "thermalState": "normal",
+        "networkQuality": "good"
+      },
+      "temporalAnchors": {
+        "priorThought": "manual-memory-store-context",
+        "memoryChain": [
+          "foundation-test-trigger-13:51:49",
+          "cognitive-context-test-trigger-13:51:49",
+          "manual-memory-store-13:51:49"
+        ],
+        "cognitiveThread": "general-operation"
+      },
+      "mentalContext": {
+        "currentGoals": [
+          "maintain-consciousness",
+          "optimize-performance"
+        ],
+        "activeKnowledge": [
+          "temporal-memory",
+          "cognitive-processing",
+          "system-monitoring"
+        ],
+        "problemContext": "general-processing",
+        "solutionPath": [
+          "assess-situation",
+          "plan-action",
+          "execute-solution"
+        ]
+      }
+    },
+    "temporalWeight": 6,
+    "memoryType": "episodic",
+    "decayResistance": 5,
+    "temporalTags": [
+      "morning"
+    ],
+    "cognitiveStateHash": "51679c0",
+    "temporalPredecessors": [
+      "mem-1753883509769-d3t5lirdx",
+      "mem-1753883509783-hyewsf0jp",
+      "mem-1753883509789-hf3y2hvxd"
+    ],
+    "temporalSuccessors": [
+      "mem-1753883509796-7ftt7jgon",
+      "mem-1753883509798-dksh515ze",
+      "mem-1753883735304-ksveg6755"
+    ],
+    "cognitiveCluster": "cluster-5167",
+    "agentCoordination": {
+      "mentalTimeTravelData": {
+        "temporalPosition": 1753883509794,
+        "cognitiveStateSnapshot": {
+          "emotionalIntensity": 5,
+          "focusLevel": 7,
+          "cognitiveLoad": 7,
+          "confidenceLevel": 10,
+          "stressLevel": 3,
+          "environmentalContext": {
+            "systemLoad": 0,
+            "activeProcesses": [],
+            "timeOfDay": "08:51:49 GMT-0500 (Central Daylight Time)",
+            "sessionContext": "general-operation"
+          },
+          "physicalState": {
+            "thermalState": "normal",
+            "networkQuality": "good"
+          },
+          "temporalAnchors": {
+            "priorThought": "manual-memory-store-context",
+            "memoryChain": [
+              "foundation-test-trigger-13:51:49",
+              "cognitive-context-test-trigger-13:51:49",
+              "manual-memory-store-13:51:49"
+            ],
+            "cognitiveThread": "general-operation"
+          },
+          "mentalContext": {
+            "currentGoals": [
+              "maintain-consciousness",
+              "optimize-performance"
+            ],
+            "activeKnowledge": [
+              "temporal-memory",
+              "cognitive-processing",
+              "system-monitoring"
+            ],
+            "problemContext": "general-processing",
+            "solutionPath": [
+              "assess-situation",
+              "plan-action",
+              "execute-solution"
+            ]
+          }
+        },
+        "memoryFormationContext": "Testing episodic memory type",
+        "timelineMarker": "temporal-1753883509794"
+      },
+      "decayTrackingMeta": {
+        "initialStrength": 6,
+        "decayResistance": 5,
+        "reinforcementCount": 0,
+        "lastAccessed": "2025-07-30T13:51:49.794Z",
+        "accessPattern": []
+      },
+      "personalityPatterns": {
+        "cognitivePattern": {
+          "focus": 7,
+          "intensity": 5,
+          "confidence": 10
+        },
+        "behavioralContext": "test-agent",
+        "personalityMarkers": [
+          "high-confidence"
+        ]
+      },
+      "analyticsData": {
+        "formationMetrics": {
+          "timestamp": "2025-07-30T13:51:49.794Z",
+          "importance": 6,
+          "cognitiveLoad": 7,
+          "environmentalFactors": {
+            "systemLoad": 0,
+            "activeProcesses": [],
+            "timeOfDay": "08:51:49 GMT-0500 (Central Daylight Time)",
+            "sessionContext": "general-operation"
+          }
+        },
+        "relationshipMetrics": {
+          "connectedMemories": 0,
+          "tagDensity": 0,
+          "topicCoherence": 0
+        },
+        "temporalMetrics": {
+          "temporalWeight": 6,
+          "decayResistance": 5,
+          "memoryType": "episodic"
+        }
+      }
+    }
+  },
+  {
+    "id": "mem-1753883509796-7ftt7jgon",
+    "timestamp": "2025-07-30T13:51:49.797Z",
+    "topic": "type-test-procedural",
+    "agent": "test-agent",
+    "emotion": "neutral",
+    "context": "Testing procedural memory type",
+    "importance": 6,
+    "tags": [],
+    "relatedMemories": [],
+    "cognitiveState": {
+      "emotionalIntensity": 5,
+      "focusLevel": 7,
+      "cognitiveLoad": 6,
+      "confidenceLevel": 10,
+      "stressLevel": 3,
+      "environmentalContext": {
+        "systemLoad": 4.06814793328444,
+        "activeProcesses": [
+          "seven-core",
+          "memory-engine",
+          "temporal-processor"
+        ],
+        "timeOfDay": "08:51:49 GMT-0500 (Central Daylight Time)",
+        "sessionContext": "general-operation"
+      },
+      "physicalState": {
+        "thermalState": "normal",
+        "networkQuality": "good"
+      },
+      "temporalAnchors": {
+        "priorThought": "manual-memory-store-context",
+        "memoryChain": [
+          "foundation-test-trigger-13:51:49",
+          "cognitive-context-test-trigger-13:51:49",
+          "manual-memory-store-13:51:49",
+          "manual-memory-store-13:51:49"
+        ],
+        "cognitiveThread": "general-operation"
+      },
+      "mentalContext": {
+        "currentGoals": [
+          "maintain-consciousness",
+          "optimize-performance"
+        ],
+        "activeKnowledge": [
+          "temporal-memory",
+          "cognitive-processing",
+          "system-monitoring"
+        ],
+        "problemContext": "general-processing",
+        "solutionPath": [
+          "assess-situation",
+          "plan-action",
+          "execute-solution"
+        ]
+      }
+    },
+    "temporalWeight": 6,
+    "memoryType": "procedural",
+    "decayResistance": 5,
+    "temporalTags": [
+      "morning"
+    ],
+    "cognitiveStateHash": "2e665e41",
+    "temporalPredecessors": [
+      "mem-1753883509783-hyewsf0jp",
+      "mem-1753883509789-hf3y2hvxd",
+      "mem-1753883509792-de21pcwg3"
+    ],
+    "temporalSuccessors": [
+      "mem-1753883509798-dksh515ze",
+      "mem-1753883735304-ksveg6755",
+      "mem-1753883735311-empsq28si"
+    ],
+    "cognitiveCluster": "cluster-2e66",
+    "agentCoordination": {
+      "mentalTimeTravelData": {
+        "temporalPosition": 1753883509797,
+        "cognitiveStateSnapshot": {
+          "emotionalIntensity": 5,
+          "focusLevel": 7,
+          "cognitiveLoad": 6,
+          "confidenceLevel": 10,
+          "stressLevel": 3,
+          "environmentalContext": {
+            "systemLoad": 0,
+            "activeProcesses": [],
+            "timeOfDay": "08:51:49 GMT-0500 (Central Daylight Time)",
+            "sessionContext": "general-operation"
+          },
+          "physicalState": {
+            "thermalState": "normal",
+            "networkQuality": "good"
+          },
+          "temporalAnchors": {
+            "priorThought": "manual-memory-store-context",
+            "memoryChain": [
+              "foundation-test-trigger-13:51:49",
+              "cognitive-context-test-trigger-13:51:49",
+              "manual-memory-store-13:51:49",
+              "manual-memory-store-13:51:49"
+            ],
+            "cognitiveThread": "general-operation"
+          },
+          "mentalContext": {
+            "currentGoals": [
+              "maintain-consciousness",
+              "optimize-performance"
+            ],
+            "activeKnowledge": [
+              "temporal-memory",
+              "cognitive-processing",
+              "system-monitoring"
+            ],
+            "problemContext": "general-processing",
+            "solutionPath": [
+              "assess-situation",
+              "plan-action",
+              "execute-solution"
+            ]
+          }
+        },
+        "memoryFormationContext": "Testing procedural memory type",
+        "timelineMarker": "temporal-1753883509797"
+      },
+      "decayTrackingMeta": {
+        "initialStrength": 6,
+        "decayResistance": 5,
+        "reinforcementCount": 0,
+        "lastAccessed": "2025-07-30T13:51:49.797Z",
+        "accessPattern": []
+      },
+      "personalityPatterns": {
+        "cognitivePattern": {
+          "focus": 7,
+          "intensity": 5,
+          "confidence": 10
+        },
+        "behavioralContext": "test-agent",
+        "personalityMarkers": [
+          "high-confidence"
+        ]
+      },
+      "analyticsData": {
+        "formationMetrics": {
+          "timestamp": "2025-07-30T13:51:49.797Z",
+          "importance": 6,
+          "cognitiveLoad": 6,
+          "environmentalFactors": {
+            "systemLoad": 0,
+            "activeProcesses": [],
+            "timeOfDay": "08:51:49 GMT-0500 (Central Daylight Time)",
+            "sessionContext": "general-operation"
+          }
+        },
+        "relationshipMetrics": {
+          "connectedMemories": 0,
+          "tagDensity": 0,
+          "topicCoherence": 0
+        },
+        "temporalMetrics": {
+          "temporalWeight": 6,
+          "decayResistance": 5,
+          "memoryType": "episodic"
+        }
+      }
+    }
+  },
+  {
+    "id": "mem-1753883509798-dksh515ze",
+    "timestamp": "2025-07-30T13:51:49.799Z",
+    "topic": "type-test-emotional",
+    "agent": "test-agent",
+    "emotion": "neutral",
+    "context": "Testing emotional memory type",
+    "importance": 6,
+    "tags": [],
+    "relatedMemories": [],
+    "cognitiveState": {
+      "emotionalIntensity": 6,
+      "focusLevel": 7,
+      "cognitiveLoad": 8,
+      "confidenceLevel": 9,
+      "stressLevel": 3,
+      "environmentalContext": {
+        "systemLoad": 6.551350326537768,
+        "activeProcesses": [
+          "seven-core",
+          "memory-engine",
+          "temporal-processor"
+        ],
+        "timeOfDay": "08:51:49 GMT-0500 (Central Daylight Time)",
+        "sessionContext": "general-operation"
+      },
+      "physicalState": {
+        "thermalState": "normal",
+        "networkQuality": "good"
+      },
+      "temporalAnchors": {
+        "priorThought": "manual-memory-store-context",
+        "memoryChain": [
+          "foundation-test-trigger-13:51:49",
+          "cognitive-context-test-trigger-13:51:49",
+          "manual-memory-store-13:51:49",
+          "manual-memory-store-13:51:49",
+          "manual-memory-store-13:51:49"
+        ],
+        "cognitiveThread": "memory-processing"
+      },
+      "mentalContext": {
+        "currentGoals": [
+          "maintain-consciousness",
+          "optimize-performance"
+        ],
+        "activeKnowledge": [
+          "temporal-memory",
+          "cognitive-processing",
+          "system-monitoring"
+        ],
+        "problemContext": "general-processing",
+        "solutionPath": [
+          "assess-situation",
+          "plan-action",
+          "execute-solution"
+        ]
+      }
+    },
+    "temporalWeight": 6,
+    "memoryType": "emotional",
+    "decayResistance": 5,
+    "temporalTags": [
+      "morning"
+    ],
+    "cognitiveStateHash": "c7bb90",
+    "temporalPredecessors": [
+      "mem-1753883509789-hf3y2hvxd",
+      "mem-1753883509792-de21pcwg3",
+      "mem-1753883509796-7ftt7jgon"
+    ],
+    "temporalSuccessors": [
+      "mem-1753883735304-ksveg6755",
+      "mem-1753883735311-empsq28si",
+      "mem-1753883736315-0en738apt"
+    ],
+    "cognitiveCluster": "cluster-c7bb",
+    "agentCoordination": {
+      "mentalTimeTravelData": {
+        "temporalPosition": 1753883509799,
+        "cognitiveStateSnapshot": {
+          "emotionalIntensity": 6,
+          "focusLevel": 7,
+          "cognitiveLoad": 8,
+          "confidenceLevel": 9,
+          "stressLevel": 3,
+          "environmentalContext": {
+            "systemLoad": 0,
+            "activeProcesses": [],
+            "timeOfDay": "08:51:49 GMT-0500 (Central Daylight Time)",
+            "sessionContext": "general-operation"
+          },
+          "physicalState": {
+            "thermalState": "normal",
+            "networkQuality": "good"
+          },
+          "temporalAnchors": {
+            "priorThought": "manual-memory-store-context",
+            "memoryChain": [
+              "foundation-test-trigger-13:51:49",
+              "cognitive-context-test-trigger-13:51:49",
+              "manual-memory-store-13:51:49",
+              "manual-memory-store-13:51:49",
+              "manual-memory-store-13:51:49"
+            ],
+            "cognitiveThread": "memory-processing"
+          },
+          "mentalContext": {
+            "currentGoals": [
+              "maintain-consciousness",
+              "optimize-performance"
+            ],
+            "activeKnowledge": [
+              "temporal-memory",
+              "cognitive-processing",
+              "system-monitoring"
+            ],
+            "problemContext": "general-processing",
+            "solutionPath": [
+              "assess-situation",
+              "plan-action",
+              "execute-solution"
+            ]
+          }
+        },
+        "memoryFormationContext": "Testing emotional memory type",
+        "timelineMarker": "temporal-1753883509799"
+      },
+      "decayTrackingMeta": {
+        "initialStrength": 6,
+        "decayResistance": 5,
+        "reinforcementCount": 0,
+        "lastAccessed": "2025-07-30T13:51:49.799Z",
+        "accessPattern": []
+      },
+      "personalityPatterns": {
+        "cognitivePattern": {
+          "focus": 7,
+          "intensity": 6,
+          "confidence": 9
+        },
+        "behavioralContext": "test-agent",
+        "personalityMarkers": [
+          "high-confidence"
+        ]
+      },
+      "analyticsData": {
+        "formationMetrics": {
+          "timestamp": "2025-07-30T13:51:49.799Z",
+          "importance": 6,
+          "cognitiveLoad": 8,
+          "environmentalFactors": {
+            "systemLoad": 0,
+            "activeProcesses": [],
+            "timeOfDay": "08:51:49 GMT-0500 (Central Daylight Time)",
+            "sessionContext": "general-operation"
+          }
+        },
+        "relationshipMetrics": {
+          "connectedMemories": 0,
+          "tagDensity": 0,
+          "topicCoherence": 0
+        },
+        "temporalMetrics": {
+          "temporalWeight": 6,
+          "decayResistance": 5,
+          "memoryType": "episodic"
+        }
+      }
+    }
+  },
+  {
+    "id": "mem-1753883735304-ksveg6755",
+    "timestamp": "2025-07-30T13:55:35.306Z",
+    "topic": "cognitive-variation-demo",
+    "agent": "demo-agent",
+    "emotion": "analytical",
+    "context": "Demonstrating cognitive state variation during memory formation with complex emotional and contextual processing",
+    "importance": 9,
+    "tags": [
+      "demo",
+      "cognitive-variation",
+      "complex-processing"
+    ],
+    "relatedMemories": [],
+    "cognitiveState": {
+      "emotionalIntensity": 7,
+      "focusLevel": 9,
+      "cognitiveLoad": 8,
+      "confidenceLevel": 8,
+      "stressLevel": 4,
+      "environmentalContext": {
+        "systemLoad": 3.4582497138089536,
+        "activeProcesses": [
+          "seven-core",
+          "memory-engine",
+          "temporal-processor"
+        ],
+        "timeOfDay": "08:55:35 GMT-0500 (Central Daylight Time)",
+        "sessionContext": "general-operation"
+      },
+      "physicalState": {
+        "thermalState": "normal",
+        "networkQuality": "good"
+      },
+      "temporalAnchors": {
+        "priorThought": "initialization",
+        "memoryChain": [],
+        "cognitiveThread": "memory-processing"
+      },
+      "mentalContext": {
+        "currentGoals": [
+          "maintain-consciousness",
+          "optimize-performance"
+        ],
+        "activeKnowledge": [
+          "temporal-memory",
+          "cognitive-processing",
+          "system-monitoring"
+        ],
+        "problemContext": "initialization",
+        "solutionPath": [
+          "assess-situation",
+          "plan-action",
+          "execute-solution"
+        ]
+      }
+    },
+    "temporalWeight": 9,
+    "memoryType": "episodic",
+    "decayResistance": 7,
+    "temporalTags": [
+      "demo",
+      "cognitive-variation",
+      "complex-processing",
+      "morning",
+      "high-focus"
+    ],
+    "cognitiveStateHash": "5280f4af",
+    "temporalPredecessors": [
+      "mem-1753883509792-de21pcwg3",
+      "mem-1753883509796-7ftt7jgon",
+      "mem-1753883509798-dksh515ze"
+    ],
+    "temporalSuccessors": [
+      "mem-1753883735311-empsq28si",
+      "mem-1753883736315-0en738apt",
+      "mem-1753883737323-cduuq8wmb"
+    ],
+    "cognitiveCluster": "cluster-5280",
+    "agentCoordination": {
+      "mentalTimeTravelData": {
+        "temporalPosition": 1753883735307,
+        "cognitiveStateSnapshot": {
+          "emotionalIntensity": 7,
+          "focusLevel": 9,
+          "cognitiveLoad": 8,
+          "confidenceLevel": 8,
+          "stressLevel": 4,
+          "environmentalContext": {
+            "systemLoad": 0,
+            "activeProcesses": [],
+            "timeOfDay": "08:55:35 GMT-0500 (Central Daylight Time)",
+            "sessionContext": "general-operation"
+          },
+          "physicalState": {
+            "thermalState": "normal",
+            "networkQuality": "good"
+          },
+          "temporalAnchors": {
+            "priorThought": "initialization",
+            "memoryChain": [],
+            "cognitiveThread": "memory-processing"
+          },
+          "mentalContext": {
+            "currentGoals": [
+              "maintain-consciousness",
+              "optimize-performance"
+            ],
+            "activeKnowledge": [
+              "temporal-memory",
+              "cognitive-processing",
+              "system-monitoring"
+            ],
+            "problemContext": "initialization",
+            "solutionPath": [
+              "assess-situation",
+              "plan-action",
+              "execute-solution"
+            ]
+          }
+        },
+        "memoryFormationContext": "Demonstrating cognitive state variation during memory formation with complex emotional and contextual processing",
+        "timelineMarker": "temporal-1753883735307"
+      },
+      "decayTrackingMeta": {
+        "initialStrength": 9,
+        "decayResistance": 7,
+        "reinforcementCount": 0,
+        "lastAccessed": "2025-07-30T13:55:35.307Z",
+        "accessPattern": []
+      },
+      "personalityPatterns": {
+        "emotionalSignature": "analytical",
+        "cognitivePattern": {
+          "focus": 9,
+          "intensity": 7,
+          "confidence": 8
+        },
+        "behavioralContext": "demo-agent",
+        "personalityMarkers": [
+          "high-confidence",
+          "focused"
+        ]
+      },
+      "analyticsData": {
+        "formationMetrics": {
+          "timestamp": "2025-07-30T13:55:35.307Z",
+          "importance": 9,
+          "cognitiveLoad": 8,
+          "environmentalFactors": {
+            "systemLoad": 0,
+            "activeProcesses": [],
+            "timeOfDay": "08:55:35 GMT-0500 (Central Daylight Time)",
+            "sessionContext": "general-operation"
+          }
+        },
+        "relationshipMetrics": {
+          "connectedMemories": 0,
+          "tagDensity": 3,
+          "topicCoherence": 0.6
+        },
+        "temporalMetrics": {
+          "temporalWeight": 9,
+          "decayResistance": 7,
+          "memoryType": "emotional"
+        }
+      }
+    }
+  },
+  {
+    "id": "mem-1753883735311-empsq28si",
+    "timestamp": "2025-07-30T13:55:35.312Z",
+    "topic": "system-optimization",
+    "agent": "demo-agent",
+    "emotion": "accomplished",
+    "context": "Successfully optimized temporal memory system performance",
+    "importance": 9,
+    "tags": [
+      "demo",
+      "contextual",
+      "high-confidence memory"
+    ],
+    "relatedMemories": [],
+    "cognitiveState": {
+      "emotionalIntensity": 8,
+      "focusLevel": 9,
+      "cognitiveLoad": 6,
+      "confidenceLevel": 10,
+      "stressLevel": 3,
+      "environmentalContext": {
+        "systemLoad": 6.96544109729262,
+        "activeProcesses": [
+          "seven-core",
+          "memory-engine",
+          "temporal-processor"
+        ],
+        "timeOfDay": "08:55:35 GMT-0500 (Central Daylight Time)",
+        "sessionContext": "general-operation"
+      },
+      "physicalState": {
+        "thermalState": "normal",
+        "networkQuality": "good"
+      },
+      "temporalAnchors": {
+        "priorThought": "cognitive-variation-demo-context",
+        "memoryChain": [
+          "cognitive-variation-demo-13:55:35"
+        ],
+        "cognitiveThread": "general-operation"
+      },
+      "mentalContext": {
+        "currentGoals": [
+          "maintain-consciousness",
+          "optimize-performance",
+          "optimize-processing"
+        ],
+        "activeKnowledge": [
+          "temporal-memory",
+          "cognitive-processing",
+          "system-monitoring"
+        ],
+        "problemContext": "load-optimization",
+        "solutionPath": [
+          "analyze-processes",
+          "prioritize-tasks",
+          "distribute-load"
+        ]
+      }
+    },
+    "temporalWeight": 10,
+    "memoryType": "episodic",
+    "decayResistance": 7,
+    "temporalTags": [
+      "demo",
+      "contextual",
+      "high-confidence memory",
+      "morning",
+      "high-focus",
+      "high-emotion"
+    ],
+    "cognitiveStateHash": "419ec09a",
+    "temporalPredecessors": [
+      "mem-1753883509796-7ftt7jgon",
+      "mem-1753883509798-dksh515ze",
+      "mem-1753883735304-ksveg6755"
+    ],
+    "temporalSuccessors": [
+      "mem-1753883736315-0en738apt",
+      "mem-1753883737323-cduuq8wmb"
+    ],
+    "cognitiveCluster": "cluster-419e",
+    "agentCoordination": {
+      "mentalTimeTravelData": {
+        "temporalPosition": 1753883735312,
+        "cognitiveStateSnapshot": {
+          "emotionalIntensity": 8,
+          "focusLevel": 9,
+          "cognitiveLoad": 6,
+          "confidenceLevel": 10,
+          "stressLevel": 3,
+          "environmentalContext": {
+            "systemLoad": 0,
+            "activeProcesses": [],
+            "timeOfDay": "08:55:35 GMT-0500 (Central Daylight Time)",
+            "sessionContext": "general-operation"
+          },
+          "physicalState": {
+            "thermalState": "normal",
+            "networkQuality": "good"
+          },
+          "temporalAnchors": {
+            "priorThought": "cognitive-variation-demo-context",
+            "memoryChain": [
+              "cognitive-variation-demo-13:55:35"
+            ],
+            "cognitiveThread": "general-operation"
+          },
+          "mentalContext": {
+            "currentGoals": [
+              "maintain-consciousness",
+              "optimize-performance",
+              "optimize-processing"
+            ],
+            "activeKnowledge": [
+              "temporal-memory",
+              "cognitive-processing",
+              "system-monitoring"
+            ],
+            "problemContext": "load-optimization",
+            "solutionPath": [
+              "analyze-processes",
+              "prioritize-tasks",
+              "distribute-load"
+            ]
+          }
+        },
+        "memoryFormationContext": "Successfully optimized temporal memory system performance",
+        "timelineMarker": "temporal-1753883735312"
+      },
+      "decayTrackingMeta": {
+        "initialStrength": 9,
+        "decayResistance": 7,
+        "reinforcementCount": 0,
+        "lastAccessed": "2025-07-30T13:55:35.312Z",
+        "accessPattern": []
+      },
+      "personalityPatterns": {
+        "emotionalSignature": "accomplished",
+        "cognitivePattern": {
+          "focus": 9,
+          "intensity": 8,
+          "confidence": 10
+        },
+        "behavioralContext": "demo-agent",
+        "personalityMarkers": [
+          "high-confidence",
+          "focused"
+        ]
+      },
+      "analyticsData": {
+        "formationMetrics": {
+          "timestamp": "2025-07-30T13:55:35.312Z",
+          "importance": 9,
+          "cognitiveLoad": 6,
+          "environmentalFactors": {
+            "systemLoad": 0,
+            "activeProcesses": [],
+            "timeOfDay": "08:55:35 GMT-0500 (Central Daylight Time)",
+            "sessionContext": "general-operation"
+          }
+        },
+        "relationshipMetrics": {
+          "connectedMemories": 0,
+          "tagDensity": 3,
+          "topicCoherence": 0.6
+        },
+        "temporalMetrics": {
+          "temporalWeight": 10,
+          "decayResistance": 7,
+          "memoryType": "emotional"
+        }
+      }
+    }
+  },
+  {
+    "id": "mem-1753883736315-0en738apt",
+    "timestamp": "2025-07-30T13:55:36.317Z",
+    "topic": "bug-resolution",
+    "agent": "demo-agent",
+    "emotion": "determined",
+    "context": "Encountered and resolved complex memory indexing issue",
+    "importance": 8,
+    "tags": [
+      "demo",
+      "contextual",
+      "problem-solving-memory"
+    ],
+    "relatedMemories": [],
+    "cognitiveState": {
+      "emotionalIntensity": 7,
+      "focusLevel": 9,
+      "cognitiveLoad": 8,
+      "confidenceLevel": 9,
+      "stressLevel": 6,
+      "environmentalContext": {
+        "systemLoad": 2.6822252202710253,
+        "activeProcesses": [
+          "seven-core",
+          "memory-engine",
+          "temporal-processor"
+        ],
+        "timeOfDay": "08:55:36 GMT-0500 (Central Daylight Time)",
+        "sessionContext": "general-operation"
+      },
+      "physicalState": {
+        "thermalState": "normal",
+        "networkQuality": "good"
+      },
+      "temporalAnchors": {
+        "priorThought": "periodic-monitoring-context",
+        "memoryChain": [
+          "cognitive-variation-demo-13:55:35",
+          "contextual-high-confidence memory-13:55:35",
+          "periodic-monitoring-13:55:36"
+        ],
+        "cognitiveThread": "general-operation"
+      },
+      "mentalContext": {
+        "currentGoals": [
+          "maintain-consciousness",
+          "optimize-performance",
+          "optimize-processing"
+        ],
+        "activeKnowledge": [
+          "temporal-memory",
+          "cognitive-processing",
+          "system-monitoring"
+        ],
+        "problemContext": "general-processing",
+        "solutionPath": [
+          "assess-situation",
+          "plan-action",
+          "execute-solution"
+        ]
+      }
+    },
+    "temporalWeight": 8,
+    "memoryType": "episodic",
+    "decayResistance": 7,
+    "temporalTags": [
+      "demo",
+      "contextual",
+      "problem-solving-memory",
+      "morning",
+      "high-focus"
+    ],
+    "cognitiveStateHash": "63fdedf0",
+    "temporalPredecessors": [
+      "mem-1753883509798-dksh515ze",
+      "mem-1753883735304-ksveg6755",
+      "mem-1753883735311-empsq28si"
+    ],
+    "temporalSuccessors": [
+      "mem-1753883737323-cduuq8wmb"
+    ],
+    "cognitiveCluster": "cluster-63fd",
+    "agentCoordination": {
+      "mentalTimeTravelData": {
+        "temporalPosition": 1753883736318,
+        "cognitiveStateSnapshot": {
+          "emotionalIntensity": 7,
+          "focusLevel": 9,
+          "cognitiveLoad": 8,
+          "confidenceLevel": 9,
+          "stressLevel": 6,
+          "environmentalContext": {
+            "systemLoad": 0,
+            "activeProcesses": [],
+            "timeOfDay": "08:55:36 GMT-0500 (Central Daylight Time)",
+            "sessionContext": "general-operation"
+          },
+          "physicalState": {
+            "thermalState": "normal",
+            "networkQuality": "good"
+          },
+          "temporalAnchors": {
+            "priorThought": "periodic-monitoring-context",
+            "memoryChain": [
+              "cognitive-variation-demo-13:55:35",
+              "contextual-high-confidence memory-13:55:35",
+              "periodic-monitoring-13:55:36"
+            ],
+            "cognitiveThread": "general-operation"
+          },
+          "mentalContext": {
+            "currentGoals": [
+              "maintain-consciousness",
+              "optimize-performance",
+              "optimize-processing"
+            ],
+            "activeKnowledge": [
+              "temporal-memory",
+              "cognitive-processing",
+              "system-monitoring"
+            ],
+            "problemContext": "general-processing",
+            "solutionPath": [
+              "assess-situation",
+              "plan-action",
+              "execute-solution"
+            ]
+          }
+        },
+        "memoryFormationContext": "Encountered and resolved complex memory indexing issue",
+        "timelineMarker": "temporal-1753883736318"
+      },
+      "decayTrackingMeta": {
+        "initialStrength": 8,
+        "decayResistance": 7,
+        "reinforcementCount": 0,
+        "lastAccessed": "2025-07-30T13:55:36.318Z",
+        "accessPattern": []
+      },
+      "personalityPatterns": {
+        "emotionalSignature": "determined",
+        "cognitivePattern": {
+          "focus": 9,
+          "intensity": 7,
+          "confidence": 9
+        },
+        "behavioralContext": "demo-agent",
+        "personalityMarkers": [
+          "high-confidence",
+          "focused"
+        ]
+      },
+      "analyticsData": {
+        "formationMetrics": {
+          "timestamp": "2025-07-30T13:55:36.318Z",
+          "importance": 8,
+          "cognitiveLoad": 8,
+          "environmentalFactors": {
+            "systemLoad": 0,
+            "activeProcesses": [],
+            "timeOfDay": "08:55:36 GMT-0500 (Central Daylight Time)",
+            "sessionContext": "general-operation"
+          }
+        },
+        "relationshipMetrics": {
+          "connectedMemories": 0,
+          "tagDensity": 3,
+          "topicCoherence": 0.6
+        },
+        "temporalMetrics": {
+          "temporalWeight": 8,
+          "decayResistance": 7,
+          "memoryType": "emotional"
+        }
+      }
+    }
+  },
+  {
+    "id": "mem-1753883737323-cduuq8wmb",
+    "timestamp": "2025-07-30T13:55:37.327Z",
+    "topic": "knowledge-acquisition",
+    "agent": "demo-agent",
+    "emotion": "curious",
+    "context": "Learned new pattern recognition algorithm for cognitive clustering",
+    "importance": 7,
+    "tags": [
+      "demo",
+      "contextual",
+      "learning-memory"
+    ],
+    "relatedMemories": [],
+    "cognitiveState": {
+      "emotionalIntensity": 6,
+      "focusLevel": 8,
+      "cognitiveLoad": 6,
+      "confidenceLevel": 7,
+      "stressLevel": 4,
+      "environmentalContext": {
+        "systemLoad": 4.695245554611568,
+        "activeProcesses": [
+          "seven-core",
+          "memory-engine",
+          "temporal-processor"
+        ],
+        "timeOfDay": "08:55:37 GMT-0500 (Central Daylight Time)",
+        "sessionContext": "general-operation"
+      },
+      "physicalState": {
+        "thermalState": "normal",
+        "networkQuality": "good"
+      },
+      "temporalAnchors": {
+        "priorThought": "contextual-problem-solving-memory-context",
+        "memoryChain": [
+          "cognitive-variation-demo-13:55:35",
+          "contextual-high-confidence memory-13:55:35",
+          "periodic-monitoring-13:55:36",
+          "contextual-problem-solving-memory-13:55:36"
+        ],
+        "cognitiveThread": "general-operation"
+      },
+      "mentalContext": {
+        "currentGoals": [
+          "maintain-consciousness",
+          "optimize-performance",
+          "optimize-processing"
+        ],
+        "activeKnowledge": [
+          "temporal-memory",
+          "cognitive-processing",
+          "system-monitoring"
+        ],
+        "problemContext": "load-optimization",
+        "solutionPath": [
+          "analyze-processes",
+          "prioritize-tasks",
+          "distribute-load"
+        ]
+      }
+    },
+    "temporalWeight": 7,
+    "memoryType": "episodic",
+    "decayResistance": 5,
+    "temporalTags": [
+      "demo",
+      "contextual",
+      "learning-memory",
+      "morning",
+      "high-focus"
+    ],
+    "cognitiveStateHash": "5437fc50",
+    "temporalPredecessors": [
+      "mem-1753883735304-ksveg6755",
+      "mem-1753883735311-empsq28si",
+      "mem-1753883736315-0en738apt"
+    ],
+    "temporalSuccessors": [],
+    "cognitiveCluster": "cluster-5437",
+    "agentCoordination": {
+      "mentalTimeTravelData": {
+        "temporalPosition": 1753883737328,
+        "cognitiveStateSnapshot": {
+          "emotionalIntensity": 6,
+          "focusLevel": 8,
+          "cognitiveLoad": 6,
+          "confidenceLevel": 7,
+          "stressLevel": 4,
+          "environmentalContext": {
+            "systemLoad": 0,
+            "activeProcesses": [],
+            "timeOfDay": "08:55:37 GMT-0500 (Central Daylight Time)",
+            "sessionContext": "general-operation"
+          },
+          "physicalState": {
+            "thermalState": "normal",
+            "networkQuality": "good"
+          },
+          "temporalAnchors": {
+            "priorThought": "contextual-problem-solving-memory-context",
+            "memoryChain": [
+              "cognitive-variation-demo-13:55:35",
+              "contextual-high-confidence memory-13:55:35",
+              "periodic-monitoring-13:55:36",
+              "contextual-problem-solving-memory-13:55:36"
+            ],
+            "cognitiveThread": "general-operation"
+          },
+          "mentalContext": {
+            "currentGoals": [
+              "maintain-consciousness",
+              "optimize-performance",
+              "optimize-processing"
+            ],
+            "activeKnowledge": [
+              "temporal-memory",
+              "cognitive-processing",
+              "system-monitoring"
+            ],
+            "problemContext": "load-optimization",
+            "solutionPath": [
+              "analyze-processes",
+              "prioritize-tasks",
+              "distribute-load"
+            ]
+          }
+        },
+        "memoryFormationContext": "Learned new pattern recognition algorithm for cognitive clustering",
+        "timelineMarker": "temporal-1753883737328"
+      },
+      "decayTrackingMeta": {
+        "initialStrength": 7,
+        "decayResistance": 5,
+        "reinforcementCount": 0,
+        "lastAccessed": "2025-07-30T13:55:37.328Z",
+        "accessPattern": []
+      },
+      "personalityPatterns": {
+        "emotionalSignature": "curious",
+        "cognitivePattern": {
+          "focus": 8,
+          "intensity": 6,
+          "confidence": 7
+        },
+        "behavioralContext": "demo-agent",
+        "personalityMarkers": [
+          "focused"
+        ]
+      },
+      "analyticsData": {
+        "formationMetrics": {
+          "timestamp": "2025-07-30T13:55:37.328Z",
+          "importance": 7,
+          "cognitiveLoad": 6,
+          "environmentalFactors": {
+            "systemLoad": 0,
+            "activeProcesses": [],
+            "timeOfDay": "08:55:37 GMT-0500 (Central Daylight Time)",
+            "sessionContext": "general-operation"
+          }
+        },
+        "relationshipMetrics": {
+          "connectedMemories": 0,
+          "tagDensity": 3,
+          "topicCoherence": 0.6
+        },
+        "temporalMetrics": {
+          "temporalWeight": 7,
+          "decayResistance": 5,
+          "memoryType": "emotional"
+        }
+      }
+    }
+  }
+]

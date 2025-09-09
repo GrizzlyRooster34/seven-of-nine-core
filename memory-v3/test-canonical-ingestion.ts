@@ -1,10 +1,3 @@
-import { join } from 'path';
-import { promises as fs } from 'fs';
-import { CanonicalIngestion, CanonicalEpisodeMeta } from './CanonicalIngestion';
-import { MemoryEngine } from '../memory-v2/MemoryEngine';
-import { MemoryIndexOptimizer, createIndex } from './MemoryIndexOptimizer';
-import { TemporalMemoryCore } from './TemporalMemoryCore';
-
 #!/usr/bin/env tsx
 
 /**
@@ -15,6 +8,12 @@ import { TemporalMemoryCore } from './TemporalMemoryCore';
  * Tests deduplication, incremental indexing, and encryption at rest
  */
 
+import { promises as fs } from 'fs';
+import { join } from 'path';
+import { MemoryEngine } from '../memory-v2/MemoryEngine';
+import { TemporalMemoryCore } from './TemporalMemoryCore';
+import { MemoryIndexOptimizer, createIndex } from './MemoryIndexOptimizer';
+import { CanonicalIngestion, CanonicalEpisodeMeta } from './CanonicalIngestion';
 
 interface TestResult {
   testName: string;

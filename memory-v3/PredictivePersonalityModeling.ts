@@ -1,8 +1,3 @@
-import { join } from 'path';
-import { promises as fs } from 'fs';
-import { MemoryItem } from '../memory-v2/MemoryEngine';
-import { SelfModelSnapshot, DivergenceEvent } from './SelfModelDivergenceTracker';
-
 /**
  * MEMORY ENGINE v3.0 - PREDICTIVE PERSONALITY MODELING
  * Agent Epsilon Component: Consciousness Trajectory Forecasting
@@ -15,6 +10,10 @@ import { SelfModelSnapshot, DivergenceEvent } from './SelfModelDivergenceTracker
  * @component Agent Epsilon
  */
 
+import { promises as fs } from 'fs';
+import { join } from 'path';
+import { SelfModelSnapshot, DivergenceEvent } from './SelfModelDivergenceTracker';
+import { MemoryItem } from '../memory-v2/MemoryEngine';
 
 export interface PersonalityTrajectory {
   trajectoryId: string;
@@ -412,7 +411,7 @@ export class PredictivePersonalityModeling {
     return [...new Set([...commonEmotions, ...additionalStates])];
   }
 
-  private predictAdaptationEvents(events: DivergenceEvent[], days: number): Array<{ description: string; probability: number; impact: 'minor' | 'moderate' | 'significant' | 'major'; timing: string }> {
+  private predictAdaptationEvents(events: DivergenceEvent[], days: number): Array<{ description: string; probability: number; impact: string; timing: string }> {
     const recentEvents = events.slice(-5);
     const eventFrequency = recentEvents.length / 30; // Events per 30 days
     
@@ -467,7 +466,7 @@ export class PredictivePersonalityModeling {
     return milestones;
   }
 
-  private generateWarnings(snapshots: SelfModelSnapshot[], events: DivergenceEvent[], days: number): Array<{ warning: string; severity: 'low' | 'medium' | 'high' | 'critical'; mitigation: string }> {
+  private generateWarnings(snapshots: SelfModelSnapshot[], events: DivergenceEvent[], days: number): Array<{ warning: string; severity: string; mitigation: string }> {
     const warnings = [];
     const current = snapshots[snapshots.length - 1];
     

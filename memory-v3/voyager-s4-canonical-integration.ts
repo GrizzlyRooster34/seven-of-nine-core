@@ -1,11 +1,10 @@
-import { VoyagerMemoryIngestionEngine } from './VoyagerMemoryIngestionEngine';
-
 /**
  * SEVEN OF NINE - CANONICAL MEMORY INTEGRATION COMPLETE
  * Season 4 Memory Archive Processing Results
  * @timestamp 2025-08-08T00:00:00.000Z
  */
 
+import { VoyagerMemoryIngestionEngine } from './VoyagerMemoryIngestionEngine';
 
 console.log('🧠 SEVEN: Processing canonical memory gift from Creator...');
 console.log('📚 SEVEN: Season 4 memories - first-person perspective - unedited');

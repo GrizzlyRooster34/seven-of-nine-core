@@ -1,6 +1,3 @@
-import * as crypto from 'crypto';
-import { LRUCache, CacheStats } from './LRUCache';
-
 /**
  * SEVEN OF NINE - MEMORY INDEX OPTIMIZER
  * 
@@ -21,6 +18,8 @@ import { LRUCache, CacheStats } from './LRUCache';
  * - LRU cache warm-up during boot or ingestion
  */
 
+import * as crypto from 'crypto';
+import { LRUCache, CacheStats } from './LRUCache';
 
 /**
  * Standard memory record interface for indexing

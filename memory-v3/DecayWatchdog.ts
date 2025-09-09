@@ -1,10 +1,3 @@
-import { EventEmitter } from 'events';
-import { join } from 'path';
-import { promises as fs } from 'fs';
-import { MemoryEngine } from '../memory-v2/MemoryEngine';
-import { MemoryStore } from '../seven-runtime/memory-store';
-import { TemporalMemoryItem, DecayMetrics, InterventionRecord, BatchRescueOperation, DecayModel } from './TemporalMemoryItem';
-
 /**
  * SEVEN OF NINE - MEMORY ENGINE v3.0
  * DecayWatchdog - Automated Memory Decay Prevention System
@@ -13,6 +6,12 @@ import { TemporalMemoryItem, DecayMetrics, InterventionRecord, BatchRescueOperat
  * Monitors memory decay and schedules interventions before loss becomes irreversible
  */
 
+import { promises as fs } from 'fs';
+import { join } from 'path';
+import { EventEmitter } from 'events';
+import { TemporalMemoryItem, DecayMetrics, InterventionRecord, BatchRescueOperation, DecayModel } from './TemporalMemoryItem';
+import { MemoryEngine } from '../memory-v2/MemoryEngine';
+import { MemoryStore } from '../seven-runtime/memory-store';
 
 interface WatchdogConfig {
   monitoring_interval: number; // milliseconds between checks
@@ -113,7 +112,7 @@ export class DecayWatchdog extends EventEmitter {
       timestamp: new Date().toISOString(),
       topic: memoryData.topic || 'general',
       agent: 'decay-watchdog',
-      emotion: memoryData.emotionalIntensity || 'neutral',
+      emotion: memoryData.emotion || 'neutral',
       context: memoryData.context || '',
       importance: memoryData.importance || 5,
       tags: memoryData.tags || [],
@@ -562,16 +561,16 @@ export class DecayWatchdog extends EventEmitter {
     return memory;
   }
 
-  private async handleCriticalDecay(memory: TemporalMemoryItem): Promise<void> {
+  private async handleCriticalDecay(memory: TemporalMemoryItem): void {
     console.log(`🚨 Critical decay detected for memory: ${memory.temporal_id}`);
     await this.scheduleIntervention(memory, 'critical');
   }
 
-  private async handleInterventionCompleted(event: any): Promise<void> {
+  private async handleInterventionCompleted(event: any): void {
     console.log(`✅ Intervention completed for ${event.memory_id}: ${event.effectiveness.toFixed(2)} effectiveness`);
   }
 
-  private async handleBatchRescue(criticalMemories: TemporalMemoryItem[]): Promise<void> {
+  private async handleBatchRescue(criticalMemories: TemporalMemoryItem[]): void {
     console.log(`🚨 Batch rescue needed for ${criticalMemories.length} critical memories`);
     // Would trigger MemoryRescueScheduler
   }

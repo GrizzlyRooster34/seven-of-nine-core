@@ -1,0 +1,21 @@
+{
+  "analysisFrequency": "moderate",
+  "enabledComponents": {
+    "divergenceTracking": true,
+    "personalityModeling": true,
+    "insightEngine": true,
+    "timelineMapping": true
+  },
+  "thresholds": {
+    "significantDivergence": 0.3,
+    "predictionConfidence": 0.7,
+    "synergyAlert": 0.8,
+    "milestoneDetection": 0.6
+  },
+  "reportingLevel": "standard",
+  "dataRetention": {
+    "snapshots": 100,
+    "insights": 50,
+    "reports": 20
+  }
+}

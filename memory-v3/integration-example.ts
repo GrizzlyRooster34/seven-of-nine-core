@@ -1,5 +1,3 @@
-import {
-
 /**
  * SEVEN OF NINE - MEMORY ENGINE v3.0 INTEGRATION EXAMPLE
  * Temporal Memory Architecture Foundation - Usage Guide
@@ -10,6 +8,7 @@ import {
  * Agent Alpha Implementation - Integration and testing example
  */
 
+import {
   IntegratedTemporalMemorySystem,
   TemporalMemoryCore,
   CognitiveStateTagger,
@@ -17,7 +16,7 @@ import {
   CognitiveState,
   MEMORY_ENGINE_VERSION,
   FEATURES
-} from './index';
+} from './index.js';
 
 /**
  * Example integration class showing how to use Memory Engine v3.0
@@ -120,13 +119,13 @@ export class MemoryEngineV3Example {
         importance: 8,
         tags: ['tactical', 'analysis', 'processing'],
         memoryType: 'episodic' as const,
-        cognitiveState: createCognitiveState({
-       .focusLevel: 9,
-       .emotionalIntensity: 7,
-        cognitiveLoad: 8,
-        confidenceLevel: 8,
-        stressLevel: 3
-      }) as Partial<CognitiveState>
+        cognitiveState: {
+          focusLevel: 9,
+          emotionalIntensity: 7,
+          cognitiveLoad: 8,
+          confidenceLevel: 8,
+          stressLevel: 3
+        } as Partial<CognitiveState>
       },
       {
         topic: 'emotional-experience',
@@ -137,9 +136,9 @@ export class MemoryEngineV3Example {
         tags: ['emotion', 'achievement', 'milestone'],
         memoryType: 'emotional' as const,
         cognitiveState: {
-         .emotionalIntensity: 9,
+          emotionalIntensity: 9,
           confidenceLevel: 10,
-         .focusLevel: 8
+          focusLevel: 8
         } as Partial<CognitiveState>
       }
     ];
@@ -278,7 +277,7 @@ export class MemoryEngineV3Example {
       },
       {
         name: 'High Focus Memories',
-        filter: {.focusLevelRange: { min: 8, max: 10 }, limit: 3 }
+        filter: { focusLevelRange: { min: 8, max: 10 }, limit: 3 }
       },
       {
         name: 'Emotional Memories',
@@ -296,7 +295,7 @@ export class MemoryEngineV3Example {
       
       memories.forEach((memory, index) => {
         console.log(`   ${index + 1}. ${memory.topic} [${memory.memoryType}] - Importance: ${memory.importance}/10`);
-        console.log(`      Cognitive: Focus=${memory.cognitiveState?.focusLevel}, Emotion=${memory.cognitiveState?.emotionalIntensity}`);
+        console.log(`      Cognitive: Focus=${memory.cognitiveState.focusLevel}, Emotion=${memory.cognitiveState.emotionalIntensity}`);
       });
     }
 
@@ -404,7 +403,7 @@ export async function basicMemoryExample(): Promise<void> {
 
     memories.forEach(memory => {
       console.log(`   Memory: ${memory.context}`);
-      console.log(`   Cognitive State: Focus=${memory.cognitiveState?.focusLevel}, Emotion=${memory.cognitiveState?.emotionalIntensity}`);
+      console.log(`   Cognitive State: Focus=${memory.cognitiveState.focusLevel}, Emotion=${memory.cognitiveState.emotionalIntensity}`);
     });
 
   } finally {

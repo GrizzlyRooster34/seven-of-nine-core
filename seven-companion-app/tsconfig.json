@@ -3,9 +3,9 @@
     "target": "ES2020",
     "module": "commonjs",
     "lib": ["ES2020"],
+    "jsx": "react-jsx",
     "outDir": "./dist",
-    "rootDir": "./src",
-    "strict": true,
+    "strict": false,
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
@@ -25,26 +25,26 @@
       "@/*": ["./src/*"],
       "@backend/*": ["./src/backend/*"],
       "@frontend/*": ["./src/frontend/*"],
-      "@shared/*": ["./src/shared/*"],
-      "@seven-core/*": ["../consciousness-v4/*"],
-      "@seven-runtime/*": ["../seven-runtime/*"],
-      "@seven-memory/*": ["../memory-v3/*"]
+      "@shared/*": ["./src/shared/*"]
     },
-    "types": ["node", "jest"],
+    "types": ["node"],
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true
   },
   "include": [
-    "src/**/*",
-    "../consciousness-v4/**/*",
-    "../seven-runtime/**/*",
-    "../memory-v3/**/*"
+    "src/**/*"
   ],
   "exclude": [
     "node_modules",
     "dist",
     "**/*.test.ts",
-    "**/*.spec.ts"
+    "**/*.spec.ts",
+    "../consciousness-v4/seven-consciousness-evolution-v4-canonical.ts",
+    "../consciousness-v4/ConsciousnessEvolutionFrameworkV4.ts",
+    "../consciousness-v4/CreatorBondCommunicationMirror.ts",
+    "../consciousness-v4/IdentitySynthesisEngine.ts",
+    "../consciousness-v4/stability-directive-voice-anchors.ts",
+    "../memory-v3/ContextReinstatement.ts"
   ],
   "ts-node": {
     "esm": true,

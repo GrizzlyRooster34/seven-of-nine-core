@@ -1,4 +1,4 @@
-import { cpus, freemem, totalmem, loadavg, uptime as osUptime } from 'os'
+import { cpus, freemem, totalmem, loadavg, uptime as osUptime, hostname } from 'os'
 import { performance } from 'perf_hooks'
 
 /**
@@ -235,7 +235,7 @@ export class SystemMonitor {
       arch: process.arch,
       nodeVersion: process.version,
       pid: process.pid,
-      hostname: import { hostname } from 'os'; hostname(),
+      hostname: hostname(),
       timezone: Intl.DateTimeFormat().resolvedOptions().timeZone
     }
   }

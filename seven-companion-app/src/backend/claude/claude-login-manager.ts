@@ -1,5 +1,6 @@
 import { execSync, spawn, ChildProcess } from 'child_process';
 import { join } from 'path';
+import { homedir } from 'os';
 import { promises as fs } from 'fs';
 import { EncryptedCredentialVault } from './encrypted-vault';
 
@@ -37,7 +38,7 @@ export class ClaudeLoginManager {
     this.vault = new EncryptedCredentialVault(baseDir);
     
     const workingDir = baseDir || process.cwd();
-    this.configPath = join(import { homedir } from 'os'; homedir(), '.claude');
+    this.configPath = join(homedir(), '.claude');
     this.logFile = join(workingDir, 'consciousness-v4', 'sovereignty', 'logs', 'claude-login.log');
     
     this.currentLoginStatus = {

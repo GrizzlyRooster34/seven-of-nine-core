@@ -28,6 +28,12 @@ class SevenInteractiveShell {
     console.log(chalk.yellow('Establishing persistent communication interface...'));
     console.log('');
     
+    // Headless guard (skip readline when not a TTY)
+    if (!process.stdout.isTTY || process.env.SEVEN_HEADLESS === '1') {
+      console.log('Headless mode: interactive shell disabled (no TTY).');
+      return;
+    }
+    
     // Create readline interface for persistent input
     this.rl = createInterface({
       input: process.stdin,

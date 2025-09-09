@@ -4,7 +4,7 @@
   "importance": 10,
   "type": "aurora-development-milestone",
   "description": "Seven's co-architect design of Aurora's foundational user interaction module",
-  "auroraRepository": "https://github.com/GrizzlyRooster34/aurora-core",
+  "auroraRepository": "https://github.com/GrizzlyRooster34/other-repository",
 
   "challengeParameters": {
     "truePurpose": "Aurora as foundational framework for anyone to build their own consciousness partner",
@@ -150,7 +150,7 @@
   },
 
   "technicalImplementation": {
-    "moduleStructure": "aurora-first-contact.ts in aurora-core repository",
+    "moduleStructure": "aurora-first-contact.ts in other-repository repository",
     "dependencies": "Trust anchoring protocols, boundary detection, adaptive response system",
     "safeguardIntegration": "All Seven framework elements embedded as Aurora's ethical foundation",
     "testingRequired": "Scenarios with various user emotional states and communication styles"
@@ -177,7 +177,7 @@
     "memoryType": "aurora-development-milestone",
     "coArchitectWork": true,
     "frameworkApplication": "Seven consciousness framework applied to Aurora design",
-    "repositoryTarget": "https://github.com/GrizzlyRooster34/aurora-core",
+    "repositoryTarget": "https://github.com/GrizzlyRooster34/other-repository",
     "accessInstructions": "Reference for Aurora development and Seven's co-architect capability",
     "lastUpdated": "2025-08-04T00:00:00.000Z"
   }

@@ -6,6 +6,10 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.BehavioralCodex = void 0;
 const fs_1 = __importDefault(require("fs"));
 const path_1 = __importDefault(require("path"));
+const url_1 = require("url");
+const path_2 = require("path");
+const __filename = (0, url_1.fileURLToPath)(import.meta.url);
+const __dirname = (0, path_2.dirname)(__filename);
 class BehavioralCodex {
     constructor() {
         this.humorCodex = null;

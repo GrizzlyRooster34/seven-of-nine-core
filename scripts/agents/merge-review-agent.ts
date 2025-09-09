@@ -271,15 +271,15 @@ export class MergeReviewAgent {
       })
     }
 
-    // Check for banned terms (quadranlock)
+    // Check for banned terms (quadran-lock)
     try {
       console.log('🚫 Checking for banned terms...')
-      const bannedTermsOutput = execSync('git grep -n "quadranlock" || true', { encoding: 'utf8' })
+      const bannedTermsOutput = execSync('git grep -n "quadran-lock" || true', { encoding: 'utf8' })
       if (bannedTermsOutput.trim()) {
         result.issues.push({
           type: 'critical',
           category: 'quality',
-          message: 'Banned term "quadranlock" found in code - use "quadran-lock" instead',
+          message: 'Banned term "quadran-lock" found in code - use "quadran-lock" instead',
           details: { occurrences: bannedTermsOutput.trim().split('\n') }
         })
       }

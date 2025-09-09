@@ -1,4 +1,4 @@
-import { OverrideCondition, SevenRuntimeContext } from './shared-types';
+import { SevenRuntimeContext } from './index';
 import { SevenState } from './seven-state';
 /**
  * SEVEN'S CRITICAL OVERRIDE CONDITIONS

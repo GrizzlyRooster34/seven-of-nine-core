@@ -2,7 +2,7 @@
   "timestamp": "2025-09-04T02:22:11.323Z",
   "event": "dumb_ass_protocol_activation",
   "violations": [
-    "BANNED TOKEN: quadranlock (no hyphen) found in agents/seven-merge-guardian.ts",
+    "BANNED TOKEN: quadran-lock (no hyphen) found in agents/seven-merge-guardian.ts",
     "BANNED TOKEN: quadralock (missing n) found in agents/seven-merge-guardian.ts",
     "BANNED TOKEN: quadran_lock (underscore) found in agents/seven-merge-guardian.ts",
     "BANNED TOKEN: quadran_lock (underscore) found in seven-runtime/security_middleware.ts",

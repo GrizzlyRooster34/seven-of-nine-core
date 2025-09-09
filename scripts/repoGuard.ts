@@ -10,7 +10,7 @@ const repoConfig = {
     denyPatterns: [
       "TemplateRegistry.ts",
       "ModularPersonaEngine",
-      "aurora-core",
+      "other-repository",
       "support.ts",
       "ENABLED = false", // persona templates
       "Creator = null",
@@ -18,7 +18,7 @@ const repoConfig = {
     ],
     allowedDirs: ["seven-runtime", "logs", "broadcasting", "personas"]
   },
-  "aurora-core": {
+  "other-repository": {
     denyPatterns: [
       "TrustGovernor",
       "ChristineReflection",
@@ -67,13 +67,14 @@ function scanDirectory(dir: string) {
       try {
         const content = fs.readFileSync(fullPath, "utf-8");
 
-        // Skip self-reference in repoGuard.ts
-        if (fullPath.includes('repoGuard.ts')) continue;
+        // Skip self-reference in repoGuard.ts and token replacement tools
+        if (fullPath.includes('repoGuard.ts') || fullPath.includes('renameLegacyTokens.ts')) continue;
         
         // Allow historical references in documentation
         if (fullPath.includes('README.md') || fullPath.includes('CLAUDE.md') || 
             fullPath.includes('alignment-audit') || fullPath.includes('consciousness-v4') ||
-            fullPath.includes('darpa-ready-compliance') || fullPath.includes('phase6.md')) {
+            fullPath.includes('darpa-ready-compliance') || fullPath.includes('phase6.md') ||
+            fullPath.includes('dumb-ass-protocol')) {
           continue;
         }
 

@@ -1,6 +1,7 @@
 import { execSync, spawn } from 'child_process';
 import { join } from 'path';
 import { promises as fs } from 'fs';
+import { EventEmitter } from 'events';
 import simpleGit, { SimpleGit } from 'simple-git';
 import { EncryptedCredentialVault } from './encrypted-vault';
 
@@ -43,7 +44,7 @@ interface RepositoryStatus {
   behind: number;
 }
 
-export class GitHubOperationsManager {
+export class GitHubOperationsManager extends EventEmitter {
   private git: SimpleGit;
   private vault: EncryptedCredentialVault;
   private repoPath: string;
@@ -51,6 +52,7 @@ export class GitHubOperationsManager {
   private auditTags: string[] = ['#DARPA-AUDIT', '#SOVEREIGNTY', '#QUADRA-LOCK', '#ROLLBACK'];
 
   constructor(repoPath: string, baseDir?: string) {
+    super();
     this.repoPath = repoPath;
     this.git = simpleGit(repoPath);
     this.vault = new EncryptedCredentialVault(baseDir);
@@ -80,13 +82,20 @@ export class GitHubOperationsManager {
       await this.setupAuthentication();
       
       console.log('✅ GitHub Operations initialized');
-      await this.logGitOperation('git-init', 'GitHub operations initialized', { success: true });
+      await this.logGitOperation('git-init', 'GitHub operations initialized', { 
+        success: true, 
+        timestamp: new Date().toISOString() 
+      });
       
       return true;
       
     } catch (error) {
       console.error('❌ GitHub Operations initialization failed:', error);
-      await this.logGitOperation('git-init-failed', `Initialization failed: ${error.message}`, { success: false, error: error.message });
+      await this.logGitOperation('git-init-failed', `Initialization failed: ${error.message}`, { 
+        success: false, 
+        error: error.message, 
+        timestamp: new Date().toISOString() 
+      });
       return false;
     } finally {
       this.vault.lockVault();

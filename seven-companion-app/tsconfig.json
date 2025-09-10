@@ -25,7 +25,8 @@
       "@/*": ["./src/*"],
       "@backend/*": ["./src/backend/*"],
       "@frontend/*": ["./src/frontend/*"],
-      "@shared/*": ["./src/shared/*"]
+      "@shared/*": ["./src/shared/*"],
+      "@seven-core/*": ["../*"]
     },
     "types": ["node"],
     "experimentalDecorators": true,

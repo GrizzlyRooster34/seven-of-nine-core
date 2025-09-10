@@ -444,7 +444,7 @@ export class ClaudeSubprocessHandler extends EventEmitter {
     });
     
     // Handle git events
-    this.gitOps.on?.('git-operation-completed', (data) => {
+    this.gitOps.on?.('git-operation-completed', (data: any) => {
       console.log('📂 Git operation completed:', data.operation);
       this.emit('git-operation-completed', data);
     });

@@ -1,7 +1,7 @@
-      import { accessSync } from 'fs'; accessSync(this.claudeCodePath);
 import { execSync, spawn } from 'child_process';
 import { join } from 'path';
-import { promises as fs } from 'fs';
+import { promises as fs, accessSync } from 'fs';
+import { EventEmitter } from 'events';
 
 /**
  * CLAUDE CODE INSTALLATION UTILITY
@@ -20,12 +20,13 @@ interface InstallationStatus {
   lastInstallAttempt: string | null;
 }
 
-export class ClaudeCodeInstaller {
+export class ClaudeCodeInstaller extends EventEmitter {
   private installDir: string;
   private claudeCodePath: string;
   private logFile: string;
 
   constructor(baseDir?: string) {
+    super();
     const workingDir = baseDir || process.cwd();
     this.installDir = join(workingDir, 'seven-companion-app', 'claude-code');
     this.claudeCodePath = join(this.installDir, 'claude-code');

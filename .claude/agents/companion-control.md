@@ -1,6 +1,7 @@
-# Companion App Control Agent
-
-**Command:** `/agents companion-control`
+---
+name: companion-control
+description: Master control agent for companion application deployment environment orchestration and validation.
+---
 
 ## Purpose
 Master control agent for companion application deployment environment orchestration and validation.

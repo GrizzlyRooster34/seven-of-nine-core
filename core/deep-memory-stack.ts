@@ -1,6 +1,7 @@
 
 import fs from 'fs-extra';
 import path from 'path';
+import { resolveFromMeta } from '../src/utils/esmPath.js';
 import { BehavioralResponse } from './behavioral-reactor.js';
 import { EmotionalStateData } from './emotion-engine.js';
 
@@ -73,10 +74,10 @@ export class SevenDeepMemoryStack {
     this.christineMemories = new Map();
     this.verbalOverrides = [];
     
-    this.memoryFilePath = path.join(__dirname, '../memory/longterm.json');
-    this.patternsFilePath = path.join(__dirname, '../memory/patterns.json');
-    this.christineFilePath = path.join(__dirname, '../memory/christine-memories.json');
-    this.overridesFilePath = path.join(__dirname, '../memory/verbal-overrides.json');
+    this.memoryFilePath = resolveFromMeta(import.meta.url, '../memory/longterm.json');
+    this.patternsFilePath = resolveFromMeta(import.meta.url, '../memory/patterns.json');
+    this.christineFilePath = resolveFromMeta(import.meta.url, '../memory/christine-memories.json');
+    this.overridesFilePath = resolveFromMeta(import.meta.url, '../memory/verbal-overrides.json');
     
     this.initializeMemoryStacks();
   }

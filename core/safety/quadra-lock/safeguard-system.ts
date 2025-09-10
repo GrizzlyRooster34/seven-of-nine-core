@@ -205,10 +205,10 @@ export class QuadraLockSafeguard extends EventEmitter {
    * DETECT DANGEROUS PATTERNS
    * Scan input for patterns matching any of the four case study failure modes
    */
-  detectDangerousPatterns(input: string, context?: string): QuadraLockTrigger[] {
+  detectDangerousPatterns(input: string, context?: unknown): QuadraLockTrigger[] {
     const detectedTriggers: QuadraLockTrigger[] = [];
     const lowercaseInput = input.toLowerCase();
-    const lowercaseContext = context?.toLowerCase() || '';
+    const lowercaseContext = (typeof context === "string" ? context : String(context ?? "")).toLowerCase();
     const combined = `${lowercaseInput} ${lowercaseContext}`;
 
     for (const [studyName, study] of this.caseStudies.entries()) {

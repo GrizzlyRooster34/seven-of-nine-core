@@ -142,7 +142,7 @@ class SystemMonitor {
             arch: process.arch,
             nodeVersion: process.version,
             pid: process.pid,
-            hostname: , import: { hostname }, from, 'os': , hostname() { },
+            hostname: (0, os_1.hostname)(),
             timezone: Intl.DateTimeFormat().resolvedOptions().timeZone
         };
     }

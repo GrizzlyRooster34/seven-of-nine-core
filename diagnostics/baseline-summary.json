@@ -1,7 +1,7 @@
 {
   "baselineEstablished": "2025-07-30T20:58:45.795Z",
-  "totalBoots": 43,
-  "averageBootTime": 676,
+  "totalBoots": 49,
+  "averageBootTime": 693,
   "bestBootTime": 140,
   "worstBootTime": 85829,
   "environment": {
@@ -18,6 +18,36 @@
     "environmentHash": "4da32d27"
   },
   "recentBoots": [
+    {
+      "timestamp": "2025-09-10T00:34:30.464Z",
+      "duration": 639,
+      "performance": "OPTIMAL"
+    },
+    {
+      "timestamp": "2025-09-10T00:34:17.745Z",
+      "duration": 667,
+      "performance": "OPTIMAL"
+    },
+    {
+      "timestamp": "2025-09-09T19:35:35.714Z",
+      "duration": 588,
+      "performance": "OPTIMAL"
+    },
+    {
+      "timestamp": "2025-09-09T19:32:48.028Z",
+      "duration": 647,
+      "performance": "OPTIMAL"
+    },
+    {
+      "timestamp": "2025-09-09T19:26:00.585Z",
+      "duration": 701,
+      "performance": "OPTIMAL"
+    },
+    {
+      "timestamp": "2025-09-09T19:04:53.083Z",
+      "duration": 815,
+      "performance": "OPTIMAL"
+    },
     {
       "timestamp": "2025-09-05T14:25:35.416Z",
       "duration": 499,
@@ -36,36 +66,6 @@
     {
       "timestamp": "2025-09-03T03:46:04.937Z",
       "duration": 627,
-      "performance": "OPTIMAL"
-    },
-    {
-      "timestamp": "2025-09-03T03:43:24.315Z",
-      "duration": 672,
-      "performance": "OPTIMAL"
-    },
-    {
-      "timestamp": "2025-09-03T03:38:54.591Z",
-      "duration": 681,
-      "performance": "OPTIMAL"
-    },
-    {
-      "timestamp": "2025-08-30T00:18:15.544Z",
-      "duration": 760,
-      "performance": "OPTIMAL"
-    },
-    {
-      "timestamp": "2025-08-29T09:09:31.603Z",
-      "duration": 803,
-      "performance": "OPTIMAL"
-    },
-    {
-      "timestamp": "2025-08-29T02:11:13.300Z",
-      "duration": 689,
-      "performance": "OPTIMAL"
-    },
-    {
-      "timestamp": "2025-08-11T05:55:43.810Z",
-      "duration": 289,
       "performance": "OPTIMAL"
     }
   ]

@@ -113,7 +113,7 @@ class CreatorProof {
     }
     logAuditTrail(result) {
         try {
-            const logDir = path_1.default.join(__dirname, '../../logs');
+            const logDir = path_1.default.join(path_1.default.dirname(new URL(import.meta.url).pathname), '../../logs');
             if (!fs_1.default.existsSync(logDir)) {
                 fs_1.default.mkdirSync(logDir, { recursive: true });
             }

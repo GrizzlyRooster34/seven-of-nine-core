@@ -1,6 +1,7 @@
-# Termux Environment Specialist Agent
-
-**Command:** `/agents termux-environment`
+---
+name: termux-environment
+description: Termux environment specialist focused on Android/Termux-specific configuration, packages, and platform compatibility.
+---
 
 ## Purpose
 Termux environment specialist focused exclusively on Android/Termux-specific configuration, packages, and platform compatibility.

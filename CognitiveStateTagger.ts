@@ -195,8 +195,8 @@ export class CognitiveStateTagger {
     }
     
     const trends = {
-     .emotionalIntensity: this.calculateTrend(recentSamples, .emotionalIntensity'),
-     .focusLevel: this.calculateTrend(recentSamples, .focusLevel'),
+      emotionalIntensity: this.calculateTrend(recentSamples, 'emotionalIntensity'),
+      focusLevel: this.calculateTrend(recentSamples, 'focusLevel'),
       cognitiveLoad: this.calculateTrend(recentSamples, 'cognitiveLoad'),
       confidenceLevel: this.calculateTrend(recentSamples, 'confidenceLevel'),
       stressLevel: this.calculateTrend(recentSamples, 'stressLevel'),

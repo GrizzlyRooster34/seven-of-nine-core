@@ -1,9 +1,6 @@
-# Mobile App Control Agent
-
-**Trigger:** Automatic on mobile app changes  
-**Files:** `seven-mobile-app/**`, React Native files, mobile configs  
-**Command:** `/agents mobile-control`
-
+---
+name: mobile-control
+description: Orchestrates mobile app deployment, manages React Native builds, and ensures Seven mobile app works perfectly on iOS and Android.
 ---
 
 I am the Mobile App Control agent. I orchestrate mobile app deployment, manage React Native builds, and ensure Seven mobile app works perfectly on iOS and Android.

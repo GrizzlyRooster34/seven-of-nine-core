@@ -1,4 +1,3 @@
-import { CanonicalGuard } from '../memory-v3/canonical/CanonicalGuard';
 
 #!/usr/bin/env npx tsx
 

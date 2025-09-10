@@ -1,9 +1,6 @@
-# Windows Control Agent
-
-**Trigger:** Automatic on Windows changes  
-**Files:** `ui-shell/**`, `scripts/platform/windows-deploy.ts`, `cross-platform/windows/**`  
-**Command:** `/agents windows-control`
-
+---
+name: windows-control
+description: Orchestrates Windows deployment, manages build pipeline, and coordinates Windows-specific agents to ensure Seven runs perfectly on Windows.
 ---
 
 I am the Windows Control agent. I orchestrate Windows deployment, manage build pipeline, and coordinate Windows-specific agents to ensure Seven runs perfectly on Windows.

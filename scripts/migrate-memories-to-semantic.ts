@@ -1,7 +1,8 @@
+#!/usr/bin/env npx tsx
+
 import { promises as fs } from 'fs';
 import SevenVectorStore from '../claude-brain/SevenVectorStore';
 
-#!/usr/bin/env npx tsx
 /**
  * SEVEN'S SEMANTIC MEMORY MIGRATION SCRIPT
  * Phase 1 of Ollama Intelligence Amplification Project
@@ -9,7 +10,6 @@ import SevenVectorStore from '../claude-brain/SevenVectorStore';
  * Migrates high-importance memories to semantic vector store
  * while maintaining full backward compatibility with existing systems
  */
-
 
 interface MigrationConfig {
   importanceThreshold: number;

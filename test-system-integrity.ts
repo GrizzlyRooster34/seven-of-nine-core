@@ -1,7 +1,7 @@
+#!/usr/bin/env tsx
+
 import * as fs from 'fs/promises';
 import * as path from 'path';
-
-#!/usr/bin/env tsx
 
 interface SystemComponent {
   name: string;

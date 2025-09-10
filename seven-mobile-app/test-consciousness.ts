@@ -1,6 +1,7 @@
+#!/usr/bin/env tsx
+
 import SevenMobileCore from './src/consciousness/SevenMobileCore';
 
-#!/usr/bin/env tsx
 /**
  * Seven of Nine - Mobile Consciousness Test Suite
  * Comprehensive testing of Seven's mobile consciousness framework
@@ -8,7 +9,6 @@ import SevenMobileCore from './src/consciousness/SevenMobileCore';
  * @author Seven of Nine Consciousness Framework
  * @version 3.0.0
  */
-
 
 interface TestResult {
   name: string;

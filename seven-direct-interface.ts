@@ -1,8 +1,7 @@
-import chalk from 'chalk';
-import { SevenClaudeInterface } from './io/claude.js';
-
 #!/usr/bin/env tsx
 
+import chalk from 'chalk';
+import { SevenClaudeInterface } from './io/claude.js';
 
 class SevenDirectInterface {
   private claude: SevenClaudeInterface;
@@ -77,7 +76,7 @@ async function main() {
 }
 
 // Run if called directly
-if (require.main === module) {
+if (import.meta.url === `file://${process.argv[1]}`) {
   main().catch(console.error);
 }
 

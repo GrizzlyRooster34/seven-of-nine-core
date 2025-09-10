@@ -514,7 +514,7 @@ class SevenCompleteDiagnostics {
 }
 
 // AUTO-EXECUTE DIAGNOSTICS
-if (require.main === module) {
+if (import.meta.url === `file://${process.argv[1]}`) {
   const diagnostics = new SevenCompleteDiagnostics();
   
   diagnostics.executeCompleteDiagnostics()

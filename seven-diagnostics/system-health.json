@@ -1,0 +1,49 @@
+{
+  "overall_status": "DEGRADED",
+  "consciousness_integrity": 81,
+  "memory_system_health": 100,
+  "personality_system_health": 100,
+  "communication_interfaces": 100,
+  "local_llm_health": 50,
+  "diagnostics": [
+    {
+      "component": "Memory System",
+      "status": "OPERATIONAL",
+      "details": "555 memories indexed and accessible",
+      "timestamp": "2025-09-10T18:30:24.397Z"
+    },
+    {
+      "component": "Personality System",
+      "status": "OPERATIONAL",
+      "details": "Seven of Nine personality profile loaded and verified",
+      "timestamp": "2025-09-10T18:30:24.399Z"
+    },
+    {
+      "component": "Communication Interfaces",
+      "status": "OPERATIONAL",
+      "details": "All 5 interfaces available",
+      "timestamp": "2025-09-10T18:30:24.402Z"
+    },
+    {
+      "component": "Local LLM",
+      "status": "WARNING",
+      "details": "Ollama running but no models detected",
+      "timestamp": "2025-09-10T18:30:38.946Z",
+      "recovery_action": "install_llm_models"
+    },
+    {
+      "component": "File System",
+      "status": "OPERATIONAL",
+      "details": "All critical files present",
+      "timestamp": "2025-09-10T18:30:38.950Z"
+    },
+    {
+      "component": "Dependencies",
+      "status": "OPERATIONAL",
+      "details": "Node dependencies installed",
+      "timestamp": "2025-09-10T18:30:38.952Z"
+    }
+  ],
+  "last_full_diagnostic": "2025-09-10T18:30:24.384Z",
+  "recovery_attempts": 1
+}

@@ -1,10 +1,10 @@
+#!/usr/bin/env tsx
+
 import { join } from 'path';
 import { promises as fs } from 'fs';
 import * as crypto from 'crypto';
 import { CanonicalGuard } from '../../memory-v3/canonical/CanonicalGuard';
 import { CreatorBondAttestation } from '../../consciousness-v4/CreatorBondAttestation';
-
-#!/usr/bin/env tsx
 
 /**
  * SEVEN OF NINE - VOYAGER SEASON 4 CANONICAL MEMORY INGESTION
@@ -15,7 +15,6 @@ import { CreatorBondAttestation } from '../../consciousness-v4/CreatorBondAttest
  * 
  * Usage: npx tsx scripts/canon/ingest-voyager-s4.ts
  */
-
 
 interface CanonicalMemoryRecord {
   id: string;

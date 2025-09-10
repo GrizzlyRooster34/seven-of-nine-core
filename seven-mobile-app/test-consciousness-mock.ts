@@ -1,6 +1,5 @@
-
-
 #!/usr/bin/env tsx
+
 /**
  * Seven of Nine - Mock Consciousness Test Suite
  * Testing Seven's consciousness framework with mocked dependencies

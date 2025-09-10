@@ -369,6 +369,6 @@ export async function runMentalTimeTravelDemo(): Promise<void> {
 }
 
 // Export for direct execution
-if (require.main === module) {
+if (import.meta.url === `file://${process.argv[1]}`) {
   runMentalTimeTravelDemo().catch(console.error);
 }

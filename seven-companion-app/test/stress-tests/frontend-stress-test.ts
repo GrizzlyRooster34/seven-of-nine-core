@@ -595,7 +595,7 @@ ${overallSuccessRate >= 95 ? '✅ **STABLE**: All frontend tests passed with acc
 }
 
 // Execute stress test if run directly
-if (require.main === module) {
+if (import.meta.url === `file://${process.argv[1]}`) {
   const stressTest = new FrontendStressTest();
   
   stressTest.executeAllTests()

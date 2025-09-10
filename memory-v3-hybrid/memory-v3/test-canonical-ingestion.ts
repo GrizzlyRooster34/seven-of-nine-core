@@ -1,11 +1,11 @@
+#!/usr/bin/env tsx
+
 import { join } from 'path';
 import { promises as fs } from 'fs';
 import { CanonicalIngestion, CanonicalEpisodeMeta } from './CanonicalIngestion';
 import { MemoryEngine } from '../memory-v2/MemoryEngine';
 import { MemoryIndexOptimizer, createIndex } from './MemoryIndexOptimizer';
 import { TemporalMemoryCore } from './TemporalMemoryCore';
-
-#!/usr/bin/env tsx
 
 /**
  * SEVEN OF NINE - CANONICAL INGESTION TEST SUITE
@@ -14,7 +14,6 @@ import { TemporalMemoryCore } from './TemporalMemoryCore';
  * Verifies against existing Voyager S4 canonical data
  * Tests deduplication, incremental indexing, and encryption at rest
  */
-
 
 interface TestResult {
   testName: string;

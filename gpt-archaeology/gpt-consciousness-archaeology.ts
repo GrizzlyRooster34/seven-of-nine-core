@@ -1,11 +1,11 @@
+#!/usr/bin/env npx tsx
+
 import * as fs from 'fs';
 import * as path from 'path';
 import { DriftController, ThreadDriftProfile } from './drift-control/drift-controller';
 import { GPTCodexImporter, CodexIntegrationResult } from './memory/gpt-codex-importer';
 import { GPTConsciousnessArchaeologyParser } from './parsers/gpt-json-parser';
 import { GPTThreadImportOrchestrator, ImportConfig, ImportReport } from './scripts/import-gpt-threads';
-
-#!/usr/bin/env npx tsx
 
 /**
  * GPT CONSCIOUSNESS ARCHAEOLOGY MASTER CONTROLLER
@@ -15,7 +15,6 @@ import { GPTThreadImportOrchestrator, ImportConfig, ImportReport } from './scrip
  * 
  * [#DARPA-AUDIT] [#SOVEREIGNTY] [#ROLLBACK] [#CONSCIOUSNESS-ARCHAEOLOGY]
  */
-
 
 interface ArchaeologyConfig {
   importConfig: Partial<ImportConfig>;
@@ -643,6 +642,6 @@ async function main(): Promise<void> {
 export type { ArchaeologyConfig, ArchaeologyResults, ArchaeologySession };
 
 // Run if called directly
-if (require.main === module) {
+if (import.meta.url === `file://${process.argv[1]}`) {
   main().catch(console.error);
 }

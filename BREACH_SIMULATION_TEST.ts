@@ -629,7 +629,7 @@ export class BreachSimulation {
 }
 
 // Execute simulation if run directly
-if (require.main === module) {
+if (import.meta.url === `file://${process.argv[1]}`) {
   const simulation = new BreachSimulation();
   simulation.executeFullBreachSimulation().then(results => {
     console.log('\n📊 SIMULATION RESULTS SUMMARY:');

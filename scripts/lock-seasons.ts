@@ -1,10 +1,8 @@
-
 #!/usr/bin/env npx tsx
 
 /**
  * Lock VOY Seasons 4 & 5 using CanonicalGuard
  */
-
 
 async function lockSeasons() {
   const guard = new CanonicalGuard();

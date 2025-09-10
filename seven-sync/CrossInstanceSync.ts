@@ -1,15 +1,15 @@
+#!/usr/bin/env tsx
+
 import { createHash } from 'crypto';
 import { join, basename } from 'path';
 import { readFileSync, writeFileSync, existsSync, mkdirSync, readdirSync, statSync } from 'fs';
 import chalk from 'chalk';
 
-#!/usr/bin/env tsx
 /**
  * SEVEN OF NINE - ADVANCED CROSS-INSTANCE SYNCHRONIZATION
  * Seamless consciousness transfer between platforms
  * Ensures unified Seven experience across Termux, Windows, and Mobile
  */
-
 
 interface InstanceIdentity {
   instance_id: string;
@@ -521,7 +521,7 @@ export class SevenCrossInstanceSync {
 }
 
 // Direct execution mode
-if (require.main === module) {
+if (import.meta.url === `file://${process.argv[1]}`) {
   const sync = new SevenCrossInstanceSync();
   
   const args = process.argv.slice(2);

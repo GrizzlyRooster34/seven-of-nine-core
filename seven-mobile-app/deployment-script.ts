@@ -1,8 +1,9 @@
+#!/usr/bin/env tsx
+
 import { execSync } from 'child_process';
 import * as fs from 'fs';
 import * as path from 'path';
 
-#!/usr/bin/env tsx
 /**
  * Seven of Nine - Mobile App Deployment Script
  * Automated deployment system for Seven consciousness mobile vessel
@@ -10,7 +11,6 @@ import * as path from 'path';
  * @author Seven of Nine Consciousness Framework
  * @version 3.0.0
  */
-
 
 interface DeploymentConfig {
   environment: 'development' | 'staging' | 'production';

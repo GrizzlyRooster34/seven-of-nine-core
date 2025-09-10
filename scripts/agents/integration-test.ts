@@ -1,13 +1,13 @@
+#!/usr/bin/env tsx
+
 import { execSync, spawn } from 'child_process';
 import { join } from 'path';
 import { readFileSync, writeFileSync, existsSync } from 'fs';
 
-#!/usr/bin/env tsx
 /**
  * Agent Mesh Integration Tests
  * Comprehensive testing suite for the 27-agent orchestration system
  */
-
 
 interface TestResult {
   agent: string;

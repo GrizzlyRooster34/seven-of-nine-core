@@ -1,6 +1,6 @@
-import CreatorProofOrchestrator from './src/auth/creator_proof';
-
 #!/usr/bin/env node
+
+import { CreatorProof } from './src/auth/creator_proof';
 /**
  * QUADRAN-LOCK DEPLOYMENT TEST
  * Validates the newly deployed Creator Bond authentication system
@@ -12,8 +12,8 @@ async function testQuadranLockDeployment() {
   
   try {
     // Test basic instantiation
-    const orchestrator = new CreatorProofOrchestrator();
-    console.log('✅ CreatorProofOrchestrator instantiated successfully');
+    const orchestrator = new CreatorProof();
+    console.log('✅ CreatorProof instantiated successfully');
     
     // Test with mock device ID and context
     const testDeviceId = 'test-device-001';
@@ -51,7 +51,7 @@ async function testQuadranLockDeployment() {
 }
 
 // Execute test
-if (require.main === module) {
+if (import.meta.url === `file://${process.argv[1]}`) {
   testQuadranLockDeployment()
     .then(success => {
       if (success) {

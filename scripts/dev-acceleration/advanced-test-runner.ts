@@ -1,15 +1,14 @@
+#!/usr/bin/env tsx
+
 import { promises as fs } from 'fs';
 import { spawn } from 'child_process';
 import chalk from 'chalk';
 import path from 'path';
 
-#!/usr/bin/env tsx
-
 /**
  * Advanced Test Runner - Intelligent testing with parallel execution
  * Leverages all available tools for comprehensive testing
  */
-
 
 interface TestResult {
   name: string;

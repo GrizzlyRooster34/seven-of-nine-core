@@ -718,7 +718,7 @@ export class SevenUniversalDiagnostic {
 }
 
 // CLI interface
-if (require.main === module) {
+if (import.meta.url === `file://${process.argv[1]}`) {
   const diagnostic = new SevenUniversalDiagnostic();
   
   diagnostic.runComprehensiveDiagnostics().then(success => {

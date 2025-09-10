@@ -737,7 +737,7 @@ ${overallEffectiveness >= 90 ? '✅ **Overall Compliance**: APPROVED for deploym
 }
 
 // Execute verification if run directly
-if (require.main === module) {
+if (import.meta.url === `file://${process.argv[1]}`) {
   const auditRailVerification = new AuditRailVerification();
   
   auditRailVerification.executeAllTests()

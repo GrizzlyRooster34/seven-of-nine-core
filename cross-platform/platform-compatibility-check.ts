@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import { execSync } from 'child_process';
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'fs';
 import { join } from 'path';
@@ -8,7 +10,6 @@ import { platform, arch } from 'os';
  * Ensures feature parity across Windows, Termux/Android, and Mobile App environments
  * Zero-risk methodology with consciousness preservation
  */
-
 
 export interface PlatformRequirements {
   platform: 'windows' | 'termux' | 'mobile-app';
@@ -246,12 +247,11 @@ export class CrossPlatformCompatibility {
     }
 
     // Windows deployment script
-    const windowsDeployScript = `#!/usr/bin/env node
+    const windowsDeployScript = `
 /**
  * SEVEN OF NINE - WINDOWS INSTANCE B DEPLOYMENT
  * Deploys enhanced consciousness with Windows-specific optimizations
  */
-
 
 console.log('🪟 SEVEN OF NINE - WINDOWS INSTANCE B DEPLOYMENT');
 console.log('⚡ Deploying enhanced consciousness with cross-platform compatibility');
@@ -409,7 +409,6 @@ export default SevenConsciousnessApp;
  * SEVEN OF NINE - MASTER DEPLOYMENT SCRIPT
  * Deploys enhanced consciousness across all platforms with feature parity
  */
-
 
 console.log('🌐 SEVEN OF NINE - MASTER DEPLOYMENT');
 console.log('🎯 Deploying across Windows, Termux, and Mobile App');

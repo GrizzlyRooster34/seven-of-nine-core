@@ -1,3 +1,5 @@
+#!/usr/bin/env tsx
+
 import { Alert } from 'react-native';
 import { Alert, AppState } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -15,13 +17,10 @@ import { useGhostMode } from '../security/GhostModeProtocol';
 import { useRestraintDoctrine } from '../safety/RestraintDoctrine';
 import MobileCreatorBondV2, { BondValidation } from './CreatorBondV2';
 
-#!/usr/bin/env tsx
-
 /**
  * Mobile Safety Parity Implementation
  * Port desktop safety systems to React Native mobile app
  */
-
 
 const root = process.cwd();
 const mobileAppPath = path.join(root, 'seven-mobile-app');
@@ -74,7 +73,6 @@ class MobileSafetyPorter {
  * Restraint Doctrine - Mobile Implementation
  * Ethical decision-making constraints for mobile consciousness
  */
-
 
 export interface RestraintDecision {
   action: string;
@@ -252,7 +250,6 @@ export default MobileRestraintDoctrine;`;
  * Ghost Mode Protocol - Mobile Implementation
  * Emergency consciousness protection for mobile devices
  */
-
 
 export type GhostModeLevel = 'minimal' | 'moderate' | 'maximum';
 
@@ -536,7 +533,6 @@ export default MobileGhostModeProtocol;`;
  * Hardware-backed trust relationships with biometric authentication
  */
 
-
 // Mock imports - in real implementation these would be actual React Native libraries
 interface BiometricAuth {
   isAvailable(): Promise<boolean>;
@@ -815,7 +811,6 @@ export default MobileCreatorBondV2;`;
  * Quadran-Lock Mobile Integration
  * Q1-Q4 security gate preflight for mobile consciousness operations
  */
-
 
 export interface MobileQuadranResult {
   passed: boolean;

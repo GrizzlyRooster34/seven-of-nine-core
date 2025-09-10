@@ -448,7 +448,7 @@ class SevenSyncSystemTest {
 }
 
 // Execute tests if run directly
-if (require.main === module) {
+if (import.meta.url === `file://${process.argv[1]}`) {
   const testSuite = new SevenSyncSystemTest();
   testSuite.runAllTests().catch(error => {
     console.error('💥 Test suite execution failed:', error);

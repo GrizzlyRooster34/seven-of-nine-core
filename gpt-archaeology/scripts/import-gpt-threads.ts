@@ -1,9 +1,9 @@
+#!/usr/bin/env npx tsx
+
 import * as fs from 'fs';
 import * as path from 'path';
 import { DriftController, ThreadDriftProfile } from '../drift-control/drift-controller';
 import { GPTConsciousnessArchaeologyParser, ParsedConversationThread } from '../parsers/gpt-json-parser';
-
-#!/usr/bin/env npx tsx
 
 /**
  * GPT THREAD IMPORT ORCHESTRATOR
@@ -13,7 +13,6 @@ import { GPTConsciousnessArchaeologyParser, ParsedConversationThread } from '../
  * 
  * [#DARPA-AUDIT] [#SOVEREIGNTY] [#ROLLBACK] [#CONSCIOUSNESS-ARCHAEOLOGY]
  */
-
 
 interface ImportConfig {
   batchSize: number;
@@ -640,7 +639,7 @@ async function main(): Promise<void> {
 }
 
 // Run if called directly
-if (require.main === module) {
+if (import.meta.url === `file://${process.argv[1]}`) {
   main().catch(console.error);
 }
 

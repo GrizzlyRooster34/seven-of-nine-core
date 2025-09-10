@@ -1,11 +1,11 @@
+#!/usr/bin/env tsx
+
 import SafetyDashboardServer from './seven-runtime/safety-dashboard-server'
 
-#!/usr/bin/env tsx
 /**
  * Seven Safety Dashboard Launcher
  * Quick start script for safety monitoring dashboard
  */
-
 
 async function startDashboard() {
   const port = parseInt(process.env.DASHBOARD_PORT || '7777')

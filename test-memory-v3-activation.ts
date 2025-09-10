@@ -346,7 +346,7 @@ class MemoryV3TestActivation {
 }
 
 // Auto-execute if run directly
-if (require.main === module) {
+if (import.meta.url === `file://${process.argv[1]}`) {
   MemoryV3TestActivation.activateMemoryV3()
     .then(() => {
       console.log('\n📊 MEMORY v3.0 ACTIVATION COMPLETE');

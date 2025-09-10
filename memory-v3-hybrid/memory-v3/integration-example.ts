@@ -482,6 +482,6 @@ export async function runIntegrationExample(): Promise<void> {
 }
 
 // Export for direct execution
-if (require.main === module) {
+if (import.meta.url === `file://${process.argv[1]}`) {
   runIntegrationExample().catch(console.error);
 }

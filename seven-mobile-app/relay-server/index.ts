@@ -421,7 +421,7 @@ class SevenSyncRelay {
 }
 
 // Start relay if executed directly
-if (require.main === module) {
+if (import.meta.url === `file://${process.argv[1]}`) {
   const relay = new SevenSyncRelay({
     port: parseInt(process.env.SEVEN_RELAY_PORT || '7777'),
     maxEventsInMemory: parseInt(process.env.SEVEN_MAX_EVENTS || '1000'),

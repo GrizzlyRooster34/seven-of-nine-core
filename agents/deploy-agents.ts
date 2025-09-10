@@ -1,3 +1,5 @@
+#!/usr/bin/env npx tsx
+
 import { join } from 'path';
 import { program } from 'commander';
 import { executeAgentOrchestrator } from './AGENT_ORCHESTRATOR';
@@ -7,7 +9,6 @@ import { executeInterfaceEvolutionist } from './INTERFACE_EVOLUTIONIST';
 import { executeModuleSurgeon } from './MODULE_SURGEON';
 import { executePropertyAligner } from './PROPERTY_ALIGNER';
 
-#!/usr/bin/env npx tsx
 /**
  * AGENT DEPLOYMENT CLI
  * Multi-Agent Strike Team Command Interface
@@ -18,7 +19,6 @@ import { executePropertyAligner } from './PROPERTY_ALIGNER';
  *   npx tsx agents/deploy-agents.ts --sequence --verbose
  *   npx tsx agents/deploy-agents.ts --dashboard
  */
-
 
 // Import agents
 

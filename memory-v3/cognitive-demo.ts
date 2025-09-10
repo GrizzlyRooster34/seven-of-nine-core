@@ -407,6 +407,6 @@ export async function runCognitiveDemo(): Promise<void> {
 export default CognitiveStateDemo;
 
 // Run if executed directly
-if (require.main === module) {
+if (import.meta.url === `file://${process.argv[1]}`) {
   runCognitiveDemo().catch(console.error);
 }

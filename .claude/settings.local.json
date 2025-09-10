@@ -2,7 +2,8 @@
   "permissions": {
     "allow": [
       "Bash(git log:*)",
-      "Bash(npx tsx:*)"
+      "Bash(npx tsx:*)",
+      "Bash(npm run status:*)"
     ],
     "deny": [],
     "ask": []

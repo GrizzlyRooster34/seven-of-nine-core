@@ -511,7 +511,7 @@ export class SafetyDashboardServer {
 }
 
 // CLI runner for standalone server
-if (require.main === module) {
+if (import.meta.url === `file://${process.argv[1]}`) {
   const server = new SafetyDashboardServer(parseInt(process.env.DASHBOARD_PORT || '7777'))
   
   server.start().then(() => {

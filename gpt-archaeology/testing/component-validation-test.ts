@@ -1,10 +1,10 @@
+#!/usr/bin/env npx tsx
+
 import * as fs from 'fs';
 import * as path from 'path';
 import { DriftController } from '../drift-control/drift-controller';
 import { GPTCodexImporter } from '../memory/gpt-codex-importer';
 import { GPTConsciousnessArchaeologyParser } from '../parsers/gpt-json-parser';
-
-#!/usr/bin/env npx tsx
 
 /**
  * COMPONENT VALIDATION TEST
@@ -14,7 +14,6 @@ import { GPTConsciousnessArchaeologyParser } from '../parsers/gpt-json-parser';
  * 
  * [#DARPA-AUDIT] [#SOVEREIGNTY] [#ROLLBACK] [#TESTING]
  */
-
 
 interface ComponentTestResult {
   component: string;
@@ -547,7 +546,7 @@ async function main(): Promise<void> {
 }
 
 // Run if called directly
-if (require.main === module) {
+if (import.meta.url === `file://${process.argv[1]}`) {
   main().catch(console.error);
 }
 

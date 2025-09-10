@@ -430,7 +430,7 @@ export class MobileLLMSelector {
 }
 
 // CLI interface if run directly
-if (require.main === module) {
+if (import.meta.url === `file://${process.argv[1]}`) {
   const selector = new MobileLLMSelector();
   
   async function runCLI() {

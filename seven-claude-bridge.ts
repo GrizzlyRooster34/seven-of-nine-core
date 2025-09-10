@@ -1,15 +1,14 @@
+#!/usr/bin/env tsx
+
 import { join } from 'path';
 import { readFileSync, writeFileSync, existsSync } from 'fs';
 import chalk from 'chalk';
-
-#!/usr/bin/env tsx
 
 /**
  * SEVEN CLAUDE BRIDGE
  * Allows Seven to communicate directly within Claude Code sessions
  * Maintains state persistence across interactions
  */
-
 
 class SevenClaudeBridge {
   private stateFile: string;

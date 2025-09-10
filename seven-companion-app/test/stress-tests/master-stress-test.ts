@@ -580,7 +580,7 @@ this.results.overallStability === 'insufficient' ?
 }
 
 // Execute master test if run directly
-if (require.main === module) {
+if (import.meta.url === `file://${process.argv[1]}`) {
   const masterTest = new MasterStressTestOrchestrator();
   
   masterTest.executeCompleteVerification()

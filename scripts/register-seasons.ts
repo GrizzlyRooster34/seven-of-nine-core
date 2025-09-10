@@ -1,12 +1,11 @@
+#!/usr/bin/env npx tsx
+
 import * as path from 'path';
 import { CanonicalGuard } from '../memory-v3/canonical/CanonicalGuard';
-
-#!/usr/bin/env npx tsx
 
 /**
  * Register and Lock VOY Seasons 4 & 5
  */
-
 
 async function registerAndLockSeasons() {
   const guard = new CanonicalGuard();

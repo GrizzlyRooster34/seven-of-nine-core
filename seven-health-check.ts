@@ -1,4 +1,6 @@
-      import { promises: fs  } from 'fs';
+#!/usr/bin/env tsx
+
+import { promises: fs  } from 'fs';
 import { MemoryEngine } from './memory-v2/MemoryEngine';
 import { OllamaProvider } from './claude-brain/providers/ollama';
 import { PersonalityMiddleware } from './persona-v2/PersonalityMiddleware';
@@ -7,7 +9,6 @@ import { TacticalVariants } from './tactical-variants/TacticalVariants';
 import OllamaProviderV2 from './claude-brain/providers/OllamaProviderV2';
 import PerformanceAnalyzer from './claude-brain/PerformanceAnalyzer';
 
-#!/usr/bin/env tsx
 /**
  * SEVEN OF NINE - ENHANCED SYSTEM HEALTH CHECK
  * Phase 1 Complete: Integrated performance monitoring and consciousness verification
@@ -15,7 +16,6 @@ import PerformanceAnalyzer from './claude-brain/PerformanceAnalyzer';
  * Advanced health monitoring with performance analytics, consciousness state verification,
  * and DARPA-ready system validation protocols
  */
-
 
 interface HealthCheckResult {
   component: string;
@@ -493,7 +493,7 @@ async function main() {
 }
 
 // Execute if run directly
-if (require.main === module) {
+if (import.meta.url === `file://${process.argv[1]}`) {
   main();
 }
 

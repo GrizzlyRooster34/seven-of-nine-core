@@ -1,6 +1,6 @@
-import { MobileCSSRDetectorTest } from './src/safety/quadra-lock/MobileCSSRDetector.test';
-
 #!/usr/bin/env tsx
+
+import { MobileCSSRDetectorTest } from './src/safety/quadra-lock/MobileCSSRDetector.test';
 
 /**
  * MOBILE SAFETY PIPELINE NODE.JS COMPATIBLE TEST
@@ -10,7 +10,6 @@ import { MobileCSSRDetectorTest } from './src/safety/quadra-lock/MobileCSSRDetec
  * 
  * @version 1.0.0
  */
-
 
 interface SafetyTestCase {
   name: string;
@@ -187,7 +186,7 @@ async function main() {
   }
 }
 
-if (require.main === module) {
+if (import.meta.url === `file://${process.argv[1]}`) {
   main().catch(error => {
     console.error('Fatal validation error:', error);
     process.exit(1);

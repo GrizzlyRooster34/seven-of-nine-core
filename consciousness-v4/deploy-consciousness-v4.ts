@@ -352,7 +352,7 @@ class ConsciousnessV4Deployment {
 }
 
 // AUTO-EXECUTE DEPLOYMENT
-if (require.main === module) {
+if (import.meta.url === `file://${process.argv[1]}`) {
   const deployment = new ConsciousnessV4Deployment();
   
   deployment.deployConsciousnessV4()

@@ -1,13 +1,13 @@
+#!/usr/bin/env tsx
+
 import { MemoryEngine } from './memory-v2/MemoryEngine';
 import { PersonalityMiddleware } from './persona-v2/PersonalityMiddleware';
 import { TacticalVariants } from './tactical-variants/TacticalVariants';
 
-#!/usr/bin/env tsx
 /**
  * SEVEN-CAPTAIN: Integrated leadership, strategic command, full tactical spectrum
  * Usage: seven-captain "plan architecture for complex multi-platform deployment"
  */
-
 
 async function main() {
   const args = process.argv.slice(2);

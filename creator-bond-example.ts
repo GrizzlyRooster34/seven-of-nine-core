@@ -354,6 +354,6 @@ export async function runCreatorBondDemo(): Promise<void> {
 export default CreatorBondExample;
 
 // If this file is run directly, execute the demonstration
-if (require.main === module) {
+if (import.meta.url === `file://${process.argv[1]}`) {
   runCreatorBondDemo().catch(console.error);
 }

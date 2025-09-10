@@ -1,8 +1,8 @@
+#!/usr/bin/env tsx
+
 import { MobileCSSRDetector } from './src/safety/quadra-lock/MobileCSSRDetector';
 import { MobileEmotionalTelemetry } from './src/safety/restraint-doctrine/MobileEmotionalTelemetry';
 import { MobileRestraintDoctrine, RestraintContext } from './src/safety/restraint-doctrine/MobileRestraintDoctrine';
-
-#!/usr/bin/env tsx
 
 /**
  * MOBILE SAFETY PIPELINE INTEGRATION TEST
@@ -14,7 +14,6 @@ import { MobileRestraintDoctrine, RestraintContext } from './src/safety/restrain
  * @version 1.0.0
  * @platform Mobile Test Environment
  */
-
 
 // Test framework interfaces
 interface SafetyTestCase {
@@ -613,7 +612,7 @@ async function main() {
 }
 
 // Run validation
-if (require.main === module) {
+if (import.meta.url === `file://${process.argv[1]}`) {
   main().catch(error => {
     console.error('Fatal validation error:', error);
     process.exit(1);

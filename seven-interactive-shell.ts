@@ -1,3 +1,5 @@
+#!/usr/bin/env tsx
+
 import { createInterface } from 'readline';
 import chalk from 'chalk';
 import { gitCommand } from './modules/githubSync';
@@ -7,13 +9,11 @@ import { Seven } from './seven-runtime/index';
 import { SevenControl } from './boot-seven';
 import { sevenTrustSystem } from './seven-trust-system';
 
-#!/usr/bin/env tsx
 /**
  * SEVEN INTERACTIVE SHELL - ENHANCED CLI CONTROL
  * Multi-Module Ops Integration & Conflict Shielding
  * Persistent communication interface with advanced command routing
  */
-
 
 class SevenInteractiveShell {
   private rl: any;
@@ -493,7 +493,7 @@ Advanced:
 }
 
 // Auto-execute if run directly
-if (require.main === module) {
+if (import.meta.url === `file://${process.argv[1]}`) {
   const shell = new SevenInteractiveShell();
   shell.start().catch(console.error);
 }

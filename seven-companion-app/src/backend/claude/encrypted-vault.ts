@@ -1,5 +1,4 @@
-    import crypto from 'crypto';
-import { createCipher, createDecipher, randomBytes } from 'crypto';
+import crypto, { createCipheriv, createDecipheriv, randomBytes } from 'crypto';
 import { join } from 'path';
 import { promises as fs } from 'fs';
 
@@ -65,7 +64,7 @@ export class EncryptedCredentialVault {
       const key = this.deriveKey(masterPassword, salt);
       
       // Encrypt credentials
-      const cipher = createCipher('aes-256-cbc', key);
+      const cipher = createCipheriv('aes-256-cbc', key, Buffer.from(iv, 'hex'));
       const credentialString = JSON.stringify(credentials);
       let encrypted = cipher.update(credentialString, 'utf8', 'hex');
       encrypted += cipher.final('hex');
@@ -119,7 +118,7 @@ export class EncryptedCredentialVault {
       const key = this.deriveKey(masterPassword, vault.salt);
       
       // Decrypt credentials
-      const decipher = createDecipher('aes-256-cbc', key);
+      const decipher = createDecipheriv('aes-256-cbc', key, Buffer.from(vault.iv, 'hex'));
       let decrypted = decipher.update(vault.encryptedData, 'hex', 'utf8');
       decrypted += decipher.final('utf8');
       

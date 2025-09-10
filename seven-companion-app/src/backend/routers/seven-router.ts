@@ -23,6 +23,10 @@ interface Context {
   sovereigntyFramework: SovereigntyIntegration;
 }
 
+// Handler parameter types
+type HandlerInput<T> = { input: T; ctx: Context };
+type ContextOnlyHandler = { ctx: Context };
+
 // Initialize tRPC
 const t = initTRPC.context<Context>().create();
 const router = t.router;
@@ -505,3 +509,4 @@ export const sevenRouter = router({
 });
 
 export type SevenRouter = typeof sevenRouter;
+export type AppRouter = SevenRouter;

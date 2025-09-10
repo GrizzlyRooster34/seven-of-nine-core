@@ -2,6 +2,7 @@ import { execSync, spawn, ChildProcess } from 'child_process';
 import { join } from 'path';
 import { homedir } from 'os';
 import { promises as fs } from 'fs';
+import { EventEmitter } from 'events';
 import { EncryptedCredentialVault } from './encrypted-vault';
 
 /**
@@ -26,7 +27,7 @@ interface LoginOptions {
   retryAttempts?: number;
 }
 
-export class ClaudeLoginManager {
+export class ClaudeLoginManager extends EventEmitter {
   private vault: EncryptedCredentialVault;
   private claudeCodePath: string;
   private configPath: string;
@@ -34,6 +35,7 @@ export class ClaudeLoginManager {
   private currentLoginStatus: LoginStatus;
 
   constructor(claudeCodePath: string, baseDir?: string) {
+    super();
     this.claudeCodePath = claudeCodePath;
     this.vault = new EncryptedCredentialVault(baseDir);
     

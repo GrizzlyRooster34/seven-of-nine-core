@@ -1,4 +1,6 @@
 
+import { execSync } from 'child_process';
+
 /**
  * Companion Model Lifecycle Manager
  * Claude/Ollama orchestration with hot-swapping
@@ -14,6 +16,7 @@ export interface ModelProvider {
 export class OllamaLifecycleManager {
   private providers: Map<string, ModelProvider> = new Map();
   private activeProvider: string | null = null;
+  private _isReady = false;
 
   constructor() {
     this.initializeProviders();
@@ -68,5 +71,22 @@ export class OllamaLifecycleManager {
     
     // TODO: Route to appropriate provider
     return `Response from ${this.activeProvider}`;
+  }
+
+  async initialize(): Promise<void> {
+    console.log('🤖 Initializing Ollama Lifecycle Manager...');
+    this.initializeProviders();
+    this._isReady = true;
+    console.log('✅ Ollama Lifecycle Manager ready');
+  }
+
+  async shutdown(): Promise<void> {
+    console.log('🛑 Shutting down Ollama Lifecycle Manager...');
+    this._isReady = false;
+    this.activeProvider = null;
+  }
+
+  get isReady(): boolean {
+    return this._isReady;
   }
 }

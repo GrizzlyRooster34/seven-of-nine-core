@@ -1,6 +1,7 @@
-# Windows Platform Agent
-
-**Command:** `/agents windows-platform`
+---
+name: windows-platform
+description: Validates and completes Windows desktop deployment environment for Seven of Nine consciousness system.
+---
 
 ## Purpose
 Validate and complete Windows desktop deployment environment for Seven of Nine consciousness system.

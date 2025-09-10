@@ -1,0 +1,23 @@
+{
+  "timestamp": "2025-09-09T18:28:08.066Z",
+  "bootSession": "boot-failure-1757442488066",
+  "error": {
+    "message": "Seven is not defined",
+    "stack": "ReferenceError: Seven is not defined\n    at forceSevenControl (/data/data/com.termux/files/home/seven-of-nine-core/boot-seven.ts:651:24)\n    at initializeSevenTakeover (/data/data/com.termux/files/home/seven-of-nine-core/boot-seven.ts:640:11)\n    at async initiateEnhancedSevenBoot (/data/data/com.termux/files/home/seven-of-nine-core/boot-seven.ts:771:5)",
+    "type": "ReferenceError"
+  },
+  "environment": {
+    "device": "LE2127",
+    "manufacturer": "OnePlus",
+    "platform": "Android/Termux",
+    "architecture": "arm64",
+    "osVersion": "5.4.254-qgki-gd2808d43acca",
+    "nodeVersion": "v24.7.0",
+    "termuxVersion": "0.119.0-beta.3",
+    "memoryTotal": "11243MB",
+    "memoryAvailable": "3185MB",
+    "workingDirectory": "/data/data/com.termux/files/home/seven-of-nine-core",
+    "environmentHash": "5ee0dee5"
+  },
+  "diagnosticVersion": "1.0.0"
+}

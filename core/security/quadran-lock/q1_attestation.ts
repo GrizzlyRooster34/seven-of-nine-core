@@ -1,15 +1,12 @@
 
-import { fileURLToPath } from "node:url";
 import fs from "node:fs";
-import path from "node:path";
+import { resolveFromMeta } from "../../../src/utils/esmPath.js";
 
 // Optional: swap for "sshpk" or "tweetnacl" later; for now, presence check + TODO for signature verify.
 type Device = { deviceId: string; pubkey_ssh_ed25519: string };
 type Registry = { devices: Device[] };
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-const REG_PATH = path.resolve(__dirname, "device_registry.json");
+const REG_PATH = resolveFromMeta(import.meta.url, "device_registry.json");
 
 // Export types that orchestrator expects
 export interface Q1AttestationResult {

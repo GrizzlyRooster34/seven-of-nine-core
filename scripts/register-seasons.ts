@@ -1,4 +1,3 @@
-import { promises as fs } from 'fs';
 import * as path from 'path';
 import { CanonicalGuard } from '../memory-v3/canonical/CanonicalGuard';
 

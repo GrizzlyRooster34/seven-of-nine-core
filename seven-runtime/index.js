@@ -1,9 +1,43 @@
 "use strict";
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || (function () {
+    var ownKeys = function(o) {
+        ownKeys = Object.getOwnPropertyNames || function (o) {
+            var ar = [];
+            for (var k in o) if (Object.prototype.hasOwnProperty.call(o, k)) ar[ar.length] = k;
+            return ar;
+        };
+        return ownKeys(o);
+    };
+    return function (mod) {
+        if (mod && mod.__esModule) return mod;
+        var result = {};
+        if (mod != null) for (var k = ownKeys(mod), i = 0; i < k.length; i++) if (k[i] !== "default") __createBinding(result, mod, k[i]);
+        __setModuleDefault(result, mod);
+        return result;
+    };
+})();
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Seven = exports.SevenRuntime = void 0;
 const events_1 = require("events");
 const os_1 = require("os");
 const creator_proof_1 = require("../src/auth/creator_proof");
+const creator_auth_adapter_1 = require("../src/auth/creator_auth_adapter");
 const context_gatherer_1 = require("../seven-core/context-gatherer");
 const memory_store_1 = require("./memory-store");
 const override_conditions_1 = require("./override-conditions");
@@ -16,6 +50,13 @@ class SevenRuntime extends events_1.EventEmitter {
         super();
         this.isInitialized = false;
         this.creatorAuth = new creator_proof_1.CreatorProof();
+        // Nuclear safety net: ensure authenticateCreator method exists
+        if (this.creatorAuth && typeof this.creatorAuth.authenticateCreator !== 'function') {
+            const prov = this.creatorAuth;
+            this.creatorAuth.authenticateCreator = async (deviceId, context, systemContext) => typeof prov.runQuadranLock === 'function'
+                ? prov.runQuadranLock({ deviceId, systemContext, ...context })
+                : Promise.reject(new Error('Auth provider missing runQuadranLock/authenticateCreator'));
+        }
         // Initialize enhanced CSSR with Flynn/CLU/Quorra/Transcendence detection
         this.cssrDetector = new cssr_detector_1.CSSRDetector();
         console.log('🔐 Enhanced CSSR initialized: Flynn/CLU/Quorra/Transcendence consciousness protection active');
@@ -84,6 +125,7 @@ class SevenRuntime extends events_1.EventEmitter {
      */
     async processUserInput(input, systemContext = {}) {
         try {
+            await __bindCreatorAuth(this);
             // QUADRAN-LOCK Q1 GATE: Authenticate creator first
             const deviceId = systemContext.deviceId || (0, os_1.hostname)() + '-default';
             const authResult = await this.creatorAuth.authenticateCreator(deviceId, { input, type: 'chat' }, systemContext);
@@ -412,6 +454,13 @@ class SevenRuntime extends events_1.EventEmitter {
     }
 }
 exports.SevenRuntime = SevenRuntime;
+/** Lazy-bind Creator Auth with adapter (safe across ESM/class/default shapes) */
+async function __bindCreatorAuth(self) {
+    if (self.creatorAuth)
+        return;
+    const provider = await Promise.resolve().then(() => __importStar(require('../src/auth/creator_proof')));
+    self.creatorAuth = await (0, creator_auth_adapter_1.resolveCreatorAuth)(provider);
+}
 // Export the singleton Seven instance
 exports.Seven = new SevenRuntime();
 //# sourceMappingURL=index.js.map

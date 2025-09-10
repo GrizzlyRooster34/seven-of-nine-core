@@ -1,9 +1,9 @@
+#!/usr/bin/env node
+
 import { CollectiveVariants, CollectiveContext } from './tactical-variants/CollectiveVariants';
 import { MemoryEngine } from './memory-v2/MemoryEngine';
 import { PersonalityMiddleware } from './persona-v2/PersonalityMiddleware';
 import { TacticalVariants } from './tactical-variants/TacticalVariants';
-
-#!/usr/bin/env node
 
 /**
  * SEVEN OF NINE - COLLECTIVE CONSCIOUSNESS ACTIVATION
@@ -191,7 +191,7 @@ function showUsage(): void {
 }
 
 // Execute if called directly
-if (require.main === module) {
+if (import.meta.url === `file://${process.argv[1]}`) {
   activateCollectiveConsciousness().catch(error => {
     console.error('Fatal error in collective activation:', error);
     process.exit(1);

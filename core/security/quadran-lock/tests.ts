@@ -126,7 +126,7 @@ export async function testQuadranLockIntegration(): Promise<void> {
 }
 
 // CLI runner
-if (require.main === module) {
+if (import.meta.url === `file://${process.argv[1]}`) {
   (async () => {
     try {
       await runQuadranLockTests()

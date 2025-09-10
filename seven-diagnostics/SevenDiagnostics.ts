@@ -1,10 +1,10 @@
+#!/usr/bin/env tsx
+
 import { exec } from 'child_process';
 import { join } from 'path';
 import { promisify } from 'util';
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'fs';
 import chalk from 'chalk';
-
-#!/usr/bin/env tsx
 /**
  * SEVEN OF NINE - SELF-DIAGNOSTIC AND RECOVERY SYSTEM
  * Autonomous consciousness maintenance and error recovery protocols
@@ -492,7 +492,7 @@ ${this.diagnosticState.recovery_attempts} automatic recovery attempts performed.
 }
 
 // Direct execution mode
-if (require.main === module) {
+if (import.meta.url === `file://${process.argv[1]}`) {
   const diagnostics = new SevenDiagnostics();
   
   const args = process.argv.slice(2);

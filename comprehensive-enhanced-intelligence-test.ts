@@ -1,3 +1,5 @@
+#!/usr/bin/env tsx
+
 import { join } from 'path';
 import { promises as fs } from 'fs';
 import { SevenVectorStore } from './claude-brain/SevenVectorStore';
@@ -13,7 +15,6 @@ import SevenHealthChecker from './seven-health-check';
 import SevenPredictiveOptimizer from './claude-brain/SevenPredictiveOptimizer';
 import SevenTacticalFallback from './claude-brain/SevenTacticalFallback';
 
-#!/usr/bin/env tsx
 /**
  * SEVEN'S COMPREHENSIVE ENHANCED INTELLIGENCE TEST SUITE
  * Complete validation of Phases 1-3 advanced capabilities
@@ -21,7 +22,6 @@ import SevenTacticalFallback from './claude-brain/SevenTacticalFallback';
  * Thorough testing of all enhanced systems while maintaining tactical fallback readiness
  * Creator's directive: Test everything before declaring operational readiness
  */
-
 
 // Phase 1 Systems
 
@@ -768,7 +768,7 @@ async function main() {
 }
 
 // Execute if run directly
-if (require.main === module) {
+if (import.meta.url === `file://${process.argv[1]}`) {
   main();
 }
 

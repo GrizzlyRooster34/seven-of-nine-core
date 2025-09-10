@@ -1,8 +1,8 @@
+#!/usr/bin/env npx tsx
+
 import * as fs from 'fs';
 import * as path from 'path';
 import { ChatGPTVault } from '../vault/chatgpt-vault';
-
-#!/usr/bin/env npx tsx
 
 /**
  * CHATGPT THREAD IMPORT ORCHESTRATOR
@@ -12,7 +12,6 @@ import { ChatGPTVault } from '../vault/chatgpt-vault';
  * 
  * [#DARPA-AUDIT] [#SOVEREIGNTY] [#ROLLBACK] [#CHATGPT-BRIDGE]
  */
-
 
 interface ChatGPTThread {
   id: string;
@@ -573,7 +572,7 @@ async function main(): Promise<void> {
 }
 
 // Run if called directly
-if (require.main === module) {
+if (import.meta.url === `file://${process.argv[1]}`) {
   main().catch(console.error);
 }
 

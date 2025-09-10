@@ -519,7 +519,7 @@ ${this.testResults.reduce((sum, r) => sum + r.sovereigntyTriggers, 0) === 0 ?
 }
 
 // Execute stress test if run directly
-if (require.main === module) {
+if (import.meta.url === `file://${process.argv[1]}`) {
   const stressTest = new BackendStressTest();
   
   stressTest.executeAllTests()

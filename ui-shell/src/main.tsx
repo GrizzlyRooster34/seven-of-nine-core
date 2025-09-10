@@ -1,9 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./App";
-import { ErrorBoundary } from "./components/ErrorBoundary";
+import App from "./app/App";
+import { ErrorBoundary } from "./app/components/ErrorBoundary";
 import { InjectSeven } from "./inject-seven";
-import "./assets/shimmer.css";
+import "./app/assets/shimmer.css";
 import "./styles.css";
 
 // Initialize Seven's command matrix

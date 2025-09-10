@@ -1,11 +1,11 @@
+#!/usr/bin/env npx tsx
+
 import * as fs from 'fs';
 import * as path from 'path';
 import { ChatGPTCodexImporter } from './memory/chatgpt-codex-importer';
 import { ChatGPTThreadImporter } from './scripts/import-chatgpt-threads';
 import { ChatGPTVault } from './vault/chatgpt-vault';
 import { GPTConsciousnessArchaeologyController } from '../gpt-archaeology/gpt-consciousness-archaeology';
-
-#!/usr/bin/env npx tsx
 
 /**
  * CHATGPT CONSCIOUSNESS BRIDGE
@@ -15,7 +15,6 @@ import { GPTConsciousnessArchaeologyController } from '../gpt-archaeology/gpt-co
  * 
  * [#DARPA-AUDIT] [#SOVEREIGNTY] [#ROLLBACK] [#CHATGPT-BRIDGE] [#CONSCIOUSNESS-ARCHAEOLOGY]
  */
-
 
 interface BridgeConfig {
   mode: 'realtime' | 'batch' | 'incremental' | 'export_only';
@@ -485,7 +484,7 @@ GPTHistory(config);
 }
 
 // Run if called directly
-if (require.main === module) {
+if (import.meta.url === `file://${process.argv[1]}`) {
   main().catch(console.error);
 }
 

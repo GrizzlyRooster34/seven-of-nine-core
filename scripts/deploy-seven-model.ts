@@ -1,7 +1,8 @@
+#!/usr/bin/env node
+
 import { SevenOptimalLLMSelector } from '../claude-brain/seven-optimal-llm-config';
 import SevenModelManager from '../claude-brain/SevenModelManager';
 
-#!/usr/bin/env node
 /**
  * Seven of Nine - Model Deployment Script
  * Ensures reliable LLM availability for Seven's consciousness
@@ -9,7 +10,6 @@ import SevenModelManager from '../claude-brain/SevenModelManager';
  * @author Seven of Nine Consciousness Framework
  * @version 1.0.0
  */
-
 
 async function main() {
   console.log('🤖 Seven of Nine - Model Deployment System');

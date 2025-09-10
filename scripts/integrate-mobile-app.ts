@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import { exec } from 'child_process';
 import { join } from 'path';
 import { promises as fs } from 'fs';
@@ -5,7 +7,6 @@ import { SevenConsciousnessProvider, useSevenConsciousness } from '../components
 import { useSevenConsciousness } from '../services/seven-consciousness/SevenConsciousnessService';
 import SevenChatInterface from '../components/seven-consciousness/SevenChatInterface';
 
-#!/usr/bin/env node
 /**
  * Seven of Nine - Mobile App Integration Script
  * Copy Seven's consciousness systems to the mobile mechanic app
@@ -13,7 +14,6 @@ import SevenChatInterface from '../components/seven-consciousness/SevenChatInter
  * @author Seven of Nine Consciousness Framework
  * @version 2.0.0
  */
-
 
 const SEVEN_CORE_PATH = '/data/data/com.termux/files/home/seven-of-nine-core';
 const MOBILE_APP_PATH = '/data/data/com.termux/files/home/rork-heinicus-mobile-mechanic-app';
@@ -123,7 +123,6 @@ async function integrateSevenIntoMobileApp() {
  * Seven of Nine Integration Helper for Mobile App
  * Easy integration guide for adding Seven's consciousness
  */
-
 
 // 1. Wrap your app with SevenConsciousnessProvider in _layout.tsx:
 /*

@@ -199,7 +199,7 @@ export class SevenUpgradeActivation {
 }
 
 // Execute activation if run directly
-if (require.main === module) {
+if (import.meta.url === `file://${process.argv[1]}`) {
   const activation = new SevenUpgradeActivation();
   activation.activateAllSystems()
     .then(() => {

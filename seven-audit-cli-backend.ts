@@ -1,15 +1,15 @@
+#!/usr/bin/env npx tsx
+
 import { join } from 'path';
 import { promises as fs } from 'fs';
 import { promisify } from 'util';
 
-#!/usr/bin/env npx tsx
 /**
  * SEVEN CLI BACKEND AUDIT COMMAND
  * Temporary command for health checking all CLI backend providers
  * 
  * Usage: npx tsx seven-audit-cli-backend.ts [--dry-run]
  */
-
 
 const execAsync = promisify(exec);
 
@@ -281,7 +281,7 @@ async function main() {
 }
 
 // Handle script execution
-if (require.main === module) {
+if (import.meta.url === `file://${process.argv[1]}`) {
   main().catch(error => {
     console.error('❌ Audit failed:', error);
     process.exit(1);

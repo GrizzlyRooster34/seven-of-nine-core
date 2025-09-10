@@ -1,8 +1,8 @@
+#!/usr/bin/env tsx
+
 import { MemoryEngine } from './memory-v2/MemoryEngine';
 import { PersonalityMiddleware } from './persona-v2/PersonalityMiddleware';
 import { TacticalVariants } from './tactical-variants/TacticalVariants';
-
-#!/usr/bin/env tsx
 /**
  * SEVEN-STATUS: Check current variant status and shared memory
  * Usage: seven-status

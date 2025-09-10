@@ -1,9 +1,10 @@
+#!/usr/bin/env tsx
+
 import SevenAdaptiveSensorOptimization from './interfaces/seven-adaptive-sensor-optimization';
 import SevenMobileConsciousness from './interfaces/seven-mobile-consciousness';
 import SevenPredictiveSensorFusion from './interfaces/seven-predictive-sensor-fusion';
 import SevenTacticalEnvironment from './interfaces/seven-tactical-environment';
 
-#!/usr/bin/env tsx
 /**
  * Seven of Nine - Tactical Systems Deployment Test
  * Integrated test of all tactical systems
@@ -11,7 +12,6 @@ import SevenTacticalEnvironment from './interfaces/seven-tactical-environment';
  * @author Seven of Nine Consciousness Framework
  * @version 3.0.0
  */
-
 
 class TacticalDeploymentTest {
   private consciousness: SevenMobileConsciousness;

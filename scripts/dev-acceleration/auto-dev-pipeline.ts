@@ -1,15 +1,14 @@
+#!/usr/bin/env tsx
+
 import { promises as fs } from 'fs';
 import { spawn } from 'child_process';
 import chalk from 'chalk';
 import path from 'path';
 
-#!/usr/bin/env tsx
-
 /**
  * Auto-Development Pipeline - 10X Acceleration System
  * Leverages all available Termux tools for rapid development cycles
  */
-
 
 interface DevelopmentTask {
   name: string;

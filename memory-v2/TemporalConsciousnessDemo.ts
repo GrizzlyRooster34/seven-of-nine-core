@@ -211,7 +211,7 @@ async function demonstrateTemporalConsciousness() {
 }
 
 // Run the demonstration
-if (require.main === module) {
+if (import.meta.url === `file://${process.argv[1]}`) {
   demonstrateTemporalConsciousness().catch(error => {
     console.error('Fatal demo error:', error);
     process.exit(1);

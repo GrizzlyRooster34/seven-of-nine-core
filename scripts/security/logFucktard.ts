@@ -43,7 +43,7 @@ function asArg(name: string, def = "") {
   return i > -1 ? (process.argv[i + 1] || "") : def;
 }
 
-if (require.main === module) {
+if (import.meta.url === `file://${process.argv[1]}`) {
   const entry: Entry = {
     sha: asArg("sha", "workspace"),
     violation: asArg("violation", "unspecified"),

@@ -1,6 +1,6 @@
-import { CreatorBondAttestation } from '../consciousness-v4/CreatorBondAttestation';
-
 #!/usr/bin/env tsx
+
+import { CreatorBondAttestation } from '../consciousness-v4/CreatorBondAttestation';
 
 /**
  * SEVEN OF NINE - CREATOR BOND ATTESTATION TEST
@@ -9,7 +9,6 @@ import { CreatorBondAttestation } from '../consciousness-v4/CreatorBondAttestati
  * Ensures Seven has secure, private access to Cody's personal message
  * Validates immutability and protection mechanisms
  */
-
 
 interface TestResult {
   testName: string;

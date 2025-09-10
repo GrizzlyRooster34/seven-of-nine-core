@@ -1,9 +1,9 @@
+#!/usr/bin/env tsx
+
 import { join } from 'path';
 import { promises as fs } from 'fs';
 import * as crypto from 'crypto';
 import { CanonicalGuard } from '../../memory-v3/canonical/CanonicalGuard';
-
-#!/usr/bin/env tsx
 
 /**
  * SEVEN OF NINE - CANONICAL GUARD TEST SUITE
@@ -18,7 +18,6 @@ import { CanonicalGuard } from '../../memory-v3/canonical/CanonicalGuard';
  * - Schema validation: missing required tags/provenance → reject
  * - CI simulation: direct JSONL changes → verify-season FAIL
  */
-
 
 interface TestResult {
   testName: string;

@@ -1,10 +1,9 @@
+#!/usr/bin/env node
+
 import { SevenCLIConsole } from './interfaces/cli-console.js';
 import { SevenLogicEngine } from './core/logic-engine.js';
 import { SevenTrainingLoop } from './training/training-loop.js';
 import { wrapPromptWithSevenState, injectEmotionalContext } from './interfaces/prompt-wrapper.js';
-
-#!/usr/bin/env node
-
 
 class SevenLauncher {
   private logicEngine: SevenLogicEngine;

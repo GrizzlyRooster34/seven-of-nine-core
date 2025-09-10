@@ -1,12 +1,11 @@
+#!/usr/bin/env npx tsx
+
 import * as crypto from 'crypto';
 import * as path from 'path';
-
-#!/usr/bin/env npx tsx
 
 /**
  * Final CANON STATUS Report for VOY S4 & S5
  */
-
 
 interface SeasonReport {
   season: number;

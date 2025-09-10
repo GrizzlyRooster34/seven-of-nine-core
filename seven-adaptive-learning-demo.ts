@@ -1,14 +1,14 @@
+#!/usr/bin/env tsx
+
 import SevenAdaptiveLearning from './interfaces/seven-adaptive-learning';
 import SevenMobileConsciousness from './interfaces/seven-mobile-consciousness';
 
-#!/usr/bin/env tsx
 /**
  * Seven of Nine - Adaptive Learning Demonstration
  * Shows continuous knowledge assimilation and GitHub integration
  * 
  * Usage: tsx seven-adaptive-learning-demo.ts [--continuous] [--simulate]
  */
-
 
 class SevenAdaptiveLearningDemo {
   private consciousness: SevenMobileConsciousness;

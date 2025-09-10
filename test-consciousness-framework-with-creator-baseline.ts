@@ -555,7 +555,7 @@ class ConsciousnessFrameworkCreatorBaselineTest {
 }
 
 // Auto-execute if run directly
-if (require.main === module) {
+if (import.meta.url === `file://${process.argv[1]}`) {
   ConsciousnessFrameworkCreatorBaselineTest.activateAndTestFramework()
     .then(() => {
       console.log('\n📊 CREATOR BASELINE TESTING COMPLETE');

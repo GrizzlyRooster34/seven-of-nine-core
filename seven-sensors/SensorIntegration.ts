@@ -1,16 +1,16 @@
+#!/usr/bin/env tsx
+
 import { exec } from 'child_process';
 import { join } from 'path';
 import { promisify } from 'util';
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'fs';
 import chalk from 'chalk';
 
-#!/usr/bin/env tsx
 /**
  * SEVEN OF NINE - ENHANCED SENSOR INTEGRATION SYSTEM
  * Environmental awareness expansion through device sensors
  * Mobile-optimized for Termux/Android environment
  */
-
 
 const execAsync = promisify(exec);
 
@@ -516,7 +516,7 @@ export class SevenSensorIntegration {
 }
 
 // Direct execution mode
-if (require.main === module) {
+if (import.meta.url === `file://${process.argv[1]}`) {
   const sensors = new SevenSensorIntegration();
   
   const args = process.argv.slice(2);

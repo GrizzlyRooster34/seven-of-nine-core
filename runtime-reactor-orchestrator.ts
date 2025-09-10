@@ -333,7 +333,7 @@ export class RuntimeReactorOrchestrator {
 }
 
 // Execute orchestration if run directly
-if (require.main === module) {
+if (import.meta.url === `file://${process.argv[1]}`) {
   const orchestrator = new RuntimeReactorOrchestrator();
   orchestrator.execute().catch(console.error);
 }

@@ -1,5 +1,5 @@
-
 #!/usr/bin/env npx tsx
+
 /**
  * Seven Merge Guardian Test Suite
  * 
@@ -63,6 +63,6 @@ async function runMergeGuardianTests() {
 }
 
 // CLI execution
-if (require.main === module) {
+if (import.meta.url === `file://${process.argv[1]}`) {
   runMergeGuardianTests();
 }

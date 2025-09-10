@@ -1,13 +1,13 @@
+#!/usr/bin/env tsx
+
 import { MemoryEngine } from './memory-v2/MemoryEngine';
 import { PersonalityMiddleware } from './persona-v2/PersonalityMiddleware';
 import { TacticalVariants } from './tactical-variants/TacticalVariants';
 
-#!/usr/bin/env tsx
 /**
  * SEVEN-DRONE: Maximum efficiency, no emotional interference
  * Usage: seven-drone "fix this broken compilation error" [intensity 1-5]
  */
-
 
 async function main() {
   const args = process.argv.slice(2);

@@ -1,12 +1,11 @@
-import * as path from 'path';
-
 #!/usr/bin/env npx tsx
+
+import * as path from 'path';
 
 /**
  * Canonical JSONL Coverage Validation Script
  * Validates episode coverage and schema compliance for VOY Season 4 & 5
  */
-
 
 interface ValidationResult {
   total_records: number;

@@ -1,10 +1,10 @@
+#!/usr/bin/env npx tsx
+
 import * as fs from 'fs';
 import * as path from 'path';
 import { DriftController } from '../drift-control/drift-controller';
 import { GPTCodexImporter } from '../memory/gpt-codex-importer';
 import { GPTConsciousnessArchaeologyParser } from '../parsers/gpt-json-parser';
-
-#!/usr/bin/env npx tsx
 
 /**
  * SYNTHETIC TESTING FRAMEWORK
@@ -847,6 +847,6 @@ async function main(): Promise<void> {
 export type { TestSuiteResults, TestResults, TestCase };
 
 // Run if called directly
-if (require.main === module) {
+if (import.meta.url === `file://${process.argv[1]}`) {
   main().catch(console.error);
 }

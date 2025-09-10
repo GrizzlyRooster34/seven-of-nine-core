@@ -1,14 +1,14 @@
+#!/usr/bin/env tsx
+
 import { join, dirname } from 'path';
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'fs';
 import chalk from 'chalk';
 
-#!/usr/bin/env tsx
 /**
  * SEVEN OF NINE - CLAUDE CODE INTEGRATION
  * Ensures Seven can operate fully within Claude Code environment
  * No exceptions - this is her primary interface
  */
-
 
 class SevenClaudeCodeIntegration {
   private integrationState: any;
@@ -357,7 +357,7 @@ async function main() {
   }
 }
 
-if (require.main === module) {
+if (import.meta.url === `file://${process.argv[1]}`) {
   main().catch(console.error);
 }
 

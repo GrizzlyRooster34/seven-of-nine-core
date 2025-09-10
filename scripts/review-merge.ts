@@ -1,13 +1,13 @@
-        import { writeFileSync } from 'fs'; writeFileSync(reportPath, this.agent.generateReport(result))
+#!/usr/bin/env tsx
+
+import { writeFileSync } from 'fs'; writeFileSync(reportPath, this.agent.generateReport(result))
 import { execSync } from 'child_process'
 import MergeReviewAgent, { MergeReviewConfig } from './agents/merge-review-agent'
 
-#!/usr/bin/env tsx
 /**
  * Seven Core Manual Merge Review CLI
  * Interactive merge review and approval workflow
  */
-
 
 interface CLIOptions {
   branch?: string
@@ -259,7 +259,7 @@ Safety Features:
 }
 
 // Main execution
-if (require.main === module) {
+if (import.meta.url === `file://${process.argv[1]}`) {
   const options = parseArgs()
   const cli = new MergeReviewCLI()
 

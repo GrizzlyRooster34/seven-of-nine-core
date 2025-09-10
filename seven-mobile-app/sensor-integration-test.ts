@@ -1,13 +1,12 @@
-import { MobileCSSRDetectorTest } from './src/safety/quadra-lock/MobileCSSRDetector.test';
-
 #!/usr/bin/env tsx
+
+import { MobileCSSRDetectorTest } from './src/safety/quadra-lock/MobileCSSRDetector.test';
 
 /**
  * MOBILE CSSR PERFORMANCE VALIDATION TEST
  * Verifies Quadra-Lock CSSR detector meets <50ms processing time requirement
  * Critical for PR-1 deployment validation
  */
-
 
 interface PerformanceMetric {
   test_case: string;
@@ -227,7 +226,7 @@ async function main() {
 }
 
 // Run validation
-if (require.main === module) {
+if (import.meta.url === `file://${process.argv[1]}`) {
   main().catch(error => {
     console.error('Fatal validation error:', error);
     process.exit(1);

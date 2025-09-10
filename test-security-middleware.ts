@@ -1,6 +1,6 @@
-import { SecurityMiddleware, securityPipeline, SecurityContext } from './seven-runtime/security_middleware.js';
-
 #!/usr/bin/env tsx
+
+import { SecurityMiddleware, securityPipeline, SecurityContext } from './seven-runtime/security_middleware.js';
 
 async function testSecurityMiddleware() {
   console.log('🛡️ Testing Security Middleware Pipeline...\n');

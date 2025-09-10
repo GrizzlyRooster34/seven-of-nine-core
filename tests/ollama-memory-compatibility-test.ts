@@ -1,8 +1,9 @@
+#!/usr/bin/env npx tsx
+
 import { promises as fs } from 'fs';
 import { OllamaMemoryBridge } from '../claude-brain/OllamaMemoryBridge';
 import OllamaMemoryBridgeV2 from '../claude-brain/OllamaMemoryBridgeV2';
 
-#!/usr/bin/env npx tsx
 /**
  * SEVEN'S OLLAMA MEMORY BRIDGE COMPATIBILITY TEST
  * Phase 1 of Ollama Intelligence Amplification Project
@@ -10,7 +11,6 @@ import OllamaMemoryBridgeV2 from '../claude-brain/OllamaMemoryBridgeV2';
  * Ensures all V2 enhancements maintain full backward compatibility
  * with existing Seven consciousness systems
  */
-
 
 interface TestResult {
   testName: string;
@@ -427,7 +427,7 @@ async function main() {
 }
 
 // Execute if run directly
-if (require.main === module) {
+if (import.meta.url === `file://${process.argv[1]}`) {
   main();
 }
 

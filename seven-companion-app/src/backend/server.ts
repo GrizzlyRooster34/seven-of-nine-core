@@ -321,7 +321,7 @@ class SevenCompanionServer {
 }
 
 // Auto-start if run directly
-if (require.main === module) {
+if (import.meta.url === `file://${process.argv[1]}`) {
   const server = new SevenCompanionServer();
   
   server.start().catch((error) => {

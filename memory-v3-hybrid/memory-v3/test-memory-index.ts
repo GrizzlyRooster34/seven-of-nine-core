@@ -1,6 +1,6 @@
-import { MemoryIndexOptimizer, MemoryRecord, createIndex } from './MemoryIndexOptimizer';
-
 #!/usr/bin/env tsx
+
+import { MemoryIndexOptimizer, MemoryRecord, createIndex } from './MemoryIndexOptimizer';
 
 /**
  * SEVEN OF NINE - MEMORY INDEX OPTIMIZER TEST SUITE
@@ -8,7 +8,6 @@ import { MemoryIndexOptimizer, MemoryRecord, createIndex } from './MemoryIndexOp
  * Comprehensive performance benchmarks and correctness tests
  * Generates realistic test data and validates <10ms query performance
  */
-
 
 interface TestResult {
   testName: string;

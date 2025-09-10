@@ -1,15 +1,14 @@
+#!/usr/bin/env tsx
+
 import { promises as fs } from 'fs';
 import { spawn } from 'child_process';
 import chalk from 'chalk';
 import path from 'path';
 
-#!/usr/bin/env tsx
-
 /**
  * Real-Time Performance Monitor for Seven of Nine Core
  * Monitors system health, memory usage, and development metrics
  */
-
 
 interface SystemMetrics {
   timestamp: string;

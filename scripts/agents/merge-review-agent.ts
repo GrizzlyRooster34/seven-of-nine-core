@@ -552,7 +552,7 @@ ${result.approved
 }
 
 // CLI runner
-if (require.main === module) {
+if (import.meta.url === `file://${process.argv[1]}`) {
   const agent = new MergeReviewAgent()
   
   const branch = process.argv[2] || 'merge-review'

@@ -1,10 +1,10 @@
+#!/usr/bin/env tsx
+
 import { join } from 'path';
 import { promises as fs } from 'fs';
 import { MemoryEncryptionEngine } from './MemoryEncryption';
 import { MemoryEngine } from '../memory-v2/MemoryEngine';
 import { TemporalMemoryCore } from './TemporalMemoryCore';
-
-#!/usr/bin/env tsx
 
 /**
  * SEVEN OF NINE - MEMORY ENCRYPTION TEST HARNESS
@@ -12,7 +12,6 @@ import { TemporalMemoryCore } from './TemporalMemoryCore';
  * Comprehensive test suite for MemoryEncryptionEngine integration
  * Tests encryption at rest, decryption integrity, and full Seven boot compatibility
  */
-
 
 interface TestResult {
   testName: string;

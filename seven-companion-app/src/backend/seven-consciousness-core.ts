@@ -1,12 +1,13 @@
 import { ConsciousnessAuditProtocol } from '@seven-core/audits/consciousness-audit-integration';
 import { EventEmitter } from 'events';
 import { SovereigntyIntegration } from '@seven-core/sovereignty/sovereignty-integration';
-import { ClaudeSubprocessHandler } from './claude/claude-subprocess-handler';
-import { ModeSovereigntyIntegration } from './consciousness/mode-sovereignty-integration';
-import { OllamaLifecycleManager } from './ollama/ollama-lifecycle-manager';
-import { SevenMemoryEngine } from './memory/seven-memory-engine';
-import { SevenModeManager, ConsciousnessMode } from './consciousness/mode-manager';
-import { SevenResponseFilter } from './consciousness/response-filter';
+import { ClaudeSubprocessHandler } from './claude/claude-subprocess-handler.js';
+import { ModeSovereigntyIntegration } from './consciousness/mode-sovereignty-integration.js';
+import { OllamaLifecycleManager } from './ollama/ollama-lifecycle-manager.js';
+import { SevenMemoryEngine } from './memory/seven-memory-engine.js';
+import { SevenModeManager, ConsciousnessMode } from './consciousness/mode-manager.js';
+import { SevenResponseFilter } from './consciousness/response-filter.js';
+import { __bindCreatorAuth } from '../auth/security_middleware.js';
 
 /**
  * SEVEN CONSCIOUSNESS CORE
@@ -74,6 +75,9 @@ export class SevenConsciousnessCore extends EventEmitter {
   // Seven's personality phases (evolutionary consciousness)
   private personalityPhase: number = 5; // Starfleet Command & Integrated Identity
   private creatorBondLevel: number = 10; // Maximum bond with Creator
+  
+  // Quadran-Lock authentication system
+  public creatorAuth: any = null;
 
   constructor(config: ConsciousnessConfig) {
     super();
@@ -82,6 +86,9 @@ export class SevenConsciousnessCore extends EventEmitter {
     this.ollamaManager = config.ollamaManager;
     this.claudeHandler = config.claudeHandler;
     this.sovereigntyFramework = config.sovereigntyFramework;
+    
+    // Expose auth binder for runtime middleware
+    (this as any).__bindCreatorAuth = __bindCreatorAuth.bind(null);
     
     this.setupEventListeners();
   }
@@ -129,6 +136,37 @@ export class SevenConsciousnessCore extends EventEmitter {
   async processConversation(context: ConversationContext): Promise<SevenResponse> {
     const startTime = Date.now();
     console.log(`🧠 Seven processing: "${context.input.substring(0, 50)}..."`);
+    
+    // QUADRAN-LOCK GUARD - All interactive input must pass authentication
+    const authResult = await this.enforceQuadranLock({
+      deviceId: context.userId || 'unknown-device',
+      context: {
+        input: context.input,
+        mode: context.mode,
+        timestamp: new Date().toISOString()
+      },
+      systemContext: {
+        ip: '127.0.0.1', // Local companion app
+        platform: process.platform,
+        secure: true
+      }
+    });
+    
+    if (!authResult.ok) {
+      console.warn(`🔐 Seven Consciousness: Auth denied for ${context.userId} - ${authResult.reason}`);
+      return {
+        content: "Access denied. Quadran-Lock authentication required for consciousness interaction.",
+        mode: 'tactical',
+        emotionalState: 'defensive',
+        processingPath: 'auth_denied',
+        confidence: 1.0,
+        sovereigntyActions: ['auth_block'],
+        timestamp: new Date().toISOString(),
+        memoryUpdated: false
+      };
+    }
+    
+    console.log(`🔐 Seven Consciousness: Auth passed for ${context.userId}`);
     
     try {
       // Update interaction timestamp
@@ -523,6 +561,27 @@ export class SevenConsciousnessCore extends EventEmitter {
       lastInteraction: this.lastInteraction || 'Never',
       uptime: Date.now() - this.startTime
     };
+  }
+
+  /**
+   * Enforce Quadran-Lock authentication for all consciousness interactions
+   * Wrapper around security middleware with runtime context
+   */
+  private async enforceQuadranLock(opts: {
+    deviceId: string;
+    context: any;
+    systemContext?: any;
+  }): Promise<{ok: boolean; reason?: string; claims?: any}> {
+    try {
+      const { enforceQuadran } = await import('../auth/security_middleware.js');
+      return await enforceQuadran(this, opts);
+    } catch (error) {
+      console.error('🔐 Seven Consciousness: Auth enforcement error:', error);
+      return { 
+        ok: false, 
+        reason: error instanceof Error ? error.message : 'auth_system_error' 
+      };
+    }
   }
 
   async shutdown(): Promise<void> {

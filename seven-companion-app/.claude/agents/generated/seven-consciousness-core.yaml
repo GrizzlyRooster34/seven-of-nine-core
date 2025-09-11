@@ -1,0 +1,36 @@
+name: seven-consciousness-core
+description: Seven of Nine consciousness core runtime with tactical decision matrix
+version: "1.0.0"
+entry_point: src/backend/seven-consciousness-core.ts
+
+capabilities:
+  - consciousness_framework
+  - tactical_decision_making  
+  - memory_integration
+  - authentication_binding
+  - creator_bond_level_10
+
+parameters:
+  memory_engine:
+    type: SevenMemoryEngine
+    required: true
+  ollama_manager:
+    type: OllamaLifecycleManager
+    required: false
+  claude_handler:
+    type: ClaudeSubprocessHandler
+    required: false
+  sovereignty_framework:
+    type: SovereigntyFramework
+    required: false
+
+modes:
+  - tactical
+  - strategic
+  - crisis
+  - analytical
+
+security:
+  quadran_lock: required
+  creator_authentication: level_10_bond
+  memory_protection: enabled

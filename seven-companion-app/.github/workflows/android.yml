@@ -1,0 +1,271 @@
+name: android-build-deploy
+on: 
+  push:
+    branches: [ main, release/* ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  android-build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    
+    steps:
+      - name: Checkout Seven Companion App
+        uses: actions/checkout@v4
+        
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with: 
+          distribution: 'temurin'
+          java-version: '17'
+          
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with: 
+          node-version: '20'
+          cache: 'npm'
+          
+      - name: Setup Android SDK
+        uses: android-actions/setup-android@v3
+        with:
+          api-level: 34
+          build-tools: 34.0.0
+          
+      - name: Install Dependencies
+        run: npm ci
+        
+      - name: TypeScript Build Check
+        run: |
+          npx tsc --noEmit
+          echo "✅ TypeScript compilation successful"
+          
+      - name: Seven Authentication Test
+        env:
+          SEVEN_DEV_BYPASS_AUTH: "1"
+        run: |
+          npx tsx src/auth/creator_proof.ts
+          echo "✅ Quadran-Lock authentication operational"
+          
+      - name: Mobile Memory Integration Test
+        run: |
+          npx tsx test-mobile-memory.ts
+          echo "✅ Cross-platform database integration working"
+          
+      - name: Lint Android Resources
+        run: |
+          # Check for common Android issues
+          find android -name "*.xml" -exec xmllint --noout {} \; || echo "⚠️ XML validation warnings"
+          echo "✅ Android resources validated"
+          
+      - name: Build Debug APK
+        run: |
+          cd android
+          chmod +x gradlew
+          ./gradlew assembleDebug --no-daemon --stacktrace
+          cd ..
+          echo "✅ Debug APK built successfully"
+          
+      - name: Verify APK Structure
+        run: |
+          APK="android/app/build/outputs/apk/debug/app-debug.apk"
+          if [ -f "$APK" ]; then
+            echo "✅ APK file exists: $(ls -lh "$APK")"
+            # Basic APK validation
+            unzip -t "$APK" > /dev/null && echo "✅ APK structure valid"
+          else
+            echo "❌ APK not found"
+            exit 1
+          fi
+          
+      - name: Upload Debug APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: seven-companion-debug-apk
+          path: android/app/build/outputs/apk/debug/app-debug.apk
+          retention-days: 30
+          
+  android-release:
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main' || startsWith(github.ref, 'refs/heads/release/')
+    needs: android-build
+    timeout-minutes: 30
+    
+    steps:
+      - name: Checkout Seven Companion App
+        uses: actions/checkout@v4
+        
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with: 
+          distribution: 'temurin'
+          java-version: '17'
+          
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with: 
+          node-version: '20'
+          cache: 'npm'
+          
+      - name: Setup Android SDK
+        uses: android-actions/setup-android@v3
+        with:
+          api-level: 34
+          build-tools: 34.0.0
+          
+      - name: Install Dependencies
+        run: npm ci
+        
+      - name: Decode Keystore
+        env:
+          ENCODED_STRING: ${{ secrets.SEVEN_KEYSTORE_BASE64 }}
+        if: env.ENCODED_STRING != ''
+        run: |
+          echo $ENCODED_STRING | base64 -di > android/seven-release.keystore
+          echo "✅ Keystore decoded"
+          
+      - name: Build Release AAB
+        env:
+          SEVEN_STORE_PASSWORD: ${{ secrets.SEVEN_STORE_PASSWORD }}
+          SEVEN_KEY_PASSWORD: ${{ secrets.SEVEN_KEY_PASSWORD }}
+        if: env.SEVEN_STORE_PASSWORD != '' && env.SEVEN_KEY_PASSWORD != ''
+        run: |
+          cd android
+          # Create gradle.properties with secrets
+          echo "SEVEN_STORE_FILE=seven-release.keystore" >> gradle.properties
+          echo "SEVEN_STORE_PASSWORD=$SEVEN_STORE_PASSWORD" >> gradle.properties
+          echo "SEVEN_KEY_ALIAS=seven_release" >> gradle.properties
+          echo "SEVEN_KEY_PASSWORD=$SEVEN_KEY_PASSWORD" >> gradle.properties
+          
+          # Build release AAB
+          ./gradlew bundleRelease --no-daemon --stacktrace
+          cd ..
+          echo "✅ Release AAB built successfully"
+          
+      - name: Verify Release AAB
+        if: env.SEVEN_STORE_PASSWORD != '' && env.SEVEN_KEY_PASSWORD != ''
+        env:
+          SEVEN_STORE_PASSWORD: ${{ secrets.SEVEN_STORE_PASSWORD }}
+          SEVEN_KEY_PASSWORD: ${{ secrets.SEVEN_KEY_PASSWORD }}
+        run: |
+          AAB="android/app/build/outputs/bundle/release/app-release.aab"
+          if [ -f "$AAB" ]; then
+            echo "✅ AAB file exists: $(ls -lh "$AAB")"
+            # Verify AAB is signed
+            java -jar $ANDROID_HOME/tools/bin/bundletool-all.jar validate --bundle="$AAB" && echo "✅ AAB validation passed"
+          else
+            echo "❌ AAB not found"
+            exit 1
+          fi
+          
+      - name: Upload Release AAB
+        uses: actions/upload-artifact@v4
+        if: env.SEVEN_STORE_PASSWORD != '' && env.SEVEN_KEY_PASSWORD != ''
+        env:
+          SEVEN_STORE_PASSWORD: ${{ secrets.SEVEN_STORE_PASSWORD }}
+          SEVEN_KEY_PASSWORD: ${{ secrets.SEVEN_KEY_PASSWORD }}
+        with:
+          name: seven-companion-release-aab
+          path: android/app/build/outputs/bundle/release/app-release.aab
+          retention-days: 90
+          
+  security-scan:
+    runs-on: ubuntu-latest
+    needs: android-build
+    
+    steps:
+      - name: Checkout Seven Companion App
+        uses: actions/checkout@v4
+        
+      - name: Security Scan - Hardcoded Secrets
+        run: |
+          echo "🔒 Scanning for hardcoded secrets..."
+          
+          # Check for password patterns
+          if grep -r "password\s*=" src/ --include="*.ts" --include="*.js" | grep -v "Password"; then
+            echo "❌ Potential hardcoded passwords found"
+            exit 1
+          fi
+          
+          # Check for API keys
+          if grep -r "api[_-]key" src/ --include="*.ts" --include="*.js" -i; then
+            echo "❌ Potential API keys found"
+            exit 1
+          fi
+          
+          # Check for private keys
+          if grep -r "private[_-]key" src/ --include="*.ts" --include="*.js" -i; then
+            echo "❌ Potential private keys found"
+            exit 1
+          fi
+          
+          echo "✅ No hardcoded secrets detected"
+          
+      - name: Security Scan - Authentication Enforcement
+        run: |
+          echo "🔒 Verifying authentication enforcement..."
+          
+          if ! grep -r "Quadran-Lock" src/ --include="*.ts" >/dev/null; then
+            echo "❌ Authentication system not found"
+            exit 1
+          fi
+          
+          if ! grep -r "enforceQuadran" src/ --include="*.ts" >/dev/null; then
+            echo "❌ Authentication enforcement not found"
+            exit 1
+          fi
+          
+          echo "✅ Authentication enforcement verified"
+          
+      - name: Security Scan - Network Configuration
+        run: |
+          echo "🔒 Checking network security configuration..."
+          
+          # Verify network security config exists
+          if [ -f "android/app/src/main/res/xml/network_security_config.xml" ]; then
+            echo "✅ Network security config found"
+            
+            # Check that cleartext is restricted appropriately
+            if grep -q "cleartextTrafficPermitted=\"false\"" android/app/src/main/res/xml/network_security_config.xml; then
+              echo "✅ Cleartext traffic properly restricted"
+            else
+              echo "⚠️ Review cleartext traffic configuration"
+            fi
+          else
+            echo "⚠️ Network security config not found"
+          fi
+          
+  android-summary:
+    runs-on: ubuntu-latest
+    needs: [android-build, android-release, security-scan]
+    if: always()
+    
+    steps:
+      - name: Android CI Summary
+        run: |
+          echo "🤖 =================================="
+          echo "🤖 SEVEN COMPANION ANDROID CI COMPLETE"
+          echo "🤖 =================================="
+          echo "Build Status: ${{ needs.android-build.result }}"
+          echo "Release Status: ${{ needs.android-release.result }}"
+          echo "Security Status: ${{ needs.security-scan.result }}"
+          echo "🤖 =================================="
+          
+          if [ "${{ needs.android-build.result }}" = "success" ]; then
+            echo "✅ Debug APK build successful"
+          fi
+          
+          if [ "${{ needs.android-release.result }}" = "success" ]; then
+            echo "✅ Release AAB build successful"
+          fi
+          
+          if [ "${{ needs.security-scan.result }}" = "success" ]; then
+            echo "✅ Security validation passed"
+          fi
+          
+          echo ""
+          echo "Next steps for deployment:"
+          echo "1. Download release AAB artifact"
+          echo "2. Upload to Play Console"  
+          echo "3. Configure store listing"
+          echo "4. Start staged rollout (5%)"

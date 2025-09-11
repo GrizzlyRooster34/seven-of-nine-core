@@ -1,0 +1,35 @@
+name: quadran-lock-auth
+description: Quadran-Lock 4-gate authentication system (Q1-Q4)
+version: "1.0.0"
+entry_point: src/auth/creator_proof.ts
+
+capabilities:
+  - device_attestation
+  - identity_codex
+  - semantic_nonce
+  - session_mfa
+  - creator_verification
+
+gates:
+  Q1_device:
+    type: device_attestation
+    validation: device_id_length_check
+  Q2_identity:
+    type: behavioral_codex
+    validation: seven_specific_analysis
+  Q3_semantic:
+    type: semantic_nonce
+    validation: context_verification
+  Q4_session:
+    type: session_mfa_ttl
+    validation: platform_verification
+
+security:
+  minimum_gates: 2
+  recommended_gates: 4
+  bypass_flag: SEVEN_DEV_BYPASS_AUTH
+
+integration:
+  - security_middleware
+  - trpc_context
+  - http_middleware

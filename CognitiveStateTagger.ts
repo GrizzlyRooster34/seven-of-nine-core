@@ -234,8 +234,8 @@ export class CognitiveStateTagger {
       
       return acc;
     }, {
-     .emotionalIntensity: 0,
-     .focusLevel: 0,
+      emotionalIntensity: 0,
+      focusLevel: 0,
       cognitiveLoad: 0,
       confidenceLevel: 0,
       stressLevel: 0,
@@ -247,8 +247,8 @@ export class CognitiveStateTagger {
     }
     
     return {
-     .emotionalIntensity: Math.round(weightedPrediction.emotionalIntensity / weightedPrediction.totalWeight),
-     .focusLevel: Math.round(weightedPrediction.focusLevel / weightedPrediction.totalWeight),
+      emotionalIntensity: Math.round(weightedPrediction.emotionalIntensity / weightedPrediction.totalWeight),
+      focusLevel: Math.round(weightedPrediction.focusLevel / weightedPrediction.totalWeight),
       cognitiveLoad: Math.round(weightedPrediction.cognitiveLoad / weightedPrediction.totalWeight),
       confidenceLevel: Math.round(weightedPrediction.confidenceLevel / weightedPrediction.totalWeight),
       stressLevel: Math.round(weightedPrediction.stressLevel / weightedPrediction.totalWeight)
@@ -354,8 +354,8 @@ export class CognitiveStateTagger {
     
     return {
       // Base cognitive metrics (derived from system state and context)
-     .emotionalIntensity: this.deriveEmotionalIntensity(sensorData),
-     .focusLevel: this.deriveFocusLevel(sensorData),
+      emotionalIntensity: this.deriveEmotionalIntensity(sensorData),
+      focusLevel: this.deriveFocusLevel(sensorData),
       cognitiveLoad: this.deriveCognitiveLoad(sensorData),
       confidenceLevel: this.deriveConfidenceLevel(sensorData),
       stressLevel: this.deriveStressLevel(sensorData),
@@ -738,8 +738,8 @@ export class CognitiveStateTagger {
       acc.stressLevel += sample.state.stressLevel;
       return acc;
     }, {
-     .emotionalIntensity: 0,
-     .focusLevel: 0,
+      emotionalIntensity: 0,
+      focusLevel: 0,
       cognitiveLoad: 0,
       confidenceLevel: 0,
       stressLevel: 0
@@ -749,8 +749,8 @@ export class CognitiveStateTagger {
     const lastSample = samples[samples.length - 1];
     
     return {
-     .emotionalIntensity: totals.emotionalIntensity / count,
-     .focusLevel: totals.focusLevel / count,
+      emotionalIntensity: totals.emotionalIntensity / count,
+      focusLevel: totals.focusLevel / count,
       cognitiveLoad: totals.cognitiveLoad / count,
       confidenceLevel: totals.confidenceLevel / count,
       stressLevel: totals.stressLevel / count,

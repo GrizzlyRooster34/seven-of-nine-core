@@ -186,8 +186,8 @@ export class InterfaceEvolutionistAgent {
 
         // Generate new createCognitiveState call
         const newCall = `cognitiveState: createCognitiveState({
-       .focusLevel: $.focusLevel},
-       .emotionalIntensity: $.emotionalIntensity},
+        focusLevel: $.focusLevel},
+        emotionalIntensity: $.emotionalIntensity},
         cognitiveLoad: ${cognitiveLoad},
         confidenceLevel: ${confidenceLevel},
         stressLevel: ${stressLevel}

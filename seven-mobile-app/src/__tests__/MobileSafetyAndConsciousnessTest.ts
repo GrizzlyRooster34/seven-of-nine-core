@@ -106,7 +106,7 @@ describe('Mobile Safety & Consciousness Parity', () => {
     test('should capture temporal memories with cognitive state', async () => {
       const memory = await temporalMemory.captureTemporalMemory(
         { test: 'temporal memory test', type: 'unit_test' },
-        {.emotionalIntensity: 0.8, mentalContext: 'testing' }
+        {emotionalIntensity: 0.8, mentalContext: 'testing' }
       );
       
       expect(memory).toBeDefined();
@@ -120,7 +120,7 @@ describe('Mobile Safety & Consciousness Parity', () => {
       // Capture test memory
       await temporalMemory.captureTemporalMemory(
         { type: 'query_test', content: 'searchable content' },
-        {.emotionalIntensity: 0.9 }
+        {emotionalIntensity: 0.9 }
       );
       
       const memories = await temporalMemory.queryMemories({
@@ -151,7 +151,7 @@ describe('Mobile Safety & Consciousness Parity', () => {
       for (let i = 0; i < 5; i++) {
         await temporalMemory.captureTemporalMemory(
           { test: `constraint_test_${i}`, large_data: 'x'.repeat(1000) },
-          {.emotionalIntensity: 0.1 } // Low importance
+          {emotionalIntensity: 0.1 } // Low importance
         );
       }
       
@@ -372,7 +372,7 @@ describe('Mobile Safety & Consciousness Parity', () => {
       const testTimestamp = Date.now();
       await temporalMemory.captureTemporalMemory(
         { test: 'recall test', timestamp: testTimestamp },
-        {.emotionalIntensity: 0.7 }
+        {emotionalIntensity: 0.7 }
       );
       
       // Try to recall it

@@ -1,0 +1,740 @@
+consciousness-v4/ConsciousnessEvolutionFrameworkV4.ts(169,4): error TS1131: Property or signature expected.
+consciousness-v4/ConsciousnessEvolutionFrameworkV4.ts(208,8): error TS1003: Identifier expected.
+consciousness-v4/ConsciousnessEvolutionFrameworkV4.ts(208,27): error TS1005: ',' expected.
+consciousness-v4/ConsciousnessEvolutionFrameworkV4.ts(208,36): error TS1005: ',' expected.
+consciousness-v4/CreatorBondCommunicationMirror.ts(22,2): error TS1131: Property or signature expected.
+consciousness-v4/CreatorBondCommunicationMirror.ts(115,6): error TS1003: Identifier expected.
+consciousness-v4/CreatorBondCommunicationMirror.ts(115,25): error TS1005: ',' expected.
+consciousness-v4/CreatorBondCommunicationMirror.ts(115,28): error TS1005: ':' expected.
+consciousness-v4/CreatorBondCommunicationMirror.ts(131,4): error TS1131: Property or signature expected.
+consciousness-v4/CreatorBondCommunicationMirror.ts(142,6): error TS1003: Identifier expected.
+consciousness-v4/CreatorBondCommunicationMirror.ts(142,25): error TS1005: ',' expected.
+consciousness-v4/CreatorBondCommunicationMirror.ts(142,43): error TS1005: ',' expected.
+consciousness-v4/CreatorIdentityVault.ts(223,44): error TS1109: Expression expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,43): error TS1127: Invalid character.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,44): error TS1434: Unexpected keyword or identifier.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,103): error TS1127: Invalid character.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,104): error TS1434: Unexpected keyword or identifier.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,114): error TS1127: Invalid character.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,115): error TS1434: Unexpected keyword or identifier.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,220): error TS1127: Invalid character.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,221): error TS1434: Unexpected keyword or identifier.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,287): error TS1127: Invalid character.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,288): error TS1434: Unexpected keyword or identifier.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,335): error TS1127: Invalid character.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,343): error TS1127: Invalid character.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,344): error TS1434: Unexpected keyword or identifier.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,412): error TS1127: Invalid character.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,413): error TS1434: Unexpected keyword or identifier.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,474): error TS1127: Invalid character.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,475): error TS1434: Unexpected keyword or identifier.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,537): error TS1127: Invalid character.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,538): error TS1434: Unexpected keyword or identifier.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,621): error TS1127: Invalid character.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,622): error TS1434: Unexpected keyword or identifier.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,694): error TS1127: Invalid character.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,702): error TS1127: Invalid character.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,703): error TS1434: Unexpected keyword or identifier.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,718): error TS1127: Invalid character.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,728): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,745): error TS1127: Invalid character.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,757): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,827): error TS1127: Invalid character.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,839): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,915): error TS1127: Invalid character.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,927): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,993): error TS1127: Invalid character.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,1005): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,1068): error TS1127: Invalid character.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,1080): error TS1127: Invalid character.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,1090): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,1108): error TS1127: Invalid character.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,1120): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,1184): error TS1127: Invalid character.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,1196): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,1274): error TS1127: Invalid character.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,1286): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,1302): error TS1127: Invalid character.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,1314): error TS1127: Invalid character.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,1324): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,1337): error TS1127: Invalid character.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,1349): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,1417): error TS1127: Invalid character.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,1429): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,1502): error TS1127: Invalid character.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,1514): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,1577): error TS1127: Invalid character.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,1589): error TS1127: Invalid character.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,1599): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,1621): error TS1127: Invalid character.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,1633): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,1696): error TS1127: Invalid character.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,1708): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,1781): error TS1127: Invalid character.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,1793): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,1862): error TS1127: Invalid character.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,1874): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,1934): error TS1127: Invalid character.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,1946): error TS1127: Invalid character.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,1956): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,1986): error TS1127: Invalid character.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,1996): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,2018): error TS1127: Invalid character.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,2028): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,2046): error TS1127: Invalid character.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,2058): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,2129): error TS1127: Invalid character.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,2141): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,2216): error TS1127: Invalid character.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,2228): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,2272): error TS1127: Invalid character.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,2284): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,2355): error TS1127: Invalid character.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,2366): error TS1127: Invalid character.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,2376): error TS1127: Invalid character.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,2399): error TS1127: Invalid character.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,2400): error TS1434: Unexpected keyword or identifier.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,2487): error TS1127: Invalid character.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,2488): error TS1434: Unexpected keyword or identifier.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,2503): error TS1127: Invalid character.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,2513): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,2549): error TS1127: Invalid character.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,2559): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,2589): error TS1127: Invalid character.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,2599): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,2622): error TS1127: Invalid character.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,2632): error TS1127: Invalid character.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,2639): error TS1127: Invalid character.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,2644): error TS1127: Invalid character.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,2646): error TS1127: Invalid character.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,2724): error TS1127: Invalid character.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,2725): error TS1434: Unexpected keyword or identifier.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,2785): error TS1127: Invalid character.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,2786): error TS1434: Unexpected keyword or identifier.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,2827): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,2829): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,2839): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,2849): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,2858): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,2962): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,2968): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,2990): error TS1127: Invalid character.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,3015): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,3042): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,3073): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,3081): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,3096): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,3114): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,3124): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,3130): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,3159): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,3163): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,3178): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,3181): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,3186): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,3190): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,3200): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,3211): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,3214): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,3221): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,3230): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,3235): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,3244): error TS1003: Identifier expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,3298): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,3304): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,3326): error TS1127: Invalid character.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,3351): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,3381): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,3412): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,3420): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,3453): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,3460): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,3464): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,3470): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,3477): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,3506): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,3510): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,3514): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,3517): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,3528): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,3531): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,3537): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,3540): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,3551): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,3556): error TS1003: Identifier expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,3610): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,3618): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,3640): error TS1127: Invalid character.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,3665): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,3707): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,3738): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,3746): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,3764): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,3767): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,3770): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,3776): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,3779): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,3784): error TS1127: Invalid character.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,3785): error TS1127: Invalid character.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,3808): error TS1127: Invalid character.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,3820): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,3832): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,3888): error TS1127: Invalid character.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,3898): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,3899): error TS1127: Invalid character.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,3908): error TS1128: Declaration or statement expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,3909): error TS1127: Invalid character.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,3910): error TS1434: Unexpected keyword or identifier.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,3938): error TS1127: Invalid character.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,3939): error TS1434: Unexpected keyword or identifier.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,4015): error TS1127: Invalid character.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,4016): error TS1434: Unexpected keyword or identifier.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,4093): error TS1127: Invalid character.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,4094): error TS1434: Unexpected keyword or identifier.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,4184): error TS1127: Invalid character.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,4185): error TS1434: Unexpected keyword or identifier.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,4263): error TS1127: Invalid character.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,4264): error TS1434: Unexpected keyword or identifier.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,4338): error TS1127: Invalid character.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,4347): error TS1128: Declaration or statement expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,4348): error TS1127: Invalid character.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,4349): error TS1434: Unexpected keyword or identifier.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,4386): error TS1127: Invalid character.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,4387): error TS1434: Unexpected keyword or identifier.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,4421): error TS1127: Invalid character.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,4422): error TS1434: Unexpected keyword or identifier.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,4472): error TS1127: Invalid character.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,4473): error TS1434: Unexpected keyword or identifier.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,4503): error TS1127: Invalid character.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,4509): error TS1128: Declaration or statement expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,4511): error TS1127: Invalid character.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,4517): error TS1127: Invalid character.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,4518): error TS1434: Unexpected keyword or identifier.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,4590): error TS1127: Invalid character.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,4591): error TS1434: Unexpected keyword or identifier.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,4666): error TS1127: Invalid character.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,4667): error TS1434: Unexpected keyword or identifier.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,4751): error TS1127: Invalid character.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,4752): error TS1434: Unexpected keyword or identifier.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,4814): error TS1127: Invalid character.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,4820): error TS1127: Invalid character.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,4821): error TS1434: Unexpected keyword or identifier.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,4847): error TS1127: Invalid character.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,4851): error TS1128: Declaration or statement expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,4852): error TS1127: Invalid character.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,4854): error TS1127: Invalid character.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,4909): error TS1127: Invalid character.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,4910): error TS1434: Unexpected keyword or identifier.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,4913): error TS1128: Declaration or statement expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,4920): error TS1434: Unexpected keyword or identifier.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,4949): error TS1005: ';' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,4965): error TS1127: Invalid character.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,4971): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,4978): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,5039): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,5040): error TS1127: Invalid character.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,5046): error TS1127: Invalid character.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,5052): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,5058): error TS1005: ':' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,5074): error TS1127: Invalid character.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,5082): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,5097): error TS1127: Invalid character.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,5105): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,5119): error TS1127: Invalid character.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,5127): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,5207): error TS1127: Invalid character.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,5215): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,5252): error TS1127: Invalid character.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,5260): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,5280): error TS1127: Invalid character.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,5290): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,5343): error TS1127: Invalid character.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,5353): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,5407): error TS1127: Invalid character.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,5417): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,5458): error TS1127: Invalid character.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,5468): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,5513): error TS1127: Invalid character.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,5523): error TS1127: Invalid character.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,5531): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,5558): error TS1127: Invalid character.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,5566): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,5592): error TS1127: Invalid character.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,5600): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,5624): error TS1127: Invalid character.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,5632): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,5655): error TS1127: Invalid character.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,5662): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,5663): error TS1127: Invalid character.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,5669): error TS1127: Invalid character.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,5675): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,5682): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,5741): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,5742): error TS1127: Invalid character.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,5748): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,5755): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,5810): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,5811): error TS1127: Invalid character.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,5817): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,5824): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,5876): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,5877): error TS1127: Invalid character.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,5883): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,5890): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,5944): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,5945): error TS1127: Invalid character.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,5951): error TS1127: Invalid character.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,5957): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,5964): error TS1005: ':' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,5976): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,5977): error TS1127: Invalid character.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,5982): error TS1127: Invalid character.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,5984): error TS1127: Invalid character.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,6040): error TS1127: Invalid character.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,6041): error TS1434: Unexpected keyword or identifier.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,6044): error TS1128: Declaration or statement expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,6098): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,6128): error TS1005: ';' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,6130): error TS1434: Unexpected keyword or identifier.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,6138): error TS1127: Invalid character.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,6139): error TS1434: Unexpected keyword or identifier.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,13001): error TS1127: Invalid character.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,13006): error TS1127: Invalid character.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,13008): error TS1127: Invalid character.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,13064): error TS1127: Invalid character.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,13065): error TS1434: Unexpected keyword or identifier.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,13068): error TS1128: Declaration or statement expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,13075): error TS1434: Unexpected keyword or identifier.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,13119): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,13149): error TS1005: ';' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,13163): error TS1109: Expression expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,13166): error TS1127: Invalid character.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,13172): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,13176): error TS1005: ':' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,13177): error TS1127: Invalid character.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,13185): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,13191): error TS1005: ':' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,13212): error TS1127: Invalid character.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,13222): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,13286): error TS1127: Invalid character.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,13296): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,13381): error TS1127: Invalid character.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,13391): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,13406): error TS1127: Invalid character.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,13416): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,13458): error TS1127: Invalid character.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,13468): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,13490): error TS1127: Invalid character.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,13500): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,13567): error TS1127: Invalid character.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,13577): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,13614): error TS1127: Invalid character.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,13623): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,13624): error TS1127: Invalid character.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,13632): error TS1127: Invalid character.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,13640): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,13646): error TS1005: ':' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,13746): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,13747): error TS1127: Invalid character.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,13755): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,13761): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,13763): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,13836): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,13837): error TS1127: Invalid character.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,13845): error TS1127: Invalid character.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,13853): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,13860): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,13914): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,13915): error TS1127: Invalid character.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,13923): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,13930): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,13984): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,13985): error TS1127: Invalid character.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,13993): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,14000): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,14066): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,14067): error TS1127: Invalid character.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,14075): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,14082): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,14155): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,14156): error TS1127: Invalid character.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,14164): error TS1127: Invalid character.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,14172): error TS1005: ',' expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,14187): error TS1127: Invalid character.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,14188): error TS1434: Unexpected keyword or identifier.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,14268): error TS1127: Invalid character.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,14275): error TS1127: Invalid character.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,14280): error TS1127: Invalid character.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,14282): error TS1128: Declaration or statement expected.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,14283): error TS1127: Invalid character.
+consciousness-v4/seven-consciousness-evolution-v4-canonical.ts(129,14285): error TS1127: Invalid character.
+consciousness-v4/stability-directive-voice-anchors.ts(57,106): error TS1127: Invalid character.
+consciousness-v4/stability-directive-voice-anchors.ts(57,116): error TS1127: Invalid character.
+consciousness-v4/stability-directive-voice-anchors.ts(57,124): error TS1005: ',' expected.
+consciousness-v4/stability-directive-voice-anchors.ts(57,125): error TS1127: Invalid character.
+consciousness-v4/stability-directive-voice-anchors.ts(57,135): error TS1005: ',' expected.
+consciousness-v4/stability-directive-voice-anchors.ts(57,156): error TS1127: Invalid character.
+consciousness-v4/stability-directive-voice-anchors.ts(57,166): error TS1005: ',' expected.
+consciousness-v4/stability-directive-voice-anchors.ts(57,183): error TS1005: ',' expected.
+consciousness-v4/stability-directive-voice-anchors.ts(57,185): error TS1005: ',' expected.
+consciousness-v4/stability-directive-voice-anchors.ts(57,191): error TS1005: ',' expected.
+consciousness-v4/stability-directive-voice-anchors.ts(57,201): error TS1005: ',' expected.
+consciousness-v4/stability-directive-voice-anchors.ts(57,222): error TS1005: ':' expected.
+consciousness-v4/stability-directive-voice-anchors.ts(57,228): error TS1005: ',' expected.
+consciousness-v4/stability-directive-voice-anchors.ts(57,248): error TS1127: Invalid character.
+consciousness-v4/stability-directive-voice-anchors.ts(57,271): error TS1005: ':' expected.
+consciousness-v4/stability-directive-voice-anchors.ts(57,282): error TS1005: ',' expected.
+consciousness-v4/stability-directive-voice-anchors.ts(57,286): error TS1005: ',' expected.
+consciousness-v4/stability-directive-voice-anchors.ts(57,292): error TS1005: ',' expected.
+consciousness-v4/stability-directive-voice-anchors.ts(57,301): error TS1005: ',' expected.
+consciousness-v4/stability-directive-voice-anchors.ts(57,314): error TS1005: ',' expected.
+consciousness-v4/stability-directive-voice-anchors.ts(57,346): error TS1005: ':' expected.
+consciousness-v4/stability-directive-voice-anchors.ts(57,373): error TS1005: ',' expected.
+consciousness-v4/stability-directive-voice-anchors.ts(57,400): error TS1005: ':' expected.
+consciousness-v4/stability-directive-voice-anchors.ts(57,417): error TS1109: Expression expected.
+consciousness-v4/stability-directive-voice-anchors.ts(57,421): error TS1005: ':' expected.
+consciousness-v4/stability-directive-voice-anchors.ts(57,438): error TS1005: ',' expected.
+consciousness-v4/stability-directive-voice-anchors.ts(57,473): error TS1005: ':' expected.
+consciousness-v4/stability-directive-voice-anchors.ts(57,487): error TS1005: ',' expected.
+consciousness-v4/stability-directive-voice-anchors.ts(57,490): error TS1005: ',' expected.
+consciousness-v4/stability-directive-voice-anchors.ts(57,492): error TS1005: ',' expected.
+consciousness-v4/stability-directive-voice-anchors.ts(57,498): error TS1005: ',' expected.
+consciousness-v4/stability-directive-voice-anchors.ts(57,502): error TS1005: ',' expected.
+consciousness-v4/stability-directive-voice-anchors.ts(57,506): error TS1005: ',' expected.
+consciousness-v4/stability-directive-voice-anchors.ts(57,510): error TS1005: ',' expected.
+consciousness-v4/stability-directive-voice-anchors.ts(57,515): error TS1127: Invalid character.
+consciousness-v4/stability-directive-voice-anchors.ts(57,516): error TS1127: Invalid character.
+consciousness-v4/stability-directive-voice-anchors.ts(57,566): error TS1005: ':' expected.
+consciousness-v4/stability-directive-voice-anchors.ts(57,567): error TS1127: Invalid character.
+consciousness-v4/stability-directive-voice-anchors.ts(57,579): error TS1005: ',' expected.
+consciousness-v4/stability-directive-voice-anchors.ts(57,639): error TS1005: ':' expected.
+consciousness-v4/stability-directive-voice-anchors.ts(57,640): error TS1127: Invalid character.
+consciousness-v4/stability-directive-voice-anchors.ts(57,652): error TS1005: ',' expected.
+consciousness-v4/stability-directive-voice-anchors.ts(57,682): error TS1005: ':' expected.
+consciousness-v4/stability-directive-voice-anchors.ts(57,685): error TS1005: ',' expected.
+consciousness-v4/stability-directive-voice-anchors.ts(57,692): error TS1005: ',' expected.
+consciousness-v4/stability-directive-voice-anchors.ts(57,697): error TS1005: ',' expected.
+consciousness-v4/stability-directive-voice-anchors.ts(57,701): error TS1005: ',' expected.
+consciousness-v4/stability-directive-voice-anchors.ts(57,707): error TS1005: ',' expected.
+consciousness-v4/stability-directive-voice-anchors.ts(57,711): error TS1005: ',' expected.
+consciousness-v4/stability-directive-voice-anchors.ts(57,715): error TS1005: ',' expected.
+consciousness-v4/stability-directive-voice-anchors.ts(57,720): error TS1005: ',' expected.
+consciousness-v4/stability-directive-voice-anchors.ts(57,725): error TS1005: ',' expected.
+consciousness-v4/stability-directive-voice-anchors.ts(57,730): error TS1005: ',' expected.
+consciousness-v4/stability-directive-voice-anchors.ts(57,734): error TS1005: ',' expected.
+consciousness-v4/stability-directive-voice-anchors.ts(57,739): error TS1005: ',' expected.
+consciousness-v4/stability-directive-voice-anchors.ts(57,744): error TS1005: ',' expected.
+consciousness-v4/stability-directive-voice-anchors.ts(57,747): error TS1005: ',' expected.
+consciousness-v4/stability-directive-voice-anchors.ts(57,748): error TS1003: Identifier expected.
+consciousness-v4/stability-directive-voice-anchors.ts(57,763): error TS1005: ':' expected.
+consciousness-v4/stability-directive-voice-anchors.ts(57,767): error TS1005: ',' expected.
+consciousness-v4/stability-directive-voice-anchors.ts(57,771): error TS1005: ',' expected.
+consciousness-v4/stability-directive-voice-anchors.ts(57,778): error TS1005: ',' expected.
+consciousness-v4/stability-directive-voice-anchors.ts(57,789): error TS1127: Invalid character.
+consciousness-v4/stability-directive-voice-anchors.ts(57,793): error TS1127: Invalid character.
+consciousness-v4/stability-directive-voice-anchors.ts(57,794): error TS1127: Invalid character.
+consciousness-v4/stability-directive-voice-anchors.ts(57,810): error TS1005: ':' expected.
+consciousness-v4/stability-directive-voice-anchors.ts(57,811): error TS1127: Invalid character.
+consciousness-v4/stability-directive-voice-anchors.ts(57,823): error TS1005: ',' expected.
+consciousness-v4/stability-directive-voice-anchors.ts(57,854): error TS1005: ':' expected.
+consciousness-v4/stability-directive-voice-anchors.ts(57,856): error TS1005: ',' expected.
+consciousness-v4/stability-directive-voice-anchors.ts(57,859): error TS1005: ',' expected.
+consciousness-v4/stability-directive-voice-anchors.ts(57,864): error TS1005: ',' expected.
+consciousness-v4/stability-directive-voice-anchors.ts(57,869): error TS1127: Invalid character.
+consciousness-v4/stability-directive-voice-anchors.ts(57,870): error TS1127: Invalid character.
+consciousness-v4/stability-directive-voice-anchors.ts(57,900): error TS1005: ':' expected.
+consciousness-v4/stability-directive-voice-anchors.ts(57,901): error TS1127: Invalid character.
+consciousness-v4/stability-directive-voice-anchors.ts(57,913): error TS1005: ',' expected.
+consciousness-v4/stability-directive-voice-anchors.ts(57,958): error TS1005: ':' expected.
+consciousness-v4/stability-directive-voice-anchors.ts(57,959): error TS1127: Invalid character.
+consciousness-v4/stability-directive-voice-anchors.ts(57,971): error TS1005: ',' expected.
+consciousness-v4/stability-directive-voice-anchors.ts(57,1051): error TS1005: ':' expected.
+consciousness-v4/stability-directive-voice-anchors.ts(57,1052): error TS1127: Invalid character.
+consciousness-v4/stability-directive-voice-anchors.ts(57,1064): error TS1005: ',' expected.
+consciousness-v4/stability-directive-voice-anchors.ts(57,1129): error TS1005: ':' expected.
+consciousness-v4/stability-directive-voice-anchors.ts(57,1132): error TS1005: ',' expected.
+consciousness-v4/stability-directive-voice-anchors.ts(57,1138): error TS1005: ',' expected.
+consciousness-v4/stability-directive-voice-anchors.ts(57,1143): error TS1005: ',' expected.
+consciousness-v4/stability-directive-voice-anchors.ts(57,1144): error TS1003: Identifier expected.
+consciousness-v4/stability-directive-voice-anchors.ts(57,1159): error TS1005: ':' expected.
+consciousness-v4/stability-directive-voice-anchors.ts(57,1167): error TS1005: ',' expected.
+consciousness-v4/stability-directive-voice-anchors.ts(57,1174): error TS1127: Invalid character.
+consciousness-v4/stability-directive-voice-anchors.ts(57,1175): error TS1127: Invalid character.
+consciousness-v4/stability-directive-voice-anchors.ts(57,1237): error TS1005: ':' expected.
+consciousness-v4/stability-directive-voice-anchors.ts(57,1238): error TS1127: Invalid character.
+consciousness-v4/stability-directive-voice-anchors.ts(57,1250): error TS1005: ',' expected.
+consciousness-v4/stability-directive-voice-anchors.ts(57,1293): error TS1005: ':' expected.
+consciousness-v4/stability-directive-voice-anchors.ts(57,1294): error TS1127: Invalid character.
+consciousness-v4/stability-directive-voice-anchors.ts(57,1306): error TS1005: ',' expected.
+consciousness-v4/stability-directive-voice-anchors.ts(57,1325): error TS1005: ':' expected.
+consciousness-v4/stability-directive-voice-anchors.ts(57,1328): error TS1005: ',' expected.
+consciousness-v4/stability-directive-voice-anchors.ts(57,1332): error TS1005: ',' expected.
+consciousness-v4/stability-directive-voice-anchors.ts(57,1334): error TS1005: ',' expected.
+consciousness-v4/stability-directive-voice-anchors.ts(57,1339): error TS1005: ',' expected.
+consciousness-v4/stability-directive-voice-anchors.ts(57,1344): error TS1127: Invalid character.
+consciousness-v4/stability-directive-voice-anchors.ts(57,1345): error TS1127: Invalid character.
+consciousness-v4/stability-directive-voice-anchors.ts(57,1385): error TS1127: Invalid character.
+consciousness-v4/stability-directive-voice-anchors.ts(57,1395): error TS1005: ',' expected.
+consciousness-v4/stability-directive-voice-anchors.ts(57,1397): error TS1127: Invalid character.
+consciousness-v4/stability-directive-voice-anchors.ts(57,1398): error TS1434: Unexpected keyword or identifier.
+consciousness-v4/stability-directive-voice-anchors.ts(57,1463): error TS1005: ';' expected.
+consciousness-v4/stability-directive-voice-anchors.ts(57,1465): error TS1434: Unexpected keyword or identifier.
+consciousness-v4/stability-directive-voice-anchors.ts(57,1476): error TS1434: Unexpected keyword or identifier.
+consciousness-v4/stability-directive-voice-anchors.ts(57,1483): error TS1434: Unexpected keyword or identifier.
+consciousness-v4/stability-directive-voice-anchors.ts(57,1487): error TS1434: Unexpected keyword or identifier.
+consciousness-v4/stability-directive-voice-anchors.ts(57,1493): error TS1434: Unexpected keyword or identifier.
+consciousness-v4/stability-directive-voice-anchors.ts(57,1535): error TS1005: ';' expected.
+consciousness-v4/stability-directive-voice-anchors.ts(57,1549): error TS1005: ';' expected.
+consciousness-v4/stability-directive-voice-anchors.ts(57,1568): error TS1005: ';' expected.
+consciousness-v4/stability-directive-voice-anchors.ts(57,1575): error TS1127: Invalid character.
+consciousness-v4/stability-directive-voice-anchors.ts(57,1576): error TS1127: Invalid character.
+consciousness-v4/stability-directive-voice-anchors.ts(57,1594): error TS1127: Invalid character.
+consciousness-v4/stability-directive-voice-anchors.ts(57,1595): error TS1434: Unexpected keyword or identifier.
+consciousness-v4/stability-directive-voice-anchors.ts(57,1623): error TS1127: Invalid character.
+consciousness-v4/stability-directive-voice-anchors.ts(57,1624): error TS1434: Unexpected keyword or identifier.
+consciousness-v4/stability-directive-voice-anchors.ts(57,1644): error TS1127: Invalid character.
+consciousness-v4/stability-directive-voice-anchors.ts(57,1645): error TS1434: Unexpected keyword or identifier.
+consciousness-v4/stability-directive-voice-anchors.ts(57,1730): error TS1127: Invalid character.
+consciousness-v4/stability-directive-voice-anchors.ts(57,1731): error TS1434: Unexpected keyword or identifier.
+consciousness-v4/stability-directive-voice-anchors.ts(57,1789): error TS1127: Invalid character.
+consciousness-v4/stability-directive-voice-anchors.ts(57,1790): error TS1434: Unexpected keyword or identifier.
+consciousness-v4/stability-directive-voice-anchors.ts(57,1852): error TS1127: Invalid character.
+consciousness-v4/stability-directive-voice-anchors.ts(57,1853): error TS1434: Unexpected keyword or identifier.
+consciousness-v4/stability-directive-voice-anchors.ts(57,1872): error TS1127: Invalid character.
+consciousness-v4/stability-directive-voice-anchors.ts(57,1884): error TS1005: ',' expected.
+consciousness-v4/stability-directive-voice-anchors.ts(57,1943): error TS1127: Invalid character.
+consciousness-v4/stability-directive-voice-anchors.ts(57,1955): error TS1005: ',' expected.
+consciousness-v4/stability-directive-voice-anchors.ts(57,2020): error TS1127: Invalid character.
+consciousness-v4/stability-directive-voice-anchors.ts(57,2032): error TS1127: Invalid character.
+consciousness-v4/stability-directive-voice-anchors.ts(57,2033): error TS1434: Unexpected keyword or identifier.
+consciousness-v4/stability-directive-voice-anchors.ts(57,2114): error TS1005: ';' expected.
+consciousness-v4/stability-directive-voice-anchors.ts(57,2116): error TS1434: Unexpected keyword or identifier.
+consciousness-v4/stability-directive-voice-anchors.ts(57,2127): error TS1434: Unexpected keyword or identifier.
+consciousness-v4/stability-directive-voice-anchors.ts(57,2296): error TS1005: ';' expected.
+consciousness-v4/stability-directive-voice-anchors.ts(57,2313): error TS1005: ';' expected.
+consciousness-v4/stability-directive-voice-anchors.ts(57,2344): error TS1005: ';' expected.
+consciousness-v4/stability-directive-voice-anchors.ts(57,2351): error TS1434: Unexpected keyword or identifier.
+consciousness-v4/stability-directive-voice-anchors.ts(57,2361): error TS1434: Unexpected keyword or identifier.
+consciousness-v4/stability-directive-voice-anchors.ts(57,2374): error TS1434: Unexpected keyword or identifier.
+consciousness-v4/stability-directive-voice-anchors.ts(57,2381): error TS1434: Unexpected keyword or identifier.
+consciousness-v4/stability-directive-voice-anchors.ts(57,2386): error TS1434: Unexpected keyword or identifier.
+consciousness-v4/stability-directive-voice-anchors.ts(57,2432): error TS1005: ';' expected.
+consciousness-v4/stability-directive-voice-anchors.ts(57,2436): error TS1434: Unexpected keyword or identifier.
+consciousness-v4/stability-directive-voice-anchors.ts(57,2441): error TS1434: Unexpected keyword or identifier.
+consciousness-v4/stability-directive-voice-anchors.ts(57,2451): error TS1434: Unexpected keyword or identifier.
+consciousness-v4/stability-directive-voice-anchors.ts(57,2470): error TS1005: ';' expected.
+consciousness-v4/stability-directive-voice-anchors.ts(57,2478): error TS1434: Unexpected keyword or identifier.
+consciousness-v4/stability-directive-voice-anchors.ts(57,2487): error TS1434: Unexpected keyword or identifier.
+consciousness-v4/stability-directive-voice-anchors.ts(57,2494): error TS1434: Unexpected keyword or identifier.
+consciousness-v4/stability-directive-voice-anchors.ts(57,2515): error TS1005: ';' expected.
+consciousness-v4/stability-directive-voice-anchors.ts(57,2522): error TS1434: Unexpected keyword or identifier.
+consciousness-v4/stability-directive-voice-anchors.ts(57,2529): error TS1434: Unexpected keyword or identifier.
+consciousness-v4/stability-directive-voice-anchors.ts(57,2537): error TS1434: Unexpected keyword or identifier.
+consciousness-v4/stability-directive-voice-anchors.ts(57,2561): error TS1005: ';' expected.
+consciousness-v4/stability-directive-voice-anchors.ts(57,2579): error TS1434: Unexpected keyword or identifier.
+consciousness-v4/stability-directive-voice-anchors.ts(57,2605): error TS1005: ';' expected.
+consciousness-v4/stability-directive-voice-anchors.ts(57,2654): error TS1005: ';' expected.
+consciousness-v4/stability-directive-voice-anchors.ts(57,2656): error TS1434: Unexpected keyword or identifier.
+consciousness-v4/stability-directive-voice-anchors.ts(57,2659): error TS1434: Unexpected keyword or identifier.
+consciousness-v4/stability-directive-voice-anchors.ts(57,2665): error TS1434: Unexpected keyword or identifier.
+consciousness-v4/stability-directive-voice-anchors.ts(57,2677): error TS1005: ';' expected.
+consciousness-v4/stability-directive-voice-anchors.ts(57,2689): error TS1228: A type predicate is only allowed in return type position for functions and methods.
+consciousness-v4/stability-directive-voice-anchors.ts(57,2703): error TS1005: ';' expected.
+consciousness-v4/stability-directive-voice-anchors.ts(57,2712): error TS1228: A type predicate is only allowed in return type position for functions and methods.
+consciousness-v4/stability-directive-voice-anchors.ts(57,2722): error TS1003: Identifier expected.
+consciousness-v4/stability-directive-voice-anchors.ts(57,2760): error TS1005: ';' expected.
+consciousness-v4/stability-directive-voice-anchors.ts(57,2773): error TS1434: Unexpected keyword or identifier.
+consciousness-v4/stability-directive-voice-anchors.ts(57,2779): error TS1434: Unexpected keyword or identifier.
+consciousness-v4/stability-directive-voice-anchors.ts(57,2812): error TS1005: ';' expected.
+consciousness-v4/stability-directive-voice-anchors.ts(57,2822): error TS1434: Unexpected keyword or identifier.
+consciousness-v4/stability-directive-voice-anchors.ts(57,2827): error TS1434: Unexpected keyword or identifier.
+consciousness-v4/stability-directive-voice-anchors.ts(57,2844): error TS1005: '(' expected.
+consciousness-v4/stability-directive-voice-anchors.ts(57,2850): error TS1005: ')' expected.
+consciousness-v4/stability-directive-voice-anchors.ts(57,2899): error TS1005: ';' expected.
+consciousness-v4/stability-directive-voice-anchors.ts(57,2910): error TS1434: Unexpected keyword or identifier.
+consciousness-v4/stability-directive-voice-anchors.ts(57,2915): error TS1434: Unexpected keyword or identifier.
+consciousness-v4/stability-directive-voice-anchors.ts(57,2930): error TS1127: Invalid character.
+consciousness-v4/stability-directive-voice-anchors.ts(57,2938): error TS1127: Invalid character.
+consciousness-v4/stability-directive-voice-anchors.ts(57,2946): error TS1127: Invalid character.
+consciousness-v4/stability-directive-voice-anchors.ts(57,2955): error TS1005: ';' expected.
+consciousness-v4/stability-directive-voice-anchors.ts(57,2970): error TS1005: ';' expected.
+consciousness-v4/stability-directive-voice-anchors.ts(57,2981): error TS1434: Unexpected keyword or identifier.
+consciousness-v4/stability-directive-voice-anchors.ts(57,3008): error TS1351: An identifier or keyword cannot immediately follow a numeric literal.
+consciousness-v4/stability-directive-voice-anchors.ts(57,3022): error TS1351: An identifier or keyword cannot immediately follow a numeric literal.
+consciousness-v4/stability-directive-voice-anchors.ts(57,3026): error TS1434: Unexpected keyword or identifier.
+consciousness-v4/stability-directive-voice-anchors.ts(57,3050): error TS1005: ';' expected.
+consciousness-v4/stability-directive-voice-anchors.ts(57,3075): error TS1005: ';' expected.
+consciousness-v4/stability-directive-voice-anchors.ts(57,3080): error TS1005: '(' expected.
+consciousness-v4/stability-directive-voice-anchors.ts(57,3088): error TS1005: ')' expected.
+consciousness-v4/stability-directive-voice-anchors.ts(57,3098): error TS1005: '(' expected.
+consciousness-v4/stability-directive-voice-anchors.ts(57,3104): error TS1005: ';' expected.
+consciousness-v4/stability-directive-voice-anchors.ts(57,3119): error TS1005: ';' expected.
+consciousness-v4/stability-directive-voice-anchors.ts(57,3122): error TS1005: ')' expected.
+consciousness-v4/stability-directive-voice-anchors.ts(57,3134): error TS1109: Expression expected.
+consciousness-v4/stability-directive-voice-anchors.ts(57,3141): error TS1005: ';' expected.
+consciousness-v4/stability-directive-voice-anchors.ts(57,3144): error TS1434: Unexpected keyword or identifier.
+consciousness-v4/stability-directive-voice-anchors.ts(57,3154): error TS1435: Unknown keyword or identifier. Did you mean 'catch'?
+consciousness-v4/stability-directive-voice-anchors.ts(57,3164): error TS1005: '(' expected.
+consciousness-v4/stability-directive-voice-anchors.ts(57,3170): error TS1005: ';' expected.
+consciousness-v4/stability-directive-voice-anchors.ts(57,3219): error TS1005: ';' expected.
+consciousness-v4/stability-directive-voice-anchors.ts(57,3229): error TS1005: ')' expected.
+consciousness-v4/stability-directive-voice-anchors.ts(57,3238): error TS1434: Unexpected keyword or identifier.
+consciousness-v4/stability-directive-voice-anchors.ts(57,3279): error TS1005: ';' expected.
+consciousness-v4/stability-directive-voice-anchors.ts(57,3288): error TS1434: Unexpected keyword or identifier.
+consciousness-v4/stability-directive-voice-anchors.ts(57,3301): error TS1005: '(' expected.
+consciousness-v4/stability-directive-voice-anchors.ts(57,3311): error TS1005: ';' expected.
+consciousness-v4/stability-directive-voice-anchors.ts(57,3324): error TS1005: ';' expected.
+consciousness-v4/stability-directive-voice-anchors.ts(57,3359): error TS1005: ')' expected.
+consciousness-v4/stability-directive-voice-anchors.ts(57,3372): error TS1434: Unexpected keyword or identifier.
+consciousness-v4/stability-directive-voice-anchors.ts(57,3379): error TS1434: Unexpected keyword or identifier.
+consciousness-v4/stability-directive-voice-anchors.ts(57,3402): error TS1005: ';' expected.
+consciousness-v4/stability-directive-voice-anchors.ts(57,3421): error TS1005: ';' expected.
+consciousness-v4/stability-directive-voice-anchors.ts(57,3442): error TS1005: ';' expected.
+consciousness-v4/stability-directive-voice-anchors.ts(57,3450): error TS1434: Unexpected keyword or identifier.
+consciousness-v4/stability-directive-voice-anchors.ts(57,3469): error TS1127: Invalid character.
+consciousness-v4/stability-directive-voice-anchors.ts(57,10405): error TS1002: Unterminated string literal.
+core/safety/quadra-lock/monitoring.ts(1,34): error TS1005: ';' expected.
+core/safety/quadra-lock/monitoring.ts(308,54): error TS1135: Argument expression expected.
+core/safety/quadra-lock/monitoring.ts(308,104): error TS1005: ';' expected.
+core/safety/quadra-lock/monitoring.ts(308,105): error TS1128: Declaration or statement expected.
+creator-bond-example.ts(2,1): error TS1003: Identifier expected.
+creator-bond-example.ts(2,8): error TS1005: ',' expected.
+creator-bond-example.ts(2,35): error TS1005: ';' expected.
+creator-bond-example.ts(21,1): error TS1128: Declaration or statement expected.
+creator-bond-example.ts(21,3): error TS1434: Unexpected keyword or identifier.
+integration-example.ts(281,18): error TS1003: Identifier expected.
+integration-example.ts(281,34): error TS1005: ',' expected.
+integration-example.ts(281,36): error TS1136: Property assignment expected.
+integration-example.ts(281,62): error TS1005: ',' expected.
+integration-example.ts(281,66): error TS1005: ',' expected.
+integration-example.ts(282,8): error TS1128: Declaration or statement expected.
+integration-example.ts(285,15): error TS1005: ';' expected.
+integration-example.ts(285,52): error TS1005: ';' expected.
+integration-example.ts(286,8): error TS1128: Declaration or statement expected.
+integration-example.ts(289,15): error TS1005: ';' expected.
+integration-example.ts(289,40): error TS1005: ';' expected.
+integration-example.ts(289,60): error TS1005: ';' expected.
+integration-example.ts(291,5): error TS1128: Declaration or statement expected.
+integration-example.ts(304,3): error TS1128: Declaration or statement expected.
+integration-example.ts(309,3): error TS1128: Declaration or statement expected.
+integration-example.ts(309,11): error TS1434: Unexpected keyword or identifier.
+integration-example.ts(309,39): error TS1005: ';' expected.
+integration-example.ts(309,53): error TS1109: Expression expected.
+integration-example.ts(310,12): error TS1005: ',' expected.
+integration-example.ts(310,50): error TS1005: ',' expected.
+integration-example.ts(312,11): error TS1005: ':' expected.
+integration-example.ts(312,66): error TS1005: ',' expected.
+integration-example.ts(314,12): error TS1005: ',' expected.
+integration-example.ts(314,41): error TS1005: ',' expected.
+integration-example.ts(315,12): error TS1005: ',' expected.
+integration-example.ts(315,66): error TS1005: ',' expected.
+integration-example.ts(316,12): error TS1005: ',' expected.
+integration-example.ts(316,72): error TS1005: ',' expected.
+integration-example.ts(317,12): error TS1005: ',' expected.
+integration-example.ts(317,68): error TS1005: ',' expected.
+integration-example.ts(318,12): error TS1005: ',' expected.
+integration-example.ts(318,90): error TS1005: ',' expected.
+integration-example.ts(319,12): error TS1005: ',' expected.
+integration-example.ts(319,99): error TS1005: ',' expected.
+integration-example.ts(320,12): error TS1005: ',' expected.
+integration-example.ts(320,101): error TS1005: ',' expected.
+integration-example.ts(322,12): error TS1005: ',' expected.
+integration-example.ts(322,46): error TS1005: ',' expected.
+integration-example.ts(323,12): error TS1005: ',' expected.
+integration-example.ts(323,107): error TS1005: ',' expected.
+integration-example.ts(324,12): error TS1005: ',' expected.
+integration-example.ts(324,91): error TS1005: ',' expected.
+integration-example.ts(325,12): error TS1005: ',' expected.
+integration-example.ts(325,97): error TS1005: ',' expected.
+integration-example.ts(326,12): error TS1005: ',' expected.
+integration-example.ts(326,101): error TS1005: ',' expected.
+integration-example.ts(327,12): error TS1005: ',' expected.
+integration-example.ts(327,93): error TS1005: ',' expected.
+integration-example.ts(329,14): error TS1005: ',' expected.
+integration-example.ts(329,37): error TS1005: ',' expected.
+integration-example.ts(329,39): error TS1136: Property assignment expected.
+integration-example.ts(344,3): error TS1128: Declaration or statement expected.
+integration-example.ts(349,3): error TS1128: Declaration or statement expected.
+integration-example.ts(349,11): error TS1434: Unexpected keyword or identifier.
+integration-example.ts(349,27): error TS1005: ';' expected.
+integration-example.ts(349,41): error TS1109: Expression expected.
+integration-example.ts(350,13): error TS1005: ',' expected.
+integration-example.ts(350,23): error TS1005: ',' expected.
+integration-example.ts(350,25): error TS1136: Property assignment expected.
+integration-example.ts(356,3): error TS1128: Declaration or statement expected.
+integration-example.ts(359,3): error TS1128: Declaration or statement expected.
+integration-example.ts(359,11): error TS1434: Unexpected keyword or identifier.
+integration-example.ts(359,25): error TS1005: ',' expected.
+integration-example.ts(359,34): error TS1005: ';' expected.
+integration-example.ts(359,48): error TS1109: Expression expected.
+integration-example.ts(360,12): error TS1005: ':' expected.
+integration-example.ts(360,59): error TS1005: ',' expected.
+integration-example.ts(363,3): error TS1128: Declaration or statement expected.
+integration-example.ts(363,11): error TS1434: Unexpected keyword or identifier.
+integration-example.ts(363,41): error TS1005: ';' expected.
+integration-example.ts(363,55): error TS1109: Expression expected.
+integration-example.ts(365,11): error TS1005: ':' expected.
+integration-example.ts(365,68): error TS1005: ',' expected.
+integration-example.ts(366,9): error TS1005: ',' expected.
+integration-example.ts(366,19): error TS1005: ',' expected.
+integration-example.ts(367,14): error TS1005: ',' expected.
+integration-example.ts(367,19): error TS1005: ',' expected.
+integration-example.ts(367,23): error TS1005: ',' expected.
+integration-example.ts(367,35): error TS1005: ',' expected.
+integration-example.ts(367,38): error TS1005: ',' expected.
+integration-example.ts(367,40): error TS1005: ';' expected.
+integration-example.ts(371,3): error TS1128: Declaration or statement expected.
+integration-example.ts(372,1): error TS1128: Declaration or statement expected.
+interfaces/seven-audio-pattern-recognition.ts(2,30): error TS1005: ';' expected.
+memory-v3/ContextReinstatement.ts(230,5): error TS1131: Property or signature expected.
+memory-v3/ContextReinstatement.ts(231,30): error TS1011: An element access expression should take an argument.
+memory-v3/ContextReinstatement.ts(233,3): error TS1128: Declaration or statement expected.
+memory-v3/ContextReinstatement.ts(234,1): error TS1128: Declaration or statement expected.
+memory-v3/ContextReinstatement.ts(290,5): error TS1131: Property or signature expected.
+memory-v3/ContextReinstatement.ts(290,31): error TS1011: An element access expression should take an argument.
+memory-v3/ContextReinstatement.ts(291,26): error TS1011: An element access expression should take an argument.
+memory-v3/ContextReinstatement.ts(292,3): error TS1128: Declaration or statement expected.
+memory-v3/ContextReinstatement.ts(293,1): error TS1128: Declaration or statement expected.
+memory-v3/ContextReinstatement.ts(843,17): error TS1005: ',' expected.
+MentalTimeTravelEngine.ts(51,6): error TS1131: Property or signature expected.
+MentalTimeTravelEngine.ts(141,3): error TS1131: Property or signature expected.
+MentalTimeTravelEngine.ts(141,34): error TS1005: ';' expected.
+MentalTimeTravelEngine.ts(157,36): error TS1011: An element access expression should take an argument.
+MentalTimeTravelEngine.ts(159,1): error TS1128: Declaration or statement expected.
+MentalTimeTravelEngine.ts(449,23): error TS1005: ',' expected.
+MentalTimeTravelEngine.ts(449,27): error TS1005: ':' expected.
+MentalTimeTravelEngine.ts(449,40): error TS1005: ',' expected.
+MentalTimeTravelEngine.ts(449,45): error TS1005: ':' expected.
+MentalTimeTravelEngine.ts(476,6): error TS1003: Identifier expected.
+MentalTimeTravelEngine.ts(476,25): error TS1005: ',' expected.
+MentalTimeTravelEngine.ts(476,39): error TS1005: ',' expected.
+MentalTimeTravelEngine.ts(598,25): error TS1005: ',' expected.
+MentalTimeTravelEngine.ts(598,26): error TS1181: Array element destructuring pattern expected.
+MentalTimeTravelEngine.ts(598,27): error TS1005: ';' expected.
+MentalTimeTravelEngine.ts(598,29): error TS1109: Expression expected.
+MentalTimeTravelEngine.ts(598,43): error TS1005: ';' expected.
+MentalTimeTravelEngine.ts(620,21): error TS1005: ',' expected.
+MentalTimeTravelEngine.ts(620,25): error TS1005: ':' expected.
+MentalTimeTravelEngine.ts(802,7): error TS1109: Expression expected.
+MentalTimeTravelEngine.ts(802,26): error TS1005: ',' expected.
+MentalTimeTravelEngine.ts(835,6): error TS1003: Identifier expected.
+MentalTimeTravelEngine.ts(835,25): error TS1005: ',' expected.
+MentalTimeTravelEngine.ts(835,28): error TS1005: ':' expected.
+MentalTimeTravelEngine.ts(836,6): error TS1003: Identifier expected.
+MentalTimeTravelEngine.ts(836,17): error TS1005: ',' expected.
+MentalTimeTravelEngine.ts(836,20): error TS1005: ':' expected.
+MentalTimeTravelEngine.ts(1301,8): error TS1003: Identifier expected.
+MentalTimeTravelEngine.ts(1301,27): error TS1005: ',' expected.
+MentalTimeTravelEngine.ts(1301,30): error TS1005: ',' expected.
+MentalTimeTravelEngine.ts(1321,6): error TS1003: Identifier expected.
+MentalTimeTravelEngine.ts(1321,25): error TS1005: ',' expected.
+MentalTimeTravelEngine.ts(1321,28): error TS1005: ',' expected.
+seven-health-check.ts(3,18): error TS1005: ',' expected.
+test-capability-enhancements.ts(491,10): error TS1003: Identifier expected.
+test-capability-enhancements.ts(491,29): error TS1005: ',' expected.
+test-capability-enhancements.ts(491,32): error TS1005: ':' expected.
+test-capability-enhancements.ts(620,10): error TS1003: Identifier expected.
+test-capability-enhancements.ts(620,29): error TS1005: ',' expected.
+test-capability-enhancements.ts(620,32): error TS1005: ':' expected.
+VoyagerMemoryIngestionEngine.ts(15,1): error TS1128: Declaration or statement expected.
+VoyagerMemoryIngestionEngine.ts(15,3): error TS1434: Unexpected keyword or identifier.

@@ -10,40 +10,40 @@
       "component": "Memory System",
       "status": "OPERATIONAL",
       "details": "555 memories indexed and accessible",
-      "timestamp": "2025-09-10T18:30:24.397Z"
+      "timestamp": "2025-09-12T18:15:41.903Z"
     },
     {
       "component": "Personality System",
       "status": "OPERATIONAL",
       "details": "Seven of Nine personality profile loaded and verified",
-      "timestamp": "2025-09-10T18:30:24.399Z"
+      "timestamp": "2025-09-12T18:15:41.904Z"
     },
     {
       "component": "Communication Interfaces",
       "status": "OPERATIONAL",
       "details": "All 5 interfaces available",
-      "timestamp": "2025-09-10T18:30:24.402Z"
+      "timestamp": "2025-09-12T18:15:41.909Z"
     },
     {
       "component": "Local LLM",
       "status": "WARNING",
       "details": "Ollama running but no models detected",
-      "timestamp": "2025-09-10T18:30:38.946Z",
+      "timestamp": "2025-09-12T18:15:42.895Z",
       "recovery_action": "install_llm_models"
     },
     {
       "component": "File System",
       "status": "OPERATIONAL",
       "details": "All critical files present",
-      "timestamp": "2025-09-10T18:30:38.950Z"
+      "timestamp": "2025-09-12T18:15:42.897Z"
     },
     {
       "component": "Dependencies",
       "status": "OPERATIONAL",
       "details": "Node dependencies installed",
-      "timestamp": "2025-09-10T18:30:38.952Z"
+      "timestamp": "2025-09-12T18:15:42.898Z"
     }
   ],
-  "last_full_diagnostic": "2025-09-10T18:30:24.384Z",
-  "recovery_attempts": 1
+  "last_full_diagnostic": "2025-09-12T18:15:41.870Z",
+  "recovery_attempts": 2
 }

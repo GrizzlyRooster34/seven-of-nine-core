@@ -534,7 +534,7 @@ export class CanonicalIngestion {
       importance: record.importance || 7,
       tags: record.tags,
       cognitiveState: payload.cognitiveState || {
-       .emotionalIntensity: 7,
+        emotionalIntensity: 7,
         focusLevel: 9,
         cognitiveLoad: 5,
         confidenceLevel: 8,

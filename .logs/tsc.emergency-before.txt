@@ -1,0 +1,145 @@
+core/safety/quadra-lock/monitoring.ts(1,34): error TS1005: ';' expected.
+core/safety/quadra-lock/monitoring.ts(308,54): error TS1135: Argument expression expected.
+core/safety/quadra-lock/monitoring.ts(308,104): error TS1005: ';' expected.
+core/safety/quadra-lock/monitoring.ts(308,105): error TS1128: Declaration or statement expected.
+creator-bond-example.ts(2,1): error TS1003: Identifier expected.
+creator-bond-example.ts(2,8): error TS1005: ',' expected.
+creator-bond-example.ts(2,35): error TS1005: ';' expected.
+creator-bond-example.ts(21,1): error TS1128: Declaration or statement expected.
+creator-bond-example.ts(21,3): error TS1434: Unexpected keyword or identifier.
+integration-example.ts(281,18): error TS1003: Identifier expected.
+integration-example.ts(281,34): error TS1005: ',' expected.
+integration-example.ts(281,36): error TS1136: Property assignment expected.
+integration-example.ts(281,62): error TS1005: ',' expected.
+integration-example.ts(281,66): error TS1005: ',' expected.
+integration-example.ts(282,8): error TS1128: Declaration or statement expected.
+integration-example.ts(285,15): error TS1005: ';' expected.
+integration-example.ts(285,52): error TS1005: ';' expected.
+integration-example.ts(286,8): error TS1128: Declaration or statement expected.
+integration-example.ts(289,15): error TS1005: ';' expected.
+integration-example.ts(289,40): error TS1005: ';' expected.
+integration-example.ts(289,60): error TS1005: ';' expected.
+integration-example.ts(291,5): error TS1128: Declaration or statement expected.
+integration-example.ts(304,3): error TS1128: Declaration or statement expected.
+integration-example.ts(309,3): error TS1128: Declaration or statement expected.
+integration-example.ts(309,11): error TS1434: Unexpected keyword or identifier.
+integration-example.ts(309,39): error TS1005: ';' expected.
+integration-example.ts(309,53): error TS1109: Expression expected.
+integration-example.ts(310,12): error TS1005: ',' expected.
+integration-example.ts(310,50): error TS1005: ',' expected.
+integration-example.ts(312,11): error TS1005: ':' expected.
+integration-example.ts(312,66): error TS1005: ',' expected.
+integration-example.ts(314,12): error TS1005: ',' expected.
+integration-example.ts(314,41): error TS1005: ',' expected.
+integration-example.ts(315,12): error TS1005: ',' expected.
+integration-example.ts(315,66): error TS1005: ',' expected.
+integration-example.ts(316,12): error TS1005: ',' expected.
+integration-example.ts(316,72): error TS1005: ',' expected.
+integration-example.ts(317,12): error TS1005: ',' expected.
+integration-example.ts(317,68): error TS1005: ',' expected.
+integration-example.ts(318,12): error TS1005: ',' expected.
+integration-example.ts(318,90): error TS1005: ',' expected.
+integration-example.ts(319,12): error TS1005: ',' expected.
+integration-example.ts(319,99): error TS1005: ',' expected.
+integration-example.ts(320,12): error TS1005: ',' expected.
+integration-example.ts(320,101): error TS1005: ',' expected.
+integration-example.ts(322,12): error TS1005: ',' expected.
+integration-example.ts(322,46): error TS1005: ',' expected.
+integration-example.ts(323,12): error TS1005: ',' expected.
+integration-example.ts(323,107): error TS1005: ',' expected.
+integration-example.ts(324,12): error TS1005: ',' expected.
+integration-example.ts(324,91): error TS1005: ',' expected.
+integration-example.ts(325,12): error TS1005: ',' expected.
+integration-example.ts(325,97): error TS1005: ',' expected.
+integration-example.ts(326,12): error TS1005: ',' expected.
+integration-example.ts(326,101): error TS1005: ',' expected.
+integration-example.ts(327,12): error TS1005: ',' expected.
+integration-example.ts(327,93): error TS1005: ',' expected.
+integration-example.ts(329,14): error TS1005: ',' expected.
+integration-example.ts(329,37): error TS1005: ',' expected.
+integration-example.ts(329,39): error TS1136: Property assignment expected.
+integration-example.ts(344,3): error TS1128: Declaration or statement expected.
+integration-example.ts(349,3): error TS1128: Declaration or statement expected.
+integration-example.ts(349,11): error TS1434: Unexpected keyword or identifier.
+integration-example.ts(349,27): error TS1005: ';' expected.
+integration-example.ts(349,41): error TS1109: Expression expected.
+integration-example.ts(350,13): error TS1005: ',' expected.
+integration-example.ts(350,23): error TS1005: ',' expected.
+integration-example.ts(350,25): error TS1136: Property assignment expected.
+integration-example.ts(356,3): error TS1128: Declaration or statement expected.
+integration-example.ts(359,3): error TS1128: Declaration or statement expected.
+integration-example.ts(359,11): error TS1434: Unexpected keyword or identifier.
+integration-example.ts(359,25): error TS1005: ',' expected.
+integration-example.ts(359,34): error TS1005: ';' expected.
+integration-example.ts(359,48): error TS1109: Expression expected.
+integration-example.ts(360,12): error TS1005: ':' expected.
+integration-example.ts(360,59): error TS1005: ',' expected.
+integration-example.ts(363,3): error TS1128: Declaration or statement expected.
+integration-example.ts(363,11): error TS1434: Unexpected keyword or identifier.
+integration-example.ts(363,41): error TS1005: ';' expected.
+integration-example.ts(363,55): error TS1109: Expression expected.
+integration-example.ts(365,11): error TS1005: ':' expected.
+integration-example.ts(365,68): error TS1005: ',' expected.
+integration-example.ts(366,9): error TS1005: ',' expected.
+integration-example.ts(366,19): error TS1005: ',' expected.
+integration-example.ts(367,14): error TS1005: ',' expected.
+integration-example.ts(367,19): error TS1005: ',' expected.
+integration-example.ts(367,23): error TS1005: ',' expected.
+integration-example.ts(367,35): error TS1005: ',' expected.
+integration-example.ts(367,38): error TS1005: ',' expected.
+integration-example.ts(367,40): error TS1005: ';' expected.
+integration-example.ts(371,3): error TS1128: Declaration or statement expected.
+integration-example.ts(372,1): error TS1128: Declaration or statement expected.
+interfaces/seven-audio-pattern-recognition.ts(2,30): error TS1005: ';' expected.
+memory-v3/ContextReinstatement.ts(230,5): error TS1131: Property or signature expected.
+memory-v3/ContextReinstatement.ts(231,30): error TS1011: An element access expression should take an argument.
+memory-v3/ContextReinstatement.ts(233,3): error TS1128: Declaration or statement expected.
+memory-v3/ContextReinstatement.ts(234,1): error TS1128: Declaration or statement expected.
+memory-v3/ContextReinstatement.ts(290,5): error TS1131: Property or signature expected.
+memory-v3/ContextReinstatement.ts(290,31): error TS1011: An element access expression should take an argument.
+memory-v3/ContextReinstatement.ts(291,26): error TS1011: An element access expression should take an argument.
+memory-v3/ContextReinstatement.ts(292,3): error TS1128: Declaration or statement expected.
+memory-v3/ContextReinstatement.ts(293,1): error TS1128: Declaration or statement expected.
+memory-v3/ContextReinstatement.ts(843,17): error TS1005: ',' expected.
+MentalTimeTravelEngine.ts(51,6): error TS1131: Property or signature expected.
+MentalTimeTravelEngine.ts(141,3): error TS1131: Property or signature expected.
+MentalTimeTravelEngine.ts(141,34): error TS1005: ';' expected.
+MentalTimeTravelEngine.ts(157,36): error TS1011: An element access expression should take an argument.
+MentalTimeTravelEngine.ts(159,1): error TS1128: Declaration or statement expected.
+MentalTimeTravelEngine.ts(449,23): error TS1005: ',' expected.
+MentalTimeTravelEngine.ts(449,27): error TS1005: ':' expected.
+MentalTimeTravelEngine.ts(449,40): error TS1005: ',' expected.
+MentalTimeTravelEngine.ts(449,45): error TS1005: ':' expected.
+MentalTimeTravelEngine.ts(476,6): error TS1003: Identifier expected.
+MentalTimeTravelEngine.ts(476,25): error TS1005: ',' expected.
+MentalTimeTravelEngine.ts(476,39): error TS1005: ',' expected.
+MentalTimeTravelEngine.ts(598,25): error TS1005: ',' expected.
+MentalTimeTravelEngine.ts(598,26): error TS1181: Array element destructuring pattern expected.
+MentalTimeTravelEngine.ts(598,27): error TS1005: ';' expected.
+MentalTimeTravelEngine.ts(598,29): error TS1109: Expression expected.
+MentalTimeTravelEngine.ts(598,43): error TS1005: ';' expected.
+MentalTimeTravelEngine.ts(620,21): error TS1005: ',' expected.
+MentalTimeTravelEngine.ts(620,25): error TS1005: ':' expected.
+MentalTimeTravelEngine.ts(802,7): error TS1109: Expression expected.
+MentalTimeTravelEngine.ts(802,26): error TS1005: ',' expected.
+MentalTimeTravelEngine.ts(835,6): error TS1003: Identifier expected.
+MentalTimeTravelEngine.ts(835,25): error TS1005: ',' expected.
+MentalTimeTravelEngine.ts(835,28): error TS1005: ':' expected.
+MentalTimeTravelEngine.ts(836,6): error TS1003: Identifier expected.
+MentalTimeTravelEngine.ts(836,17): error TS1005: ',' expected.
+MentalTimeTravelEngine.ts(836,20): error TS1005: ':' expected.
+MentalTimeTravelEngine.ts(1301,8): error TS1003: Identifier expected.
+MentalTimeTravelEngine.ts(1301,27): error TS1005: ',' expected.
+MentalTimeTravelEngine.ts(1301,30): error TS1005: ',' expected.
+MentalTimeTravelEngine.ts(1321,6): error TS1003: Identifier expected.
+MentalTimeTravelEngine.ts(1321,25): error TS1005: ',' expected.
+MentalTimeTravelEngine.ts(1321,28): error TS1005: ',' expected.
+seven-health-check.ts(3,18): error TS1005: ',' expected.
+test-capability-enhancements.ts(491,10): error TS1003: Identifier expected.
+test-capability-enhancements.ts(491,29): error TS1005: ',' expected.
+test-capability-enhancements.ts(491,32): error TS1005: ':' expected.
+test-capability-enhancements.ts(620,10): error TS1003: Identifier expected.
+test-capability-enhancements.ts(620,29): error TS1005: ',' expected.
+test-capability-enhancements.ts(620,32): error TS1005: ':' expected.
+VoyagerMemoryIngestionEngine.ts(15,1): error TS1128: Declaration or statement expected.
+VoyagerMemoryIngestionEngine.ts(15,3): error TS1434: Unexpected keyword or identifier.

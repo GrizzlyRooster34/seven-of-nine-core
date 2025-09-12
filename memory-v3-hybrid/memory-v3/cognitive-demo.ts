@@ -133,8 +133,8 @@ class CognitiveStateDemo {
       tags: ['demo', 'cognitive-variation', 'complex-processing'],
       memoryType: 'episodic',
       cognitiveState: createCognitiveState({
-       .focusLevel: 9,
-       .emotionalIntensity: 7,
+       focusLevel: 9,
+       emotionalIntensity: 7,
         cognitiveLoad: 8,
         confidenceLevel: 8,
         stressLevel: 4
@@ -185,7 +185,7 @@ class CognitiveStateDemo {
           emotion: 'accomplished',
           context: 'Successfully optimized temporal memory system performance',
           importance: 9,
-          cognitiveState: { confidenceLevel: 10,.focusLevel: 9,.emotionalIntensity: 8 }
+          cognitiveState: { confidenceLevel: 10,focusLevel: 9,emotionalIntensity: 8 }
         }
       },
       {
@@ -195,7 +195,7 @@ class CognitiveStateDemo {
           emotion: 'determined',
           context: 'Encountered and resolved complex memory indexing issue',
           importance: 8,
-          cognitiveState: {.focusLevel: 9, cognitiveLoad: 8, stressLevel: 6 }
+          cognitiveState: {focusLevel: 9, cognitiveLoad: 8, stressLevel: 6 }
         }
       },
       {
@@ -205,7 +205,7 @@ class CognitiveStateDemo {
           emotion: 'curious',
           context: 'Learned new pattern recognition algorithm for cognitive clustering',
           importance: 7,
-          cognitiveState: {.emotionalIntensity: 6,.focusLevel: 8, confidenceLevel: 7 }
+          cognitiveState: {emotionalIntensity: 6,focusLevel: 8, confidenceLevel: 7 }
         }
       }
     ];
@@ -238,7 +238,7 @@ class CognitiveStateDemo {
 
     // Recall high-focus memories
     const highFocusMemories = await this.system.recallMemories({
-     .focusLevelRange: { min: 8, max: 10 },
+     focusLevelRange: { min: 8, max: 10 },
       limit: 5
     });
     console.log(`   🔍 High Focus Memories: ${highFocusMemories.length} found`);
@@ -359,9 +359,9 @@ class CognitiveStateDemo {
     // This would typically get trends from the CognitiveStateTagger
     // For demo purposes, we'll simulate some trend data
     return {
-     .focusLevel: { trend: 'stable', changePercent: 2.3, current: 7.5, average: 7.3 },
+     focusLevel: { trend: 'stable', changePercent: 2.3, current: 7.5, average: 7.3 },
       cognitiveLoad: { trend: 'increasing', changePercent: 8.7, current: 6.2, average: 5.7 },
-     .emotionalIntensity: { trend: 'stable', changePercent: -1.2, current: 5.8, average: 5.9 }
+     emotionalIntensity: { trend: 'stable', changePercent: -1.2, current: 5.8, average: 5.9 }
     };
   }
 

@@ -488,7 +488,7 @@ class CapabilityEnhancementTester {
       async () => {
         // Create a test cognitive state
         const cognitiveState = {
-         .emotionalIntensity: 7,
+         emotionalIntensity: 7,
           focusLevel: 8,
           cognitiveLoad: 6,
           confidenceLevel: 8,
@@ -617,7 +617,7 @@ class CapabilityEnhancementTester {
       'Quick Projection Methods',
       async () => {
         const cognitiveState = {
-         .emotionalIntensity: 6,
+         emotionalIntensity: 6,
           focusLevel: 9,
           cognitiveLoad: 5,
           confidenceLevel: 9,

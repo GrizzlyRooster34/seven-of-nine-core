@@ -121,8 +121,8 @@ export class MemoryEngineV3Example {
         tags: ['tactical', 'analysis', 'processing'],
         memoryType: 'episodic' as const,
         cognitiveState: createCognitiveState({
-       .focusLevel: 9,
-       .emotionalIntensity: 7,
+        focusLevel: 9,
+        emotionalIntensity: 7,
         cognitiveLoad: 8,
         confidenceLevel: 8,
         stressLevel: 3
@@ -137,9 +137,9 @@ export class MemoryEngineV3Example {
         tags: ['emotion', 'achievement', 'milestone'],
         memoryType: 'emotional' as const,
         cognitiveState: {
-         .emotionalIntensity: 9,
+          emotionalIntensity: 9,
           confidenceLevel: 10,
-         .focusLevel: 8
+          focusLevel: 8
         } as Partial<CognitiveState>
       }
     ];
@@ -278,7 +278,7 @@ export class MemoryEngineV3Example {
       },
       {
         name: 'High Focus Memories',
-        filter: {.focusLevelRange: { min: 8, max: 10 }, limit: 3 }
+        filter: {focusLevelRange: { min: 8, max: 10 }, limit: 3 }
       },
       {
         name: 'Emotional Memories',

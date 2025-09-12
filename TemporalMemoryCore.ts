@@ -18,8 +18,8 @@ import { MemoryItem, MemoryFilter, MemoryEngine } from '../memory-v2/MemoryEngin
 // Enhanced interfaces for Temporal Memory Architecture
 export interface CognitiveState {
   // Emotional and Mental State
- .emotionalIntensity: number;        // 0-10 scale of emotional intensity
- .focusLevel: number;                // 0-10 scale of cognitive focus
+  emotionalIntensity: number;        // 0-10 scale of emotional intensity
+  focusLevel: number;                // 0-10 scale of cognitive focus
   cognitiveLoad: number;             // 0-10 scale of mental processing load
   confidenceLevel: number;           // 0-10 scale of certainty
   stressLevel: number;               // 0-10 scale of system stress
@@ -64,8 +64,8 @@ export interface CognitiveState {
 export function createCognitiveState(overrides: Partial<CognitiveState> = {}): CognitiveState {
   const defaults: CognitiveState = {
     // Emotional and Mental State
-   .emotionalIntensity: 5,
-   .focusLevel: 7,
+    emotionalIntensity: 5,
+    focusLevel: 7,
     cognitiveLoad: 5,
     confidenceLevel: 6,
     stressLevel: 3,
@@ -141,8 +141,8 @@ export interface TemporalMemoryItem extends MemoryItem {
 
 export interface TemporalMemoryFilter extends MemoryFilter {
   // Cognitive state filters
- .emotionalIntensityRange?: { min: number; max: number };
- .focusLevelRange?: { min: number; max: number };
+  emotionalIntensityRange?: { min: number; max: number };
+  focusLevelRange?: { min: number; max: number };
   cognitiveLoadRange?: { min: number; max: number };
   
   // Memory type filters
@@ -414,8 +414,8 @@ export class TemporalMemoryCore extends MemoryEngine {
   private async captureCognitiveState(context?: Partial<CognitiveState>): Promise<CognitiveState> {
     // Default cognitive state with real-time system data
     const defaultState: CognitiveState = {
-     .emotionalIntensity: context?.emotionalIntensity || 5,
-     .focusLevel: context?.focusLevel || 7,
+      emotionalIntensity: context?.emotionalIntensity || 5,
+      focusLevel: context?.focusLevel || 7,
       cognitiveLoad: context?.cognitiveLoad || 6,
       confidenceLevel: context?.confidenceLevel || 7,
       stressLevel: context?.stressLevel || 3,

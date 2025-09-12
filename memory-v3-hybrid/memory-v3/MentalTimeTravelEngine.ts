@@ -48,7 +48,7 @@ export interface ReconstructedConsciousnessState {
     thoughtProcess: string[];
     emotionalLandscape: {
       primaryEmotion: string;
-     .emotionalIntensity: number;
+     emotionalIntensity: number;
       emotionalContext: string;
       conflictingEmotions?: string[];
     };
@@ -473,7 +473,7 @@ export class MentalTimeTravelEngine {
     // Analyze emotional landscape
     const emotionalLandscape = {
       primaryEmotion: targetMemory.emotionalIntensity,
-     .emotionalIntensity: targetMemory.cognitiveState?.emotionalIntensity,
+     emotionalIntensity: targetMemory.cognitiveState?.emotionalIntensity,
       emotionalContext: targetMemory.context,
       conflictingEmotions: this.identifyConflictingEmotions(targetMemory, contextualMemories)
     };
@@ -832,8 +832,8 @@ export class MentalTimeTravelEngine {
     
     // Fallback to basic current state
     return {
-     .emotionalIntensity: 5,
-     .focusLevel: 7,
+     emotionalIntensity: 5,
+     focusLevel: 7,
       cognitiveLoad: 6,
       confidenceLevel: 7,
       stressLevel: 3,
@@ -1298,7 +1298,7 @@ export class MentalTimeTravelEngine {
       memoryId: m.id,
       significance: {
         importance: m.importance,
-       .emotionalIntensity: m.cognitiveState?.emotionalIntensity,
+       emotionalIntensity: m.cognitiveState?.emotionalIntensity,
         temporalWeight: m.temporalWeight
       },
       context: m.context,
@@ -1318,7 +1318,7 @@ export class MentalTimeTravelEngine {
       emotion: m.emotionalIntensity,
       confidence: m.cognitiveState?.confidenceLevel,
       focus: m.cognitiveState?.focusLevel,
-     .emotionalIntensity: m.cognitiveState?.emotionalIntensity,
+     emotionalIntensity: m.cognitiveState?.emotionalIntensity,
       personalityMarkers: m.agentCoordination?.personalityPatterns?.personalityMarkers || []
     }));
 

@@ -22,6 +22,12 @@
       ],
       "@seven-core/*": [
         "../*"
+      ],
+      "@seven/ports": [
+        "./packages/ports/src"
+      ],
+      "@seven/core-bindings/*": [
+        "./packages/core-bindings/*"
       ]
     },
     "strict": false,

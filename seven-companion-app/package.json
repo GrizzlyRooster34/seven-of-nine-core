@@ -9,7 +9,10 @@
     "build": "tsc",
     "start": "node dist/backend/server.js",
     "test": "jest",
-    "type-check": "tsc --noEmit"
+    "type-check": "tsc --noEmit",
+    "build:types": "tsc --noEmit",
+    "test:compatibility": "npx tsx test-seven-core-compatibility.ts",
+    "validate:seven-core": "npx tsx test-seven-core-compatibility.ts"
   },
   "dependencies": {
     "@trpc/server": "^10.45.0",

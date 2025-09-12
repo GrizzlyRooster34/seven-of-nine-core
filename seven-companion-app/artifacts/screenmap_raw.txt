@@ -1,0 +1,9 @@
+src/frontend/screens/ChatScreen.tsx
+src/frontend/screens/MemoryScreen.tsx
+src/frontend/screens/ModesScreen.tsx
+src/frontend/screens/MonitorScreen.tsx
+src/frontend/screens/AuditScreen.tsx
+src/frontend/screens/AuthScreen.tsx
+src/frontend/screens/MemoryScreenUpdated.tsx
+src/frontend/screens/DashboardScreen.tsx
+src/frontend/screens/SettingsScreen.tsx

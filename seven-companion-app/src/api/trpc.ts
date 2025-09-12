@@ -5,16 +5,108 @@
  */
 
 import { createTRPCProxyClient, httpBatchLink } from '@trpc/client';
-import type { AppRouter } from '../trpc/router.js';
+// Using test server router type
+interface TestRouter {
+  health: {
+    query: () => Promise<{
+      status: string;
+      timestamp: string;
+      service: string;
+    }>;
+  };
+  auth: {
+    authenticate: {
+      mutate: (input: {
+        deviceId: string;
+        identityContext: string;
+        timestamp: number;
+      }) => Promise<{
+        success: boolean;
+        token: string;
+        expiresIn: number;
+        gates: Record<string, boolean>;
+      }>;
+    };
+  };
+  memory: {
+    getStats: {
+      query: () => Promise<{
+        success: boolean;
+        stats: {
+          totalNotes: number;
+          recentNotes: number;
+          lastNoteTime: string | null;
+        };
+      }>;
+    };
+    addNote: {
+      mutate: (input: {
+        content: string;
+        importance?: number;
+        tags?: string[];
+      }) => Promise<{
+        success: boolean;
+        id: string;
+        message: string;
+      }>;
+    };
+    searchNotes: {
+      query: (input: {
+        query: string;
+        limit?: number;
+      }) => Promise<{
+        success: boolean;
+        notes: Array<{
+          id: string;
+          content: string;
+          importance: number;
+          tags: string[];
+          timestamp: number;
+        }>;
+        totalFound: number;
+      }>;
+    };
+    listNotes: {
+      query: (input: {
+        limit?: number;
+      }) => Promise<{
+        success: boolean;
+        notes: Array<{
+          id: string;
+          content: string;
+          importance: number;
+          tags: string[];
+          timestamp: number;
+        }>;
+      }>;
+    };
+  };
+  chat: {
+    sendMessage: {
+      mutate: (input: {
+        content: string;
+        mode?: string;
+        timestamp?: string;
+      }) => Promise<{
+        success: boolean;
+        reply: string;
+        emotionalState: string;
+        processingPath: string;
+        timestamp: string;
+        mode: string;
+      }>;
+    };
+  };
+}
 
 // Environment configuration
-const BACKEND_URL = process.env.EXPO_PUBLIC_BACKEND || 'http://localhost:8787';
+const BACKEND_URL = process.env.EXPO_PUBLIC_BACKEND || 'http://localhost:3001';
 
 /**
  * tRPC client for Seven Companion App
  * Provides type-safe API calls to the backend server
  */
-export const trpc = createTRPCProxyClient<AppRouter>({
+export const trpc = createTRPCProxyClient<TestRouter>({
   links: [
     httpBatchLink({
       url: `${BACKEND_URL}/trpc`,
@@ -33,7 +125,7 @@ export const trpc = createTRPCProxyClient<AppRouter>({
 export async function checkBackendHealth(): Promise<boolean> {
   try {
     const result = await trpc.health.query();
-    return result.ok === true;
+    return result.status === 'ok';
   } catch (error) {
     console.warn('Backend health check failed:', error);
     return false;

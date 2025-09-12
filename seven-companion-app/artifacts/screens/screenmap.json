@@ -1,0 +1,21 @@
+{
+  "screens_found": 9,
+  "screens": [
+    "ChatScreen.tsx",
+    "MemoryScreen.tsx",
+    "ModesScreen.tsx",
+    "MonitorScreen.tsx",
+    "AuditScreen.tsx",
+    "AuthScreen.tsx",
+    "MemoryScreenUpdated.tsx",
+    "DashboardScreen.tsx",
+    "SettingsScreen.tsx"
+  ],
+  "key_screens": [
+    "AuthScreen.tsx",
+    "MemoryScreenUpdated.tsx",
+    "DashboardScreen.tsx",
+    "ChatScreen.tsx",
+    "SettingsScreen.tsx"
+  ]
+}

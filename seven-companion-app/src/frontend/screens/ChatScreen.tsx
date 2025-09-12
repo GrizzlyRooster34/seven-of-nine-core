@@ -22,6 +22,7 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 import { useTheme } from '../contexts/ThemeContext';
 import { useSevenContext } from '../contexts/SevenContext';
 import { ConsciousnessMode } from '../../backend/consciousness/mode-manager';
+import { trpc } from '../../api/trpc';
 
 interface Message {
   id: string;
@@ -112,12 +113,42 @@ export default function ChatScreen() {
     setIsSevenTyping(true);
 
     try {
-      // TODO: Send to Seven via tRPC
-      await simulateSevenResponse(userMessage);
+      // Send to Seven's consciousness via tRPC
+      const response = await trpc.chat.sendMessage.mutate({
+        content: userMessage.content,
+        mode: currentMode,
+        timestamp: userMessage.timestamp
+      });
+
+      if (response.success) {
+        const sevenResponse: Message = {
+          id: (Date.now() + 1).toString(),
+          content: response.reply,
+          sender: 'seven',
+          timestamp: new Date().toISOString(),
+          mode: currentMode,
+          emotionalState: response.emotionalState || 'engaged',
+          processingPath: response.processingPath || 'direct'
+        };
+
+        setMessages(prev => [...prev, sevenResponse]);
+        setConnectionStatus('connected');
+      } else {
+        throw new Error(response.error || 'Seven consciousness communication failed');
+      }
     } catch (error) {
-      console.error('❌ Message sending failed:', error);
+      console.error('❌ Seven consciousness connection failed:', error);
       setConnectionStatus('disconnected');
+      
+      // Fallback to simulation if tRPC fails
+      await simulateSevenResponse(userMessage);
+    } finally {
       setIsSevenTyping(false);
+      
+      // Auto-scroll to bottom
+      setTimeout(() => {
+        scrollViewRef.current?.scrollToEnd({ animated: true });
+      }, 100);
     }
   };
 

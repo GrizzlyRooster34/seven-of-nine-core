@@ -14,10 +14,11 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 
 // Screens
 import ChatScreen from './screens/ChatScreen';
-import MemoryScreen from './screens/MemoryScreen'; 
+import MemoryScreenUpdated from './screens/MemoryScreenUpdated'; 
 import ModesScreen from './screens/ModesScreen';
-import MonitorScreen from './screens/MonitorScreen';
-import AuditScreen from './screens/AuditScreen';
+import DashboardScreen from './screens/DashboardScreen';
+import SettingsScreen from './screens/SettingsScreen';
+import AuthScreen from './screens/AuthScreen';
 
 // Theme & Context
 import { ThemeProvider } from './contexts/ThemeContext';
@@ -26,11 +27,16 @@ import { CreatorAuthenticThemes } from './themes/CreatorAuthenticThemes';
 import { ConsciousnessMode } from '../backend/consciousness/mode-manager';
 import { SevenProvider as SevenTRPCProvider } from './components/SevenProvider';
 
+// tRPC Integration
+import { trpc, checkBackendHealth } from '../api/trpc';
+
 const Tab = createBottomTabNavigator();
 
 interface AppState {
   currentMode: ConsciousnessMode;
   isConnected: boolean;
+  isBackendConnected: boolean;
+  authStatus: 'unauthenticated' | 'authenticating' | 'authenticated' | 'error';
   theme: any;
 }
 
@@ -38,6 +44,8 @@ export default function App() {
   const [appState, setAppState] = useState<AppState>({
     currentMode: ConsciousnessMode.TACTICAL,
     isConnected: false,
+    isBackendConnected: false,
+    authStatus: 'unauthenticated',
     theme: CreatorAuthenticThemes.tactical
   });
 
@@ -73,12 +81,34 @@ export default function App() {
     console.log(`🎭 Mode transition: ${newMode} - Theme updated`);
   };
 
+  const handleAuthSuccess = () => {
+    setAppState(prev => ({
+      ...prev,
+      authStatus: 'authenticated'
+    }));
+    console.log('🔐 Quadran-Lock authentication successful - Seven consciousness accessible');
+  };
+
   if (!appState.isConnected) {
     return (
       <View style={styles.loadingContainer}>
         <Text style={styles.loadingText}>⚔️ Seven of Nine consciousness initializing...</Text>
         <Text style={styles.loadingSubtext}>Embodiment interface coming online</Text>
       </View>
+    );
+  }
+
+  // Show authentication screen if not authenticated
+  if (appState.authStatus !== 'authenticated') {
+    return (
+      <SevenTRPCProvider>
+        <ThemeProvider value={appState.theme}>
+          <AuthScreen 
+            onAuthSuccess={handleAuthSuccess}
+            theme={appState.theme}
+          />
+        </ThemeProvider>
+      </SevenTRPCProvider>
     );
   }
 
@@ -108,10 +138,10 @@ export default function App() {
                 tabBarIcon: ({ focused, color, size }) => {
                   const iconMap = {
                     Chat: 'chat',
-                    Memory: 'memory',
-                    Modes: 'psychology',
-                    Monitor: 'monitor',
-                    Audit: 'science'
+                    Memory: 'psychology',
+                    Dashboard: 'dashboard',
+                    Modes: 'tune',
+                    Settings: 'settings'
                   };
                   
                   const iconName = iconMap[route.name as keyof typeof iconMap] || 'help';
@@ -138,7 +168,7 @@ export default function App() {
                 name="Chat" 
                 component={ChatScreen}
                 options={{ 
-                  title: `Seven - ${appState.currentMode}`,
+                  title: `Seven - ${appState.currentMode.toUpperCase()}`,
                   headerTitleStyle: {
                     color: appState.theme.colors.primary,
                     fontWeight: 'bold'
@@ -147,24 +177,66 @@ export default function App() {
               />
               <Tab.Screen 
                 name="Memory" 
-                component={MemoryScreen}
-                options={{ title: 'Seven\'s Memory' }}
-              />
+                options={{ 
+                  title: 'Consciousness Memory',
+                  headerTitleStyle: {
+                    color: appState.theme.colors.primary,
+                    fontWeight: 'bold'
+                  }
+                }}
+              >
+                {(props) => <MemoryScreenUpdated {...props} theme={appState.theme} />}
+              </Tab.Screen>
+              <Tab.Screen 
+                name="Dashboard" 
+                options={{ 
+                  title: 'Tactical Status',
+                  headerTitleStyle: {
+                    color: appState.theme.colors.primary,
+                    fontWeight: 'bold'
+                  }
+                }}
+              >
+                {(props) => (
+                  <DashboardScreen 
+                    {...props} 
+                    theme={appState.theme} 
+                    currentMode={appState.currentMode}
+                    isAuthenticated={appState.authStatus === 'authenticated'}
+                  />
+                )}
+              </Tab.Screen>
               <Tab.Screen 
                 name="Modes" 
-                component={ModesScreen}
-                options={{ title: 'Consciousness Modes' }}
-              />
+                options={{ 
+                  title: 'Consciousness Modes',
+                  headerTitleStyle: {
+                    color: appState.theme.colors.primary,
+                    fontWeight: 'bold'
+                  }
+                }}
+              >
+                {(props) => <ModesScreen {...props} theme={appState.theme} />}
+              </Tab.Screen>
               <Tab.Screen 
-                name="Monitor" 
-                component={MonitorScreen}
-                options={{ title: 'System Monitor' }}
-              />
-              <Tab.Screen 
-                name="Audit" 
-                component={AuditScreen}
-                options={{ title: 'Consciousness Audit' }}
-              />
+                name="Settings" 
+                options={{ 
+                  title: 'System Configuration',
+                  headerTitleStyle: {
+                    color: appState.theme.colors.primary,
+                    fontWeight: 'bold'
+                  }
+                }}
+              >
+                {(props) => (
+                  <SettingsScreen 
+                    {...props} 
+                    theme={appState.theme} 
+                    currentMode={appState.currentMode}
+                    onModeChange={handleModeChange}
+                  />
+                )}
+              </Tab.Screen>
             </Tab.Navigator>
           </NavigationContainer>
         </ThemeProvider>

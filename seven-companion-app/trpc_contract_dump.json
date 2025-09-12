@@ -1,0 +1,68 @@
+{
+  "procedures": [
+    {
+      "name": "health",
+      "type": "query",
+      "description": "Backend health check"
+    },
+    {
+      "name": "auth.authenticate",
+      "type": "mutation",
+      "input": {
+        "deviceId": "string",
+        "identityContext": "string",
+        "timestamp": "number"
+      },
+      "output": {
+        "success": "boolean",
+        "token": "string",
+        "gates": "object"
+      }
+    },
+    {
+      "name": "memory.getStats",
+      "type": "query",
+      "output": {
+        "totalNotes": "number",
+        "recentNotes": "number"
+      }
+    },
+    {
+      "name": "memory.addNote",
+      "type": "mutation",
+      "input": {
+        "content": "string",
+        "importance": "number",
+        "tags": "string[]"
+      }
+    },
+    {
+      "name": "memory.searchNotes",
+      "type": "query",
+      "input": {
+        "query": "string",
+        "limit": "number"
+      }
+    },
+    {
+      "name": "memory.listNotes",
+      "type": "query",
+      "input": {
+        "limit": "number"
+      }
+    },
+    {
+      "name": "chat.sendMessage",
+      "type": "mutation",
+      "input": {
+        "content": "string",
+        "mode": "string"
+      },
+      "output": {
+        "reply": "string",
+        "emotionalState": "string",
+        "processingPath": "string"
+      }
+    }
+  ]
+}

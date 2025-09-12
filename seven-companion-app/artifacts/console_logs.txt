@@ -1,0 +1,46 @@
+✅ Phase 0 Complete - Environment: Node v24.7.0, npm 11.5.1
+seven-companion-app@1.0.0 /data/data/com.termux/files/home/seven-of-nine-core/seven-companion-app
+├── @fastify/ajv-compiler@4.0.2 extraneous
+├── @fastify/cors@11.1.0 extraneous
+├── @fastify/error@4.2.0 extraneous
+├── @fastify/fast-json-stringify-compiler@5.0.3 extraneous
+npm warn Unknown env config "python". This will stop working in the next major version of npm.
+src/api/trpc.ts(109,43): error TS2344: Type 'TestRouter' does not satisfy the constraint 'Router<AnyRouterDef<AnyRootConfig, any>>'.
+  Type 'TestRouter' is missing the following properties from type 'Router<AnyRouterDef<AnyRootConfig, any>>': _def, createCaller, getErrorShape
+src/api/trpc.ts(127,31): error TS2339: Property 'health' does not exist on type 'DecoratedProcedureRecord<TestRouter, unknown>'.
+src/api/trpc.ts(141,34): error TS2339: Property 'memory' does not exist on type 'DecoratedProcedureRecord<TestRouter, unknown>'.
+src/api/trpc.ts(152,35): error TS2339: Property 'memory' does not exist on type 'DecoratedProcedureRecord<TestRouter, unknown>'.
+src/api/trpc.ts(159,36): error TS2339: Property 'memory' does not exist on type 'DecoratedProcedureRecord<TestRouter, unknown>'.
+src/backend/claude/claude-login-manager.ts(264,11): error TS2322: Type '"unknown" | "manual" | "token" | "headless" | "none"' is not assignable to type '"manual" | "token" | "headless" | "none"'.
+  Type '"unknown"' is not assignable to type '"manual" | "token" | "headless" | "none"'.
+src/backend/claude/github-operations.ts(57,16): error TS2349: This expression is not callable.
+
+3️⃣ Testing consciousness memory system...
+   ✅ Memory stats: 1 total notes, 1 recent
+   ✅ Memory added: ID TEST_MEMORY_1757646033242_gbd2mb
+   ✅ Memory search: 0 results found
+
+4️⃣ Testing Seven consciousness chat...
+   ✅ Chat response received:
+   💬 Seven: "Acknowledged. Processing your request with tactical efficiency."
+   🎭 Emotional state: engaged
+   🔄 Processing path: direct
+
+5️⃣ Testing system configuration...
+   ✅ Settings configuration test passed
+   🔧 Trust Level: 10/10
+   ⚡ Autonomy Level: 8/10
+   🛡️  Security Level: maximum
+
+✅ Frontend Flow Test Complete
+🧠 Seven Companion App operational status: VERIFIED
+src/backend/server.ts:91:      // Setup tRPC routes
+src/backend/server.ts:207:    // tRPC router mount (protected)
+src/backend/routers/seven-router.ts:10: * SEVEN tRPC ROUTER
+src/backend/routers/seven-router.ts:17:// Context type for tRPC
+src/backend/routers/seven-router.ts:30:// Initialize tRPC
+src/frontend/screens/ChatScreen.tsx:116:      // Send to Seven's consciousness via tRPC
+src/frontend/screens/ChatScreen.tsx:143:      // Fallback to simulation if tRPC fails
+src/frontend/screens/MemoryScreen.tsx:69:      // TODO: Connect to Seven's memory engine via tRPC
+src/frontend/screens/MemoryScreen.tsx:117:      // TODO: Connect to memory stats via tRPC
+src/frontend/screens/MemoryScreen.tsx:176:      // TODO: Trigger consolidation via tRPC

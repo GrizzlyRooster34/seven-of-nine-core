@@ -1,7 +1,7 @@
 import { ConsciousnessAuditProtocol } from '@seven-core/audits/consciousness-audit-integration';
 import { EventEmitter } from 'events';
 import { QuadraLockSafeguard } from '@seven-core/sovereignty/case-studies/quadra-lock-safeguard';
-import { ConsciousnessMode, SevenModeManager } from './mode-manager';
+import { ConsciousnessMode, SevenModeManager } from './mode-manager.js';
 
 /**
  * MODE SOVEREIGNTY INTEGRATION

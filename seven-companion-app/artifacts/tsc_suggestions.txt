@@ -1,0 +1,5 @@
+→ Fix Vector Icons: Add react-native-vector-icons types or import as default export.
+→ Fix tRPC: Replace TestRouter interface with proper AppRouter or minimal client.
+→ Add declare module in src/types/shims.d.ts or install @types/<pkg>.
+→ tsconfig.compilerOptions.jsx = 'react'. (Already set.)
+→ Align screen props with RootStackParamList in src/types/navigation.ts.

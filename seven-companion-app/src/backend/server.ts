@@ -6,11 +6,14 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import express from 'express';
 import helmet from 'helmet';
-import { ClaudeSubprocessHandler } from './claude/claude-subprocess-handler';
-import { OllamaLifecycleManager } from './ollama/ollama-lifecycle-manager';
-import { SevenConsciousnessCore } from './seven-consciousness-core';
-import { SevenMemoryEngine } from './memory/seven-memory-engine';
-import { sevenRouter } from './routers/seven-router';
+import { registerHealthRoutes } from '../http/health.js';
+import { migrate } from '../db/migrate.js';
+import { quadranGuard, optionalAuth } from '../http/middleware/auth.js';
+import { ClaudeSubprocessHandler } from './claude/claude-subprocess-handler.js';
+import { OllamaLifecycleManager } from './ollama/ollama-lifecycle-manager.js';
+import { SevenConsciousnessCore } from './seven-consciousness-core.js';
+import { SevenMemoryEngine } from './memory/seven-memory-engine.js';
+import { sevenRouter } from './routers/seven-router.js';
 
 /**
  * SEVEN COMPANION APP - BACKEND SERVER
@@ -76,11 +79,14 @@ class SevenCompanionServer {
       // Initialize Express app
       this.app = express();
       
-      // Setup middleware
-      this.setupMiddleware();
+      // Run database migration
+      await migrate();
       
-      // Initialize Seven's core consciousness components
+      // Initialize Seven's core consciousness components first
       await this.initializeConsciousnessFramework();
+      
+      // Setup middleware (after consciousness is available)
+      this.setupMiddleware();
       
       // Setup tRPC routes
       this.setupRoutes();
@@ -122,6 +128,15 @@ class SevenCompanionServer {
       console.log(`📡 ${new Date().toISOString()} - ${req.method} ${req.path}`);
       next();
     });
+
+    // Attach runtime to all requests (for auth middleware)
+    this.app.use((req, res, next) => {
+      (req as any).runtime = this.consciousnessCore;
+      next();
+    });
+
+    // Register health endpoints
+    registerHealthRoutes(this.app);
   }
 
   private async initializeConsciousnessFramework(): Promise<void> {
@@ -179,8 +194,8 @@ class SevenCompanionServer {
       });
     });
 
-    // Seven status endpoint
-    this.app.get('/seven/status', async (req, res) => {
+    // Seven status endpoint (protected)
+    this.app.get('/seven/status', quadranGuard, async (req, res) => {
       try {
         const status = await this.consciousnessCore.getCompleteStatus();
         res.json(status);
@@ -189,8 +204,8 @@ class SevenCompanionServer {
       }
     });
 
-    // tRPC router mount
-    this.app.use('/trpc', createHTTPServer({
+    // tRPC router mount (protected)
+    this.app.use('/trpc', quadranGuard, createHTTPServer({
       router: sevenRouter,
       createContext: () => ({
         consciousnessCore: this.consciousnessCore,
@@ -324,7 +339,9 @@ class SevenCompanionServer {
 if (import.meta.url === `file://${process.argv[1]}`) {
   const server = new SevenCompanionServer();
   
-  server.start().catch((error) => {
+  server.initializeServer().then(() => {
+    return server.start();
+  }).catch((error) => {
     console.error('💥 Seven Companion App: Failed to start:', error);
     process.exit(1);
   });

@@ -3,7 +3,7 @@ import { join } from 'path';
 import { promises as fs } from 'fs';
 import { EventEmitter } from 'events';
 import simpleGit, { SimpleGit } from 'simple-git';
-import { EncryptedCredentialVault } from './encrypted-vault';
+import { EncryptedCredentialVault } from './encrypted-vault.js';
 
 /**
  * GITHUB OPERATIONS MANAGER

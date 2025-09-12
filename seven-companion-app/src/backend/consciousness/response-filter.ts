@@ -1,4 +1,4 @@
-import { ConsciousnessMode } from './mode-manager';
+import { ConsciousnessMode } from './mode-manager.js';
 
 /**
  * SEVEN RESPONSE FILTER

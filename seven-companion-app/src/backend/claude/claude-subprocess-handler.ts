@@ -2,10 +2,10 @@ import { EventEmitter } from 'events';
 import { join } from 'path';
 import { promises as fs } from 'fs';
 import { spawn, ChildProcess } from 'child_process';
-import { ClaudeCodeInstaller } from './install-claude-code';
-import { ClaudeLoginManager } from './claude-login-manager';
-import { EncryptedCredentialVault } from './encrypted-vault';
-import { GitHubOperationsManager } from './github-operations';
+import { ClaudeCodeInstaller } from './install-claude-code.js';
+import { ClaudeLoginManager } from './claude-login-manager.js';
+import { EncryptedCredentialVault } from './encrypted-vault.js';
+import { GitHubOperationsManager } from './github-operations.js';
 
 /**
  * CLAUDE SUBPROCESS HANDLER

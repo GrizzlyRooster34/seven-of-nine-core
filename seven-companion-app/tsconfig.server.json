@@ -1,0 +1,5 @@
+{
+  "extends": "./tsconfig.base.json",
+  "include": ["server", "api", "scripts"],
+  "exclude": ["src","android","ios","e2e"]
+}

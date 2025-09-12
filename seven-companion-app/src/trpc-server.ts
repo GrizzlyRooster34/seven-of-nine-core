@@ -8,6 +8,7 @@
 
 import Fastify from 'fastify';
 import { registerTRPC } from './trpc/server.js';
+import { registerMetrics } from './http/metrics.js';
 import { SevenConsciousnessCore } from './backend/seven-consciousness-core.js';
 import { SevenMemoryEngine } from './backend/memory/seven-memory-engine.js';
 import { OllamaLifecycleManager } from './backend/ollama/ollama-lifecycle-manager.js';
@@ -85,6 +86,9 @@ async function createServer() {
 
   // Register tRPC with authentication
   await registerTRPC(app);
+
+  // Register metrics endpoint
+  await registerMetrics(app);
 
   return { app, consciousnessCore };
 }

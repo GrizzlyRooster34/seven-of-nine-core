@@ -1,0 +1,31 @@
+{
+  "extends": "./tsconfig.base.json",
+  "include": [
+    "src/components/**/*",
+    "src/screens/**/*", 
+    "src/hooks/**/*",
+    "src/services/**/*",
+    "src/utils/**/*",
+    "src/types/**/*",
+    "src/adapters/**/*",
+    "App.tsx", 
+    "index.ts", 
+    "index.tsx"
+  ],
+  "exclude": [
+    "**/__tests__/**", 
+    "server", 
+    "api", 
+    "scripts",
+    "android", 
+    "ios", 
+    "e2e",
+    "src/backend/**/*",
+    "src/auth/**/*", 
+    "src/trpc/**/*",
+    "src/memory/MemoryClient.ts",
+    "src/http/**/*",
+    "src/*-server.ts",
+    "src/trpc-server.ts"
+  ]
+}

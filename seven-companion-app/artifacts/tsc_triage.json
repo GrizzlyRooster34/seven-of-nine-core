@@ -1,0 +1,58 @@
+{
+  "summary": {
+    "MODULE_NOT_FOUND": 13,
+    "MISSING_TYPES": 0,
+    "JSX_ISSUE": 31,
+    "VECTOR_ICONS": 62,
+    "TRPC_INTERFACE": 22,
+    "IMPLICIT_ANY": 0,
+    "PROP_DOESNT_EXIST": 21,
+    "OTHER": 122
+  },
+  "samples": {
+    "MODULE_NOT_FOUND": [
+      "src/backend/consciousness/mode-sovereignty-integration.ts(1,44): error TS2307: Cannot find module '@seven-core/audits/consciousness-audit-integration' or its corresponding type declarations.",
+      "src/backend/consciousness/mode-sovereignty-integration.ts(3,37): error TS2307: Cannot find module '@seven-core/sovereignty/case-studies/quadra-lock-safeguard' or its corresponding type declarations.",
+      "src/backend/routers/seven-router.ts(2,40): error TS2307: Cannot find module '@seven-core/sovereignty/sovereignty-integration' or its corresponding type declarations.",
+      "src/backend/server.ts(3,40): error TS2307: Cannot find module '@seven-core/sovereignty/sovereignty-integration' or its corresponding type declarations.",
+      "src/backend/seven-consciousness-core.ts(1,44): error TS2307: Cannot find module '@seven-core/audits/consciousness-audit-integration' or its corresponding type declarations."
+    ],
+    "MISSING_TYPES": [],
+    "JSX_ISSUE": [
+      "  Its type 'typeof Icon' is not a valid JSX element type.",
+      "  Its type 'typeof Icon' is not a valid JSX element type.",
+      "  Its type 'typeof Icon' is not a valid JSX element type.",
+      "  Its type 'typeof Icon' is not a valid JSX element type.",
+      "  Its type 'typeof Icon' is not a valid JSX element type."
+    ],
+    "VECTOR_ICONS": [
+      "src/frontend/App.tsx(148,26): error TS2607: JSX element class does not support attributes because it does not have a 'props' property.",
+      "src/frontend/App.tsx(148,27): error TS2786: 'Icon' cannot be used as a JSX component.",
+      "src/frontend/screens/AuditScreen.tsx(199,13): error TS2607: JSX element class does not support attributes because it does not have a 'props' property.",
+      "src/frontend/screens/AuditScreen.tsx(199,14): error TS2786: 'Icon' cannot be used as a JSX component.",
+      "src/frontend/screens/AuditScreen.tsx(251,13): error TS2607: JSX element class does not support attributes because it does not have a 'props' property."
+    ],
+    "TRPC_INTERFACE": [
+      "src/api/trpc.ts(109,43): error TS2344: Type 'TestRouter' does not satisfy the constraint 'Router<AnyRouterDef<AnyRootConfig, any>>'.",
+      "src/api/trpc.ts(127,31): error TS2339: Property 'health' does not exist on type 'DecoratedProcedureRecord<TestRouter, unknown>'.",
+      "src/api/trpc.ts(141,34): error TS2339: Property 'memory' does not exist on type 'DecoratedProcedureRecord<TestRouter, unknown>'.",
+      "src/api/trpc.ts(152,35): error TS2339: Property 'memory' does not exist on type 'DecoratedProcedureRecord<TestRouter, unknown>'.",
+      "src/api/trpc.ts(159,36): error TS2339: Property 'memory' does not exist on type 'DecoratedProcedureRecord<TestRouter, unknown>'."
+    ],
+    "IMPLICIT_ANY": [],
+    "PROP_DOESNT_EXIST": [
+      "src/backend/memory/seven-memory-engine.ts(178,23): error TS2339: Property 'map' does not exist on type 'any[] | Promise<any[]>'.",
+      "  Property 'map' does not exist on type 'Promise<any[]>'.",
+      "src/backend/memory/seven-memory-engine.ts(240,23): error TS2339: Property 'map' does not exist on type 'any[] | Promise<any[]>'.",
+      "  Property 'map' does not exist on type 'Promise<any[]>'.",
+      "src/backend/memory/seven-memory-engine.ts(304,28): error TS2339: Property 'map' does not exist on type 'any[] | Promise<any[]>'."
+    ],
+    "OTHER": [
+      "  Type 'TestRouter' is missing the following properties from type 'Router<AnyRouterDef<AnyRootConfig, any>>': _def, createCaller, getErrorShape",
+      "src/backend/claude/claude-login-manager.ts(264,11): error TS2322: Type '\"unknown\" | \"manual\" | \"token\" | \"headless\" | \"none\"' is not assignable to type '\"manual\" | \"token\" | \"headless\" | \"none\"'.",
+      "  Type '\"unknown\"' is not assignable to type '\"manual\" | \"token\" | \"headless\" | \"none\"'.",
+      "src/backend/claude/github-operations.ts(57,16): error TS2349: This expression is not callable.",
+      "  Type 'typeof import(\"/data/data/com.termux/files/home/node_modules/simple-git/dist/typings/index\")' has no call signatures."
+    ]
+  }
+}

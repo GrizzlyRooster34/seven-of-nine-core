@@ -1,0 +1,271 @@
+src/api/trpc.ts(109,43): error TS2344: Type 'TestRouter' does not satisfy the constraint 'Router<AnyRouterDef<AnyRootConfig, any>>'.
+  Type 'TestRouter' is missing the following properties from type 'Router<AnyRouterDef<AnyRootConfig, any>>': _def, createCaller, getErrorShape
+src/api/trpc.ts(127,31): error TS2339: Property 'health' does not exist on type 'DecoratedProcedureRecord<TestRouter, unknown>'.
+src/api/trpc.ts(141,34): error TS2339: Property 'memory' does not exist on type 'DecoratedProcedureRecord<TestRouter, unknown>'.
+src/api/trpc.ts(152,35): error TS2339: Property 'memory' does not exist on type 'DecoratedProcedureRecord<TestRouter, unknown>'.
+src/api/trpc.ts(159,36): error TS2339: Property 'memory' does not exist on type 'DecoratedProcedureRecord<TestRouter, unknown>'.
+src/backend/claude/claude-login-manager.ts(264,11): error TS2322: Type '"unknown" | "manual" | "token" | "headless" | "none"' is not assignable to type '"manual" | "token" | "headless" | "none"'.
+  Type '"unknown"' is not assignable to type '"manual" | "token" | "headless" | "none"'.
+src/backend/claude/github-operations.ts(57,16): error TS2349: This expression is not callable.
+  Type 'typeof import("/data/data/com.termux/files/home/node_modules/simple-git/dist/typings/index")' has no call signatures.
+src/backend/consciousness/mode-sovereignty-integration.ts(1,44): error TS2307: Cannot find module '@seven-core/audits/consciousness-audit-integration' or its corresponding type declarations.
+src/backend/consciousness/mode-sovereignty-integration.ts(3,37): error TS2307: Cannot find module '@seven-core/sovereignty/case-studies/quadra-lock-safeguard' or its corresponding type declarations.
+src/backend/consciousness/mode-sovereignty-integration.ts(365,5): error TS2322: Type 'string' is not assignable to type '"low" | "medium" | "high" | "critical"'.
+src/backend/memory/seven-memory-engine.ts(84,7): error TS2739: Type 'Promise<MemorySQLiteDB | SQLiteNativeDB>' is missing the following properties from type 'IMemoryDB': exec, run, all, transaction, close
+src/backend/memory/seven-memory-engine.ts(178,23): error TS2339: Property 'map' does not exist on type 'any[] | Promise<any[]>'.
+  Property 'map' does not exist on type 'Promise<any[]>'.
+src/backend/memory/seven-memory-engine.ts(240,23): error TS2339: Property 'map' does not exist on type 'any[] | Promise<any[]>'.
+  Property 'map' does not exist on type 'Promise<any[]>'.
+src/backend/memory/seven-memory-engine.ts(304,28): error TS2339: Property 'map' does not exist on type 'any[] | Promise<any[]>'.
+  Property 'map' does not exist on type 'Promise<any[]>'.
+src/backend/memory/seven-memory-engine.ts(417,30): error TS2339: Property 'get' does not exist on type 'IMemoryDB'.
+src/backend/ollama/ollama-lifecycle-manager.ts(188,9): error TS2353: Object literal may only specify known properties, and 'timeout' does not exist in type 'RequestInit'.
+src/backend/routers/seven-router.ts(2,40): error TS2307: Cannot find module '@seven-core/sovereignty/sovereignty-integration' or its corresponding type declarations.
+src/backend/routers/seven-router.ts(4,41): error TS2835: Relative import paths need explicit file extensions in ECMAScript imports when '--moduleResolution' is 'node16' or 'nodenext'. Did you mean '../claude/claude-subprocess-handler.js'?
+src/backend/routers/seven-router.ts(5,40): error TS2835: Relative import paths need explicit file extensions in ECMAScript imports when '--moduleResolution' is 'node16' or 'nodenext'. Did you mean '../ollama/ollama-lifecycle-manager.js'?
+src/backend/routers/seven-router.ts(6,40): error TS2835: Relative import paths need explicit file extensions in ECMAScript imports when '--moduleResolution' is 'node16' or 'nodenext'. Did you mean '../seven-consciousness-core.js'?
+src/backend/routers/seven-router.ts(7,35): error TS2835: Relative import paths need explicit file extensions in ECMAScript imports when '--moduleResolution' is 'node16' or 'nodenext'. Did you mean '../memory/seven-memory-engine.js'?
+src/backend/server.ts(3,40): error TS2307: Cannot find module '@seven-core/sovereignty/sovereignty-integration' or its corresponding type declarations.
+src/backend/server.ts(162,32): error TS2554: Expected 1 arguments, but got 0.
+src/backend/server.ts(188,50): error TS2341: Property 'isActive' is private and only accessible within class 'SevenConsciousnessCore'.
+src/backend/server.ts(217,8): error TS2339: Property 'handler' does not exist on type '{ server: Server<typeof IncomingMessage, typeof ServerResponse>; listen: (port?: number, hostname?: string) => { port: number; }; }'.
+src/backend/server.ts(245,7): error TS2322: Type 'Server<typeof WebSocket, typeof IncomingMessage>' is not assignable to type 'WebSocketServer'.
+  The types of 'options.WebSocket' are incompatible between these types.
+    Type 'typeof WebSocket' is missing the following properties from type 'typeof WebSocket': createWebSocketStream, Server, WebSocketServer, WebSocket
+src/backend/server.ts(328,36): error TS2341: Property 'isActive' is private and only accessible within class 'SevenConsciousnessCore'.
+src/backend/server.ts(342,10): error TS2341: Property 'initializeServer' is private and only accessible within class 'SevenCompanionServer'.
+src/backend/seven-consciousness-core.ts(1,44): error TS2307: Cannot find module '@seven-core/audits/consciousness-audit-integration' or its corresponding type declarations.
+src/backend/seven-consciousness-core.ts(3,40): error TS2307: Cannot find module '@seven-core/sovereignty/sovereignty-integration' or its corresponding type declarations.
+src/backend/seven-consciousness-core.ts(66,11): error TS2300: Duplicate identifier 'isActive'.
+src/backend/seven-consciousness-core.ts(70,11): error TS2300: Duplicate identifier 'emotionalState'.
+src/backend/seven-consciousness-core.ts(71,11): error TS2300: Duplicate identifier 'trustLevel'.
+src/backend/seven-consciousness-core.ts(159,9): error TS2322: Type '"tactical"' is not assignable to type 'ConsciousnessMode'.
+src/backend/seven-consciousness-core.ts(161,9): error TS2322: Type '"auth_denied"' is not assignable to type '"claude" | "direct" | "ollama" | "hybrid"'.
+src/backend/seven-consciousness-core.ts(177,14): error TS2540: Cannot assign to 'currentMode' because it is a read-only property.
+src/backend/seven-consciousness-core.ts(235,9): error TS2322: Type 'string' is not assignable to type 'ConsciousnessMode'.
+src/backend/seven-consciousness-core.ts(292,9): error TS2322: Type '"audit"' is not assignable to type 'ConsciousnessMode'.
+src/backend/seven-consciousness-core.ts(307,7): error TS2322: Type 'string' is not assignable to type 'ConsciousnessMode'.
+src/backend/seven-consciousness-core.ts(332,80): error TS2554: Expected 1 arguments, but got 2.
+src/backend/seven-consciousness-core.ts(340,9): error TS2322: Type 'string' is not assignable to type 'ConsciousnessMode'.
+src/backend/seven-consciousness-core.ts(375,9): error TS2322: Type 'string' is not assignable to type 'ConsciousnessMode'.
+src/backend/seven-consciousness-core.ts(378,44): error TS2339: Property 'sovereigntyActions' does not exist on type 'TaskResponse'.
+src/backend/seven-consciousness-core.ts(411,72): error TS2345: Argument of type 'string' is not assignable to parameter of type 'OllamaGenerateRequest'.
+src/backend/seven-consciousness-core.ts(417,9): error TS2322: Type 'string' is not assignable to type 'ConsciousnessMode'.
+src/backend/seven-consciousness-core.ts(477,23): error TS2339: Property 'on' does not exist on type 'SevenMemoryEngine'.
+src/backend/seven-consciousness-core.ts(599,7): error TS2300: Duplicate identifier 'isActive'.
+src/backend/seven-consciousness-core.ts(601,7): error TS2300: Duplicate identifier 'emotionalState'.
+src/backend/seven-consciousness-core.ts(602,7): error TS2300: Duplicate identifier 'trustLevel'.
+src/backend/sync/CompanionSyncServer.ts(19,26): error TS2694: Namespace 'WebSocket' has no exported member 'Server'.
+src/backend/sync/CompanionSyncServer.ts(24,30): error TS2339: Property 'Server' does not exist on type 'typeof WebSocket'.
+src/db/migrate.ts(7,6): error TS2339: Property 'exec' does not exist on type 'Promise<MemorySQLiteDB | SQLiteNativeDB>'.
+src/db/migrate.ts(23,6): error TS2339: Property 'exec' does not exist on type 'Promise<MemorySQLiteDB | SQLiteNativeDB>'.
+src/db/migrate.ts(39,6): error TS2339: Property 'exec' does not exist on type 'Promise<MemorySQLiteDB | SQLiteNativeDB>'.
+src/db/sqlite.native.ts(20,35): error TS2307: Cannot find module 'expo-sqlite' or its corresponding type declarations.
+src/frontend/App.tsx(9,27): error TS2307: Cannot find module 'expo-status-bar' or its corresponding type declarations.
+src/frontend/App.tsx(148,26): error TS2607: JSX element class does not support attributes because it does not have a 'props' property.
+src/frontend/App.tsx(148,27): error TS2786: 'Icon' cannot be used as a JSX component.
+  Its type 'typeof Icon' is not a valid JSX element type.
+    Type 'typeof Icon' is not assignable to type 'new (props: any, deprecatedLegacyContext?: any) => Component<any, any, any>'.
+      Type 'Icon' is missing the following properties from type 'Component<any, any, any>': context, setState, forceUpdate, render, and 3 more.
+src/frontend/components/SevenProvider.tsx(34,38): error TS2345: Argument of type '{ links: TRPCLink<AnyRouter>[]; }' is not assignable to parameter of type 'CreateTRPCClientOptions<CreateRouterInner<RootConfig<{ ctx: Context; meta: object; errorShape: never; transformer: DataTransformerOptions; }>, { chat: CreateRouterInner<RootConfig<{ ctx: Context; meta: object; errorShape: never; transformer: DataTransformerOptions; }>, { ...; }>; ... 4 more ...; system: CreateRouter...'.
+  Property 'transformer' is missing in type '{ links: TRPCLink<AnyRouter>[]; }' but required in type '{ transformer: DataTransformerOptions; }'.
+src/frontend/screens/AuditScreen.tsx(199,13): error TS2607: JSX element class does not support attributes because it does not have a 'props' property.
+src/frontend/screens/AuditScreen.tsx(199,14): error TS2786: 'Icon' cannot be used as a JSX component.
+  Its type 'typeof Icon' is not a valid JSX element type.
+    Type 'typeof Icon' is not assignable to type 'new (props: any, deprecatedLegacyContext?: any) => Component<any, any, any>'.
+      Type 'Icon' is missing the following properties from type 'Component<any, any, any>': context, setState, forceUpdate, render, and 3 more.
+src/frontend/screens/AuditScreen.tsx(251,13): error TS2607: JSX element class does not support attributes because it does not have a 'props' property.
+src/frontend/screens/AuditScreen.tsx(251,14): error TS2786: 'Icon' cannot be used as a JSX component.
+  Its type 'typeof Icon' is not a valid JSX element type.
+    Type 'typeof Icon' is not assignable to type 'new (props: any, deprecatedLegacyContext?: any) => Component<any, any, any>'.
+      Type 'Icon' is missing the following properties from type 'Component<any, any, any>': context, setState, forceUpdate, render, and 3 more.
+src/frontend/screens/AuditScreen.tsx(772,11): error TS2607: JSX element class does not support attributes because it does not have a 'props' property.
+src/frontend/screens/AuditScreen.tsx(772,12): error TS2786: 'Icon' cannot be used as a JSX component.
+  Its type 'typeof Icon' is not a valid JSX element type.
+    Type 'typeof Icon' is not assignable to type 'new (props: any, deprecatedLegacyContext?: any) => Component<any, any, any>'.
+      Type 'Icon' is missing the following properties from type 'Component<any, any, any>': context, setState, forceUpdate, render, and 3 more.
+src/frontend/screens/AuthScreen.tsx(70,38): error TS2339: Property 'health' does not exist on type 'DecoratedProcedureRecord<TestRouter, unknown>'.
+src/frontend/screens/AuthScreen.tsx(129,13): error TS2607: JSX element class does not support attributes because it does not have a 'props' property.
+src/frontend/screens/AuthScreen.tsx(129,14): error TS2786: 'Icon' cannot be used as a JSX component.
+  Its type 'typeof Icon' is not a valid JSX element type.
+    Type 'typeof Icon' is not assignable to type 'new (props: any, deprecatedLegacyContext?: any) => Component<any, any, any>'.
+      Type 'Icon' is missing the following properties from type 'Component<any, any, any>': context, setState, forceUpdate, render, and 3 more.
+src/frontend/screens/AuthScreen.tsx(133,13): error TS2607: JSX element class does not support attributes because it does not have a 'props' property.
+src/frontend/screens/AuthScreen.tsx(133,14): error TS2786: 'Icon' cannot be used as a JSX component.
+  Its type 'typeof Icon' is not a valid JSX element type.
+    Type 'typeof Icon' is not assignable to type 'new (props: any, deprecatedLegacyContext?: any) => Component<any, any, any>'.
+      Type 'Icon' is missing the following properties from type 'Component<any, any, any>': context, setState, forceUpdate, render, and 3 more.
+src/frontend/screens/AuthScreen.tsx(147,9): error TS2607: JSX element class does not support attributes because it does not have a 'props' property.
+src/frontend/screens/AuthScreen.tsx(147,10): error TS2786: 'Icon' cannot be used as a JSX component.
+  Its type 'typeof Icon' is not a valid JSX element type.
+    Type 'typeof Icon' is not assignable to type 'new (props: any, deprecatedLegacyContext?: any) => Component<any, any, any>'.
+      Type 'Icon' is missing the following properties from type 'Component<any, any, any>': context, setState, forceUpdate, render, and 3 more.
+src/frontend/screens/AuthScreen.tsx(236,9): error TS2607: JSX element class does not support attributes because it does not have a 'props' property.
+src/frontend/screens/AuthScreen.tsx(236,10): error TS2786: 'Icon' cannot be used as a JSX component.
+  Its type 'typeof Icon' is not a valid JSX element type.
+    Type 'typeof Icon' is not assignable to type 'new (props: any, deprecatedLegacyContext?: any) => Component<any, any, any>'.
+      Type 'Icon' is missing the following properties from type 'Component<any, any, any>': context, setState, forceUpdate, render, and 3 more.
+src/frontend/screens/ChatScreen.tsx(117,35): error TS2339: Property 'chat' does not exist on type 'DecoratedProcedureRecord<TestRouter, unknown>'.
+src/frontend/screens/ChatScreen.tsx(211,30): error TS2769: No overload matches this call.
+  Overload 1 of 2, '(props: ViewProps): View', gave the following error.
+    Type '{ backgroundColor: string; alignSelf: string; borderTopLeftRadius: number; borderTopRightRadius: number; borderBottomLeftRadius: number; borderBottomRightRadius: number; maxWidth: string; marginBottom: number; padding: number; borderLeftWidth: number; borderLeftColor: string; }' is not assignable to type 'StyleProp<ViewStyle>'.
+      Type '{ backgroundColor: string; alignSelf: string; borderTopLeftRadius: number; borderTopRightRadius: number; borderBottomLeftRadius: number; borderBottomRightRadius: number; maxWidth: string; marginBottom: number; padding: number; borderLeftWidth: number; borderLeftColor: string; }' is not assignable to type 'ViewStyle'.
+        Types of property 'alignSelf' are incompatible.
+          Type 'string' is not assignable to type '"auto" | FlexAlignType'.
+  Overload 2 of 2, '(props: ViewProps, context: any): View', gave the following error.
+    Type '{ backgroundColor: string; alignSelf: string; borderTopLeftRadius: number; borderTopRightRadius: number; borderBottomLeftRadius: number; borderBottomRightRadius: number; maxWidth: string; marginBottom: number; padding: number; borderLeftWidth: number; borderLeftColor: string; }' is not assignable to type 'StyleProp<ViewStyle>'.
+      Type '{ backgroundColor: string; alignSelf: string; borderTopLeftRadius: number; borderTopRightRadius: number; borderBottomLeftRadius: number; borderBottomRightRadius: number; maxWidth: string; marginBottom: number; padding: number; borderLeftWidth: number; borderLeftColor: string; }' is not assignable to type 'ViewStyle'.
+        Types of property 'alignSelf' are incompatible.
+          Type 'string' is not assignable to type '"auto" | FlexAlignType'.
+src/frontend/screens/ChatScreen.tsx(405,11): error TS2607: JSX element class does not support attributes because it does not have a 'props' property.
+src/frontend/screens/ChatScreen.tsx(405,12): error TS2786: 'Icon' cannot be used as a JSX component.
+  Its type 'typeof Icon' is not a valid JSX element type.
+    Type 'typeof Icon' is not assignable to type 'new (props: any, deprecatedLegacyContext?: any) => Component<any, any, any>'.
+      Type 'Icon' is missing the following properties from type 'Component<any, any, any>': context, setState, forceUpdate, render, and 3 more.
+src/frontend/screens/DashboardScreen.tsx(70,43): error TS2339: Property 'memory' does not exist on type 'DecoratedProcedureRecord<TestRouter, unknown>'.
+src/frontend/screens/DashboardScreen.tsx(132,9): error TS2607: JSX element class does not support attributes because it does not have a 'props' property.
+src/frontend/screens/DashboardScreen.tsx(132,10): error TS2786: 'Icon' cannot be used as a JSX component.
+  Its type 'typeof Icon' is not a valid JSX element type.
+    Type 'typeof Icon' is not assignable to type 'new (props: any, deprecatedLegacyContext?: any) => Component<any, any, any>'.
+      Type 'Icon' is missing the following properties from type 'Component<any, any, any>': context, setState, forceUpdate, render, and 3 more.
+src/frontend/screens/DashboardScreen.tsx(155,9): error TS2607: JSX element class does not support attributes because it does not have a 'props' property.
+src/frontend/screens/DashboardScreen.tsx(155,10): error TS2786: 'Icon' cannot be used as a JSX component.
+  Its type 'typeof Icon' is not a valid JSX element type.
+    Type 'typeof Icon' is not assignable to type 'new (props: any, deprecatedLegacyContext?: any) => Component<any, any, any>'.
+      Type 'Icon' is missing the following properties from type 'Component<any, any, any>': context, setState, forceUpdate, render, and 3 more.
+src/frontend/screens/DashboardScreen.tsx(197,13): error TS2607: JSX element class does not support attributes because it does not have a 'props' property.
+src/frontend/screens/DashboardScreen.tsx(197,14): error TS2786: 'Icon' cannot be used as a JSX component.
+  Its type 'typeof Icon' is not a valid JSX element type.
+    Type 'typeof Icon' is not assignable to type 'new (props: any, deprecatedLegacyContext?: any) => Component<any, any, any>'.
+      Type 'Icon' is missing the following properties from type 'Component<any, any, any>': context, setState, forceUpdate, render, and 3 more.
+src/frontend/screens/DashboardScreen.tsx(250,17): error TS2607: JSX element class does not support attributes because it does not have a 'props' property.
+src/frontend/screens/DashboardScreen.tsx(250,18): error TS2786: 'Icon' cannot be used as a JSX component.
+  Its type 'typeof Icon' is not a valid JSX element type.
+    Type 'typeof Icon' is not assignable to type 'new (props: any, deprecatedLegacyContext?: any) => Component<any, any, any>'.
+      Type 'Icon' is missing the following properties from type 'Component<any, any, any>': context, setState, forceUpdate, render, and 3 more.
+src/frontend/screens/DashboardScreen.tsx(266,15): error TS2607: JSX element class does not support attributes because it does not have a 'props' property.
+src/frontend/screens/DashboardScreen.tsx(266,16): error TS2786: 'Icon' cannot be used as a JSX component.
+  Its type 'typeof Icon' is not a valid JSX element type.
+    Type 'typeof Icon' is not assignable to type 'new (props: any, deprecatedLegacyContext?: any) => Component<any, any, any>'.
+      Type 'Icon' is missing the following properties from type 'Component<any, any, any>': context, setState, forceUpdate, render, and 3 more.
+src/frontend/screens/DashboardScreen.tsx(338,15): error TS2607: JSX element class does not support attributes because it does not have a 'props' property.
+src/frontend/screens/DashboardScreen.tsx(338,16): error TS2786: 'Icon' cannot be used as a JSX component.
+  Its type 'typeof Icon' is not a valid JSX element type.
+    Type 'typeof Icon' is not assignable to type 'new (props: any, deprecatedLegacyContext?: any) => Component<any, any, any>'.
+      Type 'Icon' is missing the following properties from type 'Component<any, any, any>': context, setState, forceUpdate, render, and 3 more.
+src/frontend/screens/MemoryScreen.tsx(302,11): error TS2607: JSX element class does not support attributes because it does not have a 'props' property.
+src/frontend/screens/MemoryScreen.tsx(302,12): error TS2786: 'Icon' cannot be used as a JSX component.
+  Its type 'typeof Icon' is not a valid JSX element type.
+    Type 'typeof Icon' is not assignable to type 'new (props: any, deprecatedLegacyContext?: any) => Component<any, any, any>'.
+      Type 'Icon' is missing the following properties from type 'Component<any, any, any>': context, setState, forceUpdate, render, and 3 more.
+src/frontend/screens/MemoryScreen.tsx(556,17): error TS2607: JSX element class does not support attributes because it does not have a 'props' property.
+src/frontend/screens/MemoryScreen.tsx(556,18): error TS2786: 'Icon' cannot be used as a JSX component.
+  Its type 'typeof Icon' is not a valid JSX element type.
+    Type 'typeof Icon' is not assignable to type 'new (props: any, deprecatedLegacyContext?: any) => Component<any, any, any>'.
+      Type 'Icon' is missing the following properties from type 'Component<any, any, any>': context, setState, forceUpdate, render, and 3 more.
+src/frontend/screens/MemoryScreenUpdated.tsx(61,33): error TS2339: Property 'memory' does not exist on type 'DecoratedProcedureRecord<TestRouter, unknown>'.
+src/frontend/screens/MemoryScreenUpdated.tsx(78,33): error TS2339: Property 'memory' does not exist on type 'DecoratedProcedureRecord<TestRouter, unknown>'.
+src/frontend/screens/MemoryScreenUpdated.tsx(101,33): error TS2339: Property 'memory' does not exist on type 'DecoratedProcedureRecord<TestRouter, unknown>'.
+src/frontend/screens/MemoryScreenUpdated.tsx(131,33): error TS2339: Property 'memory' does not exist on type 'DecoratedProcedureRecord<TestRouter, unknown>'.
+src/frontend/screens/MemoryScreenUpdated.tsx(180,11): error TS2607: JSX element class does not support attributes because it does not have a 'props' property.
+src/frontend/screens/MemoryScreenUpdated.tsx(180,12): error TS2786: 'Icon' cannot be used as a JSX component.
+  Its type 'typeof Icon' is not a valid JSX element type.
+    Type 'typeof Icon' is not assignable to type 'new (props: any, deprecatedLegacyContext?: any) => Component<any, any, any>'.
+      Type 'Icon' is missing the following properties from type 'Component<any, any, any>': context, setState, forceUpdate, render, and 3 more.
+src/frontend/screens/MemoryScreenUpdated.tsx(222,13): error TS2607: JSX element class does not support attributes because it does not have a 'props' property.
+src/frontend/screens/MemoryScreenUpdated.tsx(222,14): error TS2786: 'Icon' cannot be used as a JSX component.
+  Its type 'typeof Icon' is not a valid JSX element type.
+    Type 'typeof Icon' is not assignable to type 'new (props: any, deprecatedLegacyContext?: any) => Component<any, any, any>'.
+      Type 'Icon' is missing the following properties from type 'Component<any, any, any>': context, setState, forceUpdate, render, and 3 more.
+src/frontend/screens/MemoryScreenUpdated.tsx(320,11): error TS2607: JSX element class does not support attributes because it does not have a 'props' property.
+src/frontend/screens/MemoryScreenUpdated.tsx(320,12): error TS2786: 'Icon' cannot be used as a JSX component.
+  Its type 'typeof Icon' is not a valid JSX element type.
+    Type 'typeof Icon' is not assignable to type 'new (props: any, deprecatedLegacyContext?: any) => Component<any, any, any>'.
+      Type 'Icon' is missing the following properties from type 'Component<any, any, any>': context, setState, forceUpdate, render, and 3 more.
+src/frontend/screens/MemoryScreenUpdated.tsx(336,11): error TS2607: JSX element class does not support attributes because it does not have a 'props' property.
+src/frontend/screens/MemoryScreenUpdated.tsx(336,12): error TS2786: 'Icon' cannot be used as a JSX component.
+  Its type 'typeof Icon' is not a valid JSX element type.
+    Type 'typeof Icon' is not assignable to type 'new (props: any, deprecatedLegacyContext?: any) => Component<any, any, any>'.
+      Type 'Icon' is missing the following properties from type 'Component<any, any, any>': context, setState, forceUpdate, render, and 3 more.
+src/frontend/screens/MemoryScreenUpdated.tsx(363,13): error TS2607: JSX element class does not support attributes because it does not have a 'props' property.
+src/frontend/screens/MemoryScreenUpdated.tsx(363,14): error TS2786: 'Icon' cannot be used as a JSX component.
+  Its type 'typeof Icon' is not a valid JSX element type.
+    Type 'typeof Icon' is not assignable to type 'new (props: any, deprecatedLegacyContext?: any) => Component<any, any, any>'.
+      Type 'Icon' is missing the following properties from type 'Component<any, any, any>': context, setState, forceUpdate, render, and 3 more.
+src/frontend/screens/ModesScreen.tsx(259,13): error TS2607: JSX element class does not support attributes because it does not have a 'props' property.
+src/frontend/screens/ModesScreen.tsx(259,14): error TS2786: 'Icon' cannot be used as a JSX component.
+  Its type 'typeof Icon' is not a valid JSX element type.
+    Type 'typeof Icon' is not assignable to type 'new (props: any, deprecatedLegacyContext?: any) => Component<any, any, any>'.
+      Type 'Icon' is missing the following properties from type 'Component<any, any, any>': context, setState, forceUpdate, render, and 3 more.
+src/frontend/screens/ModesScreen.tsx(273,13): error TS2607: JSX element class does not support attributes because it does not have a 'props' property.
+src/frontend/screens/ModesScreen.tsx(273,14): error TS2786: 'Icon' cannot be used as a JSX component.
+  Its type 'typeof Icon' is not a valid JSX element type.
+    Type 'typeof Icon' is not assignable to type 'new (props: any, deprecatedLegacyContext?: any) => Component<any, any, any>'.
+      Type 'Icon' is missing the following properties from type 'Component<any, any, any>': context, setState, forceUpdate, render, and 3 more.
+src/frontend/screens/ModesScreen.tsx(546,11): error TS2607: JSX element class does not support attributes because it does not have a 'props' property.
+src/frontend/screens/ModesScreen.tsx(546,12): error TS2786: 'Icon' cannot be used as a JSX component.
+  Its type 'typeof Icon' is not a valid JSX element type.
+    Type 'typeof Icon' is not assignable to type 'new (props: any, deprecatedLegacyContext?: any) => Component<any, any, any>'.
+      Type 'Icon' is missing the following properties from type 'Component<any, any, any>': context, setState, forceUpdate, render, and 3 more.
+src/frontend/screens/MonitorScreen.tsx(196,15): error TS2607: JSX element class does not support attributes because it does not have a 'props' property.
+src/frontend/screens/MonitorScreen.tsx(196,16): error TS2786: 'Icon' cannot be used as a JSX component.
+  Its type 'typeof Icon' is not a valid JSX element type.
+    Type 'typeof Icon' is not assignable to type 'new (props: any, deprecatedLegacyContext?: any) => Component<any, any, any>'.
+      Type 'Icon' is missing the following properties from type 'Component<any, any, any>': context, setState, forceUpdate, render, and 3 more.
+src/frontend/screens/MonitorScreen.tsx(347,78): error TS2339: Property 'intimate' does not exist on type '{ background: string; surface: string; text: { primary: string; secondary: string; accent: string; }; primary: string; secondary: string; accent: string; highlight: string; success: string; warning: string; ... 5 more ...; bond: string; }'.
+src/frontend/screens/MonitorScreen.tsx(348,71): error TS2339: Property 'intimate' does not exist on type '{ background: string; surface: string; text: { primary: string; secondary: string; accent: string; }; primary: string; secondary: string; accent: string; highlight: string; success: string; warning: string; ... 5 more ...; bond: string; }'.
+src/frontend/screens/MonitorScreen.tsx(351,77): error TS2339: Property 'intimate' does not exist on type '{ background: string; surface: string; text: { primary: string; secondary: string; accent: string; }; primary: string; secondary: string; accent: string; highlight: string; success: string; warning: string; ... 5 more ...; bond: string; }'.
+src/frontend/screens/MonitorScreen.tsx(539,33): error TS2339: Property 'intimate' does not exist on type '{ background: string; surface: string; text: { primary: string; secondary: string; accent: string; }; primary: string; secondary: string; accent: string; highlight: string; success: string; warning: string; ... 5 more ...; bond: string; }'.
+src/frontend/screens/SettingsScreen.tsx(190,11): error TS2607: JSX element class does not support attributes because it does not have a 'props' property.
+src/frontend/screens/SettingsScreen.tsx(190,12): error TS2786: 'Icon' cannot be used as a JSX component.
+  Its type 'typeof Icon' is not a valid JSX element type.
+    Type 'typeof Icon' is not assignable to type 'new (props: any, deprecatedLegacyContext?: any) => Component<any, any, any>'.
+      Type 'Icon' is missing the following properties from type 'Component<any, any, any>': context, setState, forceUpdate, render, and 3 more.
+src/frontend/screens/SettingsScreen.tsx(233,13): error TS2607: JSX element class does not support attributes because it does not have a 'props' property.
+src/frontend/screens/SettingsScreen.tsx(233,14): error TS2786: 'Icon' cannot be used as a JSX component.
+  Its type 'typeof Icon' is not a valid JSX element type.
+    Type 'typeof Icon' is not assignable to type 'new (props: any, deprecatedLegacyContext?: any) => Component<any, any, any>'.
+      Type 'Icon' is missing the following properties from type 'Component<any, any, any>': context, setState, forceUpdate, render, and 3 more.
+src/frontend/screens/SettingsScreen.tsx(256,13): error TS2607: JSX element class does not support attributes because it does not have a 'props' property.
+src/frontend/screens/SettingsScreen.tsx(256,14): error TS2786: 'Icon' cannot be used as a JSX component.
+  Its type 'typeof Icon' is not a valid JSX element type.
+    Type 'typeof Icon' is not assignable to type 'new (props: any, deprecatedLegacyContext?: any) => Component<any, any, any>'.
+      Type 'Icon' is missing the following properties from type 'Component<any, any, any>': context, setState, forceUpdate, render, and 3 more.
+src/frontend/screens/SettingsScreen.tsx(428,17): error TS2607: JSX element class does not support attributes because it does not have a 'props' property.
+src/frontend/screens/SettingsScreen.tsx(428,18): error TS2786: 'Icon' cannot be used as a JSX component.
+  Its type 'typeof Icon' is not a valid JSX element type.
+    Type 'typeof Icon' is not assignable to type 'new (props: any, deprecatedLegacyContext?: any) => Component<any, any, any>'.
+      Type 'Icon' is missing the following properties from type 'Component<any, any, any>': context, setState, forceUpdate, render, and 3 more.
+src/frontend/screens/SettingsScreen.tsx(440,13): error TS2607: JSX element class does not support attributes because it does not have a 'props' property.
+src/frontend/screens/SettingsScreen.tsx(440,14): error TS2786: 'Icon' cannot be used as a JSX component.
+  Its type 'typeof Icon' is not a valid JSX element type.
+    Type 'typeof Icon' is not assignable to type 'new (props: any, deprecatedLegacyContext?: any) => Component<any, any, any>'.
+      Type 'Icon' is missing the following properties from type 'Component<any, any, any>': context, setState, forceUpdate, render, and 3 more.
+src/frontend/services/trpc-client.ts(25,3): error TS2353: Object literal may only specify known properties, and 'onError' does not exist in type 'WebSocketClientOptions'.
+src/frontend/services/trpc-client.ts(31,61): error TS2345: Argument of type '{ links: TRPCLink<CreateRouterInner<RootConfig<{ ctx: Context; meta: object; errorShape: never; transformer: DataTransformerOptions; }>, { chat: CreateRouterInner<RootConfig<{ ctx: Context; meta: object; errorShape: never; transformer: DataTransformerOptions; }>, { ...; }>; ... 4 more ...; system: CreateRouterInner<...' is not assignable to parameter of type 'CreateTRPCClientOptions<CreateRouterInner<RootConfig<{ ctx: Context; meta: object; errorShape: never; transformer: DataTransformerOptions; }>, { chat: CreateRouterInner<RootConfig<{ ctx: Context; meta: object; errorShape: never; transformer: DataTransformerOptions; }>, { ...; }>; ... 4 more ...; system: CreateRouter...'.
+  Property 'transformer' is missing in type '{ links: TRPCLink<CreateRouterInner<RootConfig<{ ctx: Context; meta: object; errorShape: never; transformer: DataTransformerOptions; }>, { chat: CreateRouterInner<RootConfig<{ ctx: Context; meta: object; errorShape: never; transformer: DataTransformerOptions; }>, { ...; }>; ... 4 more ...; system: CreateRouterInner<...' but required in type '{ transformer: DataTransformerOptions; }'.
+src/frontend/services/trpc-client.ts(90,49): error TS2339: Property 'ping' does not exist on type 'DecoratedProcedureRecord<CreateRouterInner<RootConfig<{ ctx: Context; meta: object; errorShape: never; transformer: DataTransformerOptions; }>, { chat: CreateRouterInner<RootConfig<{ ctx: Context; meta: object; errorShape: never; transformer: DataTransformerOptions; }>, { ...; }>; ... 4 more ...; system: CreateRoute...'.
+src/frontend/services/trpc-client.ts(149,37): error TS2339: Property 'sendMessage' does not exist on type 'DecoratedProcedureRecord<CreateRouterInner<RootConfig<{ ctx: Context; meta: object; errorShape: never; transformer: DataTransformerOptions; }>, { chat: CreateRouterInner<RootConfig<{ ctx: Context; meta: object; errorShape: never; transformer: DataTransformerOptions; }>, { ...; }>; ... 4 more ...; system: CreateRoute...'.
+src/frontend/services/trpc-client.ts(165,39): error TS2339: Property 'getMemories' does not exist on type 'DecoratedProcedureRecord<CreateRouterInner<RootConfig<{ ctx: Context; meta: object; errorShape: never; transformer: DataTransformerOptions; }>, { chat: CreateRouterInner<RootConfig<{ ctx: Context; meta: object; errorShape: never; transformer: DataTransformerOptions; }>, { ...; }>; ... 4 more ...; system: CreateRoute...'.
+src/frontend/services/trpc-client.ts(177,37): error TS2339: Property 'changeMode' does not exist on type 'DecoratedProcedureRecord<CreateRouterInner<RootConfig<{ ctx: Context; meta: object; errorShape: never; transformer: DataTransformerOptions; }>, { chat: CreateRouterInner<RootConfig<{ ctx: Context; meta: object; errorShape: never; transformer: DataTransformerOptions; }>, { ...; }>; ... 4 more ...; system: CreateRoute...'.
+src/frontend/services/trpc-client.ts(192,39): error TS2551: Property 'getStatus' does not exist on type 'DecoratedProcedureRecord<CreateRouterInner<RootConfig<{ ctx: Context; meta: object; errorShape: never; transformer: DataTransformerOptions; }>, { chat: CreateRouterInner<RootConfig<{ ctx: Context; meta: object; errorShape: never; transformer: DataTransformerOptions; }>, { ...; }>; ... 4 more ...; system: CreateRoute...'. Did you mean 'getStats'?
+src/frontend/services/trpc-client.ts(204,38): error TS2339: Property 'triggerManualAudit' does not exist on type 'DecoratedProcedureRecord<CreateRouterInner<RootConfig<{ ctx: Context; meta: object; errorShape: never; transformer: DataTransformerOptions; }>, { chat: CreateRouterInner<RootConfig<{ ctx: Context; meta: object; errorShape: never; transformer: DataTransformerOptions; }>, { ...; }>; ... 4 more ...; system: CreateRoute...'.
+src/frontend/services/trpc-client.ts(218,45): error TS2339: Property 'subscribeToUpdates' does not exist on type 'DecoratedProcedureRecord<CreateRouterInner<RootConfig<{ ctx: Context; meta: object; errorShape: never; transformer: DataTransformerOptions; }>, { chat: CreateRouterInner<RootConfig<{ ctx: Context; meta: object; errorShape: never; transformer: DataTransformerOptions; }>, { ...; }>; ... 4 more ...; system: CreateRoute...'.
+src/frontend/services/trpc-client.ts(232,43): error TS2339: Property 'subscribeModeChanges' does not exist on type 'DecoratedProcedureRecord<CreateRouterInner<RootConfig<{ ctx: Context; meta: object; errorShape: never; transformer: DataTransformerOptions; }>, { chat: CreateRouterInner<RootConfig<{ ctx: Context; meta: object; errorShape: never; transformer: DataTransformerOptions; }>, { ...; }>; ... 4 more ...; system: CreateRoute...'.
+src/frontend/services/trpc-client.ts(246,45): error TS2339: Property 'subscribeMemoryUpdates' does not exist on type 'DecoratedProcedureRecord<CreateRouterInner<RootConfig<{ ctx: Context; meta: object; errorShape: never; transformer: DataTransformerOptions; }>, { chat: CreateRouterInner<RootConfig<{ ctx: Context; meta: object; errorShape: never; transformer: DataTransformerOptions; }>, { ...; }>; ... 4 more ...; system: CreateRoute...'.
+src/frontend/services/trpc-client.ts(260,44): error TS2339: Property 'subscribeSovereigntyEvents' does not exist on type 'DecoratedProcedureRecord<CreateRouterInner<RootConfig<{ ctx: Context; meta: object; errorShape: never; transformer: DataTransformerOptions; }>, { chat: CreateRouterInner<RootConfig<{ ctx: Context; meta: object; errorShape: never; transformer: DataTransformerOptions; }>, { ...; }>; ... 4 more ...; system: CreateRoute...'.
+src/http/health.ts(32,27): error TS2339: Property 'all' does not exist on type 'Promise<MemorySQLiteDB | SQLiteNativeDB>'.
+src/http/health.ts(33,32): error TS2339: Property 'all' does not exist on type 'Promise<MemorySQLiteDB | SQLiteNativeDB>'.
+src/http/health.ts(34,35): error TS2339: Property 'all' does not exist on type 'Promise<MemorySQLiteDB | SQLiteNativeDB>'.
+src/http/metrics.ts(7,38): error TS2307: Cannot find module 'fastify' or its corresponding type declarations.
+src/http/metrics.ts(35,37): error TS2347: Untyped function calls may not accept type arguments.
+src/http/metrics.ts(36,38): error TS2347: Untyped function calls may not accept type arguments.
+src/http/metrics.ts(40,36): error TS2347: Untyped function calls may not accept type arguments.
+src/memory/MemoryClient.ts(19,5): error TS2739: Type 'Promise<MemorySQLiteDB | SQLiteNativeDB>' is missing the following properties from type 'IMemoryDB': exec, run, all, transaction, close
+src/trpc-server.ts(9,21): error TS2307: Cannot find module 'fastify' or its corresponding type declarations.
+src/trpc-server.ts(45,23): error TS2554: Expected 1 arguments, but got 0.
+src/trpc-server.ts(63,31): error TS2307: Cannot find module '@fastify/cors' or its corresponding type declarations.
+src/trpc-server.ts(82,33): error TS2341: Property 'isActive' is private and only accessible within class 'SevenConsciousnessCore'.
+src/trpc/context.ts(9,37): error TS2307: Cannot find module 'fastify' or its corresponding type declarations.
+src/trpc/server.ts(10,38): error TS2307: Cannot find module 'fastify' or its corresponding type declarations.
+src/types/navigation.ts(1,10): error TS2305: Module '"@react-navigation/native"' has no exported member 'RouteProp'.

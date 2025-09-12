@@ -85,7 +85,7 @@ export const sevenRouter = router({
     // Send message to Seven
     send: publicProcedure
       .input(ChatMessageSchema)
-      .mutation(async ({ input, ctx }) => {
+      .mutation(async ({ input, ctx }: HandlerInput<z.infer<typeof ChatMessageSchema>>) => {
         const startTime = Date.now();
         
         try {

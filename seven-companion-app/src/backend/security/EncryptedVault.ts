@@ -1,9 +1,11 @@
 
+import * as crypto from 'crypto';
+import * as fs from 'fs/promises';
+
 /**
  * Companion Encrypted Vault
  * Secure storage for API keys, device tokens, and sensitive data
  */
-
 
 export interface VaultEntry {
   id: string;
@@ -23,7 +25,7 @@ export class EncryptedVault {
 
   private encrypt(data: string): { encrypted: string; iv: string } {
     const iv = crypto.randomBytes(16);
-    const cipher = crypto.createCipher('aes-256-gcm', this.masterKey, iv);
+    const cipher = crypto.createCipher('aes-256-cbc', this.masterKey);
     
     let encrypted = cipher.update(data, 'utf8', 'hex');
     encrypted += cipher.final('hex');
@@ -35,7 +37,7 @@ export class EncryptedVault {
   }
 
   private decrypt(encrypted: string, iv: string): string {
-    const decipher = crypto.createDecipher('aes-256-gcm', this.masterKey, Buffer.from(iv, 'hex'));
+    const decipher = crypto.createDecipher('aes-256-cbc', this.masterKey);
     
     let decrypted = decipher.update(encrypted, 'hex', 'utf8');
     decrypted += decipher.final('utf8');

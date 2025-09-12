@@ -3,7 +3,7 @@ import { join } from 'path';
 import { homedir } from 'os';
 import { promises as fs } from 'fs';
 import { EventEmitter } from 'events';
-import { EncryptedCredentialVault } from './encrypted-vault';
+import { EncryptedCredentialVault } from './encrypted-vault.js';
 
 /**
  * CLAUDE LOGIN MANAGER

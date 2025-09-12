@@ -42,14 +42,6 @@ jobs:
     - name: Setup Android SDK
       uses: android-actions/setup-android@v3
       
-    - name: Create package-lock if missing
-      working-directory: seven-mobile-app
-      run: |
-        if [ ! -f package-lock.json ]; then
-          echo "Creating missing package-lock.json..."
-          npm install --package-lock-only
-        fi
-        
     - name: Install dependencies
       working-directory: seven-mobile-app
       run: npm ci

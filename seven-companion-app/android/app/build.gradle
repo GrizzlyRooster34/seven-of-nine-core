@@ -11,11 +11,11 @@ android {
     compileSdkVersion rootProject.ext.compileSdkVersion
 
     defaultConfig {
-        applicationId "com.seven.app"
+        applicationId "com.sevencompanion"
         minSdkVersion 24
         targetSdkVersion 34
-        versionCode 1      // bump on every release
-        versionName "0.1.0"
+        versionCode 10001  // Production release ready
+        versionName "1.0.1"
     }
 
     signingConfigs {

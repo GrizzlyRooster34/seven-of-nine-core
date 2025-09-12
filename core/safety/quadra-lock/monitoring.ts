@@ -1,5 +1,5 @@
-        import logDir from 'path'.dirname(logFile);
-    import crypto from 'crypto';
+import { dirname } from 'path';
+import crypto from 'crypto';
 import { join } from 'path';
 import { promises as fs } from 'fs';
 

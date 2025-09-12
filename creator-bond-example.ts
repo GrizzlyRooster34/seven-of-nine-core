@@ -1,4 +1,3 @@
-import { 
 import { MentalTimeTravelEngine } from './MentalTimeTravelEngine';
 import { TemporalMemoryCore } from './TemporalMemoryCore';
 

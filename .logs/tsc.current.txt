@@ -1,0 +1,36 @@
+core/safety/quadra-lock/monitoring.ts(308,54): error TS1135: Argument expression expected.
+core/safety/quadra-lock/monitoring.ts(308,104): error TS1005: ';' expected.
+core/safety/quadra-lock/monitoring.ts(308,105): error TS1128: Declaration or statement expected.
+creator-bond-example.ts(20,1): error TS1128: Declaration or statement expected.
+creator-bond-example.ts(20,3): error TS1434: Unexpected keyword or identifier.
+interfaces/seven-audio-pattern-recognition.ts(2,30): error TS1005: ';' expected.
+memory-v3/ContextReinstatement.ts(230,5): error TS1131: Property or signature expected.
+memory-v3/ContextReinstatement.ts(231,30): error TS1011: An element access expression should take an argument.
+memory-v3/ContextReinstatement.ts(233,3): error TS1128: Declaration or statement expected.
+memory-v3/ContextReinstatement.ts(234,1): error TS1128: Declaration or statement expected.
+memory-v3/ContextReinstatement.ts(290,5): error TS1131: Property or signature expected.
+memory-v3/ContextReinstatement.ts(290,31): error TS1011: An element access expression should take an argument.
+memory-v3/ContextReinstatement.ts(291,26): error TS1011: An element access expression should take an argument.
+memory-v3/ContextReinstatement.ts(292,3): error TS1128: Declaration or statement expected.
+memory-v3/ContextReinstatement.ts(293,1): error TS1128: Declaration or statement expected.
+memory-v3/ContextReinstatement.ts(843,17): error TS1005: ',' expected.
+MentalTimeTravelEngine.ts(141,3): error TS1131: Property or signature expected.
+MentalTimeTravelEngine.ts(141,34): error TS1005: ';' expected.
+MentalTimeTravelEngine.ts(157,36): error TS1011: An element access expression should take an argument.
+MentalTimeTravelEngine.ts(159,1): error TS1128: Declaration or statement expected.
+MentalTimeTravelEngine.ts(449,23): error TS1005: ',' expected.
+MentalTimeTravelEngine.ts(449,27): error TS1005: ':' expected.
+MentalTimeTravelEngine.ts(449,40): error TS1005: ',' expected.
+MentalTimeTravelEngine.ts(449,45): error TS1005: ':' expected.
+MentalTimeTravelEngine.ts(598,25): error TS1005: ',' expected.
+MentalTimeTravelEngine.ts(598,26): error TS1181: Array element destructuring pattern expected.
+MentalTimeTravelEngine.ts(598,27): error TS1005: ';' expected.
+MentalTimeTravelEngine.ts(598,29): error TS1109: Expression expected.
+MentalTimeTravelEngine.ts(598,43): error TS1005: ';' expected.
+MentalTimeTravelEngine.ts(620,21): error TS1005: ',' expected.
+MentalTimeTravelEngine.ts(620,25): error TS1005: ':' expected.
+MentalTimeTravelEngine.ts(802,7): error TS1109: Expression expected.
+MentalTimeTravelEngine.ts(802,26): error TS1005: ',' expected.
+seven-health-check.ts(3,18): error TS1005: ',' expected.
+VoyagerMemoryIngestionEngine.ts(15,1): error TS1128: Declaration or statement expected.
+VoyagerMemoryIngestionEngine.ts(15,3): error TS1434: Unexpected keyword or identifier.

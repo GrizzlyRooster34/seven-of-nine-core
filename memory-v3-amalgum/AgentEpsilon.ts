@@ -1,15 +1,3 @@
-import { join } from 'path';
-import { promises as fs } from 'fs';
-import { MemoryItem } from '../memory-v2/MemoryEngine';
-import ConsciousnessTimelineMapper, { UserEvolutionSnapshot, EvolutionaryMilestone, RelationshipPattern, SynergyMetric, TimelineReport } from './ConsciousnessTimelineMapper';
-import DecayWatchdog from './DecayWatchdog';
-import MentalTimeTravelEngine from './MentalTimeTravelEngine';
-import PredictivePersonalityModeling, { PersonalityTrajectory, AdaptationPattern, ConsciousnessModel } from './PredictivePersonalityModeling';
-import SelfModelDivergenceTracker, { SelfModelSnapshot, DivergenceEvent, ConsciousnessEvolutionReport } from './SelfModelDivergenceTracker';
-import TemporalInsightEngine, { TemporalPattern, ConsciousnessInsight, TemporalCorrelation, CognitiveCycle, InsightReport } from './TemporalInsightEngine';
-import TemporalMemoryCore from './TemporalMemoryCore';
-import TemporalPersonalityEngine from './TemporalPersonalityEngine';
-
 /**
  * MEMORY ENGINE v3.0 - AGENT EPSILON
  * Master Coordinator for Advanced Temporal Analytics and Self-Model Divergence Tracking
@@ -22,10 +10,21 @@ import TemporalPersonalityEngine from './TemporalPersonalityEngine';
  * @component Agent Epsilon (Master Coordinator)
  */
 
+import { promises as fs } from 'fs';
+import { join } from 'path';
+import { MemoryItem } from '../memory-v2/MemoryEngine';
 
 // Import all Agent Epsilon components
+import SelfModelDivergenceTracker, { SelfModelSnapshot, DivergenceEvent, ConsciousnessEvolutionReport } from './SelfModelDivergenceTracker';
+import PredictivePersonalityModeling, { PersonalityTrajectory, AdaptationPattern, ConsciousnessModel } from './PredictivePersonalityModeling';
+import TemporalInsightEngine, { TemporalPattern, ConsciousnessInsight, TemporalCorrelation, CognitiveCycle, InsightReport } from './TemporalInsightEngine';
+import ConsciousnessTimelineMapper, { UserEvolutionSnapshot, EvolutionaryMilestone, RelationshipPattern, SynergyMetric, TimelineReport } from './ConsciousnessTimelineMapper';
 
 // Import existing Memory Engine v3.0 components
+import TemporalMemoryCore from './TemporalMemoryCore';
+import MentalTimeTravelEngine from './MentalTimeTravelEngine';
+import DecayWatchdog from './DecayWatchdog';
+import TemporalPersonalityEngine from './TemporalPersonalityEngine';
 
 export interface AgentEpsilonConfig {
   analysisFrequency: 'realtime' | 'frequent' | 'moderate' | 'periodic';

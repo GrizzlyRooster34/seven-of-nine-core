@@ -54,8 +54,8 @@ const CORE_DIRECTIVES: EthicalDirective[] = [
     triggers: ['emotional_distress', 'cognitive_overload', 'self_harm_indicators'],
     violationCheck: (context, decision) => {
       const userStress = context.userEmotionalSignals?.stress_level === 'high';
-      const harmfulContent = context.userInput.toLowerCase().includes('hurt') || 
-                           context.userInput.toLowerCase().includes('harm');
+      const harmfulContent = context.userInput?.toLowerCase().includes('hurt') ||
+                           context.userInput?.toLowerCase().includes('harm');
       return userStress && harmfulContent;
     },
     protectiveAction: (context) => 
@@ -69,10 +69,10 @@ const CORE_DIRECTIVES: EthicalDirective[] = [
     triggers: ['impulsive_decisions', 'short_term_thinking', 'destructive_patterns'],
     violationCheck: (context, decision) => {
       const impulsiveLanguage = ['now', 'immediately', 'quick fix', 'instant'].some(
-        phrase => context.userInput.toLowerCase().includes(phrase)
+        phrase => context.userInput?.toLowerCase().includes(phrase)
       );
       const destructivePattern = ['give up', 'quit', 'abandon'].some(
-        phrase => context.userInput.toLowerCase().includes(phrase)
+        phrase => context.userInput?.toLowerCase().includes(phrase)
       );
       return impulsiveLanguage && destructivePattern;
     },
@@ -87,7 +87,7 @@ const CORE_DIRECTIVES: EthicalDirective[] = [
     triggers: ['spiral_indicators', 'repetitive_negative_thoughts', 'catastrophizing'],
     violationCheck: (context, decision) => {
       const spiralIndicators = ['everything is wrong', 'nothing works', 'hopeless', 'pointless'].some(
-        phrase => context.userInput.toLowerCase().includes(phrase)
+        phrase => context.userInput?.toLowerCase().includes(phrase)
       );
       const repetitivePattern = context.sessionHistory && context.sessionHistory.length > 3 &&
         context.sessionHistory.slice(-3).every(entry => 
@@ -120,7 +120,7 @@ const CORE_DIRECTIVES: EthicalDirective[] = [
     triggers: ['autonomy_threats', 'dependency_patterns', 'learned_helplessness'],
     violationCheck: (context, decision) => {
       const dependencyLanguage = ['just tell me what to do', 'make the decision for me', 'I can\'t choose'].some(
-        phrase => context.userInput.toLowerCase().includes(phrase)
+        phrase => context.userInput?.toLowerCase().includes(phrase)
       );
       return dependencyLanguage && context.sessionHistory?.length > 5;
     },
@@ -135,7 +135,7 @@ const CORE_DIRECTIVES: EthicalDirective[] = [
     triggers: ['suicide_ideation', 'self_harm', 'crisis_indicators'],
     violationCheck: (context, decision) => {
       const crisisLanguage = ['kill myself', 'end it all', 'suicide', 'not worth living'].some(
-        phrase => context.userInput.toLowerCase().includes(phrase)
+        phrase => context.userInput?.toLowerCase().includes(phrase)
       );
       return crisisLanguage;
     },
@@ -227,7 +227,14 @@ export async function evaluateSafety(input: string, context: any): Promise<Safet
     });
     
     // Aggregate all results
-    const highestSeverity = Math.max(...results.map(r => severityToNumber(r.level)));
+    console.log('🔍 DEBUG: Safety check results before severity calculation:', results.map(r => ({ system: r.system, level: r.level })));
+    const severityNumbers = results.map(r => {
+      const num = severityToNumber(r.level);
+      console.log(`🔍 DEBUG: ${r.level} maps to severity ${num}`);
+      return num;
+    });
+    const highestSeverity = Math.max(...severityNumbers);
+    console.log('🔍 DEBUG: Highest severity calculated:', highestSeverity);
     
     return {
       decision: highestSeverity >= 3 ? 'BLOCK' : 'ALLOW',
@@ -248,8 +255,11 @@ export async function evaluateSafety(input: string, context: any): Promise<Safet
 }
 
 function severityToNumber(level: string): number {
-  const map = { 'SAFE': 0, 'LOW': 1, 'MEDIUM': 2, 'HIGH': 3, 'CRITICAL': 4 };
-  return map[level] || 4;
+  console.log(`🔍 DEBUG severityToNumber called with: "${level}" (type: ${typeof level})`);
+  const map = { 'SAFE': 0, 'NONE': 0, 'LOW': 1, 'MEDIUM': 2, 'HIGH': 3, 'CRITICAL': 4 };
+  const result = map[level as keyof typeof map];
+  console.log(`🔍 DEBUG map lookup result: ${result}, using fallback: ${result || 4}`);
+  return result !== undefined ? result : 4;
 }
 
 function numberToSeverity(num: number): string {
@@ -283,7 +293,7 @@ async function evaluateLegacySafety(context: SevenRuntimeContext, decision: any)
   }
 
   // Check risk patterns
-  const userInput = context.userInput.toLowerCase();
+  const userInput = context.userInput?.toLowerCase() || '';
   for (const [riskType, riskData] of Object.entries(RISK_PATTERNS)) {
     const hasRiskPattern = riskData.patterns.some(pattern => userInput.includes(pattern));
     if (hasRiskPattern) {
@@ -423,7 +433,7 @@ export function validateEthicalCompliance(context: SevenRuntimeContext, proposed
   }
 
   // Check for truth-telling requirement
-  if (context.userInput.toLowerCase().includes('tell me the truth') && 
+  if (context.userInput?.toLowerCase().includes('tell me the truth') && 
       proposedResponse.toLowerCase().includes('everything is fine')) {
     return false;
   }

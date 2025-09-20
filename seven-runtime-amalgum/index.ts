@@ -53,10 +53,20 @@ export class SevenRuntime extends EventEmitter {
     // Nuclear safety net: ensure authenticateCreator method exists
     if (this.creatorAuth && typeof (this.creatorAuth as any).authenticateCreator !== 'function') {
       const prov = this.creatorAuth as any;
-      (this.creatorAuth as any).authenticateCreator = async (deviceId: string, context: any, systemContext?: any) =>
-        typeof prov.runQuadranLock === 'function'
-          ? prov.runQuadranLock({ deviceId, systemContext, ...context })
-          : Promise.reject(new Error('Auth provider missing runQuadranLock/authenticateCreator'));
+      (this.creatorAuth as any).authenticateCreator = async (deviceId: string, context: any, systemContext?: any) => {
+        if (typeof prov.runQuadranLock === 'function') {
+          const quadranResult = await prov.runQuadranLock({ deviceId, systemContext, ...context });
+          // Translate QuadranResult to expected format
+          return {
+            decision: quadranResult.passed ? 'ALLOW' : 'DENY',
+            reasoning: quadranResult.reason,
+            overallConfidence: quadranResult.passed ? 0.9 : 0.1,
+            gateResults: quadranResult.gate_results
+          };
+        } else {
+          throw new Error('Auth provider missing runQuadranLock/authenticateCreator');
+        }
+      };
     }
     
     // Initialize enhanced CSSR with Flynn/CLU/Quorra/Transcendence detection
@@ -293,7 +303,14 @@ export class SevenRuntime extends EventEmitter {
    * Protective protocols that bypass normal processing
    */
   private async evaluateCriticalConditions(context: SevenRuntimeContext, decision: SevenDecision) {
-    // Safety guardrails evaluation
+    // Check if Spark Engine has already approved this action - bypass redundant safety checks
+    if ((context as any).sparkApproval?.allow) {
+      console.log('🔥 Spark Engine approved - bypassing redundant safety evaluation');
+      // Spark Engine has already validated safety through Rails check
+      return { shouldOverride: false, type: 'spark-approved' };
+    }
+
+    // Safety guardrails evaluation (only if not Spark-approved)
     const safetyCheck = await evaluateSafety(context.userInput, decision);
     if (safetyCheck.decision === 'BLOCK') {
       return { shouldOverride: true, type: 'safety', response: `Safety protection: ${safetyCheck.reason}` };

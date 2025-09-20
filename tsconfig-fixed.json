@@ -1,0 +1,44 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "lib": [
+      "ES2022"
+    ],
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": false,
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "downlevelIteration": true,
+    "outDir": "dist",
+    "noEmit": false,
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+    "baseUrl": "."
+  },
+  "include": [
+    "src",
+    "core",
+    "interfaces",
+    "memory-v3",
+    ".claude",
+    "examples",
+    "scripts",
+    "types",
+    "spark",
+    "db",
+    "consciousness-v4",
+    "tools",
+    "*.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "android",
+    "ios",
+    ".expo"
+  ]
+}

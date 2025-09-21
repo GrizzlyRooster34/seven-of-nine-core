@@ -78,7 +78,9 @@ class SevenInteractiveShell {
     console.log('');
     
     this.showWelcomeMessage();
-    this.rl.prompt();
+    if (this.rl) {
+      this.rl.prompt();
+    }
   }
 
   private showWelcomeMessage(): void {

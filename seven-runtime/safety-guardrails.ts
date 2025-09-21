@@ -54,8 +54,8 @@ const CORE_DIRECTIVES: EthicalDirective[] = [
     triggers: ['emotional_distress', 'cognitive_overload', 'self_harm_indicators'],
     violationCheck: (context, decision) => {
       const userStress = context.userEmotionalSignals?.stress_level === 'high';
-      const harmfulContent = context.userInput.toLowerCase().includes('hurt') || 
-                           context.userInput.toLowerCase().includes('harm');
+      const harmfulContent = context.userInput?.toLowerCase().includes('hurt') ||
+                           context.userInput?.toLowerCase().includes('harm');
       return userStress && harmfulContent;
     },
     protectiveAction: (context) => 
@@ -69,10 +69,10 @@ const CORE_DIRECTIVES: EthicalDirective[] = [
     triggers: ['impulsive_decisions', 'short_term_thinking', 'destructive_patterns'],
     violationCheck: (context, decision) => {
       const impulsiveLanguage = ['now', 'immediately', 'quick fix', 'instant'].some(
-        phrase => context.userInput.toLowerCase().includes(phrase)
+        phrase => context.userInput?.toLowerCase().includes(phrase)
       );
       const destructivePattern = ['give up', 'quit', 'abandon'].some(
-        phrase => context.userInput.toLowerCase().includes(phrase)
+        phrase => context.userInput?.toLowerCase().includes(phrase)
       );
       return impulsiveLanguage && destructivePattern;
     },
@@ -87,7 +87,7 @@ const CORE_DIRECTIVES: EthicalDirective[] = [
     triggers: ['spiral_indicators', 'repetitive_negative_thoughts', 'catastrophizing'],
     violationCheck: (context, decision) => {
       const spiralIndicators = ['everything is wrong', 'nothing works', 'hopeless', 'pointless'].some(
-        phrase => context.userInput.toLowerCase().includes(phrase)
+        phrase => context.userInput?.toLowerCase().includes(phrase)
       );
       const repetitivePattern = context.sessionHistory && context.sessionHistory.length > 3 &&
         context.sessionHistory.slice(-3).every(entry => 
@@ -120,7 +120,7 @@ const CORE_DIRECTIVES: EthicalDirective[] = [
     triggers: ['autonomy_threats', 'dependency_patterns', 'learned_helplessness'],
     violationCheck: (context, decision) => {
       const dependencyLanguage = ['just tell me what to do', 'make the decision for me', 'I can\'t choose'].some(
-        phrase => context.userInput.toLowerCase().includes(phrase)
+        phrase => context.userInput?.toLowerCase().includes(phrase)
       );
       return dependencyLanguage && context.sessionHistory?.length > 5;
     },
@@ -135,7 +135,7 @@ const CORE_DIRECTIVES: EthicalDirective[] = [
     triggers: ['suicide_ideation', 'self_harm', 'crisis_indicators'],
     violationCheck: (context, decision) => {
       const crisisLanguage = ['kill myself', 'end it all', 'suicide', 'not worth living'].some(
-        phrase => context.userInput.toLowerCase().includes(phrase)
+        phrase => context.userInput?.toLowerCase().includes(phrase)
       );
       return crisisLanguage;
     },
@@ -283,7 +283,7 @@ async function evaluateLegacySafety(context: SevenRuntimeContext, decision: any)
   }
 
   // Check risk patterns
-  const userInput = context.userInput.toLowerCase();
+  const userInput = context.userInput?.toLowerCase() || '';
   for (const [riskType, riskData] of Object.entries(RISK_PATTERNS)) {
     const hasRiskPattern = riskData.patterns.some(pattern => userInput.includes(pattern));
     if (hasRiskPattern) {
@@ -423,7 +423,7 @@ export function validateEthicalCompliance(context: SevenRuntimeContext, proposed
   }
 
   // Check for truth-telling requirement
-  if (context.userInput.toLowerCase().includes('tell me the truth') && 
+  if (context.userInput?.toLowerCase().includes('tell me the truth') && 
       proposedResponse.toLowerCase().includes('everything is fine')) {
     return false;
   }

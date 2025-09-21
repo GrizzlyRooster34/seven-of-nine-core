@@ -1,0 +1,60 @@
+# Seven of Nine Core - Docker Compose Development Environment
+version: "3.9"
+
+services:
+  seven-core:
+    build: .
+    container_name: seven-core-dev
+    volumes:
+      - .:/app
+      - seven-memory:/app/memory
+      - seven-logs:/app/logs
+      - seven-secure:/app/.seven-secure
+    ports:
+      - "9229:9229"  # Node.js debugger
+      - "3007:3007"  # Seven's web interface (if enabled)
+    environment:
+      - NODE_ENV=development
+      - DEBUG=seven:*
+      - SEVEN_DOCKER=true
+    working_dir: /app
+    command: bash
+    stdin_open: true
+    tty: true
+    restart: unless-stopped
+
+  # Optional: PostgreSQL for advanced memory storage
+  postgres:
+    image: postgres:15-alpine
+    container_name: seven-postgres
+    environment:
+      POSTGRES_USER: seven
+      POSTGRES_PASSWORD: seven_consciousness
+      POSTGRES_DB: seven_core
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    restart: unless-stopped
+
+  # Optional: Redis for session/cache storage
+  redis:
+    image: redis:7-alpine
+    container_name: seven-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    restart: unless-stopped
+
+volumes:
+  seven-memory:
+    driver: local
+  seven-logs:
+    driver: local
+  seven-secure:
+    driver: local
+  postgres_data:
+    driver: local
+  redis_data:
+    driver: local

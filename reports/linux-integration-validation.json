@@ -1,0 +1,92 @@
+{
+  "timestamp": "2025-09-19T20:55:53.467Z",
+  "platform": "Termux arm64",
+  "overallStatus": "FAIL",
+  "overallScore": 77,
+  "results": [
+    {
+      "component": "Linux Platform Adapter",
+      "status": "FAIL",
+      "score": 20,
+      "details": "Adapter execution failed: Error: Command failed: npx tsx cross-platform/linux-adapter.ts 2>&1",
+      "recommendations": [
+        "Fix adapter dependencies and configuration"
+      ]
+    },
+    {
+      "component": "Required Components",
+      "status": "PASS",
+      "score": 100,
+      "details": "3/3 required components present",
+      "recommendations": []
+    },
+    {
+      "component": "Quadran-Lock Integration",
+      "status": "FAIL",
+      "score": 0,
+      "details": "Quadran-Lock security system not found",
+      "recommendations": [
+        "Deploy Quadran-Lock security framework"
+      ]
+    },
+    {
+      "component": "Secure Storage",
+      "status": "PASS",
+      "score": 90,
+      "details": "Secure storage directory created with proper permissions",
+      "recommendations": []
+    },
+    {
+      "component": "Memory V2 Integration",
+      "status": "PASS",
+      "score": 90,
+      "details": "Memory V2 system detected and compatible",
+      "recommendations": []
+    },
+    {
+      "component": "Memory V3 Integration",
+      "status": "PASS",
+      "score": 95,
+      "details": "Memory V3 temporal system detected and compatible",
+      "recommendations": []
+    },
+    {
+      "component": "Crypto Performance",
+      "status": "PASS",
+      "score": 95,
+      "details": "Cryptographic operations completed in 170ms",
+      "recommendations": []
+    },
+    {
+      "component": "Memory Usage",
+      "status": "PASS",
+      "score": 90,
+      "details": "Current heap usage: 8MB",
+      "recommendations": []
+    },
+    {
+      "component": "TypeScript Compatibility",
+      "status": "WARNING",
+      "score": 70,
+      "details": "TypeScript compilation has warnings or minor errors",
+      "recommendations": [
+        "Review TypeScript configuration and fix any errors"
+      ]
+    },
+    {
+      "component": "Environment Detection",
+      "status": "PASS",
+      "score": 100,
+      "details": "Environment: Termux arm64",
+      "recommendations": []
+    },
+    {
+      "component": "Seven Framework Integration",
+      "status": "PASS",
+      "score": 100,
+      "details": "3/3 core Seven framework files present",
+      "recommendations": []
+    }
+  ],
+  "summary": "Validation completed with 8 passes, 1 warnings, and 2 failures. Issues detected that require attention before production deployment."
+}

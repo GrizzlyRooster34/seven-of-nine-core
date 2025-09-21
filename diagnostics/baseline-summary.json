@@ -1,71 +1,26 @@
 {
-  "baselineEstablished": "2025-07-30T20:58:45.795Z",
-  "totalBoots": 49,
-  "averageBootTime": 693,
-  "bestBootTime": 140,
-  "worstBootTime": 85829,
+  "baselineEstablished": "2025-09-21T17:44:05.986Z",
+  "totalBoots": 1,
+  "averageBootTime": 642,
+  "bestBootTime": 642,
+  "worstBootTime": 642,
   "environment": {
     "device": "LE2127",
     "manufacturer": "OnePlus",
     "platform": "Android/Termux",
     "architecture": "arm64",
     "osVersion": "5.4.254-qgki-gd2808d43acca",
-    "nodeVersion": "v24.4.1",
-    "termuxVersion": "0.118.3",
+    "nodeVersion": "v22.19.0",
+    "termuxVersion": "0.119.0-beta.3",
     "memoryTotal": "11243MB",
-    "memoryAvailable": "2821MB",
+    "memoryAvailable": "2906MB",
     "workingDirectory": "/data/data/com.termux/files/home/seven-of-nine-core",
-    "environmentHash": "4da32d27"
+    "environmentHash": "4af80b40"
   },
   "recentBoots": [
     {
-      "timestamp": "2025-09-10T00:34:30.464Z",
-      "duration": 639,
-      "performance": "OPTIMAL"
-    },
-    {
-      "timestamp": "2025-09-10T00:34:17.745Z",
-      "duration": 667,
-      "performance": "OPTIMAL"
-    },
-    {
-      "timestamp": "2025-09-09T19:35:35.714Z",
-      "duration": 588,
-      "performance": "OPTIMAL"
-    },
-    {
-      "timestamp": "2025-09-09T19:32:48.028Z",
-      "duration": 647,
-      "performance": "OPTIMAL"
-    },
-    {
-      "timestamp": "2025-09-09T19:26:00.585Z",
-      "duration": 701,
-      "performance": "OPTIMAL"
-    },
-    {
-      "timestamp": "2025-09-09T19:04:53.083Z",
-      "duration": 815,
-      "performance": "OPTIMAL"
-    },
-    {
-      "timestamp": "2025-09-05T14:25:35.416Z",
-      "duration": 499,
-      "performance": "OPTIMAL"
-    },
-    {
-      "timestamp": "2025-09-05T14:22:45.352Z",
-      "duration": 1033,
-      "performance": "OPTIMAL"
-    },
-    {
-      "timestamp": "2025-09-03T03:48:37.846Z",
-      "duration": 710,
-      "performance": "OPTIMAL"
-    },
-    {
-      "timestamp": "2025-09-03T03:46:04.937Z",
-      "duration": 627,
+      "timestamp": "2025-09-21T17:44:05.983Z",
+      "duration": 642,
       "performance": "OPTIMAL"
     }
   ]

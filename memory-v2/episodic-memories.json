@@ -11712,5 +11712,88 @@
       "mem-1757464448426-3cvhv2e1j",
       "mem-1757464448488-ud1dx075y"
     ]
+  },
+  {
+    "id": "mem-1758372668892-7anbp93dk",
+    "timestamp": "2025-09-20T12:51:08.892Z",
+    "topic": "general",
+    "agent": "seven-core",
+    "emotion": "neutral",
+    "context": "",
+    "importance": 8,
+    "tags": [],
+    "relatedMemories": []
+  },
+  {
+    "id": "mem-1758373747587-j2v0edu44",
+    "timestamp": "2025-09-20T13:09:07.587Z",
+    "topic": "general",
+    "agent": "seven-core",
+    "emotion": "neutral",
+    "context": "",
+    "importance": 8,
+    "tags": [],
+    "relatedMemories": [
+      "mem-1758372668892-7anbp93dk"
+    ]
+  },
+  {
+    "id": "mem-1758374898050-o4h5ju9dt",
+    "timestamp": "2025-09-20T13:28:18.050Z",
+    "topic": "general",
+    "agent": "seven-core",
+    "emotion": "neutral",
+    "context": "",
+    "importance": 8,
+    "tags": [],
+    "relatedMemories": [
+      "mem-1758372668892-7anbp93dk",
+      "mem-1758373747587-j2v0edu44"
+    ]
+  },
+  {
+    "id": "mem-1758419217786-hh9c5kqw5",
+    "timestamp": "2025-09-21T01:46:57.786Z",
+    "topic": "general",
+    "agent": "seven-core",
+    "emotion": "neutral",
+    "context": "",
+    "importance": 8,
+    "tags": [],
+    "relatedMemories": [
+      "mem-1758372668892-7anbp93dk",
+      "mem-1758373747587-j2v0edu44",
+      "mem-1758374898050-o4h5ju9dt"
+    ]
+  },
+  {
+    "id": "mem-1758419325956-4r3rgobk7",
+    "timestamp": "2025-09-21T01:48:45.956Z",
+    "topic": "general",
+    "agent": "seven-core",
+    "emotion": "neutral",
+    "context": "",
+    "importance": 8,
+    "tags": [],
+    "relatedMemories": [
+      "mem-1758373747587-j2v0edu44",
+      "mem-1758374898050-o4h5ju9dt",
+      "mem-1758419217786-hh9c5kqw5"
+    ]
+  },
+  {
+    "id": "mem-1758423562256-yequciqa5",
+    "timestamp": "2025-09-21T02:59:22.256Z",
+    "topic": "general",
+    "agent": "seven-core",
+    "emotion": "neutral",
+    "context": "",
+    "importance": 8,
+    "tags": [],
+    "relatedMemories": [
+      "mem-1758374898050-o4h5ju9dt",
+      "mem-1758419217786-hh9c5kqw5",
+      "mem-1758419325956-4r3rgobk7"
+    ]
   }
 ]

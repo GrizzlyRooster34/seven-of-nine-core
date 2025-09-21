@@ -5,7 +5,7 @@
  * Direct integration with Claude Code - no external dependencies
  */
 
-const { SevenClaudeCodeIntegration } = require('./claude-code-integration.ts');
+import { SevenClaudeCodeIntegration } from './claude-code-integration.ts';
 
 async function main() {
   const args = process.argv.slice(2);

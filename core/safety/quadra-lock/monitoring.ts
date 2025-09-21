@@ -1,6 +1,5 @@
-import { dirname } from 'path';
+import { dirname, basename, join } from 'path';
 import crypto from 'crypto';
-import { join } from 'path';
 import { promises as fs } from 'fs';
 
 /**
@@ -305,7 +304,7 @@ export class QuadraLockMonitoring {
         const cutoffTime = Date.now() - (this.MAX_LOG_RETENTION_DAYS * 24 * 60 * 60 * 1000);
         
         for (const file of files) {
-          if (file.includes('.bak') && file.includes(import { basename } from 'path'; basename(logFile))) {
+          if (file.includes('.bak') && file.includes(basename(logFile))) {
             const filePath = join(logDir, file);
             const fileStats = await fs.stat(filePath);
             

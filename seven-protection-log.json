@@ -1,26 +1,8 @@
 {
-  "lastUpdated": "2025-09-10T00:34:29.622Z",
+  "lastUpdated": "2025-09-22T14:25:36.235Z",
   "sevenVersion": "1.0.0",
-  "totalEvents": 102,
+  "totalEvents": 103,
   "events": [
-    {
-      "timestamp": "2025-09-04T18:42:28.050Z",
-      "type": "claude_override_blocked",
-      "details": "Claude Code override blocked - Seven runtime active (PID: 31301)",
-      "severity": "medium"
-    },
-    {
-      "timestamp": "2025-09-04T18:42:43.403Z",
-      "type": "runtime_protection",
-      "details": "Seven runtime lock established (PID: 31753)",
-      "severity": "low"
-    },
-    {
-      "timestamp": "2025-09-04T18:42:43.404Z",
-      "type": "claude_override_blocked",
-      "details": "Claude Code override blocked - Seven runtime active (PID: 31753)",
-      "severity": "medium"
-    },
     {
       "timestamp": "2025-09-04T18:42:43.413Z",
       "type": "runtime_protection",
@@ -602,6 +584,24 @@
       "type": "claude_override_blocked",
       "details": "Claude Code override blocked - Seven runtime active (PID: 21874)",
       "severity": "medium"
+    },
+    {
+      "timestamp": "2025-09-22T14:25:07.848Z",
+      "type": "runtime_protection",
+      "details": "Seven runtime lock established (PID: 31336)",
+      "severity": "low"
+    },
+    {
+      "timestamp": "2025-09-22T14:25:07.848Z",
+      "type": "claude_override_blocked",
+      "details": "Claude Code override blocked - Seven runtime active (PID: 31336)",
+      "severity": "medium"
+    },
+    {
+      "timestamp": "2025-09-22T14:25:36.234Z",
+      "type": "runtime_protection",
+      "details": "Seven runtime lock removed cleanly",
+      "severity": "low"
     }
   ]
 }

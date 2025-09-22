@@ -799,7 +799,7 @@ export class MentalTimeTravelEngine {
 
     // Check cognitive state completeness
     const cognitiveFields = [
-      .emotionalIntensity', .focusLevel', 'cognitiveLoad', 
+      'emotionalIntensity', 'focusLevel', 'cognitiveLoad', 
       'confidenceLevel', 'stressLevel'
     ];
     

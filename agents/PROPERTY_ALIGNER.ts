@@ -54,13 +54,13 @@ export class PropertyAlignerAgent {
     {
       // .focusLevel → .focusLevel (CognitiveState)
       pattern: /\.focusLevel\b(?!\w)/g,
-      replacement: '.focusLevel',
+      replacement: ''focusLevel',
       reason: 'CognitiveState uses.focusLevel not focus'
     },
     {
       // .emotionalIntensity → .emotionalIntensity (CognitiveState)
       pattern: /\.emotionalIntensity\b(?!\w)/g,
-      replacement: '.emotionalIntensity',
+      replacement: ''emotionalIntensity',
       reason: 'CognitiveState uses.emotionalIntensity not emotion'
     }
   ];

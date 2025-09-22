@@ -47,7 +47,7 @@ export class InterfaceEvolutionistAgent {
   
   // New CognitiveState sections
   private readonly NEW_COGNITIVE_STATE_SECTIONS = {
-    emotional: [.emotionalIntensity', .focusLevel', 'cognitiveLoad', 'confidenceLevel', 'stressLevel'],
+    emotional: ['emotionalIntensity', 'focusLevel', 'cognitiveLoad', 'confidenceLevel', 'stressLevel'],
     environmental: ['environmentalContext'],
     physical: ['physicalState'],  
     temporal: ['temporalAnchors'],
@@ -171,15 +171,15 @@ export class InterfaceEvolutionistAgent {
       let modified = false;
 
       // Pattern 1: Inline cognitiveState object literals with 5 properties
-      const legacyPattern = /cognitiveState:\s*\{\s.focusLevel:\s*\d+,\s.emotionalIntensity:\s*\d+,\s*cognitiveLoad:\s*\d+,\s*confidenceLevel:\s*\d+,\s*stressLevel:\s*\d+\s*\}/g;
+      const legacyPattern = /cognitiveState:\s*\{\sfocusLevel:\s*\d+,\semotionalIntensity:\s*\d+,\s*cognitiveLoad:\s*\d+,\s*confidenceLevel:\s*\d+,\s*stressLevel:\s*\d+\s*\}/g;
       
       let match;
       while ((match = legacyPattern.exec(content)) !== null) {
         const legacyObject = match[0];
         
         // Extract the numeric values
-        const.focusLevel = this.extractValue(legacyObject, .focusLevel');
-        const.emotionalIntensity = this.extractValue(legacyObject, .emotionalIntensity');
+        const.focusLevel = this.extractValue(legacyObject, 'focusLevel');
+        const.emotionalIntensity = this.extractValue(legacyObject, 'emotionalIntensity');
         const cognitiveLoad = this.extractValue(legacyObject, 'cognitiveLoad');
         const confidenceLevel = this.extractValue(legacyObject, 'confidenceLevel');
         const stressLevel = this.extractValue(legacyObject, 'stressLevel');
@@ -356,10 +356,10 @@ export class InterfaceEvolutionistAgent {
       }
 
       // Fix missing CognitiveState properties access
-      content = content.replace(/\.focusLevel\b/g, '.focusLevel');
-      content = content.replace(/\.emotionalIntensity\b/g, '.emotionalIntensity');
+      content = content.replace(/\.focusLevel\b/g, ''focusLevel');
+      content = content.replace(/\.emotionalIntensity\b/g, ''emotionalIntensity');
       
-      if (content.includes('.focusLevel') || content.includes('.emotionalIntensity')) {
+      if (content.includes(''focusLevel') || content.includes(''emotionalIntensity')) {
         modified = true;
         result.errorsFixed++;
       }

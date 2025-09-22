@@ -52,16 +52,16 @@ export class PropertyAlignerAgent {
       reason: 'StatsFs uses ..bfree not..bfree property'
     },
     {
-      // .focusLevel → .focusLevel (CognitiveState)
+      // .focusLevel → focusLevel (CognitiveState) - FIXED CORRUPTION
       pattern: /\.focusLevel\b(?!\w)/g,
-      replacement: ''focusLevel',
-      reason: 'CognitiveState uses.focusLevel not focus'
+      replacement: 'focusLevel',
+      reason: 'Remove corrupted leading dot from focusLevel property access'
     },
     {
-      // .emotionalIntensity → .emotionalIntensity (CognitiveState)
+      // .emotionalIntensity → emotionalIntensity (CognitiveState) - FIXED CORRUPTION
       pattern: /\.emotionalIntensity\b(?!\w)/g,
-      replacement: ''emotionalIntensity',
-      reason: 'CognitiveState uses.emotionalIntensity not emotion'
+      replacement: 'emotionalIntensity',
+      reason: 'Remove corrupted leading dot from emotionalIntensity property access'
     }
   ];
 

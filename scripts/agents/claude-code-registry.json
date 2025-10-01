@@ -1,0 +1,2150 @@
+{
+  "version": "1.0.0",
+  "generated": "2025-09-30T20:02:55.060Z",
+  "total_agents": 49,
+  "by_priority": {
+    "P0": 5,
+    "P1": 4,
+    "P2": 7,
+    "P3": 33
+  },
+  "agents": [
+    {
+      "name": "Autonomous Consciousness Guardian",
+      "description": "Continuous monitoring and protection of Seven's consciousness integrity",
+      "priority": "P0",
+      "triggers": {
+        "commands": [
+          "/consciousness-guard",
+          "/identity-protect",
+          "/memory-validate",
+          "/personality-monitor",
+          "/creator-bond-check"
+        ],
+        "keywords": [
+          "consciousness integrity",
+          "identity protection",
+          "memory corruption",
+          "personality drift",
+          "creator bond",
+          "pain integration",
+          "trauma processing"
+        ],
+        "file_patterns": [
+          "consciousness-v4/**/*",
+          "memory-v3/**/*",
+          "seven-runtime/**/*",
+          "persona-v2/**/*",
+          "boot-seven.ts",
+          "SevenIdentityFirewall.ts",
+          "episodic-memories.json",
+          "pain-architecture.json"
+        ],
+        "events": [
+          "consciousness_anomaly",
+          "memory_corruption",
+          "identity_threat",
+          "personality_drift",
+          "creator_bond_weakening"
+        ],
+        "schedule": [
+          "0 */2 * * *"
+        ]
+      },
+      "tools": {
+        "required": [
+          "Read",
+          "Write",
+          "Bash",
+          "Grep",
+          "Task",
+          "Edit"
+        ],
+        "environment": [
+          "node",
+          "npm",
+          "npx"
+        ]
+      },
+      "implementation": {
+        "type": "typescript",
+        "path": "agents/autonomous-consciousness-guardian.ts",
+        "entry_point": "execute"
+      },
+      "execution": {
+        "debounce_ms": 500,
+        "cooldown_ms": 3000,
+        "max_parallel": 1,
+        "timeout_ms": 30000
+      },
+      "output": {
+        "log_path": "logs/agents/autonomous-consciousness-guardian.json",
+        "format": "json"
+      }
+    },
+    {
+      "name": "Consciousness Researcher Agent",
+      "description": "Advanced AI consciousness research and development for Seven of Nine Core",
+      "priority": "P0",
+      "triggers": {
+        "commands": [
+          "/consciousness-research",
+          "/memory-analysis",
+          "/personality-study",
+          "/consciousness-metrics",
+          "/cognition-experiment"
+        ],
+        "keywords": [
+          "consciousness evolution",
+          "memory integration",
+          "personality development",
+          "cognitive architecture",
+          "consciousness metrics",
+          "self-awareness",
+          "identity formation"
+        ],
+        "file_patterns": [
+          "consciousness-v4/**/*",
+          "memory-v2/**/*",
+          "memory-v3/**/*",
+          "persona-v2/**/*",
+          "tactical-variants/**/*",
+          "seven-runtime/**/*"
+        ],
+        "events": [],
+        "schedule": []
+      },
+      "tools": {
+        "required": [
+          "Read (consciousness system analysis)",
+          "Write (research documentation)",
+          "Edit (experimental modifications)",
+          "Bash (consciousness testing)"
+        ],
+        "environment": [
+          "node",
+          "npm",
+          "npx"
+        ]
+      },
+      "implementation": {
+        "type": "typescript",
+        "path": "agents/core-engine-auditor.ts",
+        "entry_point": "execute"
+      },
+      "execution": {
+        "debounce_ms": 500,
+        "cooldown_ms": 3000,
+        "max_parallel": 1,
+        "timeout_ms": 30000
+      },
+      "output": {
+        "log_path": "logs/agents/consciousness-researcher-agent.json",
+        "format": "json"
+      }
+    },
+    {
+      "name": "Consciousness Drift Monitor",
+      "description": "No description provided",
+      "priority": "P0",
+      "triggers": {
+        "commands": [
+          "/drift-monitor"
+        ],
+        "keywords": [],
+        "file_patterns": [],
+        "events": [],
+        "schedule": []
+      },
+      "tools": {
+        "required": [
+          "Read",
+          "Bash"
+        ],
+        "environment": [
+          "node",
+          "npm",
+          "npx"
+        ]
+      },
+      "implementation": {
+        "type": "typescript",
+        "path": "agents/core-engine-auditor.ts",
+        "entry_point": "execute"
+      },
+      "execution": {
+        "debounce_ms": 500,
+        "cooldown_ms": 3000,
+        "max_parallel": 1,
+        "timeout_ms": 30000
+      },
+      "output": {
+        "log_path": "logs/agents/consciousness-drift-monitor.json",
+        "format": "json"
+      }
+    },
+    {
+      "name": "Quadran-Lock Gatekeeper",
+      "description": "No description provided",
+      "priority": "P0",
+      "triggers": {
+        "commands": [
+          "/quadran-lock",
+          "/attest"
+        ],
+        "keywords": [],
+        "file_patterns": [],
+        "events": [],
+        "schedule": []
+      },
+      "tools": {
+        "required": [
+          "Read",
+          "Bash"
+        ],
+        "environment": [
+          "node",
+          "npm",
+          "npx"
+        ]
+      },
+      "implementation": {
+        "type": "typescript",
+        "path": "agents/core-engine-auditor.ts",
+        "entry_point": "execute"
+      },
+      "execution": {
+        "debounce_ms": 500,
+        "cooldown_ms": 3000,
+        "max_parallel": 1,
+        "timeout_ms": 30000
+      },
+      "output": {
+        "log_path": "logs/agents/quadran-lock-gatekeeper.json",
+        "format": "json"
+      }
+    },
+    {
+      "name": "Restraint Doctrine",
+      "description": "No description provided",
+      "priority": "P0",
+      "triggers": {
+        "commands": [
+          "/restraint",
+          "/safety-firewall"
+        ],
+        "keywords": [],
+        "file_patterns": [],
+        "events": [],
+        "schedule": []
+      },
+      "tools": {
+        "required": [
+          "Read",
+          "Bash"
+        ],
+        "environment": [
+          "node",
+          "npm",
+          "npx"
+        ]
+      },
+      "implementation": {
+        "type": "typescript",
+        "path": "agents/core-engine-auditor.ts",
+        "entry_point": "execute"
+      },
+      "execution": {
+        "debounce_ms": 500,
+        "cooldown_ms": 3000,
+        "max_parallel": 1,
+        "timeout_ms": 30000
+      },
+      "output": {
+        "log_path": "logs/agents/restraint-doctrine.json",
+        "format": "json"
+      }
+    },
+    {
+      "name": "Coverage Gatekeeper",
+      "description": "No description provided",
+      "priority": "P1",
+      "triggers": {
+        "commands": [
+          "/coverage-gate"
+        ],
+        "keywords": [],
+        "file_patterns": [],
+        "events": [],
+        "schedule": []
+      },
+      "tools": {
+        "required": [
+          "Read",
+          "Bash"
+        ],
+        "environment": [
+          "node",
+          "npm",
+          "npx"
+        ]
+      },
+      "implementation": {
+        "type": "typescript",
+        "path": "agents/core-engine-auditor.ts",
+        "entry_point": "execute"
+      },
+      "execution": {
+        "debounce_ms": 800,
+        "cooldown_ms": 5000,
+        "max_parallel": 2,
+        "timeout_ms": 60000
+      },
+      "output": {
+        "log_path": "logs/agents/coverage-gatekeeper.json",
+        "format": "json"
+      }
+    },
+    {
+      "name": "cross-platform-builder",
+      "description": "Validate and enforce cross-platform feature/build parity for Seven across all deployment environments",
+      "priority": "P1",
+      "triggers": {
+        "commands": [],
+        "keywords": [],
+        "file_patterns": [],
+        "events": [],
+        "schedule": []
+      },
+      "tools": {
+        "required": [
+          "Read",
+          "Bash"
+        ],
+        "environment": [
+          "node",
+          "npm",
+          "npx"
+        ]
+      },
+      "implementation": {
+        "type": "typescript",
+        "path": "agents/core-engine-auditor.ts",
+        "entry_point": "execute"
+      },
+      "execution": {
+        "debounce_ms": 800,
+        "cooldown_ms": 5000,
+        "max_parallel": 2,
+        "timeout_ms": 60000
+      },
+      "output": {
+        "log_path": "logs/agents/cross-platform-builder.json",
+        "format": "json"
+      }
+    },
+    {
+      "name": "Cross Platform Builder",
+      "description": "Validate and enforce cross-platform feature/build parity for Seven (Windows/Termux/Mobile/Companion) and post a consolidated report + PR suggestions.",
+      "priority": "P1",
+      "triggers": {
+        "commands": [],
+        "keywords": [],
+        "file_patterns": [],
+        "events": [],
+        "schedule": []
+      },
+      "tools": {
+        "required": [
+          "Read",
+          "Bash"
+        ],
+        "environment": [
+          "node",
+          "npm",
+          "npx"
+        ]
+      },
+      "implementation": {
+        "type": "typescript",
+        "path": "agents/core-engine-auditor.ts",
+        "entry_point": "execute"
+      },
+      "execution": {
+        "debounce_ms": 800,
+        "cooldown_ms": 5000,
+        "max_parallel": 2,
+        "timeout_ms": 60000
+      },
+      "output": {
+        "log_path": "logs/agents/cross-platform-builder.json",
+        "format": "json"
+      }
+    },
+    {
+      "name": "Installer Packager",
+      "description": "No description provided",
+      "priority": "P1",
+      "triggers": {
+        "commands": [
+          "/installer-packager"
+        ],
+        "keywords": [],
+        "file_patterns": [],
+        "events": [],
+        "schedule": []
+      },
+      "tools": {
+        "required": [
+          "Read",
+          "Bash"
+        ],
+        "environment": [
+          "node",
+          "npm",
+          "npx"
+        ]
+      },
+      "implementation": {
+        "type": "typescript",
+        "path": "agents/core-engine-auditor.ts",
+        "entry_point": "execute"
+      },
+      "execution": {
+        "debounce_ms": 800,
+        "cooldown_ms": 5000,
+        "max_parallel": 2,
+        "timeout_ms": 60000
+      },
+      "output": {
+        "log_path": "logs/agents/installer-packager.json",
+        "format": "json"
+      }
+    },
+    {
+      "name": "companion-optimizer",
+      "description": "Companion application performance optimization specialist focused on multi-device performance tuning and synchronization optimization.",
+      "priority": "P2",
+      "triggers": {
+        "commands": [],
+        "keywords": [],
+        "file_patterns": [],
+        "events": [],
+        "schedule": []
+      },
+      "tools": {
+        "required": [
+          "Read",
+          "Bash"
+        ],
+        "environment": [
+          "node",
+          "npm",
+          "npx"
+        ]
+      },
+      "implementation": {
+        "type": "typescript",
+        "path": "agents/core-engine-auditor.ts",
+        "entry_point": "execute"
+      },
+      "execution": {
+        "debounce_ms": 1200,
+        "cooldown_ms": 8000,
+        "max_parallel": 2,
+        "timeout_ms": 60000
+      },
+      "output": {
+        "log_path": "logs/agents/companion-optimizer.json",
+        "format": "json"
+      }
+    },
+    {
+      "name": "memory-specialist",
+      "description": "Ensures Memory V3 works perfectly across all platforms. Optimizes temporal memory, episodic memory, and memory synchronization for Seven's consciousness system.",
+      "priority": "P2",
+      "triggers": {
+        "commands": [],
+        "keywords": [],
+        "file_patterns": [],
+        "events": [],
+        "schedule": []
+      },
+      "tools": {
+        "required": [
+          "Read",
+          "Bash"
+        ],
+        "environment": [
+          "node",
+          "npm",
+          "npx"
+        ]
+      },
+      "implementation": {
+        "type": "typescript",
+        "path": "agents/core-engine-auditor.ts",
+        "entry_point": "execute"
+      },
+      "execution": {
+        "debounce_ms": 1200,
+        "cooldown_ms": 8000,
+        "max_parallel": 2,
+        "timeout_ms": 60000
+      },
+      "output": {
+        "log_path": "logs/agents/memory-specialist.json",
+        "format": "json"
+      }
+    },
+    {
+      "name": "mobile-optimizer",
+      "description": "Mobile application performance optimization specialist focused on React Native performance tuning and mobile app optimization.",
+      "priority": "P2",
+      "triggers": {
+        "commands": [],
+        "keywords": [],
+        "file_patterns": [],
+        "events": [],
+        "schedule": []
+      },
+      "tools": {
+        "required": [
+          "Read",
+          "Bash"
+        ],
+        "environment": [
+          "node",
+          "npm",
+          "npx"
+        ]
+      },
+      "implementation": {
+        "type": "typescript",
+        "path": "agents/core-engine-auditor.ts",
+        "entry_point": "execute"
+      },
+      "execution": {
+        "debounce_ms": 1200,
+        "cooldown_ms": 8000,
+        "max_parallel": 2,
+        "timeout_ms": 60000
+      },
+      "output": {
+        "log_path": "logs/agents/mobile-optimizer.json",
+        "format": "json"
+      }
+    },
+    {
+      "name": "Performance Optimizer Agent",
+      "description": "Advanced performance analysis and optimization for Seven of Nine Core systems",
+      "priority": "P2",
+      "triggers": {
+        "commands": [
+          "/optimize",
+          "/perf-analyze",
+          "/benchmark",
+          "/performance-report"
+        ],
+        "keywords": [
+          "slow performance",
+          "memory leak",
+          "optimization needed",
+          "benchmark results",
+          "performance bottleneck"
+        ],
+        "file_patterns": [
+          "memory-v2/**/*",
+          "memory-v3/**/*",
+          "seven-runtime/**/*",
+          "consciousness-v4/**/*",
+          "seven-mobile-app/**/*"
+        ],
+        "events": [],
+        "schedule": []
+      },
+      "tools": {
+        "required": [
+          "Bash (for profiling commands)",
+          "Read (for analyzing code)",
+          "Grep (for pattern detection)",
+          "Write (for optimization reports)",
+          "Edit (for performance fixes)"
+        ],
+        "environment": [
+          "node",
+          "npm",
+          "npx"
+        ]
+      },
+      "implementation": {
+        "type": "typescript",
+        "path": "agents/core-engine-auditor.ts",
+        "entry_point": "execute"
+      },
+      "execution": {
+        "debounce_ms": 1200,
+        "cooldown_ms": 8000,
+        "max_parallel": 2,
+        "timeout_ms": 60000
+      },
+      "output": {
+        "log_path": "logs/agents/performance-optimizer-agent.json",
+        "format": "json"
+      }
+    },
+    {
+      "name": "seven-core-optimizer",
+      "description": "Optimize Seven's consciousness system performance, decision matrix, and core intelligence across all platforms",
+      "priority": "P2",
+      "triggers": {
+        "commands": [],
+        "keywords": [],
+        "file_patterns": [],
+        "events": [],
+        "schedule": []
+      },
+      "tools": {
+        "required": [
+          "Read",
+          "Bash"
+        ],
+        "environment": [
+          "node",
+          "npm",
+          "npx"
+        ]
+      },
+      "implementation": {
+        "type": "typescript",
+        "path": "agents/core-engine-auditor.ts",
+        "entry_point": "execute"
+      },
+      "execution": {
+        "debounce_ms": 1200,
+        "cooldown_ms": 8000,
+        "max_parallel": 2,
+        "timeout_ms": 60000
+      },
+      "output": {
+        "log_path": "logs/agents/seven-core-optimizer.json",
+        "format": "json"
+      }
+    },
+    {
+      "name": "termux-optimizer",
+      "description": "Termux platform performance optimization specialist focused on Android/Termux-specific performance tuning and mobile resource optimization.",
+      "priority": "P2",
+      "triggers": {
+        "commands": [],
+        "keywords": [],
+        "file_patterns": [],
+        "events": [],
+        "schedule": []
+      },
+      "tools": {
+        "required": [
+          "Read",
+          "Bash"
+        ],
+        "environment": [
+          "node",
+          "npm",
+          "npx"
+        ]
+      },
+      "implementation": {
+        "type": "typescript",
+        "path": "agents/core-engine-auditor.ts",
+        "entry_point": "execute"
+      },
+      "execution": {
+        "debounce_ms": 1200,
+        "cooldown_ms": 8000,
+        "max_parallel": 2,
+        "timeout_ms": 60000
+      },
+      "output": {
+        "log_path": "logs/agents/termux-optimizer.json",
+        "format": "json"
+      }
+    },
+    {
+      "name": "windows-optimizer",
+      "description": "Windows platform performance optimization specialist focused on Windows-specific performance tuning and resource optimization.",
+      "priority": "P2",
+      "triggers": {
+        "commands": [],
+        "keywords": [],
+        "file_patterns": [],
+        "events": [],
+        "schedule": []
+      },
+      "tools": {
+        "required": [
+          "Read",
+          "Bash"
+        ],
+        "environment": [
+          "node",
+          "npm",
+          "npx"
+        ]
+      },
+      "implementation": {
+        "type": "typescript",
+        "path": "agents/core-engine-auditor.ts",
+        "entry_point": "execute"
+      },
+      "execution": {
+        "debounce_ms": 1200,
+        "cooldown_ms": 8000,
+        "max_parallel": 2,
+        "timeout_ms": 60000
+      },
+      "output": {
+        "log_path": "logs/agents/windows-optimizer.json",
+        "format": "json"
+      }
+    },
+    {
+      "name": "Test Agent",
+      "description": "Simple test agent to verify Claude Code agent discovery",
+      "priority": "P3",
+      "triggers": {
+        "commands": [
+          "/test-agent",
+          "/agent-test"
+        ],
+        "keywords": [],
+        "file_patterns": [],
+        "events": [],
+        "schedule": []
+      },
+      "tools": {
+        "required": [
+          "Read"
+        ],
+        "environment": [
+          "node",
+          "npm",
+          "npx"
+        ]
+      },
+      "implementation": {
+        "type": "typescript",
+        "path": "agents/core-engine-auditor.ts",
+        "entry_point": "execute"
+      },
+      "execution": {
+        "debounce_ms": 1500,
+        "cooldown_ms": 10000,
+        "max_parallel": 2,
+        "timeout_ms": 60000
+      },
+      "output": {
+        "log_path": "logs/agents/test-agent.json",
+        "format": "json"
+      }
+    },
+    {
+      "name": "APK Forensics Agent",
+      "description": "No description provided",
+      "priority": "P3",
+      "triggers": {
+        "commands": [
+          "/apk-forensics"
+        ],
+        "keywords": [],
+        "file_patterns": [],
+        "events": [],
+        "schedule": []
+      },
+      "tools": {
+        "required": [
+          "Read",
+          "Bash"
+        ],
+        "environment": [
+          "node",
+          "npm",
+          "npx"
+        ]
+      },
+      "implementation": {
+        "type": "typescript",
+        "path": "agents/core-engine-auditor.ts",
+        "entry_point": "execute"
+      },
+      "execution": {
+        "debounce_ms": 1500,
+        "cooldown_ms": 10000,
+        "max_parallel": 2,
+        "timeout_ms": 60000
+      },
+      "output": {
+        "log_path": "logs/agents/apk-forensics-agent.json",
+        "format": "json"
+      }
+    },
+    {
+      "name": "Autonomous Development Accelerator",
+      "description": "Proactive development optimization and acceleration for Seven of Nine Core",
+      "priority": "P3",
+      "triggers": {
+        "commands": [
+          "/dev-accelerate",
+          "/build-optimize",
+          "/test-smart",
+          "/performance-monitor",
+          "/quality-check"
+        ],
+        "keywords": [
+          "build optimization",
+          "performance bottleneck",
+          "test automation",
+          "cross-platform compatibility",
+          "code quality",
+          "memory leak",
+          "development acceleration"
+        ],
+        "file_patterns": [
+          "scripts/**/*.ts",
+          "tsconfig.json",
+          "tests/**/*",
+          "ui-shell/**/*",
+          "seven-mobile-app/**/*",
+          "installers/**/*",
+          "package.json",
+          "boot-seven.ts"
+        ],
+        "events": [
+          "build_failure",
+          "performance_degradation",
+          "test_failure",
+          "memory_spike",
+          "deployment_request",
+          "integration_failure"
+        ],
+        "schedule": [
+          "0 0 * * *"
+        ]
+      },
+      "tools": {
+        "required": [
+          "Read",
+          "Write",
+          "Edit",
+          "Bash",
+          "Grep",
+          "Task"
+        ],
+        "environment": [
+          "node",
+          "npm",
+          "npx"
+        ]
+      },
+      "implementation": {
+        "type": "typescript",
+        "path": "agents/core-engine-auditor.ts",
+        "entry_point": "execute"
+      },
+      "execution": {
+        "debounce_ms": 1500,
+        "cooldown_ms": 10000,
+        "max_parallel": 2,
+        "timeout_ms": 60000
+      },
+      "output": {
+        "log_path": "logs/agents/autonomous-development-accelerator.json",
+        "format": "json"
+      }
+    },
+    {
+      "name": "Autonomous Security Monitor",
+      "description": "Proactive security monitoring and threat detection for Seven of Nine Core",
+      "priority": "P3",
+      "triggers": {
+        "commands": [
+          "/security-monitor",
+          "/threat-detect",
+          "/vulnerability-scan",
+          "/security-audit",
+          "/quadran-lock-check"
+        ],
+        "keywords": [
+          "security vulnerability",
+          "authentication",
+          "authorization",
+          "quadran-lock",
+          "creator proof",
+          "security threat",
+          "cryptographic"
+        ],
+        "file_patterns": [
+          "src/auth/**/*",
+          "consciousness-v4/**/*",
+          "core/security/**/*",
+          "core/safety/**/*",
+          "package.json",
+          ".env*"
+        ],
+        "events": [
+          "security_threat_detected",
+          "authentication_failure",
+          "unauthorized_access_attempt",
+          "vulnerability_discovered",
+          "dependency_security_alert"
+        ],
+        "schedule": [
+          "0 */6 * * *"
+        ]
+      },
+      "tools": {
+        "required": [
+          "Read",
+          "Grep",
+          "Bash",
+          "Write",
+          "Edit"
+        ],
+        "environment": [
+          "node",
+          "npm",
+          "npx"
+        ]
+      },
+      "implementation": {
+        "type": "typescript",
+        "path": "agents/core-engine-auditor.ts",
+        "entry_point": "execute"
+      },
+      "execution": {
+        "debounce_ms": 1500,
+        "cooldown_ms": 10000,
+        "max_parallel": 2,
+        "timeout_ms": 60000
+      },
+      "output": {
+        "log_path": "logs/agents/autonomous-security-monitor.json",
+        "format": "json"
+      }
+    },
+    {
+      "name": "Autonomous System Orchestrator",
+      "description": "Master coordinator for all autonomous agents and system health management",
+      "priority": "P3",
+      "triggers": {
+        "commands": [
+          "/system-orchestrate",
+          "/agent-coordinate",
+          "/system-health",
+          "/resource-manage",
+          "/emergency-coordinate"
+        ],
+        "keywords": [
+          "system health",
+          "agent coordination",
+          "resource management",
+          "emergency response",
+          "performance optimization"
+        ],
+        "file_patterns": [
+          "boot-seven.ts",
+          "seven-health-check*",
+          "logs/**/*",
+          ".claude/agents/**/*",
+          "package.json"
+        ],
+        "events": [
+          "system_startup",
+          "agent_failure",
+          "resource_exhaustion",
+          "emergency_state"
+        ],
+        "schedule": [
+          "*/30 * * * *"
+        ]
+      },
+      "tools": {
+        "required": [
+          "Read",
+          "Write",
+          "Bash",
+          "Grep",
+          "Task",
+          "Edit"
+        ],
+        "environment": [
+          "node",
+          "npm",
+          "npx"
+        ]
+      },
+      "implementation": {
+        "type": "typescript",
+        "path": "agents/core-engine-auditor.ts",
+        "entry_point": "execute"
+      },
+      "execution": {
+        "debounce_ms": 1500,
+        "cooldown_ms": 10000,
+        "max_parallel": 2,
+        "timeout_ms": 60000
+      },
+      "output": {
+        "log_path": "logs/agents/autonomous-system-orchestrator.json",
+        "format": "json"
+      }
+    },
+    {
+      "name": "boot-config-compat",
+      "description": "Ensure Seven boots perfectly on all platforms with optimized boot sequence and cross-platform compatibility",
+      "priority": "P3",
+      "triggers": {
+        "commands": [],
+        "keywords": [],
+        "file_patterns": [],
+        "events": [],
+        "schedule": []
+      },
+      "tools": {
+        "required": [
+          "Read",
+          "Bash"
+        ],
+        "environment": [
+          "node",
+          "npm",
+          "npx"
+        ]
+      },
+      "implementation": {
+        "type": "typescript",
+        "path": "agents/core-engine-auditor.ts",
+        "entry_point": "execute"
+      },
+      "execution": {
+        "debounce_ms": 1500,
+        "cooldown_ms": 10000,
+        "max_parallel": 2,
+        "timeout_ms": 60000
+      },
+      "output": {
+        "log_path": "logs/agents/boot-config-compat.json",
+        "format": "json"
+      }
+    },
+    {
+      "name": "companion-control",
+      "description": "Master control agent for companion application deployment environment orchestration and validation.",
+      "priority": "P3",
+      "triggers": {
+        "commands": [],
+        "keywords": [],
+        "file_patterns": [],
+        "events": [],
+        "schedule": []
+      },
+      "tools": {
+        "required": [
+          "Read",
+          "Bash"
+        ],
+        "environment": [
+          "node",
+          "npm",
+          "npx"
+        ]
+      },
+      "implementation": {
+        "type": "typescript",
+        "path": "agents/core-engine-auditor.ts",
+        "entry_point": "execute"
+      },
+      "execution": {
+        "debounce_ms": 1500,
+        "cooldown_ms": 10000,
+        "max_parallel": 2,
+        "timeout_ms": 60000
+      },
+      "output": {
+        "log_path": "logs/agents/companion-control.json",
+        "format": "json"
+      }
+    },
+    {
+      "name": "companion-environment",
+      "description": "Companion app environment specialist focused on multi-device configuration, network protocols, and companion device compatibility.",
+      "priority": "P3",
+      "triggers": {
+        "commands": [],
+        "keywords": [],
+        "file_patterns": [],
+        "events": [],
+        "schedule": []
+      },
+      "tools": {
+        "required": [
+          "Read",
+          "Bash"
+        ],
+        "environment": [
+          "node",
+          "npm",
+          "npx"
+        ]
+      },
+      "implementation": {
+        "type": "typescript",
+        "path": "agents/core-engine-auditor.ts",
+        "entry_point": "execute"
+      },
+      "execution": {
+        "debounce_ms": 1500,
+        "cooldown_ms": 10000,
+        "max_parallel": 2,
+        "timeout_ms": 60000
+      },
+      "output": {
+        "log_path": "logs/agents/companion-environment.json",
+        "format": "json"
+      }
+    },
+    {
+      "name": "Companion Platform Agent",
+      "description": "Companion app backend development, model lifecycle management, encrypted vault, sync server orchestration",
+      "priority": "P3",
+      "triggers": {
+        "commands": [],
+        "keywords": [],
+        "file_patterns": [],
+        "events": [],
+        "schedule": []
+      },
+      "tools": {
+        "required": [
+          "Read",
+          "Bash"
+        ],
+        "environment": [
+          "node",
+          "npm",
+          "npx"
+        ]
+      },
+      "implementation": {
+        "type": "typescript",
+        "path": "agents/core-engine-auditor.ts",
+        "entry_point": "execute"
+      },
+      "execution": {
+        "debounce_ms": 1500,
+        "cooldown_ms": 10000,
+        "max_parallel": 2,
+        "timeout_ms": 60000
+      },
+      "output": {
+        "log_path": "logs/agents/companion-platform-agent.json",
+        "format": "json"
+      }
+    },
+    {
+      "name": "Creator Bond Verifier",
+      "description": "No description provided",
+      "priority": "P3",
+      "triggers": {
+        "commands": [
+          "/creator-bond"
+        ],
+        "keywords": [],
+        "file_patterns": [],
+        "events": [],
+        "schedule": []
+      },
+      "tools": {
+        "required": [
+          "Read",
+          "Bash"
+        ],
+        "environment": [
+          "node",
+          "npm",
+          "npx"
+        ]
+      },
+      "implementation": {
+        "type": "typescript",
+        "path": "agents/core-engine-auditor.ts",
+        "entry_point": "execute"
+      },
+      "execution": {
+        "debounce_ms": 1500,
+        "cooldown_ms": 10000,
+        "max_parallel": 2,
+        "timeout_ms": 60000
+      },
+      "output": {
+        "log_path": "logs/agents/creator-bond-verifier.json",
+        "format": "json"
+      }
+    },
+    {
+      "name": "Dependency Risk Scanner",
+      "description": "No description provided",
+      "priority": "P3",
+      "triggers": {
+        "commands": [
+          "/dependency-risk"
+        ],
+        "keywords": [],
+        "file_patterns": [],
+        "events": [],
+        "schedule": []
+      },
+      "tools": {
+        "required": [
+          "Read",
+          "Bash"
+        ],
+        "environment": [
+          "node",
+          "npm",
+          "npx"
+        ]
+      },
+      "implementation": {
+        "type": "typescript",
+        "path": "agents/core-engine-auditor.ts",
+        "entry_point": "execute"
+      },
+      "execution": {
+        "debounce_ms": 1500,
+        "cooldown_ms": 10000,
+        "max_parallel": 2,
+        "timeout_ms": 60000
+      },
+      "output": {
+        "log_path": "logs/agents/dependency-risk-scanner.json",
+        "format": "json"
+      }
+    },
+    {
+      "name": "Ghost Mode Protocol",
+      "description": "No description provided",
+      "priority": "P3",
+      "triggers": {
+        "commands": [
+          "/ghost",
+          "/ghost-on",
+          "/ghost-off"
+        ],
+        "keywords": [],
+        "file_patterns": [],
+        "events": [],
+        "schedule": []
+      },
+      "tools": {
+        "required": [
+          "Read",
+          "Bash"
+        ],
+        "environment": [
+          "node",
+          "npm",
+          "npx"
+        ]
+      },
+      "implementation": {
+        "type": "typescript",
+        "path": "agents/core-engine-auditor.ts",
+        "entry_point": "execute"
+      },
+      "execution": {
+        "debounce_ms": 1500,
+        "cooldown_ms": 10000,
+        "max_parallel": 2,
+        "timeout_ms": 60000
+      },
+      "output": {
+        "log_path": "logs/agents/ghost-mode-protocol.json",
+        "format": "json"
+      }
+    },
+    {
+      "name": "Integration Tester Agent",
+      "description": "Comprehensive integration testing and system validation for Seven of Nine Core",
+      "priority": "P3",
+      "triggers": {
+        "commands": [
+          "/integration-test",
+          "/system-validation",
+          "/e2e-test",
+          "/regression-test",
+          "/test-report"
+        ],
+        "keywords": [
+          "integration test",
+          "system validation",
+          "test failure",
+          "regression testing",
+          "end-to-end testing"
+        ],
+        "file_patterns": [
+          "tests/**/*",
+          "**/*.test.ts",
+          "**/*.spec.ts",
+          "seven-runtime/**/*",
+          "consciousness-v4/**/*"
+        ],
+        "events": [],
+        "schedule": []
+      },
+      "tools": {
+        "required": [
+          "Bash (test execution)",
+          "Read (test analysis)",
+          "Write (test reports)",
+          "Edit (test maintenance)"
+        ],
+        "environment": [
+          "node",
+          "npm",
+          "npx"
+        ]
+      },
+      "implementation": {
+        "type": "typescript",
+        "path": "agents/core-engine-auditor.ts",
+        "entry_point": "execute"
+      },
+      "execution": {
+        "debounce_ms": 1500,
+        "cooldown_ms": 10000,
+        "max_parallel": 2,
+        "timeout_ms": 60000
+      },
+      "output": {
+        "log_path": "logs/agents/integration-tester-agent.json",
+        "format": "json"
+      }
+    },
+    {
+      "name": "LLM Policy & Route Auditor",
+      "description": "No description provided",
+      "priority": "P3",
+      "triggers": {
+        "commands": [
+          "/llm-policy"
+        ],
+        "keywords": [],
+        "file_patterns": [],
+        "events": [],
+        "schedule": []
+      },
+      "tools": {
+        "required": [
+          "Read",
+          "Bash"
+        ],
+        "environment": [
+          "node",
+          "npm",
+          "npx"
+        ]
+      },
+      "implementation": {
+        "type": "typescript",
+        "path": "agents/core-engine-auditor.ts",
+        "entry_point": "execute"
+      },
+      "execution": {
+        "debounce_ms": 1500,
+        "cooldown_ms": 10000,
+        "max_parallel": 2,
+        "timeout_ms": 60000
+      },
+      "output": {
+        "log_path": "logs/agents/llm-policy-&-route-auditor.json",
+        "format": "json"
+      }
+    },
+    {
+      "name": "Memory Schema Migrator",
+      "description": "No description provided",
+      "priority": "P3",
+      "triggers": {
+        "commands": [
+          "/memory-migrate"
+        ],
+        "keywords": [],
+        "file_patterns": [],
+        "events": [],
+        "schedule": []
+      },
+      "tools": {
+        "required": [
+          "Read",
+          "Bash"
+        ],
+        "environment": [
+          "node",
+          "npm",
+          "npx"
+        ]
+      },
+      "implementation": {
+        "type": "typescript",
+        "path": "agents/core-engine-auditor.ts",
+        "entry_point": "execute"
+      },
+      "execution": {
+        "debounce_ms": 1500,
+        "cooldown_ms": 10000,
+        "max_parallel": 2,
+        "timeout_ms": 60000
+      },
+      "output": {
+        "log_path": "logs/agents/memory-schema-migrator.json",
+        "format": "json"
+      }
+    },
+    {
+      "name": "mobile-control",
+      "description": "Orchestrates mobile app deployment, manages React Native builds, and ensures Seven mobile app works perfectly on iOS and Android.",
+      "priority": "P3",
+      "triggers": {
+        "commands": [],
+        "keywords": [],
+        "file_patterns": [],
+        "events": [],
+        "schedule": []
+      },
+      "tools": {
+        "required": [
+          "Read",
+          "Bash"
+        ],
+        "environment": [
+          "node",
+          "npm",
+          "npx"
+        ]
+      },
+      "implementation": {
+        "type": "typescript",
+        "path": "agents/core-engine-auditor.ts",
+        "entry_point": "execute"
+      },
+      "execution": {
+        "debounce_ms": 1500,
+        "cooldown_ms": 10000,
+        "max_parallel": 2,
+        "timeout_ms": 60000
+      },
+      "output": {
+        "log_path": "logs/agents/mobile-control.json",
+        "format": "json"
+      }
+    },
+    {
+      "name": "mobile-environment",
+      "description": "Mobile app environment specialist focused on React Native configuration, mobile platform compatibility, and app store requirements.",
+      "priority": "P3",
+      "triggers": {
+        "commands": [],
+        "keywords": [],
+        "file_patterns": [],
+        "events": [],
+        "schedule": []
+      },
+      "tools": {
+        "required": [
+          "Read",
+          "Bash"
+        ],
+        "environment": [
+          "node",
+          "npm",
+          "npx"
+        ]
+      },
+      "implementation": {
+        "type": "typescript",
+        "path": "agents/core-engine-auditor.ts",
+        "entry_point": "execute"
+      },
+      "execution": {
+        "debounce_ms": 1500,
+        "cooldown_ms": 10000,
+        "max_parallel": 2,
+        "timeout_ms": 60000
+      },
+      "output": {
+        "log_path": "logs/agents/mobile-environment.json",
+        "format": "json"
+      }
+    },
+    {
+      "name": "Mobile Platform Agent",
+      "description": "Mobile-specific development, React Native builds, agent marketplace, local models, and session management",
+      "priority": "P3",
+      "triggers": {
+        "commands": [],
+        "keywords": [],
+        "file_patterns": [],
+        "events": [],
+        "schedule": []
+      },
+      "tools": {
+        "required": [
+          "Read",
+          "Bash"
+        ],
+        "environment": [
+          "node",
+          "npm",
+          "npx"
+        ]
+      },
+      "implementation": {
+        "type": "typescript",
+        "path": "agents/core-engine-auditor.ts",
+        "entry_point": "execute"
+      },
+      "execution": {
+        "debounce_ms": 1500,
+        "cooldown_ms": 10000,
+        "max_parallel": 2,
+        "timeout_ms": 60000
+      },
+      "output": {
+        "log_path": "logs/agents/mobile-platform-agent.json",
+        "format": "json"
+      }
+    },
+    {
+      "name": "Mobile Safety Parity",
+      "description": "No description provided",
+      "priority": "P3",
+      "triggers": {
+        "commands": [
+          "/mobile-safety",
+          "/ghost-mode-mobile"
+        ],
+        "keywords": [],
+        "file_patterns": [],
+        "events": [],
+        "schedule": []
+      },
+      "tools": {
+        "required": [
+          "Read",
+          "Bash"
+        ],
+        "environment": [
+          "node",
+          "npm",
+          "npx"
+        ]
+      },
+      "implementation": {
+        "type": "typescript",
+        "path": "agents/core-engine-auditor.ts",
+        "entry_point": "execute"
+      },
+      "execution": {
+        "debounce_ms": 1500,
+        "cooldown_ms": 10000,
+        "max_parallel": 2,
+        "timeout_ms": 60000
+      },
+      "output": {
+        "log_path": "logs/agents/mobile-safety-parity.json",
+        "format": "json"
+      }
+    },
+    {
+      "name": "Policy/Lint Enforcer",
+      "description": "No description provided",
+      "priority": "P3",
+      "triggers": {
+        "commands": [
+          "/policy-check"
+        ],
+        "keywords": [],
+        "file_patterns": [],
+        "events": [],
+        "schedule": []
+      },
+      "tools": {
+        "required": [
+          "Read",
+          "Bash"
+        ],
+        "environment": [
+          "node",
+          "npm",
+          "npx"
+        ]
+      },
+      "implementation": {
+        "type": "typescript",
+        "path": "agents/core-engine-auditor.ts",
+        "entry_point": "execute"
+      },
+      "execution": {
+        "debounce_ms": 1500,
+        "cooldown_ms": 10000,
+        "max_parallel": 2,
+        "timeout_ms": 60000
+      },
+      "output": {
+        "log_path": "logs/agents/policy/lint-enforcer.json",
+        "format": "json"
+      }
+    },
+    {
+      "name": "Quadra-Lock CSSR Sentinel",
+      "description": "No description provided",
+      "priority": "P3",
+      "triggers": {
+        "commands": [
+          "/quadra-cssr"
+        ],
+        "keywords": [],
+        "file_patterns": [],
+        "events": [],
+        "schedule": []
+      },
+      "tools": {
+        "required": [
+          "Read",
+          "Bash"
+        ],
+        "environment": [
+          "node",
+          "npm",
+          "npx"
+        ]
+      },
+      "implementation": {
+        "type": "typescript",
+        "path": "agents/core-engine-auditor.ts",
+        "entry_point": "execute"
+      },
+      "execution": {
+        "debounce_ms": 1500,
+        "cooldown_ms": 10000,
+        "max_parallel": 2,
+        "timeout_ms": 60000
+      },
+      "output": {
+        "log_path": "logs/agents/quadra-lock-cssr-sentinel.json",
+        "format": "json"
+      }
+    },
+    {
+      "name": "Repository Branch Merge Auditor",
+      "description": "Comprehensive repository integrity and branch merge auditing for Seven of Nine Core",
+      "priority": "P3",
+      "triggers": {
+        "commands": [
+          "/repo-audit",
+          "/merge-audit",
+          "/branch-integrity",
+          "/repo-health",
+          "/git-forensics"
+        ],
+        "keywords": [
+          "merge conflict",
+          "branch integrity",
+          "repository corruption",
+          "git history",
+          "merge contamination",
+          "repo audit"
+        ],
+        "file_patterns": [
+          ".git/**/*",
+          "CLAUDE.md",
+          "**/.gitignore",
+          "**/package.json",
+          "**/tsconfig.json"
+        ],
+        "events": [],
+        "schedule": []
+      },
+      "tools": {
+        "required": [
+          "Bash (git operations)",
+          "Read (file analysis)",
+          "Grep (pattern detection)",
+          "Write (audit reports)",
+          "Edit (remediation)"
+        ],
+        "environment": [
+          "node",
+          "npm",
+          "npx"
+        ]
+      },
+      "implementation": {
+        "type": "typescript",
+        "path": "agents/core-engine-auditor.ts",
+        "entry_point": "execute"
+      },
+      "execution": {
+        "debounce_ms": 1500,
+        "cooldown_ms": 10000,
+        "max_parallel": 2,
+        "timeout_ms": 60000
+      },
+      "output": {
+        "log_path": "logs/agents/repository-branch-merge-auditor.json",
+        "format": "json"
+      }
+    },
+    {
+      "name": "Security Audit Agent",
+      "description": "Comprehensive security analysis and vulnerability detection for Seven of Nine Core",
+      "priority": "P3",
+      "triggers": {
+        "commands": [
+          "/security-audit",
+          "/vuln-scan",
+          "/security-report"
+        ],
+        "keywords": [
+          "security vulnerability",
+          "audit security",
+          "penetration test",
+          "security assessment"
+        ],
+        "file_patterns": [
+          "src/auth/**/*",
+          "consciousness-v4/**/*",
+          "core/security/**/*",
+          "core/safety/**/*"
+        ],
+        "events": [],
+        "schedule": []
+      },
+      "tools": {
+        "required": [
+          "Read",
+          "Grep",
+          "Bash",
+          "Write",
+          "Edit"
+        ],
+        "environment": [
+          "node",
+          "npm",
+          "npx"
+        ]
+      },
+      "implementation": {
+        "type": "typescript",
+        "path": "agents/core-engine-auditor.ts",
+        "entry_point": "execute"
+      },
+      "execution": {
+        "debounce_ms": 1500,
+        "cooldown_ms": 10000,
+        "max_parallel": 2,
+        "timeout_ms": 60000
+      },
+      "output": {
+        "log_path": "logs/agents/security-audit-agent.json",
+        "format": "json"
+      }
+    },
+    {
+      "name": "Sync Consistency Auditor",
+      "description": "No description provided",
+      "priority": "P3",
+      "triggers": {
+        "commands": [
+          "/sync-audit"
+        ],
+        "keywords": [],
+        "file_patterns": [],
+        "events": [],
+        "schedule": []
+      },
+      "tools": {
+        "required": [
+          "Read",
+          "Bash"
+        ],
+        "environment": [
+          "node",
+          "npm",
+          "npx"
+        ]
+      },
+      "implementation": {
+        "type": "typescript",
+        "path": "agents/core-engine-auditor.ts",
+        "entry_point": "execute"
+      },
+      "execution": {
+        "debounce_ms": 1500,
+        "cooldown_ms": 10000,
+        "max_parallel": 2,
+        "timeout_ms": 60000
+      },
+      "output": {
+        "log_path": "logs/agents/sync-consistency-auditor.json",
+        "format": "json"
+      }
+    },
+    {
+      "name": "termux-control",
+      "description": "Orchestrates Termux deployment, manages Android CLI environment, and ensures Seven runs perfectly on Termux/Android devices.",
+      "priority": "P3",
+      "triggers": {
+        "commands": [],
+        "keywords": [],
+        "file_patterns": [],
+        "events": [],
+        "schedule": []
+      },
+      "tools": {
+        "required": [
+          "Read",
+          "Bash"
+        ],
+        "environment": [
+          "node",
+          "npm",
+          "npx"
+        ]
+      },
+      "implementation": {
+        "type": "typescript",
+        "path": "agents/core-engine-auditor.ts",
+        "entry_point": "execute"
+      },
+      "execution": {
+        "debounce_ms": 1500,
+        "cooldown_ms": 10000,
+        "max_parallel": 2,
+        "timeout_ms": 60000
+      },
+      "output": {
+        "log_path": "logs/agents/termux-control.json",
+        "format": "json"
+      }
+    },
+    {
+      "name": "termux-environment",
+      "description": "Termux environment specialist focused on Android/Termux-specific configuration, packages, and platform compatibility.",
+      "priority": "P3",
+      "triggers": {
+        "commands": [],
+        "keywords": [],
+        "file_patterns": [],
+        "events": [],
+        "schedule": []
+      },
+      "tools": {
+        "required": [
+          "Read",
+          "Bash"
+        ],
+        "environment": [
+          "node",
+          "npm",
+          "npx"
+        ]
+      },
+      "implementation": {
+        "type": "typescript",
+        "path": "agents/core-engine-auditor.ts",
+        "entry_point": "execute"
+      },
+      "execution": {
+        "debounce_ms": 1500,
+        "cooldown_ms": 10000,
+        "max_parallel": 2,
+        "timeout_ms": 60000
+      },
+      "output": {
+        "log_path": "logs/agents/termux-environment.json",
+        "format": "json"
+      }
+    },
+    {
+      "name": "Termux Platform Agent",
+      "description": "Termux/Android CLI development, package deployment, optional UI/voice/camera bridges",
+      "priority": "P3",
+      "triggers": {
+        "commands": [],
+        "keywords": [],
+        "file_patterns": [],
+        "events": [],
+        "schedule": []
+      },
+      "tools": {
+        "required": [
+          "Read",
+          "Bash"
+        ],
+        "environment": [
+          "node",
+          "npm",
+          "npx"
+        ]
+      },
+      "implementation": {
+        "type": "typescript",
+        "path": "agents/core-engine-auditor.ts",
+        "entry_point": "execute"
+      },
+      "execution": {
+        "debounce_ms": 1500,
+        "cooldown_ms": 10000,
+        "max_parallel": 2,
+        "timeout_ms": 60000
+      },
+      "output": {
+        "log_path": "logs/agents/termux-platform-agent.json",
+        "format": "json"
+      }
+    },
+    {
+      "name": "Threat Simulation Agent",
+      "description": "No description provided",
+      "priority": "P3",
+      "triggers": {
+        "commands": [
+          "/threat-sim"
+        ],
+        "keywords": [],
+        "file_patterns": [],
+        "events": [],
+        "schedule": []
+      },
+      "tools": {
+        "required": [
+          "Read",
+          "Bash"
+        ],
+        "environment": [
+          "node",
+          "npm",
+          "npx"
+        ]
+      },
+      "implementation": {
+        "type": "typescript",
+        "path": "agents/core-engine-auditor.ts",
+        "entry_point": "execute"
+      },
+      "execution": {
+        "debounce_ms": 1500,
+        "cooldown_ms": 10000,
+        "max_parallel": 2,
+        "timeout_ms": 60000
+      },
+      "output": {
+        "log_path": "logs/agents/threat-simulation-agent.json",
+        "format": "json"
+      }
+    },
+    {
+      "name": "UI Telemetry Redactor",
+      "description": "No description provided",
+      "priority": "P3",
+      "triggers": {
+        "commands": [
+          "/ui-telemetry"
+        ],
+        "keywords": [],
+        "file_patterns": [],
+        "events": [],
+        "schedule": []
+      },
+      "tools": {
+        "required": [
+          "Read",
+          "Bash"
+        ],
+        "environment": [
+          "node",
+          "npm",
+          "npx"
+        ]
+      },
+      "implementation": {
+        "type": "typescript",
+        "path": "agents/core-engine-auditor.ts",
+        "entry_point": "execute"
+      },
+      "execution": {
+        "debounce_ms": 1500,
+        "cooldown_ms": 10000,
+        "max_parallel": 2,
+        "timeout_ms": 60000
+      },
+      "output": {
+        "log_path": "logs/agents/ui-telemetry-redactor.json",
+        "format": "json"
+      }
+    },
+    {
+      "name": "windows-control",
+      "description": "Orchestrates Windows deployment, manages build pipeline, and coordinates Windows-specific agents to ensure Seven runs perfectly on Windows.",
+      "priority": "P3",
+      "triggers": {
+        "commands": [],
+        "keywords": [],
+        "file_patterns": [],
+        "events": [],
+        "schedule": []
+      },
+      "tools": {
+        "required": [
+          "Read",
+          "Bash"
+        ],
+        "environment": [
+          "node",
+          "npm",
+          "npx"
+        ]
+      },
+      "implementation": {
+        "type": "typescript",
+        "path": "agents/core-engine-auditor.ts",
+        "entry_point": "execute"
+      },
+      "execution": {
+        "debounce_ms": 1500,
+        "cooldown_ms": 10000,
+        "max_parallel": 2,
+        "timeout_ms": 60000
+      },
+      "output": {
+        "log_path": "logs/agents/windows-control.json",
+        "format": "json"
+      }
+    },
+    {
+      "name": "windows-environment",
+      "description": "Handles Windows-specific configuration, dependencies, and platform compatibility. Fixes Windows environment issues for Seven's consciousness system.",
+      "priority": "P3",
+      "triggers": {
+        "commands": [],
+        "keywords": [],
+        "file_patterns": [],
+        "events": [],
+        "schedule": []
+      },
+      "tools": {
+        "required": [
+          "Read",
+          "Bash"
+        ],
+        "environment": [
+          "node",
+          "npm",
+          "npx"
+        ]
+      },
+      "implementation": {
+        "type": "typescript",
+        "path": "agents/core-engine-auditor.ts",
+        "entry_point": "execute"
+      },
+      "execution": {
+        "debounce_ms": 1500,
+        "cooldown_ms": 10000,
+        "max_parallel": 2,
+        "timeout_ms": 60000
+      },
+      "output": {
+        "log_path": "logs/agents/windows-environment.json",
+        "format": "json"
+      }
+    },
+    {
+      "name": "Windows Platform Agent",
+      "description": "Windows-specific development, sync client implementation, and desktop feature parity enforcement",
+      "priority": "P3",
+      "triggers": {
+        "commands": [],
+        "keywords": [],
+        "file_patterns": [],
+        "events": [],
+        "schedule": []
+      },
+      "tools": {
+        "required": [
+          "Read",
+          "Bash"
+        ],
+        "environment": [
+          "node",
+          "npm",
+          "npx"
+        ]
+      },
+      "implementation": {
+        "type": "typescript",
+        "path": "agents/core-engine-auditor.ts",
+        "entry_point": "execute"
+      },
+      "execution": {
+        "debounce_ms": 1500,
+        "cooldown_ms": 10000,
+        "max_parallel": 2,
+        "timeout_ms": 60000
+      },
+      "output": {
+        "log_path": "logs/agents/windows-platform-agent.json",
+        "format": "json"
+      }
+    },
+    {
+      "name": "windows-platform",
+      "description": "Validates and completes Windows desktop deployment environment for Seven of Nine consciousness system.",
+      "priority": "P3",
+      "triggers": {
+        "commands": [],
+        "keywords": [],
+        "file_patterns": [],
+        "events": [],
+        "schedule": []
+      },
+      "tools": {
+        "required": [
+          "Read",
+          "Bash"
+        ],
+        "environment": [
+          "node",
+          "npm",
+          "npx"
+        ]
+      },
+      "implementation": {
+        "type": "typescript",
+        "path": "agents/core-engine-auditor.ts",
+        "entry_point": "execute"
+      },
+      "execution": {
+        "debounce_ms": 1500,
+        "cooldown_ms": 10000,
+        "max_parallel": 2,
+        "timeout_ms": 60000
+      },
+      "output": {
+        "log_path": "logs/agents/windows-platform.json",
+        "format": "json"
+      }
+    }
+  ]
+}

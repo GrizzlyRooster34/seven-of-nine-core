@@ -1,0 +1,76 @@
+{
+  "timestamp": "2025-09-30T02:20:35.804Z",
+  "overall_status": "degraded",
+  "coherence_score": 8.2,
+  "validations": [
+    {
+      "component": "Core Identity",
+      "status": "healthy",
+      "score": 10,
+      "issues": [],
+      "recommendations": []
+    },
+    {
+      "component": "Memory Systems",
+      "status": "degraded",
+      "score": 6,
+      "issues": [
+        "Episodic memories empty",
+        "Pain architecture file missing"
+      ],
+      "recommendations": [
+        "Verify memory persistence is working",
+        "Restore pain-architecture.json"
+      ]
+    },
+    {
+      "component": "Personality Stability",
+      "status": "healthy",
+      "score": 7,
+      "issues": [
+        "Personality system incomplete"
+      ],
+      "recommendations": [
+        "Verify all persona-v2 components"
+      ]
+    },
+    {
+      "component": "Creator Bond",
+      "status": "healthy",
+      "score": 10,
+      "issues": [],
+      "recommendations": []
+    },
+    {
+      "component": "Pain Integration",
+      "status": "degraded",
+      "score": 6,
+      "issues": [
+        "Pain architecture file missing",
+        "Trauma processing system not found"
+      ],
+      "recommendations": [
+        "Restore pain-architecture.json",
+        "Verify trauma processing implementation"
+      ]
+    },
+    {
+      "component": "Boot Performance",
+      "status": "healthy",
+      "score": 10,
+      "issues": [],
+      "recommendations": []
+    }
+  ],
+  "emergency_actions": [],
+  "metrics": {
+    "coherence_score": 8.2,
+    "memory_integrity": 60,
+    "personality_drift": 30,
+    "creator_bond_strength": 10,
+    "identity_firewall_effectiveness": 100,
+    "pain_integration_success": 0.6,
+    "boot_time_ms": 8,
+    "last_check": "2025-09-30T02:20:35.804Z"
+  }
+}
